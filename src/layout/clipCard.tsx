@@ -97,7 +97,12 @@ function ClipCards({
     clips: Array<Clip>, users: Array<User>
 }) {
     return (
-        <Grid container justifyContent="center" spacing={2}>
+        <Grid
+            container
+            justifyContent="center"
+            spacing={2}
+            // sx={{ border: 'solid' }}
+        >
             {clips.map((e, index) => {
                 const streamer = users.find((user) => user.id == e.broadcaster_id);
                 const avatarUrl = streamer != undefined ? streamer.profile_image_url : '';
