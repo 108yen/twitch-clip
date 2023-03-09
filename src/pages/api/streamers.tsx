@@ -1,6 +1,6 @@
 import { User } from '@/components/types';
 import { db } from '@/firebase/client';
-import { addDoc, collection, CollectionReference, doc, getDocs, writeBatch, WriteBatch } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -9,22 +9,12 @@ export default async function handler(
 ) {
     if (req.method == 'GET') {
         try {
-            const col = collection(db, 'streamers') as CollectionReference<User>;
-            const querySnapshot = await getDocs(col);
-            const users = querySnapshot.docs.map((doc) => doc.data());
+            const streamersRef = doc(db, "streamers", "streamers");
+            const streamersSnap = await getDoc(streamersRef);
+            const streamersDoc = streamersSnap.data() as { streamers: Array<User> }
+            const streamers = streamersDoc.streamers;
 
-            // const batch = writeBatch(db);
-            // users.map(user =>
-            // {
-            //     const colRef = collection(db, 'streamers');
-            //     const id = doc(colRef).id;
-            //     const streamersDoc = doc(db, 'streamers', id);
-            //     batch.set(streamersDoc, user);
-            // }
-            // );
-            // await batch.commit();
-
-            res.status(200).json(users);
+            res.status(200).json(streamers);
         } catch (error) {
             console.log('エラー：' + error);
             res.status(400);

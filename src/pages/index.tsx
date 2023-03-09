@@ -3,7 +3,7 @@ import { Clip, User } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
 import { AppBar, Button, Grid, Tab, Tabs, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { useAtom } from 'jotai';
 import { useEffect, useRef } from 'react';
 
@@ -18,33 +18,43 @@ export default function Home() {
   }
 
   useEffect(() => {
-    async function fetchUsers() {
-      const res = await axios.get<Array<User>>('/api/streamers')
-        .catch((error) => console.log('streamers api fetch error'));
-      if (res?.data != null) {
-        setUsers(res?.data);
-      }
-    }
-    async function fetchClips() {
-      const res = await axios.get<Array<Clip>>('/api/clips')
-        .catch((error) => console.log('clips api fetch error'));
-      if (res?.data != null) {
-        setClips(sortByViewconut(res?.data));
-      }
-    }
     async function fetch() {
       await fetchUsers();
-      await fetchClips();
+      await fetchClips("day");
     }
-
     if (didLogRef.current === false) {
       didLogRef.current = true;
       fetch();
     }
   }, []);
 
+  async function fetchUsers() {
+    const res = await axios.get<Array<User>>('/api/streamers')
+      .catch((error) => console.log('streamers api fetch error'));
+    if (res?.data != null) {
+      setUsers(res?.data);
+    }
+  }
+
+  async function fetchClips(period:string) {
+    const config: AxiosRequestConfig = {
+      url: '/api/clips',
+      method: 'GET',
+      params: {
+        period: period,
+      },
+      paramsSerializer: { indexes: null }
+    }
+    const res = await axios<Array<Clip>>(config)
+      .catch((error) => console.log('clips api fetch error'));
+    if (res?.data != null) {
+      setClips(sortByViewconut(res?.data));
+    }
+  }
+
   function handleTabChange(event: React.SyntheticEvent, newValue: string) {
     setTab(newValue);
+    fetchClips(newValue);
   }
 
   return (
@@ -69,7 +79,7 @@ export default function Home() {
               <Tab label='day' value='day' />
               <Tab label='week' value='week' />
               <Tab label='month' value='month' />
-              <Tab label='all' value='all' />
+              {/* <Tab label='all' value='all' /> */}
             </Tabs>
             </Box>
             <ClipCards clips={clips} users={users} />
