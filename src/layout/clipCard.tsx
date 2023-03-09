@@ -8,51 +8,79 @@ function ClipCard({
 }: {
     clip: Clip, avatarUrl: string, index: number
 }) {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(true);
+    const width = 512;
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
+    // const handleMouseEnter = () => {
+    //     setIsHovered(true);
+    // };
 
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
+    // const handleMouseLeave = () => {
+    //     setIsHovered(false);
+    // };
 
     return <Grid
         key={index}
         item
-    // xs={12} md={6} lg={4} xl={3}
+        xs={12} md={10} lg={6}
+        sx={{
+            paddingX: { xs: 0, sm: 1 },
+            paddingY: { xs: 1, sm: 2 },
+        }}
     >
         <Paper
-            sx={{
-                width: 320,
-            }}
+        // sx={{
+        //     width: width,
+        // }}
         >
-            <Box
+            {/* <Box
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                sx={{
-                    transition: 'transform .2s',
-                    '&:hover': {
-                        overflow: 'visible',
-                        transform: 'scale(1.1)',
-                    },
-                }}
+            // sx={{
+            //     transition: 'transform .2s',
+            //     '&:hover': {
+            //         overflow: 'visible',
+            //         transform: 'scale(1.1)',
+            //     },
+            // }}
             >
                 {isHovered ?
                     <iframe
                         src={clip.embed_url + '&parent=localhost'}
-                        height='216px'
-                        width='384px'
+                        height={width * 9 / 16}
+                        width={width}
                         allowFullScreen
                         allow="autoplay"
                     /> : <Image
                         src={clip.thumbnail_url}
                         alt={clip.title}
-                        height={180}
-                        width={320}
+                        width={width}
+                        height={width * 9 / 16}
                     />
-                }
+                } 
+            </Box> */}
+            <Box
+                sx={{
+                    position: 'relative',
+                    width: '100%',
+                    height: '0',
+                    paddingBottom: '56.25%',
+                }}
+            >
+                <iframe
+                    src={clip.embed_url + '&parent=localhost'}
+                    // height={width * 9 / 16}
+                    // width={width}
+                    allowFullScreen
+                    allow="autoplay"
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%'
+                    }}
+                />
             </Box>
 
             <Stack
@@ -100,8 +128,6 @@ function ClipCards({
         <Grid
             container
             justifyContent="center"
-            spacing={2}
-            // sx={{ border: 'solid' }}
         >
             {clips.map((e, index) => {
                 const streamer = users.find((user) => user.id == e.broadcaster_id);

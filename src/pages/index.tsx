@@ -36,7 +36,7 @@ export default function Home() {
     }
   }
 
-  async function fetchClips(period:string) {
+  async function fetchClips(period: string) {
     const config: AxiosRequestConfig = {
       url: '/api/clips',
       method: 'GET',
@@ -66,21 +66,30 @@ export default function Home() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Box sx={{ flexGrow: 1, p: 3 }}>
+      <Box sx={{
+        flexGrow: 1,
+        paddingX: { xs: 0, sm: 3 },
+      }}
+      >
         <Grid container justifyContent='center'>
-          <Grid item xs={10}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider',marginBottom:2 }}>
+          <Grid item xs={12}>
+            <Box sx={{
+              borderBottom: 1,
+              borderColor: 'divider',
+              marginBottom: 2,
+            }}>
               <Tabs
                 value={tab}
                 onChange={handleTabChange}
                 textColor="secondary"
                 indicatorColor="secondary"
+                centered
               >
-              <Tab label='day' value='day' />
-              <Tab label='week' value='week' />
-              <Tab label='month' value='month' />
-              {/* <Tab label='all' value='all' /> */}
-            </Tabs>
+                <Tab label='day' value='day' />
+                <Tab label='week' value='week' />
+                <Tab label='month' value='month' />
+                {/* <Tab label='all' value='all' /> */}
+              </Tabs>
             </Box>
             <ClipCards clips={clips} users={users} />
           </Grid>
