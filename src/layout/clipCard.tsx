@@ -22,7 +22,7 @@ function ClipCard({
     return <Grid
         key={index}
         item
-        xs={12} md={10} lg={6}
+        xs={12} lg={6}
         sx={{
             paddingX: { xs: 0, sm: 1 },
             paddingY: { xs: 1, sm: 2 },

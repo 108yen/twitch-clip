@@ -1,8 +1,9 @@
 import { clipsAtom, tabAtom, usersAtom } from '@/components/Atoms';
 import { Clip, User } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
+import StreamerCards from '@/layout/streamerCard';
 import { Hexagon, HexagonOutlined } from '@mui/icons-material';
-import { AppBar, Grid, Tab, Tabs, Toolbar, Typography } from '@mui/material';
+import { AppBar, Divider, Grid, Tab, Tabs, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import axios, { AxiosRequestConfig } from 'axios';
 import { useAtom } from 'jotai';
@@ -81,7 +82,7 @@ export default function Home() {
       }}
       >
         <Grid container justifyContent='center'>
-          <Grid item xs={12}>
+          <Grid item xs={12} md={9}>
             <Box sx={{
               borderBottom: 1,
               borderColor: 'divider',
@@ -101,6 +102,9 @@ export default function Home() {
               </Tabs>
             </Box>
             <ClipCards clips={clips} users={users} />
+          </Grid>
+          <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
+              <StreamerCards streamers={users}/>
           </Grid>
         </Grid>
       </Box>
