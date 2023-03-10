@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { useState } from "react";
 
 function ClipCard({
-    clip, avatarUrl, index
+    clip, avatarUrl, key,
 }: {
-    clip: Clip, avatarUrl: string, index: number
+    clip: Clip, avatarUrl: string, key: number
 }) {
     const [isHovered, setIsHovered] = useState(true);
     const width = 512;
@@ -20,7 +20,7 @@ function ClipCard({
     // };
 
     return <Grid
-        key={index}
+        key={key}
         item
         xs={12} lg={6}
         sx={{
@@ -133,7 +133,7 @@ function ClipCards({
                 const streamer = users.find((user) => user.id == e.broadcaster_id);
                 const avatarUrl = streamer != undefined ? streamer.profile_image_url : '';
                 return (
-                    <ClipCard clip={e} avatarUrl={avatarUrl} index={index} />
+                    <ClipCard clip={e} avatarUrl={avatarUrl} key={index} />
                 );
             })}
         </Grid>

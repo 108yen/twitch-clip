@@ -4,14 +4,14 @@ import { Stack } from "@mui/system";
 
 function StreamerCard({
     streamer,
-    index,
+    key,
 }: {
     streamer: User,
-    index: number
+    key: number
 }) {
     return (
         <Box
-            key={index}
+            key={key}
             sx={{
                 paddingY: 1,
             }}>
@@ -67,7 +67,7 @@ function StreamerCards({
             </Typography>
             <Divider />
             {streamers.map((e, index) =>
-                <StreamerCard streamer={e} index={index} />
+                <StreamerCard streamer={e} key={index} />
             )}
         </Box>
     );
