@@ -1,7 +1,7 @@
 import { clipsAtom, tabAtom, usersAtom } from '@/components/Atoms';
 import { Clip, User } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
-import { Hexagon } from '@mui/icons-material';
+import { Hexagon, HexagonOutlined } from '@mui/icons-material';
 import { AppBar, Grid, Tab, Tabs, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import axios, { AxiosRequestConfig } from 'axios';
@@ -62,7 +62,14 @@ export default function Home() {
     <>
       <AppBar position='static'>
         <Toolbar>
-          <Hexagon sx={{ display: { xs: 'none', sm: 'flex' }, mr: 1 }} />
+          <HexagonOutlined
+            color='secondary'
+            fontSize='large'
+            sx={{
+              display: { xs: 'none', sm: 'flex' },
+              mr: 1
+            }}
+          />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             twitch clip ranking
           </Typography>
