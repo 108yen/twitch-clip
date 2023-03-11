@@ -26,7 +26,7 @@ function MyApp(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <DefaultSeo
+      {/* <DefaultSeo
         defaultTitle='twitch clip ranking'
         description='twitch clipのランキングサイト'
 
@@ -51,7 +51,7 @@ function MyApp(props: MyAppProps) {
           site: '@site',
           cardType: "summary_large_image",
         }}
-      />
+      /> */}
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {show_screen ? <Component {...pageProps} /> : null}
