@@ -6,6 +6,7 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../theme';
 import createEmotionCache from '../createEmotionCache';
 import { useEffect, useState } from 'react';
+import { DefaultSeo } from 'next-seo';
 
 const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
@@ -25,6 +26,32 @@ function MyApp(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
+      <DefaultSeo
+        defaultTitle='twitch clip ranking'
+        description='twitch clipのランキングサイト'
+
+        openGraph={{
+          type: 'website',
+          title: 'twitch clip ranking',
+          description: 'twitch clipのランキングサイト',
+          siteName: 'twitch clip ranking',
+          url: '',
+          images: [
+            {
+              url: "",
+              width: 512,
+              height: 512,
+              alt: 'twitch clip ranking',
+              type: 'image/png',
+            }
+          ]
+        }}
+        twitter={{
+          handle: '@handle',
+          site: '@site',
+          cardType: "summary_large_image",
+        }}
+      />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {show_screen ? <Component {...pageProps} /> : null}
