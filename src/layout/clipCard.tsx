@@ -1,24 +1,121 @@
 import { Clip, User } from "@/components/types";
-import { Avatar, Box, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Launch } from "@mui/icons-material";
+import { Avatar, Box, Grid, IconButton, Paper, Stack, Typography } from "@mui/material";
 import Image from 'next/image';
+import Link from "next/link";
 import { useState } from "react";
 
-function ClipCard({
-    clip, avatarUrl, key,
+function ListClipCard({
+    key,
+    clip,
+    streamer,
 }: {
-    clip: Clip, avatarUrl: string, key: number
+    key: number
+    clip: Clip,
+    streamer: User,
 }) {
-    const [isHovered, setIsHovered] = useState(true);
-    const width = 512;
+    const imageWidth = 300;
+    return (
+        <Grid
+            key={key}
+            item
+            xs={12}
+            sx={{
+                paddingX: { xs: 0, sm: 1 },
+                paddingY: { xs: 1, sm: 2 },
+            }}
+        >
+            <Paper>
+                <Stack
+                    direction="row"
+                >
+                    <Image
+                        src={clip.thumbnail_url}
+                        alt={clip.title}
+                        width={imageWidth}
+                        height={imageWidth * 9 / 16}
+                        quality={100}
+                    />
+                    <Stack
+                        direction="column"
+                        overflow="hidden"
+                        p={1}
+                        sx={{ flexGrow: 1 }}
+                    >
+                        <Stack
+                            direction="row"
+                            justifyContent="space-between"
+                        >
+                            <Typography
+                                variant='h6'
+                                noWrap
+                                fontWeight='bold'
+                            >
+                                {clip.title}
+                            </Typography>
+                            <Link
+                                href={clip.url}
+                                target='_blank'
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <Launch fontSize="small" />
+                            </Link>
 
-    // const handleMouseEnter = () => {
-    //     setIsHovered(true);
-    // };
+                        </Stack>
+                        <Stack
+                            direction="row"
+                            alignItems="center"
+                            spacing={2}
+                        >
+                            <Link
+                                href={"https://www.twitch.tv/" + streamer.login}
+                                target='_blank'
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                }}
+                            >
+                                <Avatar src={streamer.profile_image_url} />
+                            </Link>
+                            <Typography noWrap variant="body1">
+                                {streamer.display_name}
+                            </Typography>
+                        </Stack>
+                        <Typography noWrap variant="body1">
+                            created_by : {clip.creator_name}
+                        </Typography>
+                        <Typography noWrap variant="body1">
+                            created_at : {clip.created_at}
+                        </Typography>
+                        <Typography
+                            noWrap
+                            variant="body1"
+                            color="gray"
+                            textAlign="end"
+                        >
+                            視聴数：{clip.view_count}
+                        </Typography>
+                    </Stack>
 
-    // const handleMouseLeave = () => {
-    //     setIsHovered(false);
-    // };
+                </Stack>
+            </Paper>
+        </Grid>
+    );
 
+}
+
+function FullClipCard({
+    key,
+    clip,
+    streamer,
+}: {
+    key: number
+    clip: Clip,
+    streamer: User,
+}) {
     return <Grid
         key={key}
         item
@@ -28,37 +125,7 @@ function ClipCard({
             paddingY: { xs: 1, sm: 2 },
         }}
     >
-        <Paper
-        // sx={{
-        //     width: width,
-        // }}
-        >
-            {/* <Box
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            // sx={{
-            //     transition: 'transform .2s',
-            //     '&:hover': {
-            //         overflow: 'visible',
-            //         transform: 'scale(1.1)',
-            //     },
-            // }}
-            >
-                {isHovered ?
-                    <iframe
-                        src={clip.embed_url + '&parent=localhost'}
-                        height={width * 9 / 16}
-                        width={width}
-                        allowFullScreen
-                        allow="autoplay"
-                    /> : <Image
-                        src={clip.thumbnail_url}
-                        alt={clip.title}
-                        width={width}
-                        height={width * 9 / 16}
-                    />
-                } 
-            </Box> */}
+        <Paper>
             <Box
                 sx={{
                     position: 'relative',
@@ -69,10 +136,7 @@ function ClipCard({
             >
                 <iframe
                     src={clip.embed_url + '&parent=localhost'}
-                    // height={width * 9 / 16}
-                    // width={width}
                     allowFullScreen
-                    allow="autoplay"
                     style={{
                         position: 'absolute',
                         top: 0,
@@ -88,11 +152,20 @@ function ClipCard({
                 justifyContent="flex-start"
                 alignItems="flex-start"
                 spacing={2}
+                paddingX={2}
             >
-                <Avatar src={avatarUrl} />
+                <Link
+                    href={"https://www.twitch.tv/" + streamer.login}
+                    target='_blank'
+                    style={{
+                        textDecoration: 'none',
+                        color: 'black',
+                    }}
+                >
+                    <Avatar src={streamer.profile_image_url} />
+                </Link>
                 <Box
                     paddingBottom={1}
-                    paddingRight={2}
                     sx={{
                         overflow: 'hidden',
                         flexGrow: 1,
@@ -120,21 +193,38 @@ function ClipCard({
 }
 
 function ClipCards({
-    clips, users
+    clips,
+    users,
+    layout,
 }: {
-    clips: Array<Clip>, users: Array<User>
+    clips: Array<Clip>,
+    users: Array<User>,
+    layout: string,
 }) {
     return (
         <Grid
             container
             justifyContent="center"
         >
-            {clips.map((e, index) => {
+            {clips.slice(0, 9).map((e, index) => {
                 const streamer = users.find((user) => user.id == e.broadcaster_id);
-                const avatarUrl = streamer != undefined ? streamer.profile_image_url : '';
-                return (
-                    <ClipCard clip={e} avatarUrl={avatarUrl} key={index} />
-                );
+                if (layout == "full") {
+                    return (
+                        <FullClipCard
+                            key={index}
+                            clip={e}
+                            streamer={streamer!}
+                        />
+                    );
+                } else {
+                    return (
+                        <ListClipCard
+                            key={index}
+                            clip={e}
+                            streamer={streamer!}
+                        />
+                    );
+                }
             })}
         </Grid>
     );

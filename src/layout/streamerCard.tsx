@@ -1,6 +1,7 @@
 import { User } from "@/components/types";
 import { Avatar, Box, Divider, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
+import Link from "next/link";
 
 function StreamerCard({
     streamer,
@@ -15,34 +16,43 @@ function StreamerCard({
             sx={{
                 paddingY: 1,
             }}>
-            <Stack
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="flex-start"
+            <Link
+                href={"https://www.twitch.tv/" + streamer.login}
+                target='_blank'
+                style={{
+                    textDecoration: 'none',
+                    color: 'black',
+                }}
             >
-                <Avatar src={streamer.profile_image_url} />
                 <Stack
-                    ml={1}
-                    spacing={0}
-                    direction="column"
+                    direction="row"
                     justifyContent="flex-start"
                     alignItems="flex-start"
                 >
-                    <Typography
-                        variant="subtitle1"
-                        noWrap
+                    <Avatar src={streamer.profile_image_url} />
+                    <Stack
+                        ml={1}
+                        spacing={0}
+                        direction="column"
+                        justifyContent="flex-start"
+                        alignItems="flex-start"
                     >
-                        {streamer.display_name}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        color="gray"
-                        noWrap
-                    >
-                        {streamer.description}
-                    </Typography>
+                        <Typography
+                            variant="subtitle1"
+                            noWrap
+                        >
+                            {streamer.display_name}
+                        </Typography>
+                        <Typography
+                            variant="body2"
+                            color="gray"
+                            noWrap
+                        >
+                            {streamer.description}
+                        </Typography>
+                    </Stack>
                 </Stack>
-            </Stack>
+            </Link>
         </Box>
     );
 }
@@ -59,8 +69,6 @@ function StreamerCards({
             ml={3}
             mr={0}
             overflow="hidden"
-        // paddingY={3}
-        // sx={{ flexGrow: 1 }}
         >
             <Typography variant='subtitle1' color='grey'>
                 ストリーマー

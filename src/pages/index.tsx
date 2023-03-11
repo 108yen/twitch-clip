@@ -1,18 +1,20 @@
-import { clipsAtom, tabAtom, usersAtom } from '@/components/Atoms';
+import { clipsAtom, tabAtom, usersAtom, viewLayoutAtom } from '@/components/Atoms';
 import { Clip, User } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
 import StreamerCards from '@/layout/streamerCard';
-import { Hexagon, HexagonOutlined } from '@mui/icons-material';
-import { AppBar, Divider, Grid, Tab, Tabs, Toolbar, Typography } from '@mui/material';
+import { Hexagon, HexagonOutlined, ViewArray } from '@mui/icons-material';
+import { AppBar, Divider, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import axios, { AxiosRequestConfig } from 'axios';
 import { useAtom } from 'jotai';
 import { useEffect, useRef } from 'react';
+import ViewListIcon from '@mui/icons-material/ViewList';
 
 export default function Home() {
   const [users, setUsers] = useAtom(usersAtom);
   const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
+  const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
   const didLogRef = useRef(false);
 
   function sortByViewconut(clips: Array<Clip>) {
@@ -59,8 +61,13 @@ export default function Home() {
     fetchClips(newValue);
   }
 
+  function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
+    setViewLayout(newAlignment);
+  }
+
   return (
     <>
+      {/* header */}
       <AppBar position='static'>
         <Toolbar>
           <HexagonOutlined
@@ -76,6 +83,7 @@ export default function Home() {
           </Typography>
         </Toolbar>
       </AppBar>
+      {/* body */}
       <Box sx={{
         flexGrow: 1,
         paddingX: { xs: 0, sm: 3 },
@@ -83,6 +91,27 @@ export default function Home() {
       >
         <Grid container justifyContent='center'>
           <Grid item xs={12} md={9}>
+            <Box
+              sx={{
+                mt: 2,
+                display: 'flex',
+                justifyContent: "flex-end"
+              }}
+            >
+              <ToggleButtonGroup
+                size='small'
+                exclusive
+                value={viewLayout}
+                onChange={handleLayoutChange}
+              >
+                <ToggleButton value="list">
+                  <ViewListIcon />
+                </ToggleButton>
+                <ToggleButton value="full">
+                  <ViewArray />
+                </ToggleButton>
+              </ToggleButtonGroup>
+            </Box>
             <Box sx={{
               borderBottom: 1,
               borderColor: 'divider',
@@ -101,10 +130,14 @@ export default function Home() {
                 {/* <Tab label='all' value='all' /> */}
               </Tabs>
             </Box>
-            <ClipCards clips={clips} users={users} />
+            <ClipCards
+              clips={clips}
+              users={users}
+              layout={viewLayout}
+            />
           </Grid>
           <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-              <StreamerCards streamers={users}/>
+            <StreamerCards streamers={users} />
           </Grid>
         </Grid>
       </Box>
