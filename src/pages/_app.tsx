@@ -7,6 +7,7 @@ import theme from '../theme';
 import createEmotionCache from '../createEmotionCache';
 import { useEffect, useState } from 'react';
 import { DefaultSeo } from 'next-seo';
+import { Analytics } from '@vercel/analytics/react';
 
 const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
@@ -55,6 +56,7 @@ function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {show_screen ? <Component {...pageProps} /> : null}
+        <Analytics />
       </ThemeProvider>
     </CacheProvider>
   )
