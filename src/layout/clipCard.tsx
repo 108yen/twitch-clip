@@ -16,6 +16,24 @@ function ListClipCard({
     streamer: User,
 }) {
     const imageWidth = 300;
+
+    function formatDate(dateString: string) {
+        const date = new Date(dateString);
+
+        const options: Intl.DateTimeFormatOptions = {
+            timeZone: "Asia/Tokyo",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        };
+
+        const formattedDate = new Intl.DateTimeFormat('ja-JP', options).format(date);
+        return formattedDate;
+    }
+
     return (
         <Grid
             key={key}
@@ -29,12 +47,19 @@ function ListClipCard({
             <Paper>
                 <Stack
                     direction="row"
+                    sx={{
+                        height: { xs: 110, sm: 170 }
+                    }}
                 >
                     <Image
                         src={clip.thumbnail_url}
                         alt={clip.title}
                         width={imageWidth}
                         height={imageWidth * 9 / 16}
+                        style={{
+                            width:'auto',
+                            height:'100%'
+                        }}
                         quality={100}
                     />
                     <Stack
@@ -85,11 +110,19 @@ function ListClipCard({
                                 {streamer.display_name}
                             </Typography>
                         </Stack>
-                        <Typography noWrap variant="body1">
+                        <Typography
+                         noWrap 
+                         variant="body1"
+                         display={{ xs: 'none', sm: 'flex' }}
+                         >
                             created_by : {clip.creator_name}
                         </Typography>
-                        <Typography noWrap variant="body1">
-                            created_at : {clip.created_at}
+                        <Typography
+                         noWrap 
+                         variant="body1"
+                         display={{ xs: 'none', sm: 'flex' }}
+                         >
+                            created_at : {formatDate(clip.created_at)}
                         </Typography>
                         <Typography
                             noWrap
@@ -215,14 +248,14 @@ function ClipCards({
         setViewItemNum(viewItemNum + 5);
     }
 
-    const loader = <Box sx={{ display: "flex",justifyContent:"center" }}>
+    const loader = <Box sx={{ display: "flex", justifyContent: "center" }}>
         <CircularProgress color="secondary" />
     </Box>;
 
     //if chenge clips or layout, reset view item 
     useEffect(() => {
         setViewItemNum(0);
-    },[clips,layout])
+    }, [clips, layout])
 
     return (
         <InfiniteScroll
