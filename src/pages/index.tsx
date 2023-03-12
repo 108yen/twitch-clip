@@ -9,6 +9,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { useAtom } from 'jotai';
 import { useEffect, useRef } from 'react';
 import ViewListIcon from '@mui/icons-material/ViewList';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 
 export default function Home() {
   const [users, setUsers] = useAtom(usersAtom);
@@ -67,6 +68,31 @@ export default function Home() {
 
   return (
     <>
+      <NextSeo
+        title="twitch clip ランキング"
+        description={"Twitchのクリップのランキング。※すべての配信者の集計ではありません。"}
+        openGraph={{
+          url: "https://www.twitchclipsranking.com/",
+          title: "twitch clip ランキング",
+          description: "Twitchのクリップのランキング。※すべての配信者の集計ではありません。",
+          images: [
+            {
+              url: "https://www.twitchclipsranking.com/android-chrome-512x512.png",
+            },
+          ],
+        }}
+      />
+      <ArticleJsonLd
+        url="https://www.twitchclipsranking.com/"
+        title="twitch clip ランキング"
+        images={["https://www.twitchclipsranking.com/android-chrome-512x512.png"]}
+        datePublished="20230312"
+        dateModified="20230312"
+        authorName="108yen"
+        publisherName="108yen"
+        publisherLogo=""
+        description="Twitchのクリップのランキング。※すべての配信者の集計ではありません。"
+      />
       {/* header */}
       <AppBar position='static'>
         <Toolbar>
@@ -78,7 +104,7 @@ export default function Home() {
               mr: 1
             }}
           />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             twitch clip ranking
           </Typography>
         </Toolbar>

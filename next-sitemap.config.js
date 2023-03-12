@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: 'process.env.URL',
+    siteUrl: 'https://www.twitchclipsranking.com/',
     generateRobotsTxt: true,
     robotsTxtOptions: {
         policies: [

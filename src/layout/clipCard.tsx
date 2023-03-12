@@ -1,6 +1,6 @@
 import { Clip, User } from "@/components/types";
 import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Grid, Paper, Skeleton, Stack, Typography } from "@mui/material";
 import Image from 'next/image';
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -57,8 +57,8 @@ function ListClipCard({
                         width={imageWidth}
                         height={imageWidth * 9 / 16}
                         style={{
-                            width:'auto',
-                            height:'100%'
+                            width: 'auto',
+                            height: '100%'
                         }}
                         quality={100}
                     />
