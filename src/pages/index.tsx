@@ -156,8 +156,9 @@ export default function Home() {
                 {/* <Tab label='all' value='all' /> */}
               </Tabs>
             </Box>
-            {clips.length == 0 ?
-              <Box sx={{ display: "flex" }}>
+            {
+              clips.length == 0 ?
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <CircularProgress color="secondary" />
               </Box> :
               <ClipCards
