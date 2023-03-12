@@ -3,7 +3,7 @@ import { Clip, User } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
 import StreamerCards from '@/layout/streamerCard';
 import { Hexagon, HexagonOutlined, ViewArray } from '@mui/icons-material';
-import { AppBar, Divider, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material';
+import { AppBar, CircularProgress, Divider, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import axios, { AxiosRequestConfig } from 'axios';
 import { useAtom } from 'jotai';
@@ -130,11 +130,16 @@ export default function Home() {
                 {/* <Tab label='all' value='all' /> */}
               </Tabs>
             </Box>
-            <ClipCards
-              clips={clips}
-              users={users}
-              layout={viewLayout}
-            />
+            {clips.length == 0 ?
+              <Box sx={{ display: "flex" }}>
+                <CircularProgress color="secondary" />
+              </Box> :
+              <ClipCards
+                clips={clips}
+                users={users}
+                layout={viewLayout}
+              />
+            }
           </Grid>
           <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
             <StreamerCards streamers={users} />

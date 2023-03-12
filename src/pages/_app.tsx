@@ -6,7 +6,7 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../theme';
 import createEmotionCache from '../createEmotionCache';
 import { useEffect, useState } from 'react';
-import { DefaultSeo } from 'next-seo';
+// import { DefaultSeo } from 'next-seo';
 
 const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
@@ -35,10 +35,10 @@ function MyApp(props: MyAppProps) {
           title: 'twitch clip ranking',
           description: 'twitch clipのランキングサイト',
           siteName: 'twitch clip ranking',
-          url: '',
+          url: 'localhost',
           images: [
             {
-              url: "",
+              url: "localhost/android-chrome-512x512.png",
               width: 512,
               height: 512,
               alt: 'twitch clip ranking',

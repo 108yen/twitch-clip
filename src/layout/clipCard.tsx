@@ -1,9 +1,10 @@
 import { Clip, User } from "@/components/types";
 import { Launch } from "@mui/icons-material";
-import { Avatar, Box, Grid, IconButton, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Grid, Paper, Stack, Typography } from "@mui/material";
 import Image from 'next/image';
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import InfiniteScroll from 'react-infinite-scroller';
 
 function ListClipCard({
     key,
@@ -201,32 +202,61 @@ function ClipCards({
     users: Array<User>,
     layout: string,
 }) {
+    //to infinite scroller
+    const [viewItemNum, setViewItemNum] = useState<number>(0);
+    const [hasMore, setHasMore] = useState<boolean>(true);
+
+    function loadMore(page: number) {
+        //max item num is 50
+        if (viewItemNum >= 45) {
+            setHasMore(false);
+        }
+        //load each 5 items
+        setViewItemNum(viewItemNum + 5);
+    }
+
+    const loader = <Box sx={{ display: "flex",justifyContent:"center" }}>
+        <CircularProgress color="secondary" />
+    </Box>;
+
+    //if chenge clips or layout, reset view item 
+    useEffect(() => {
+        setViewItemNum(0);
+    },[clips,layout])
+
     return (
-        <Grid
-            container
-            justifyContent="center"
+        <InfiniteScroll
+            loadMore={loadMore}
+            hasMore={hasMore}
+            loader={loader}
         >
-            {clips.slice(0, 9).map((e, index) => {
-                const streamer = users.find((user) => user.id == e.broadcaster_id);
-                if (layout == "full") {
-                    return (
-                        <FullClipCard
-                            key={index}
-                            clip={e}
-                            streamer={streamer!}
-                        />
-                    );
-                } else {
-                    return (
-                        <ListClipCard
-                            key={index}
-                            clip={e}
-                            streamer={streamer!}
-                        />
-                    );
-                }
-            })}
-        </Grid>
+            <Grid
+                container
+                justifyContent="center"
+            >
+                {clips.slice(0, viewItemNum).map((e, index) => {
+                    const streamer = users.find((user) => user.id == e.broadcaster_id);
+                    //!ここで分岐しているの処理上よくないかも
+                    if (layout == "full") {
+                        return (
+                            <FullClipCard
+                                key={index}
+                                clip={e}
+                                streamer={streamer!}
+                            />
+                        );
+                    } else {
+                        return (
+                            <ListClipCard
+                                key={index}
+                                clip={e}
+                                streamer={streamer!}
+                            />
+                        );
+                    }
+                })}
+            </Grid>
+        </InfiniteScroll>
     );
 }
 
