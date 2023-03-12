@@ -59,6 +59,7 @@ export default function Home() {
 
   function handleTabChange(event: React.SyntheticEvent, newValue: string) {
     setTab(newValue);
+    setClips([]);
     fetchClips(newValue);
   }
 
@@ -158,14 +159,14 @@ export default function Home() {
             </Box>
             {
               clips.length == 0 ?
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <CircularProgress color="secondary" />
-              </Box> :
-              <ClipCards
-                clips={clips}
-                users={users}
-                layout={viewLayout}
-              />
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <CircularProgress color="secondary" />
+                </Box> :
+                <ClipCards
+                  clips={clips}
+                  users={users}
+                  layout={viewLayout}
+                />
             }
           </Grid>
           <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
