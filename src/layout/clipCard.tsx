@@ -169,7 +169,7 @@ function FullClipCard({
                 }}
             >
                 <iframe
-                    src={clip.embed_url + '&parent=localhost'}
+                    src={clip.embed_url + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
                     allowFullScreen
                     style={{
                         position: 'absolute',
