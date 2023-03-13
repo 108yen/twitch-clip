@@ -255,6 +255,7 @@ function ClipCards({
     //if chenge clips or layout, reset view item 
     useEffect(() => {
         setViewItemNum(0);
+        setHasMore(true);
     }, [clips, layout])
 
     return (
