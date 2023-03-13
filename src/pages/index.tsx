@@ -116,7 +116,11 @@ export default function Home() {
         paddingX: { xs: 0, sm: 3 },
       }}
       >
-        <Grid container justifyContent='center'>
+        <Grid
+          container
+          justifyContent='center'
+          paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
+        >
           <Grid item xs={12} md={9}>
             <Box
               sx={{
