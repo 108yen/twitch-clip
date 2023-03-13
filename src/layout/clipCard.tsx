@@ -266,7 +266,7 @@ function ClipCards({
         >
             <Grid
                 container
-                justifyContent="center"
+                justifyContent="start"
             >
                 {clips.slice(0, viewItemNum).map((e, index) => {
                     const streamer = users.find((user) => user.id == e.broadcaster_id);
