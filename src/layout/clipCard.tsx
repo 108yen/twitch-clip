@@ -153,7 +153,7 @@ function FullClipCard({
     return <Grid
         key={key}
         item
-        xs={12} lg={6}
+        xs={12} xl={6}
         sx={{
             paddingX: { xs: 0, sm: 1 },
             paddingY: { xs: 1, sm: 2 },
@@ -266,7 +266,7 @@ function ClipCards({
         >
             <Grid
                 container
-                justifyContent="center"
+                justifyContent="start"
             >
                 {clips.slice(0, viewItemNum).map((e, index) => {
                     const streamer = users.find((user) => user.id == e.broadcaster_id);
