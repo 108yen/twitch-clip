@@ -154,7 +154,7 @@ export default function Home() {
                 <Tab label='day' value='day' />
                 <Tab label='week' value='week' />
                 <Tab label='month' value='month' />
-                {/* <Tab label='all' value='all' /> */}
+                <Tab label='all' value='all' />
               </Tabs>
             </Box>
             {
