@@ -2,14 +2,15 @@ import { clipsAtom, tabAtom, usersAtom, viewLayoutAtom } from '@/components/Atom
 import { Clip, User } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
 import StreamerCards from '@/layout/streamerCard';
-import { Hexagon, HexagonOutlined, ViewArray } from '@mui/icons-material';
-import { AppBar, CircularProgress, Divider, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material';
+import { HexagonOutlined, ViewArray } from '@mui/icons-material';
+import { AppBar, CircularProgress, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import axios, { AxiosRequestConfig } from 'axios';
 import { useAtom } from 'jotai';
 import { useEffect, useRef } from 'react';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
+import DefaultHeader from '@/layout/defaultHeader';
 
 export default function Home() {
   const [users, setUsers] = useAtom(usersAtom);
@@ -67,7 +68,7 @@ export default function Home() {
     setViewLayout(newAlignment);
   }
   const title = "twitchクリップランキング";
-  const description = "Twitch(ツイッチ)のクリップのランキング。※すべての配信者の集計ではありません。";
+  const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
 
   return (
     <>
@@ -97,21 +98,7 @@ export default function Home() {
         description={description}
       />
       {/* header */}
-      <AppBar position='static'>
-        <Toolbar>
-          <HexagonOutlined
-            color='secondary'
-            fontSize='large'
-            sx={{
-              display: { xs: 'none', sm: 'flex' },
-              mr: 1
-            }}
-          />
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            twitch clip ranking
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <DefaultHeader />
       {/* body */}
       <Box sx={{
         flexGrow: 1,
