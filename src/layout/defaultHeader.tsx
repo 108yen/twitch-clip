@@ -1,5 +1,7 @@
+import theme from "@/theme";
 import { HexagonOutlined } from "@mui/icons-material";
 import { AppBar, Toolbar, Typography } from "@mui/material";
+import Link from "next/link";
 
 export default function DefaultHeader() {
     return (
@@ -13,9 +15,25 @@ export default function DefaultHeader() {
                         mr: 1
                     }}
                 />
-                <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                    twitch clip ranking
-                </Typography>
+                <Link
+                    href='/'
+                    style={{
+                        textDecoration: 'none',
+                    }}
+                >
+                    <Typography
+                        variant="h5"
+                        component="div"
+                        noWrap
+                        sx={{
+                            flexGrow: 1,
+                            color: theme.palette.text.primary,
+                            textDecoration: 'none',
+                        }}
+                    >
+                        twitch clip ranking
+                    </Typography>
+                </Link>
             </Toolbar>
         </AppBar>
     );
