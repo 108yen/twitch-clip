@@ -100,73 +100,67 @@ export default function Home() {
       {/* header */}
       <DefaultHeader />
       {/* body */}
-      <Box sx={{
-        flexGrow: 1,
-        paddingX: { xs: 0, sm: 3 },
-      }}
+      <Grid
+        container
+        justifyContent='center'
+        paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
       >
-        <Grid
-          container
-          justifyContent='center'
-          paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-        >
-          <Grid item xs={12} md={9}>
-            <Box
-              sx={{
-                mt: 2,
-                display: 'flex',
-                justifyContent: "flex-end"
-              }}
+        <Grid item xs={12} md={9}>
+          <Box
+            sx={{
+              mt: 2,
+              display: 'flex',
+              justifyContent: "flex-end"
+            }}
+          >
+            <ToggleButtonGroup
+              size='small'
+              exclusive
+              value={viewLayout}
+              onChange={handleLayoutChange}
             >
-              <ToggleButtonGroup
-                size='small'
-                exclusive
-                value={viewLayout}
-                onChange={handleLayoutChange}
-              >
-                <ToggleButton value="list">
-                  <ViewListIcon />
-                </ToggleButton>
-                <ToggleButton value="full">
-                  <ViewArray />
-                </ToggleButton>
-              </ToggleButtonGroup>
-            </Box>
-            <Box sx={{
-              borderBottom: 1,
-              borderColor: 'divider',
-              marginBottom: 2,
-            }}>
-              <Tabs
-                value={tab}
-                onChange={handleTabChange}
-                textColor="secondary"
-                indicatorColor="secondary"
-                centered
-              >
-                <Tab label='day' value='day' />
-                <Tab label='week' value='week' />
-                <Tab label='month' value='month' />
-                <Tab label='all' value='all' />
-              </Tabs>
-            </Box>
-            {
-              clips.length == 0 ?
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
-                  <CircularProgress color="secondary" />
-                </Box> :
-                <ClipCards
-                  clips={clips}
-                  users={users}
-                  layout={viewLayout}
-                />
-            }
-          </Grid>
-          <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-            <StreamerCards streamers={users} />
-          </Grid>
+              <ToggleButton value="list">
+                <ViewListIcon />
+              </ToggleButton>
+              <ToggleButton value="full">
+                <ViewArray />
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </Box>
+          <Box sx={{
+            borderBottom: 1,
+            borderColor: 'divider',
+            marginBottom: 2,
+          }}>
+            <Tabs
+              value={tab}
+              onChange={handleTabChange}
+              textColor="secondary"
+              indicatorColor="secondary"
+              centered
+            >
+              <Tab label='day' value='day' />
+              <Tab label='week' value='week' />
+              <Tab label='month' value='month' />
+              <Tab label='all' value='all' />
+            </Tabs>
+          </Box>
+          {
+            clips.length == 0 ?
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <CircularProgress color="secondary" />
+              </Box> :
+              <ClipCards
+                clips={clips}
+                users={users}
+                layout={viewLayout}
+              />
+          }
         </Grid>
-      </Box>
+        <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
+          <StreamerCards streamers={users} />
+        </Grid>
+      </Grid>
     </>
   );
 }
