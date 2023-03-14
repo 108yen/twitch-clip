@@ -108,7 +108,7 @@ export default function Home() {
         <Grid item xs={12} md={9}>
           <Box
             sx={{
-              mt: 2,
+              m: 1,
               display: 'flex',
               justifyContent: "flex-end"
             }}

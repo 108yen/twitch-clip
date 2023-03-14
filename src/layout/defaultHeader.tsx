@@ -2,6 +2,7 @@ import theme from "@/theme";
 import { HexagonOutlined } from "@mui/icons-material";
 import { AppBar, Toolbar, Typography } from "@mui/material";
 import Link from "next/link";
+import NotificationMenu from "./notificationMenu";
 
 export default function DefaultHeader() {
     return (
@@ -19,6 +20,7 @@ export default function DefaultHeader() {
                     href='/'
                     style={{
                         textDecoration: 'none',
+                        flexGrow: 1,
                     }}
                 >
                     <Typography
@@ -34,6 +36,7 @@ export default function DefaultHeader() {
                         twitch clip ranking
                     </Typography>
                 </Link>
+                <NotificationMenu />
             </Toolbar>
         </AppBar>
     );
