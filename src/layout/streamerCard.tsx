@@ -1,4 +1,5 @@
 import { User } from "@/components/types";
+import theme from "@/theme";
 import { Avatar, Box, Divider, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import Link from "next/link";
@@ -21,7 +22,7 @@ function StreamerCard({
                 target='_blank'
                 style={{
                     textDecoration: 'none',
-                    color: 'black',
+                    color: theme.palette.text.primary,
                 }}
             >
                 <Stack
