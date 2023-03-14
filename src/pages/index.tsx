@@ -66,16 +66,18 @@ export default function Home() {
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
     setViewLayout(newAlignment);
   }
+  const title = "twitchクリップランキング";
+  const description = "Twitch(ツイッチ)のクリップのランキング。※すべての配信者の集計ではありません。";
 
   return (
     <>
       <NextSeo
-        title="twitch clip ランキング"
-        description={"Twitchのクリップのランキング。※すべての配信者の集計ではありません。"}
+        title={title}
+        description={description}
         openGraph={{
           url: "https://www.twitchclipsranking.com/",
-          title: "twitch clip ランキング",
-          description: "Twitchのクリップのランキング。※すべての配信者の集計ではありません。",
+          title: title,
+          description: description,
           images: [
             {
               url: "https://www.twitchclipsranking.com/android-chrome-512x512.png",
@@ -85,14 +87,14 @@ export default function Home() {
       />
       <ArticleJsonLd
         url="https://www.twitchclipsranking.com/"
-        title="twitch clip ランキング"
+        title={title}
         images={["https://www.twitchclipsranking.com/android-chrome-512x512.png"]}
         datePublished="20230312"
         dateModified="20230312"
         authorName="108yen"
         publisherName="108yen"
         publisherLogo=""
-        description="Twitchのクリップのランキング。※すべての配信者の集計ではありません。"
+        description={description}
       />
       {/* header */}
       <AppBar position='static'>
