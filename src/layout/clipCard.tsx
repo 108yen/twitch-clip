@@ -153,7 +153,7 @@ function FullClipCard({
     return <Grid
         key={key}
         item
-        xs={12} xl={6}
+        xs={12}
         sx={{
             paddingX: { xs: 0, sm: 1 },
             paddingY: { xs: 1, sm: 2 },
