@@ -1,4 +1,4 @@
-import { Clip, User } from "@/components/types";
+import { Clip, ClipDoc, User } from "@/components/types";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, CircularProgress, Grid, Paper, Skeleton, Stack, Typography } from "@mui/material";
 import Image from 'next/image';
@@ -111,17 +111,17 @@ function ListClipCard({
                             </Typography>
                         </Stack>
                         <Typography
-                         noWrap 
-                         variant="body1"
-                         display={{ xs: 'none', sm: 'flex' }}
-                         >
+                            noWrap
+                            variant="body1"
+                            display={{ xs: 'none', sm: 'flex' }}
+                        >
                             created_by : {clip.creator_name}
                         </Typography>
                         <Typography
-                         noWrap 
-                         variant="body1"
-                         display={{ xs: 'none', sm: 'flex' }}
-                         >
+                            noWrap
+                            variant="body1"
+                            display={{ xs: 'none', sm: 'flex' }}
+                        >
                             created_at : {formatDate(clip.created_at)}
                         </Typography>
                         <Typography
@@ -241,11 +241,11 @@ function ClipCards({
 
     function loadMore(page: number) {
         //max item num is 50
-        if (viewItemNum >= 45) {
+        if (viewItemNum >= clips.length - 1) {
             setHasMore(false);
         }
         //load each 5 items
-        setViewItemNum(viewItemNum + 5);
+        setViewItemNum(viewItemNum + 1);
     }
 
     const loader = <Box sx={{ display: "flex", justifyContent: "center" }}>
