@@ -29,3 +29,10 @@ export type Clip = {
     duration: number;
     vod_offset: number;
 }
+
+export type ClipDoc = {
+    day: Array<Clip>;
+    week: Array<Clip>;
+    month: Array<Clip>;
+    all: Array<Clip>;
+}
