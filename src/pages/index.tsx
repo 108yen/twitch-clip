@@ -1,5 +1,5 @@
 import { clipsAtom, tabAtom, usersAtom, viewLayoutAtom } from '@/components/Atoms';
-import { Clip, User } from '@/components/types';
+import { Clip, ClipDoc, User } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
 import StreamerCards from '@/layout/streamerCard';
 import { HexagonOutlined, ViewArray } from '@mui/icons-material';
@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     async function fetch() {
       await fetchUsers();
-      await fetchClips("day");
+      await fetchClips("summary");
     }
     if (didLogRef.current === false) {
       didLogRef.current = true;
@@ -42,26 +42,24 @@ export default function Home() {
     }
   }
 
-  async function fetchClips(period: string) {
+  async function fetchClips(streamerId: string) {
     const config: AxiosRequestConfig = {
       url: '/api/clips',
       method: 'GET',
       params: {
-        period: period,
+        id: streamerId,
       },
       paramsSerializer: { indexes: null }
     }
-    const res = await axios<Array<Clip>>(config)
+    const res = await axios<ClipDoc>(config)
       .catch((error) => console.log('clips api fetch error'));
     if (res?.data != null) {
-      setClips(sortByViewconut(res?.data));
+      setClips(res?.data);
     }
   }
 
-  function handleTabChange(event: React.SyntheticEvent, newValue: string) {
+  function handleTabChange(event: React.SyntheticEvent, newValue: keyof ClipDoc) {
     setTab(newValue);
-    setClips([]);
-    fetchClips(newValue);
   }
 
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
@@ -146,12 +144,12 @@ export default function Home() {
             </Tabs>
           </Box>
           {
-            clips.length == 0 ?
+            clips['all'].length == 0 ?
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <CircularProgress color="secondary" />
               </Box> :
               <ClipCards
-                clips={clips}
+                clips={clips[tab]}
                 users={users}
                 layout={viewLayout}
               />

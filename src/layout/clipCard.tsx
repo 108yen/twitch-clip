@@ -1,4 +1,4 @@
-import { Clip, User } from "@/components/types";
+import { Clip, ClipDoc, User } from "@/components/types";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, CircularProgress, Grid, Paper, Skeleton, Stack, Typography } from "@mui/material";
 import Image from 'next/image';
