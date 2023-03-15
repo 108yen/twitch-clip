@@ -68,7 +68,7 @@ export default function About() {
             >
                 <Grid
                     item
-                    xs={12} md={9}
+                    xs={12} md={9} lg={8} xl={7}
                     justifyContent='center'
                     p={3}
                 >
