@@ -21,7 +21,15 @@ export default function Home() {
 
   useEffect(() => {
     async function fetch() {
-      await fetchUsers();
+      setClips({
+        day: [],
+        week: [],
+        month: [],
+        all: [],
+      });
+      if (users.length == 0) {
+        await fetchUsers();
+      }
       await fetchClips("summary");
     }
     if (didLogRef.current === false) {

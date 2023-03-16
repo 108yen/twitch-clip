@@ -1,4 +1,4 @@
-import { usersAtom, clipsAtom, tabAtom, viewLayoutAtom } from "@/components/Atoms";
+import { usersAtom, clipsAtom, tabAtom, viewLayoutAtom, currentStreamerAtom } from "@/components/Atoms";
 import { User, ClipDoc } from "@/components/types";
 import ClipCards from "@/layout/clipCard";
 import DefaultHeader from "@/layout/defaultHeader";
@@ -13,6 +13,7 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import { useRouter } from "next/router";
 
 export default function StreamerClip() {
+  const [currentStreamer, setCurrentStreamer] = useAtom(currentStreamerAtom);
   const [users, setUsers] = useAtom(usersAtom);
   const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
@@ -27,8 +28,13 @@ export default function StreamerClip() {
   }
   useEffect(() => {
     async function fetch() {
-      //todo:empty check
-      await fetchUsers();
+      if (users.length == 0) {
+        await fetchUsers();
+      }
+      const findCurrentUser = users.find(user => user.id == streamerId);
+      if (findCurrentUser != undefined) {
+        setCurrentStreamer(findCurrentUser);
+      }
       await fetchClips(streamerId);
     }
     if (router.isReady && didLogRef.current === false) {
@@ -41,7 +47,8 @@ export default function StreamerClip() {
     const res = await axios.get<Array<User>>('/api/streamers')
       .catch((error) => console.log('streamers api fetch error'));
     if (res?.data != null) {
-      setUsers(res?.data);
+      const fetchUsers = res?.data;
+      setUsers(fetchUsers);
     }
   }
 
@@ -56,12 +63,9 @@ export default function StreamerClip() {
     }
     const res = await axios<ClipDoc>(config)
       .catch((error) => console.log('clips api fetch error'));
-    if (res?.data != null) {
-      setClips(res?.data as ClipDoc);
-      console.log('データはある');
-      console.log(res?.data as ClipDoc);
-    } else {
-      console.log('データなし');
+    //if data not exist   
+    if (res?.data.all != undefined) {
+      setClips(res?.data);
     }
   }
 
@@ -72,8 +76,8 @@ export default function StreamerClip() {
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
     setViewLayout(newAlignment);
   }
-  const title = "twitchクリップランキング";
-  const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
+  const title = "twitchクリップランキング | " + currentStreamer.display_name;
+  const description = currentStreamer.display_name + "のTwitch(ツイッチ)クリップの再生数ランキング。";
 
   return (
     <>
