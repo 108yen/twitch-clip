@@ -18,8 +18,7 @@ function StreamerCard({
                 paddingY: 1,
             }}>
             <Link
-                href={"https://www.twitch.tv/" + streamer.login}
-                target='_blank'
+                href={"/streamer/" + streamer.id}
                 style={{
                     textDecoration: 'none',
                     color: theme.palette.text.primary,

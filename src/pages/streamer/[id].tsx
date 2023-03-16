@@ -8,7 +8,7 @@ import { Grid, Box, ToggleButtonGroup, ToggleButton, Tabs, Tab, CircularProgress
 import axios, { AxiosRequestConfig } from "axios";
 import { useAtom } from "jotai";
 import { NextSeo, ArticleJsonLd } from "next-seo";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { useRouter } from "next/router";
 
@@ -18,7 +18,6 @@ export default function StreamerClip() {
   const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
-  const didLogRef = useRef(false);
   const router = useRouter();
   const { id } = router.query;
   const streamerId = isString(id) ? id as string : "summary";
@@ -28,6 +27,12 @@ export default function StreamerClip() {
   }
   useEffect(() => {
     async function fetch() {
+      setClips({
+        day: [],
+        week: [],
+        month: [],
+        all: [],
+      });
       if (users.length == 0) {
         await fetchUsers();
       }
@@ -37,8 +42,7 @@ export default function StreamerClip() {
       }
       await fetchClips(streamerId);
     }
-    if (router.isReady && didLogRef.current === false) {
-      didLogRef.current = true;
+    if (router.isReady) {
       fetch();
     }
   }, [router]);
