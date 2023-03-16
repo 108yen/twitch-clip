@@ -1,34 +1,41 @@
-import { clipsAtom, tabAtom, usersAtom, viewLayoutAtom } from '@/components/Atoms';
-import { Clip, ClipDoc, User } from '@/components/types';
-import ClipCards from '@/layout/clipCard';
-import StreamerCards from '@/layout/streamerCard';
-import { HexagonOutlined, ViewArray } from '@mui/icons-material';
-import { AppBar, CircularProgress, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import axios, { AxiosRequestConfig } from 'axios';
-import { useAtom } from 'jotai';
-import { useEffect, useRef } from 'react';
+import { usersAtom, clipsAtom, tabAtom, viewLayoutAtom } from "@/components/Atoms";
+import { User, ClipDoc } from "@/components/types";
+import ClipCards from "@/layout/clipCard";
+import DefaultHeader from "@/layout/defaultHeader";
+import StreamerCards from "@/layout/streamerCard";
+import { ViewArray } from "@mui/icons-material";
+import { Grid, Box, ToggleButtonGroup, ToggleButton, Tabs, Tab, CircularProgress } from "@mui/material";
+import axios, { AxiosRequestConfig } from "axios";
+import { useAtom } from "jotai";
+import { NextSeo, ArticleJsonLd } from "next-seo";
+import { useRef, useEffect } from "react";
 import ViewListIcon from '@mui/icons-material/ViewList';
-import { ArticleJsonLd, NextSeo } from 'next-seo';
-import DefaultHeader from '@/layout/defaultHeader';
+import { useRouter } from "next/router";
 
-export default function Home() {
+export default function StreamerClip() {
   const [users, setUsers] = useAtom(usersAtom);
   const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
   const didLogRef = useRef(false);
+  const router = useRouter();
+  const { id } = router.query;
+  const streamerId = isString(id) ? id as string : "summary";
 
+  function isString(value: string | string[] | undefined): boolean {
+    return typeof value === "string";
+  }
   useEffect(() => {
     async function fetch() {
+      //todo:empty check
       await fetchUsers();
-      await fetchClips("summary");
+      await fetchClips(streamerId);
     }
-    if (didLogRef.current === false) {
+    if (router.isReady && didLogRef.current === false) {
       didLogRef.current = true;
       fetch();
     }
-  }, []);
+  }, [router]);
 
   async function fetchUsers() {
     const res = await axios.get<Array<User>>('/api/streamers')
@@ -50,7 +57,11 @@ export default function Home() {
     const res = await axios<ClipDoc>(config)
       .catch((error) => console.log('clips api fetch error'));
     if (res?.data != null) {
-      setClips(res?.data);
+      setClips(res?.data as ClipDoc);
+      console.log('データはある');
+      console.log(res?.data as ClipDoc);
+    } else {
+      console.log('データなし');
     }
   }
 
