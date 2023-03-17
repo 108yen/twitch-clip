@@ -1,4 +1,4 @@
-import { usersAtom, clipsAtom, tabAtom, viewLayoutAtom, currentStreamerAtom } from "@/components/Atoms";
+import { usersAtom, clipsAtom, tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
 import { User, ClipDoc } from "@/components/types";
 import ClipCards from "@/layout/clipCard";
 import DefaultHeader from "@/layout/defaultHeader";
@@ -14,7 +14,8 @@ import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
 
 export default function StreamerClip() {
-  const [currentStreamer, setCurrentStreamer] = useAtom(currentStreamerAtom);
+  const [currentStreamer] = useAtom(currentStreamerAtom);
+  const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
   const [users, setUsers] = useAtom(usersAtom);
   const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
@@ -37,10 +38,7 @@ export default function StreamerClip() {
       if (users.length == 0) {
         await fetchUsers();
       }
-      const findCurrentUser = users.find(user => user.id == streamerId);
-      if (findCurrentUser != undefined) {
-        setCurrentStreamer(findCurrentUser);
-      }
+      setCurrentStreamerId(streamerId);
       await fetchClips(streamerId);
     }
     if (router.isReady) {
@@ -81,8 +79,8 @@ export default function StreamerClip() {
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
     setViewLayout(newAlignment);
   }
-  const title = "twitchクリップランキング | " + currentStreamer.display_name;
-  const description = currentStreamer.display_name + "のTwitch(ツイッチ)クリップの再生数ランキング。";
+  const title = "twitchクリップランキング | " + currentStreamer?.display_name;
+  const description = currentStreamer?.display_name + "のTwitch(ツイッチ)クリップの再生数ランキング。";
 
   return (
     <>
