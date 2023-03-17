@@ -15,19 +15,6 @@ export const currentStreamerAtom = atom<User | undefined>(
         return get(usersAtom).find(user => user.id == get(currentStreamerIdAtom));
     }
 );
-// export const currentStreamerAtom = atom<User>({
-//     id: 'undefined',
-//     login: 'undefined',
-//     display_name: 'undefined',
-//     type: 'undefined',
-//     broadcaster_type: 'undefined',
-//     description: 'undefined',
-//     profile_image_url: 'undefined',
-//     offline_image_url: 'undefined',
-//     view_count: 0,
-//     created_at: 'undefined',
-
-// });
 
 export const tabAtom = atom<keyof ClipDoc>('day');
 export const viewLayoutAtom = atom<string>('list');

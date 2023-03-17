@@ -68,7 +68,7 @@ function StreamerCard({
                         <Typography
                             variant="body2"
                         >
-                            <Skeleton width={450}/>
+                            <Skeleton width={350} />
                         </Typography>
                     </Stack>
                 </Paper>
