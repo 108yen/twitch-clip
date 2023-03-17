@@ -1,84 +1,96 @@
 import { User } from "@/components/types";
 import theme from "@/theme";
-import { Avatar, Box, Divider, Typography } from "@mui/material";
+import { Launch } from "@mui/icons-material";
+import { Avatar, Box, Paper, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import Link from "next/link";
 
 function StreamerCard({
     streamer,
-    key,
 }: {
     streamer: User,
-    key: number
 }) {
     return (
         <Box
-            key={key}
             sx={{
-                paddingY: 1,
+                p: 2,
+                display: 'flex',
+                justifyContent: 'center',
             }}>
-            <Link
-                href={"/streamer/" + streamer.id}
-                style={{
-                    textDecoration: 'none',
-                    color: theme.palette.text.primary,
+            <Paper
+                sx={{
+                    p: 2,
+                    overflow: 'hidden',
+                    maxWidth: 700,
+                    minWidth: { xs: 400, md: 600, },
                 }}
             >
                 <Stack
                     direction="row"
-                    justifyContent="flex-start"
+                    justifyContent="space-between"
                     alignItems="flex-start"
                 >
-                    <Avatar src={streamer.profile_image_url} />
                     <Stack
-                        ml={1}
-                        spacing={0}
-                        direction="column"
+                        direction="row"
                         justifyContent="flex-start"
-                        alignItems="flex-start"
+                        alignItems="center"
+                        spacing={1}
                     >
+                        <Link
+                            href={"/streamer/" + streamer.id}
+                            style={{
+                                textDecoration: 'none',
+                                color: theme.palette.text.primary,
+                            }}
+                        >
+                            <Avatar src={streamer.profile_image_url} />
+                        </Link>
                         <Typography
                             variant="subtitle1"
                             noWrap
                         >
                             {streamer.display_name}
                         </Typography>
-                        <Typography
-                            variant="body2"
-                            color="gray"
-                            noWrap
-                        >
-                            {streamer.description}
-                        </Typography>
                     </Stack>
+
+                    <Link
+                        href={"https://www.twitch.tv/" + streamer.login}
+                        target='_blank'
+                        style={{
+                            textDecoration: 'none',
+                            color: 'black',
+                        }}
+                    >
+                        <Stack
+                            direction="row"
+                            spacing={1}
+                        >
+                            <Typography
+                                variant="body2"
+                            >
+                                Twitch
+                            </Typography>
+                            <Launch fontSize="small" />
+                        </Stack>
+                    </Link>
                 </Stack>
-            </Link>
+                <Stack
+                    ml={6}
+                    spacing={0}
+                    direction="column"
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
+                >
+                    <Typography
+                        variant="body2"
+                        color="gray"
+                    >
+                        {streamer.description}
+                    </Typography>
+                </Stack>
+            </Paper>
         </Box>
     );
 }
 
-function StreamerCards({
-    streamers
-}: {
-    streamers: Array<User>
-}) {
-    return (
-        <Box
-            mt={6}
-            mb={3}
-            ml={3}
-            mr={0}
-            overflow="hidden"
-        >
-            <Typography variant='subtitle1' color='grey'>
-                ストリーマー
-            </Typography>
-            <Divider />
-            {streamers.map((e, index) =>
-                <StreamerCard streamer={e} key={index} />
-            )}
-        </Box>
-    );
-}
-
-export default StreamerCards;
+export default StreamerCard;

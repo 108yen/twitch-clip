@@ -2,7 +2,7 @@ import { usersAtom, clipsAtom, tabAtom, viewLayoutAtom, currentStreamerAtom } fr
 import { User, ClipDoc } from "@/components/types";
 import ClipCards from "@/layout/clipCard";
 import DefaultHeader from "@/layout/defaultHeader";
-import StreamerCards from "@/layout/streamerCard";
+import StreamerList from "@/layout/streamerList";
 import { ViewArray } from "@mui/icons-material";
 import { Grid, Box, ToggleButtonGroup, ToggleButton, Tabs, Tab, CircularProgress } from "@mui/material";
 import axios, { AxiosRequestConfig } from "axios";
@@ -11,6 +11,7 @@ import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useRef, useEffect, useState } from "react";
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { useRouter } from "next/router";
+import StreamerCard from "@/layout/streamerCard";
 
 export default function StreamerClip() {
   const [currentStreamer, setCurrentStreamer] = useAtom(currentStreamerAtom);
@@ -119,6 +120,7 @@ export default function StreamerClip() {
         paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
       >
         <Grid item xs={12} md={9}>
+          <StreamerCard streamer={currentStreamer}/>
           <Box
             sx={{
               m: 1,
@@ -171,7 +173,7 @@ export default function StreamerClip() {
           }
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-          <StreamerCards streamers={users} />
+          <StreamerList streamers={users} />
         </Grid>
       </Grid>
     </>

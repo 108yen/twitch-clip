@@ -1,9 +1,9 @@
 import { clipsAtom, tabAtom, usersAtom, viewLayoutAtom } from '@/components/Atoms';
-import { Clip, ClipDoc, User } from '@/components/types';
+import { ClipDoc, User } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
-import StreamerCards from '@/layout/streamerCard';
-import { HexagonOutlined, ViewArray } from '@mui/icons-material';
-import { AppBar, CircularProgress, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material';
+import StreamerList from '@/layout/streamerList';
+import { ViewArray } from '@mui/icons-material';
+import { CircularProgress, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Box } from '@mui/system';
 import axios, { AxiosRequestConfig } from 'axios';
 import { useAtom } from 'jotai';
@@ -160,7 +160,7 @@ export default function Home() {
           }
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-          <StreamerCards streamers={users} />
+          <StreamerList streamers={users} />
         </Grid>
       </Grid>
     </>

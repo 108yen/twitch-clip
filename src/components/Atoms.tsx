@@ -1,6 +1,7 @@
 import { atom } from "jotai";
 import { Clip, ClipDoc, User } from "./types";
 
+//todo:ここでfetchしたい
 export const usersAtom = atom<Array<User>>([]);
 export const clipsAtom = atom<ClipDoc>({
     day: [],
