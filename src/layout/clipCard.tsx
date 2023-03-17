@@ -97,8 +97,7 @@ function ListClipCard({
                             spacing={2}
                         >
                             <Link
-                                href={"https://www.twitch.tv/" + streamer.login}
-                                target='_blank'
+                                href={"/streamer/" + streamer.id}
                                 style={{
                                     textDecoration: 'none',
                                     color: 'black',
@@ -189,8 +188,7 @@ function FullClipCard({
                 paddingX={2}
             >
                 <Link
-                    href={"https://www.twitch.tv/" + streamer.login}
-                    target='_blank'
+                    href={"/streamer/" + streamer.id}
                     style={{
                         textDecoration: 'none',
                         color: 'black',
