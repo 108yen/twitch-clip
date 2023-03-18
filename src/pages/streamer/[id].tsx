@@ -8,7 +8,7 @@ import { Grid, Box, ToggleButtonGroup, ToggleButton, Tabs, Tab, CircularProgress
 import axios, { AxiosRequestConfig } from "axios";
 import { useAtom } from "jotai";
 import { NextSeo, ArticleJsonLd } from "next-seo";
-import { useRef, useEffect, useState } from "react";
+import { useEffect } from "react";
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
@@ -118,7 +118,7 @@ export default function StreamerClip() {
         paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
       >
         <Grid item xs={12} md={9}>
-          <StreamerCard streamer={currentStreamer}/>
+          <StreamerCard streamer={currentStreamer} />
           <Box
             sx={{
               m: 1,

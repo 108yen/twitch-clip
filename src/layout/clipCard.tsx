@@ -1,6 +1,6 @@
-import { Clip, ClipDoc, User } from "@/components/types";
+import { Clip, User } from "@/components/types";
 import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Grid, Paper, Skeleton, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Paper, Stack, Typography } from "@mui/material";
 import Image from 'next/image';
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -237,7 +237,7 @@ function ClipCards({
     const loader = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
         <CircularProgress color="secondary" />
     </Box>;
-    
+
     const endMessage = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
         <Typography variant='inherit' color='gray'>
             no more clips
