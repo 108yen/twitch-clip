@@ -6,14 +6,11 @@ import Link from "next/link";
 
 function StreamerListItem({
     streamer,
-    key,
 }: {
     streamer: User,
-    key: number
 }) {
     return (
         <Box
-            key={key}
             sx={{
                 paddingY: 1,
             }}>

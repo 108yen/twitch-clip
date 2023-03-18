@@ -7,11 +7,9 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from 'react-infinite-scroller';
 
 function ListClipCard({
-    key,
     clip,
     streamer,
 }: {
-    key: number
     clip: Clip,
     streamer: User,
 }) {
@@ -35,130 +33,139 @@ function ListClipCard({
     }
 
     return (
-        <Grid
-            key={key}
-            item
-            xs={12}
+        // <Grid
+        //     key={key}
+        //     item
+        //     xs={12}
+        //     sx={{
+        //         paddingX: { xs: 0, sm: 1 },
+        //         paddingY: { xs: 1, sm: 2 },
+        //     }}
+        // >
+        <Paper
             sx={{
-                paddingX: { xs: 0, sm: 1 },
-                paddingY: { xs: 1, sm: 2 },
+                marginX: { xs: 0, sm: 1 },
+                marginY: { xs: 1, sm: 2 },
             }}
         >
-            <Paper>
-                <Stack
-                    direction="row"
-                    sx={{
-                        height: { xs: 110, sm: 170 }
+            <Stack
+                direction="row"
+                sx={{
+                    height: { xs: 110, sm: 170 }
+                }}
+            >
+                <Image
+                    src={clip.thumbnail_url}
+                    alt={clip.title}
+                    width={imageWidth}
+                    height={imageWidth * 9 / 16}
+                    style={{
+                        width: 'auto',
+                        height: '100%'
                     }}
+                    quality={100}
+                />
+                <Stack
+                    direction="column"
+                    overflow="hidden"
+                    p={1}
+                    sx={{ flexGrow: 1 }}
                 >
-                    <Image
-                        src={clip.thumbnail_url}
-                        alt={clip.title}
-                        width={imageWidth}
-                        height={imageWidth * 9 / 16}
-                        style={{
-                            width: 'auto',
-                            height: '100%'
-                        }}
-                        quality={100}
-                    />
                     <Stack
-                        direction="column"
-                        overflow="hidden"
-                        p={1}
-                        sx={{ flexGrow: 1 }}
+                        direction="row"
+                        justifyContent="space-between"
                     >
-                        <Stack
-                            direction="row"
-                            justifyContent="space-between"
+                        <Typography
+                            variant='h6'
+                            noWrap
+                            fontWeight='bold'
                         >
-                            <Typography
-                                variant='h6'
-                                noWrap
-                                fontWeight='bold'
-                            >
-                                {clip.title}
-                            </Typography>
-                            <Link
-                                href={clip.url}
-                                target='_blank'
-                                style={{
-                                    textDecoration: 'none',
-                                    color: 'black',
-                                }}
-                            >
-                                <Launch fontSize="small" />
-                            </Link>
+                            {clip.title}
+                        </Typography>
+                        <Link
+                            href={clip.url}
+                            target='_blank'
+                            style={{
+                                textDecoration: 'none',
+                                color: 'black',
+                            }}
+                        >
+                            <Launch fontSize="small" />
+                        </Link>
 
-                        </Stack>
-                        <Stack
-                            direction="row"
-                            alignItems="center"
-                            spacing={2}
+                    </Stack>
+                    <Stack
+                        direction="row"
+                        alignItems="center"
+                        spacing={2}
+                    >
+                        <Link
+                            href={"/streamer/" + streamer.id}
+                            style={{
+                                textDecoration: 'none',
+                                color: 'black',
+                            }}
                         >
-                            <Link
-                                href={"/streamer/" + streamer.id}
-                                style={{
-                                    textDecoration: 'none',
-                                    color: 'black',
-                                }}
-                            >
-                                <Avatar src={streamer.profile_image_url} />
-                            </Link>
-                            <Typography noWrap variant="body1">
-                                {streamer.display_name}
-                            </Typography>
-                        </Stack>
-                        <Typography
-                            noWrap
-                            variant="body1"
-                            display={{ xs: 'none', sm: 'flex' }}
-                        >
-                            created_by : {clip.creator_name}
-                        </Typography>
-                        <Typography
-                            noWrap
-                            variant="body1"
-                            display={{ xs: 'none', sm: 'flex' }}
-                        >
-                            created_at : {formatDate(clip.created_at)}
-                        </Typography>
-                        <Typography
-                            noWrap
-                            variant="body1"
-                            color="gray"
-                            textAlign="end"
-                        >
-                            視聴数：{clip.view_count}
+                            <Avatar src={streamer.profile_image_url} />
+                        </Link>
+                        <Typography noWrap variant="body1">
+                            {streamer.display_name}
                         </Typography>
                     </Stack>
-
+                    <Typography
+                        noWrap
+                        variant="body1"
+                        display={{ xs: 'none', sm: 'flex' }}
+                    >
+                        created_by : {clip.creator_name}
+                    </Typography>
+                    <Typography
+                        noWrap
+                        variant="body1"
+                        display={{ xs: 'none', sm: 'flex' }}
+                    >
+                        created_at : {formatDate(clip.created_at)}
+                    </Typography>
+                    <Typography
+                        noWrap
+                        variant="body1"
+                        color="gray"
+                        textAlign="end"
+                    >
+                        視聴数：{clip.view_count}
+                    </Typography>
                 </Stack>
-            </Paper>
-        </Grid>
+
+            </Stack>
+        </Paper>
+        // {/* </Grid> */}
     );
 
 }
 
 function FullClipCard({
-    key,
     clip,
     streamer,
 }: {
-    key: number
     clip: Clip,
     streamer: User,
 }) {
-    return <Grid
-        key={key}
-        item
-        xs={12}
-        sx={{
-            paddingX: { xs: 0, sm: 1 },
-            paddingY: { xs: 1, sm: 2 },
-        }}
-    >
-        <Paper>
+    return (
+        //     <Grid
+        //     key={key}
+        //     item
+        //     xs={12}
+        //     sx={{
+        //         paddingX: { xs: 0, sm: 1 },
+        //         paddingY: { xs: 1, sm: 2 },
+        //     }}
+        // >
+        <Paper
+            sx={{
+                marginX: { xs: 0, sm: 1 },
+                marginY: { xs: 1, sm: 2 },
+            }}
+        >
             <Box
                 sx={{
                     position: 'relative',
@@ -221,7 +228,8 @@ function FullClipCard({
                 </Box>
             </Stack>
         </Paper>
-    </Grid>
+        // {/* </Grid> */}
+    );
 }
 
 function ClipCards({
@@ -238,15 +246,15 @@ function ClipCards({
     const [hasMore, setHasMore] = useState<boolean>(true);
 
     function loadMore(page: number) {
-        //max item num is 50
+        //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
             setHasMore(false);
         }
-        //load each 5 items
+        //load each 1 items
         setViewItemNum(viewItemNum + 1);
     }
 
-    const loader = <Box sx={{ display: "flex", justifyContent: "center" }}>
+    const loader = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
         <CircularProgress color="secondary" />
     </Box>;
 
@@ -262,32 +270,32 @@ function ClipCards({
             hasMore={hasMore}
             loader={loader}
         >
-            <Grid
+            {/* <Grid
                 container
                 justifyContent="start"
-            >
-                {clips.slice(0, viewItemNum).map((e, index) => {
-                    const streamer = users.find((user) => user.id == e.broadcaster_id);
-                    //!ここで分岐しているの処理上よくないかも
-                    if (layout == "full") {
-                        return (
-                            <FullClipCard
-                                key={index}
-                                clip={e}
-                                streamer={streamer!}
-                            />
-                        );
-                    } else {
-                        return (
-                            <ListClipCard
-                                key={index}
-                                clip={e}
-                                streamer={streamer!}
-                            />
-                        );
-                    }
-                })}
-            </Grid>
+            > */}
+            {clips.slice(0, viewItemNum).map((e, index) => {
+                const streamer = users.find((user) => user.id == e.broadcaster_id);
+                //!ここで分岐しているの処理上よくないかも
+                if (layout == "full") {
+                    return (
+                        <FullClipCard
+                            key={index}
+                            clip={e}
+                            streamer={streamer!}
+                        />
+                    );
+                } else {
+                    return (
+                        <ListClipCard
+                            key={index}
+                            clip={e}
+                            streamer={streamer!}
+                        />
+                    );
+                }
+            })}
+            {/* </Grid> */}
         </InfiniteScroll>
     );
 }
