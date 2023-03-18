@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
-          <meta name="description" content="コピペが検索できるサイト" />
+          <meta name="description" content="Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。" />
         </Head>
         <body>
           <Main />
