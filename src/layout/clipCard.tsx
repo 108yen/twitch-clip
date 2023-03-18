@@ -4,7 +4,7 @@ import { Avatar, Box, CircularProgress, Grid, Paper, Skeleton, Stack, Typography
 import Image from 'next/image';
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import InfiniteScroll from 'react-infinite-scroller';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 function ListClipCard({
     clip,
@@ -33,15 +33,6 @@ function ListClipCard({
     }
 
     return (
-        // <Grid
-        //     key={key}
-        //     item
-        //     xs={12}
-        //     sx={{
-        //         paddingX: { xs: 0, sm: 1 },
-        //         paddingY: { xs: 1, sm: 2 },
-        //     }}
-        // >
         <Paper
             sx={{
                 marginX: { xs: 0, sm: 1 },
@@ -138,7 +129,6 @@ function ListClipCard({
 
             </Stack>
         </Paper>
-        // {/* </Grid> */}
     );
 
 }
@@ -151,15 +141,6 @@ function FullClipCard({
     streamer: User,
 }) {
     return (
-        //     <Grid
-        //     key={key}
-        //     item
-        //     xs={12}
-        //     sx={{
-        //         paddingX: { xs: 0, sm: 1 },
-        //         paddingY: { xs: 1, sm: 2 },
-        //     }}
-        // >
         <Paper
             sx={{
                 marginX: { xs: 0, sm: 1 },
@@ -228,7 +209,6 @@ function FullClipCard({
                 </Box>
             </Stack>
         </Paper>
-        // {/* </Grid> */}
     );
 }
 
@@ -245,7 +225,7 @@ function ClipCards({
     const [viewItemNum, setViewItemNum] = useState<number>(0);
     const [hasMore, setHasMore] = useState<boolean>(true);
 
-    function loadMore(page: number) {
+    function loadMore() {
         //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
             setHasMore(false);
@@ -257,23 +237,29 @@ function ClipCards({
     const loader = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
         <CircularProgress color="secondary" />
     </Box>;
+    
+    const endMessage = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
+        <Typography variant='inherit' color='gray'>
+            no more clips
+        </Typography>
+    </Box>;
 
     //if chenge clips or layout, reset view item 
     useEffect(() => {
-        setViewItemNum(0);
-        setHasMore(true);
+        const preloadNum = layout == 'full' ? 3 : 7;
+        setViewItemNum(preloadNum);
+        const isHasMore = clips.length <= preloadNum;
+        setHasMore(!isHasMore);
     }, [clips, layout])
 
     return (
         <InfiniteScroll
-            loadMore={loadMore}
+            dataLength={viewItemNum}
+            next={loadMore}
             hasMore={hasMore}
             loader={loader}
+            endMessage={endMessage}
         >
-            {/* <Grid
-                container
-                justifyContent="start"
-            > */}
             {clips.slice(0, viewItemNum).map((e, index) => {
                 const streamer = users.find((user) => user.id == e.broadcaster_id);
                 //!ここで分岐しているの処理上よくないかも
@@ -295,7 +281,6 @@ function ClipCards({
                     );
                 }
             })}
-            {/* </Grid> */}
         </InfiniteScroll>
     );
 }
