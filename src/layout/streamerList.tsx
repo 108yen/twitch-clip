@@ -92,8 +92,9 @@ function StreamerList() {
                     ストリーマー
                 </Typography>
                 <Divider />
+                {/*
                 //todo:skeleton
-                {/* {streamersValue.data.map((e, index) =>
+                 {streamersValue.data.map((e, index) =>
                     <StreamerListItem streamer={e} key={index} />
                 )} */}
             </Box>

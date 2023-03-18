@@ -1,54 +1,18 @@
-import { clipsAtom, tabAtom, usersAtom, viewLayoutAtom } from '@/components/Atoms';
-import { ClipDoc, User } from '@/components/types';
+import {  tabAtom,  viewLayoutAtom } from '@/components/Atoms';
+import { ClipDoc } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
 import StreamerList from '@/layout/streamerList';
 import { ViewArray } from '@mui/icons-material';
-import { CircularProgress, Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import {  Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Box } from '@mui/system';
-import axios, { AxiosRequestConfig } from 'axios';
 import { useAtom } from 'jotai';
-import { useEffect, useRef } from 'react';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
 import DefaultHeader from '@/layout/defaultHeader';
 
 export default function Home() {
-  const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
-  const didLogRef = useRef(false);
-
-  useEffect(() => {
-    async function fetch() {
-      setClips({
-        day: [],
-        week: [],
-        month: [],
-        all: [],
-      });
-      await fetchClips("summary");
-    }
-    if (didLogRef.current === false) {
-      didLogRef.current = true;
-      fetch();
-    }
-  }, []);
-
-  async function fetchClips(streamerId: string) {
-    const config: AxiosRequestConfig = {
-      url: '/api/clips',
-      method: 'GET',
-      params: {
-        id: streamerId,
-      },
-      paramsSerializer: { indexes: null }
-    }
-    const res = await axios<ClipDoc>(config)
-      .catch((error) => console.log('clips api fetch error'));
-    if (res?.data != null) {
-      setClips(res?.data);
-    }
-  }
 
   function handleTabChange(event: React.SyntheticEvent, newValue: keyof ClipDoc) {
     setTab(newValue);
@@ -135,16 +99,7 @@ export default function Home() {
               <Tab label='all' value='all' />
             </Tabs>
           </Box>
-          {
-            clips['all'].length == 0 ?
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <CircularProgress color="secondary" />
-              </Box> :
-              <ClipCards
-                clips={clips[tab]}
-                layout={viewLayout}
-              />
-          }
+          <ClipCards />
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
           <StreamerList />
