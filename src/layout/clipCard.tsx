@@ -1,6 +1,9 @@
+import { usersAtom } from "@/components/Atoms";
 import { Clip, User } from "@/components/types";
 import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Paper, Skeleton, Stack, Typography } from "@mui/material";
+import { useAtom } from "jotai";
+import { loadable } from "jotai/utils";
 import Image from 'next/image';
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -11,7 +14,7 @@ function ListClipCard({
     streamer,
 }: {
     clip: Clip,
-    streamer: User,
+    streamer: User|undefined,
 }) {
     const imageWidth = 300;
 
@@ -91,16 +94,20 @@ function ListClipCard({
                         spacing={2}
                     >
                         <Link
-                            href={"/streamer/" + streamer.id}
+                            href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
                             style={{
                                 textDecoration: 'none',
                                 color: 'black',
                             }}
                         >
-                            <Avatar src={streamer.profile_image_url} />
+                            {streamer != undefined
+                                ? <Avatar src={streamer.profile_image_url} />
+                                : <Skeleton variant="circular" width={40} height={40} />}
                         </Link>
                         <Typography noWrap variant="body1">
-                            {streamer.display_name}
+                            {streamer != undefined
+                                ? streamer.display_name
+                                : <Skeleton width={150} />}
                         </Typography>
                     </Stack>
                     <Typography
@@ -138,7 +145,7 @@ function FullClipCard({
     streamer,
 }: {
     clip: Clip,
-    streamer: User,
+    streamer: User | undefined,
 }) {
     return (
         <Paper
@@ -176,13 +183,15 @@ function FullClipCard({
                 paddingX={2}
             >
                 <Link
-                    href={"/streamer/" + streamer.id}
+                    href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
                     style={{
                         textDecoration: 'none',
                         color: 'black',
                     }}
                 >
-                    <Avatar src={streamer.profile_image_url} />
+                    {streamer != undefined
+                        ? <Avatar src={streamer.profile_image_url} />
+                        : <Skeleton variant="circular" width={40} height={40} />}
                 </Link>
                 <Box
                     paddingBottom={1}
@@ -214,13 +223,13 @@ function FullClipCard({
 
 function ClipCards({
     clips,
-    users,
     layout,
 }: {
     clips: Array<Clip>,
-    users: Array<User>,
     layout: string,
 }) {
+    const streamersLoadableAtom = loadable(usersAtom);
+    const [streamersValue] = useAtom(streamersLoadableAtom);
     //to infinite scroller
     const [viewItemNum, setViewItemNum] = useState<number>(0);
     const [hasMore, setHasMore] = useState<boolean>(true);
@@ -261,14 +270,16 @@ function ClipCards({
             endMessage={endMessage}
         >
             {clips.slice(0, viewItemNum).map((e, index) => {
-                const streamer = users.find((user) => user.id == e.broadcaster_id);
+                const streamer = streamersValue.state === 'hasData'
+                    ? streamersValue.data.find((user) => user.id == e.broadcaster_id)
+                    : undefined;
                 //!ここで分岐しているの処理上よくないかも
                 if (layout == "full") {
                     return (
                         <FullClipCard
                             key={index}
                             clip={e}
-                            streamer={streamer!}
+                            streamer={streamer}
                         />
                     );
                 } else {
@@ -276,7 +287,7 @@ function ClipCards({
                         <ListClipCard
                             key={index}
                             clip={e}
-                            streamer={streamer!}
+                            streamer={streamer}
                         />
                     );
                 }

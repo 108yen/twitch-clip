@@ -1,7 +1,10 @@
+import { usersAtom } from "@/components/Atoms";
 import { User } from "@/components/types";
 import theme from "@/theme";
 import { Avatar, Box, Divider, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
+import { useAtom } from "jotai";
+import { loadable } from "jotai/utils"
 import Link from "next/link";
 
 function StreamerListItem({
@@ -54,28 +57,48 @@ function StreamerListItem({
     );
 }
 
-function StreamerList({
-    streamers
-}: {
-    streamers: Array<User>
-}) {
-    return (
-        <Box
-            mt={6}
-            mb={3}
-            ml={3}
-            mr={0}
-            overflow="hidden"
-        >
-            <Typography variant='subtitle1' color='grey'>
-                ストリーマー
-            </Typography>
-            <Divider />
-            {streamers.map((e, index) =>
-                <StreamerListItem streamer={e} key={index} />
-            )}
-        </Box>
-    );
+function StreamerList() {
+    const streamersLoadableAtom = loadable(usersAtom);
+    const [streamersValue] = useAtom(streamersLoadableAtom);
+
+    if (streamersValue.state==="hasData") {
+        return (
+            <Box
+                mt={6}
+                mb={3}
+                ml={3}
+                mr={0}
+                overflow="hidden"
+            >
+                <Typography variant='subtitle1' color='grey'>
+                    ストリーマー
+                </Typography>
+                <Divider />
+                {streamersValue.data.map((e, index) =>
+                    <StreamerListItem streamer={e} key={index} />
+                )}
+            </Box>
+        );
+    } else {
+        return (
+            <Box
+                mt={6}
+                mb={3}
+                ml={3}
+                mr={0}
+                overflow="hidden"
+            >
+                <Typography variant='subtitle1' color='grey'>
+                    ストリーマー
+                </Typography>
+                <Divider />
+                //todo:skeleton
+                {/* {streamersValue.data.map((e, index) =>
+                    <StreamerListItem streamer={e} key={index} />
+                )} */}
+            </Box>
+        );
+    }
 }
 
 export default StreamerList;

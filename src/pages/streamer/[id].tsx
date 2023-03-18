@@ -12,11 +12,13 @@ import { useEffect } from "react";
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
+import { loadable } from "jotai/utils";
 
 export default function StreamerClip() {
-  const [currentStreamer] = useAtom(currentStreamerAtom);
+  const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
+  const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom);
+
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
-  const [users, setUsers] = useAtom(usersAtom);
   const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
@@ -35,9 +37,6 @@ export default function StreamerClip() {
         month: [],
         all: [],
       });
-      if (users.length == 0) {
-        await fetchUsers();
-      }
       setCurrentStreamerId(streamerId);
       await fetchClips(streamerId);
     }
@@ -45,15 +44,6 @@ export default function StreamerClip() {
       fetch();
     }
   }, [router]);
-
-  async function fetchUsers() {
-    const res = await axios.get<Array<User>>('/api/streamers')
-      .catch((error) => console.log('streamers api fetch error'));
-    if (res?.data != null) {
-      const fetchUsers = res?.data;
-      setUsers(fetchUsers);
-    }
-  }
 
   async function fetchClips(streamerId: string) {
     const config: AxiosRequestConfig = {
@@ -79,8 +69,11 @@ export default function StreamerClip() {
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
     setViewLayout(newAlignment);
   }
-  const title = "twitchクリップランキング | " + currentStreamer?.display_name;
-  const description = currentStreamer?.display_name + "のTwitch(ツイッチ)クリップの再生数ランキング。";
+  const display_name = currentStreamerValue.state === "hasData"
+    ? currentStreamerValue.data?.display_name
+    : "no data";
+  const title = "twitchクリップランキング | " + display_name;
+  const description = display_name + "のTwitch(ツイッチ)クリップの再生数ランキング。";
 
   return (
     <>
@@ -118,7 +111,7 @@ export default function StreamerClip() {
         paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
       >
         <Grid item xs={12} md={9}>
-          <StreamerCard streamer={currentStreamer} />
+          <StreamerCard />
           <Box
             sx={{
               m: 1,
@@ -165,13 +158,12 @@ export default function StreamerClip() {
               </Box> :
               <ClipCards
                 clips={clips[tab]}
-                users={users}
                 layout={viewLayout}
               />
           }
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-          <StreamerList streamers={users} />
+          <StreamerList/>
         </Grid>
       </Grid>
     </>

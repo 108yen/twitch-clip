@@ -13,7 +13,6 @@ import { ArticleJsonLd, NextSeo } from 'next-seo';
 import DefaultHeader from '@/layout/defaultHeader';
 
 export default function Home() {
-  const [users, setUsers] = useAtom(usersAtom);
   const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
@@ -27,9 +26,6 @@ export default function Home() {
         month: [],
         all: [],
       });
-      if (users.length == 0) {
-        await fetchUsers();
-      }
       await fetchClips("summary");
     }
     if (didLogRef.current === false) {
@@ -37,14 +33,6 @@ export default function Home() {
       fetch();
     }
   }, []);
-
-  async function fetchUsers() {
-    const res = await axios.get<Array<User>>('/api/streamers')
-      .catch((error) => console.log('streamers api fetch error'));
-    if (res?.data != null) {
-      setUsers(res?.data);
-    }
-  }
 
   async function fetchClips(streamerId: string) {
     const config: AxiosRequestConfig = {
@@ -154,13 +142,12 @@ export default function Home() {
               </Box> :
               <ClipCards
                 clips={clips[tab]}
-                users={users}
                 layout={viewLayout}
               />
           }
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-          <StreamerList streamers={users} />
+          <StreamerList />
         </Grid>
       </Grid>
     </>
