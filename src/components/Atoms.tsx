@@ -33,7 +33,7 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     }
 );
 
-export const currentStreamerIdAtom = atom<string>('summary');
+const currentStreamerIdValue = atom<string>('summary');
 export const currentStreamerAtom = atom<Promise<User | undefined>>(
     async (get) => {
         const users = await get(usersAtom);
@@ -45,6 +45,14 @@ const tabValueAtom = atom<keyof ClipDoc>('day');
 const viewLayoutValueAtom = atom<string>('list');
 
 //for reset
+export const currentStreamerIdAtom = atom(
+    (get) => get(currentStreamerIdValue),
+    (_, set, update: string) => {
+        set(currentStreamerIdValue, update);
+        set(overrideClipCardsDisplayNumAtom, null);
+        set(overrideMoreItemIsExistAtom, null);
+    }
+);
 export const tabAtom = atom(
     (get) => get(tabValueAtom),
     (_, set, update: keyof ClipDoc) => {
