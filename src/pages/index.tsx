@@ -1,4 +1,4 @@
-import {  tabAtom,  viewLayoutAtom } from '@/components/Atoms';
+import {  currentStreamerIdAtom, tabAtom,  viewLayoutAtom } from '@/components/Atoms';
 import { ClipDoc } from '@/components/types';
 import ClipCards from '@/layout/clipCard';
 import StreamerList from '@/layout/streamerList';
@@ -9,10 +9,16 @@ import { useAtom } from 'jotai';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
 import DefaultHeader from '@/layout/defaultHeader';
+import { useEffect } from 'react';
 
 export default function Home() {
   const [tab, setTab] = useAtom(tabAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
+  const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
+
+  useEffect(() => {
+      setCurrentStreamerId('summary');
+  }, []);
 
   function handleTabChange(event: React.SyntheticEvent, newValue: keyof ClipDoc) {
     setTab(newValue);

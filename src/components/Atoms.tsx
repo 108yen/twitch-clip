@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { updateDoc } from "firebase/firestore";
-import { atom, Getter } from "jotai";
+import { atom } from "jotai";
 import { ClipDoc, User } from "./types";
 
 export const usersAtom = atom<Promise<Array<User>>>(
@@ -48,7 +47,7 @@ const viewLayoutValueAtom = atom<string>('list');
 //for reset
 export const tabAtom = atom(
     (get) => get(tabValueAtom),
-    (get, set, update: keyof ClipDoc) => {
+    (_, set, update: keyof ClipDoc) => {
         set(tabValueAtom, update);
         set(overrideClipCardsDisplayNumAtom, null);
         set(overrideMoreItemIsExistAtom, null);
@@ -56,7 +55,7 @@ export const tabAtom = atom(
 );
 export const viewLayoutAtom = atom(
     (get) => get(viewLayoutValueAtom),
-    (get, set, update: string) => {
+    (_, set, update: string) => {
         set(viewLayoutValueAtom, update);
         set(overrideClipCardsDisplayNumAtom, null);
         set(overrideMoreItemIsExistAtom, null);
@@ -73,7 +72,7 @@ export const clipCardsDisplayNumAtom = atom(
             return get(viewLayoutAtom) == 'full' ? 3 : 7;
         }
     },
-    (get, set, update: number) => {
+    (_, set, update: number) => {
         set(overrideClipCardsDisplayNumAtom, update);
     }
 );
@@ -89,7 +88,7 @@ export const moreItemIsExistAtom = atom(
             return true;
         }
     },
-    (get, set, update: boolean) => {
+    (_, set, update: boolean) => {
         set(overrideMoreItemIsExistAtom, update);
     }
 );

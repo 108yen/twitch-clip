@@ -1,11 +1,10 @@
-import { usersAtom, clipsAtom, tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
-import { User, ClipDoc } from "@/components/types";
+import { tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
+import { ClipDoc } from "@/components/types";
 import ClipCards from "@/layout/clipCard";
 import DefaultHeader from "@/layout/defaultHeader";
 import StreamerList from "@/layout/streamerList";
 import { ViewArray } from "@mui/icons-material";
-import { Grid, Box, ToggleButtonGroup, ToggleButton, Tabs, Tab, CircularProgress } from "@mui/material";
-import axios, { AxiosRequestConfig } from "axios";
+import { Grid, Box, ToggleButtonGroup, ToggleButton, Tabs, Tab } from "@mui/material";
 import { useAtom } from "jotai";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useEffect } from "react";
@@ -19,7 +18,6 @@ export default function StreamerClip() {
   const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom);
 
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
-  const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
   const router = useRouter();
@@ -29,38 +27,12 @@ export default function StreamerClip() {
   function isString(value: string | string[] | undefined): boolean {
     return typeof value === "string";
   }
+
   useEffect(() => {
-    async function fetch() {
-      setClips({
-        day: [],
-        week: [],
-        month: [],
-        all: [],
-      });
-      setCurrentStreamerId(streamerId);
-      await fetchClips(streamerId);
-    }
     if (router.isReady) {
-      fetch();
+      setCurrentStreamerId(streamerId);
     }
   }, [router]);
-
-  async function fetchClips(streamerId: string) {
-    const config: AxiosRequestConfig = {
-      url: '/api/clips',
-      method: 'GET',
-      params: {
-        id: streamerId,
-      },
-      paramsSerializer: { indexes: null }
-    }
-    const res = await axios<ClipDoc>(config)
-      .catch((error) => console.log('clips api fetch error'));
-    //if data not exist   
-    if (res?.data.all != undefined) {
-      setClips(res?.data);
-    }
-  }
 
   function handleTabChange(event: React.SyntheticEvent, newValue: keyof ClipDoc) {
     setTab(newValue);
@@ -69,6 +41,7 @@ export default function StreamerClip() {
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
     setViewLayout(newAlignment);
   }
+
   const display_name = currentStreamerValue.state === "hasData"
     ? currentStreamerValue.data?.display_name
     : "no data";
@@ -151,19 +124,10 @@ export default function StreamerClip() {
               <Tab label='all' value='all' />
             </Tabs>
           </Box>
-          {
-            clips['all'].length == 0 ?
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <CircularProgress color="secondary" />
-              </Box> :
-              <ClipCards
-                clips={clips[tab]}
-                layout={viewLayout}
-              />
-          }
+          <ClipCards />
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-          <StreamerList/>
+          <StreamerList />
         </Grid>
       </Grid>
     </>
