@@ -1,9 +1,11 @@
+import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
 import { Clip, User } from "@/components/types";
 import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Paper, Skeleton, Stack, Typography } from "@mui/material";
+import { useAtom } from "jotai";
+import { loadable } from "jotai/utils";
 import Image from 'next/image';
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 function ListClipCard({
@@ -11,7 +13,7 @@ function ListClipCard({
     streamer,
 }: {
     clip: Clip,
-    streamer: User,
+    streamer: User | undefined,
 }) {
     const imageWidth = 300;
 
@@ -91,16 +93,20 @@ function ListClipCard({
                         spacing={2}
                     >
                         <Link
-                            href={"/streamer/" + streamer.id}
+                            href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
                             style={{
                                 textDecoration: 'none',
                                 color: 'black',
                             }}
                         >
-                            <Avatar src={streamer.profile_image_url} />
+                            {streamer != undefined
+                                ? <Avatar src={streamer.profile_image_url} />
+                                : <Skeleton variant="circular" width={40} height={40} />}
                         </Link>
                         <Typography noWrap variant="body1">
-                            {streamer.display_name}
+                            {streamer != undefined
+                                ? streamer.display_name
+                                : <Skeleton width={150} />}
                         </Typography>
                     </Stack>
                     <Typography
@@ -138,7 +144,7 @@ function FullClipCard({
     streamer,
 }: {
     clip: Clip,
-    streamer: User,
+    streamer: User | undefined,
 }) {
     return (
         <Paper
@@ -176,13 +182,15 @@ function FullClipCard({
                 paddingX={2}
             >
                 <Link
-                    href={"/streamer/" + streamer.id}
+                    href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
                     style={{
                         textDecoration: 'none',
                         color: 'black',
                     }}
                 >
-                    <Avatar src={streamer.profile_image_url} />
+                    {streamer != undefined
+                        ? <Avatar src={streamer.profile_image_url} />
+                        : <Skeleton variant="circular" width={40} height={40} />}
                 </Link>
                 <Box
                     paddingBottom={1}
@@ -212,20 +220,23 @@ function FullClipCard({
     );
 }
 
-function ClipCards({
-    clips,
-    users,
-    layout,
-}: {
-    clips: Array<Clip>,
-    users: Array<User>,
-    layout: string,
-}) {
+function ClipCards() {
+    //clips data
+    const clipsLoadableAtom = loadable(clipsAtom);
+    const [clipsValue] = useAtom(clipsLoadableAtom);
+    //streamer info
+    const streamersLoadableAtom = loadable(usersAtom);
+    const [streamersValue] = useAtom(streamersLoadableAtom);
     //to infinite scroller
-    const [viewItemNum, setViewItemNum] = useState<number>(0);
-    const [hasMore, setHasMore] = useState<boolean>(true);
+    const [viewItemNum, setViewItemNum] = useAtom(clipCardsDisplayNumAtom);
+    const [hasMore, setHasMore] = useAtom(moreItemIsExistAtom);
+    //layout full | list
+    const [layout] = useAtom(viewLayoutAtom);
+    //period tab
+    const [tab] = useAtom(tabAtom);
 
-    function loadMore() {
+
+    function loadMore(clips: Clip[]) {
         //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
             setHasMore(false);
@@ -238,51 +249,63 @@ function ClipCards({
         <CircularProgress color="secondary" />
     </Box>;
 
-    const endMessage = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
+    const endMessage = <Box key={0} sx={{ m: 3, display: "flex", justifyContent: "center" }}>
         <Typography variant='inherit' color='gray'>
             no more clips
         </Typography>
     </Box>;
 
-    //if chenge clips or layout, reset view item 
-    useEffect(() => {
-        const preloadNum = layout == 'full' ? 3 : 7;
-        setViewItemNum(preloadNum);
-        const isHasMore = clips.length <= preloadNum;
-        setHasMore(!isHasMore);
-    }, [clips, layout])
+    if (clipsValue.state === "hasData") {
+        if (clipsValue.data != undefined
+            && clipsValue.data[tab] != undefined
+            && clipsValue.data[tab].length != 0) {
+            const clips = clipsValue.data[tab];
 
-    return (
-        <InfiniteScroll
-            dataLength={viewItemNum}
-            next={loadMore}
-            hasMore={hasMore}
-            loader={loader}
-            endMessage={endMessage}
-        >
-            {clips.slice(0, viewItemNum).map((e, index) => {
-                const streamer = users.find((user) => user.id == e.broadcaster_id);
-                //!ここで分岐しているの処理上よくないかも
-                if (layout == "full") {
-                    return (
-                        <FullClipCard
-                            key={index}
-                            clip={e}
-                            streamer={streamer!}
-                        />
-                    );
-                } else {
-                    return (
-                        <ListClipCard
-                            key={index}
-                            clip={e}
-                            streamer={streamer!}
-                        />
-                    );
-                }
-            })}
-        </InfiniteScroll>
-    );
+            return (
+                <InfiniteScroll
+                    dataLength={viewItemNum}
+                    next={() => { loadMore(clips) }} //!ごり押し
+                    hasMore={hasMore}
+                    loader={loader}
+                    endMessage={endMessage}
+                >
+                    {clips.slice(0, viewItemNum).map((e, index) => {
+                        const streamer = streamersValue.state === 'hasData'
+                            ? streamersValue.data?.find((user) => user.id == e.broadcaster_id)
+                            : undefined;
+                        //!ここで分岐しているの処理上よくないかも
+                        if (layout == "full") {
+                            return (
+                                <FullClipCard
+                                    key={index}
+                                    clip={e}
+                                    streamer={streamer}
+                                />
+                            );
+                        } else {
+                            return (
+                                <ListClipCard
+                                    key={index}
+                                    clip={e}
+                                    streamer={streamer}
+                                />
+                            );
+                        }
+                    })}
+                </InfiniteScroll>
+            );
+        } else {
+            return endMessage;
+        }
+    } else if (clipsValue.state === "loading") {
+        return loader;
+    } else {
+        return <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
+            <Typography variant='inherit' color='gray'>
+                load error
+            </Typography>
+        </Box>;
+    }
 }
 
 export default ClipCards;

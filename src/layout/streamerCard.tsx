@@ -1,16 +1,18 @@
-import { User } from "@/components/types";
+import { currentStreamerAtom } from "@/components/Atoms";
 import theme from "@/theme";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, Paper, Skeleton, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
+import { useAtom } from "jotai";
+import { loadable } from "jotai/utils";
 import Link from "next/link";
 
-function StreamerCard({
-    streamer,
-}: {
-    streamer: User | undefined,
-}) {
-    if (streamer == undefined) {
+function StreamerCard() {
+    const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
+    const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom);
+
+    if (currentStreamerValue.state === "hasData"
+        && currentStreamerValue.data != undefined) {
         return (
             <Box
                 sx={{
@@ -37,26 +39,43 @@ function StreamerCard({
                             alignItems="center"
                             spacing={1}
                         >
-                            <Skeleton variant="circular" width={40} height={40} />
+                            <Link
+                                href={"/streamer/" + currentStreamerValue.data.id}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: theme.palette.text.primary,
+                                }}
+                            >
+                                <Avatar src={currentStreamerValue.data.profile_image_url} />
+                            </Link>
                             <Typography
                                 variant="subtitle1"
                                 noWrap
                             >
-                                <Skeleton width={150} />
+                                {currentStreamerValue.data.display_name}
                             </Typography>
                         </Stack>
 
-                        <Stack
-                            direction="row"
-                            spacing={1}
+                        <Link
+                            href={"https://www.twitch.tv/" + currentStreamerValue.data.login}
+                            target='_blank'
+                            style={{
+                                textDecoration: 'none',
+                                color: 'black',
+                            }}
                         >
-                            <Typography
-                                variant="body2"
+                            <Stack
+                                direction="row"
+                                spacing={1}
                             >
-                                Twitch
-                            </Typography>
-                            <Launch fontSize="small" />
-                        </Stack>
+                                <Typography
+                                    variant="body2"
+                                >
+                                    Twitch
+                                </Typography>
+                                <Launch fontSize="small" />
+                            </Stack>
+                        </Link>
                     </Stack>
                     <Stack
                         ml={6}
@@ -67,14 +86,14 @@ function StreamerCard({
                     >
                         <Typography
                             variant="body2"
+                            color="gray"
                         >
-                            <Skeleton width={350} />
+                            {currentStreamerValue.data.description}
                         </Typography>
                     </Stack>
                 </Paper>
             </Box>
         );
-
     }
     return (
         <Box
@@ -102,43 +121,26 @@ function StreamerCard({
                         alignItems="center"
                         spacing={1}
                     >
-                        <Link
-                            href={"/streamer/" + streamer.id}
-                            style={{
-                                textDecoration: 'none',
-                                color: theme.palette.text.primary,
-                            }}
-                        >
-                            <Avatar src={streamer.profile_image_url} />
-                        </Link>
+                        <Skeleton variant="circular" width={40} height={40} />
                         <Typography
                             variant="subtitle1"
                             noWrap
                         >
-                            {streamer.display_name}
+                            <Skeleton width={150} />
                         </Typography>
                     </Stack>
 
-                    <Link
-                        href={"https://www.twitch.tv/" + streamer.login}
-                        target='_blank'
-                        style={{
-                            textDecoration: 'none',
-                            color: 'black',
-                        }}
+                    <Stack
+                        direction="row"
+                        spacing={1}
                     >
-                        <Stack
-                            direction="row"
-                            spacing={1}
+                        <Typography
+                            variant="body2"
                         >
-                            <Typography
-                                variant="body2"
-                            >
-                                Twitch
-                            </Typography>
-                            <Launch fontSize="small" />
-                        </Stack>
-                    </Link>
+                            Twitch
+                        </Typography>
+                        <Launch fontSize="small" />
+                    </Stack>
                 </Stack>
                 <Stack
                     ml={6}
@@ -149,9 +151,8 @@ function StreamerCard({
                 >
                     <Typography
                         variant="body2"
-                        color="gray"
                     >
-                        {streamer.description}
+                        <Skeleton width={350} />
                     </Typography>
                 </Stack>
             </Paper>

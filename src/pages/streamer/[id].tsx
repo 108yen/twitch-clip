@@ -1,23 +1,23 @@
-import { usersAtom, clipsAtom, tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
-import { User, ClipDoc } from "@/components/types";
+import { tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
+import { ClipDoc } from "@/components/types";
 import ClipCards from "@/layout/clipCard";
 import DefaultHeader from "@/layout/defaultHeader";
 import StreamerList from "@/layout/streamerList";
 import { ViewArray } from "@mui/icons-material";
-import { Grid, Box, ToggleButtonGroup, ToggleButton, Tabs, Tab, CircularProgress } from "@mui/material";
-import axios, { AxiosRequestConfig } from "axios";
+import { Grid, Box, ToggleButtonGroup, ToggleButton, Tabs, Tab } from "@mui/material";
 import { useAtom } from "jotai";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useEffect } from "react";
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
+import { loadable } from "jotai/utils";
 
 export default function StreamerClip() {
-  const [currentStreamer] = useAtom(currentStreamerAtom);
+  const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
+  const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom);
+
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
-  const [users, setUsers] = useAtom(usersAtom);
-  const [clips, setClips] = useAtom(clipsAtom);
   const [tab, setTab] = useAtom(tabAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
   const router = useRouter();
@@ -27,50 +27,12 @@ export default function StreamerClip() {
   function isString(value: string | string[] | undefined): boolean {
     return typeof value === "string";
   }
+
   useEffect(() => {
-    async function fetch() {
-      setClips({
-        day: [],
-        week: [],
-        month: [],
-        all: [],
-      });
-      if (users.length == 0) {
-        await fetchUsers();
-      }
-      setCurrentStreamerId(streamerId);
-      await fetchClips(streamerId);
-    }
     if (router.isReady) {
-      fetch();
+      setCurrentStreamerId(streamerId);
     }
   }, [router]);
-
-  async function fetchUsers() {
-    const res = await axios.get<Array<User>>('/api/streamers')
-      .catch((error) => console.log('streamers api fetch error'));
-    if (res?.data != null) {
-      const fetchUsers = res?.data;
-      setUsers(fetchUsers);
-    }
-  }
-
-  async function fetchClips(streamerId: string) {
-    const config: AxiosRequestConfig = {
-      url: '/api/clips',
-      method: 'GET',
-      params: {
-        id: streamerId,
-      },
-      paramsSerializer: { indexes: null }
-    }
-    const res = await axios<ClipDoc>(config)
-      .catch((error) => console.log('clips api fetch error'));
-    //if data not exist   
-    if (res?.data.all != undefined) {
-      setClips(res?.data);
-    }
-  }
 
   function handleTabChange(event: React.SyntheticEvent, newValue: keyof ClipDoc) {
     setTab(newValue);
@@ -79,8 +41,12 @@ export default function StreamerClip() {
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
     setViewLayout(newAlignment);
   }
-  const title = "twitchクリップランキング | " + currentStreamer?.display_name;
-  const description = currentStreamer?.display_name + "のTwitch(ツイッチ)クリップの再生数ランキング。";
+
+  const display_name = currentStreamerValue.state === "hasData"
+    ? currentStreamerValue.data?.display_name
+    : "no data";
+  const title = "twitchクリップランキング | " + display_name;
+  const description = display_name + "のTwitch(ツイッチ)クリップの再生数ランキング。";
 
   return (
     <>
@@ -118,7 +84,7 @@ export default function StreamerClip() {
         paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
       >
         <Grid item xs={12} md={9}>
-          <StreamerCard streamer={currentStreamer} />
+          <StreamerCard />
           <Box
             sx={{
               m: 1,
@@ -158,20 +124,10 @@ export default function StreamerClip() {
               <Tab label='all' value='all' />
             </Tabs>
           </Box>
-          {
-            clips['all'].length == 0 ?
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <CircularProgress color="secondary" />
-              </Box> :
-              <ClipCards
-                clips={clips[tab]}
-                users={users}
-                layout={viewLayout}
-              />
-          }
+          <ClipCards />
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-          <StreamerList streamers={users} />
+          <StreamerList />
         </Grid>
       </Grid>
     </>
