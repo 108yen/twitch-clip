@@ -256,7 +256,9 @@ function ClipCards() {
     </Box>;
 
     if (clipsValue.state === "hasData") {
-        if (clipsValue.data != undefined && clipsValue.data[tab].length != 0) {
+        if (clipsValue.data != undefined
+            && clipsValue.data[tab] != undefined
+            && clipsValue.data[tab].length != 0) {
             const clips = clipsValue.data[tab];
 
             return (
