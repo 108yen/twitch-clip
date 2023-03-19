@@ -249,53 +249,61 @@ function ClipCards() {
         <CircularProgress color="secondary" />
     </Box>;
 
-    const endMessage = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
+    const endMessage = <Box key={0} sx={{ m: 3, display: "flex", justifyContent: "center" }}>
         <Typography variant='inherit' color='gray'>
             no more clips
         </Typography>
     </Box>;
 
-    if (clipsValue.state === "hasData" && clipsValue.data != undefined) {
-        const clips = clipsValue.data[tab];
-        return (
-            <InfiniteScroll
-                dataLength={viewItemNum}
-                next={() => { loadMore(clips) }} //!ごり押し
-                hasMore={hasMore}
-                loader={loader}
-                endMessage={endMessage}
-            >
-                {clips.slice(0, viewItemNum).map((e, index) => {
-                    const streamer = streamersValue.state === 'hasData'
-                        ? streamersValue.data.find((user) => user.id == e.broadcaster_id)
-                        : undefined;
-                    //!ここで分岐しているの処理上よくないかも
-                    if (layout == "full") {
-                        return (
-                            <FullClipCard
-                                key={index}
-                                clip={e}
-                                streamer={streamer}
-                            />
-                        );
-                    } else {
-                        return (
-                            <ListClipCard
-                                key={index}
-                                clip={e}
-                                streamer={streamer}
-                            />
-                        );
-                    }
-                })}
-            </InfiniteScroll>
-        );
+    if (clipsValue.state === "hasData") {
+        if (clipsValue.data != undefined && clipsValue.data[tab].length != 0) {
+            const clips = clipsValue.data[tab];
+
+            return (
+                <InfiniteScroll
+                    dataLength={viewItemNum}
+                    next={() => { loadMore(clips) }} //!ごり押し
+                    hasMore={hasMore}
+                    loader={loader}
+                    endMessage={endMessage}
+                >
+                    {clips.slice(0, viewItemNum).map((e, index) => {
+                        const streamer = streamersValue.state === 'hasData'
+                            ? streamersValue.data.find((user) => user.id == e.broadcaster_id)
+                            : undefined;
+                        //!ここで分岐しているの処理上よくないかも
+                        if (layout == "full") {
+                            return (
+                                <FullClipCard
+                                    key={index}
+                                    clip={e}
+                                    streamer={streamer}
+                                />
+                            );
+                        } else {
+                            return (
+                                <ListClipCard
+                                    key={index}
+                                    clip={e}
+                                    streamer={streamer}
+                                />
+                            );
+                        }
+                    })}
+                </InfiniteScroll>
+            );
+        } else {
+            return endMessage;
+        }
+    } else if (clipsValue.state === "loading") {
+        return loader;
+    } else {
+        return <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
+            <Typography variant='inherit' color='gray'>
+                load error
+            </Typography>
+        </Box>;
     }
-    return (
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <CircularProgress color="secondary" />
-        </Box>
-    );
 }
 
 export default ClipCards;
