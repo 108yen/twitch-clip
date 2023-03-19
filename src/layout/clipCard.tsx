@@ -271,7 +271,7 @@ function ClipCards() {
                 >
                     {clips.slice(0, viewItemNum).map((e, index) => {
                         const streamer = streamersValue.state === 'hasData'
-                            ? streamersValue.data.find((user) => user.id == e.broadcaster_id)
+                            ? streamersValue.data?.find((user) => user.id == e.broadcaster_id)
                             : undefined;
                         //!ここで分岐しているの処理上よくないかも
                         if (layout == "full") {

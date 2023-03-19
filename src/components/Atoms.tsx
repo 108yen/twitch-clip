@@ -2,10 +2,17 @@ import axios, { AxiosRequestConfig } from "axios";
 import { atom } from "jotai";
 import { ClipDoc, User } from "./types";
 
-export const usersAtom = atom<Promise<Array<User>>>(
+export const usersAtom = atom<Promise<Array<User> | undefined>>(
     async () => {
-        //todo: catch実装
-        const res = await axios.get<Array<User>>('/api/streamers');
+        const res = await axios.get<Array<User>>('/api/streamers')
+            .catch(error => {
+                if (axios.isAxiosError(error)) {
+                    console.error(error.response?.data);
+                } else {
+                    console.error(error);
+                }
+                return undefined;
+            });
         return res?.data;
     }
 );
@@ -37,7 +44,9 @@ const currentStreamerIdValue = atom<string>('summary');
 export const currentStreamerAtom = atom<Promise<User | undefined>>(
     async (get) => {
         const users = await get(usersAtom);
-        return users.find(user => user.id == get(currentStreamerIdAtom));
+        return users != undefined
+            ? users.find(user => user.id == get(currentStreamerIdAtom))
+            : undefined;
     }
 );
 

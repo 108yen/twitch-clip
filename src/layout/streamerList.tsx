@@ -61,7 +61,8 @@ function StreamerList() {
     const streamersLoadableAtom = loadable(usersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
 
-    if (streamersValue.state==="hasData") {
+    if (streamersValue.state === "hasData"
+        && streamersValue.data != undefined) {
         return (
             <Box
                 mt={6}
