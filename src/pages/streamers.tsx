@@ -19,6 +19,8 @@ function StreamerItem({
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 1, sm: 2 },
+                p: 2,
+                overflow: 'hidden',
             }}
         >
             <Stack

@@ -19,11 +19,15 @@ export const usersAtom = atom<Promise<Array<User> | undefined>>(
 
 export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     async (get) => {
+        if (get(currentStreamerIdAtom)==undefined) {
+            return undefined;
+        }
+        const id = get(currentStreamerIdAtom);
         const config: AxiosRequestConfig = {
             url: '/api/clips',
             method: 'GET',
             params: {
-                id: get(currentStreamerIdAtom),
+                id: id,
             },
             paramsSerializer: { indexes: null }
         }
@@ -40,9 +44,12 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     }
 );
 
-const currentStreamerIdValue = atom<string>('summary');
+const currentStreamerIdValue = atom<string | undefined>(undefined);
 export const currentStreamerAtom = atom<Promise<User | undefined>>(
     async (get) => {
+        if (get(currentStreamerIdAtom)==undefined) {
+            return undefined;
+        }
         const users = await get(usersAtom);
         return users != undefined
             ? users.find(user => user.id == get(currentStreamerIdAtom))
