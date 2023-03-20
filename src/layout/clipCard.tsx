@@ -4,7 +4,6 @@ import { Launch } from "@mui/icons-material";
 import { Avatar, Box, CircularProgress, Paper, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
-import Image from 'next/image';
 import Link from "next/link";
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -47,7 +46,7 @@ function ListClipCard({
                     height: { xs: 110, sm: 170 }
                 }}
             >
-                <Image
+                <img
                     src={clip.thumbnail_url}
                     alt={clip.title}
                     width={imageWidth}
@@ -56,7 +55,6 @@ function ListClipCard({
                         width: 'auto',
                         height: '100%'
                     }}
-                    quality={100}
                 />
                 <Stack
                     direction="column"

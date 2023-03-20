@@ -71,13 +71,35 @@ function StreamerList() {
                 mr={0}
                 overflow="hidden"
             >
-                <Typography variant='subtitle1' color='grey'>
-                    ストリーマー
-                </Typography>
+                <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                >
+                    <Typography variant='subtitle1' color='grey'>
+                        ストリーマー
+                    </Typography>
+
+                    <Link
+                        href='/streamers'
+                        style={{
+                            textDecoration: 'none',
+                        }}
+                    >
+                        <Typography
+                            variant='overline'
+                            color='grey'
+                        >
+                            一覧
+                        </Typography>
+                    </Link>
+                </Stack>
                 <Divider />
-                {streamersValue.data.map((e, index) =>
-                    <StreamerListItem streamer={e} key={index} />
-                )}
+                {streamersValue.data
+                    .slice(0, 10)
+                    .map((e, index) =>
+                        <StreamerListItem streamer={e} key={index} />
+                    )}
             </Box>
         );
     } else {

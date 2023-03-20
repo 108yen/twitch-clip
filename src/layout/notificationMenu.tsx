@@ -64,6 +64,17 @@ export default function NotificationMenu() {
             >
                 <MenuItem>
                     <Link
+                        href='/streamers'
+                        style={{
+                            textDecoration: 'none',
+                            color: theme.palette.text.primary,
+                        }}
+                    >
+                    ストリーマー一覧
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link
                         href='/about'
                         style={{
                             textDecoration: 'none',
