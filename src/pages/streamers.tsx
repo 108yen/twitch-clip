@@ -1,6 +1,7 @@
 import { usersAtom } from "@/components/Atoms";
 import { User } from "@/components/types";
 import DefaultHeader from "@/layout/defaultHeader";
+import theme from "@/theme";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, CircularProgress, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
@@ -21,6 +22,9 @@ function StreamerItem({
                 p: 2,
                 height: 140,
                 overflow: 'hidden',
+                boxShadow: 0,
+                border: "1px solid",
+                borderColor:theme.palette.secondary.main,
             }}
         >
             <Stack
@@ -193,7 +197,7 @@ export default function Streamers() {
                     <Box
                         sx={{
                             marginX: { xs: 0, sm: 1 },
-                            marginY: { xs: 2, sm: 3 },
+                            mt: { xs: 2, sm: 5 },
                             overflow: 'hidden',
                         }}
                     >
