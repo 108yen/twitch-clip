@@ -74,6 +74,7 @@ function StreamerList() {
                 <Stack
                     direction="row"
                     justifyContent="space-between"
+                    alignItems="center"
                 >
                     <Typography variant='subtitle1' color='grey'>
                         ストリーマー

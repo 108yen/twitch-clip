@@ -18,61 +18,78 @@ function StreamerItem({
         <Paper
             sx={{
                 marginX: { xs: 0, sm: 1 },
-                marginY: { xs: 1, sm: 2 },
+                marginY: { xs: 2, sm: 3 },
                 p: 2,
+                height: 110,
                 overflow: 'hidden',
             }}
         >
             <Stack
                 direction="row"
-                justifyContent="space-between"
-                alignItems="flex-start"
+                justifyContent="flex-start"
+                alignItems="center"
+                height={'100%'}
+                spacing={1}
             >
-                <Stack
-                    direction="row"
-                    justifyContent="flex-start"
-                    alignItems="center"
-                    spacing={1}
-                >
-                    <Link
-                        href={"/streamer/" + streamer.id}
-                        style={{
-                            textDecoration: 'none',
-                            color: theme.palette.text.primary,
-                        }}
-                    >
-                        <Avatar src={streamer.profile_image_url} />
-                    </Link>
-                    <Typography
-                        variant="subtitle1"
-                        noWrap
-                    >
-                        {streamer.display_name}
-                    </Typography>
-                </Stack>
-
                 <Link
-                    href={"https://www.twitch.tv/" + streamer.login}
-                    target='_blank'
-                    style={{
-                        textDecoration: 'none',
-                        color: 'black',
-                    }}
+                    href={"/streamer/" + streamer.id}
+                >
+                    <Avatar src={streamer.profile_image_url} />
+                </Link>
+                <Stack
+                    direction="column"
+                    justifyContent="flex-start"
+                    alignItems="flex-start"
+                    width="100%"
+                    height="100%"
+                    overflow="hidden"
                 >
                     <Stack
                         direction="row"
-                        spacing={1}
+                        justifyContent="space-between"
+                        width="100%"
                     >
                         <Typography
-                            variant="body2"
+                            variant="h6"
+                            noWrap
                         >
-                            Twitch
+                            {streamer.display_name}
                         </Typography>
-                        <Launch fontSize="small" />
+                        <Link
+                            href={"https://www.twitch.tv/" + streamer.login}
+                            target='_blank'
+                            style={{
+                                textDecoration: 'none',
+                                color: 'black',
+                            }}
+                        >
+                            <Stack
+                                direction="row"
+                                spacing={1}
+                            >
+                                <Typography
+                                    variant="body2"
+                                >
+                                    Twitch
+                                </Typography>
+                                <Launch fontSize="small" />
+                            </Stack>
+                        </Link>
                     </Stack>
-                </Link>
+                    <Typography
+                        variant="body2"
+                        color="gray"
+                        // wordWrap="break-word"
+                        // sx={{
+                        //     wordWrap: "break-word"
+                        // }}
+                    >
+                        {streamer.description}
+                    </Typography>
+                </Stack>
+
             </Stack>
-            <Stack
+            {/* <Stack
                 ml={6}
                 spacing={0}
                 direction="column"
@@ -85,7 +102,7 @@ function StreamerItem({
                 >
                     {streamer.description}
                 </Typography>
-            </Stack>
+            </Stack> */}
         </Paper>
     );
 }
