@@ -2,7 +2,7 @@ import { usersAtom } from "@/components/Atoms";
 import { User } from "@/components/types";
 import DefaultHeader from "@/layout/defaultHeader";
 import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { ArticleJsonLd, NextSeo } from "next-seo";
@@ -84,7 +84,7 @@ function StreamerItem({
                             msOverflowStyle: "none",
                             scrollbarWidth: "none",
                             "::-webkit-scrollbar": {
-                                display:"none",
+                                display: "none",
                             }
                         }}
                     >
@@ -130,20 +130,25 @@ function StreamerComponent() {
     } else if (streamersValue.state == "loading") {
         return loader;
     } else {
-        return (<>
-            {
-                streamersValue.data!
-                    .map(
-                        (streamer, index) =>
-                            <StreamerItem key={index} streamer={streamer} />
-                    )
-            }
-        </>
+        return (
+            <>
+                {
+                    streamersValue.data!
+                        .map(
+                            (streamer, index) =>
+                                <StreamerItem key={index} streamer={streamer} />
+                        )
+                }
+            </>
         );
     }
 }
 
 export default function Streamers() {
+    //streamer info
+    const streamersLoadableAtom = loadable(usersAtom);
+    const [streamersValue] = useAtom(streamersLoadableAtom);
+    const channelNum = streamersValue.state === "hasData" ? streamersValue.data?.length : undefined;
     //seo
     const title = "twitchクリップランキング | ストリーマー一覧";
     const description = "ランキング集計しているストリーマーの一覧ページです。";
@@ -185,6 +190,23 @@ export default function Streamers() {
                 paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
             >
                 <Grid item xs={12} md={9}>
+                    <Box
+                        sx={{
+                            marginX: { xs: 0, sm: 1 },
+                            marginY: { xs: 2, sm: 3 },
+                            overflow: 'hidden',
+                        }}
+                    >
+                        <Typography
+                            mr={2}
+                            variant="h5"
+                            color="secondary"
+                            textAlign="end"
+                        >
+                            {channelNum?.toLocaleString() + " channels"}
+                        </Typography>
+                        <Divider />
+                    </Box>
                     <StreamerComponent />
                 </Grid>
             </Grid>
