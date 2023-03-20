@@ -1,14 +1,15 @@
 export type User = {
     id: string;
-    login: string;
-    display_name: string;
-    type: string;
-    broadcaster_type: string;
-    description: string;
-    profile_image_url: string;
-    offline_image_url: string;
-    view_count: number;
-    created_at: string;
+    login: string | undefined;
+    display_name: string | undefined;
+    type: string | undefined;
+    broadcaster_type: string | undefined;
+    description: string | undefined;
+    profile_image_url: string | undefined;
+    offline_image_url: string | undefined;
+    view_count: number | undefined;
+    created_at: string | undefined;
+    follower_num: number | undefined;
 }
 
 export type Clip = {

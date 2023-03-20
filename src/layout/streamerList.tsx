@@ -27,30 +27,16 @@ function StreamerListItem({
                 <Stack
                     direction="row"
                     justifyContent="flex-start"
-                    alignItems="flex-start"
+                    alignItems="center"
+                    spacing={1}
                 >
                     <Avatar src={streamer.profile_image_url} />
-                    <Stack
-                        ml={1}
-                        spacing={0}
-                        direction="column"
-                        justifyContent="flex-start"
-                        alignItems="flex-start"
+                    <Typography
+                        variant="subtitle1"
+                        noWrap
                     >
-                        <Typography
-                            variant="subtitle1"
-                            noWrap
-                        >
-                            {streamer.display_name}
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            color="gray"
-                            noWrap
-                        >
-                            {streamer.description}
-                        </Typography>
-                    </Stack>
+                        {streamer.display_name}
+                    </Typography>
                 </Stack>
             </Link>
         </Box>

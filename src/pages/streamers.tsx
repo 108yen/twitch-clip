@@ -1,7 +1,6 @@
 import { usersAtom } from "@/components/Atoms";
 import { User } from "@/components/types";
 import DefaultHeader from "@/layout/defaultHeader";
-import theme from "@/theme";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, CircularProgress, Grid, Paper, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
@@ -20,7 +19,7 @@ function StreamerItem({
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 2, sm: 3 },
                 p: 2,
-                height: 110,
+                height: 140,
                 overflow: 'hidden',
             }}
         >
@@ -77,32 +76,31 @@ function StreamerItem({
                         </Link>
                     </Stack>
                     <Typography
-                        variant="body2"
+                        variant="body1"
                         color="gray"
-                        // wordWrap="break-word"
-                        // sx={{
-                        //     wordWrap: "break-word"
-                        // }}
+                        height={50}
+                        overflow="auto"
+                        sx={{
+                            msOverflowStyle: "none",
+                            scrollbarWidth: "none",
+                            "::-webkit-scrollbar": {
+                                display:"none",
+                            }
+                        }}
                     >
                         {streamer.description}
                     </Typography>
+                    <Typography
+                        noWrap
+                        variant="body2"
+                        color="gray"
+                        textAlign="end"
+                        width="100%"
+                    >
+                        {streamer.follower_num?.toLocaleString()} followers
+                    </Typography>
                 </Stack>
-
             </Stack>
-            {/* <Stack
-                ml={6}
-                spacing={0}
-                direction="column"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-            >
-                <Typography
-                    variant="body2"
-                    color="gray"
-                >
-                    {streamer.description}
-                </Typography>
-            </Stack> */}
         </Paper>
     );
 }
