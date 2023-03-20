@@ -47,7 +47,8 @@ function ListClipCard({
                     height: { xs: 110, sm: 170 }
                 }}
             >
-                <Image
+                {/* <Image */}
+                <img
                     src={clip.thumbnail_url}
                     alt={clip.title}
                     width={imageWidth}
@@ -56,7 +57,7 @@ function ListClipCard({
                         width: 'auto',
                         height: '100%'
                     }}
-                    quality={100}
+                    // quality={100}
                 />
                 <Stack
                     direction="column"
