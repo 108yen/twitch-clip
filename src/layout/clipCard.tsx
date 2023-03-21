@@ -1,5 +1,6 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
 import { Clip, User } from "@/components/types";
+import theme from "@/theme";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, CircularProgress, Paper, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
@@ -38,6 +39,9 @@ function ListClipCard({
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 1, sm: 2 },
+                boxShadow: 0,
+                border: "1px solid",
+                borderColor: theme.palette.secondary.main,
             }}
         >
             <Stack
@@ -127,7 +131,7 @@ function ListClipCard({
                         color="gray"
                         textAlign="end"
                     >
-                        視聴数：{clip.view_count}
+                        {clip.view_count.toLocaleString() + " views"}
                     </Typography>
                 </Stack>
 
@@ -149,6 +153,9 @@ function FullClipCard({
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 1, sm: 2 },
+                boxShadow: 0,
+                border: "1px solid",
+                borderColor: theme.palette.secondary.main,
             }}
         >
             <Box
@@ -167,7 +174,8 @@ function FullClipCard({
                         top: 0,
                         left: 0,
                         width: '100%',
-                        height: '100%'
+                        height: '100%',
+                        border: 'none',
                     }}
                 />
             </Box>
@@ -210,7 +218,9 @@ function FullClipCard({
                         alignItems="baseline"
                     >
                         <Typography variant='subtitle2'>{clip.broadcaster_name}</Typography>
-                        <Typography variant='subtitle2'>視聴数：{clip.view_count}</Typography>
+                        <Typography variant='subtitle2'>
+                            {clip.view_count.toLocaleString() + " views"}
+                        </Typography>
                     </Stack>
                 </Box>
             </Stack>
