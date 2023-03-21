@@ -6,7 +6,19 @@ import NotificationMenu from "./notificationMenu";
 
 export default function DefaultHeader() {
     return (
-        <AppBar position='static'>
+        <AppBar
+            position='sticky'
+            sx={{
+                boxShadow: 0,
+                bgcolor:theme.palette.primary.light,                
+            }}
+            onClick={() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                });
+            }}
+        >
             <Toolbar>
                 <HexagonOutlined
                     color='secondary'
