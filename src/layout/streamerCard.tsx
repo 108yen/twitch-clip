@@ -26,6 +26,9 @@ function StreamerCard() {
                         overflow: 'hidden',
                         maxWidth: 700,
                         minWidth: { xs: 400, md: 600, },
+                        boxShadow: 0,
+                        border: "1px solid",
+                        borderColor: theme.palette.secondary.main,
                     }}
                 >
                     <Stack
