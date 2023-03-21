@@ -1,7 +1,6 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
-import { BorderPaper } from "@/components/styledui";
+import { BorderPaper, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
-import { Launch } from "@mui/icons-material";
 import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
@@ -79,10 +78,9 @@ function ListClipCard({
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
-                                color: 'black',
                             }}
                         >
-                            <Launch fontSize="small" />
+                            <StyledLaunch fontSize="small" />
                         </Link>
 
                     </Stack>

@@ -1,5 +1,5 @@
 import { currentStreamerAtom } from "@/components/Atoms";
-import { BorderPaper } from "@/components/styledui";
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, Paper, Skeleton, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
@@ -68,19 +68,18 @@ function StreamerCard() {
                                     target='_blank'
                                     style={{
                                         textDecoration: 'none',
-                                        color: 'black',
                                     }}
                                 >
                                     <Stack
                                         direction="row"
                                         spacing={1}
                                     >
-                                        <Typography
+                                        <NoDecorationTypography
                                             variant="body2"
                                         >
                                             Twitch
-                                        </Typography>
-                                        <Launch fontSize="small" />
+                                        </NoDecorationTypography>
+                                        <StyledLaunch fontSize="small" />
                                     </Stack>
                                 </Link>
                             </Stack>

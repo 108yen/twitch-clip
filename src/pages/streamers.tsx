@@ -1,9 +1,8 @@
 import { usersAtom } from "@/components/Atoms";
-import { BorderPaper } from "@/components/styledui";
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { User } from "@/components/types";
 import DefaultHeader from "@/layout/defaultHeader";
-import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Divider, Grid, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { ArticleJsonLd, NextSeo } from "next-seo";
@@ -60,19 +59,18 @@ function StreamerItem({
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
-                                color: 'black',
                             }}
                         >
                             <Stack
                                 direction="row"
                                 spacing={1}
                             >
-                                <Typography
+                                <NoDecorationTypography
                                     variant="body2"
                                 >
                                     Twitch
-                                </Typography>
-                                <Launch fontSize="small" />
+                                </NoDecorationTypography>
+                                <StyledLaunch fontSize="small" />
                             </Stack>
                         </Link>
                     </Stack>
