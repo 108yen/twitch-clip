@@ -11,7 +11,7 @@ export default function NotificationMenu() {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
         noSsr: true,
     });
-    const [isSetDarkMode,setIsDarkMode] = useAtom(isDarkModeAtom);
+    const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom);
     const isDarkMode = isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode;
     function handleSwitchChange() {
         setIsDarkMode(!isDarkMode);
@@ -76,11 +76,12 @@ export default function NotificationMenu() {
             >
                 <MenuItem
                     sx={{
+                        height: 40,
                         justifyContent: 'space-between'
                     }}
                 >
                     <Typography>
-                        mode
+                        ダークモード
                     </Typography>
                     <Switch
                         checked={isDarkMode}
@@ -88,7 +89,11 @@ export default function NotificationMenu() {
                         color="secondary"
                     />
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                    sx={{
+                        height: 40,
+                    }}
+                >
                     <Link
                         href='/streamers'
                         style={{
@@ -100,7 +105,11 @@ export default function NotificationMenu() {
                         </NoDecorationTypography>
                     </Link>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                    sx={{
+                        height: 40,
+                    }}
+                >
                     <Link
                         href='/about'
                         style={{
