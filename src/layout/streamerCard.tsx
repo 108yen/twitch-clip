@@ -33,66 +33,78 @@ function StreamerCard() {
                 >
                     <Stack
                         direction="row"
-                        justifyContent="space-between"
-                        alignItems="flex-start"
+                        justifyContent="flex-start"
+                        alignItems="center"
+                        spacing={1}
                     >
-                        <Stack
-                            direction="row"
-                            justifyContent="flex-start"
-                            alignItems="center"
-                            spacing={1}
-                        >
-                            <Link
-                                href={"/streamer/" + currentStreamerValue.data.id}
-                                style={{
-                                    textDecoration: 'none',
-                                    color: theme.palette.text.primary,
-                                }}
-                            >
-                                <Avatar src={currentStreamerValue.data.profile_image_url} />
-                            </Link>
-                            <Typography
-                                variant="subtitle1"
-                                noWrap
-                            >
-                                {currentStreamerValue.data.display_name}
-                            </Typography>
-                        </Stack>
-
                         <Link
-                            href={"https://www.twitch.tv/" + currentStreamerValue.data.login}
-                            target='_blank'
+                            href={"/streamer/" + currentStreamerValue.data.id}
                             style={{
                                 textDecoration: 'none',
-                                color: 'black',
+                                color: theme.palette.text.primary,
                             }}
+                        >
+                            <Avatar src={currentStreamerValue.data.profile_image_url} />
+                        </Link>
+
+                        <Stack
+                            spacing={0}
+                            direction="column"
+                            justifyContent="space-between"
+                            flexGrow={1}
+                            overflow="hidden"
                         >
                             <Stack
                                 direction="row"
+                                justifyContent="space-between"
+                                alignItems="start"
+                                flexGrow={1}
                                 spacing={1}
                             >
                                 <Typography
-                                    variant="body2"
+                                    variant="subtitle1"
+                                    noWrap
                                 >
-                                    Twitch
+                                    {currentStreamerValue.data.display_name}
                                 </Typography>
-                                <Launch fontSize="small" />
+                                <Link
+                                    href={"https://www.twitch.tv/" + currentStreamerValue.data.login}
+                                    target='_blank'
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'black',
+                                    }}
+                                >
+                                    <Stack
+                                        direction="row"
+                                        spacing={1}
+                                    >
+                                        <Typography
+                                            variant="body2"
+                                        >
+                                            Twitch
+                                        </Typography>
+                                        <Launch fontSize="small" />
+                                    </Stack>
+                                </Link>
                             </Stack>
-                        </Link>
-                    </Stack>
-                    <Stack
-                        ml={6}
-                        spacing={0}
-                        direction="column"
-                        justifyContent="flex-start"
-                        alignItems="flex-start"
-                    >
-                        <Typography
-                            variant="body2"
-                            color="gray"
-                        >
-                            {currentStreamerValue.data.description}
-                        </Typography>
+                            <Typography
+                                variant="body2"
+                                color="gray"
+                            >
+                                {currentStreamerValue.data.description}
+                            </Typography>
+
+                            <Typography
+                                noWrap
+                                variant="body2"
+                                color="gray"
+                                textAlign="end"
+                                width="100%"
+                            >
+                                {currentStreamerValue.data.follower_num?.toLocaleString()} followers
+                            </Typography>
+                        </Stack>
                     </Stack>
                 </Paper>
             </Box>
