@@ -1,8 +1,8 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
+import { BorderPaper } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
-import theme from "@/theme";
 import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Paper, Skeleton, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
@@ -35,13 +35,10 @@ function ListClipCard({
     }
 
     return (
-        <Paper
+        <BorderPaper
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 1, sm: 2 },
-                boxShadow: 0,
-                border: "1px solid",
-                borderColor: theme.palette.secondary.main,
             }}
         >
             <Stack
@@ -136,7 +133,7 @@ function ListClipCard({
                 </Stack>
 
             </Stack>
-        </Paper>
+        </BorderPaper>
     );
 
 }
@@ -149,13 +146,10 @@ function FullClipCard({
     streamer: User | undefined,
 }) {
     return (
-        <Paper
+        <BorderPaper
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 1, sm: 2 },
-                boxShadow: 0,
-                border: "1px solid",
-                borderColor: theme.palette.secondary.main,
             }}
         >
             <Box
@@ -179,13 +173,13 @@ function FullClipCard({
                     }}
                 />
             </Box>
-
             <Stack
                 direction="row"
                 justifyContent="flex-start"
                 alignItems="flex-start"
                 spacing={2}
                 paddingX={2}
+                mt={1}
             >
                 <Link
                     href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
@@ -199,11 +193,12 @@ function FullClipCard({
                         : <Skeleton variant="circular" width={40} height={40} />}
                 </Link>
                 <Box
-                    paddingBottom={1}
+                    // paddingBottom={1}
                     sx={{
                         overflow: 'hidden',
                         flexGrow: 1,
-                    }}>
+                    }}
+                >
                     <Typography
                         variant='subtitle1'
                         noWrap
@@ -224,7 +219,7 @@ function FullClipCard({
                     </Stack>
                 </Box>
             </Stack>
-        </Paper>
+        </BorderPaper>
     );
 }
 

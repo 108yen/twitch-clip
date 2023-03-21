@@ -1,7 +1,7 @@
 import { usersAtom } from "@/components/Atoms";
+import { BorderPaper } from "@/components/styledui";
 import { User } from "@/components/types";
 import DefaultHeader from "@/layout/defaultHeader";
-import theme from "@/theme";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, CircularProgress, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
@@ -15,16 +15,13 @@ function StreamerItem({
     streamer: User
 }) {
     return (
-        <Paper
+        <BorderPaper
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 2, sm: 3 },
                 p: 2,
                 height: 140,
                 overflow: 'hidden',
-                boxShadow: 0,
-                border: "1px solid",
-                borderColor:theme.palette.secondary.main,
             }}
         >
             <Stack
@@ -101,11 +98,11 @@ function StreamerItem({
                         textAlign="end"
                         width="100%"
                     >
-                        {streamer.follower_num?.toLocaleString()} followers
+                        {streamer.follower_num?.toLocaleString() + " followers"}
                     </Typography>
                 </Stack>
             </Stack>
-        </Paper>
+        </BorderPaper>
     );
 }
 

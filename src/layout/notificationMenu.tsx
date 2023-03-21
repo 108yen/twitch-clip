@@ -2,7 +2,7 @@ import { Box, IconButton, Menu, MenuItem } from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from "react";
 import Link from "next/link";
-import theme from "@/theme";
+import { NoDecorationTypography } from "@/components/styledui";
 
 export default function NotificationMenu() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -67,10 +67,11 @@ export default function NotificationMenu() {
                         href='/streamers'
                         style={{
                             textDecoration: 'none',
-                            color: theme.palette.text.primary,
                         }}
                     >
-                    ストリーマー一覧
+                        <NoDecorationTypography>
+                            ストリーマー一覧
+                        </NoDecorationTypography>
                     </Link>
                 </MenuItem>
                 <MenuItem>
@@ -78,10 +79,11 @@ export default function NotificationMenu() {
                         href='/about'
                         style={{
                             textDecoration: 'none',
-                            color: theme.palette.text.primary,
                         }}
                     >
-                    このサイトについて
+                        <NoDecorationTypography>
+                            このサイトについて
+                        </NoDecorationTypography>
                     </Link>
                 </MenuItem>
             </Menu>
