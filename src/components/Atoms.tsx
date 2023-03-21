@@ -19,7 +19,7 @@ export const usersAtom = atom<Promise<Array<User> | undefined>>(
 
 export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     async (get) => {
-        if (get(currentStreamerIdAtom)==undefined) {
+        if (get(currentStreamerIdAtom) == undefined) {
             return undefined;
         }
         const id = get(currentStreamerIdAtom);
@@ -47,7 +47,7 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
 const currentStreamerIdValue = atom<string | undefined>(undefined);
 export const currentStreamerAtom = atom<Promise<User | undefined>>(
     async (get) => {
-        if (get(currentStreamerIdAtom)==undefined) {
+        if (get(currentStreamerIdAtom) == undefined) {
             return undefined;
         }
         const users = await get(usersAtom);
@@ -116,3 +116,5 @@ export const moreItemIsExistAtom = atom(
         set(overrideMoreItemIsExistAtom, update);
     }
 );
+
+export const isDarkModeAtom = atom<boolean | undefined>(undefined);

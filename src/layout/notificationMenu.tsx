@@ -1,10 +1,22 @@
-import { Box, IconButton, Menu, MenuItem } from "@mui/material";
+import { Box, IconButton, Menu, MenuItem, Switch, ToggleButton, Typography, useMediaQuery } from "@mui/material";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from "react";
 import Link from "next/link";
 import { NoDecorationTypography } from "@/components/styledui";
+import { useAtom } from "jotai";
+import { isDarkModeAtom } from "@/components/Atoms";
 
 export default function NotificationMenu() {
+    //darkmode
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
+        noSsr: true,
+    });
+    const [isSetDarkMode,setIsDarkMode] = useAtom(isDarkModeAtom);
+    const isDarkMode = isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode;
+    function handleSwitchChange() {
+        setIsDarkMode(!isDarkMode);
+    }
+    //menu
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -13,6 +25,7 @@ export default function NotificationMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
     return (
         <>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -32,7 +45,6 @@ export default function NotificationMenu() {
                 id="notification-menu"
                 open={open}
                 onClose={handleClose}
-                onClick={handleClose}
                 PaperProps={{
                     elevation: 0,
                     sx: {
@@ -62,6 +74,20 @@ export default function NotificationMenu() {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
+                <MenuItem
+                    sx={{
+                        justifyContent: 'space-between'
+                    }}
+                >
+                    <Typography>
+                        mode
+                    </Typography>
+                    <Switch
+                        checked={isDarkMode}
+                        onChange={handleSwitchChange}
+                        color="secondary"
+                    />
+                </MenuItem>
                 <MenuItem>
                     <Link
                         href='/streamers'
