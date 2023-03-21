@@ -10,7 +10,7 @@ export default function DefaultHeader() {
             position='sticky'
             sx={{
                 boxShadow: 0,
-                bgcolor:theme.palette.primary.light,                
+                bgcolor:theme.palette.background.default,                
             }}
             onClick={() => {
                 window.scrollTo({
