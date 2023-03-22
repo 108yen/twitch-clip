@@ -51,6 +51,7 @@ function ListClipCard({
                     alt={clip.title}
                     width={imageWidth}
                     height={imageWidth * 9 / 16}
+                    loading="lazy"
                     style={{
                         width: 'auto',
                         height: '100%'
@@ -161,6 +162,7 @@ function FullClipCard({
                 <iframe
                     src={clip.embed_url + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
                     allowFullScreen
+                    loading="lazy"
                     style={{
                         position: 'absolute',
                         top: 0,
