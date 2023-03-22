@@ -1,5 +1,4 @@
-import { tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
-import { ClipDoc } from "@/components/types";
+import { tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom, swiperAtom } from "@/components/Atoms";
 import ClipCards from "@/layout/clipCard";
 import DefaultHeader from "@/layout/defaultHeader";
 import StreamerList from "@/layout/streamerList";
@@ -12,6 +11,9 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
 import { loadable } from "jotai/utils";
+import { Swiper as SwiperCore, Virtual } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 export default function StreamerClip() {
   const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
@@ -19,6 +21,7 @@ export default function StreamerClip() {
 
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
   const [tab, setTab] = useAtom(tabAtom);
+  const [swiper, setSwiper] = useAtom(swiperAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
   const router = useRouter();
   const { id } = router.query;
@@ -34,8 +37,12 @@ export default function StreamerClip() {
     }
   }, [router]);
 
+  function handleSlideChange(index: number) {
+    setTab(index);
+  }
   function handleTabChange(event: React.SyntheticEvent, newValue: number) {
     setTab(newValue);
+    swiper?.slideTo(newValue);
   }
 
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
@@ -124,7 +131,21 @@ export default function StreamerClip() {
               <Tab label='all' value={3} />
             </Tabs>
           </Box>
-          <ClipCards />
+          <Swiper
+            modules={[Virtual]}
+            virtual
+            onSlideChange={(index) => handleSlideChange(index.activeIndex)}
+            onSwiper={(swiper) => {
+              const swiperInstance = swiper;
+              setSwiper(swiperInstance);
+            }}
+          >
+            {Array.from({ length: 4 }).map((e, index) => (
+              <SwiperSlide key={index} virtualIndex={index}>
+                <ClipCards />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
           <StreamerList />

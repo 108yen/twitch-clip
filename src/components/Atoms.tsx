@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { atom } from "jotai";
 import { ClipDoc, User } from "./types";
+import { Swiper as SwiperCore } from 'swiper';
 
 export const usersAtom = atom<Promise<Array<User> | undefined>>(
     async () => {
@@ -59,6 +60,7 @@ export const currentStreamerAtom = atom<Promise<User | undefined>>(
 
 const tabValueAtom = atom<number>(0);
 const viewLayoutValueAtom = atom<string>('list');
+export const swiperAtom = atom<SwiperCore | null>(null);
 
 //for reset
 export const currentStreamerIdAtom = atom(
