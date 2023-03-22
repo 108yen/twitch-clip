@@ -1,11 +1,11 @@
-import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
+import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNameAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
+import { BorderPaper, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
-import theme from "@/theme";
-import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Paper, Skeleton, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
+import { useState } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 function ListClipCard({
@@ -35,13 +35,10 @@ function ListClipCard({
     }
 
     return (
-        <Paper
+        <BorderPaper
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 1, sm: 2 },
-                boxShadow: 0,
-                border: "1px solid",
-                borderColor: theme.palette.secondary.main,
             }}
         >
             <Stack
@@ -55,6 +52,7 @@ function ListClipCard({
                     alt={clip.title}
                     width={imageWidth}
                     height={imageWidth * 9 / 16}
+                    loading="lazy"
                     style={{
                         width: 'auto',
                         height: '100%'
@@ -82,10 +80,9 @@ function ListClipCard({
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
-                                color: 'black',
                             }}
                         >
-                            <Launch fontSize="small" />
+                            <StyledLaunch fontSize="small" />
                         </Link>
 
                     </Stack>
@@ -136,7 +133,7 @@ function ListClipCard({
                 </Stack>
 
             </Stack>
-        </Paper>
+        </BorderPaper>
     );
 
 }
@@ -148,27 +145,46 @@ function FullClipCard({
     clip: Clip,
     streamer: User | undefined,
 }) {
+    const [loaded, setLoaded] = useState(false);
+    function handleLoaded() {
+        setLoaded(true);
+    }
+
     return (
-        <Paper
+        <BorderPaper
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 1, sm: 2 },
-                boxShadow: 0,
-                border: "1px solid",
-                borderColor: theme.palette.secondary.main,
             }}
         >
             <Box
                 sx={{
                     position: 'relative',
                     width: '100%',
-                    height: '0',
+                    height: 0,
                     paddingBottom: '56.25%',
+                    display: 'flex',
+                    justifyContent: 'center',
                 }}
             >
+                {loaded
+                    ? null
+                    : <Skeleton
+                        variant="rounded"
+                        sx={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                        }}
+                    />
+                }
                 <iframe
                     src={clip.embed_url + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
                     allowFullScreen
+                    loading="lazy"
+                    onLoad={handleLoaded}
                     style={{
                         position: 'absolute',
                         top: 0,
@@ -177,15 +193,15 @@ function FullClipCard({
                         height: '100%',
                         border: 'none',
                     }}
-                />
+                    />
             </Box>
-
             <Stack
                 direction="row"
                 justifyContent="flex-start"
                 alignItems="flex-start"
                 spacing={2}
                 paddingX={2}
+                mt={1}
             >
                 <Link
                     href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
@@ -199,11 +215,12 @@ function FullClipCard({
                         : <Skeleton variant="circular" width={40} height={40} />}
                 </Link>
                 <Box
-                    paddingBottom={1}
+                    // paddingBottom={1}
                     sx={{
                         overflow: 'hidden',
                         flexGrow: 1,
-                    }}>
+                    }}
+                >
                     <Typography
                         variant='subtitle1'
                         noWrap
@@ -224,7 +241,7 @@ function FullClipCard({
                     </Stack>
                 </Box>
             </Stack>
-        </Paper>
+        </BorderPaper>
     );
 }
 
@@ -240,8 +257,8 @@ function ClipCards() {
     const [hasMore, setHasMore] = useAtom(moreItemIsExistAtom);
     //layout full | list
     const [layout] = useAtom(viewLayoutAtom);
-    //period tab
-    const [tab] = useAtom(tabAtom);
+    //period tab name
+    const [tab] = useAtom(tabNameAtom);
 
 
     function loadMore(clips: Clip[]) {

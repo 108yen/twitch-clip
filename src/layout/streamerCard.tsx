@@ -1,5 +1,5 @@
 import { currentStreamerAtom } from "@/components/Atoms";
-import theme from "@/theme";
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Launch } from "@mui/icons-material";
 import { Avatar, Box, Paper, Skeleton, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
@@ -20,15 +20,12 @@ function StreamerCard() {
                     display: 'flex',
                     justifyContent: 'center',
                 }}>
-                <Paper
+                <BorderPaper
                     sx={{
                         p: 2,
                         overflow: 'hidden',
                         maxWidth: 700,
                         minWidth: { xs: 400, md: 600, },
-                        boxShadow: 0,
-                        border: "1px solid",
-                        borderColor: theme.palette.secondary.main,
                     }}
                 >
                     <Stack
@@ -41,7 +38,6 @@ function StreamerCard() {
                             href={"/streamer/" + currentStreamerValue.data.id}
                             style={{
                                 textDecoration: 'none',
-                                color: theme.palette.text.primary,
                             }}
                         >
                             <Avatar src={currentStreamerValue.data.profile_image_url} />
@@ -72,19 +68,18 @@ function StreamerCard() {
                                     target='_blank'
                                     style={{
                                         textDecoration: 'none',
-                                        color: 'black',
                                     }}
                                 >
                                     <Stack
                                         direction="row"
                                         spacing={1}
                                     >
-                                        <Typography
+                                        <NoDecorationTypography
                                             variant="body2"
                                         >
                                             Twitch
-                                        </Typography>
-                                        <Launch fontSize="small" />
+                                        </NoDecorationTypography>
+                                        <StyledLaunch fontSize="small" />
                                     </Stack>
                                 </Link>
                             </Stack>
@@ -106,7 +101,7 @@ function StreamerCard() {
                             </Typography>
                         </Stack>
                     </Stack>
-                </Paper>
+                </BorderPaper>
             </Box>
         );
     }

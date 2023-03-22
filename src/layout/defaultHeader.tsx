@@ -1,6 +1,6 @@
-import theme from "@/theme";
+import { NoDecorationTypography } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
-import { AppBar, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, Stack,  Toolbar } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
 
@@ -39,18 +39,12 @@ export default function DefaultHeader() {
                                 textDecoration: 'none',
                             }}
                         >
-                            <Typography
+                            <NoDecorationTypography
                                 variant="h5"
-                                component="div"
                                 noWrap
-                                sx={{
-                                    flexGrow: 1,
-                                    color: theme.palette.text.primary,
-                                    textDecoration: 'none',
-                                }}
                             >
                                 twitch clip ranking
-                            </Typography>
+                            </NoDecorationTypography>
                         </Link>
                     </Stack>
                     <NotificationMenu />

@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { atom } from "jotai";
 import { ClipDoc, User } from "./types";
+import { Swiper as SwiperCore } from 'swiper';
 
 export const usersAtom = atom<Promise<Array<User> | undefined>>(
     async () => {
@@ -19,7 +20,7 @@ export const usersAtom = atom<Promise<Array<User> | undefined>>(
 
 export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     async (get) => {
-        if (get(currentStreamerIdAtom)==undefined) {
+        if (get(currentStreamerIdAtom) == undefined) {
             return undefined;
         }
         const id = get(currentStreamerIdAtom);
@@ -47,7 +48,7 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
 const currentStreamerIdValue = atom<string | undefined>(undefined);
 export const currentStreamerAtom = atom<Promise<User | undefined>>(
     async (get) => {
-        if (get(currentStreamerIdAtom)==undefined) {
+        if (get(currentStreamerIdAtom) == undefined) {
             return undefined;
         }
         const users = await get(usersAtom);
@@ -57,8 +58,9 @@ export const currentStreamerAtom = atom<Promise<User | undefined>>(
     }
 );
 
-const tabValueAtom = atom<keyof ClipDoc>('day');
+const tabValueAtom = atom<number>(0);
 const viewLayoutValueAtom = atom<string>('list');
+export const swiperAtom = atom<SwiperCore | null>(null);
 
 //for reset
 export const currentStreamerIdAtom = atom(
@@ -71,10 +73,16 @@ export const currentStreamerIdAtom = atom(
 );
 export const tabAtom = atom(
     (get) => get(tabValueAtom),
-    (_, set, update: keyof ClipDoc) => {
+    (_, set, update: number) => {
         set(tabValueAtom, update);
         set(overrideClipCardsDisplayNumAtom, null);
         set(overrideMoreItemIsExistAtom, null);
+    }
+);
+export const tabNameAtom = atom<keyof ClipDoc>(
+    (get) => {
+        const tabArray:Array<keyof ClipDoc> = ['day', 'week', 'month', 'all'];
+        return tabArray[get(tabValueAtom)];
     }
 );
 export const viewLayoutAtom = atom(
@@ -116,3 +124,5 @@ export const moreItemIsExistAtom = atom(
         set(overrideMoreItemIsExistAtom, update);
     }
 );
+
+export const isDarkModeAtom = atom<boolean | undefined>(undefined);

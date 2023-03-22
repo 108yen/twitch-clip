@@ -1,9 +1,8 @@
 import { usersAtom } from "@/components/Atoms";
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { User } from "@/components/types";
 import DefaultHeader from "@/layout/defaultHeader";
-import theme from "@/theme";
-import { Launch } from "@mui/icons-material";
-import { Avatar, Box, CircularProgress, Divider, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, Divider, Grid, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { ArticleJsonLd, NextSeo } from "next-seo";
@@ -15,16 +14,13 @@ function StreamerItem({
     streamer: User
 }) {
     return (
-        <Paper
+        <BorderPaper
             sx={{
                 marginX: { xs: 0, sm: 1 },
                 marginY: { xs: 2, sm: 3 },
                 p: 2,
                 height: 140,
                 overflow: 'hidden',
-                boxShadow: 0,
-                border: "1px solid",
-                borderColor:theme.palette.secondary.main,
             }}
         >
             <Stack
@@ -63,19 +59,18 @@ function StreamerItem({
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
-                                color: 'black',
                             }}
                         >
                             <Stack
                                 direction="row"
                                 spacing={1}
                             >
-                                <Typography
+                                <NoDecorationTypography
                                     variant="body2"
                                 >
                                     Twitch
-                                </Typography>
-                                <Launch fontSize="small" />
+                                </NoDecorationTypography>
+                                <StyledLaunch fontSize="small" />
                             </Stack>
                         </Link>
                     </Stack>
@@ -101,11 +96,11 @@ function StreamerItem({
                         textAlign="end"
                         width="100%"
                     >
-                        {streamer.follower_num?.toLocaleString()} followers
+                        {streamer.follower_num?.toLocaleString() + " followers"}
                     </Typography>
                 </Stack>
             </Stack>
-        </Paper>
+        </BorderPaper>
     );
 }
 

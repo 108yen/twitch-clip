@@ -1,7 +1,7 @@
 import { usersAtom } from "@/components/Atoms";
+import { NoDecorationTypography } from "@/components/styledui";
 import { User } from "@/components/types";
-import theme from "@/theme";
-import { Avatar, Box, Divider, Typography } from "@mui/material";
+import { Avatar, Box, Divider,  Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils"
@@ -21,7 +21,6 @@ function StreamerListItem({
                 href={"/streamer/" + streamer.id}
                 style={{
                     textDecoration: 'none',
-                    color: theme.palette.text.primary,
                 }}
             >
                 <Stack
@@ -31,12 +30,12 @@ function StreamerListItem({
                     spacing={1}
                 >
                     <Avatar src={streamer.profile_image_url} />
-                    <Typography
+                    <NoDecorationTypography
                         variant="subtitle1"
                         noWrap
                     >
                         {streamer.display_name}
-                    </Typography>
+                    </NoDecorationTypography>
                 </Stack>
             </Link>
         </Box>

@@ -1,27 +1,35 @@
-import {  currentStreamerIdAtom, tabAtom,  viewLayoutAtom } from '@/components/Atoms';
-import { ClipDoc } from '@/components/types';
+import { currentStreamerIdAtom, swiperAtom, tabAtom, viewLayoutAtom } from '@/components/Atoms';
 import ClipCards from '@/layout/clipCard';
 import StreamerList from '@/layout/streamerList';
 import { ViewArray } from '@mui/icons-material';
-import {  Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Grid, Tab, Tabs, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Box } from '@mui/system';
 import { useAtom } from 'jotai';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
 import DefaultHeader from '@/layout/defaultHeader';
 import { useEffect } from 'react';
+import { Swiper as SwiperCore, Virtual } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/virtual';
 
 export default function Home() {
   const [tab, setTab] = useAtom(tabAtom);
+  const [swiper, setSwiper] = useAtom(swiperAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
   useEffect(() => {
-      setCurrentStreamerId('summary');
+    setCurrentStreamerId('summary');
   }, []);
 
-  function handleTabChange(event: React.SyntheticEvent, newValue: keyof ClipDoc) {
+  function handleSlideChange(index: number) {
+    setTab(index);
+  }
+  function handleTabChange(event: React.SyntheticEvent, newValue: number) {
     setTab(newValue);
+    swiper?.slideTo(newValue);
   }
 
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
@@ -99,13 +107,29 @@ export default function Home() {
               indicatorColor="secondary"
               centered
             >
-              <Tab label='day' value='day' />
-              <Tab label='week' value='week' />
-              <Tab label='month' value='month' />
-              <Tab label='all' value='all' />
+              <Tab label='day' value={0} />
+              <Tab label='week' value={1} />
+              <Tab label='month' value={2} />
+              <Tab label='all' value={3} />
             </Tabs>
           </Box>
-          <ClipCards />
+          <Swiper
+            modules={[Virtual]}
+            virtual
+            spaceBetween={100}
+            slidesPerView={1}
+            onSlideChange={(index) => handleSlideChange(index.activeIndex)}
+            onSwiper={(swiper) => {
+              const swiperInstance = swiper;
+              setSwiper(swiperInstance);
+            }}
+          >
+            {Array.from({ length: 4 }).map((e, index) => (
+              <SwiperSlide key={index} virtualIndex={index}>
+                <ClipCards />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
           <StreamerList />

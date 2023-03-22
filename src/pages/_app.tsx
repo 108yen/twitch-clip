@@ -3,11 +3,14 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from '../theme';
 import createEmotionCache from '../createEmotionCache';
 import { useEffect, useState } from 'react';
 import { DefaultSeo } from 'next-seo';
 import { Analytics } from '@vercel/analytics/react';
+import { createTheme, useMediaQuery } from '@mui/material';
+import { themeOptions } from '@/theme';
+import { useAtom } from 'jotai';
+import { isDarkModeAtom } from '@/components/Atoms';
 
 const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
@@ -17,6 +20,13 @@ interface MyAppProps extends AppProps {
 function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const [show_screen, setShowScreen] = useState(false)
+  const [isDarkMode] = useAtom(isDarkModeAtom);
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
+    noSsr: true,
+  });
+  const theme = createTheme(themeOptions(
+    isDarkMode == undefined ? prefersDarkMode : isDarkMode
+  ));
 
   useEffect(() => {
     setShowScreen(true)
