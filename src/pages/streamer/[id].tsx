@@ -34,7 +34,7 @@ export default function StreamerClip() {
     }
   }, [router]);
 
-  function handleTabChange(event: React.SyntheticEvent, newValue: keyof ClipDoc) {
+  function handleTabChange(event: React.SyntheticEvent, newValue: number) {
     setTab(newValue);
   }
 
@@ -118,10 +118,10 @@ export default function StreamerClip() {
               indicatorColor="secondary"
               centered
             >
-              <Tab label='day' value='day' />
-              <Tab label='week' value='week' />
-              <Tab label='month' value='month' />
-              <Tab label='all' value='all' />
+              <Tab label='day' value={0} />
+              <Tab label='week' value={1} />
+              <Tab label='month' value={2} />
+              <Tab label='all' value={3} />
             </Tabs>
           </Box>
           <ClipCards />

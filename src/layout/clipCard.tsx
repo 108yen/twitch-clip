@@ -1,4 +1,4 @@
-import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
+import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNameAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
 import { BorderPaper, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
 import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
@@ -257,8 +257,8 @@ function ClipCards() {
     const [hasMore, setHasMore] = useAtom(moreItemIsExistAtom);
     //layout full | list
     const [layout] = useAtom(viewLayoutAtom);
-    //period tab
-    const [tab] = useAtom(tabAtom);
+    //period tab name
+    const [tab] = useAtom(tabNameAtom);
 
 
     function loadMore(clips: Clip[]) {

@@ -57,7 +57,7 @@ export const currentStreamerAtom = atom<Promise<User | undefined>>(
     }
 );
 
-const tabValueAtom = atom<keyof ClipDoc>('day');
+const tabValueAtom = atom<number>(0);
 const viewLayoutValueAtom = atom<string>('list');
 
 //for reset
@@ -71,10 +71,16 @@ export const currentStreamerIdAtom = atom(
 );
 export const tabAtom = atom(
     (get) => get(tabValueAtom),
-    (_, set, update: keyof ClipDoc) => {
+    (_, set, update: number) => {
         set(tabValueAtom, update);
         set(overrideClipCardsDisplayNumAtom, null);
         set(overrideMoreItemIsExistAtom, null);
+    }
+);
+export const tabNameAtom = atom<keyof ClipDoc>(
+    (get) => {
+        const tabArray:Array<keyof ClipDoc> = ['day', 'week', 'month', 'all'];
+        return tabArray[get(tabValueAtom)];
     }
 );
 export const viewLayoutAtom = atom(
