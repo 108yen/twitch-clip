@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { Swiper as SwiperCore, Virtual } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/virtual';
 
 export default function Home() {
   const [tab, setTab] = useAtom(tabAtom);
@@ -115,6 +116,8 @@ export default function Home() {
           <Swiper
             modules={[Virtual]}
             virtual
+            spaceBetween={100}
+            slidesPerView={1}
             onSlideChange={(index) => handleSlideChange(index.activeIndex)}
             onSwiper={(swiper) => {
               const swiperInstance = swiper;

@@ -14,6 +14,7 @@ import { loadable } from "jotai/utils";
 import { Swiper as SwiperCore, Virtual } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/virtual';
 
 export default function StreamerClip() {
   const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
@@ -134,6 +135,8 @@ export default function StreamerClip() {
           <Swiper
             modules={[Virtual]}
             virtual
+            spaceBetween={100}
+            slidesPerView={1}
             onSlideChange={(index) => handleSlideChange(index.activeIndex)}
             onSwiper={(swiper) => {
               const swiperInstance = swiper;
