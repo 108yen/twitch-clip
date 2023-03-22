@@ -5,6 +5,7 @@ import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
+import { useState } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 function ListClipCard({
@@ -144,6 +145,11 @@ function FullClipCard({
     clip: Clip,
     streamer: User | undefined,
 }) {
+    const [loaded, setLoaded] = useState(false);
+    function handleLoaded() {
+        setLoaded(true);
+    }
+
     return (
         <BorderPaper
             sx={{
@@ -155,14 +161,30 @@ function FullClipCard({
                 sx={{
                     position: 'relative',
                     width: '100%',
-                    height: '0',
+                    height: 0,
                     paddingBottom: '56.25%',
+                    display: 'flex',
+                    justifyContent: 'center',
                 }}
             >
+                {loaded
+                    ? null
+                    : <Skeleton
+                        variant="rounded"
+                        sx={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                        }}
+                    />
+                }
                 <iframe
                     src={clip.embed_url + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
                     allowFullScreen
                     loading="lazy"
+                    onLoad={handleLoaded}
                     style={{
                         position: 'absolute',
                         top: 0,
@@ -171,7 +193,7 @@ function FullClipCard({
                         height: '100%',
                         border: 'none',
                     }}
-                />
+                    />
             </Box>
             <Stack
                 direction="row"
