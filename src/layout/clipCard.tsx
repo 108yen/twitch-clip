@@ -231,7 +231,7 @@ function FullClipCard({
                         alignItems="baseline"
                     >
                         <Typography variant='subtitle2'>
-                            {clip.broadcaster_name + inView}
+                            {clip.broadcaster_name}
                         </Typography>
                         <Typography variant='subtitle2'>
                             {clip.view_count.toLocaleString() + " views"}
