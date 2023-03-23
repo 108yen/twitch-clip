@@ -137,6 +137,7 @@ export default function StreamerClip() {
             virtual
             spaceBetween={100}
             slidesPerView={1}
+            simulateTouch={false}
             onSlideChange={(index) => handleSlideChange(index.activeIndex)}
             onSwiper={(swiper) => {
               const swiperInstance = swiper;
