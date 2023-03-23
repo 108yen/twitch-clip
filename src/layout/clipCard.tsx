@@ -149,6 +149,13 @@ function FullClipCard({
     function handleLoaded() {
         setLoaded(true);
     }
+    const [ishover, setIshover] = useState(false);
+    const handleMouseEnter = () => {
+        setIshover(true);
+    };
+    const handleMouseLeave = () => {
+        setIshover(false);
+    };
 
     return (
         <BorderPaper
@@ -158,6 +165,8 @@ function FullClipCard({
             }}
         >
             <Box
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 sx={{
                     position: 'relative',
                     width: '100%',
@@ -167,7 +176,7 @@ function FullClipCard({
                     justifyContent: 'center',
                 }}
             >
-                {loaded
+                {loaded || !ishover
                     ? null
                     : <Skeleton
                         variant="rounded"
@@ -180,7 +189,8 @@ function FullClipCard({
                         }}
                     />
                 }
-                <iframe
+                {ishover
+                    ? <iframe
                     src={clip.embed_url + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
                     allowFullScreen
                     loading="lazy"
@@ -193,7 +203,20 @@ function FullClipCard({
                         height: '100%',
                         border: 'none',
                     }}
-                    />
+                />
+                    : <img
+                        src={clip.thumbnail_url}
+                        alt={clip.title}
+                        loading="lazy"
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            border: 'none',
+                        }}
+                    />}
             </Box>
             <Stack
                 direction="row"
