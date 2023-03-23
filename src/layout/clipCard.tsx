@@ -1,12 +1,12 @@
-import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNameAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
+import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
 import { BorderPaper, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
 import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
-import { useState } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useInView } from "react-intersection-observer";
 
 function ListClipCard({
     clip,
@@ -145,10 +145,7 @@ function FullClipCard({
     clip: Clip,
     streamer: User | undefined,
 }) {
-    const [loaded, setLoaded] = useState(false);
-    function handleLoaded() {
-        setLoaded(true);
-    }
+    const { ref, inView, entry } = useInView();
 
     return (
         <BorderPaper
@@ -158,6 +155,7 @@ function FullClipCard({
             }}
         >
             <Box
+                ref={ref}
                 sx={{
                     position: 'relative',
                     width: '100%',
@@ -167,8 +165,20 @@ function FullClipCard({
                     justifyContent: 'center',
                 }}
             >
-                {loaded
-                    ? null
+                {inView
+                    ? <iframe
+                        src={clip.embed_url + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
+                        allowFullScreen
+                        loading="lazy"
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            border: 'none',
+                        }}
+                    />
                     : <Skeleton
                         variant="rounded"
                         sx={{
@@ -180,20 +190,6 @@ function FullClipCard({
                         }}
                     />
                 }
-                <iframe
-                    src={clip.embed_url + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
-                    allowFullScreen
-                    loading="lazy"
-                    onLoad={handleLoaded}
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        border: 'none',
-                    }}
-                    />
             </Box>
             <Stack
                 direction="row"
@@ -234,7 +230,9 @@ function FullClipCard({
                         justifyContent="space-between"
                         alignItems="baseline"
                     >
-                        <Typography variant='subtitle2'>{clip.broadcaster_name}</Typography>
+                        <Typography variant='subtitle2'>
+                            {clip.broadcaster_name + inView}
+                        </Typography>
                         <Typography variant='subtitle2'>
                             {clip.view_count.toLocaleString() + " views"}
                         </Typography>
