@@ -62,7 +62,7 @@ function StreamerList() {
                     alignItems="center"
                 >
                     <Typography variant='subtitle1' color='grey'>
-                        ストリーマー
+                        channels
                     </Typography>
 
                     <Link
@@ -73,9 +73,10 @@ function StreamerList() {
                     >
                         <Typography
                             variant='overline'
+                            textTransform='none'
                             color='grey'
                         >
-                            一覧
+                            all
                         </Typography>
                     </Link>
                 </Stack>
