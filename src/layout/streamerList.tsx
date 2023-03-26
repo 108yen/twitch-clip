@@ -1,11 +1,35 @@
 import { usersAtom } from "@/components/Atoms";
 import { NoDecorationTypography } from "@/components/styledui";
 import { User } from "@/components/types";
-import { Avatar, Box, Divider,  Typography } from "@mui/material";
+import { Avatar, Box, Divider, Skeleton, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils"
 import Link from "next/link";
+
+function SkeletonItem() {
+    return (
+        <Box
+            sx={{
+                paddingY: 1,
+            }}>
+            <Stack
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="center"
+                spacing={1}
+            >
+                <Skeleton variant="circular" width={40} height={40} />
+                <NoDecorationTypography
+                    variant="subtitle1"
+                    noWrap
+                >
+                    <Skeleton width={150} />
+                </NoDecorationTypography>
+            </Stack>
+        </Box>
+    );
+}
 
 function StreamerListItem({
     streamer,
@@ -54,6 +78,7 @@ function StreamerList() {
                 mb={3}
                 ml={3}
                 mr={0}
+                width={200}
                 overflow="hidden"
             >
                 <Stack
@@ -62,7 +87,7 @@ function StreamerList() {
                     alignItems="center"
                 >
                     <Typography variant='subtitle1' color='grey'>
-                        ストリーマー
+                        channels
                     </Typography>
 
                     <Link
@@ -73,9 +98,10 @@ function StreamerList() {
                     >
                         <Typography
                             variant='overline'
+                            textTransform='none'
                             color='grey'
                         >
-                            一覧
+                            all→
                         </Typography>
                     </Link>
                 </Stack>
@@ -100,11 +126,9 @@ function StreamerList() {
                     ストリーマー
                 </Typography>
                 <Divider />
-                {/*
-                //todo:skeleton
-                 {streamersValue.data.map((e, index) =>
-                    <StreamerListItem streamer={e} key={index} />
-                )} */}
+                {Array.from({ length: 10 }).map(
+                    (e,index) => <SkeletonItem key={index}/>
+                )}
             </Box>
         );
     }

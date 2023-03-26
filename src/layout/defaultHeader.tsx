@@ -1,6 +1,6 @@
 import { NoDecorationTypography } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
-import { AppBar, Stack,  Toolbar } from "@mui/material";
+import { AppBar, Box, Stack,  Toolbar } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
 
@@ -10,12 +10,6 @@ export default function DefaultHeader() {
             position='sticky'
             sx={{
                 boxShadow: 0,
-            }}
-            onClick={() => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                });
             }}
         >
             <Toolbar>
@@ -47,6 +41,15 @@ export default function DefaultHeader() {
                             </NoDecorationTypography>
                         </Link>
                     </Stack>
+                    <Box
+                        sx={{ flexGrow: 1 }}
+                        onClick={() => {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: "smooth",
+                            });
+                        }}
+                    />
                     <NotificationMenu />
                 </Stack>
             </Toolbar>
