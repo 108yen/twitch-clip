@@ -53,7 +53,7 @@ export default function StreamerClip() {
   const display_name = currentStreamerValue.state === "hasData"
     ? currentStreamerValue.data?.display_name
     : "no data";
-  const title = "twitchクリップランキング | " + display_name;
+  const title = "Twitchクリップランキング | " + display_name;
   const description = display_name + "のTwitch(ツイッチ)クリップの再生数ランキング。";
 
   return (

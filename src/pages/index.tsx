@@ -35,7 +35,7 @@ export default function Home() {
   function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
     setViewLayout(newAlignment);
   }
-  const title = "twitchクリップランキング";
+  const title = "Twitchクリップランキング";
   const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
 
   return (

@@ -37,7 +37,7 @@ export default function DefaultHeader() {
                                 variant="h5"
                                 noWrap
                             >
-                                twitch clip ranking
+                                Twitch clip ranking
                             </NoDecorationTypography>
                         </Link>
                     </Stack>
