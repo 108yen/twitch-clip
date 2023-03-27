@@ -1,4 +1,4 @@
-import { tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom, swiperAtom } from "@/components/Atoms";
+import { tabAtom, viewLayoutAtom, currentStreamerAtom, currentStreamerIdAtom, swiperAtom, tabNameAtom, tabNameListAtom } from "@/components/Atoms";
 import ClipCards from "@/layout/clipCard";
 import DefaultHeader from "@/layout/defaultHeader";
 import StreamerList from "@/layout/streamerList";
@@ -22,6 +22,7 @@ export default function StreamerClip() {
 
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
   const [tab, setTab] = useAtom(tabAtom);
+  const [tabNameList] = useAtom(tabNameListAtom);
   const [swiper, setSwiper] = useAtom(swiperAtom);
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
   const router = useRouter();
@@ -126,10 +127,11 @@ export default function StreamerClip() {
               indicatorColor="secondary"
               centered
             >
-              <Tab label='day' value={0} />
+              {tabNameList.map((e, index) => <Tab label={e} value={index} />)}
+              {/* <Tab label='day' value={0} />
               <Tab label='week' value={1} />
               <Tab label='month' value={2} />
-              <Tab label='all' value={3} />
+              <Tab label='all' value={3} /> */}
             </Tabs>
           </Box>
           <Swiper
@@ -144,7 +146,7 @@ export default function StreamerClip() {
               setSwiper(swiperInstance);
             }}
           >
-            {Array.from({ length: 4 }).map((e, index) => (
+            {Array.from({ length: tabNameList.length }).map((e, index) => (
               <SwiperSlide key={index} virtualIndex={index}>
                 <ClipCards />
               </SwiperSlide>

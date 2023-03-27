@@ -32,8 +32,5 @@ export type Clip = {
 }
 
 export type ClipDoc = {
-    day: Array<Clip>;
-    week: Array<Clip>;
-    month: Array<Clip>;
-    all: Array<Clip>;
+    [key: string]: Array<Clip>;
 }

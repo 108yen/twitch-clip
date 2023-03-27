@@ -256,9 +256,9 @@ function ClipCards() {
     //layout full | list
     const [layout] = useAtom(viewLayoutAtom);
     //period tab name
+    //todo:async になったから変えないといけないのでは
     const [tab] = useAtom(tabNameAtom);
-
-
+    
     function loadMore(clips: Clip[]) {
         //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
@@ -287,7 +287,7 @@ function ClipCards() {
             return (
                 <InfiniteScroll
                     dataLength={viewItemNum}
-                    next={() => { loadMore(clips) }} //!ごり押し
+                    next={() => { loadMore(clips) }}
                     hasMore={hasMore}
                     loader={loader}
                     endMessage={endMessage}
