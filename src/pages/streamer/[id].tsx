@@ -136,7 +136,7 @@ export default function StreamerClip() {
               textColor="secondary"
               indicatorColor="secondary"
             >
-              {tabNameList.map((e, index) => <Tab label={e} value={index} />)}
+              {tabNameList.map((e, index) => <Tab key={index} label={e} value={index} />)}
             </Tabs>
           </Box>
           <Swiper
