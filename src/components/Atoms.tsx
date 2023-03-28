@@ -45,6 +45,23 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     }
 );
 
+const pastYearsAtom = atom<Promise<Array<string>>>(
+    async (get) => {
+        const currentYear = (new Date()).getFullYear();
+        const clips = await get(clipsAtom);
+        let result: Array<string> = [];
+        if (clips == undefined) {
+            return result;
+        }
+        for (let year = currentYear - 1; year >= 2016; year--) {
+            if (clips[year.toString()] != undefined) {
+                result.push(year.toString());
+            }
+        }
+        return result;
+    }
+);
+
 const currentStreamerIdValue = atom<string | undefined>(undefined);
 export const currentStreamerAtom = atom<Promise<User | undefined>>(
     async (get) => {
@@ -66,6 +83,7 @@ export const swiperAtom = atom<SwiperCore | null>(null);
 export const currentStreamerIdAtom = atom(
     (get) => get(currentStreamerIdValue),
     (_, set, update: string) => {
+        set(tabValueAtom, 0);
         set(currentStreamerIdValue, update);
         set(overrideClipCardsDisplayNumAtom, null);
         set(overrideMoreItemIsExistAtom, null);
@@ -79,9 +97,16 @@ export const tabAtom = atom(
         set(overrideMoreItemIsExistAtom, null);
     }
 );
-export const tabNameAtom = atom<keyof ClipDoc>(
-    (get) => {
-        const tabArray:Array<keyof ClipDoc> = ['day', 'week', 'month', 'all'];
+export const tabNameListAtom = atom<Promise<Array<string>>>(
+    async (get) => {
+        let tabArray: Array<string> = ['day', 'week', 'month', 'all'];
+        tabArray = tabArray.concat(await get(pastYearsAtom));
+        return tabArray;
+    }
+);
+export const tabNameAtom = atom<Promise<string>>(
+    async (get) => {
+        const tabArray = await get(tabNameListAtom);
         return tabArray[get(tabValueAtom)];
     }
 );

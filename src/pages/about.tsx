@@ -3,8 +3,8 @@ import { Divider, Grid, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 
 export default function About() {
-    const title = "twitchクリップランキング | このサイトについて";
-    const description = "twitchクリップランキングの説明ページ";
+    const title = "Twitchクリップランキング | このサイトについて";
+    const description = "Twitchクリップランキングの説明ページ";
 
     const items: Array<{
         title: string;

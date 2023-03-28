@@ -38,21 +38,21 @@ function MyApp(props: MyAppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <DefaultSeo
-        defaultTitle='twitchクリップランキング'
+        defaultTitle='Twitchクリップランキング'
         description='Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。'
 
         openGraph={{
           type: 'website',
-          title: 'twitchクリップランキング',
+          title: 'Twitchクリップランキング',
           description: 'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
-          siteName: 'twitch clip ranking',
+          siteName: 'Twitch clip ranking',
           url: 'https://www.twitchclipsranking.com/',
           images: [
             {
               url: "https://www.twitchclipsranking.com/android-chrome-512x512.png",
               width: 512,
               height: 512,
-              alt: 'twitchクリップランキング',
+              alt: 'Twitchクリップランキング',
               type: 'image/png',
             }
           ]

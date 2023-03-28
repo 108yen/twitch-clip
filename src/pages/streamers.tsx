@@ -149,7 +149,7 @@ export default function Streamers() {
     const [streamersValue] = useAtom(streamersLoadableAtom);
     const channelNum = streamersValue.state === "hasData" ? streamersValue.data?.length : undefined;
     //seo
-    const title = "twitchクリップランキング | ストリーマー一覧";
+    const title = "Twitchクリップランキング | ストリーマー一覧";
     const description = "ランキング集計しているストリーマーの一覧ページです。";
 
     return (
