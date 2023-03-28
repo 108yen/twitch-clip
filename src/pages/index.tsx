@@ -99,13 +99,14 @@ export default function Home() {
             borderBottom: 1,
             borderColor: 'divider',
             marginBottom: 2,
+            justifyContent: 'center',
+            display: 'flex',
           }}>
             <Tabs
               value={tab}
               onChange={handleTabChange}
               textColor="secondary"
               indicatorColor="secondary"
-              centered
             >
               <Tab label='day' value={0} />
               <Tab label='week' value={1} />

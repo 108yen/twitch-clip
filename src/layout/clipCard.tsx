@@ -256,9 +256,9 @@ function ClipCards() {
     //layout full | list
     const [layout] = useAtom(viewLayoutAtom);
     //period tab name
-    //todo:async になったから変えないといけないのでは
-    const [tab] = useAtom(tabNameAtom);
-    
+    const tabLoadableAtom = loadable(tabNameAtom);
+    const [tabValue] = useAtom(tabLoadableAtom);
+
     function loadMore(clips: Clip[]) {
         //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
@@ -278,7 +278,9 @@ function ClipCards() {
         </Typography>
     </Box>;
 
-    if (clipsValue.state === "hasData") {
+    if (clipsValue.state === "hasData"
+        && tabValue.state === "hasData") {
+        const tab = tabValue.data;
         if (clipsValue.data != undefined
             && clipsValue.data[tab] != undefined
             && clipsValue.data[tab].length != 0) {
@@ -320,7 +322,8 @@ function ClipCards() {
         } else {
             return endMessage;
         }
-    } else if (clipsValue.state === "loading") {
+    } else if (clipsValue.state === "loading"
+        || tabValue.state === "loading") {
         return loader;
     } else {
         return <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>

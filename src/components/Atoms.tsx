@@ -83,6 +83,7 @@ export const swiperAtom = atom<SwiperCore | null>(null);
 export const currentStreamerIdAtom = atom(
     (get) => get(currentStreamerIdValue),
     (_, set, update: string) => {
+        set(tabValueAtom, 0);
         set(currentStreamerIdValue, update);
         set(overrideClipCardsDisplayNumAtom, null);
         set(overrideMoreItemIsExistAtom, null);
@@ -106,7 +107,6 @@ export const tabNameListAtom = atom<Promise<Array<string>>>(
 export const tabNameAtom = atom<Promise<string>>(
     async (get) => {
         const tabArray = await get(tabNameListAtom);
-        console.log('ok');
         return tabArray[get(tabValueAtom)];
     }
 );

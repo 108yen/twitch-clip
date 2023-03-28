@@ -22,8 +22,15 @@ export default function StreamerClip() {
 
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
   const [tab, setTab] = useAtom(tabAtom);
-  const [tabNameList] = useAtom(tabNameListAtom);
+  // tab name list
+  const tabNameListLoadableAtom = loadable(tabNameListAtom);
+  const [tabNameListValue] = useAtom(tabNameListLoadableAtom);
+  const tabNameList = tabNameListValue.state === "hasData"
+    ? tabNameListValue.data
+    : ["day", "week", "month", "all"];
+  // swipe
   const [swiper, setSwiper] = useAtom(swiperAtom);
+  //layout
   const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
   const router = useRouter();
   const { id } = router.query;
@@ -119,19 +126,17 @@ export default function StreamerClip() {
             borderBottom: 1,
             borderColor: 'divider',
             marginBottom: 2,
+            justifyContent: 'center',
+            display: 'flex',
           }}>
             <Tabs
+              variant="scrollable"
               value={tab}
               onChange={handleTabChange}
               textColor="secondary"
               indicatorColor="secondary"
-              centered
             >
               {tabNameList.map((e, index) => <Tab label={e} value={index} />)}
-              {/* <Tab label='day' value={0} />
-              <Tab label='week' value={1} />
-              <Tab label='month' value={2} />
-              <Tab label='all' value={3} /> */}
             </Tabs>
           </Box>
           <Swiper
