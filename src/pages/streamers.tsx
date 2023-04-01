@@ -48,12 +48,19 @@ function StreamerItem({
                         justifyContent="space-between"
                         width="100%"
                     >
-                        <Typography
-                            variant="h6"
-                            noWrap
+                        <Link
+                            href={"/streamer/" + streamer.id}
+                            style={{
+                                textDecoration: 'none',
+                            }}
                         >
-                            {streamer.display_name}
-                        </Typography>
+                            <NoDecorationTypography
+                                variant="h6"
+                                noWrap
+                            >
+                                {streamer.display_name}
+                            </NoDecorationTypography>
+                        </Link>
                         <Link
                             href={"https://www.twitch.tv/" + streamer.login}
                             target='_blank'

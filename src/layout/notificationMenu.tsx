@@ -95,6 +95,22 @@ export default function NotificationMenu() {
                     }}
                 >
                     <Link
+                        href='/past'
+                        style={{
+                            textDecoration: 'none',
+                        }}
+                    >
+                        <NoDecorationTypography>
+                            過去のランキング
+                        </NoDecorationTypography>
+                    </Link>
+                </MenuItem>
+                <MenuItem
+                    sx={{
+                        height: 40,
+                    }}
+                >
+                    <Link
                         href='/streamers'
                         style={{
                             textDecoration: 'none',
