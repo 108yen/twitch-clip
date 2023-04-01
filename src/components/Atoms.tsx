@@ -20,10 +20,10 @@ export const usersAtom = atom<Promise<Array<User> | undefined>>(
 
 export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     async (get) => {
-        if (get(currentStreamerIdAtom) == undefined) {
+        if (get(currentStreamerIdValue) == undefined) {
             return undefined;
         }
-        const id = get(currentStreamerIdAtom);
+        const id = get(currentStreamerIdValue);
         const config: AxiosRequestConfig = {
             url: '/api/clips',
             method: 'GET',
@@ -45,22 +45,22 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     }
 );
 
-const pastYearsAtom = atom<Promise<Array<string>>>(
-    async (get) => {
-        const currentYear = (new Date()).getFullYear();
-        const clips = await get(clipsAtom);
-        let result: Array<string> = [];
-        if (clips == undefined) {
-            return result;
-        }
-        for (let year = currentYear - 1; year >= 2016; year--) {
-            if (clips[year.toString()] != undefined) {
-                result.push(year.toString());
-            }
-        }
-        return result;
-    }
-);
+// const pastYearsAtom = atom<Promise<Array<string>>>(
+//     async (get) => {
+//         const currentYear = (new Date()).getFullYear();
+//         const clips = await get(clipsAtom);
+//         let result: Array<string> = [];
+//         if (clips == undefined) {
+//             return result;
+//         }
+//         for (let year = currentYear - 1; year >= 2016; year--) {
+//             if (clips[year.toString()] != undefined) {
+//                 result.push(year.toString());
+//             }
+//         }
+//         return result;
+//     }
+// );
 
 const currentStreamerIdValue = atom<string | undefined>(undefined);
 export const currentStreamerAtom = atom<Promise<User | undefined>>(
@@ -99,8 +99,25 @@ export const tabAtom = atom(
 );
 export const tabNameListAtom = atom<Promise<Array<string>>>(
     async (get) => {
-        let tabArray: Array<string> = ['day', 'week', 'month', 'all'];
-        tabArray = tabArray.concat(await get(pastYearsAtom));
+        const defaultArray: Array<string> = ['day', 'week', 'month', 'all'];
+        const currentYear = (new Date()).getFullYear();
+        const clips = await get(clipsAtom);
+        let tabArray: Array<string> = [];
+        if (clips == undefined) {
+            return defaultArray;
+        }
+        for (const key in defaultArray) {
+            const element = defaultArray[key];
+            if (clips[element] != undefined) {
+                tabArray.push(element);
+            }
+        }
+        for (let year = currentYear - 1; year >= 2016; year--) {
+            if (clips[year.toString()] != undefined) {
+                tabArray.push(year.toString());
+            }
+        }
+
         return tabArray;
     }
 );

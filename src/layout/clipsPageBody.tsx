@@ -25,7 +25,6 @@ export default function ClipsPageBody() {
     //full or list layout
     const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
 
-
     function handleSlideChange(index: number) {
         setTab(index);
     }
