@@ -1,5 +1,5 @@
 import { swiperAtom, tabAtom, tabNameListAtom, viewLayoutAtom } from "@/components/Atoms";
-import { Box, Tab, Tabs, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { Box, Tab, Tabs, ToggleButton, ToggleButtonGroup, Tooltip } from "@mui/material";
 import { ViewArray } from '@mui/icons-material';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { Virtual } from 'swiper';
@@ -52,10 +52,14 @@ export default function ClipsPageBody() {
                     onChange={handleLayoutChange}
                 >
                     <ToggleButton value="list">
-                        <ViewListIcon />
+                        <Tooltip title="リスト表示">
+                            <ViewListIcon />
+                        </Tooltip>
                     </ToggleButton>
                     <ToggleButton value="full">
-                        <ViewArray />
+                        <Tooltip title="埋め込み表示（重い）">
+                            <ViewArray />
+                        </Tooltip>
                     </ToggleButton>
                 </ToggleButtonGroup>
             </Box>
