@@ -1,36 +1,11 @@
+import { AboutBodyTypography, BorderPaper } from "@/components/styledui";
 import DefaultHeader from "@/layout/defaultHeader";
-import { Divider, Grid, Typography } from "@mui/material";
+import { Divider, Grid, List, ListItem, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 
 export default function About() {
     const title = "Twitchクリップランキング | このサイトについて";
     const description = "Twitchクリップランキングの説明ページ";
-
-    const items: Array<{
-        title: string;
-        body: string;
-    }> = [
-            {
-                title: "はじめに",
-                body: "このウェブサイトを利用する場合、以下の利用規約に同意したものとみなされます。利用規約は、随時変更される場合があります。変更された規約は、サイトに掲載された時点で効力を有します。"
-            },
-            {
-                title: "ランキングについて",
-                body:"本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。",
-            },
-            {
-                title: "コンテンツの更新頻度",
-                body:"当サイトのコンテンツは、定期的に更新されます。更新頻度については、事前の予告なく変更される場合があります。",
-            },
-            {
-                title: "禁止事項",
-                body: "当サイトの利用に際して、以下の行為は禁止とします。\n・違法行為、またはそのおそれのある行為\n・公序良俗に反する行為、またはそのおそれのある行為\n・当サイトの運営を妨げる行為、またはそのおそれのある行為\n・当サイトに対する攻撃、またはそのおそれのある行為\n・当サイトのコンテンツをプログラム等を用いて機械的に取得する行為 (Webスクレイピング行為等)"
-            },
-            {
-                title: "免責事項",
-                body: "当サイトは、利用者に提供する情報について、正確性、完全性、信頼性、適用性、またはその他の保証を一切行いません。当サイトは、いかなる損害、損失、または費用に対しても責任を負いません。"
-            },
-        ];
 
     return (
         <>
@@ -79,24 +54,121 @@ export default function About() {
                     >
                         本サイトについて
                     </Typography>
-                    {items.map((item, index) => 
-                        <>
-                            <Typography
-                                variant="h4"
-                                pt={10}
-                            >
-                                {index+1}. {item.title}
-                            </Typography>
-                            <Divider />
-                            <Typography
-                                variant="body1"
-                                pt={2}
-                                whiteSpace="pre-line"
-                            >
-                                {item.body}
-                            </Typography>
-                        </>
-                    )}
+                    <Typography
+                        variant="h4"
+                        pt={10}
+                    >
+                        1. はじめに
+                    </Typography>
+                    <Divider sx={{ marginY: 1 }} />
+                    <AboutBodyTypography>
+                        このウェブサイトを利用する場合、以下の利用規約に同意したものとみなされます。利用規約は、随時変更される場合があります。
+                    </AboutBodyTypography>
+                    <Typography
+                        variant="h4"
+                        pt={10}
+                    >
+                        2. ランキングについて
+                    </Typography>
+                    <Divider sx={{ marginY: 1 }} />
+                    <AboutBodyTypography>
+                        本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。
+                    </AboutBodyTypography>
+                    <Typography
+                        variant="h4"
+                        pt={10}
+                    >
+                        3. コンテンツの更新頻度
+                    </Typography>
+                    <Divider sx={{ marginY: 1 }} />
+                    <AboutBodyTypography>
+                        当サイトのコンテンツは、定期的に更新されます。更新頻度については、事前の予告なく変更される場合があります。具体的な更新頻度は以下を参照してください。
+                    </AboutBodyTypography>
+                    <TableContainer component={BorderPaper} sx={{ marginTop: 5 }}>
+                        <Table >
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell>
+                                        day,week,monthランキング
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        毎日10,22時
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        allランキング
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        毎月1,16日
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        過去ランキング
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        毎月4日
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        チャンネル追加
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        毎週月曜日
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        チャンネル情報更新
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        毎週水曜日
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <Typography
+                        variant="h4"
+                        pt={10}
+                    >
+                        4. 禁止事項
+                    </Typography>
+                    <Divider sx={{ marginY: 1 }} />
+                    <List>
+                        <ListItem>
+                            <AboutBodyTypography>
+                                当サイトの利用に際して、以下の行為は禁止とします。
+                            </AboutBodyTypography>
+                        </ListItem>
+                        <ListItem>
+                            <AboutBodyTypography>
+                                ・違法行為、またはそのおそれのある行為
+                            </AboutBodyTypography>
+                        </ListItem>
+                        <ListItem>
+                            <AboutBodyTypography>
+                                ・公序良俗に反する行為、またはそのおそれのある行為
+                            </AboutBodyTypography>
+                        </ListItem>
+                        <ListItem>
+                            <AboutBodyTypography>
+                                ・当サイトの運営を妨げる行為、またはそのおそれのある行為
+                            </AboutBodyTypography>
+                        </ListItem>
+                        <ListItem>
+                            <AboutBodyTypography>
+                                ・当サイトに対する攻撃、またはそのおそれのある行為
+                            </AboutBodyTypography>
+                        </ListItem>
+                        <ListItem>
+                            <AboutBodyTypography>
+                                ・当サイトのコンテンツをプログラム等を用いて機械的に取得する行為 (Webスクレイピング行為等)
+                            </AboutBodyTypography>
+                        </ListItem>
+                    </List>
                 </Grid>
             </Grid>
         </>

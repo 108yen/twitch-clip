@@ -23,3 +23,8 @@ export const SelectTypography = styled(Typography)(({ theme }) => ({
 export const StyledLaunch = styled(Launch)(({ theme }) => ({
     color: theme.palette.text.primary,
 }));
+
+export const AboutBodyTypography = styled(Typography)(({ theme }) => ({
+    variant: "body1",
+    whiteSpace: "pre-line",
+}));
