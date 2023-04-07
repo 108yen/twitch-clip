@@ -1,6 +1,6 @@
-import { NoDecorationTypography } from "@/components/styledui";
+import { NoDecorationTypography, SelectTypography } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
-import { AppBar, Box, Stack, Toolbar, Tooltip } from "@mui/material";
+import { AppBar, Box, Divider, Stack, Toolbar, Tooltip } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
 
@@ -40,11 +40,17 @@ export default function DefaultHeader() {
                                 Twitch clip ranking
                             </NoDecorationTypography>
                         </Link>
+                        <Divider
+                            orientation="vertical"
+                            sx={{
+                                display: { xs: 'none', sm: 'flex' },
+                                marginX: 3,
+                            }}
+                        />
                         <Stack
                             direction="row"
                             alignItems="center"
                             spacing={2}
-                            marginX={5}
                             sx={{
                                 display: { xs: 'none', sm: 'flex' },
                             }}
@@ -56,12 +62,12 @@ export default function DefaultHeader() {
                                 }}
                             >
                                 <Tooltip title="過去の年別ランキング">
-                                    <NoDecorationTypography
+                                    <SelectTypography
                                         variant="body1"
                                         noWrap
                                     >
                                         Past ranking
-                                    </NoDecorationTypography>
+                                    </SelectTypography>
                                 </Tooltip>
                             </Link>
                             <Link
@@ -71,12 +77,12 @@ export default function DefaultHeader() {
                                 }}
                             >
                                 <Tooltip title="チャンネル一覧">
-                                    <NoDecorationTypography
+                                    <SelectTypography
                                         variant="body1"
                                         noWrap
                                     >
                                         Channels
-                                    </NoDecorationTypography>
+                                    </SelectTypography>
                                 </Tooltip>
                             </Link>
                         </Stack>
