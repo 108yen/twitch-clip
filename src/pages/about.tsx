@@ -72,7 +72,7 @@ export default function About() {
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
-                        本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。
+                        本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、50件表示可能です。
                     </AboutBodyTypography>
                     <Typography
                         variant="h4"
