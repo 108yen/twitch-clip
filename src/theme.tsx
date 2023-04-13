@@ -17,21 +17,21 @@ export function themeOptions(isDarkMode: boolean): ThemeOptions {
         components: {
             MuiCssBaseline: {
                 styleOverrides: `
-            ::-webkit-scrollbar{
-                display: auto;
-                width: 5px;
-            },
-            ::-webkit-scrollbar-thumb {
-                background-color: rgba(255,255,255,0.2);
-                border-radius: 10px;
-            },
-            ::-webkit-scrollbar-track {
-                background:rgba(0,0,0,0);
-            },
-            body {
-                overflow: overlay;
-            }
-            `
+                    ::-webkit-scrollbar{
+                        display: auto;
+                        width: 5px;
+                    },
+                    ::-webkit-scrollbar-thumb {
+                        background-color: rgba(255,255,255,0.2);
+                        border-radius: 10px;
+                    },
+                    ::-webkit-scrollbar-track {
+                        background:rgba(0,0,0,0);
+                    },
+                    body {
+                        overflow: overlay;
+                    }
+                `
             },
         },
     }

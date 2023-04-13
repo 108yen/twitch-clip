@@ -1,5 +1,5 @@
 import { Launch } from "@mui/icons-material";
-import { Paper, styled, Typography } from "@mui/material";
+import { AppBar, Paper, styled, Theme, Typography } from "@mui/material";
 
 export const BorderPaper = styled(Paper)(({ theme }) => ({
     boxShadow: 'none',
@@ -28,3 +28,18 @@ export const AboutBodyTypography = styled(Typography)(({ theme }) => ({
     variant: "body1",
     whiteSpace: "pre-line",
 }));
+
+type PaperAppBarProps = {
+    isTransparent: boolean;
+}
+export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({ theme, isTransparent }) => {
+    const backgroundColorDefault = theme.palette.mode === "light" ? theme.palette.primary.light : theme.palette.grey[900];
+    const background = isTransparent ? "transparent" : backgroundColorDefault;
+
+    return ({
+        boxShadow: "none",
+        transitionDuration: "1s",
+        background: background,
+    });
+});
+
