@@ -38,7 +38,7 @@ export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({ theme, isTranspar
 
     return ({
         boxShadow: "none",
-        transitionDuration: "1s",
+        transition:"background-color 0.3s",
         background: background,
     });
 });
