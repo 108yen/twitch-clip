@@ -3,14 +3,12 @@ import { HexagonOutlined } from "@mui/icons-material";
 import { AppBar, Box, Divider, Stack, Toolbar, Tooltip } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DefaultHeader() {
-    // const [isTransparent, setTransparent] = useState(true);
-    const ref = useRef<HTMLDivElement | null>(null);
+    const [isTransparent, setTransparent] = useState(true);
     function toggleTransparent() {
-        if (ref.current)
-            ref.current.style.background = window.scrollY == 0 ? "transparent" : "";
+        window.scrollY == 0 ? setTransparent(true) : setTransparent(false);
     }
 
     useEffect(() => {
@@ -19,11 +17,9 @@ export default function DefaultHeader() {
     }, []);
 
     return (
-        <AppBar
-            ref={ref}
+        <PaperAppBar
             position='sticky'
-            sx={{ transitionDuration: "1s" }}
-        // isTransparent={isTransparent.current}
+            isTransparent={isTransparent}
         >
             <Toolbar>
                 <Stack
@@ -112,6 +108,6 @@ export default function DefaultHeader() {
                     <NotificationMenu />
                 </Stack>
             </Toolbar>
-        </AppBar>
+        </PaperAppBar>
     );
 }
