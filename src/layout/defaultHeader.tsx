@@ -1,16 +1,25 @@
-import { NoDecorationTypography, SelectTypography } from "@/components/styledui";
+import { NoDecorationTypography, PaperAppBar, SelectTypography } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
-import { AppBar, Box, Divider, Stack, Toolbar, Tooltip } from "@mui/material";
+import { Box, Divider, Stack, Toolbar, Tooltip } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
+import { useEffect, useState } from "react";
 
 export default function DefaultHeader() {
+    const [isTransparent, setTransparent] = useState(true);
+    function toggleTransparent() {
+        window.scrollY == 0 ? setTransparent(true) : setTransparent(false);
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", toggleTransparent);
+        return () => window.removeEventListener("scroll", toggleTransparent);
+    }, []);
+
     return (
-        <AppBar
+        <PaperAppBar
             position='sticky'
-            sx={{
-                boxShadow: 0,
-            }}
+            isTransparent={isTransparent}
         >
             <Toolbar>
                 <Stack
@@ -99,6 +108,6 @@ export default function DefaultHeader() {
                     <NotificationMenu />
                 </Stack>
             </Toolbar>
-        </AppBar>
+        </PaperAppBar>
     );
 }

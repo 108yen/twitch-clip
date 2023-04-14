@@ -81,6 +81,7 @@ export default function ClipsPageBody() {
             </Box>
             <Swiper
                 modules={[Virtual]}
+                allowTouchMove={false}
                 virtual
                 spaceBetween={100}
                 slidesPerView={1}
