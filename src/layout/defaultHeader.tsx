@@ -1,6 +1,6 @@
 import { NoDecorationTypography, PaperAppBar, SelectTypography } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
-import { AppBar, Box, Divider, Stack, Toolbar, Tooltip } from "@mui/material";
+import { Box, Divider, Stack, Toolbar, Tooltip } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
 import { useEffect, useState } from "react";
