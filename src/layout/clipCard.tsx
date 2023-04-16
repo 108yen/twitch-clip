@@ -1,5 +1,5 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
-import { BorderPaper, StyledLaunch } from "@/components/styledui";
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
 import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
@@ -86,28 +86,28 @@ function ListClipCard({
                         </Link>
 
                     </Stack>
-                    <Stack
-                        direction="row"
-                        alignItems="center"
-                        spacing={2}
+                    <Link
+                        href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
+                        style={{
+                            textDecoration: 'none',
+                            color: 'black',
+                        }}
                     >
-                        <Link
-                            href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
-                            style={{
-                                textDecoration: 'none',
-                                color: 'black',
-                            }}
+                        <Stack
+                            direction="row"
+                            alignItems="center"
+                            spacing={2}
                         >
                             {streamer != undefined
                                 ? <Avatar src={streamer.profile_image_url} />
                                 : <Skeleton variant="circular" width={40} height={40} />}
-                        </Link>
-                        <Typography noWrap variant="body1">
-                            {streamer != undefined
-                                ? streamer.display_name
-                                : <Skeleton width={150} />}
-                        </Typography>
-                    </Stack>
+                            <NoDecorationTypography noWrap variant="body1">
+                                {streamer != undefined
+                                    ? streamer.display_name
+                                    : <Skeleton width={150} />}
+                            </NoDecorationTypography>
+                        </Stack>
+                    </Link>
                     <Typography
                         noWrap
                         variant="body1"
