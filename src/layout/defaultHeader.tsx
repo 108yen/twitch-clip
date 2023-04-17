@@ -1,14 +1,35 @@
 import { NoDecorationTypography, PaperAppBar, SelectTypography } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
-import { Box, Divider, Stack, Toolbar, Tooltip } from "@mui/material";
+import { Box, Divider, Stack, SxProps, Theme, Toolbar, Tooltip } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
-import { useEffect, useState } from "react";
+import { MouseEventHandler, useEffect, useState } from "react";
 
 export default function DefaultHeader() {
     const [isTransparent, setTransparent] = useState(true);
     function toggleTransparent() {
         window.scrollY == 0 ? setTransparent(true) : setTransparent(false);
+    }
+
+    const initStyle: SxProps<Theme> = {
+        opacity: 0,
+    };
+    const [style, setStyle] = useState(initStyle);
+    function handleOnMouseEnter(event: MouseEventHandler<HTMLAnchorElement>) {
+        const { top, bottom, left, right, width, height } = event.currentTarget.getBoundingClientRect();
+        // console.log(left);
+        setStyle({
+            opacity: 1,
+            left: left,
+            width: width,
+            height: height,
+            background: "grey",
+        });
+    }
+    function handleOnMouseLeave(event: MouseEventHandler<HTMLAnchorElement>) {
+        setStyle({
+            opacity: 0,
+        });
     }
 
     useEffect(() => {
@@ -59,41 +80,67 @@ export default function DefaultHeader() {
                         <Stack
                             direction="row"
                             alignItems="center"
-                            spacing={2}
                             sx={{
                                 display: { xs: 'none', sm: 'flex' },
+                                // ">:nth-of-type(1)": {
+                                //     bgcolor: 'red',
+                                //     transitionDuration: '1s',
+                                // }
                             }}
                         >
-                            <Link
-                                href='/past'
-                                style={{
-                                    textDecoration: 'none',
+                            <Box
+                                sx={{
+                                    transitionDuration: "0.3s",
+                                    position: 'absolute',
+                                    zIndex: -1,
+                                    borderRadius: 1,
+                                    ...style
                                 }}
+                            />
+                            <Box
+                                onMouseEnter={handleOnMouseEnter}
+                                onMouseLeave={handleOnMouseLeave}
+                                sx={{ paddingX: 1 }}
                             >
-                                <Tooltip title="過去の年別ランキング">
-                                    <SelectTypography
-                                        variant="body1"
-                                        noWrap
-                                    >
-                                        Past ranking
-                                    </SelectTypography>
-                                </Tooltip>
-                            </Link>
-                            <Link
-                                href='/streamers'
-                                style={{
-                                    textDecoration: 'none',
-                                }}
+
+                                <Link
+                                    href='/past'
+                                    style={{
+                                        textDecoration: 'none',
+                                    }}
+                                >
+                                    <Tooltip title="過去の年別ランキング">
+                                        <SelectTypography
+                                            variant="body1"
+                                            noWrap
+                                        >
+                                            Past ranking
+                                        </SelectTypography>
+                                    </Tooltip>
+                                </Link>
+                            </Box>
+
+                            <Box
+                                onMouseEnter={handleOnMouseEnter}
+                                onMouseLeave={handleOnMouseLeave}
+                                sx={{ paddingX: 1 }}
                             >
-                                <Tooltip title="チャンネル一覧">
-                                    <SelectTypography
-                                        variant="body1"
-                                        noWrap
-                                    >
-                                        Channels
-                                    </SelectTypography>
-                                </Tooltip>
-                            </Link>
+                                <Link
+                                    href='/streamers'
+                                    style={{
+                                        textDecoration: 'none',
+                                    }}
+                                >
+                                    <Tooltip title="チャンネル一覧">
+                                        <SelectTypography
+                                            variant="body1"
+                                            noWrap
+                                        >
+                                            Channels
+                                        </SelectTypography>
+                                    </Tooltip>
+                                </Link>
+                            </Box>
                         </Stack>
                     </Stack>
                     <Box
