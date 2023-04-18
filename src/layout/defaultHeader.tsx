@@ -1,6 +1,6 @@
-import { NoDecorationTypography, PaperAppBar, SelectTypography } from "@/components/styledui";
+import { Div, NoDecorationTypography, PaperAppBar, SelectTypography } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
-import { Box, Divider, Stack, SxProps, Theme, Toolbar, Tooltip } from "@mui/material";
+import { Box, Divider, Stack, SxProps, Theme, Toolbar, Tooltip, Typography } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
 import { MouseEventHandler, useEffect, useState } from "react";
@@ -14,8 +14,8 @@ export default function DefaultHeader() {
     const initStyle: SxProps<Theme> = {
         opacity: 0,
     };
-    const [style, setStyle] = useState(initStyle);
-    function handleOnMouseEnter(event: MouseEventHandler<HTMLAnchorElement>) {
+    const [style, setStyle] = useState<SxProps<Theme>>(initStyle);
+    function handleOnMouseEnter(event: React.MouseEvent) {
         const { top, bottom, left, right, width, height } = event.currentTarget.getBoundingClientRect();
         // console.log(left);
         setStyle({
@@ -23,13 +23,13 @@ export default function DefaultHeader() {
             left: left,
             width: width,
             height: height,
-            background: "grey",
+            background: (theme) => theme.palette.mode === "light"
+                ? theme.palette.grey[200]
+                : theme.palette.grey[800],
         });
     }
-    function handleOnMouseLeave(event: MouseEventHandler<HTMLAnchorElement>) {
-        setStyle({
-            opacity: 0,
-        });
+    function handleOnMouseLeave(event: React.MouseEvent) {
+        setStyle(initStyle);
     }
 
     useEffect(() => {
@@ -82,10 +82,6 @@ export default function DefaultHeader() {
                             alignItems="center"
                             sx={{
                                 display: { xs: 'none', sm: 'flex' },
-                                // ">:nth-of-type(1)": {
-                                //     bgcolor: 'red',
-                                //     transitionDuration: '1s',
-                                // }
                             }}
                         >
                             <Box
@@ -97,50 +93,66 @@ export default function DefaultHeader() {
                                     ...style
                                 }}
                             />
-                            <Box
+                            <Div
                                 onMouseEnter={handleOnMouseEnter}
                                 onMouseLeave={handleOnMouseLeave}
-                                sx={{ paddingX: 1 }}
+                                sx={{
+                                    paddingX: 1,
+                                    paddingY: 0.5,
+                                    transitionDuration: "0.3s",
+                                    color: (theme) => theme.palette.text.disabled,
+                                    "&:hover": {
+                                        color: (theme) => theme.palette.text.primary,
+                                    },
+                                }}
                             >
-
                                 <Link
                                     href='/past'
                                     style={{
                                         textDecoration: 'none',
+                                        color: 'inherit',
                                     }}
                                 >
                                     <Tooltip title="過去の年別ランキング">
-                                        <SelectTypography
+                                        <Typography
                                             variant="body1"
                                             noWrap
                                         >
                                             Past ranking
-                                        </SelectTypography>
+                                        </Typography>
                                     </Tooltip>
                                 </Link>
-                            </Box>
-
-                            <Box
+                            </Div>
+                            <Div
                                 onMouseEnter={handleOnMouseEnter}
                                 onMouseLeave={handleOnMouseLeave}
-                                sx={{ paddingX: 1 }}
+                                sx={{
+                                    paddingX: 1,
+                                    paddingY: 0.5,
+                                    transitionDuration: "0.3s",
+                                    color: (theme) => theme.palette.text.disabled,
+                                    "&:hover": {
+                                        color: (theme) => theme.palette.text.primary,
+                                    },
+                                }}
                             >
                                 <Link
                                     href='/streamers'
                                     style={{
                                         textDecoration: 'none',
+                                        color: 'inherit',
                                     }}
                                 >
                                     <Tooltip title="チャンネル一覧">
-                                        <SelectTypography
+                                        <Typography
                                             variant="body1"
                                             noWrap
                                         >
                                             Channels
-                                        </SelectTypography>
+                                        </Typography>
                                     </Tooltip>
                                 </Link>
-                            </Box>
+                            </Div>
                         </Stack>
                     </Stack>
                     <Box

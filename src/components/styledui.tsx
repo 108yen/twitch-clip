@@ -43,3 +43,6 @@ export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({ theme, isTranspar
     });
 });
 
+export const Div = styled(`div`)(({ theme })=> ({
+    
+}));
