@@ -1,7 +1,9 @@
 import { AboutBodyTypography, BorderPaper } from "@/components/styledui";
 import DefaultHeader from "@/layout/defaultHeader";
-import { Divider, Grid, List, ListItem, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
+import { Box, Divider, Grid, List, ListItem, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Link from "next/link";
 
 export default function About() {
     const title = "Twitchクリップランキング | このサイトについて";
@@ -169,6 +171,49 @@ export default function About() {
                             </AboutBodyTypography>
                         </ListItem>
                     </List>
+                    <Typography
+                        variant="h4"
+                        pt={10}
+                    >
+                        5. お問い合わせ
+                    </Typography>
+                    <Divider sx={{ marginY: 1 }} />
+                    <Stack
+                        direction="row"
+                        mt={7}
+                        flexGrow={1}
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        <Typography
+                            variant="caption"
+                            color="grey"
+                        >
+                            developer:
+                        </Typography>
+                        <Box sx={{ width: (theme) => theme.spacing(1) }} />
+                        <Link
+                            href="https://github.com/108yen"
+                            target='_blank'
+                            style={{
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <Stack
+                                direction="row"
+                                alignItems="center"
+                            >
+
+                                <GitHubIcon sx={{ fontSize: (theme) => theme.typography.caption.fontSize, color: "grey" }} />
+                                <Typography
+                                    variant="caption"
+                                    color="grey"
+                                >
+                                    108yen
+                                </Typography>
+                            </Stack>
+                        </Link>
+                    </Stack>
                 </Grid>
             </Grid>
         </>

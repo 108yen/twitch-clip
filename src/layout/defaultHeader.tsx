@@ -1,9 +1,9 @@
-import { Div, NoDecorationTypography, PaperAppBar, SelectTypography } from "@/components/styledui";
+import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
 import { Box, Divider, Stack, SxProps, Theme, Toolbar, Tooltip, Typography } from "@mui/material";
 import Link from "next/link";
 import NotificationMenu from "./notificationMenu";
-import { MouseEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DefaultHeader() {
     const [isTransparent, setTransparent] = useState(true);
