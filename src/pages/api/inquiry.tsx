@@ -1,6 +1,5 @@
-import { ClipDoc } from '@/components/types';
 import { db } from '@/firebase/client';
-import { doc, getDoc } from 'firebase/firestore';
+import {  arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 
@@ -11,19 +10,24 @@ export default async function handler(
     if (req.method == 'POST') {
         try {
             const category = req.body.category as string;
-            console.log(category);
-            //example for push firestore 
-            //caterory: others, additionnal_request
+            const body = req.body.body as string;
+            
+            //caterory: others, additional_request
             // await db.collection("inquiries").doc(category).update({
-            //     inquery_array: FieldValue.arrayUnion(body)
+            //     inquiry_array: FieldValue.arrayUnion(body)
             // });
+            const inquiryRef = doc(db, "inquiries", category);
+            await updateDoc(inquiryRef, {
+                inquiry_array: arrayUnion(body)
+                // inquiry_array: [body]
+            });
 
-            res.status(200);
+            res.status(200).end();
         } catch (error) {
             console.log('エラー：' + error);
-            res.status(400);
+            res.status(400).end();
         }
     } else {
-        res.status(400);
+        res.status(400).end();
     }
 }

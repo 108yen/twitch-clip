@@ -1,13 +1,58 @@
-import { AboutBodyTypography, BorderPaper } from "@/components/styledui";
+import { AboutBodyTypography, BorderPaper, SimpleButton } from "@/components/styledui";
 import DefaultHeader from "@/layout/defaultHeader";
-import { Box, Divider, Grid, List, ListItem, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
+import { Box, Button, Divider, Grid, List, ListItem, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from "next/link";
+import { useState } from "react";
+import axios from "axios";
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 export default function About() {
     const title = "Twitchクリップランキング | このサイトについて";
     const description = "Twitchクリップランキングの説明ページ";
+
+    const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
+    function handleSnackbarClose(event?: React.SyntheticEvent | Event, reason?: string) {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setSnackbarOpen(false);
+    };
+
+    const [inquiry, setInquiry] = useState<string>("");
+    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+        setInquiry(event.target.value);
+    }
+    async function handleSubmit() {
+        if (inquiry == "") {
+            console.log("nanikakaite");
+            return;
+        }
+        const res = await axios
+            .post('/api/inquiry',
+                {
+                    category: 'others',
+                    body: inquiry,
+                },
+            )
+            .catch(error => {
+                if (axios.isAxiosError(error)) {
+                    console.error(error.response?.data);
+                } else {
+                    console.error(error);
+                }
+            })
+            .then((response) => {
+                if (response) {
+                    if (response.status == 200) {
+                        setInquiry("");
+                        setSnackbarOpen(true);
+                    }
+                }
+            });
+    }
 
     return (
         <>
@@ -178,6 +223,26 @@ export default function About() {
                         5. お問い合わせ
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
+                    <TextField
+                        id="inquiry"
+                        fullWidth
+                        multiline
+                        rows={4}
+                        margin="normal"
+                        color="secondary"
+                        value={inquiry}
+                        onChange={handleInputChange}
+                    />
+                    <Box textAlign="center">
+                        <SimpleButton
+                            variant="outlined"
+                            color="primary"
+                            onClick={handleSubmit}
+                        >
+                            問い合わせ
+                        </SimpleButton>
+                    </Box>
+
                     <Stack
                         direction="row"
                         mt={7}
@@ -216,6 +281,20 @@ export default function About() {
                     </Stack>
                 </Grid>
             </Grid>
+            <Snackbar
+                open={snackbarOpen}
+                onClose={handleSnackbarClose}
+                autoHideDuration={6000}
+            >
+                <MuiAlert
+                    variant="filled"
+                    onClose={handleSnackbarClose}
+                    severity="success"
+                    sx={{ width: '100%' }}
+                >
+                    お問い合わせ完了
+                </MuiAlert>
+            </Snackbar>
         </>
     );
 }

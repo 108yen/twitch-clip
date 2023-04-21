@@ -6,7 +6,7 @@ import NotificationMenu from "./notificationMenu";
 import { useEffect, useState } from "react";
 
 export default function DefaultHeader() {
-    const [isTransparent, setTransparent] = useState(true);
+    const [isTransparent, setTransparent] = useState<boolean>(true);
     function toggleTransparent() {
         window.scrollY == 0 ? setTransparent(true) : setTransparent(false);
     }
@@ -40,7 +40,7 @@ export default function DefaultHeader() {
     return (
         <PaperAppBar
             position='sticky'
-            isTransparent={isTransparent}
+            istransparent={isTransparent}
         >
             <Toolbar>
                 <Stack
