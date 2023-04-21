@@ -5,11 +5,7 @@ module.exports = {
         policies: [
             {
                 userAgent: '*',
-                disallow: '/about',
-            },
-            {
-                userAgent: '*',
-                disallow: '/inquiry',
+                disallow: ['/about', '/inquiry'],
             },
         ],
     },
