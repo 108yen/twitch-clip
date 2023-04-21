@@ -26,8 +26,8 @@ export default function About() {
         setInquiry(event.target.value);
     }
     async function handleSubmit() {
+        //todo: 案内
         if (inquiry == "") {
-            console.log("nanikakaite");
             return;
         }
         const res = await axios

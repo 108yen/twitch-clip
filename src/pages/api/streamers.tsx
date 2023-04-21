@@ -10,8 +10,11 @@ export default async function handler(
     if (req.method == 'GET') {
         try {
             const streamersRef = doc(db, "streamers", "streamers");
-            const streamersSnap = await getDoc(streamersRef);
-            const streamersDoc = streamersSnap.data() as { streamers: Array<User> }
+            const streamersSnap = await getDoc(streamersRef)
+                .catch((error) => {
+                    console.error('get streamers info error:' + error);
+                });
+            const streamersDoc = streamersSnap?.data() as { streamers: Array<User> }
             const streamers = streamersDoc.streamers;
 
             res.status(200).json(streamers);

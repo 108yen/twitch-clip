@@ -1,5 +1,5 @@
 import { db } from '@/firebase/client';
-import {  arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 
@@ -11,20 +11,19 @@ export default async function handler(
         try {
             const category = req.body.category as string;
             const body = req.body.body as string;
-            
+
             //caterory: others, additional_request
-            // await db.collection("inquiries").doc(category).update({
-            //     inquiry_array: FieldValue.arrayUnion(body)
-            // });
             const inquiryRef = doc(db, "inquiries", category);
             await updateDoc(inquiryRef, {
                 inquiry_array: arrayUnion(body)
-                // inquiry_array: [body]
-            });
+            })
+                .catch((error) => {
+                    console.error('update inquiry value error:' + error);
+                });
 
             res.status(200).end();
         } catch (error) {
-            console.log('エラー：' + error);
+            console.log('error' + error);
             res.status(400).end();
         }
     } else {

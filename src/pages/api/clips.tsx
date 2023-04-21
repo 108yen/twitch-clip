@@ -12,12 +12,15 @@ export default async function handler(
         try {
             const streamerId = req.query.id as string;
             const clipsRef = doc(db, "clips", streamerId);
-            const clipsSnap = await getDoc(clipsRef);
-            const clipsDoc = clipsSnap.data() as ClipDoc;
+            const clipsSnap = await getDoc(clipsRef)
+                .catch((error) => {
+                    console.error('get ' + streamerId + ' clips error:' + error);
+                });
+            const clipsDoc = clipsSnap?.data() as ClipDoc;
 
             res.status(200).json(clipsDoc);
         } catch (error) {
-            console.log('エラー：' + error);
+            console.log('error' + error);
             res.status(400);
         }
     } else {
