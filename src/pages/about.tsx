@@ -233,7 +233,7 @@ export default function About() {
                         value={inquiry}
                         onChange={handleInputChange}
                     />
-                    <Box textAlign="center">
+                    <Box textAlign="center" m={2}>
                         <SimpleButton
                             variant="outlined"
                             color="primary"
@@ -245,7 +245,7 @@ export default function About() {
 
                     <Stack
                         direction="row"
-                        mt={7}
+                        mt={10}
                         flexGrow={1}
                         alignItems="center"
                         justifyContent="center"
