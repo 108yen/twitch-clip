@@ -19,7 +19,7 @@ export function themeOptions(isDarkMode: boolean): ThemeOptions {
                 styleOverrides: `
                     ::-webkit-scrollbar{
                         display: auto;
-                        width: 5px;
+                        width: 7px;
                     },
                     ::-webkit-scrollbar-thumb {
                         background-color: rgba(255,255,255,0.2);

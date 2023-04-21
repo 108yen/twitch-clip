@@ -1,12 +1,12 @@
 import { AboutBodyTypography, BorderPaper, SimpleButton } from "@/components/styledui";
 import DefaultHeader from "@/layout/defaultHeader";
-import { Box, Button, Divider, Grid, List, ListItem, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
+import { Box, Divider, Grid, List, ListItem, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import MuiAlert from '@mui/material/Alert';
 
 export default function About() {
     const title = "Twitchクリップランキング | このサイトについて";
