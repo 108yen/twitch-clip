@@ -20,6 +20,8 @@ export default async function handler(
                 .catch((error) => {
                     console.error('update inquiry value error:' + error);
                 });
+            
+            console.log("post inquiry");
 
             res.status(200).end();
         } catch (error) {

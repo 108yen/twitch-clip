@@ -6,6 +6,9 @@ module.exports = {
             {
                 userAgent: '*',
                 disallow: '/about',
+            },
+            {
+                userAgent: '*',
                 disallow: '/inquiry',
             },
         ],
