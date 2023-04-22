@@ -1,5 +1,5 @@
 import { Launch } from "@mui/icons-material";
-import { AppBar, Paper, styled, Theme, Typography } from "@mui/material";
+import { AppBar, Button, Paper, styled, TextField, Theme, Typography } from "@mui/material";
 
 export const BorderPaper = styled(Paper)(({ theme }) => ({
     boxShadow: 'none',
@@ -30,16 +30,31 @@ export const AboutBodyTypography = styled(Typography)(({ theme }) => ({
 }));
 
 type PaperAppBarProps = {
-    isTransparent: boolean;
+    istransparent: boolean;
 }
-export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({ theme, isTransparent }) => {
+export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({ theme, istransparent }) => {
     const backgroundColorDefault = theme.palette.mode === "light" ? theme.palette.primary.light : theme.palette.grey[900];
-    const background = isTransparent ? "transparent" : backgroundColorDefault;
+    const background = istransparent ? "transparent" : backgroundColorDefault;
 
     return ({
         boxShadow: "none",
-        transition:"background-color 0.3s",
+        transition: "background-color 0.3s",
         background: background,
     });
 });
 
+export const Div = styled(`div`)(({ theme }) => ({}));
+
+export const SimpleButton = styled(Button)(({ theme }) => {
+    if (theme.palette.mode === "light") {
+
+        return ({
+            color: theme.palette.text.primary,
+            borderColor: theme.palette.grey[400],
+            "&:hover": {
+                borderColor: theme.palette.text.primary,   
+                backgroundColor: theme.palette.grey[50],
+            }
+        })
+    }
+});

@@ -45,23 +45,6 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
     }
 );
 
-// const pastYearsAtom = atom<Promise<Array<string>>>(
-//     async (get) => {
-//         const currentYear = (new Date()).getFullYear();
-//         const clips = await get(clipsAtom);
-//         let result: Array<string> = [];
-//         if (clips == undefined) {
-//             return result;
-//         }
-//         for (let year = currentYear - 1; year >= 2016; year--) {
-//             if (clips[year.toString()] != undefined) {
-//                 result.push(year.toString());
-//             }
-//         }
-//         return result;
-//     }
-// );
-
 const currentStreamerIdValue = atom<string | undefined>(undefined);
 export const currentStreamerAtom = atom<Promise<User | undefined>>(
     async (get) => {

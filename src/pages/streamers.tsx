@@ -214,6 +214,31 @@ export default function Streamers() {
                         <Divider />
                     </Box>
                     <StreamerComponent />
+                    <Box
+                        m={3}
+                        flexGrow={1}
+                        alignItems="center"
+                        textAlign="center"
+                    >
+                        <Link
+                            href="/inquiry"
+                            style={{
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <Typography
+                                variant="caption"
+                                color="grey"
+                                sx={{
+                                    "&:hover": {
+                                        textDecorationLine: "underline",
+                                    }
+                                }}
+                            >
+                                チャンネル追加リクエスト
+                            </Typography>
+                        </Link>
+                    </Box>
                 </Grid>
             </Grid>
         </>
