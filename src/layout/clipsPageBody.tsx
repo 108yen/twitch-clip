@@ -75,6 +75,8 @@ export default function ClipsPageBody() {
                     onChange={handleTabChange}
                     textColor="secondary"
                     indicatorColor="secondary"
+                    variant="scrollable"
+                    scrollButtons={true}
                 >
                     {tabNameList.map((e, index) => <Tab key={index} label={e} value={index} />)}
                 </Tabs>
