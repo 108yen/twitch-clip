@@ -16,6 +16,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
           <meta name="description" content="Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。" />
         </Head>
+        {/* Google Analytics */}
         <body>
           <Main />
           <NextScript />

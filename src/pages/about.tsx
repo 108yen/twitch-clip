@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import MuiAlert from '@mui/material/Alert';
+import { event } from "nextjs-google-analytics";
 
 export default function About() {
     const title = "Twitchクリップランキング | このサイトについて";
@@ -49,6 +50,7 @@ export default function About() {
                     if (response.status == 200) {
                         setInquiry("");
                         setSnackbarOpen(true);
+                        event("send_inquiry");
                     }
                 }
             });
@@ -312,6 +314,9 @@ export default function About() {
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
+                            }}
+                            onClick={() => {
+                                event("click_to_github_link");
                             }}
                         >
                             <Stack
