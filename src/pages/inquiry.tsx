@@ -5,6 +5,7 @@ import { ArticleJsonLd, NextSeo } from "next-seo";
 import { useState } from "react";
 import axios from "axios";
 import MuiAlert from '@mui/material/Alert';
+import { event } from "nextjs-google-analytics";
 
 export default function About() {
     const title = "Twitchクリップランキング | 問い合わせ";
@@ -47,6 +48,7 @@ export default function About() {
                     if (response.status == 200) {
                         setInquiry("");
                         setSnackbarOpen(true);
+                        event("send_additional_request");
                     }
                 }
             });

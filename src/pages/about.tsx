@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 import MuiAlert from '@mui/material/Alert';
+import { event } from "nextjs-google-analytics";
 
 export default function About() {
     const title = "Twitchクリップランキング | このサイトについて";
@@ -49,6 +50,7 @@ export default function About() {
                     if (response.status == 200) {
                         setInquiry("");
                         setSnackbarOpen(true);
+                        event("send_inquiry");
                     }
                 }
             });
@@ -220,7 +222,57 @@ export default function About() {
                         variant="h4"
                         pt={10}
                     >
-                        5. お問い合わせ
+                        5. Google Analytics
+                    </Typography>
+                    <Divider sx={{ marginY: 1 }} />
+                    <AboutBodyTypography>
+                        サイトの利用状況を把握するために、Google Analyticsを使用しています。GoogleによるCookieの利用方法やオプトアウトの方法は、下記のリンクから確認できます。
+                    </AboutBodyTypography>
+                    <List>
+                        <ListItem>
+                            <Link
+                                href="https://policies.google.com/technologies/cookies?hl=ja"
+                                target='_blank'
+                                style={{
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                <AboutBodyTypography
+                                    sx={{
+                                        "&:hover": {
+                                            textDecorationLine: 'underline'
+                                        }
+                                    }}
+                                >
+                                    ・GoogleによるCookieの利用方法
+                                </AboutBodyTypography>
+                            </Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link
+                                href="https://support.google.com/analytics/answer/181881?hl=ja"
+                                target='_blank'
+                                style={{
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                <AboutBodyTypography
+                                    sx={{
+                                        "&:hover": {
+                                            textDecorationLine: 'underline'
+                                        }
+                                    }}
+                                >
+                                    ・Google Analyticsのオプトアウト
+                                </AboutBodyTypography>
+                            </Link>
+                        </ListItem>
+                    </List>
+                    <Typography
+                        variant="h4"
+                        pt={10}
+                    >
+                        6. お問い合わせ
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <TextField
@@ -262,6 +314,9 @@ export default function About() {
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
+                            }}
+                            onClick={() => {
+                                event("click_to_github_link");
                             }}
                         >
                             <Stack
