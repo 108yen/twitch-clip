@@ -100,10 +100,10 @@ export default function About() {
                     p={3}
                 >
                     <Typography
-                        variant="body1"
+                        variant="body2"
                         whiteSpace="pre-line"                    
                     >
-                        {"まだリストされていないけど面白い配信者がいれば、是非教えてください。\nチャンネル特定のためチャンネルのURLを記載してください。\n※必ず追加されるとは限りません。"}
+                        {"まだリストされていないけど面白い配信者がいれば、是非教えてください。\nチャンネル特定のためチャンネルのURLを記載してください。\n※日本語中心の配信者のみ追加します。\n※必ず追加されるとは限りません。"}
                     </Typography>
                     <TextField
                         id="url"
