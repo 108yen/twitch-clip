@@ -119,7 +119,7 @@ export default function About() {
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
-                        本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、50件表示可能です。
+                        本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、100件表示可能です。
                     </AboutBodyTypography>
                     <Typography
                         variant="h4"
@@ -139,7 +139,7 @@ export default function About() {
                                         day,week,monthランキング
                                     </TableCell>
                                     <TableCell align="right">
-                                        毎日10,22時
+                                        毎日0,6,12,18時
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
