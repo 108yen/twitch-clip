@@ -11,6 +11,7 @@ import { createTheme, useMediaQuery } from '@mui/material';
 import { themeOptions } from '@/theme';
 import { useAtom } from 'jotai';
 import { isDarkModeAtom } from '@/components/Atoms';
+import { GoogleAnalytics, usePageView } from '@/firebase/gtag';
 
 const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
@@ -30,7 +31,9 @@ function MyApp(props: MyAppProps) {
 
   useEffect(() => {
     setShowScreen(true)
-  }, [])
+  }, []);
+
+  usePageView();
 
   return (
     <CacheProvider value={emotionCache}>
@@ -64,9 +67,12 @@ function MyApp(props: MyAppProps) {
         }}
       />
       <ThemeProvider theme={theme}>
+        {/* Vercel Analytics */}
+        <Analytics />
+        {/* Google Analytics */}
+        <GoogleAnalytics />
         <CssBaseline />
         {show_screen ? <Component {...pageProps} /> : null}
-        <Analytics />
       </ThemeProvider>
     </CacheProvider>
   )

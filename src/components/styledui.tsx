@@ -27,6 +27,7 @@ export const StyledLaunch = styled(Launch)(({ theme }) => ({
 export const AboutBodyTypography = styled(Typography)(({ theme }) => ({
     variant: "body1",
     whiteSpace: "pre-line",
+    color: theme.palette.text.primary,
 }));
 
 type PaperAppBarProps = {
