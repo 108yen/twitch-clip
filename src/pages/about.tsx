@@ -316,7 +316,9 @@ export default function About() {
                                 textDecoration: 'none',
                             }}
                             onClick={() => {
-                                event("click_to_github_link");
+                                event("click", {
+                                    link_url: "https://github.com/108yen",
+                                });
                             }}
                         >
                             <Stack
