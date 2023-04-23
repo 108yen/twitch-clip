@@ -72,6 +72,8 @@ function StreamerCard() {
                                     }}
                                     onClick={() => {
                                         event("click", {
+                                            label: "click_twitch_channel",
+                                            channel_title: currentStreamerValue.data!.display_name,
                                             link_url: "https://www.twitch.tv/" + currentStreamerValue.data!.login,
                                         });
                                     }}

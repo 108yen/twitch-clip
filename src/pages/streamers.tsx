@@ -70,6 +70,8 @@ function StreamerItem({
                             }}
                             onClick={() => {
                                 event("click", {
+                                    label: "click_twitch_channel",
+                                    channel_title: streamer.display_name,
                                     link_url: "https://www.twitch.tv/" + streamer.login,
                                 });
                             }}

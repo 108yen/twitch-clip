@@ -12,6 +12,8 @@ import { themeOptions } from '@/theme';
 import { useAtom } from 'jotai';
 import { isDarkModeAtom } from '@/components/Atoms';
 import { GoogleAnalytics } from "nextjs-google-analytics";
+import router from 'next/router';
+import { event } from "nextjs-google-analytics";
 
 const clientSideEmotionCache = createEmotionCache();
 interface MyAppProps extends AppProps {
@@ -34,17 +36,17 @@ function MyApp(props: MyAppProps) {
   }, []);
 
   //GA
-  // useEffect(() => {
-  //   function handleComplete(path: string) {
-  //     event("page_view", {
-  //       page_path: path,
-  //     });
-  //   }
-  //   router.events.on("routeChangeComplete", handleComplete);
-  //   return () => {
-  //     router.events.off("routeChangeComplete", handleComplete);
-  //   };
-  // }, [router.events]);
+  useEffect(() => {
+    function handleComplete(path: string) {
+      event("page_view", {
+        page_path: path,
+      });
+    }
+    router.events.on("routeChangeComplete", handleComplete);
+    return () => {
+      router.events.off("routeChangeComplete", handleComplete);
+    };
+  }, [router.events]);
 
 
   return (

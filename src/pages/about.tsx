@@ -50,7 +50,9 @@ export default function About() {
                     if (response.status == 200) {
                         setInquiry("");
                         setSnackbarOpen(true);
-                        event("send_inquiry");
+                        event("click", {
+                            label:"send_inquiry",
+                        });
                     }
                 }
             });
@@ -228,8 +230,8 @@ export default function About() {
                     <AboutBodyTypography>
                         サイトの利用状況を把握するために、Google Analyticsを使用しています。GoogleによるCookieの利用方法やオプトアウトの方法は、下記のリンクから確認できます。
                     </AboutBodyTypography>
-                    <List>
-                        <ListItem>
+                    <ul>
+                        <li>
                             <Link
                                 href="https://policies.google.com/technologies/cookies?hl=ja"
                                 target='_blank'
@@ -244,11 +246,11 @@ export default function About() {
                                         }
                                     }}
                                 >
-                                    ・GoogleによるCookieの利用方法
+                                    GoogleによるCookieの利用方法
                                 </AboutBodyTypography>
                             </Link>
-                        </ListItem>
-                        <ListItem>
+                        </li>
+                        <li>
                             <Link
                                 href="https://support.google.com/analytics/answer/181881?hl=ja"
                                 target='_blank'
@@ -263,11 +265,11 @@ export default function About() {
                                         }
                                     }}
                                 >
-                                    ・Google Analyticsのオプトアウト
+                                    Google Analyticsのオプトアウト
                                 </AboutBodyTypography>
                             </Link>
-                        </ListItem>
-                    </List>
+                        </li>
+                    </ul>
                     <Typography
                         variant="h4"
                         pt={10}
@@ -317,6 +319,7 @@ export default function About() {
                             }}
                             onClick={() => {
                                 event("click", {
+                                    label: "click_github_link",
                                     link_url: "https://github.com/108yen",
                                 });
                             }}

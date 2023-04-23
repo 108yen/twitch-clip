@@ -48,12 +48,14 @@ export default function About() {
                     if (response.status == 200) {
                         setInquiry("");
                         setSnackbarOpen(true);
-                        event("send_additional_request");
+                        event("click", {
+                            label: "send_additional_request",
+                        });
                     }
                 }
             });
     }
-    function isValidUrl(str:string) {
+    function isValidUrl(str: string) {
         const pattern = new RegExp(
             '^(https:\\/\\/www.twitch.tv\\/)', //プロトコルパターン
             'i'
@@ -103,7 +105,7 @@ export default function About() {
                 >
                     <Typography
                         variant="body2"
-                        whiteSpace="pre-line"                    
+                        whiteSpace="pre-line"
                     >
                         {"まだリストされていないけど面白い配信者がいれば、是非教えてください。\nチャンネル特定のためチャンネルのURLを記載してください。\n※日本語中心の配信者のみ追加します。\n※必ず追加されるとは限りません。"}
                     </Typography>

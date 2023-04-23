@@ -84,6 +84,8 @@ function ListClipCard({
                             }}
                             onClick={() => {
                                 event("click", {
+                                    label: "click_twitch_clip_link",
+                                    clip_title: clip.title,
                                     link_url: clip.url,
                                 });
                             }}
