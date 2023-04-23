@@ -6,6 +6,7 @@ import { Stack } from "@mui/system";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
+import { event } from "nextjs-google-analytics";
 
 function StreamerCard() {
     const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
@@ -69,6 +70,12 @@ function StreamerCard() {
                                     style={{
                                         textDecoration: 'none',
                                     }}
+                                    onClick={() => {
+                                        event("click", {
+                                            link_url: "https://www.twitch.tv/" + currentStreamerValue.data!.login,
+                                        });
+                                    }}
+
                                 >
                                     <Stack
                                         direction="row"

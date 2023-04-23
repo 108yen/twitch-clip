@@ -7,6 +7,7 @@ import { loadable } from "jotai/utils";
 import Link from "next/link";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useInView } from "react-intersection-observer";
+import { event } from "nextjs-google-analytics";
 
 function ListClipCard({
     clip,
@@ -80,6 +81,11 @@ function ListClipCard({
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
+                            }}
+                            onClick={() => {
+                                event("click", {
+                                    link_url: clip.url,
+                                });
                             }}
                         >
                             <StyledLaunch fontSize="small" />
@@ -211,7 +217,6 @@ function FullClipCard({
                         : <Skeleton variant="circular" width={40} height={40} />}
                 </Link>
                 <Box
-                    // paddingBottom={1}
                     sx={{
                         overflow: 'hidden',
                         flexGrow: 1,

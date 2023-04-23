@@ -7,6 +7,7 @@ import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import Link from "next/link";
+import { event } from "nextjs-google-analytics";
 
 function StreamerItem({
     streamer
@@ -66,6 +67,11 @@ function StreamerItem({
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
+                            }}
+                            onClick={() => {
+                                event("click", {
+                                    link_url: "https://www.twitch.tv/" + streamer.login,
+                                });
                             }}
                         >
                             <Stack
