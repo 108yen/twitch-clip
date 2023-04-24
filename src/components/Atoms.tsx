@@ -118,7 +118,7 @@ export const viewLayoutAtom = atom(
         set(overrideClipCardsDisplayNumAtom, null);
         set(overrideMoreItemIsExistAtom, null);
         event("click", {
-            label: "switch layout to " + update,
+            label: "switch_layout_to_" + update,
         });
     }
 );
