@@ -270,6 +270,7 @@ function ClipCards() {
         //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
             setHasMore(false);
+            event("load_all_clips");
         }
         //load each 1 items
         setViewItemNum(viewItemNum + 1);

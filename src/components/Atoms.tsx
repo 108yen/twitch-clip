@@ -2,6 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { atom } from "jotai";
 import { ClipDoc, User } from "./types";
 import { Swiper as SwiperCore } from 'swiper';
+import { event } from "nextjs-google-analytics";
 
 export const usersAtom = atom<Promise<Array<User> | undefined>>(
     async () => {
@@ -116,6 +117,9 @@ export const viewLayoutAtom = atom(
         set(viewLayoutValueAtom, update);
         set(overrideClipCardsDisplayNumAtom, null);
         set(overrideMoreItemIsExistAtom, null);
+        event("click", {
+            label: "switch layout to " + update,
+        });
     }
 );
 
