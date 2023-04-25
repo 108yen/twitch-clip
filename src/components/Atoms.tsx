@@ -149,7 +149,10 @@ export const moreItemIsExistAtom = atom(
             return true;
         }
     },
-    (_, set, update: boolean) => {
+    (get, set, update: boolean) => {
+        if (!update && update != get(overrideMoreItemIsExistAtom)) {
+            event("load_all_clips");
+        }
         set(overrideMoreItemIsExistAtom, update);
     }
 );
