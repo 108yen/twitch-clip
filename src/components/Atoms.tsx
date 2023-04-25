@@ -151,7 +151,9 @@ export const moreItemIsExistAtom = atom(
     },
     (get, set, update: boolean) => {
         if (!update && update != get(overrideMoreItemIsExistAtom)) {
-            event("load_all_clips");
+            event("scroll", {
+                label: "load_all_clips",
+            });
         }
         set(overrideMoreItemIsExistAtom, update);
     }
