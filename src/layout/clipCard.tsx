@@ -12,9 +12,11 @@ import { event } from "nextjs-google-analytics";
 function ListClipCard({
     clip,
     streamer,
+    tab,
 }: {
     clip: Clip,
     streamer: User | undefined,
+    tab: string,
 }) {
     const imageWidth = 300;
 
@@ -86,6 +88,7 @@ function ListClipCard({
                                 event("click", {
                                     label: "click_twitch_clip_link",
                                     clip_title: clip.title,
+                                    ranking_period: tab,
                                     link_url: clip.url,
                                 });
                             }}
@@ -320,6 +323,7 @@ function ClipCards() {
                                     key={index}
                                     clip={e}
                                     streamer={streamer}
+                                    tab={tab}
                                 />
                             );
                         }
@@ -333,11 +337,23 @@ function ClipCards() {
         || tabValue.state === "loading") {
         return loader;
     } else {
-        return <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
-            <Typography variant='inherit' color='gray'>
-                load error
-            </Typography>
-        </Box>;
+        //error handling
+        if (clipsValue.state === "hasError") {
+            event("error", {
+                label: "click_load_error",
+            });
+        } else if (tabValue.state === "hasError") {
+            event("error", {
+                label: "tab_load_error",
+            });
+        }
+        return (
+            <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
+                <Typography variant='inherit' color='gray'>
+                    load error
+                </Typography>
+            </Box>
+        );
     }
 }
 
