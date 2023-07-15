@@ -140,7 +140,7 @@ export default function About() {
                             <TableBody>
                                 <TableRow>
                                     <TableCell>
-                                        day,week,monthランキング
+                                        day,week,month,yearランキング
                                     </TableCell>
                                     <TableCell align="right">
                                         毎日0,6,12,18時

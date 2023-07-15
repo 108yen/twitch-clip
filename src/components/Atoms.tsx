@@ -83,7 +83,7 @@ export const tabAtom = atom(
 );
 export const tabNameListAtom = atom<Promise<Array<string>>>(
     async (get) => {
-        const defaultArray: Array<string> = ['day', 'week', 'month', 'all'];
+        const defaultArray: Array<string> = ['day', 'week', 'month', 'year', 'all'];
         const currentYear = (new Date()).getFullYear();
         const clips = await get(clipsAtom);
         let tabArray: Array<string> = [];
