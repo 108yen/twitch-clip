@@ -19,7 +19,7 @@ export default function ClipsPageBody() {
     //use this
     const tabNameList = tabNameListValue.state === "hasData"
         ? tabNameListValue.data
-        : ["day", "week", "month", "all"];
+        : ["day", "week", "month", "year", "all"];
     // swipe
     const [swiper, setSwiper] = useAtom(swiperAtom);
     //full or list layout
