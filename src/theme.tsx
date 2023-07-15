@@ -19,10 +19,10 @@ export function themeOptions(isDarkMode: boolean): ThemeOptions {
                 styleOverrides: `
                     ::-webkit-scrollbar{
                         display: auto;
-                        width: 7px;
+                        width: 8px;
                     },
                     ::-webkit-scrollbar-thumb {
-                        background-color: rgba(255,255,255,0.2);
+                        background-color: ${isDarkMode ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)'};
                         border-radius: 10px;
                     },
                     ::-webkit-scrollbar-track {
