@@ -113,7 +113,7 @@ export default function About() {
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
-                        このウェブサイトを利用する場合、以下の利用規約に同意したものとみなされます。利用規約は、随時変更される場合があります。
+                        当サイトはTwitchのクリップをランキング形式でまとめた非公式サイトです。このウェブサイトを利用する場合、以下の利用規約に同意したものとみなされます。利用規約は、随時変更される場合があります。
                     </AboutBodyTypography>
                     <Typography
                         variant="h4"
