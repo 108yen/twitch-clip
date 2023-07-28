@@ -97,7 +97,37 @@ export default function DefaultHeader() {
                                 onMouseEnter={handleOnMouseEnter}
                                 onMouseLeave={handleOnMouseLeave}
                                 sx={{
-                                    paddingX: 1,
+                                    paddingX: 2,
+                                    paddingY: 0.5,
+                                    transitionDuration: "0.3s",
+                                    color: (theme) => theme.palette.text.disabled,
+                                    "&:hover": {
+                                        color: (theme) => theme.palette.text.primary,
+                                    },
+                                }}
+                            >
+                                <Link
+                                    href='/'
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'inherit',
+                                    }}
+                                >
+                                    <Tooltip title="ページトップ">
+                                        <Typography
+                                            variant="body1"
+                                            noWrap
+                                        >
+                                            Top
+                                        </Typography>
+                                    </Tooltip>
+                                </Link>
+                            </Div>
+                            <Div
+                                onMouseEnter={handleOnMouseEnter}
+                                onMouseLeave={handleOnMouseLeave}
+                                sx={{
+                                    paddingX: 2,
                                     paddingY: 0.5,
                                     transitionDuration: "0.3s",
                                     color: (theme) => theme.palette.text.disabled,
@@ -127,7 +157,7 @@ export default function DefaultHeader() {
                                 onMouseEnter={handleOnMouseEnter}
                                 onMouseLeave={handleOnMouseLeave}
                                 sx={{
-                                    paddingX: 1,
+                                    paddingX: 2,
                                     paddingY: 0.5,
                                     transitionDuration: "0.3s",
                                     color: (theme) => theme.palette.text.disabled,
