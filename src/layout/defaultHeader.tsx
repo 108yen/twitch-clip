@@ -31,6 +31,48 @@ export default function DefaultHeader() {
     function handleOnMouseLeave(event: React.MouseEvent) {
         setStyle(initStyle);
     }
+    function LinkButton({
+        href,
+        tooltip,
+        title
+    }: {
+        href: string,
+        tooltip: string,
+        title: string,
+    }) {
+        return (
+            <Div
+                onMouseEnter={handleOnMouseEnter}
+                onMouseLeave={handleOnMouseLeave}
+                sx={{
+                    paddingX: 2,
+                    paddingY: 0.5,
+                    transitionDuration: "0.3s",
+                    color: (theme) => theme.palette.text.disabled,
+                    "&:hover": {
+                        color: (theme) => theme.palette.text.primary,
+                    },
+                }}
+            >
+                <Link
+                    href={href}
+                    style={{
+                        textDecoration: 'none',
+                        color: 'inherit',
+                    }}
+                >
+                    <Tooltip title={tooltip}>
+                        <Typography
+                            variant="body1"
+                            noWrap
+                        >
+                            {title}
+                        </Typography>
+                    </Tooltip>
+                </Link>
+            </Div>
+        );
+    }
 
     useEffect(() => {
         window.addEventListener("scroll", toggleTransparent);
@@ -93,11 +135,42 @@ export default function DefaultHeader() {
                                     ...style
                                 }}
                             />
+                            {/* <LinkButton href='/' tooltip='ページトップ' title='Top' /> */}
                             <Div
                                 onMouseEnter={handleOnMouseEnter}
                                 onMouseLeave={handleOnMouseLeave}
                                 sx={{
-                                    paddingX: 1,
+                                    paddingX: 2,
+                                    paddingY: 0.5,
+                                    transitionDuration: "0.3s",
+                                    color: (theme) => theme.palette.text.disabled,
+                                    "&:hover": {
+                                        color: (theme) => theme.palette.text.primary,
+                                    },
+                                }}
+                            >
+                                <Link
+                                    href='/'
+                                    style={{
+                                        textDecoration: 'none',
+                                        color: 'inherit',
+                                    }}
+                                >
+                                    <Tooltip title="ページトップ">
+                                        <Typography
+                                            variant="body1"
+                                            noWrap
+                                        >
+                                            Top
+                                        </Typography>
+                                    </Tooltip>
+                                </Link>
+                            </Div>
+                            <Div
+                                onMouseEnter={handleOnMouseEnter}
+                                onMouseLeave={handleOnMouseLeave}
+                                sx={{
+                                    paddingX: 2,
                                     paddingY: 0.5,
                                     transitionDuration: "0.3s",
                                     color: (theme) => theme.palette.text.disabled,
@@ -127,7 +200,7 @@ export default function DefaultHeader() {
                                 onMouseEnter={handleOnMouseEnter}
                                 onMouseLeave={handleOnMouseLeave}
                                 sx={{
-                                    paddingX: 1,
+                                    paddingX: 2,
                                     paddingY: 0.5,
                                     transitionDuration: "0.3s",
                                     color: (theme) => theme.palette.text.disabled,

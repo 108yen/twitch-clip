@@ -1,22 +1,26 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
-import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, IconButton, Modal, Paper, Skeleton, Stack, Typography } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useInView } from "react-intersection-observer";
 import { event } from "nextjs-google-analytics";
+import { useState } from "react";
 
 function ListClipCard({
     clip,
     streamer,
     tab,
+    openClipModal,
 }: {
     clip: Clip,
     streamer: User | undefined,
     tab: string,
+    openClipModal: (clipUrl: string) => void
 }) {
     const imageWidth = 300;
 
@@ -75,6 +79,19 @@ function ListClipCard({
                             variant='h6'
                             noWrap
                             fontWeight='bold'
+                            component='div'
+                            sx={{
+                                cursor: 'pointer'
+                            }}
+                            onClick={() => {
+                                openClipModal(clip.embed_url);
+                                event("click", {
+                                    label: "click_clip_title",
+                                    clip_title: clip.title,
+                                    ranking_period: tab,
+                                    link_url: clip.url,
+                                });
+                            }}
                         >
                             {clip.title}
                         </Typography>
@@ -156,7 +173,7 @@ function FullClipCard({
     clip: Clip,
     streamer: User | undefined,
 }) {
-    const { ref, inView, entry } = useInView();
+    const { ref, inView, } = useInView();
 
     return (
         <BorderPaper
@@ -268,6 +285,14 @@ function ClipCards() {
     //period tab name
     const tabLoadableAtom = loadable(tabNameAtom);
     const [tabValue] = useAtom(tabLoadableAtom);
+    //modal controll
+    const [openModal, setOpenModal] = useState(false);
+    const [clipUrl, setClipUrl] = useState('');
+
+    function openClipModal(clipUrl: string) {
+        setClipUrl(clipUrl);
+        setOpenModal(true);
+    }
 
     function loadMore(clips: Clip[]) {
         //if max item num is clips num
@@ -297,38 +322,89 @@ function ClipCards() {
             const clips = clipsValue.data[tab];
 
             return (
-                <InfiniteScroll
-                    dataLength={viewItemNum}
-                    next={() => { loadMore(clips) }}
-                    hasMore={hasMore}
-                    loader={loader}
-                    endMessage={endMessage}
-                >
-                    {clips.slice(0, viewItemNum).map((e, index) => {
-                        const streamer = streamersValue.state === 'hasData'
-                            ? streamersValue.data?.find((user) => user.id == e.broadcaster_id)
-                            : undefined;
-                        //!ここで分岐しているの処理上よくないかも
-                        if (layout == "full") {
-                            return (
-                                <FullClipCard
-                                    key={index}
-                                    clip={e}
-                                    streamer={streamer}
+                <>
+                    <InfiniteScroll
+                        dataLength={viewItemNum}
+                        next={() => { loadMore(clips) }}
+                        hasMore={hasMore}
+                        loader={loader}
+                        endMessage={endMessage}
+                    >
+                        {clips.slice(0, viewItemNum).map((e, index) => {
+                            const streamer = streamersValue.state === 'hasData'
+                                ? streamersValue.data?.find((user) => user.id == e.broadcaster_id)
+                                : undefined;
+                            //!ここで分岐しているの処理上よくないかも
+                            if (layout == "full") {
+                                return (
+                                    <FullClipCard
+                                        key={index}
+                                        clip={e}
+                                        streamer={streamer}
+                                    />
+                                );
+                            } else {
+                                return (
+                                    <ListClipCard
+                                        key={index}
+                                        clip={e}
+                                        streamer={streamer}
+                                        tab={tab}
+                                        openClipModal={openClipModal}
+                                    />
+                                );
+                            }
+                        })}
+                    </InfiniteScroll>
+                    <Modal
+                        open={openModal}
+                        onClose={() => {
+                            setOpenModal(false);
+                        }}
+                    >
+                        <>
+                            <IconButton
+                                sx={{
+                                    position: 'absolute',
+                                    zIndex: 1400,
+                                    top: { xs: 0, xl: '10%' },
+                                    right: { xs: 0, xl: '10%' },
+                                }}
+                                onClick={() => {
+                                    setOpenModal(false);
+                                }}
+                            >
+                                <CloseIcon fontSize="large" />
+                            </IconButton>
+                            <Box
+                                sx={{
+                                    position: 'relative',
+                                    top: { xs: 0, xl: '15%' },
+                                    left: { xs: 0, xl: '15%' },
+                                    width: { xs: '100%', xl: '70%' },
+                                    height: { xs: '100%', xl: '70%' },
+                                    // paddingBottom: '56.25%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <iframe
+                                    src={clipUrl + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        border: 'none',
+                                    }}
                                 />
-                            );
-                        } else {
-                            return (
-                                <ListClipCard
-                                    key={index}
-                                    clip={e}
-                                    streamer={streamer}
-                                    tab={tab}
-                                />
-                            );
-                        }
-                    })}
-                </InfiniteScroll>
+                            </Box>
+                        </>
+                    </Modal>
+                </>
             );
         } else {
             return endMessage;
