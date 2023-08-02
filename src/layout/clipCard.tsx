@@ -1,7 +1,8 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
-import { Avatar, Box, CircularProgress, Modal, Paper, Skeleton, Stack, Typography } from "@mui/material";
+import { Avatar, Box, CircularProgress, IconButton, Modal, Paper, Skeleton, Stack, Typography } from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
@@ -78,7 +79,10 @@ function ListClipCard({
                             variant='h6'
                             noWrap
                             fontWeight='bold'
-                            component='span'
+                            component='div'
+                            sx={{
+                                cursor: 'pointer'
+                            }}
                             onClick={() => {
                                 openClipModal(clip.embed_url);
                             }}
@@ -163,7 +167,7 @@ function FullClipCard({
     clip: Clip,
     streamer: User | undefined,
 }) {
-    const { ref, inView, entry } = useInView();
+    const { ref, inView, } = useInView();
 
     return (
         <BorderPaper
@@ -352,23 +356,47 @@ function ClipCards() {
                             setOpenModal(false);
                         }}
                     >
-                        {/* <Box
-                            paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-                        > */}
-                            <iframe
-                                src={clipUrl + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
-                                allowFullScreen
-                                loading="lazy"
-                                style={{
+                        <>
+                            <IconButton
+                                sx={{
                                     position: 'absolute',
-                                    top: '15%',
-                                    left: '15%',
-                                    width: '70%',
-                                    height: '70%',
-                                    border: 'none',
+                                    zIndex: 1400,
+                                    top: { xs: 0, xl: '10%' },
+                                    right: { xs: 0, xl: '10%' },
                                 }}
-                            />
-                        {/* </Box> */}
+                                onClick={() => {
+                                    setOpenModal(false);
+                                }}
+                            >
+                                <CloseIcon fontSize="large" />
+                            </IconButton>
+                            <Box
+                                sx={{
+                                    position: 'relative',
+                                    top: { xs: 0, xl: '15%' },
+                                    left: { xs: 0, xl: '15%' },
+                                    width: { xs: '100%', xl: '70%' },
+                                    height: { xs: '100%', xl: '70%' },
+                                    // paddingBottom: '56.25%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <iframe
+                                    src={clipUrl + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        border: 'none',
+                                    }}
+                                />
+                            </Box>
+                        </>
                     </Modal>
                 </>
             );
