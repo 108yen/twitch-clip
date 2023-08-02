@@ -85,6 +85,12 @@ function ListClipCard({
                             }}
                             onClick={() => {
                                 openClipModal(clip.embed_url);
+                                event("click", {
+                                    label: "click_clip_title",
+                                    clip_title: clip.title,
+                                    ranking_period: tab,
+                                    link_url: clip.url,
+                                });
                             }}
                         >
                             {clip.title}
