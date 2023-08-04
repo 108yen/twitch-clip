@@ -1,7 +1,5 @@
-import { swiperAtom, tabAtom, tabNameListAtom, viewLayoutAtom } from "@/components/Atoms";
-import { Box, Tab, Tabs, ToggleButton, ToggleButtonGroup, Tooltip } from "@mui/material";
-import { ViewArray } from '@mui/icons-material';
-import ViewListIcon from '@mui/icons-material/ViewList';
+import { swiperAtom, tabAtom, tabNameListAtom } from "@/components/Atoms";
+import { Box, Tab, Tabs } from "@mui/material";
 import { Virtual } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -22,8 +20,6 @@ export default function ClipsPageBody() {
         : ["day", "week", "month", "year", "all"];
     // swipe
     const [swiper, setSwiper] = useAtom(swiperAtom);
-    //full or list layout
-    const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
 
     function handleSlideChange(index: number) {
         setTab(index);
@@ -31,9 +27,6 @@ export default function ClipsPageBody() {
     function handleTabChange(event: React.SyntheticEvent, newValue: number) {
         setTab(newValue);
         swiper?.slideTo(newValue);
-    }
-    function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
-        setViewLayout(newAlignment);
     }
 
     return (
@@ -45,23 +38,6 @@ export default function ClipsPageBody() {
                     justifyContent: "flex-end"
                 }}
             >
-                <ToggleButtonGroup
-                    size='small'
-                    exclusive
-                    value={viewLayout}
-                    onChange={handleLayoutChange}
-                >
-                    <ToggleButton value="list">
-                        <Tooltip title="リスト表示">
-                            <ViewListIcon />
-                        </Tooltip>
-                    </ToggleButton>
-                    <ToggleButton value="full">
-                        <Tooltip title="埋め込み表示（重い）">
-                            <ViewArray />
-                        </Tooltip>
-                    </ToggleButton>
-                </ToggleButtonGroup>
             </Box>
             <Box sx={{
                 borderBottom: 1,

@@ -60,7 +60,6 @@ export const currentStreamerAtom = atom<Promise<User | undefined>>(
 );
 
 const tabValueAtom = atom<number>(0);
-const viewLayoutValueAtom = atom<string>('list');
 export const swiperAtom = atom<SwiperCore | null>(null);
 
 //for reset
@@ -111,17 +110,6 @@ export const tabNameAtom = atom<Promise<string>>(
         return tabArray[get(tabValueAtom)];
     }
 );
-export const viewLayoutAtom = atom(
-    (get) => get(viewLayoutValueAtom),
-    (_, set, update: string) => {
-        set(viewLayoutValueAtom, update);
-        set(overrideClipCardsDisplayNumAtom, null);
-        set(overrideMoreItemIsExistAtom, null);
-        event("click", {
-            label: "switch_layout_to_" + update,
-        });
-    }
-);
 
 const overrideClipCardsDisplayNumAtom = atom<number | null>(null);
 export const clipCardsDisplayNumAtom = atom(
@@ -130,7 +118,7 @@ export const clipCardsDisplayNumAtom = atom(
         if (override != null) {
             return override;
         } else {
-            return get(viewLayoutAtom) == 'full' ? 3 : 7;
+            return 7;
         }
     },
     (_, set, update: number) => {
