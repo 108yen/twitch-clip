@@ -163,9 +163,20 @@ export function ClipViewLayout({
                             />
                         </Box>
                     </BorderPaper>
-                    <Typography variant="h6" fontWeight="bold" noWrap>
-                        {currentClip.title}
-                    </Typography>
+                    <Stack
+                        direction="row"
+                        overflow="hidden"
+                        justifyContent="space-between"
+                        alignItems="flex-start"
+                        flexGrow={1}
+                    >
+                        <Typography variant="h6" fontWeight="bold" noWrap>
+                            {currentClip.title}
+                        </Typography>
+                        <Typography variant="body2" color="grey">
+                            {currentClip.view_count?.toLocaleString()} views
+                        </Typography>
+                    </Stack>
                     <StreamerInfo streamer={currentStreamer} />
                 </Stack>
             </Grid>
