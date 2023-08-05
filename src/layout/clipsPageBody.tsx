@@ -1,5 +1,5 @@
 import { swiperAtom, tabAtom, tabNameListAtom } from "@/components/Atoms";
-import { Box, Tab, Tabs } from "@mui/material";
+import { Box, Stack, Tab, Tabs } from "@mui/material";
 import { Virtual } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,7 +11,7 @@ import ClipCards from '@/layout/clipCard';
 export default function ClipsPageBody({
     setClickedClipUrl
 }: {
-    setClickedClipUrl:(clipUrl:string)=>void,
+    setClickedClipUrl: (clipUrl: string) => void,
 }) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom);
@@ -34,11 +34,15 @@ export default function ClipsPageBody({
     }
 
     return (
-        <>
+        <Stack
+            direction="column"
+            overflow="hidden"
+            spacing={0.1}
+        >
             <Box sx={{
                 borderBottom: 1,
                 borderColor: 'divider',
-                marginY: 2,
+                // marginY: 2,
                 justifyContent: 'center',
                 display: 'flex',
             }}>
@@ -74,6 +78,6 @@ export default function ClipsPageBody({
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </>
+        </Stack>
     );
 }

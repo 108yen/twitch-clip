@@ -121,8 +121,6 @@ function CardItem({
     return (
         <>
             <Box
-                // width={200}
-                // overflow="hidden"
                 sx={{
                     marginY: 2
                 }}

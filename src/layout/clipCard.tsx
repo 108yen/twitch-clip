@@ -14,13 +14,11 @@ function ListClipCard({
     clip,
     streamer,
     tab,
-    openClipModal,
     setClickedClipUrl,
 }: {
     clip: Clip,
     streamer: User | undefined,
     tab: string,
-    openClipModal: (clipUrl: string) => void,
     setClickedClipUrl: (clipUrl: string) => void,
 }) {
     const imageWidth = 300;
@@ -51,6 +49,7 @@ function ListClipCard({
         >
             <Stack
                 direction="row"
+                overflow="hidden"
                 sx={{
                     height: { xs: 110, sm: 170 }
                 }}
@@ -85,7 +84,6 @@ function ListClipCard({
                                 cursor: 'pointer'
                             }}
                             onClick={() => {
-                                // openClipModal(clip.embed_url);
                                 setClickedClipUrl(clip.embed_url);
                                 event("click", {
                                     label: "click_clip_title",
@@ -160,7 +158,6 @@ function ListClipCard({
                         {clip.view_count.toLocaleString() + " views"}
                     </Typography>
                 </Stack>
-
             </Stack>
         </BorderPaper>
     );
@@ -184,14 +181,6 @@ function ClipCards({
     //period tab name
     const tabLoadableAtom = loadable(tabNameAtom);
     const [tabValue] = useAtom(tabLoadableAtom);
-    //modal controll
-    const [openModal, setOpenModal] = useState(false);
-    const [clipUrl, setClipUrl] = useState('');
-
-    function openClipModal(clipUrl: string) {
-        setClipUrl(clipUrl);
-        setOpenModal(true);
-    }
 
     function loadMore(clips: Clip[]) {
         //if max item num is clips num
@@ -239,60 +228,11 @@ function ClipCards({
                                     clip={e}
                                     streamer={streamer}
                                     tab={tab}
-                                    openClipModal={openClipModal}
                                     setClickedClipUrl={setClickedClipUrl}
                                 />
                             );
                         })}
                     </InfiniteScroll>
-                    <Modal
-                        open={openModal}
-                        onClose={() => {
-                            setOpenModal(false);
-                        }}
-                    >
-                        <>
-                            <IconButton
-                                sx={{
-                                    position: 'absolute',
-                                    zIndex: 1400,
-                                    top: { xs: 0, xl: '10%' },
-                                    right: { xs: 0, xl: '10%' },
-                                }}
-                                onClick={() => {
-                                    setOpenModal(false);
-                                }}
-                            >
-                                <CloseIcon fontSize="large" />
-                            </IconButton>
-                            <Box
-                                sx={{
-                                    position: 'relative',
-                                    top: { xs: 0, xl: '15%' },
-                                    left: { xs: 0, xl: '15%' },
-                                    width: { xs: '100%', xl: '70%' },
-                                    height: { xs: '100%', xl: '70%' },
-                                    // paddingBottom: '56.25%',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <iframe
-                                    src={clipUrl + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    style={{
-                                        position: 'absolute',
-                                        top: 0,
-                                        left: 0,
-                                        width: '100%',
-                                        height: '100%',
-                                        border: 'none',
-                                    }}
-                                />
-                            </Box>
-                        </>
-                    </Modal>
                 </>
             );
         } else {

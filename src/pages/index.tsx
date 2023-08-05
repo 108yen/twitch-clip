@@ -33,12 +33,12 @@ export default function Home() {
         justifyContent='center'
         paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
       >
-        <Grid item xs={12} md={9}>
+        <Grid item zeroMinWidth xs={12} md={9}>
           <ClipsPageBody
             setClickedClipUrl={handleSetClip}
           />
         </Grid>
-        <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
+        <Grid item zeroMinWidth xs={3} display={{ xs: 'none', md: 'flex' }}>
           <StreamerList />
         </Grid>
       </Grid>
