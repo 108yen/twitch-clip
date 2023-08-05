@@ -1,7 +1,5 @@
-import { swiperAtom, tabAtom, tabNameListAtom, viewLayoutAtom } from "@/components/Atoms";
-import { Box, Tab, Tabs, ToggleButton, ToggleButtonGroup, Tooltip } from "@mui/material";
-import { ViewArray } from '@mui/icons-material';
-import ViewListIcon from '@mui/icons-material/ViewList';
+import { swiperAtom, tabAtom, tabNameListAtom } from "@/components/Atoms";
+import { Box, Stack, Tab, Tabs } from "@mui/material";
 import { Virtual } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,8 +7,13 @@ import 'swiper/css/virtual';
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import ClipCards from '@/layout/clipCard';
+import { Clip } from "@/components/types";
 
-export default function ClipsPageBody() {
+export default function MainClipCard({
+    setClickedClipUrl
+}: {
+    setClickedClipUrl: (clip: Clip) => void,
+}) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom);
     //get tab name list
@@ -22,51 +25,25 @@ export default function ClipsPageBody() {
         : ["day", "week", "month", "year", "all"];
     // swipe
     const [swiper, setSwiper] = useAtom(swiperAtom);
-    //full or list layout
-    const [viewLayout, setViewLayout] = useAtom(viewLayoutAtom);
 
     function handleSlideChange(index: number) {
         setTab(index);
     }
-    function handleTabChange(event: React.SyntheticEvent, newValue: number) {
+    function handleTabChange(_: React.SyntheticEvent, newValue: number) {
         setTab(newValue);
         swiper?.slideTo(newValue);
     }
-    function handleLayoutChange(event: React.MouseEvent<HTMLElement>, newAlignment: string) {
-        setViewLayout(newAlignment);
-    }
 
     return (
-        <>
-            <Box
-                sx={{
-                    m: 1,
-                    display: 'flex',
-                    justifyContent: "flex-end"
-                }}
-            >
-                <ToggleButtonGroup
-                    size='small'
-                    exclusive
-                    value={viewLayout}
-                    onChange={handleLayoutChange}
-                >
-                    <ToggleButton value="list">
-                        <Tooltip title="リスト表示">
-                            <ViewListIcon />
-                        </Tooltip>
-                    </ToggleButton>
-                    <ToggleButton value="full">
-                        <Tooltip title="埋め込み表示（重い）">
-                            <ViewArray />
-                        </Tooltip>
-                    </ToggleButton>
-                </ToggleButtonGroup>
-            </Box>
+        <Stack
+            direction="column"
+            overflow="hidden"
+            spacing={0.1}
+        >
             <Box sx={{
                 borderBottom: 1,
                 borderColor: 'divider',
-                marginBottom: 2,
+                // marginY: 2,
                 justifyContent: 'center',
                 display: 'flex',
             }}>
@@ -96,10 +73,12 @@ export default function ClipsPageBody() {
             >
                 {Array.from({ length: tabNameList.length }).map((e, index) => (
                     <SwiperSlide key={index} virtualIndex={index}>
-                        <ClipCards />
+                        <ClipCards
+                            setClickedClipUrl={setClickedClipUrl}
+                        />
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </>
+        </Stack>
     );
 }

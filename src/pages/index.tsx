@@ -2,22 +2,31 @@ import { currentStreamerIdAtom } from '@/components/Atoms';
 import { useAtom } from 'jotai';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
 import DefaultHeader from '@/layout/defaultHeader';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/virtual';
-import ClipsPageBody from '@/layout/clipsPageBody';
-import { Grid } from '@mui/material';
-import StreamerList from '@/layout/streamerList';
+import { Clip } from '@/components/types';
+import { ClipViewLayout } from '@/layout/clipViewLayout';
+import { ClipListLayout } from '@/layout/clipListLayout';
 
 export default function Home() {
+  const title = "Twitchクリップランキング";
+  const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
+  //set clicked clip
+  const [currentClip, setCurrentClip] = useState<Clip | undefined>();
+  function handleSetClip(clip: Clip) {
+    setCurrentClip(clip);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
   useEffect(() => {
     setCurrentStreamerId('summary');
   }, []);
-
-  const title = "Twitchクリップランキング";
-  const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
 
   return (
     <>
@@ -47,18 +56,17 @@ export default function Home() {
         description={description}
       />
       <DefaultHeader />
-      <Grid
-        container
-        justifyContent='center'
-        paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-      >
-        <Grid item xs={12} md={9}>
-          <ClipsPageBody />
-        </Grid>
-        <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-          <StreamerList />
-        </Grid>
-      </Grid>
+      {
+        currentClip === undefined
+          ? <ClipListLayout
+            setClickedClip={handleSetClip}
+          />
+          : <ClipViewLayout
+            currentClip={currentClip!}
+            setClickedClip={handleSetClip}
+          />
+      }
+
     </>
   );
 }

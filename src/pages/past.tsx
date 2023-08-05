@@ -1,21 +1,30 @@
 import { currentStreamerIdAtom } from "@/components/Atoms";
-import ClipsPageBody from "@/layout/clipsPageBody";
 import DefaultHeader from "@/layout/defaultHeader";
-import StreamerList from "@/layout/streamerList";
-import { Grid } from "@mui/material";
 import { useAtom } from "jotai";
 import { ArticleJsonLd, NextSeo } from "next-seo";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Clip } from "@/components/types";
+import { ClipListLayout } from "@/layout/clipListLayout";
+import { ClipViewLayout } from "@/layout/clipViewLayout";
 
 export default function PastRanking() {
+    const title = "Twitchクリップランキング | 過去ランキング";
+    const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
+    //set clicked clip
+    const [currentClip, setCurrentClip] = useState<Clip | undefined>();
+    function handleSetClip(clip: Clip) {
+        setCurrentClip(clip);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
     useEffect(() => {
         setCurrentStreamerId('past_summary');
     }, []);
-    
-    const title = "Twitchクリップランキング | 過去ランキング";
-    const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
 
     return (
         <>
@@ -45,18 +54,16 @@ export default function PastRanking() {
                 description={description}
             />
             <DefaultHeader />
-            <Grid
-                container
-                justifyContent='center'
-                paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-            >
-                <Grid item xs={12} md={9}>
-                    <ClipsPageBody />
-                </Grid>
-                <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-                    <StreamerList />
-                </Grid>
-            </Grid>
+            {
+                currentClip === undefined
+                    ? <ClipListLayout
+                        setClickedClip={handleSetClip}
+                    />
+                    : <ClipViewLayout
+                        currentClip={currentClip!}
+                        setClickedClip={handleSetClip}
+                    />
+            }
         </>
     );
 }

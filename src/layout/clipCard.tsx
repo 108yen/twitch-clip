@@ -1,26 +1,23 @@
-import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom, viewLayoutAtom } from "@/components/Atoms";
+import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom } from "@/components/Atoms";
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
-import { Avatar, Box, CircularProgress, IconButton, Modal, Paper, Skeleton, Stack, Typography } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useInView } from "react-intersection-observer";
 import { event } from "nextjs-google-analytics";
-import { useState } from "react";
 
 function ListClipCard({
     clip,
     streamer,
     tab,
-    openClipModal,
+    setClickedClipUrl,
 }: {
     clip: Clip,
     streamer: User | undefined,
     tab: string,
-    openClipModal: (clipUrl: string) => void
+    setClickedClipUrl: (clip: Clip) => void,
 }) {
     const imageWidth = 300;
 
@@ -50,6 +47,7 @@ function ListClipCard({
         >
             <Stack
                 direction="row"
+                overflow="hidden"
                 sx={{
                     height: { xs: 110, sm: 170 }
                 }}
@@ -84,7 +82,7 @@ function ListClipCard({
                                 cursor: 'pointer'
                             }}
                             onClick={() => {
-                                openClipModal(clip.embed_url);
+                                setClickedClipUrl(clip);
                                 event("click", {
                                     label: "click_clip_title",
                                     clip_title: clip.title,
@@ -118,7 +116,6 @@ function ListClipCard({
                         href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
                         style={{
                             textDecoration: 'none',
-                            color: 'black',
                         }}
                     >
                         <Stack
@@ -159,118 +156,17 @@ function ListClipCard({
                         {clip.view_count.toLocaleString() + " views"}
                     </Typography>
                 </Stack>
-
             </Stack>
         </BorderPaper>
     );
 
 }
 
-function FullClipCard({
-    clip,
-    streamer,
+function ClipCards({
+    setClickedClipUrl,
 }: {
-    clip: Clip,
-    streamer: User | undefined,
+    setClickedClipUrl: (clip: Clip) => void,
 }) {
-    const { ref, inView, } = useInView();
-
-    return (
-        <BorderPaper
-            sx={{
-                marginX: { xs: 0, sm: 1 },
-                marginY: { xs: 1, sm: 2 },
-            }}
-        >
-            <Box
-                ref={ref}
-                sx={{
-                    position: 'relative',
-                    width: '100%',
-                    height: 0,
-                    paddingBottom: '56.25%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                }}
-            >
-                {inView
-                    ? <iframe
-                        src={clip.embed_url + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
-                        allowFullScreen
-                        loading="lazy"
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            border: 'none',
-                        }}
-                    />
-                    : <Skeleton
-                        variant="rounded"
-                        sx={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                        }}
-                    />
-                }
-            </Box>
-            <Stack
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-                spacing={2}
-                paddingX={2}
-                mt={1}
-            >
-                <Link
-                    href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
-                    style={{
-                        textDecoration: 'none',
-                        color: 'black',
-                    }}
-                >
-                    {streamer != undefined
-                        ? <Avatar src={streamer.profile_image_url} />
-                        : <Skeleton variant="circular" width={40} height={40} />}
-                </Link>
-                <Box
-                    sx={{
-                        overflow: 'hidden',
-                        flexGrow: 1,
-                    }}
-                >
-                    <Typography
-                        variant='subtitle1'
-                        noWrap
-                        fontWeight='bold'
-                    >
-                        {clip.title}
-                    </Typography>
-
-                    <Stack
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="baseline"
-                    >
-                        <Typography variant='subtitle2'>
-                            {clip.broadcaster_name}
-                        </Typography>
-                        <Typography variant='subtitle2'>
-                            {clip.view_count.toLocaleString() + " views"}
-                        </Typography>
-                    </Stack>
-                </Box>
-            </Stack>
-        </BorderPaper>
-    );
-}
-
-function ClipCards() {
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom);
     const [clipsValue] = useAtom(clipsLoadableAtom);
@@ -280,19 +176,9 @@ function ClipCards() {
     //to infinite scroller
     const [viewItemNum, setViewItemNum] = useAtom(clipCardsDisplayNumAtom);
     const [hasMore, setHasMore] = useAtom(moreItemIsExistAtom);
-    //layout full | list
-    const [layout] = useAtom(viewLayoutAtom);
     //period tab name
     const tabLoadableAtom = loadable(tabNameAtom);
     const [tabValue] = useAtom(tabLoadableAtom);
-    //modal controll
-    const [openModal, setOpenModal] = useState(false);
-    const [clipUrl, setClipUrl] = useState('');
-
-    function openClipModal(clipUrl: string) {
-        setClipUrl(clipUrl);
-        setOpenModal(true);
-    }
 
     function loadMore(clips: Clip[]) {
         //if max item num is clips num
@@ -334,76 +220,17 @@ function ClipCards() {
                             const streamer = streamersValue.state === 'hasData'
                                 ? streamersValue.data?.find((user) => user.id == e.broadcaster_id)
                                 : undefined;
-                            //!ここで分岐しているの処理上よくないかも
-                            if (layout == "full") {
-                                return (
-                                    <FullClipCard
-                                        key={index}
-                                        clip={e}
-                                        streamer={streamer}
-                                    />
-                                );
-                            } else {
-                                return (
-                                    <ListClipCard
-                                        key={index}
-                                        clip={e}
-                                        streamer={streamer}
-                                        tab={tab}
-                                        openClipModal={openClipModal}
-                                    />
-                                );
-                            }
+                            return (
+                                <ListClipCard
+                                    key={index}
+                                    clip={e}
+                                    streamer={streamer}
+                                    tab={tab}
+                                    setClickedClipUrl={setClickedClipUrl}
+                                />
+                            );
                         })}
                     </InfiniteScroll>
-                    <Modal
-                        open={openModal}
-                        onClose={() => {
-                            setOpenModal(false);
-                        }}
-                    >
-                        <>
-                            <IconButton
-                                sx={{
-                                    position: 'absolute',
-                                    zIndex: 1400,
-                                    top: { xs: 0, xl: '10%' },
-                                    right: { xs: 0, xl: '10%' },
-                                }}
-                                onClick={() => {
-                                    setOpenModal(false);
-                                }}
-                            >
-                                <CloseIcon fontSize="large" />
-                            </IconButton>
-                            <Box
-                                sx={{
-                                    position: 'relative',
-                                    top: { xs: 0, xl: '15%' },
-                                    left: { xs: 0, xl: '15%' },
-                                    width: { xs: '100%', xl: '70%' },
-                                    height: { xs: '100%', xl: '70%' },
-                                    // paddingBottom: '56.25%',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <iframe
-                                    src={clipUrl + '&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com'}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    style={{
-                                        position: 'absolute',
-                                        top: 0,
-                                        left: 0,
-                                        width: '100%',
-                                        height: '100%',
-                                        border: 'none',
-                                    }}
-                                />
-                            </Box>
-                        </>
-                    </Modal>
                 </>
             );
         } else {
