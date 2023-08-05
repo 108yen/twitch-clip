@@ -123,7 +123,7 @@ function StreamerList() {
                 overflow="hidden"
             >
                 <Typography variant='subtitle1' color='grey'>
-                    ストリーマー
+                    channels
                 </Typography>
                 <Divider />
                 {Array.from({ length: 10 }).map(
