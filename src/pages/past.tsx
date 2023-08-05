@@ -19,7 +19,7 @@ export default function PastRanking() {
             behavior: "smooth",
         });
     }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
     useEffect(() => {

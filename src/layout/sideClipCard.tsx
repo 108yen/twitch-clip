@@ -243,7 +243,7 @@ export default function SideClipCard({
                     onChange={handleTabChange}
                 >
                     {tabNameList.map((e, index) =>
-                        <MenuItem value={index}>
+                        <MenuItem key={index} value={index}>
                             {e}
                         </MenuItem>
                     )}
