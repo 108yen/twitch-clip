@@ -21,9 +21,8 @@ export default function Home() {
       behavior: "smooth",
     });
   }
-
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
-
+  
   useEffect(() => {
     setCurrentStreamerId('summary');
   }, []);
