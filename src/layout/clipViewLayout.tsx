@@ -124,7 +124,7 @@ export function ClipViewLayout({
         <Grid
             container
             justifyContent='center'
-            paddingX={{ xs: 0, md: 5 }}
+            paddingX={{ xs: 0, md: 5, xl: 15 }}
             spacing={4}
         >
             <Grid item xs={12} md={9}>
