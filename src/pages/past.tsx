@@ -14,6 +14,10 @@ export default function PastRanking() {
     const [currentClip, setCurrentClip] = useState<Clip | undefined>();
     function handleSetClip(clip: Clip) {
         setCurrentClip(clip);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     }
 
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
