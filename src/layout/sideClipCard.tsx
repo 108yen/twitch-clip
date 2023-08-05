@@ -119,93 +119,91 @@ function CardItem({
     setClickedClipUrl: (clip: Clip) => void,
 }) {
     return (
-        <>
-            <Box
-                sx={{
-                    marginY: 2
-                }}
+        <Box
+            sx={{
+                marginY: 2
+            }}
+        >
+            <Stack
+                direction="column"
+                overflow="hidden"
+                spacing={1}
+                sx={{ flexGrow: 1 }}
             >
-                <Stack
-                    direction="column"
-                    overflow="hidden"
-                    spacing={1}
-                    sx={{ flexGrow: 1 }}
+                <BorderPaper
+                    sx={{
+                        position: 'relative',
+                        width: '100%',
+                        height: 0,
+                        paddingBottom: '56.25%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        cursor: 'pointer'
+                    }}
+                    onClick={() => {
+                        setClickedClipUrl(clip);
+                        event("click", {
+                            label: "click_clip_title",
+                            clip_title: clip.title,
+                            ranking_period: tab,
+                            link_url: clip.url,
+                        });
+                    }}
                 >
-                    <BorderPaper
-                        sx={{
-                            position: 'relative',
-                            width: '100%',
-                            height: 0,
-                            paddingBottom: '56.25%',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            cursor: 'pointer'
-                        }}
-                        onClick={() => {
-                            setClickedClipUrl(clip);
-                            event("click", {
-                                label: "click_clip_title",
-                                clip_title: clip.title,
-                                ranking_period: tab,
-                                link_url: clip.url,
-                            });
-                        }}
-                    >
-                        <img
-                            src={clip.thumbnail_url}
-                            alt={clip.title}
-                            loading="lazy"
-                            style={{
-                                position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                width: '100%',
-                                height: '100%',
-                                border: 'none',
-                            }}
-                        />
-
-                    </BorderPaper>
-                    <Link
-                        href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
+                    <img
+                        src={clip.thumbnail_url}
+                        alt={clip.title}
+                        loading="lazy"
                         style={{
-                            textDecoration: 'none',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            border: 'none',
                         }}
+                    />
+
+                </BorderPaper>
+                <Link
+                    href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
+                    style={{
+                        textDecoration: 'none',
+                    }}
+                >
+                    <Stack
+                        direction="row"
+                        alignItems="center"
+                        spacing={2}
                     >
+                        {streamer != undefined
+                            ? <Avatar
+                                sx={{ width: 35, height: 35 }}
+                                src={streamer.profile_image_url} />
+                            : <Skeleton
+                                variant="circular"
+                                width={35}
+                                height={35} />}
                         <Stack
-                            direction="row"
-                            alignItems="center"
-                            spacing={2}
+                            direction="column"
+                            overflow="hidden"
                         >
-                            {streamer != undefined
-                                ? <Avatar
-                                    sx={{ width: 35, height: 35 }}
-                                    src={streamer.profile_image_url} />
-                                : <Skeleton
-                                    variant="circular"
-                                    width={35}
-                                    height={35} />}
-                            <Stack
-                                direction="column"
-                                overflow="hidden"
+                            <NoDecorationTypography
+                                variant="body1"
+                                noWrap
                             >
-                                <NoDecorationTypography
-                                    variant="body1"
-                                    noWrap
-                                >
-                                    {clip.title}
-                                </NoDecorationTypography>
-                                <Typography noWrap variant="body1" color="grey">
-                                    {streamer != undefined
-                                        ? streamer.display_name
-                                        : <Skeleton width={150} />}
-                                </Typography>
-                            </Stack>
+                                {clip.title}
+                            </NoDecorationTypography>
+                            <Typography noWrap variant="body1" color="grey">
+                                {streamer != undefined
+                                    ? streamer.display_name
+                                    : <Skeleton width={150} />}
+                            </Typography>
                         </Stack>
-                    </Link>
-                </Stack>
-            </Box>
-        </>
+                    </Stack>
+                </Link>
+            </Stack>
+        </Box>
     );
 }
 
@@ -231,6 +229,7 @@ export default function SideClipCard({
         <Stack
             direction="column"
             overflow="hidden"
+            flexGrow={1}
         >
             <Stack
                 direction="row"

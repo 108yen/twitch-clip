@@ -1,21 +1,26 @@
 import { currentStreamerIdAtom } from "@/components/Atoms";
-import MainClipCard from "@/layout/mainClipCard";
 import DefaultHeader from "@/layout/defaultHeader";
-import StreamerList from "@/layout/streamerList";
-import { Grid } from "@mui/material";
 import { useAtom } from "jotai";
 import { ArticleJsonLd, NextSeo } from "next-seo";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Clip } from "@/components/types";
+import { ClipListLayout } from "@/layout/clipListLayout";
+import { ClipViewLayout } from "@/layout/clipViewLayout";
 
 export default function PastRanking() {
+    const title = "Twitchクリップランキング | 過去ランキング";
+    const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
+    //set clicked clip
+    const [currentClip, setCurrentClip] = useState<Clip | undefined>();
+    function handleSetClip(clip: Clip) {
+        setCurrentClip(clip);
+    }
+
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
     useEffect(() => {
         setCurrentStreamerId('past_summary');
     }, []);
-
-    const title = "Twitchクリップランキング | 過去ランキング";
-    const description = "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。";
 
     return (
         <>
@@ -45,7 +50,17 @@ export default function PastRanking() {
                 description={description}
             />
             <DefaultHeader />
-            <Grid
+            {
+                currentClip === undefined
+                    ? <ClipListLayout
+                        setClickedClip={handleSetClip}
+                    />
+                    : <ClipViewLayout
+                        currentClip={currentClip!}
+                        setClickedClip={handleSetClip}
+                    />
+            }
+            {/* <Grid
                 container
                 justifyContent='center'
                 paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
@@ -56,7 +71,7 @@ export default function PastRanking() {
                 <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
                     <StreamerList />
                 </Grid>
-            </Grid>
+            </Grid> */}
         </>
     );
 }
