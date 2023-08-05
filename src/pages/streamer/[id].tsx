@@ -4,13 +4,21 @@ import StreamerList from "@/layout/streamerList";
 import { Grid, } from "@mui/material";
 import { useAtom } from "jotai";
 import { NextSeo, ArticleJsonLd } from "next-seo";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
 import { loadable } from "jotai/utils";
 import MainClipCard from "@/layout/mainClipCard";
+import { Clip } from "@/components/types";
+import { ClipListLayout } from "@/layout/clipListLayout";
+import { ClipViewLayout } from "@/layout/clipViewLayout";
 
 export default function StreamerClip() {
+  //set clicked clip
+  const [currentClip, setCurrentClip] = useState<Clip | undefined>();
+  function handleSetClip(clip: Clip) {
+    setCurrentClip(clip);
+  }
   //for set title
   const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
   const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom);
@@ -65,19 +73,30 @@ export default function StreamerClip() {
         description={description}
       />
       <DefaultHeader />
-      <Grid
-        container
-        justifyContent='center'
-        paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-      >
-        <Grid item xs={12} md={9}>
-          <StreamerCard />
-          <MainClipCard />
-        </Grid>
-        <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-          <StreamerList />
-        </Grid>
-      </Grid>
+      {
+        currentClip === undefined
+          ? <Grid
+            container
+            justifyContent='center'
+            paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
+          >
+            <Grid item xs={12} md={9}>
+              <StreamerCard />
+            </Grid>
+          </Grid>
+          : null
+      }
+
+      {
+        currentClip === undefined
+          ? <ClipListLayout
+            setClickedClip={handleSetClip}
+          />
+          : <ClipViewLayout
+            currentClip={currentClip!}
+            setClickedClip={handleSetClip}
+          />
+      }
     </>
   );
 }

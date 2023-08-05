@@ -60,18 +60,6 @@ export default function PastRanking() {
                         setClickedClip={handleSetClip}
                     />
             }
-            {/* <Grid
-                container
-                justifyContent='center'
-                paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-            >
-                <Grid item xs={12} md={9}>
-                    <MainClipCard />
-                </Grid>
-                <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
-                    <StreamerList />
-                </Grid>
-            </Grid> */}
         </>
     );
 }
