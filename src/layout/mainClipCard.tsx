@@ -7,11 +7,12 @@ import 'swiper/css/virtual';
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import ClipCards from '@/layout/clipCard';
+import { Clip } from "@/components/types";
 
-export default function ClipsPageBody({
+export default function MainClipCard({
     setClickedClipUrl
 }: {
-    setClickedClipUrl: (clipUrl: string) => void,
+    setClickedClipUrl: (clip: Clip) => void,
 }) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom);

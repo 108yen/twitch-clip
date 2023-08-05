@@ -12,7 +12,7 @@ import { useWindowSize } from "@/components/hooks";
 function CardList({
     setClickedClipUrl,
 }: {
-    setClickedClipUrl: (clipUrl: string) => void,
+    setClickedClipUrl: (clip: Clip) => void,
 }) {
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom);
@@ -116,7 +116,7 @@ function CardItem({
     clip: Clip,
     streamer: User | undefined,
     tab: string,
-    setClickedClipUrl: (clipUrl: string) => void,
+    setClickedClipUrl: (clip: Clip) => void,
 }) {
     return (
         <>
@@ -142,7 +142,7 @@ function CardItem({
                             cursor: 'pointer'
                         }}
                         onClick={() => {
-                            setClickedClipUrl(clip.embed_url);
+                            setClickedClipUrl(clip);
                             event("click", {
                                 label: "click_clip_title",
                                 clip_title: clip.title,
@@ -212,7 +212,7 @@ function CardItem({
 export default function SideClipCard({
     setClickedClipUrl,
 }: {
-    setClickedClipUrl: (clipUrl: string) => void,
+    setClickedClipUrl: (clip: Clip) => void,
 }) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom);

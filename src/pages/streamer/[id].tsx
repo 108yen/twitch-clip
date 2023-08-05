@@ -1,14 +1,14 @@
 import { currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
 import DefaultHeader from "@/layout/defaultHeader";
 import StreamerList from "@/layout/streamerList";
-import { Grid,  } from "@mui/material";
+import { Grid, } from "@mui/material";
 import { useAtom } from "jotai";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
 import { loadable } from "jotai/utils";
-import ClipsPageBody from "@/layout/clipsPageBody";
+import MainClipCard from "@/layout/mainClipCard";
 
 export default function StreamerClip() {
   //for set title
@@ -72,7 +72,7 @@ export default function StreamerClip() {
       >
         <Grid item xs={12} md={9}>
           <StreamerCard />
-          <ClipsPageBody />
+          <MainClipCard />
         </Grid>
         <Grid item xs={3} display={{ xs: 'none', md: 'flex' }}>
           <StreamerList />

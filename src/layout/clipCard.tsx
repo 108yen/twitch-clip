@@ -1,14 +1,12 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom } from "@/components/Atoms";
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Clip, User } from "@/components/types";
-import { Avatar, Box, CircularProgress, IconButton, Modal, Skeleton, Stack, Typography } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { event } from "nextjs-google-analytics";
-import { useState } from "react";
 
 function ListClipCard({
     clip,
@@ -19,7 +17,7 @@ function ListClipCard({
     clip: Clip,
     streamer: User | undefined,
     tab: string,
-    setClickedClipUrl: (clipUrl: string) => void,
+    setClickedClipUrl: (clip: Clip) => void,
 }) {
     const imageWidth = 300;
 
@@ -84,7 +82,7 @@ function ListClipCard({
                                 cursor: 'pointer'
                             }}
                             onClick={() => {
-                                setClickedClipUrl(clip.embed_url);
+                                setClickedClipUrl(clip);
                                 event("click", {
                                     label: "click_clip_title",
                                     clip_title: clip.title,
@@ -167,7 +165,7 @@ function ListClipCard({
 function ClipCards({
     setClickedClipUrl,
 }: {
-    setClickedClipUrl: (clipUrl: string) => void,
+    setClickedClipUrl: (clip: Clip) => void,
 }) {
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom);
