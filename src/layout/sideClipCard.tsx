@@ -163,7 +163,6 @@ function CardItem({
                             border: 'none',
                         }}
                     />
-
                 </BorderPaper>
                 <Link
                     href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
@@ -187,6 +186,7 @@ function CardItem({
                         <Stack
                             direction="column"
                             overflow="hidden"
+                            flexGrow={1}
                         >
                             <NoDecorationTypography
                                 variant="body1"
@@ -194,11 +194,21 @@ function CardItem({
                             >
                                 {clip.title}
                             </NoDecorationTypography>
-                            <Typography noWrap variant="body1" color="grey">
-                                {streamer != undefined
-                                    ? streamer.display_name
-                                    : <Skeleton width={150} />}
-                            </Typography>
+                            <Stack
+                                direction="row"
+                                justifyContent="space-between"
+                                alignItems="center"
+                                flexGrow={1}
+                            >
+                                <Typography noWrap variant="body1" color="grey">
+                                    {streamer != undefined
+                                        ? streamer.display_name
+                                        : <Skeleton width={150} />}
+                                </Typography>
+                                <Typography noWrap variant="body2" color="grey">
+                                    {clip.view_count.toLocaleString()} views
+                                </Typography>
+                            </Stack>
                         </Stack>
                     </Stack>
                 </Link>

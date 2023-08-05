@@ -17,6 +17,7 @@ export default function StreamerClip() {
   //set clicked clip
   const [currentClip, setCurrentClip] = useState<Clip | undefined>();
   function handleSetClip(clip: Clip) {
+    setIsViewLayout(true);
     setCurrentClip(clip);
     window.scrollTo({
       top: 0,
@@ -42,6 +43,22 @@ export default function StreamerClip() {
       setCurrentStreamerId(streamerId);
     }
   }, [router]);
+
+  //to return listview from view layout
+  const [isViewLayout, setIsViewLayout] = useState(false);
+  function returnListView() {
+    setCurrentClip(undefined);
+    setIsViewLayout(false);
+  }
+  useEffect(() => {
+    if (isViewLayout) {
+      history.pushState(null, '', null);
+      window.addEventListener('popstate', returnListView, false);
+    }
+    return () => {
+      window.removeEventListener('popstate', returnListView, false);
+    };
+  }, [isViewLayout]);
 
   const display_name = currentStreamerValue.state === "hasData"
     ? currentStreamerValue.data?.display_name
