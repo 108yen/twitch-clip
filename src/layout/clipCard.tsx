@@ -15,11 +15,13 @@ function ListClipCard({
     streamer,
     tab,
     openClipModal,
+    setClickedClipUrl,
 }: {
     clip: Clip,
     streamer: User | undefined,
     tab: string,
-    openClipModal: (clipUrl: string) => void
+    openClipModal: (clipUrl: string) => void,
+    setClickedClipUrl: (clipUrl: string) => void,
 }) {
     const imageWidth = 300;
 
@@ -83,7 +85,8 @@ function ListClipCard({
                                 cursor: 'pointer'
                             }}
                             onClick={() => {
-                                openClipModal(clip.embed_url);
+                                // openClipModal(clip.embed_url);
+                                setClickedClipUrl(clip.embed_url);
                                 event("click", {
                                     label: "click_clip_title",
                                     clip_title: clip.title,
@@ -117,7 +120,6 @@ function ListClipCard({
                         href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
                         style={{
                             textDecoration: 'none',
-                            color: 'black',
                         }}
                     >
                         <Stack
@@ -165,7 +167,11 @@ function ListClipCard({
 
 }
 
-function ClipCards() {
+function ClipCards({
+    setClickedClipUrl,
+}: {
+    setClickedClipUrl: (clipUrl: string) => void,
+}) {
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom);
     const [clipsValue] = useAtom(clipsLoadableAtom);
@@ -234,6 +240,7 @@ function ClipCards() {
                                     streamer={streamer}
                                     tab={tab}
                                     openClipModal={openClipModal}
+                                    setClickedClipUrl={setClickedClipUrl}
                                 />
                             );
                         })}

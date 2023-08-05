@@ -8,7 +8,11 @@ import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import ClipCards from '@/layout/clipCard';
 
-export default function ClipsPageBody() {
+export default function ClipsPageBody({
+    setClickedClipUrl
+}: {
+    setClickedClipUrl:(clipUrl:string)=>void,
+}) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom);
     //get tab name list
@@ -24,25 +28,17 @@ export default function ClipsPageBody() {
     function handleSlideChange(index: number) {
         setTab(index);
     }
-    function handleTabChange(event: React.SyntheticEvent, newValue: number) {
+    function handleTabChange(_: React.SyntheticEvent, newValue: number) {
         setTab(newValue);
         swiper?.slideTo(newValue);
     }
 
     return (
         <>
-            <Box
-                sx={{
-                    m: 1,
-                    display: 'flex',
-                    justifyContent: "flex-end"
-                }}
-            >
-            </Box>
             <Box sx={{
                 borderBottom: 1,
                 borderColor: 'divider',
-                marginBottom: 2,
+                marginY: 2,
                 justifyContent: 'center',
                 display: 'flex',
             }}>
@@ -72,7 +68,9 @@ export default function ClipsPageBody() {
             >
                 {Array.from({ length: tabNameList.length }).map((e, index) => (
                     <SwiperSlide key={index} virtualIndex={index}>
-                        <ClipCards />
+                        <ClipCards
+                            setClickedClipUrl={setClickedClipUrl}
+                        />
                     </SwiperSlide>
                 ))}
             </Swiper>
