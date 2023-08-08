@@ -178,6 +178,7 @@ function CardItem({
                         {streamer != undefined
                             ? <Avatar
                                 sx={{ width: 35, height: 35 }}
+                                alt="top"
                                 src={streamer.profile_image_url} />
                             : <Skeleton
                                 variant="circular"

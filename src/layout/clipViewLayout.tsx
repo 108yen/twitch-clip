@@ -26,6 +26,7 @@ function StreamerInfo({ streamer }: { streamer: User | undefined }) {
                 >
                     <Avatar
                         sx={{ width: 35, height: 35 }}
+                        alt="top"
                         src={streamer.profile_image_url} />
                 </Link>
                 <Stack
