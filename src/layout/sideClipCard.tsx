@@ -1,12 +1,12 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNameAtom, tabNameListAtom, usersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
-import { Typography, Divider, Box, CircularProgress, Stack, Avatar, Skeleton, MenuItem, SelectChangeEvent, Select } from "@mui/material";
+import { Typography, Divider, Box, CircularProgress, Stack, Avatar, Skeleton, MenuItem, SelectChangeEvent } from "@mui/material";
 import { Clip, User } from "@/components/types";
 import { event } from "nextjs-google-analytics";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Link from "next/link";
-import { BorderPaper, NoDecorationTypography } from "@/components/styledui";
+import { BorderPaper, BorderSelect, NoDecorationTypography } from "@/components/styledui";
 import { useWindowSize } from "@/components/hooks";
 
 function CardList({
@@ -248,7 +248,7 @@ export default function SideClipCard({
                 alignItems="center"
             >
 
-                <Select
+                <BorderSelect
                     size="small"
                     value={tab}
                     onChange={handleTabChange}
@@ -258,7 +258,7 @@ export default function SideClipCard({
                             {e}
                         </MenuItem>
                     )}
-                </Select>
+                </BorderSelect>
             </Stack>
             <Typography variant='subtitle1' color='grey'>
                 clips

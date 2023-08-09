@@ -1,5 +1,5 @@
 import { Launch } from "@mui/icons-material";
-import { AppBar, Button, Paper, styled, Typography } from "@mui/material";
+import { AppBar, Button, Paper, Select, styled, Typography } from "@mui/material";
 
 export const BorderPaper = styled(Paper)(({ theme }) => ({
     boxShadow: 'none',
@@ -57,4 +57,12 @@ export const SimpleButton = styled(Button)(({ theme }) => {
             }
         })
     }
+});
+
+export const BorderSelect = styled(Select)(({ theme }) => {
+    return ({
+        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.text.primary,
+        }
+    })
 });
