@@ -233,7 +233,7 @@ export default function SideClipCard({
         ? tabNameListValue.data
         : ["day", "week", "month", "year", "all"];
 
-    function handleTabChange(event: SelectChangeEvent<number>) {
+    function handleTabChange(event: SelectChangeEvent<unknown>) {
         setTab(event.target.value as number);
     }
     return (
