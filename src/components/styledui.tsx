@@ -1,5 +1,5 @@
 import { Launch } from "@mui/icons-material";
-import { AppBar, Button, Paper, styled, TextField, Theme, Typography } from "@mui/material";
+import { AppBar, Button, Paper, styled, Typography } from "@mui/material";
 
 export const BorderPaper = styled(Paper)(({ theme }) => ({
     boxShadow: 'none',
@@ -48,12 +48,11 @@ export const Div = styled(`div`)(({ theme }) => ({}));
 
 export const SimpleButton = styled(Button)(({ theme }) => {
     if (theme.palette.mode === "light") {
-
         return ({
             color: theme.palette.text.primary,
             borderColor: theme.palette.grey[400],
             "&:hover": {
-                borderColor: theme.palette.text.primary,   
+                borderColor: theme.palette.text.primary,
                 backgroundColor: theme.palette.grey[50],
             }
         })

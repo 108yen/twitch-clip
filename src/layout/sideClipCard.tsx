@@ -1,7 +1,7 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNameAtom, tabNameListAtom, usersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
-import { Typography, Divider, Box, CircularProgress, Stack, Avatar, Skeleton, Select, MenuItem, SelectChangeEvent } from "@mui/material";
+import { Typography, Divider, Box, CircularProgress, Stack, Avatar, Skeleton, MenuItem, SelectChangeEvent, Select } from "@mui/material";
 import { Clip, User } from "@/components/types";
 import { event } from "nextjs-google-analytics";
 import InfiniteScroll from "react-infinite-scroll-component";
