@@ -53,7 +53,7 @@ function StreamerListItem({
                     alignItems="center"
                     spacing={1}
                 >
-                    <Avatar src={streamer.profile_image_url} />
+                    <Avatar alt="top" src={streamer.profile_image_url} />
                     <NoDecorationTypography
                         variant="subtitle1"
                         noWrap
@@ -123,7 +123,7 @@ function StreamerList() {
                 overflow="hidden"
             >
                 <Typography variant='subtitle1' color='grey'>
-                    ストリーマー
+                    channels
                 </Typography>
                 <Divider />
                 {Array.from({ length: 10 }).map(

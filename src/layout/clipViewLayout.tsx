@@ -9,6 +9,104 @@ import { loadable } from "jotai/utils";
 import Link from "next/link";
 import { event } from "nextjs-google-analytics";
 
+function StreamerInfo({ streamer }: { streamer: User | undefined }) {
+    if (streamer != undefined) {
+        return (
+            <Stack
+                direction="row"
+                overflow="hidden"
+                alignItems="center"
+                spacing={1}
+            >
+                <Link
+                    href={"/streamer/" + streamer.id}
+                    style={{
+                        textDecoration: 'none',
+                    }}
+                >
+                    <Avatar
+                        sx={{ width: 35, height: 35 }}
+                        alt="top"
+                        src={streamer.profile_image_url} />
+                </Link>
+                <Stack
+                    direction="row"
+                    overflow="hidden"
+                    justifyContent="space-between"
+                    alignItems="flex-start"
+                    flexGrow={1}
+                >
+                    <Stack
+                        direction="column"
+                        overflow="hidden"
+                    >
+                        <Link
+                            href={"/streamer/" + streamer.id}
+                            style={{
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <NoDecorationTypography variant="body1" fontWeight="bold">
+                                {streamer.display_name}
+                            </NoDecorationTypography>
+                            <Typography variant="inherit" color="grey">
+                                {streamer.follower_num?.toLocaleString()} followers
+                            </Typography>
+                        </Link>
+                    </Stack>
+                    <Link
+                        href={"https://www.twitch.tv/" + streamer.login}
+                        target='_blank'
+                        style={{
+                            textDecoration: 'none',
+                        }}
+                        onClick={() => {
+                            event("click", {
+                                label: "click_twitch_channel",
+                                channel_title: streamer.display_name,
+                                link_url: "https://www.twitch.tv/" + streamer.login,
+                            });
+                        }}
+
+                    >
+                        <Stack
+                            direction="row"
+                            spacing={1}
+                        >
+                            <NoDecorationTypography
+                                variant="body2"
+                            >
+                                Twitch
+                            </NoDecorationTypography>
+                            <StyledLaunch fontSize="small" />
+                        </Stack>
+                    </Link>
+                </Stack>
+            </Stack>
+        );
+    } else {
+        return (
+            <Stack
+                direction="row"
+                overflow="hidden"
+                spacing={1}
+            >
+                <Skeleton
+                    variant="circular"
+                    width={35}
+                    height={35} />
+                <Stack
+                    direction="column"
+                    overflow="hidden"
+                >
+                    <Skeleton width={150} />
+                </Stack>
+            </Stack>
+
+        );
+    }
+}
+
 export function ClipViewLayout({
     currentClip,
     setClickedClip,
@@ -22,103 +120,6 @@ export function ClipViewLayout({
     const currentStreamer = streamersValue.state === 'hasData'
         ? streamersValue.data?.find((e) => e.id == currentClip.broadcaster_id)
         : undefined;
-
-    function StreamerInfo({ streamer }: { streamer: User | undefined }) {
-        if (streamer != undefined) {
-            return (
-                <Stack
-                    direction="row"
-                    overflow="hidden"
-                    alignItems="center"
-                    spacing={1}
-                >
-                    <Link
-                        href={"/streamer/" + streamer.id}
-                        style={{
-                            textDecoration: 'none',
-                        }}
-                    >
-                        <Avatar
-                            sx={{ width: 35, height: 35 }}
-                            src={streamer.profile_image_url} />
-                    </Link>
-                    <Stack
-                        direction="row"
-                        overflow="hidden"
-                        justifyContent="space-between"
-                        alignItems="flex-start"
-                        flexGrow={1}
-                    >
-                        <Stack
-                            direction="column"
-                            overflow="hidden"
-                        >
-                            <Link
-                                href={"/streamer/" + streamer.id}
-                                style={{
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                <NoDecorationTypography variant="body1" fontWeight="bold">
-                                    {streamer.display_name}
-                                </NoDecorationTypography>
-                                <Typography variant="inherit" color="grey">
-                                    {streamer.follower_num?.toLocaleString()} followers
-                                </Typography>
-                            </Link>
-                        </Stack>
-                        <Link
-                            href={"https://www.twitch.tv/" + streamer.login}
-                            target='_blank'
-                            style={{
-                                textDecoration: 'none',
-                            }}
-                            onClick={() => {
-                                event("click", {
-                                    label: "click_twitch_channel",
-                                    channel_title: streamer.display_name,
-                                    link_url: "https://www.twitch.tv/" + streamer.login,
-                                });
-                            }}
-
-                        >
-                            <Stack
-                                direction="row"
-                                spacing={1}
-                            >
-                                <NoDecorationTypography
-                                    variant="body2"
-                                >
-                                    Twitch
-                                </NoDecorationTypography>
-                                <StyledLaunch fontSize="small" />
-                            </Stack>
-                        </Link>
-                    </Stack>
-                </Stack>
-            );
-        } else {
-            return (
-                <Stack
-                    direction="row"
-                    overflow="hidden"
-                    spacing={1}
-                >
-                    <Skeleton
-                        variant="circular"
-                        width={35}
-                        height={35} />
-                    <Stack
-                        direction="column"
-                        overflow="hidden"
-                    >
-                        <Skeleton width={150} />
-                    </Stack>
-                </Stack>
-
-            );
-        }
-    }
 
     return (
         <Grid

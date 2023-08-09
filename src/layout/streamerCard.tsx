@@ -41,7 +41,7 @@ function StreamerCard() {
                                 textDecoration: 'none',
                             }}
                         >
-                            <Avatar src={currentStreamerValue.data.profile_image_url} />
+                            <Avatar alt="top" src={currentStreamerValue.data.profile_image_url} />
                         </Link>
 
                         <Stack
