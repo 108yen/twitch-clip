@@ -1,6 +1,6 @@
 import { AboutBodyTypography, BorderPaper, SimpleButton } from "@/components/styledui";
 import DefaultHeader from "@/layout/defaultHeader";
-import { Box, Divider, Grid, List, ListItem, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
+import { Box, Divider, Grid, List, ListItem, ListItemText, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from "next/link";
@@ -51,7 +51,7 @@ export default function About() {
                         setInquiry("");
                         setSnackbarOpen(true);
                         event("click", {
-                            label:"send_inquiry",
+                            label: "send_inquiry",
                         });
                     }
                 }
@@ -113,8 +113,48 @@ export default function About() {
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
-                        当サイトはTwitchのクリップをランキング形式でまとめた非公式サイトです。このウェブサイトを利用する場合、以下の利用規約に同意したものとみなされます。利用規約は、随時変更される場合があります。
+                        当サイトは日本語配信者のTwitchのクリップをランキング形式でまとめた非公式サイトです。各ランキング100件までクリップがリストされます。より多くのクリップやチャンネルの分析をしたい場合は以下のサイトを利用ください。
                     </AboutBodyTypography>
+                    <List>
+                        <ListItem>
+                            <Link
+                                href="https://streamscharts.com/"
+                                target='_blank'
+                                style={{
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                <AboutBodyTypography
+                                    sx={{
+                                        "&:hover": {
+                                            textDecorationLine: 'underline'
+                                        }
+                                    }}
+                                >
+                                    STREAMS CHARTS
+                                </AboutBodyTypography>
+                            </Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link
+                                href="https://twitchtracker.com/"
+                                target='_blank'
+                                style={{
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                <AboutBodyTypography
+                                    sx={{
+                                        "&:hover": {
+                                            textDecorationLine: 'underline'
+                                        }
+                                    }}
+                                >
+                                    Twitch Tracker
+                                </AboutBodyTypography>
+                            </Link>
+                        </ListItem>
+                    </List>
                     <Typography
                         variant="h4"
                         pt={10}
@@ -189,34 +229,34 @@ export default function About() {
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <List>
-                        <ListItem>
+                        <ListItem sx={{ paddingX: 0 }}>
                             <AboutBodyTypography>
                                 当サイトの利用に際して、以下の行為は禁止とします。
                             </AboutBodyTypography>
                         </ListItem>
                         <ListItem>
                             <AboutBodyTypography>
-                                ・違法行為、またはそのおそれのある行為
+                                違法行為、またはそのおそれのある行為
                             </AboutBodyTypography>
                         </ListItem>
                         <ListItem>
                             <AboutBodyTypography>
-                                ・公序良俗に反する行為、またはそのおそれのある行為
+                                公序良俗に反する行為、またはそのおそれのある行為
                             </AboutBodyTypography>
                         </ListItem>
                         <ListItem>
                             <AboutBodyTypography>
-                                ・当サイトの運営を妨げる行為、またはそのおそれのある行為
+                                当サイトの運営を妨げる行為、またはそのおそれのある行為
                             </AboutBodyTypography>
                         </ListItem>
                         <ListItem>
                             <AboutBodyTypography>
-                                ・当サイトに対する攻撃、またはそのおそれのある行為
+                                当サイトに対する攻撃、またはそのおそれのある行為
                             </AboutBodyTypography>
                         </ListItem>
                         <ListItem>
                             <AboutBodyTypography>
-                                ・当サイトのコンテンツをプログラム等を用いて機械的に取得する行為 (Webスクレイピング行為等)
+                                当サイトのコンテンツをプログラム等を用いて機械的に取得する行為 (Webスクレイピング行為等)
                             </AboutBodyTypography>
                         </ListItem>
                     </List>
@@ -230,8 +270,8 @@ export default function About() {
                     <AboutBodyTypography>
                         サイトの利用状況を把握するために、Google Analyticsを使用しています。GoogleによるCookieの利用方法やオプトアウトの方法は、下記のリンクから確認できます。
                     </AboutBodyTypography>
-                    <ul>
-                        <li>
+                    <List>
+                        <ListItem>
                             <Link
                                 href="https://policies.google.com/technologies/cookies?hl=ja"
                                 target='_blank'
@@ -249,8 +289,8 @@ export default function About() {
                                     GoogleによるCookieの利用方法
                                 </AboutBodyTypography>
                             </Link>
-                        </li>
-                        <li>
+                        </ListItem>
+                        <ListItem>
                             <Link
                                 href="https://support.google.com/analytics/answer/181881?hl=ja"
                                 target='_blank'
@@ -268,8 +308,8 @@ export default function About() {
                                     Google Analyticsのオプトアウト
                                 </AboutBodyTypography>
                             </Link>
-                        </li>
-                    </ul>
+                        </ListItem>
+                    </List>
                     <Typography
                         variant="h4"
                         pt={10}
