@@ -2,7 +2,8 @@ import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNa
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { Typography, Divider, Box, CircularProgress, Stack, Avatar, Skeleton, MenuItem, SelectChangeEvent } from "@mui/material";
-import { Clip, User } from "@/components/types";
+import { Clip } from "@/models/clip";
+import { Streamer } from "@/models/streamer";
 import { event } from "nextjs-google-analytics";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Link from "next/link";
@@ -114,7 +115,7 @@ function CardItem({
     setClickedClipUrl,
 }: {
     clip: Clip,
-    streamer: User | undefined,
+    streamer: Streamer | undefined,
     tab: string,
     setClickedClipUrl: (clip: Clip) => void,
 }) {
@@ -207,7 +208,7 @@ function CardItem({
                                         : <Skeleton width={150} />}
                                 </Typography>
                                 <Typography noWrap variant="body2" color="grey">
-                                    {clip.view_count.toLocaleString()} views
+                                    {clip.view_count?.toLocaleString()} views
                                 </Typography>
                             </Stack>
                         </Stack>

@@ -3,7 +3,7 @@ import DefaultHeader from "@/layout/defaultHeader";
 import { useAtom } from "jotai";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
-import { Clip } from "@/components/types";
+import { Clip } from "@/models/clip";
 import { ClipListLayout } from "@/layout/clipListLayout";
 import { ClipViewLayout } from "@/layout/clipViewLayout";
 

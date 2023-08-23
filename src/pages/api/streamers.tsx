@@ -1,4 +1,4 @@
-import { User } from '@/components/types';
+import { Streamer } from '@/components/types';
 import { db } from '@/firebase/client';
 import { doc, getDoc } from 'firebase/firestore';
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -14,7 +14,7 @@ export default async function handler(
                 .catch((error) => {
                     console.error('get streamers info error:' + error);
                 });
-            const streamersDoc = streamersSnap?.data() as { streamers: Array<User> }
+            const streamersDoc = streamersSnap?.data() as { streamers: Array<Streamer> }
             const streamers = streamersDoc.streamers;
 
             res.status(200).json(streamers);

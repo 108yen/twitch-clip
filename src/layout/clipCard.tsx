@@ -1,12 +1,13 @@
 import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom } from "@/components/Atoms";
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
-import { Clip, User } from "@/components/types";
 import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { event } from "nextjs-google-analytics";
+import { Clip } from "@/models/clip";
+import { Streamer } from "@/models/streamer";
 
 function ListClipCard({
     clip,
@@ -15,7 +16,7 @@ function ListClipCard({
     setClickedClipUrl,
 }: {
     clip: Clip,
-    streamer: User | undefined,
+    streamer: Streamer | undefined,
     tab: string,
     setClickedClipUrl: (clip: Clip) => void,
 }) {
@@ -94,7 +95,7 @@ function ListClipCard({
                             {clip.title}
                         </Typography>
                         <Link
-                            href={clip.url}
+                            href={clip.url ?? ''}
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
@@ -145,7 +146,7 @@ function ListClipCard({
                         variant="body1"
                         display={{ xs: 'none', sm: 'flex' }}
                     >
-                        created_at : {formatDate(clip.created_at)}
+                        created_at : {formatDate(clip.created_at ?? '')}
                     </Typography>
                     <Typography
                         noWrap
@@ -153,7 +154,7 @@ function ListClipCard({
                         color="gray"
                         textAlign="end"
                     >
-                        {clip.view_count.toLocaleString() + " views"}
+                        {clip.view_count?.toLocaleString() + " views"}
                     </Typography>
                 </Stack>
             </Stack>

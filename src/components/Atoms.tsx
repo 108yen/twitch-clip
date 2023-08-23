@@ -1,12 +1,13 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { atom } from "jotai";
-import { ClipDoc, User } from "./types";
 import { Swiper as SwiperCore } from 'swiper';
 import { event } from "nextjs-google-analytics";
+import { Streamer } from "@/models/streamer";
+import { ClipDoc } from "@/models/clipDoc";
 
-export const usersAtom = atom<Promise<Array<User> | undefined>>(
+export const usersAtom = atom<Promise<Array<Streamer> | undefined>>(
     async () => {
-        const res = await axios.get<Array<User>>('/api/streamers')
+        const res = await axios.get<Array<Streamer>>('/api/streamers')
             .catch(error => {
                 if (axios.isAxiosError(error)) {
                     console.error(error.response?.data);
@@ -47,7 +48,7 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
 );
 
 const currentStreamerIdValue = atom<string | undefined>(undefined);
-export const currentStreamerAtom = atom<Promise<User | undefined>>(
+export const currentStreamerAtom = atom<Promise<Streamer | undefined>>(
     async (get) => {
         if (get(currentStreamerIdAtom) == undefined) {
             return undefined;

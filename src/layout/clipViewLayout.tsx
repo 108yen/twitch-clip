@@ -2,14 +2,15 @@ import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/
 import { Stack, Box, Typography, Grid, Avatar, Skeleton } from "@mui/material";
 import MainClipCard from "./mainClipCard";
 import SideClipCard from "./sideClipCard";
-import { Clip, User } from "@/components/types";
 import { usersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
 import { event } from "nextjs-google-analytics";
+import { Streamer } from "@/models/streamer";
+import { Clip } from "@/models/clip";
 
-function StreamerInfo({ streamer }: { streamer: User | undefined }) {
+function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
     if (streamer != undefined) {
         return (
             <Stack

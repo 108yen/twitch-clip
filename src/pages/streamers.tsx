@@ -1,6 +1,6 @@
 import { usersAtom } from "@/components/Atoms";
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
-import { User } from "@/components/types";
+import { Streamer } from "@/models/streamer";
 import DefaultHeader from "@/layout/defaultHeader";
 import { Avatar, Box, CircularProgress, Divider, Grid, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
@@ -12,7 +12,7 @@ import { event } from "nextjs-google-analytics";
 function StreamerItem({
     streamer
 }: {
-    streamer: User
+    streamer: Streamer
 }) {
     return (
         <BorderPaper

@@ -1,6 +1,5 @@
 import { currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
 import DefaultHeader from "@/layout/defaultHeader";
-import StreamerList from "@/layout/streamerList";
 import { Grid, } from "@mui/material";
 import { useAtom } from "jotai";
 import { NextSeo, ArticleJsonLd } from "next-seo";
@@ -8,8 +7,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
 import { loadable } from "jotai/utils";
-import MainClipCard from "@/layout/mainClipCard";
-import { Clip } from "@/components/types";
+import { Clip } from "@/models/clip";
 import { ClipListLayout } from "@/layout/clipListLayout";
 import { ClipViewLayout } from "@/layout/clipViewLayout";
 

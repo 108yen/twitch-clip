@@ -5,7 +5,7 @@ import DefaultHeader from '@/layout/defaultHeader';
 import { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/virtual';
-import { Clip } from '@/components/types';
+import { Clip } from '@/models/clip';
 import { ClipViewLayout } from '@/layout/clipViewLayout';
 import { ClipListLayout } from '@/layout/clipListLayout';
 
