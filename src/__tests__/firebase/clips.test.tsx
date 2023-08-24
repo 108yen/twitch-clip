@@ -31,7 +31,7 @@ function checkClipDoc(
     }
 }
 
-describe('checkClipDocのテスト', () => {
+describe('getClipsのテスト', () => {
     afterAll(() => {
         deleteApp(db.app);
     })

@@ -84,7 +84,7 @@ function MyApp(props: MyAppProps) {
         {/* Vercel Analytics */}
         <Analytics />
         {/* Google Analytics */}
-        <GoogleAnalytics trackPageViews gaMeasurementId={process.env.NEXT_PUBLIC_GA_ID} />
+        <GoogleAnalytics debugMode trackPageViews gaMeasurementId={process.env.NEXT_PUBLIC_GA_ID} />
         <CssBaseline />
         {show_screen ? <Component {...pageProps} /> : null}
       </ThemeProvider>
