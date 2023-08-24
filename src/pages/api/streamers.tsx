@@ -1,4 +1,4 @@
-import { Streamer } from '@/components/types';
+import { Streamer } from '@/models/streamer';
 import { db } from '@/firebase/client';
 import { doc, getDoc } from 'firebase/firestore';
 import type { NextApiRequest, NextApiResponse } from 'next'
