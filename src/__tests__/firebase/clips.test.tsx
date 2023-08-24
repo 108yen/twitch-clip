@@ -59,6 +59,9 @@ describe('checkClipDocのテスト', () => {
 
         const streamerClipDoc = await getClips(id);
         checkClipDoc(streamerClipDoc, periods, 70);
-
+    })
+    test('存在しないデータの取得', async () => {
+        const clipDoc = await getClips('dont exist');
+        expect(clipDoc).toBeUndefined();
     })
 })
