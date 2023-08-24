@@ -1,7 +1,7 @@
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/firebase/client';
 import { ClipDoc } from '@/models/clipDoc';
-import { clipDocConverter } from './converters/clipDocConverters';
+import { clipDocConverter } from './converters/clipDocConverter';
 
 export default async function getClips(streamerId: string) {
     const clipsRef = doc(db, "clips", streamerId)

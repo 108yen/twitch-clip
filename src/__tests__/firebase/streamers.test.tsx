@@ -13,6 +13,7 @@ describe('getStreamersのテスト', () => {
         for (const key in streamers!) {
             const streamer = streamers![key];
             expect(streamer.id).toBeDefined();
+            expect(streamer.id).not.toEqual('');
             expect(streamer.login).toBeDefined();
             expect(streamer.display_name).toBeDefined();
             expect(streamer.description).toBeDefined();
