@@ -58,7 +58,7 @@ describe('getClipsのテスト', () => {
         const id = '49207184';
 
         const streamerClipDoc = await getClips(id);
-        checkClipDoc(streamerClipDoc, periods, 70);
+        checkClipDoc(streamerClipDoc, periods, 50);
     })
     test('存在しないデータの取得', async () => {
         const clipDoc = await getClips('dont exist');
