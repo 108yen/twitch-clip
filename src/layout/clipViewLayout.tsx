@@ -2,7 +2,7 @@ import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/
 import { Stack, Box, Typography, Grid, Avatar, Skeleton } from "@mui/material";
 import MainClipCard from "./mainClipCard";
 import SideClipCard from "./sideClipCard";
-import { usersAtom } from "@/components/Atoms";
+import { streamersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
@@ -116,7 +116,7 @@ export function ClipViewLayout({
     setClickedClip: (clip: Clip) => void,
 }) {
     //streamer info
-    const streamersLoadableAtom = loadable(usersAtom);
+    const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
     const currentStreamer = streamersValue.state === 'hasData'
         ? streamersValue.data?.find((e) => e.id == currentClip.broadcaster_id)

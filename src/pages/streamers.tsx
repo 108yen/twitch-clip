@@ -1,4 +1,4 @@
-import { usersAtom } from "@/components/Atoms";
+import { streamersAtom } from "@/components/Atoms";
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Streamer } from "@/models/streamer";
 import DefaultHeader from "@/layout/defaultHeader";
@@ -121,7 +121,7 @@ function StreamerItem({
 
 function StreamerComponent() {
     //streamer info
-    const streamersLoadableAtom = loadable(usersAtom);
+    const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
     //component
     const loader = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
@@ -160,7 +160,7 @@ function StreamerComponent() {
 
 export default function Streamers() {
     //streamer info
-    const streamersLoadableAtom = loadable(usersAtom);
+    const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
     const channelNum = streamersValue.state === "hasData" ? streamersValue.data?.length : undefined;
     //seo

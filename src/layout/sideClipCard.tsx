@@ -1,4 +1,4 @@
-import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNameAtom, tabNameListAtom, usersAtom } from "@/components/Atoms";
+import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNameAtom, tabNameListAtom, streamersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { Typography, Divider, Box, CircularProgress, Stack, Avatar, Skeleton, MenuItem, SelectChangeEvent } from "@mui/material";
@@ -19,7 +19,7 @@ function CardList({
     const clipsLoadableAtom = loadable(clipsAtom);
     const [clipsValue] = useAtom(clipsLoadableAtom);
     //streamer info
-    const streamersLoadableAtom = loadable(usersAtom);
+    const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
     //to infinite scroller
     const [viewItemNum, setViewItemNum] = useAtom(clipCardsDisplayNumAtom);

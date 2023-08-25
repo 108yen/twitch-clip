@@ -11,7 +11,7 @@ export default async function getClips(streamerId: string) {
         .catch((error) => {
             console.error('get ' + streamerId + ' clips error:' + error);
             event("error", {
-                label: 'get_' + streamerId + '_clips error:',
+                label: 'get_' + streamerId + '_clips_error:',
                 value: error,
             });
         });

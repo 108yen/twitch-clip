@@ -1,4 +1,4 @@
-import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, usersAtom } from "@/components/Atoms";
+import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabNameAtom, streamersAtom } from "@/components/Atoms";
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material";
 import { useAtom } from "jotai";
@@ -172,7 +172,7 @@ function ClipCards({
     const clipsLoadableAtom = loadable(clipsAtom);
     const [clipsValue] = useAtom(clipsLoadableAtom);
     //streamer info
-    const streamersLoadableAtom = loadable(usersAtom);
+    const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
     //to infinite scroller
     const [viewItemNum, setViewItemNum] = useAtom(clipCardsDisplayNumAtom);

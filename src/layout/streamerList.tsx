@@ -1,4 +1,4 @@
-import { usersAtom } from "@/components/Atoms";
+import { streamersAtom } from "@/components/Atoms";
 import { NoDecorationTypography } from "@/components/styledui";
 import { Streamer } from "@/models/streamer";
 import { Avatar, Box, Divider, Skeleton, Typography } from "@mui/material";
@@ -67,7 +67,7 @@ function StreamerListItem({
 }
 
 function StreamerList() {
-    const streamersLoadableAtom = loadable(usersAtom);
+    const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
 
     if (streamersValue.state === "hasData"
