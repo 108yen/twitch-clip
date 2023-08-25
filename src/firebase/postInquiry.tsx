@@ -18,5 +18,10 @@ export default async function postInquiry(
                 label: "update_inquiry_error",
                 value: error,
             });
+        })
+        .then(() => {
+            event("click", {
+                label: "send_inquiry",
+            });
         });
 }

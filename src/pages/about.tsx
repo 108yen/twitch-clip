@@ -1,13 +1,13 @@
 import { AboutBodyTypography, BorderPaper, SimpleButton } from "@/components/styledui";
 import DefaultHeader from "@/layout/defaultHeader";
-import { Box, Divider, Grid, List, ListItem, ListItemText, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
+import { Box, Divider, Grid, List, ListItem, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from "next/link";
 import { useState } from "react";
-import axios from "axios";
 import MuiAlert from '@mui/material/Alert';
 import { event } from "nextjs-google-analytics";
+import postInquiry from "@/firebase/postInquiry";
 
 export default function About() {
     const title = "Twitchクリップランキング | このサイトについて";
@@ -31,30 +31,10 @@ export default function About() {
         if (inquiry == "") {
             return;
         }
-        const res = await axios
-            .post('/api/inquiry',
-                {
-                    category: 'others',
-                    body: inquiry,
-                },
-            )
-            .catch(error => {
-                if (axios.isAxiosError(error)) {
-                    console.error(error.response?.data);
-                } else {
-                    console.error(error);
-                }
-            })
-            .then((response) => {
-                if (response) {
-                    if (response.status == 200) {
-                        setInquiry("");
-                        setSnackbarOpen(true);
-                        event("click", {
-                            label: "send_inquiry",
-                        });
-                    }
-                }
+        await postInquiry('others', inquiry)
+            .then(() => {
+                setInquiry("");
+                setSnackbarOpen(true);
             });
     }
 
