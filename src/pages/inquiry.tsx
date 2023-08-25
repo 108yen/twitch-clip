@@ -3,9 +3,8 @@ import DefaultHeader from "@/layout/defaultHeader";
 import { Box, Grid, Snackbar, TextField, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import { useState } from "react";
-import axios from "axios";
 import MuiAlert from '@mui/material/Alert';
-import { event } from "nextjs-google-analytics";
+import postInquiry from "@/firebase/postInquiry";
 
 export default function About() {
     const title = "Twitchクリップランキング | 問い合わせ";
@@ -29,30 +28,10 @@ export default function About() {
         if (!isValidUrl(inquiry)) {
             return;
         }
-        const res = await axios
-            .post('/api/inquiry',
-                {
-                    category: 'additional_request',
-                    body: inquiry,
-                },
-            )
-            .catch(error => {
-                if (axios.isAxiosError(error)) {
-                    console.error(error.response?.data);
-                } else {
-                    console.error(error);
-                }
-            })
-            .then((response) => {
-                if (response) {
-                    if (response.status == 200) {
-                        setInquiry("");
-                        setSnackbarOpen(true);
-                        event("click", {
-                            label: "send_additional_request",
-                        });
-                    }
-                }
+        await postInquiry('additional_request', inquiry)
+            .then(() => {
+                setInquiry("");
+                setSnackbarOpen(true);
             });
     }
     function isValidUrl(str: string) {
@@ -107,7 +86,7 @@ export default function About() {
                         variant="body2"
                         whiteSpace="pre-line"
                     >
-                        {"まだリストされていないけど面白い配信者がいれば、是非教えてください。\nチャンネル特定のためチャンネルのURLを記載してください。\n※日本語中心の配信者のみ追加します。"}
+                        {"まだリストされていないけど面白い配信者がいれば、是非教えてください。\nチャンネル特定のためチャンネルのURLを記載してください。"}
                     </Typography>
                     <TextField
                         id="url"

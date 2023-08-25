@@ -5,7 +5,7 @@ import DefaultHeader from '@/layout/defaultHeader';
 import { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/virtual';
-import { Clip } from '@/components/types';
+import { Clip } from '@/models/clip';
 import { ClipViewLayout } from '@/layout/clipViewLayout';
 import { ClipListLayout } from '@/layout/clipListLayout';
 
@@ -23,16 +23,14 @@ export default function Home() {
   }
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
-  useEffect(() => {
-    setCurrentStreamerId('summary');
-  }, []);
-
   //to return listview from view layout
   function returnListView() {
     setCurrentClip(undefined);
   }
 
   useEffect(() => {
+    setCurrentStreamerId('summary');
+
     history.pushState(null, '', null);
     window.addEventListener('popstate', returnListView, false);
     return () => {

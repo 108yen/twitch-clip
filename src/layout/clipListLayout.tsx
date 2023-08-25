@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import MainClipCard from "./mainClipCard";
 import StreamerList from "./streamerList";
-import { Clip } from "@/components/types";
+import { Clip } from "@/models/clip";
 
 export function ClipListLayout({
     setClickedClip,

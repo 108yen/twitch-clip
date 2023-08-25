@@ -1,6 +1,6 @@
-import { usersAtom } from "@/components/Atoms";
+import { streamersAtom } from "@/components/Atoms";
 import { NoDecorationTypography } from "@/components/styledui";
-import { User } from "@/components/types";
+import { Streamer } from "@/models/streamer";
 import { Avatar, Box, Divider, Skeleton, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useAtom } from "jotai";
@@ -34,7 +34,7 @@ function SkeletonItem() {
 function StreamerListItem({
     streamer,
 }: {
-    streamer: User,
+    streamer: Streamer,
 }) {
     return (
         <Box
@@ -67,7 +67,7 @@ function StreamerListItem({
 }
 
 function StreamerList() {
-    const streamersLoadableAtom = loadable(usersAtom);
+    const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
 
     if (streamersValue.state === "hasData"
@@ -127,7 +127,7 @@ function StreamerList() {
                 </Typography>
                 <Divider />
                 {Array.from({ length: 10 }).map(
-                    (e,index) => <SkeletonItem key={index}/>
+                    (e, index) => <SkeletonItem key={index} />
                 )}
             </Box>
         );
