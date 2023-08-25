@@ -23,16 +23,24 @@ export default function Home() {
   }
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
-  useEffect(() => {
-    setCurrentStreamerId('summary');
-  }, []);
-
   //to return listview from view layout
   function returnListView() {
     setCurrentClip(undefined);
   }
 
   useEffect(() => {
+    //! debug
+    console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
+    console.log(process.env.NEXT_PUBLIC_AUTHDOMAIN);
+    console.log(process.env.NEXT_PUBLIC_PROJECTID);
+    console.log(process.env.NEXT_PUBLIC_STORAGEBUCKET);
+    console.log(process.env.NEXT_PUBLIC_MESSAGINGSENDERID);
+    console.log(process.env.NEXT_PUBLIC_APPID);
+    console.log(process.env.NEXT_PUBLIC_MEASUREMENTID);
+    console.log(process.env.NEXT_PUBLIC_GA_ID);
+
+    setCurrentStreamerId('summary');
+
     history.pushState(null, '', null);
     window.addEventListener('popstate', returnListView, false);
     return () => {
