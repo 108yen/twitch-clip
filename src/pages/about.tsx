@@ -1,13 +1,13 @@
 import { AboutBodyTypography, BorderPaper, SimpleButton } from "@/components/styledui";
 import DefaultHeader from "@/layout/defaultHeader";
-import { Box, Divider, Grid, List, ListItem, ListItemText, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
+import { Box, Divider, Grid, List, ListItem, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from "next/link";
 import { useState } from "react";
-import axios from "axios";
 import MuiAlert from '@mui/material/Alert';
 import { event } from "nextjs-google-analytics";
+import postInquiry from "@/firebase/postInquiry";
 
 export default function About() {
     const title = "Twitchクリップランキング | このサイトについて";
@@ -31,30 +31,10 @@ export default function About() {
         if (inquiry == "") {
             return;
         }
-        const res = await axios
-            .post('/api/inquiry',
-                {
-                    category: 'others',
-                    body: inquiry,
-                },
-            )
-            .catch(error => {
-                if (axios.isAxiosError(error)) {
-                    console.error(error.response?.data);
-                } else {
-                    console.error(error);
-                }
-            })
-            .then((response) => {
-                if (response) {
-                    if (response.status == 200) {
-                        setInquiry("");
-                        setSnackbarOpen(true);
-                        event("click", {
-                            label: "send_inquiry",
-                        });
-                    }
-                }
+        await postInquiry('others', inquiry)
+            .then(() => {
+                setInquiry("");
+                setSnackbarOpen(true);
             });
     }
 
@@ -113,7 +93,7 @@ export default function About() {
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
-                        当サイトは日本語配信者のTwitchのクリップをランキング形式でまとめた非公式サイトです。各ランキング100件までクリップがリストされます。より多くのクリップやチャンネルの分析をしたい場合は以下のサイトを利用ください。
+                        当サイトは日本語配信者のTwitchのクリップをランキング形式でまとめた非公式サイトです。各ランキング100件までクリップがリストされます。より多くのクリップを視聴したい場合やチャンネルの分析をしたい場合は以下のサイトを利用ください。
                     </AboutBodyTypography>
                     <List>
                         <ListItem>
@@ -200,14 +180,6 @@ export default function About() {
                                     </TableCell>
                                     <TableCell align="right">
                                         毎月4日
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>
-                                        チャンネル追加
-                                    </TableCell>
-                                    <TableCell align="right">
-                                        毎週月曜日
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>

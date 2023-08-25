@@ -1,6 +1,5 @@
 import { currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
 import DefaultHeader from "@/layout/defaultHeader";
-import StreamerList from "@/layout/streamerList";
 import { Grid, } from "@mui/material";
 import { useAtom } from "jotai";
 import { NextSeo, ArticleJsonLd } from "next-seo";
@@ -8,8 +7,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import StreamerCard from "@/layout/streamerCard";
 import { loadable } from "jotai/utils";
-import MainClipCard from "@/layout/mainClipCard";
-import { Clip } from "@/components/types";
+import { Clip } from "@/models/clip";
 import { ClipListLayout } from "@/layout/clipListLayout";
 import { ClipViewLayout } from "@/layout/clipViewLayout";
 
@@ -17,7 +15,6 @@ export default function StreamerClip() {
   //set clicked clip
   const [currentClip, setCurrentClip] = useState<Clip | undefined>();
   function handleSetClip(clip: Clip) {
-    setIsViewLayout(true);
     setCurrentClip(clip);
     window.scrollTo({
       top: 0,
@@ -45,20 +42,17 @@ export default function StreamerClip() {
   }, [router]);
 
   //to return listview from view layout
-  const [isViewLayout, setIsViewLayout] = useState(false);
   function returnListView() {
     setCurrentClip(undefined);
-    setIsViewLayout(false);
   }
+
   useEffect(() => {
-    if (isViewLayout) {
-      history.pushState(null, '', null);
-      window.addEventListener('popstate', returnListView, false);
-    }
+    history.pushState(null, '', null);
+    window.addEventListener('popstate', returnListView, false);
     return () => {
       window.removeEventListener('popstate', returnListView, false);
     };
-  }, [isViewLayout]);
+  }, []);
 
   const display_name = currentStreamerValue.state === "hasData"
     ? currentStreamerValue.data?.display_name

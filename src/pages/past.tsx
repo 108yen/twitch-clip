@@ -3,7 +3,7 @@ import DefaultHeader from "@/layout/defaultHeader";
 import { useAtom } from "jotai";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
-import { Clip } from "@/components/types";
+import { Clip } from "@/models/clip";
 import { ClipListLayout } from "@/layout/clipListLayout";
 import { ClipViewLayout } from "@/layout/clipViewLayout";
 
@@ -13,14 +13,13 @@ export default function PastRanking() {
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>();
     function handleSetClip(clip: Clip) {
-        setIsViewLayout(true);
         setCurrentClip(clip);
         window.scrollTo({
             top: 0,
             behavior: "smooth",
         });
     }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
     useEffect(() => {
@@ -28,20 +27,16 @@ export default function PastRanking() {
     }, []);
 
     //to return listview from view layout
-    const [isViewLayout, setIsViewLayout] = useState(false);
     function returnListView() {
         setCurrentClip(undefined);
-        setIsViewLayout(false);
     }
     useEffect(() => {
-        if (isViewLayout) {
-            history.pushState(null, '', null);
-            window.addEventListener('popstate', returnListView, false);
-        }
+        history.pushState(null, '', null);
+        window.addEventListener('popstate', returnListView, false);
         return () => {
             window.removeEventListener('popstate', returnListView, false);
         };
-    }, [isViewLayout]);
+    }, []);
 
     return (
         <>

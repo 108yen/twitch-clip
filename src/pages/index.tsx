@@ -5,7 +5,7 @@ import DefaultHeader from '@/layout/defaultHeader';
 import { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/virtual';
-import { Clip } from '@/components/types';
+import { Clip } from '@/models/clip';
 import { ClipViewLayout } from '@/layout/clipViewLayout';
 import { ClipListLayout } from '@/layout/clipListLayout';
 
@@ -15,7 +15,6 @@ export default function Home() {
   //set clicked clip
   const [currentClip, setCurrentClip] = useState<Clip | undefined>();
   function handleSetClip(clip: Clip) {
-    setIsViewLayout(true);
     setCurrentClip(clip);
     window.scrollTo({
       top: 0,
@@ -24,25 +23,20 @@ export default function Home() {
   }
   const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
 
-  useEffect(() => {
-    setCurrentStreamerId('summary');
-  }, []);
-
   //to return listview from view layout
-  const [isViewLayout, setIsViewLayout] = useState(false);
   function returnListView() {
     setCurrentClip(undefined);
-    setIsViewLayout(false);
   }
+
   useEffect(() => {
-    if (isViewLayout) {
-      history.pushState(null, '', null);
-      window.addEventListener('popstate', returnListView, false);
-    }
+    setCurrentStreamerId('summary');
+
+    history.pushState(null, '', null);
+    window.addEventListener('popstate', returnListView, false);
     return () => {
       window.removeEventListener('popstate', returnListView, false);
     };
-  }, [isViewLayout]);
+  }, []);
 
   return (
     <>
