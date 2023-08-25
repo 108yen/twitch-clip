@@ -93,7 +93,7 @@ export default function About() {
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
-                        当サイトは日本語配信者のTwitchのクリップをランキング形式でまとめた非公式サイトです。各ランキング100件までクリップがリストされます。より多くのクリップやチャンネルの分析をしたい場合は以下のサイトを利用ください。
+                        当サイトは日本語配信者のTwitchのクリップをランキング形式でまとめた非公式サイトです。各ランキング100件までクリップがリストされます。より多くのクリップを視聴したい場合やチャンネルの分析をしたい場合は以下のサイトを利用ください。
                     </AboutBodyTypography>
                     <List>
                         <ListItem>
@@ -180,14 +180,6 @@ export default function About() {
                                     </TableCell>
                                     <TableCell align="right">
                                         毎月4日
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>
-                                        チャンネル追加
-                                    </TableCell>
-                                    <TableCell align="right">
-                                        毎週月曜日
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
