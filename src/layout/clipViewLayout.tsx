@@ -43,6 +43,7 @@ function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
                     >
                         <Link
                             href={"/streamer/" + streamer.id}
+                            aria-label="streamer page link"
                             style={{
                                 textDecoration: 'none',
                             }}
@@ -57,6 +58,7 @@ function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
                     </Stack>
                     <Link
                         href={"https://www.twitch.tv/" + streamer.login}
+                        aria-label="twitch channel page link"
                         target='_blank'
                         style={{
                             textDecoration: 'none',

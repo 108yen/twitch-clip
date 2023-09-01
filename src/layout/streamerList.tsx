@@ -43,6 +43,7 @@ function StreamerListItem({
             }}>
             <Link
                 href={"/streamer/" + streamer.id}
+                aria-label="streamer page link"
                 style={{
                     textDecoration: 'none',
                 }}
@@ -92,6 +93,7 @@ function StreamerList() {
 
                     <Link
                         href='/streamers'
+                        aria-label="channel list page link"
                         style={{
                             textDecoration: 'none',
                         }}

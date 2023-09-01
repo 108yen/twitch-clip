@@ -99,6 +99,7 @@ export default function About() {
                         <ListItem>
                             <Link
                                 href="https://streamscharts.com/"
+                                aria-label="streams charts link"
                                 target='_blank'
                                 style={{
                                     textDecoration: 'none',
@@ -118,6 +119,7 @@ export default function About() {
                         <ListItem>
                             <Link
                                 href="https://twitchtracker.com/"
+                                aria-label="twitch tracker link"
                                 target='_blank'
                                 style={{
                                     textDecoration: 'none',
@@ -246,6 +248,7 @@ export default function About() {
                         <ListItem>
                             <Link
                                 href="https://policies.google.com/technologies/cookies?hl=ja"
+                                aria-label="google link"
                                 target='_blank'
                                 style={{
                                     textDecoration: 'none',
@@ -265,6 +268,7 @@ export default function About() {
                         <ListItem>
                             <Link
                                 href="https://support.google.com/analytics/answer/181881?hl=ja"
+                                aria-label="google optout link"
                                 target='_blank'
                                 style={{
                                     textDecoration: 'none',

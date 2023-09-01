@@ -33,8 +33,9 @@ function StreamerItem({
             >
                 <Link
                     href={"/streamer/" + streamer.id}
+                    aria-label="streamer channel page link"
                 >
-                    <Avatar src={streamer.profile_image_url} />
+                    <Avatar alt="top" src={streamer.profile_image_url} />
                 </Link>
                 <Stack
                     direction="column"
@@ -51,6 +52,7 @@ function StreamerItem({
                     >
                         <Link
                             href={"/streamer/" + streamer.id}
+                            aria-label="streamer channel page link"
                             style={{
                                 textDecoration: 'none',
                             }}
@@ -64,6 +66,7 @@ function StreamerItem({
                         </Link>
                         <Link
                             href={"https://www.twitch.tv/" + streamer.login}
+                            aria-label="twitch channel page link"
                             target='_blank'
                             style={{
                                 textDecoration: 'none',
@@ -230,6 +233,7 @@ export default function Streamers() {
                     >
                         <Link
                             href="/inquiry"
+                            aria-label="inquiry page link"
                             style={{
                                 textDecoration: 'none',
                             }}

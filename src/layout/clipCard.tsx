@@ -115,6 +115,7 @@ function ListClipCard({
                     </Stack>
                     <Link
                         href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
+                        aria-label="twitch clip page link"
                         style={{
                             textDecoration: 'none',
                         }}
@@ -125,7 +126,7 @@ function ListClipCard({
                             spacing={2}
                         >
                             {streamer != undefined
-                                ? <Avatar src={streamer.profile_image_url} />
+                                ? <Avatar alt="icon" src={streamer.profile_image_url} />
                                 : <Skeleton variant="circular" width={40} height={40} />}
                             <NoDecorationTypography noWrap variant="body1">
                                 {streamer != undefined

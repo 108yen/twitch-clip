@@ -37,6 +37,7 @@ function StreamerCard() {
                     >
                         <Link
                             href={"/streamer/" + currentStreamerValue.data.id}
+                            aria-label="streamer page link"
                             style={{
                                 textDecoration: 'none',
                             }}
@@ -66,6 +67,7 @@ function StreamerCard() {
                                 </Typography>
                                 <Link
                                     href={"https://www.twitch.tv/" + currentStreamerValue.data.login}
+                                    aria-label="twitch channel page link"
                                     target='_blank'
                                     style={{
                                         textDecoration: 'none',

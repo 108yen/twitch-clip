@@ -36,6 +36,7 @@ export default function NotificationMenu() {
                     aria-controls={open ? 'account-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
+                    aria-label="menu"
                 >
                     <MoreVertIcon />
                 </IconButton>
