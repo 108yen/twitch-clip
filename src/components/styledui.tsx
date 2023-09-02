@@ -33,7 +33,7 @@ export const AboutBodyTypography = styled(Typography)(({ theme }) => ({
 type PaperAppBarProps = {
     istransparent: boolean;
 }
-export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({ theme, istransparent }) => {
+export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({ theme, istransparent: istransparent }) => {
     const backgroundColorDefault = theme.palette.mode === "light" ? theme.palette.primary.light : theme.palette.grey[900];
     const background = istransparent ? "transparent" : backgroundColorDefault;
 

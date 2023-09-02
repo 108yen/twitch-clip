@@ -1,9 +1,10 @@
 import { ReactNode } from 'react'
-import { Providers } from '@/components/providers';
+import { AnalyticsProviders } from '@/components/providers';
+import ThemeRegistry from './ThemeRegistry';
 
 export const metadata = {
     title: {
-        default:'Twitchクリップランキング',
+        default: 'Twitchクリップランキング',
         template: 'Twitchクリップランキング | %s',
     },
     description: 'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
@@ -14,8 +15,8 @@ export const metadata = {
             template: 'Twitchクリップランキング | %s',
         },
         description: {
-            default:'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
-            template:'%sのTwitch(ツイッチ)クリップの再生数ランキング。',
+            default: 'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
+            template: '%sのTwitch(ツイッチ)クリップの再生数ランキング。',
         },
         siteName: 'Twitch clip ranking',
         url: 'https://www.twitchclipsranking.com/',
@@ -40,11 +41,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="ja">
             <body>
-                <main>
-                    <Providers>
-                        {children}
-                    </Providers>
-                </main>
+                {/* <AnalyticsProviders/> */}
+                <ThemeRegistry options={{ key: 'mui', prepend: true }}>
+                    {children}
+                </ThemeRegistry>
             </body>
         </html>
     )
