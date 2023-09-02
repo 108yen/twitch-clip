@@ -64,6 +64,7 @@ export default function ThemeRegistry(props: {
             />
         );
     });
+    // if (typeof window !== 'undefined') return <>{children}</>
 
     //これがないとスタイルが崩れる
     const [showScreen, setShowScreen] = useState(false);
