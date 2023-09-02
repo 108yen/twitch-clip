@@ -1,3 +1,4 @@
+'use client'
 import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
 import { Box, Divider, Stack, SxProps, Theme, Toolbar, Tooltip, Typography } from "@mui/material";

@@ -44,7 +44,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
             {/* Vercel Analytics */}
             <Analytics />
             {/* Google Analytics */}
-            <GoogleAnalytics debugMode trackPageViews gaMeasurementId={process.env.NEXT_PUBLIC_GA_ID} />
+            {/* <GoogleAnalytics debugMode trackPageViews gaMeasurementId={process.env.NEXT_PUBLIC_GA_ID} /> */}
 
             <CssBaseline />
             {children}

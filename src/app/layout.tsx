@@ -3,13 +3,20 @@ import { Providers } from '@/components/providers';
 
 export const metadata = {
     title: {
+        default:'Twitchクリップランキング',
         template: 'Twitchクリップランキング | %s',
     },
     description: 'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
     openGraph: {
         type: 'website',
-        title: 'Twitchクリップランキング',
-        description: 'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
+        title: {
+            default: 'Twitchクリップランキング',
+            template: 'Twitchクリップランキング | %s',
+        },
+        description: {
+            default:'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
+            template:'%sのTwitch(ツイッチ)クリップの再生数ランキング。',
+        },
         siteName: 'Twitch clip ranking',
         url: 'https://www.twitchclipsranking.com/',
         images: [
@@ -30,12 +37,12 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-
     return (
         <html lang="ja">
             <body>
                 <main>
-                    <Providers>{children}
+                    <Providers>
+                        {children}
                     </Providers>
                 </main>
             </body>

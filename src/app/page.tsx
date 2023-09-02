@@ -1,3 +1,9 @@
+import DefaultHeader from "@/layout/defaultHeader";
+
 export default function Home() {
-    return <>移行後のページ</>;
+    return (
+        <>
+            <DefaultHeader />
+        </>
+    );
 }
