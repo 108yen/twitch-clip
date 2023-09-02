@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { AnalyticsProviders } from '@/components/providers';
 import ThemeRegistry from './ThemeRegistry';
+import DefaultHeader from '@/layout/defaultHeader';
 
 export const metadata = {
     title: {
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 {/* <AnalyticsProviders/> */}
                 {/* <EmotionRegistry> */}
                 <ThemeRegistry options={{ key: 'css', prepend: true }}>
+                    <DefaultHeader />
                     {children}
                 </ThemeRegistry>
                 {/* </EmotionRegistry> */}

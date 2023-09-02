@@ -35,7 +35,6 @@ export default function Home() {
 
     return (
         <>
-            <DefaultHeader />
             {
                 currentClip === undefined
                     ? <ClipListLayout
