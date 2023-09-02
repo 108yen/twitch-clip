@@ -42,9 +42,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <html lang="ja">
             <body>
                 {/* <AnalyticsProviders/> */}
-                <ThemeRegistry options={{ key: 'mui', prepend: true }}>
+                {/* <EmotionRegistry> */}
+                <ThemeRegistry options={{ key: 'css', prepend: true }}>
                     {children}
                 </ThemeRegistry>
+                {/* </EmotionRegistry> */}
             </body>
         </html>
     )

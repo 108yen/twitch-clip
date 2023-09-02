@@ -4,7 +4,7 @@ import { useServerInsertedHTML } from 'next/navigation';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { themeOptions } from '@/theme';
 import { useAtom } from 'jotai';
 import { isDarkModeAtom } from '@/components/Atoms';
@@ -65,12 +65,57 @@ export default function ThemeRegistry(props: {
         );
     });
 
+    //これがないとスタイルが崩れる
+    const [showScreen, setShowScreen] = useState(false);
+    useEffect(() => {
+        setShowScreen(true);
+    })
+
     return (
         <CacheProvider value={cache}>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                {children}
+                {showScreen ? children : null}
             </ThemeProvider>
         </CacheProvider>
     );
-}
+};
+
+// export const EmotionRegistry = ({ children }: { children: React.ReactNode }) => {
+//     const [isDarkMode] = useAtom(isDarkModeAtom);
+//     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
+//         noSsr: true,
+//     });
+//     const theme = createTheme(themeOptions(
+//         isDarkMode == undefined ? prefersDarkMode : isDarkMode
+//     ));
+
+//     const [emotionCache] = useState(() => {
+//         const emotionCache = createCache({ key: 'css', prepend: false });
+//         emotionCache.compat = true;
+//         return emotionCache;
+//     });
+
+//     useServerInsertedHTML(() => {
+//         return (
+//             <style
+//                 data-emotion={`${emotionCache.key} ${Object.keys(
+//                     emotionCache.inserted
+//                 ).join(' ')}`}
+//                 key={emotionCache.key}
+//                 dangerouslySetInnerHTML={{
+//                     __html: Object.values(emotionCache.inserted).join(' '),
+//                 }}
+//             />
+//         );
+//     });
+
+//     return (
+//         <CacheProvider value={emotionCache}>
+//             <ThemeProvider theme={theme}>
+//                 <CssBaseline />
+//                 {children}
+//             </ThemeProvider>
+//         </CacheProvider>
+//     );
+// };
