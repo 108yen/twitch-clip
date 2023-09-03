@@ -4,9 +4,10 @@ import { ClipListLayout } from "@/layout/clipListLayout";
 import { ClipViewLayout } from "@/layout/clipViewLayout";
 import { Clip } from "@/models/clip";
 import { useAtom } from "jotai";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Home() {
+export default function SummaryClipPageTemplate(props: { id: string }) {
+    const { id } = props;
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>();
     function handleSetClip(clip: Clip) {
@@ -16,15 +17,18 @@ export default function Home() {
             behavior: "smooth",
         });
     }
+
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
+
+    useEffect(() => {
+        setCurrentStreamerId(id);
+    }, []);
+
     //to return listview from view layout
     function returnListView() {
         setCurrentClip(undefined);
     }
-
     useEffect(() => {
-        setCurrentStreamerId('summary');
-
         history.pushState(null, '', null);
         window.addEventListener('popstate', returnListView, false);
         return () => {
