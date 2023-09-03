@@ -15,10 +15,7 @@ export const metadata = {
             default: 'Twitchクリップランキング',
             template: 'Twitchクリップランキング | %s',
         },
-        description: {
-            default: 'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
-            template: '%sのTwitch(ツイッチ)クリップの再生数ランキング。',
-        },
+        description: 'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
         siteName: 'Twitch clip ranking',
         url: 'https://www.twitchclipsranking.com/',
         images: [
@@ -32,6 +29,11 @@ export const metadata = {
         ]
     },
     twitter: {
+        title: {
+            default: 'Twitchクリップランキング',
+            template: 'Twitchクリップランキング | %s',
+        },
+        description: 'Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。',
         handle: '@handle',
         site: '@site',
         cardType: "summary_large_image",

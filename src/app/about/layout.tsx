@@ -2,8 +2,14 @@ import { ReactNode } from "react";
 
 export const metadata = {
     title: 'このサイトについて',
-    description: {
-        default: 'Twitchクリップランキングの説明ページ',
+    description: 'Twitchクリップランキングの説明ページ',
+    openGraph: {
+        title: 'このサイトについて',
+        description: 'Twitchクリップランキングの説明ページ',
+    },
+    twitter: {
+        title: 'このサイトについて',
+        description: 'Twitchクリップランキングの説明ページ',
     }
 }
 

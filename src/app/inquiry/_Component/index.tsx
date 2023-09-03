@@ -1,15 +1,11 @@
+'use client'
 import { SimpleButton } from "@/components/styledui";
-import DefaultHeader from "@/layout/defaultHeader";
-import { Box, Grid, Snackbar, TextField, Typography } from "@mui/material";
-import { ArticleJsonLd, NextSeo } from "next-seo";
-import { useState } from "react";
-import MuiAlert from '@mui/material/Alert';
 import postInquiry from "@/firebase/postInquiry";
+import { Box, Grid, Snackbar, TextField, Typography } from "@mui/material";
+import MuiAlert from '@mui/material/Alert';
+import { useState } from "react";
 
-export default function About() {
-    const title = "Twitchクリップランキング | 問い合わせ";
-    const description = "チャンネル追加リクエストページ";
-
+export default function InquiryPageBody() {
     const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
     function handleSnackbarClose(event?: React.SyntheticEvent | Event, reason?: string) {
         if (reason === 'clickaway') {
@@ -44,33 +40,6 @@ export default function About() {
 
     return (
         <>
-            <NextSeo
-                title={title}
-                description={description}
-                openGraph={{
-                    url: "https://www.twitchclipsranking.com/",
-                    title: title,
-                    description: description,
-                    images: [
-                        {
-                            url: "https://www.twitchclipsranking.com/android-chrome-512x512.png",
-                        },
-                    ],
-                }}
-            />
-            <ArticleJsonLd
-                url="https://www.twitchclipsranking.com/"
-                title={title}
-                images={["https://www.twitchclipsranking.com/android-chrome-512x512.png"]}
-                datePublished="20230312"
-                dateModified="20230312"
-                authorName="108yen"
-                publisherName="108yen"
-                publisherLogo=""
-                description={description}
-            />
-            <DefaultHeader />
-
             <Grid
                 container
                 justifyContent='center'
