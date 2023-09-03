@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
 export const metadata = {
-    title: 'ストリーマー一覧',
+    title: 'このサイトについて',
     description: {
-        default: 'ランキング集計しているストリーマーの一覧ページです。',
-    },
+        default: 'Twitchクリップランキングの説明ページ',
+    }
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -2,7 +2,6 @@
 import { currentStreamerIdAtom } from "@/components/Atoms";
 import { ClipListLayout } from "@/layout/clipListLayout";
 import { ClipViewLayout } from "@/layout/clipViewLayout";
-import DefaultHeader from "@/layout/defaultHeader";
 import { Clip } from "@/models/clip";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";

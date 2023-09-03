@@ -1,3 +1,4 @@
+'use client'
 import { Launch } from "@mui/icons-material";
 import { AppBar, Button, Paper, Select, styled, Typography } from "@mui/material";
 

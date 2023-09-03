@@ -1,72 +1,15 @@
-import { AboutBodyTypography, BorderPaper, SimpleButton } from "@/components/styledui";
-import DefaultHeader from "@/layout/defaultHeader";
-import { Box, Divider, Grid, List, ListItem, Snackbar, Stack, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
-import { ArticleJsonLd, NextSeo } from "next-seo";
+'use client'
+
+import { AboutBodyTypography, BorderPaper } from "@/components/styledui";
+import { Typography, Divider, List, ListItem, TableContainer, Table, TableBody, TableRow, TableCell, Box, Stack, Grid } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from "next/link";
-import { useState } from "react";
-import MuiAlert from '@mui/material/Alert';
+import InquiryForm from "./InquiryForm";
 import { event } from "nextjs-google-analytics";
-import postInquiry from "@/firebase/postInquiry";
 
-export default function About() {
-    const title = "Twitchクリップランキング | このサイトについて";
-    const description = "Twitchクリップランキングの説明ページ";
-
-    const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
-    function handleSnackbarClose(event?: React.SyntheticEvent | Event, reason?: string) {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setSnackbarOpen(false);
-    };
-
-    const [inquiry, setInquiry] = useState<string>("");
-    function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-        setInquiry(event.target.value);
-    }
-    async function handleSubmit() {
-        //todo: 案内
-        if (inquiry == "") {
-            return;
-        }
-        await postInquiry('others', inquiry)
-            .then(() => {
-                setInquiry("");
-                setSnackbarOpen(true);
-            });
-    }
-
+export default function AboutPageBody() {
     return (
         <>
-            <NextSeo
-                title={title}
-                description={description}
-                openGraph={{
-                    url: "https://www.twitchclipsranking.com/",
-                    title: title,
-                    description: description,
-                    images: [
-                        {
-                            url: "https://www.twitchclipsranking.com/android-chrome-512x512.png",
-                        },
-                    ],
-                }}
-            />
-            <ArticleJsonLd
-                url="https://www.twitchclipsranking.com/"
-                title={title}
-                images={["https://www.twitchclipsranking.com/android-chrome-512x512.png"]}
-                datePublished="20230312"
-                dateModified="20230312"
-                authorName="108yen"
-                publisherName="108yen"
-                publisherLogo=""
-                description={description}
-            />
-            <DefaultHeader />
-
             <Grid
                 container
                 justifyContent='center'
@@ -293,26 +236,7 @@ export default function About() {
                         6. お問い合わせ
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
-                    <TextField
-                        id="inquiry"
-                        fullWidth
-                        multiline
-                        rows={4}
-                        margin="normal"
-                        color="secondary"
-                        value={inquiry}
-                        onChange={handleInputChange}
-                    />
-                    <Box textAlign="center" m={2}>
-                        <SimpleButton
-                            variant="outlined"
-                            color="primary"
-                            onClick={handleSubmit}
-                        >
-                            問い合わせ
-                        </SimpleButton>
-                    </Box>
-
+                    <InquiryForm />
                     <Stack
                         direction="row"
                         mt={10}
@@ -357,20 +281,6 @@ export default function About() {
                     </Stack>
                 </Grid>
             </Grid>
-            <Snackbar
-                open={snackbarOpen}
-                onClose={handleSnackbarClose}
-                autoHideDuration={6000}
-            >
-                <MuiAlert
-                    variant="filled"
-                    onClose={handleSnackbarClose}
-                    severity="success"
-                    sx={{ width: '100%' }}
-                >
-                    お問い合わせ完了
-                </MuiAlert>
-            </Snackbar>
         </>
     );
 }
