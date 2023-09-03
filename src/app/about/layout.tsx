@@ -3,14 +3,6 @@ import { ReactNode } from "react";
 export const metadata = {
     title: 'このサイトについて',
     description: 'Twitchクリップランキングの説明ページ',
-    openGraph: {
-        title: 'このサイトについて',
-        description: 'Twitchクリップランキングの説明ページ',
-    },
-    twitter: {
-        title: 'このサイトについて',
-        description: 'Twitchクリップランキングの説明ページ',
-    }
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
