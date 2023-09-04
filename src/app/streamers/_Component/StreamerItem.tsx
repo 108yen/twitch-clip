@@ -27,7 +27,7 @@ export default function StreamerItem({
                 spacing={1}
             >
                 <Link
-                    href={"/streamer/" + streamer.id}
+                    href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
                     aria-label="streamer channel page link"
                 >
                     <Avatar alt="top" src={streamer.profile_image_url} />
@@ -46,7 +46,7 @@ export default function StreamerItem({
                         width="100%"
                     >
                         <Link
-                            href={"/streamer/" + streamer.id}
+                            href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
                             aria-label="streamer channel page link"
                             style={{
                                 textDecoration: 'none',

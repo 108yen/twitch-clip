@@ -42,7 +42,7 @@ function StreamerListItem({
                 paddingY: 1,
             }}>
             <Link
-                href={"/streamer/" + streamer.id}
+                href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
                 aria-label="streamer page link"
                 style={{
                     textDecoration: 'none',

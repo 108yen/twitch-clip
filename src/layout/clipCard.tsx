@@ -114,7 +114,7 @@ function ListClipCard({
 
                     </Stack>
                     <Link
-                        href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
+                        href={streamer != undefined ? `/streamer/${streamer.id}?display_name=${streamer.display_name}` : "/"}
                         aria-label="twitch clip page link"
                         style={{
                             textDecoration: 'none',

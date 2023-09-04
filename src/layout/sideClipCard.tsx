@@ -166,7 +166,7 @@ function CardItem({
                     />
                 </BorderPaper>
                 <Link
-                    href={streamer != undefined ? "/streamer/" + streamer.id : "/"}
+                    href={streamer != undefined ? `/streamer/${streamer.id}?display_name=${streamer.display_name}` : "/"}
                     style={{
                         textDecoration: 'none',
                     }}

@@ -36,7 +36,9 @@ function StreamerCard() {
                         spacing={1}
                     >
                         <Link
-                            href={"/streamer/" + currentStreamerValue.data.id}
+                            href={currentStreamerValue.data != undefined
+                                ? `/streamer/${currentStreamerValue.data.id}?display_name=${currentStreamerValue.data.display_name}`
+                                : "/"}
                             aria-label="streamer page link"
                             style={{
                                 textDecoration: 'none',

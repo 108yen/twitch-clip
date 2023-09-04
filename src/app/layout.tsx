@@ -4,7 +4,8 @@ import ThemeRegistry from './ThemeRegistry';
 import DefaultHeader from '@/layout/defaultHeader';
 import { Metadata } from 'next';
 
-export const metadata:Metadata = {
+export const metadata: Metadata = {
+    metadataBase: new URL(process.env.URL ?? 'http://localhost:3000'),
     title: {
         default: 'Twitchクリップランキング',
         template: 'Twitchクリップランキング | %s',

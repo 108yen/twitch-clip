@@ -20,7 +20,7 @@ function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
                 spacing={1}
             >
                 <Link
-                    href={"/streamer/" + streamer.id}
+                    href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
                     style={{
                         textDecoration: 'none',
                     }}
@@ -42,7 +42,7 @@ function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
                         overflow="hidden"
                     >
                         <Link
-                            href={"/streamer/" + streamer.id}
+                            href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
                             aria-label="streamer page link"
                             style={{
                                 textDecoration: 'none',
