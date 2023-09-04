@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { AnalyticsProviders } from '@/components/providers';
-import ThemeRegistry from './ThemeRegistry';
-import DefaultHeader from '@/layout/defaultHeader';
+import ThemeRegistry from './_Component/ThemeRegistry';
+import DefaultHeader from '@/app/_Component/defaultHeader';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

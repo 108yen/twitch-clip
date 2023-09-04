@@ -1,15 +1,15 @@
 'use client'
 import { currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
-import { ClipListLayout } from "@/layout/clipListLayout";
-import { ClipViewLayout } from "@/layout/clipViewLayout";
-import StreamerCard from "@/layout/streamerCard";
+import { ClipListLayout } from "@/app/(clip)/_Component/clipListLayout";
+import { ClipViewLayout } from "@/app/(clip)/_Component/clipViewLayout";
+import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/streamerCard";
 import { Clip } from "@/models/clip";
 import { Grid } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { useEffect, useState } from "react";
 
-export default function StreamerClipPage(props:{id: string}) {
+export default function StreamerClipPage(props: { id: string }) {
     const id = props.id;
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>();

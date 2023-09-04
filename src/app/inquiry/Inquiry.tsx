@@ -5,7 +5,7 @@ import { Box, Grid, Snackbar, TextField, Typography } from "@mui/material";
 import MuiAlert from '@mui/material/Alert';
 import { useState } from "react";
 
-export default function InquiryPageBody() {
+export default function Inquiry() {
     const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
     function handleSnackbarClose(event?: React.SyntheticEvent | Event, reason?: string) {
         if (reason === 'clickaway') {

@@ -1,7 +1,7 @@
 'use client'
 import { currentStreamerIdAtom } from "@/components/Atoms";
-import { ClipListLayout } from "@/layout/clipListLayout";
-import { ClipViewLayout } from "@/layout/clipViewLayout";
+import { ClipListLayout } from "@/app/(clip)/_Component/clipListLayout";
+import { ClipViewLayout } from "@/app/(clip)/_Component/clipViewLayout";
 import { Clip } from "@/models/clip";
 import { useAtom } from "jotai";
 import { useState, useEffect } from "react";

@@ -6,7 +6,7 @@ import { Clip } from "@/models/clip";
 export function ClipListLayout({
     setClickedClip,
 }: {
-    setClickedClip:(clip:Clip)=>void,
+    setClickedClip: (clip: Clip) => void,
 }) {
     return (
         <Grid

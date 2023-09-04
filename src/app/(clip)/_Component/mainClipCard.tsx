@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/virtual';
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
-import ClipCards from '@/layout/clipCard';
+import ClipCards from '@/app/(clip)/_Component/clipCard';
 import { Clip } from "@/models/clip";
 
 export default function MainClipCard({

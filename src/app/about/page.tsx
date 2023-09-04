@@ -1,5 +1,5 @@
-import AboutPageBody from "./_Component";
+import About from "./About";
 
-export default function About() {
-    return <AboutPageBody />;
+export default function Page() {
+    return <About />;
 }

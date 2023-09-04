@@ -1,5 +1,5 @@
-import StreamersPageBody from "./_Component";
+import Streamers from "./Streamers";
 
 export default function StreamersPage() {
-    return <StreamersPageBody />;
+    return <Streamers />;
 }

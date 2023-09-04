@@ -4,9 +4,9 @@ import { Box, Typography, Divider, Grid } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
-import StreamerList from "./StreamerList";
+import StreamerList from "./_Component/StreamerList";
 
-export default function StreamersPageBody() {
+export default function Streamers() {
     //streamer info
     const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);

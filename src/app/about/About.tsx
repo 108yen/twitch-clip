@@ -1,13 +1,12 @@
 'use client'
-
 import { AboutBodyTypography, BorderPaper } from "@/components/styledui";
-import { Typography, Divider, List, ListItem, TableContainer, Table, TableBody, TableRow, TableCell, Box, Stack, Grid } from "@mui/material";
+import { Box, Divider, Grid, List, ListItem, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
+import InquiryForm from "./_Component/InquiryForm";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from "next/link";
-import InquiryForm from "./InquiryForm";
 import { event } from "nextjs-google-analytics";
 
-export default function AboutPageBody() {
+export default function About() {
     return (
         <>
             <Grid

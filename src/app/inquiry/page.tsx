@@ -1,5 +1,5 @@
-import InquiryPageBody from "./_Component";
+import Inquiry from "./Inquiry";
 
-export default function InquiryPage() {
-    return <InquiryPageBody />
+export default function Page() {
+    return <Inquiry />
 }
