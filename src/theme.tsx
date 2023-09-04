@@ -10,6 +10,9 @@ export function themeOptions(isDarkMode: boolean): ThemeOptions {
                 dark: '#c7c7c7',
                 light: '#ffffff',
             },
+            // background: {
+            //     default: isDarkMode ? '#000000' : '#ffffff',
+            // },
             secondary: {
                 main: '#607d8b',
             },
