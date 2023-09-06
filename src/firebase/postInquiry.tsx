@@ -1,7 +1,7 @@
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { db } from "./client";
 import { inquiryConverter } from "./converters/inquiryConverter";
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 
 export default async function postInquiry(
     category: 'additional_request' | 'others',
