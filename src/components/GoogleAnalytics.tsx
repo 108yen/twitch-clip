@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import Script from 'next/script'
 import { useEffect } from 'react'
 
@@ -31,6 +31,7 @@ export default function GoogleAnalytics({ debugMode = false }) {
                         gtag('js', new Date());
                         gtag('config', '${GA_MEASUREMENT_ID}', {
                             page_path: window.location.pathname,
+                            send_page_view: false,
                             ${debugMode ? `debug_mode: ${debugMode},` : ""}
                         });
                     `}
