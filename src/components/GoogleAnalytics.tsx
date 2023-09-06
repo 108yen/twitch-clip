@@ -4,19 +4,18 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 import { useEffect } from 'react'
 
-import { existsGaId, GA_MEASUREMENT_ID, pageview } from './gtag'
+import { existsGaId, GA_MEASUREMENT_ID, event } from './gtag'
 
 export default function GoogleAnalytics({ debugMode = false }) {
     const pathname = usePathname()
-    const searchParams = useSearchParams()
-
+    
     useEffect(() => {
         if (!existsGaId) {
             return
         }
-        const urlParams = searchParams.toString()
-        const url = `${pathname}${urlParams == "" ? "" : `?${urlParams}`}`
-        pageview(url)
+        event("page_view", {
+            page_path: pathname,
+        });
     }, [pathname])
 
     return (
