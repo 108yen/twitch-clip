@@ -4,7 +4,7 @@ import { Box, Divider, Grid, List, ListItem, Stack, Table, TableBody, TableCell,
 import InquiryForm from "./_Component/InquiryForm";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from "next/link";
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 
 export default function About() {
     return (

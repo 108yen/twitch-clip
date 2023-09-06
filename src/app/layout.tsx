@@ -1,11 +1,12 @@
-import { ReactNode } from 'react'
-import { AnalyticsProviders } from '@/components/providers';
+import { ReactNode, Suspense } from 'react'
 import ThemeRegistry from './_Component/ThemeRegistry';
 import DefaultHeader from '@/app/_Component/defaultHeader';
 import { Metadata } from 'next';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
-    metadataBase: new URL(process.env.URL ?? 'http://localhost:3000'),
+    metadataBase: new URL(process.env.URL!),
     title: {
         default: 'Twitchクリップランキング',
         template: 'Twitchクリップランキング | %s',
@@ -53,14 +54,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="ja">
+            <head>
+                <Suspense>
+                    <GoogleAnalytics debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == '1'} />
+                </Suspense>
+                <Analytics />
+            </head>
             <body>
-                {/* <AnalyticsProviders/> */}
-                {/* <EmotionRegistry> */}
                 <ThemeRegistry options={{ key: 'css', prepend: true }}>
                     <DefaultHeader />
                     {children}
                 </ThemeRegistry>
-                {/* </EmotionRegistry> */}
             </body>
         </html>
     )

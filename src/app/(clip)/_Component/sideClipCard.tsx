@@ -4,7 +4,7 @@ import { loadable } from "jotai/utils";
 import { Typography, Divider, Box, CircularProgress, Stack, Avatar, Skeleton, MenuItem, SelectChangeEvent } from "@mui/material";
 import { Clip } from "@/models/clip";
 import { Streamer } from "@/models/streamer";
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Link from "next/link";
 import { BorderPaper, BorderSelect, NoDecorationTypography } from "@/components/styledui";

@@ -2,7 +2,7 @@ import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/
 import { Streamer } from "@/models/streamer";
 import { Stack, Avatar, Typography } from "@mui/material";
 import Link from "next/link";
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 
 export default function StreamerItem({
     streamer
