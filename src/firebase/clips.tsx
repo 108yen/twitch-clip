@@ -2,7 +2,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/firebase/client';
 import { ClipDoc } from '@/models/clipDoc';
 import { clipDocConverter } from './converters/clipDocConverter';
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 
 export default async function getClips(streamerId: string) {
     const clipsRef = doc(db, "clips", streamerId)

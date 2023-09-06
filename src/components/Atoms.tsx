@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { Swiper as SwiperCore } from 'swiper';
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 import { Streamer } from "@/models/streamer";
 import { ClipDoc } from "@/models/clipDoc";
 import getClips from "@/firebase/clips";

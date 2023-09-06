@@ -2,7 +2,7 @@ import { Streamer } from "@/models/streamer"
 import { db } from "./client";
 import { doc, getDoc } from "firebase/firestore";
 import { streamersConverter } from "./converters/streamersConverter";
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 
 export default async function getStreamers() {
     const streamers: Array<Streamer> | undefined = [];

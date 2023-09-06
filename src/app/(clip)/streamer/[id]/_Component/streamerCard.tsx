@@ -6,7 +6,7 @@ import { Stack } from "@mui/system";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 
 function StreamerCard() {
     const currentStreamerLoadableAtom = loadable(currentStreamerAtom);

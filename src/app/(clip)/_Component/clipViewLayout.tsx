@@ -6,7 +6,7 @@ import { streamersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import Link from "next/link";
-import { event } from "nextjs-google-analytics";
+import { event } from "@/components/gtag";
 import { Streamer } from "@/models/streamer";
 import { Clip } from "@/models/clip";
 
