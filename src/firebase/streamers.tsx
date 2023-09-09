@@ -5,7 +5,6 @@ import { streamersConverter } from "./converters/streamersConverter";
 import { event } from "@/components/gtag";
 
 export default async function getStreamers() {
-    const streamers: Array<Streamer> | undefined = [];
     const streamersRef = doc(db, 'streamers', 'streamers')
         .withConverter<{ streamers: Array<Streamer> }>(streamersConverter);
     const ds = await getDoc(streamersRef)
