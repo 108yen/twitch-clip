@@ -1,14 +1,14 @@
-'use client'
-import { streamersAtom } from "@/components/Atoms";
 import { Box, CircularProgress, Typography } from "@mui/material";
-import { useAtom } from "jotai";
-import { loadable } from "jotai/utils";
 import StreamerItem from "./StreamerItem";
+import { Streamer } from "@/models/streamer";
 
-export default function StreamerList() {
-    //streamer info
-    const streamersLoadableAtom = loadable(streamersAtom);
-    const [streamersValue] = useAtom(streamersLoadableAtom);
+export default function StreamerList(
+    props: {
+        streamers: Array<Streamer>,
+        fetchState: "hasData" | "hasError" | "loading"
+    }
+) {
+    const { streamers, fetchState } = props;
     //component
     const loader = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
         <CircularProgress color="secondary" />
@@ -23,17 +23,15 @@ export default function StreamerList() {
         );
     }
 
-    if (streamersValue.state == "hasError"
-        || (streamersValue.state == "hasData"
-            && streamersValue.data == undefined)) {
+    if (fetchState == "hasError") {
         return endMessage("error");
-    } else if (streamersValue.state == "loading") {
+    } else if (fetchState == "loading") {
         return loader;
     } else {
         return (
             <>
                 {
-                    streamersValue.data!
+                    streamers
                         .map(
                             (streamer, index) =>
                                 <StreamerItem key={index} streamer={streamer} />
