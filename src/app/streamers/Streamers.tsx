@@ -51,10 +51,10 @@ export default function Streamers() {
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <SearchIcon color='action'/>
+                                        <SearchIcon color='action' />
                                     </InputAdornment>
                                 ),
-                                disableUnderline:true,
+                                disableUnderline: true,
                             }}
                             fullWidth
                             margin="normal"
@@ -81,7 +81,10 @@ export default function Streamers() {
                             marginX: { xs: 0, sm: 1 },
                         }}
                     />
-                    <StreamerList />
+                    <StreamerList
+                        streamers={filteredStreamer}
+                        fetchState={streamersValue.state}
+                    />
                     <Box
                         m={3}
                         flexGrow={1}
