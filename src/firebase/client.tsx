@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from 'firebase/firestore';
+import { initializeAppCheck, ReCaptchaV3Provider, getToken } from 'firebase/app-check'
+import { event } from "@/components/gtag";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,3 +23,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 export const db = getFirestore(app);
+
+// AppCheck
+if (typeof document !== 'undefined') {
+    // 2.AppCheck 初期化
+    const appCheck = initializeAppCheck(app, {
+        provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA!),
+        isTokenAutoRefreshEnabled: true,
+    })
+    // 3.AppCheck　結果 ＆ トークン確認
+    getToken(appCheck)
+        .catch((error) => {
+            event("error", {
+                label: 'app_check_error',
+                value: error,
+            });
+        })
+}

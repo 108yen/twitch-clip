@@ -46,6 +46,12 @@ export default function About() {
                                 style={{
                                     textDecoration: 'none',
                                 }}
+                                onClick={() => {
+                                    event("click", {
+                                        label: "click_streams_charts_link",
+                                        link_url: "https://streamscharts.com/",
+                                    });
+                                }}
                             >
                                 <AboutBodyTypography
                                     sx={{
@@ -65,6 +71,12 @@ export default function About() {
                                 target='_blank'
                                 style={{
                                     textDecoration: 'none',
+                                }}
+                                onClick={() => {
+                                    event("click", {
+                                        label: "click_twitch_tracker_link",
+                                        link_url: "https://twitchtracker.com/",
+                                    });
                                 }}
                             >
                                 <AboutBodyTypography
@@ -195,6 +207,12 @@ export default function About() {
                                 style={{
                                     textDecoration: 'none',
                                 }}
+                                onClick={() => {
+                                    event("click", {
+                                        label: "click_google_link",
+                                        link_url: "https://policies.google.com/technologies/cookies?hl=ja",
+                                    });
+                                }}
                             >
                                 <AboutBodyTypography
                                     sx={{
@@ -214,6 +232,12 @@ export default function About() {
                                 target='_blank'
                                 style={{
                                     textDecoration: 'none',
+                                }}
+                                onClick={() => {
+                                    event("click", {
+                                        label: "click_google_link",
+                                        link_url: "https://support.google.com/analytics/answer/181881?hl=ja",
+                                    });
                                 }}
                             >
                                 <AboutBodyTypography
