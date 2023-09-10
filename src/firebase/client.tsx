@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 import { initializeAppCheck, ReCaptchaV3Provider, getToken } from 'firebase/app-check'
+import { event } from "@/components/gtag";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,17 +25,7 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 // AppCheck
-// FIREBASE_APPCHECK_DEBUG_TOKEN の定義(TypeScript用)
-declare global {
-    var FIREBASE_APPCHECK_DEBUG_TOKEN: boolean | string | undefined
-}
-
 if (typeof document !== 'undefined') {
-    // 1.デバック環境用設定
-    if (process.env.NODE_ENV === 'development') {
-        // デバッグ用文字列の生成
-        window.self.FIREBASE_APPCHECK_DEBUG_TOKEN = true
-    }
     // 2.AppCheck 初期化
     const appCheck = initializeAppCheck(app, {
         provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA!),
@@ -43,6 +34,9 @@ if (typeof document !== 'undefined') {
     // 3.AppCheck　結果 ＆ トークン確認
     getToken(appCheck)
         .catch((error) => {
-            console.log(error.message)
+            event("error", {
+                label: 'app_check_error',
+                value: error,
+            });
         })
 }
