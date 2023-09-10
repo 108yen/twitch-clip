@@ -9,9 +9,8 @@ export default async function getClips(streamerId: string) {
         .withConverter<ClipDoc>(clipDocConverter);
     const ds = await getDoc(clipsRef)
         .catch((error) => {
-            console.error('get ' + streamerId + ' clips error:' + error);
             event("error", {
-                label: 'get_' + streamerId + '_clips_error:',
+                label: 'get_' + streamerId + '_clips_error',
                 value: error,
             });
         });
