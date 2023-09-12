@@ -15,10 +15,6 @@ export default function StreamerClipPage(props: { id: string }) {
     const [currentClip, setCurrentClip] = useState<Clip | undefined>();
     function handleSetClip(clip: Clip) {
         setCurrentClip(clip);
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
     }
     //for set title
     const currentStreamerLoadableAtom = loadable(currentStreamerAtom);

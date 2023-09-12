@@ -1,16 +1,15 @@
-import { swiperAtom, tabAtom, tabNameListAtom } from "@/components/Atoms";
-import { Box, Stack, Tab, Tabs } from "@mui/material";
-import { Virtual } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/virtual';
+import { tabAtom, tabNameListAtom, swiperAtom } from "@/components/Atoms";
+import { Clip } from "@/models/clip";
+import { Stack, Box, Tabs, Tab } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
-import ClipCards from '@/app/(clip)/_Component/clipCard';
-import { Clip } from "@/models/clip";
+import { Virtual } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import ClipCards from "../clipCard";
+import { useWindowSize } from "@/components/hooks";
 
-export default function MainClipCard({
-    setClickedClipUrl
+export default function MobileClipCardList({
+    setClickedClipUrl,
 }: {
     setClickedClipUrl: (clip: Clip) => void,
 }) {
@@ -25,6 +24,9 @@ export default function MainClipCard({
         : ["day", "week", "month", "year", "all"];
     // swipe
     const [swiper, setSwiper] = useAtom(swiperAtom);
+    //window size
+    const [windowWidth, windowHeight] = useWindowSize();
+    const listHeight = windowHeight - windowWidth * 9 / 16 - 203;
 
     function handleSlideChange(index: number) {
         setTab(index);
@@ -33,6 +35,7 @@ export default function MainClipCard({
         setTab(newValue);
         swiper?.slideTo(newValue);
     }
+
 
     return (
         <Stack
@@ -74,6 +77,7 @@ export default function MainClipCard({
                     <SwiperSlide key={index} virtualIndex={index}>
                         <ClipCards
                             setClickedClipUrl={setClickedClipUrl}
+                            height={listHeight}
                         />
                     </SwiperSlide>
                 ))}

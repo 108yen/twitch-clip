@@ -1,7 +1,6 @@
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Stack, Box, Typography, Grid, Avatar, Skeleton } from "@mui/material";
-import MainClipCard from "./mainClipCard";
-import SideClipCard from "./sideClipCard";
+import SideClipCard from "./PC/sideClipCard";
 import { streamersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
@@ -9,6 +8,7 @@ import Link from "next/link";
 import { event } from "@/components/gtag";
 import { Streamer } from "@/models/streamer";
 import { Clip } from "@/models/clip";
+import MobileClipCardList from "./mobile/mobileClipCardList";
 
 function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
     if (streamer != undefined) {
@@ -129,9 +129,9 @@ export function ClipViewLayout({
             container
             justifyContent='center'
             paddingX={{ xs: 0, md: 5, xl: 15 }}
-            spacing={4}
+            columnSpacing={4}
         >
-            <Grid item xs={12} md={9}>
+            <Grid item xs={12} sm={9}>
                 <Stack
                     direction="column"
                     overflow="hidden"
@@ -177,20 +177,25 @@ export function ClipViewLayout({
                         <Typography variant="h6" fontWeight="bold" noWrap>
                             {currentClip.title}
                         </Typography>
-                        <Typography variant="body2" color="grey">
-                            {currentClip.view_count?.toLocaleString()} views
+                        <Typography
+                            align="right"
+                            minWidth={95}
+                            variant="body2"
+                            color="grey"
+                        >
+                            { `${currentClip.view_count?.toLocaleString()} views`}
                         </Typography>
                     </Stack>
                     <StreamerInfo streamer={currentStreamer} />
                 </Stack>
             </Grid>
-            <Grid item zeroMinWidth xs={3} display={{ xs: 'none', md: 'flex' }}>
+            <Grid item zeroMinWidth xs={3} display={{ xs: 'none', sm: 'flex' }}>
                 <SideClipCard
                     setClickedClipUrl={setClickedClip}
                 />
             </Grid>
-            <Grid item zeroMinWidth xs={12} display={{ xs: 'flex', md: 'none' }}>
-                <MainClipCard
+            <Grid item zeroMinWidth xs={12} display={{ xs: 'flex', sm: 'none' }}>
+                <MobileClipCardList
                     setClickedClipUrl={setClickedClip}
                 />
             </Grid>

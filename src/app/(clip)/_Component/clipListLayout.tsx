@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import MainClipCard from "./mainClipCard";
-import StreamerList from "./streamerList";
+import StreamerList from "./PC/streamerList";
 import { Clip } from "@/models/clip";
 
 export function ClipListLayout({
