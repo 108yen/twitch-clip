@@ -1,7 +1,6 @@
 import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
 import { Stack, Box, Typography, Grid, Avatar, Skeleton } from "@mui/material";
-import MainClipCard from "./mainClipCard";
-import SideClipCard from "./sideClipCard";
+import SideClipCard from "./PC/sideClipCard";
 import { streamersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
