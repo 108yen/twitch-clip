@@ -178,8 +178,13 @@ export function ClipViewLayout({
                         <Typography variant="h6" fontWeight="bold" noWrap>
                             {currentClip.title}
                         </Typography>
-                        <Typography minWidth={95} variant="body2" color="grey">
-                            {currentClip.view_count?.toLocaleString()} views
+                        <Typography
+                            align="right"
+                            minWidth={95}
+                            variant="body2"
+                            color="grey"
+                        >
+                            { `${currentClip.view_count?.toLocaleString()} views`}
                         </Typography>
                     </Stack>
                     <StreamerInfo streamer={currentStreamer} />
