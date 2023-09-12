@@ -166,8 +166,10 @@ function ListClipCard({
 
 function ClipCards({
     setClickedClipUrl,
+    height,
 }: {
     setClickedClipUrl: (clip: Clip) => void,
+    height?:number,
 }) {
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom);
@@ -191,7 +193,11 @@ function ClipCards({
         setViewItemNum(viewItemNum + 1);
     }
 
-    const loader = <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
+    const loader = <Box key={0} sx={{
+        display: "flex",
+        justifyContent: "center",
+        m: 2,
+    }}>
         <CircularProgress color="secondary" />
     </Box>;
 
@@ -212,6 +218,7 @@ function ClipCards({
             return (
                 <>
                     <InfiniteScroll
+                        height={height}
                         dataLength={viewItemNum}
                         next={() => { loadMore(clips) }}
                         hasMore={hasMore}
