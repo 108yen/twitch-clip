@@ -26,7 +26,7 @@ export default function MobileClipCardList({
     const [swiper, setSwiper] = useAtom(swiperAtom);
     //window size
     const [windowWidth, windowHeight] = useWindowSize();
-    const listHeight = windowHeight - windowWidth * 9 / 16 - 203;
+    const top = windowWidth * 9 / 16;
 
     function handleSlideChange(index: number) {
         setTab(index);
@@ -40,10 +40,15 @@ export default function MobileClipCardList({
     return (
         <Stack
             direction="column"
-            overflow="hidden"
             spacing={0.1}
+            sx={{ minWidth: 0}}
         >
-            <Box sx={{
+            <Box
+                sx={{
+                position: 'sticky',
+                top: top,
+                zIndex: 1000,
+                backgroundColor:theme => theme.palette.background.default,
                 borderBottom: 1,
                 borderColor: 'divider',
                 justifyContent: 'center',
@@ -60,28 +65,28 @@ export default function MobileClipCardList({
                     {tabNameList.map((e, index) => <Tab key={index} label={e} value={index} />)}
                 </Tabs>
             </Box>
-            <Swiper
-                modules={[Virtual]}
-                allowTouchMove={false}
-                virtual
-                spaceBetween={100}
-                slidesPerView={1}
-                simulateTouch={false}
-                onSlideChange={(index) => handleSlideChange(index.activeIndex)}
-                onSwiper={(swiper) => {
-                    const swiperInstance = swiper;
-                    setSwiper(swiperInstance);
-                }}
-            >
-                {Array.from({ length: tabNameList.length }).map((e, index) => (
-                    <SwiperSlide key={index} virtualIndex={index}>
-                        <ClipCards
-                            setClickedClipUrl={setClickedClipUrl}
-                            height={listHeight}
-                        />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+                <Swiper
+                    modules={[Virtual]}
+                    allowTouchMove={false}
+                    virtual
+                    spaceBetween={100}
+                    slidesPerView={1}
+                    simulateTouch={false}
+                    onSlideChange={(index) => handleSlideChange(index.activeIndex)}
+                    onSwiper={(swiper) => {
+                        const swiperInstance = swiper;
+                        setSwiper(swiperInstance);
+                    }}
+                    >
+                    {Array.from({ length: tabNameList.length }).map((e, index) => (
+                        <SwiperSlide key={index} virtualIndex={index}>
+                            <ClipCards
+                                setClickedClipUrl={setClickedClipUrl}
+                                // height={listHeight}
+                                />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
         </Stack>
     );
 }

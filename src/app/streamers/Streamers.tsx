@@ -4,7 +4,6 @@ import { Box, Typography, Divider, Grid, TextField, InputAdornment, Stack } from
 import SearchIcon from '@mui/icons-material/Search';
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
-import Link from "next/link";
 import StreamerList from "./_Component/StreamerList";
 import { useState } from "react";
 
@@ -85,32 +84,6 @@ export default function Streamers() {
                         streamers={filteredStreamer}
                         fetchState={streamersValue.state}
                     />
-                    <Box
-                        m={3}
-                        flexGrow={1}
-                        alignItems="center"
-                        textAlign="center"
-                    >
-                        <Link
-                            href="/inquiry"
-                            aria-label="inquiry page link"
-                            style={{
-                                textDecoration: 'none',
-                            }}
-                        >
-                            <Typography
-                                variant="caption"
-                                color="grey"
-                                sx={{
-                                    "&:hover": {
-                                        textDecorationLine: "underline",
-                                    }
-                                }}
-                            >
-                                チャンネル追加リクエスト
-                            </Typography>
-                        </Link>
-                    </Box>
                 </Grid>
             </Grid >
         </>

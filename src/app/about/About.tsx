@@ -138,14 +138,6 @@ export default function About() {
                                         毎月4日
                                     </TableCell>
                                 </TableRow>
-                                <TableRow>
-                                    <TableCell>
-                                        チャンネル情報更新
-                                    </TableCell>
-                                    <TableCell align="right">
-                                        毎週水曜日
-                                    </TableCell>
-                                </TableRow>
                             </TableBody>
                         </Table>
                     </TableContainer>
