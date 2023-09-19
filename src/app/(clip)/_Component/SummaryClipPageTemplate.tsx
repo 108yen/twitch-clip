@@ -1,7 +1,7 @@
 'use client'
 import { currentStreamerIdAtom } from "@/components/Atoms";
 import { ClipListLayout } from "@/app/(clip)/_Component/clipListLayout";
-import { ClipViewLayout } from "@/app/(clip)/_Component/clipViewLayout";
+import { ClipViewLayout } from "@/app/(clip)/_Component/PC/clipViewLayout";
 import { Clip } from "@/models/clip";
 import { useAtom } from "jotai";
 import { useState, useEffect } from "react";
@@ -37,8 +37,8 @@ export default function SummaryClipPageTemplate(props: { id: string }) {
 
     if (currentClip===undefined) {
         return <ClipListLayout
-                        setClickedClip={handleSetClip}
-                    />
+                setClickedClip={handleSetClip}
+            />
     } else {
         if (width<600) {
             return <MobileClipViewLayout

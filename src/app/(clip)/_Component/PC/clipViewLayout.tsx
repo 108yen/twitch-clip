@@ -1,11 +1,11 @@
 import { BorderPaper } from "@/components/styledui";
 import { Stack, Box, Typography, Grid } from "@mui/material";
-import SideClipCard from "./PC/sideClipCard";
+import SideClipCard from "./sideClipCard";
 import { streamersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { Clip } from "@/models/clip";
-import { StreamerInfo } from "./streamerInfo";
+import { StreamerInfo } from "../streamerInfo";
 
 export function ClipViewLayout({
     currentClip,
