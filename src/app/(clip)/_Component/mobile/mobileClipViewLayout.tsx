@@ -1,13 +1,13 @@
 import { BorderPaper } from "@/components/styledui";
-import { Stack, Box, Typography, Grid } from "@mui/material";
-import SideClipCard from "./PC/sideClipCard";
+import { Stack, Box, Typography, Grid   } from "@mui/material";
 import { streamersAtom } from "@/components/Atoms";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { Clip } from "@/models/clip";
-import { StreamerInfo } from "./streamerInfo";
+import MobileClipCardList from "./mobileClipCardList";
+import { StreamerInfo } from "../streamerInfo";
 
-export function ClipViewLayout({
+export function MobileClipViewLayout({
     currentClip,
     setClickedClip,
 }: {
@@ -25,10 +25,10 @@ export function ClipViewLayout({
         <Grid
             container
             justifyContent='center'
-            paddingX={{ xs: 0, md: 5, xl: 15 }}
+            paddingX={0}
             columnSpacing={4}
         >
-            <Grid item xs={12} sm={9}>
+            <Grid item zeroMinWidth xs={12}>
                 <Stack
                     direction="column"
                     spacing={1}
@@ -36,7 +36,10 @@ export function ClipViewLayout({
                 >
                     <BorderPaper
                         sx={{
-                            marginTop: { xs: 0, md: 5 }
+                            position: 'sticky',
+                            top:0,
+                            zIndex: 9000,
+                            marginTop: 0
                         }}
                     >
                         <Box
@@ -84,12 +87,10 @@ export function ClipViewLayout({
                         </Typography>
                     </Stack>
                     <StreamerInfo streamer={currentStreamer} />
+                    <MobileClipCardList
+                        setClickedClipUrl={setClickedClip}
+                    />
                 </Stack>
-            </Grid>
-            <Grid item zeroMinWidth xs={3}>
-                <SideClipCard
-                    setClickedClipUrl={setClickedClip}
-                />
             </Grid>
         </Grid>
     );

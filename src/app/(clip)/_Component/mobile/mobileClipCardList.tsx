@@ -26,7 +26,7 @@ export default function MobileClipCardList({
     const [swiper, setSwiper] = useAtom(swiperAtom);
     //window size
     const [windowWidth, windowHeight] = useWindowSize();
-    const listHeight = windowHeight - windowWidth * 9 / 16 - 203;
+    const top = windowWidth * 9 / 16;
 
     function handleSlideChange(index: number) {
         setTab(index);
@@ -46,7 +46,7 @@ export default function MobileClipCardList({
             <Box
                 sx={{
                 position: 'sticky',
-                top: 100,
+                top: top,
                 zIndex: 1000,
                 backgroundColor:theme => theme.palette.background.default,
                 borderBottom: 1,
