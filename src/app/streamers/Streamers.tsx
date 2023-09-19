@@ -85,32 +85,6 @@ export default function Streamers() {
                         streamers={filteredStreamer}
                         fetchState={streamersValue.state}
                     />
-                    <Box
-                        m={3}
-                        flexGrow={1}
-                        alignItems="center"
-                        textAlign="center"
-                    >
-                        <Link
-                            href="/inquiry"
-                            aria-label="inquiry page link"
-                            style={{
-                                textDecoration: 'none',
-                            }}
-                        >
-                            <Typography
-                                variant="caption"
-                                color="grey"
-                                sx={{
-                                    "&:hover": {
-                                        textDecorationLine: "underline",
-                                    }
-                                }}
-                            >
-                                チャンネル追加リクエスト
-                            </Typography>
-                        </Link>
-                    </Box>
                 </Grid>
             </Grid >
         </>
