@@ -9,7 +9,7 @@ import { event } from "@/components/gtag";
 import { Clip } from "@/models/clip";
 import { Streamer } from "@/models/streamer";
 
-function ListClipCard({
+function ClipCardItem({
     clip,
     streamer,
     tab,
@@ -166,10 +166,8 @@ function ListClipCard({
 
 function ClipCards({
     setClickedClipUrl,
-    height,
 }: {
     setClickedClipUrl: (clip: Clip) => void,
-    height?:number,
 }) {
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom);
@@ -218,7 +216,6 @@ function ClipCards({
             return (
                 <>
                     <InfiniteScroll
-                        height={height}
                         dataLength={viewItemNum}
                         next={() => { loadMore(clips) }}
                         hasMore={hasMore}
@@ -230,7 +227,7 @@ function ClipCards({
                                 ? streamersValue.data?.find((user) => user.id == e.broadcaster_id)
                                 : undefined;
                             return (
-                                <ListClipCard
+                                <ClipCardItem
                                     key={index}
                                     clip={e}
                                     streamer={streamer}

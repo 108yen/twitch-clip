@@ -4,7 +4,6 @@ import { Box, Typography, Divider, Grid, TextField, InputAdornment, Stack } from
 import SearchIcon from '@mui/icons-material/Search';
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
-import Link from "next/link";
 import StreamerList from "./_Component/StreamerList";
 import { useState } from "react";
 
