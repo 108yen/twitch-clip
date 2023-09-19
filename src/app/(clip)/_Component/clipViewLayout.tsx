@@ -134,11 +134,14 @@ export function ClipViewLayout({
             <Grid item xs={12} sm={9}>
                 <Stack
                     direction="column"
-                    overflow="hidden"
                     spacing={1}
+                    sx={{ minWidth: 0}}
                 >
                     <BorderPaper
                         sx={{
+                            position: { xs: 'sticky', md: 'flex' },
+                            top:0,
+                            zIndex: 9000,
                             marginTop: { xs: 0, md: 5 }
                         }}
                     >
