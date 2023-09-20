@@ -47,7 +47,7 @@ export default function MobileClipCardList({
                 sx={{
                 position: 'sticky',
                 top: top,
-                zIndex: 1000,
+                zIndex: 1200,
                 backgroundColor:theme => theme.palette.background.default,
                 borderBottom: 1,
                 borderColor: 'divider',
