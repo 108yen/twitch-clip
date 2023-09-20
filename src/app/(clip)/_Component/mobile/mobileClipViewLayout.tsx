@@ -38,7 +38,7 @@ export function MobileClipViewLayout({
                         sx={{
                             position: 'sticky',
                             top:0,
-                            zIndex: 9000,
+                            zIndex: 1200,
                             marginTop: 0
                         }}
                     >
