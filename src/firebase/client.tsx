@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
+import { getPerformance } from "firebase/performance";
 import { initializeAppCheck, ReCaptchaV3Provider, getToken } from 'firebase/app-check'
 import { event } from "@/components/gtag";
 
@@ -26,6 +27,7 @@ export const db = getFirestore(app);
 
 // AppCheck
 if (typeof document !== 'undefined') {
+    const pref = getPerformance(app);
     // 2.AppCheck 初期化
     const appCheck = initializeAppCheck(app, {
         provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA!),
