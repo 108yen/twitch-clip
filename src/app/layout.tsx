@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react"
 import { Metadata } from 'next'
 import { ReactNode, Suspense } from 'react'
 
@@ -61,7 +60,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Suspense>
                     <GoogleAnalytics debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`} />
                 </Suspense>
-                <Analytics />
             </head>
             <body>
                 <ThemeRegistry options={{ key: `css`, prepend: true }}>
