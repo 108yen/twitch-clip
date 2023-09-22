@@ -1,16 +1,24 @@
 import MoreVertIcon from '@mui/icons-material/MoreVert'
-import { Box, IconButton, Menu, MenuItem, Switch, Typography, useMediaQuery } from "@mui/material"
-import { useAtom } from "jotai"
-import Link from "next/link"
-import { useState } from "react"
+import {
+    Box,
+    IconButton,
+    Menu,
+    MenuItem,
+    Switch,
+    Typography,
+    useMediaQuery
+} from '@mui/material'
+import { useAtom } from 'jotai'
+import Link from 'next/link'
+import { useState } from 'react'
 
-import { isDarkModeAtom } from "@/components/Atoms"
-import { NoDecorationTypography } from "@/components/styledui"
+import { isDarkModeAtom } from '@/components/Atoms'
+import { NoDecorationTypography } from '@/components/styledui'
 
 export default function NotificationMenu() {
     //darkmode
     const prefersDarkMode = useMediaQuery(`(prefers-color-scheme: dark)`, {
-        noSsr: true,
+        noSsr: true
     })
     const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom)
     const isDarkMode = isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode
@@ -57,7 +65,7 @@ export default function NotificationMenu() {
                             width: 32,
                             height: 32,
                             ml: -0.5,
-                            mr: 1,
+                            mr: 1
                         },
                         '&:before': {
                             content: `""`,
@@ -69,9 +77,9 @@ export default function NotificationMenu() {
                             height: 10,
                             bgcolor: `background.paper`,
                             transform: `translateY(-50%) rotate(45deg)`,
-                            zIndex: 1300,
-                        },
-                    },
+                            zIndex: 1300
+                        }
+                    }
                 }}
                 transformOrigin={{ horizontal: `right`, vertical: `top` }}
                 anchorOrigin={{ horizontal: `right`, vertical: `bottom` }}
@@ -82,9 +90,7 @@ export default function NotificationMenu() {
                         justifyContent: `space-between`
                     }}
                 >
-                    <Typography>
-                        ダークモード
-                    </Typography>
+                    <Typography>ダークモード</Typography>
                     <Switch
                         checked={isDarkMode}
                         onChange={handleSwitchChange}
@@ -93,45 +99,41 @@ export default function NotificationMenu() {
                 </MenuItem>
                 <MenuItem
                     sx={{
-                        height: 40,
+                        height: 40
                     }}
                 >
                     <Link
                         href='/past'
                         style={{
-                            textDecoration: `none`,
+                            textDecoration: `none`
                         }}
                     >
-                        <NoDecorationTypography>
-                            過去のランキング
-                        </NoDecorationTypography>
+                        <NoDecorationTypography>過去のランキング</NoDecorationTypography>
                     </Link>
                 </MenuItem>
                 <MenuItem
                     sx={{
-                        height: 40,
+                        height: 40
                     }}
                 >
                     <Link
                         href='/streamers'
                         style={{
-                            textDecoration: `none`,
+                            textDecoration: `none`
                         }}
                     >
-                        <NoDecorationTypography>
-                            ストリーマー一覧
-                        </NoDecorationTypography>
+                        <NoDecorationTypography>ストリーマー一覧</NoDecorationTypography>
                     </Link>
                 </MenuItem>
                 <MenuItem
                     sx={{
-                        height: 40,
+                        height: 40
                     }}
                 >
                     <Link
                         href='/about'
                         style={{
-                            textDecoration: `none`,
+                            textDecoration: `none`
                         }}
                     >
                         <NoDecorationTypography>
