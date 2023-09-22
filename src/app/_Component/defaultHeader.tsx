@@ -20,7 +20,6 @@ export default function DefaultHeader() {
     const [style, setStyle] = useState<SxProps<Theme>>(initStyle)
     function handleOnMouseEnter(event: React.MouseEvent) {
         const { left, width, height } = event.currentTarget.getBoundingClientRect()
-        // console.log(left);
         setStyle({
             opacity: 1,
             left: left,

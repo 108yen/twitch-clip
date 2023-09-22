@@ -72,7 +72,6 @@ export default function ThemeRegistry(props: {
     const [showScreen, setShowScreen] = useState(false)
     useEffect(() => {
         setShowScreen(true)
-        console.debug(`show screen`)
     },[])
 
     return (
