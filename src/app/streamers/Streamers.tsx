@@ -1,19 +1,21 @@
 'use client'
-import { streamersAtom } from "@/components/Atoms";
-import { Box, Typography, Divider, Grid, TextField, InputAdornment, Stack } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import { Typography, Divider, Grid, TextField, InputAdornment, Stack } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
-import StreamerList from "./_Component/StreamerList";
 import { useState } from "react";
+
+import { streamersAtom } from "@/components/Atoms";
+
+import StreamerList from "./_Component/StreamerList";
 
 export default function Streamers() {
     //streamer info
     const streamersLoadableAtom = loadable(streamersAtom);
     const [streamersValue] = useAtom(streamersLoadableAtom);
     // search
-    const [searchText, setSearchText] = useState<string>('');
-    const filteredStreamer = streamersValue.state === "hasData"
+    const [searchText, setSearchText] = useState<string>(``);
+    const filteredStreamer = streamersValue.state === `hasData`
         ? streamersValue.data!
             .filter(streamer => {
                 return streamer.display_name?.includes(searchText)
@@ -35,30 +37,30 @@ export default function Streamers() {
             >
                 <Grid item xs={12} md={9}>
                     <Stack
-                        direction="row"
-                        justifyContent="center"
-                        alignItems="center"
+                        direction='row'
+                        justifyContent='center'
+                        alignItems='center'
                         spacing={2}
                         marginX={{ xs: 0, sm: 1 }}
                         mt={{ xs: 2, sm: 5 }}
-                        overflow="hidden"
+                        overflow='hidden'
                     >
                         <TextField
-                            id="search-text-field"
-                            placeholder="search"
-                            variant="standard"
+                            id='search-text-field'
+                            placeholder='search'
+                            variant='standard'
                             InputProps={{
                                 startAdornment: (
-                                    <InputAdornment position="start">
+                                    <InputAdornment position='start'>
                                         <SearchIcon color='action' />
                                     </InputAdornment>
                                 ),
                                 disableUnderline: true,
                             }}
                             fullWidth
-                            margin="normal"
-                            color="secondary"
-                            size="small"
+                            margin='normal'
+                            color='secondary'
+                            size='small'
                             value={searchText}
                             onChange={handleSearchTextChange}
                             sx={{
@@ -67,9 +69,9 @@ export default function Streamers() {
                         />
                         <Typography
                             mr={2}
-                            variant="h5"
-                            color="secondary"
-                            textAlign="end"
+                            variant='h5'
+                            color='secondary'
+                            textAlign='end'
                             minWidth={150}
                         >
                             {`${channelNum} channels`}

@@ -1,32 +1,33 @@
 'use client'
 
-import { SimpleButton } from "@/components/styledui";
-import postInquiry from "@/firebase/postInquiry";
 import { Box, Snackbar, TextField } from "@mui/material";
 import MuiAlert from '@mui/material/Alert';
 import { useState } from "react";
 
+import { SimpleButton } from "@/components/styledui";
+import postInquiry from "@/firebase/postInquiry";
+
 export default function InquiryForm() {
     const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
     function handleSnackbarClose(event?: React.SyntheticEvent | Event, reason?: string) {
-        if (reason === 'clickaway') {
+        if (reason === `clickaway`) {
             return;
         }
         setSnackbarOpen(false);
     };
 
-    const [inquiry, setInquiry] = useState<string>("");
+    const [inquiry, setInquiry] = useState<string>(``);
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         setInquiry(event.target.value);
     }
     async function handleSubmit() {
         //todo: 案内
-        if (inquiry == "") {
+        if (inquiry == ``) {
             return;
         }
-        await postInquiry('others', inquiry)
+        await postInquiry(`others`, inquiry)
             .then(() => {
-                setInquiry("");
+                setInquiry(``);
                 setSnackbarOpen(true);
             });
     }
@@ -34,19 +35,19 @@ export default function InquiryForm() {
     return (
         <>
             <TextField
-                id="inquiry"
+                id='inquiry'
                 fullWidth
                 multiline
                 rows={4}
-                margin="normal"
-                color="secondary"
+                margin='normal'
+                color='secondary'
                 value={inquiry}
                 onChange={handleInputChange}
             />
-            <Box textAlign="center" m={2}>
+            <Box textAlign='center' m={2}>
                 <SimpleButton
-                    variant="outlined"
-                    color="primary"
+                    variant='outlined'
+                    color='primary'
                     onClick={handleSubmit}
                 >
                     問い合わせ
@@ -58,10 +59,10 @@ export default function InquiryForm() {
                 autoHideDuration={6000}
             >
                 <MuiAlert
-                    variant="filled"
+                    variant='filled'
                     onClose={handleSnackbarClose}
-                    severity="success"
-                    sx={{ width: '100%' }}
+                    severity='success'
+                    sx={{ width: `100%` }}
                 >
                     お問い合わせ完了
                 </MuiAlert>

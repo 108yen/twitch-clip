@@ -1,8 +1,9 @@
-import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
-import { Streamer } from "@/models/streamer";
 import { Stack, Avatar, Typography } from "@mui/material";
 import Link from "next/link";
+
 import { event } from "@/components/gtag";
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
+import { Streamer } from "@/models/streamer";
 
 export default function StreamerItem({
     streamer
@@ -16,87 +17,87 @@ export default function StreamerItem({
                 marginY: { xs: 2, sm: 3 },
                 p: 2,
                 height: 140,
-                overflow: 'hidden',
+                overflow: `hidden`,
             }}
         >
             <Stack
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-                height={'100%'}
+                direction='row'
+                justifyContent='flex-start'
+                alignItems='center'
+                height={`100%`}
                 spacing={1}
             >
                 <Link
                     href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
-                    aria-label="streamer channel page link"
+                    aria-label='streamer channel page link'
                 >
-                    <Avatar alt="top" src={streamer.profile_image_url} />
+                    <Avatar alt='top' src={streamer.profile_image_url} />
                 </Link>
                 <Stack
-                    direction="column"
-                    justifyContent="flex-start"
-                    alignItems="flex-start"
-                    width="100%"
-                    height="100%"
-                    overflow="hidden"
+                    direction='column'
+                    justifyContent='flex-start'
+                    alignItems='flex-start'
+                    width='100%'
+                    height='100%'
+                    overflow='hidden'
                 >
                     <Stack
-                        direction="row"
-                        justifyContent="space-between"
-                        width="100%"
+                        direction='row'
+                        justifyContent='space-between'
+                        width='100%'
                     >
                         <Link
                             href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
-                            aria-label="streamer channel page link"
+                            aria-label='streamer channel page link'
                             style={{
-                                textDecoration: 'none',
+                                textDecoration: `none`,
                             }}
                         >
                             <NoDecorationTypography
-                                variant="h6"
+                                variant='h6'
                                 noWrap
                             >
                                 {streamer.display_name}
                             </NoDecorationTypography>
                         </Link>
                         <Link
-                            href={"https://www.twitch.tv/" + streamer.login}
-                            aria-label="twitch channel page link"
+                            href={`https://www.twitch.tv/` + streamer.login}
+                            aria-label='twitch channel page link'
                             target='_blank'
                             style={{
-                                textDecoration: 'none',
+                                textDecoration: `none`,
                             }}
                             onClick={() => {
-                                event("click", {
-                                    label: "click_twitch_channel",
+                                event(`click`, {
+                                    label: `click_twitch_channel`,
                                     channel_title: streamer.display_name,
-                                    link_url: "https://www.twitch.tv/" + streamer.login,
+                                    link_url: `https://www.twitch.tv/` + streamer.login,
                                 });
                             }}
                         >
                             <Stack
-                                direction="row"
+                                direction='row'
                                 spacing={1}
                             >
                                 <NoDecorationTypography
-                                    variant="body2"
+                                    variant='body2'
                                 >
                                     Twitch
                                 </NoDecorationTypography>
-                                <StyledLaunch fontSize="small" />
+                                <StyledLaunch fontSize='small' />
                             </Stack>
                         </Link>
                     </Stack>
                     <Typography
-                        variant="body1"
-                        color="gray"
+                        variant='body1'
+                        color='gray'
                         height={50}
-                        overflow="auto"
+                        overflow='auto'
                         sx={{
-                            msOverflowStyle: "none",
-                            scrollbarWidth: "none",
+                            msOverflowStyle: `none`,
+                            scrollbarWidth: `none`,
                             "::-webkit-scrollbar": {
-                                display: "none",
+                                display: `none`,
                             }
                         }}
                     >
@@ -104,12 +105,12 @@ export default function StreamerItem({
                     </Typography>
                     <Typography
                         noWrap
-                        variant="body2"
-                        color="gray"
-                        textAlign="end"
-                        width="100%"
+                        variant='body2'
+                        color='gray'
+                        textAlign='end'
+                        width='100%'
                     >
-                        {streamer.follower_num?.toLocaleString() + " followers"}
+                        {streamer.follower_num?.toLocaleString() + ` followers`}
                     </Typography>
                 </Stack>
             </Stack>

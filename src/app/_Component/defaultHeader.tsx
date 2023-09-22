@@ -1,10 +1,12 @@
 'use client'
-import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui";
 import { HexagonOutlined } from "@mui/icons-material";
-import { Box, Divider, Stack, SxProps, Theme, Toolbar, Tooltip, Typography } from "@mui/material";
+import { Box, Divider, Stack,  SxProps,  Theme,  Toolbar, Tooltip, Typography } from "@mui/material";
 import Link from "next/link";
-import NotificationMenu from "./notificationMenu";
 import { useEffect, useState } from "react";
+
+import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui";
+
+import NotificationMenu from "./notificationMenu";
 
 export default function DefaultHeader() {
     const [isTransparent, setTransparent] = useState<boolean>(true);
@@ -17,25 +19,25 @@ export default function DefaultHeader() {
     };
     const [style, setStyle] = useState<SxProps<Theme>>(initStyle);
     function handleOnMouseEnter(event: React.MouseEvent) {
-        const { top, bottom, left, right, width, height } = event.currentTarget.getBoundingClientRect();
+        const { left, width, height } = event.currentTarget.getBoundingClientRect();
         // console.log(left);
         setStyle({
             opacity: 1,
             left: left,
             width: width,
             height: height,
-            background: (theme) => theme.palette.mode === "light"
+            background: (theme) => theme.palette.mode === `light`
                 ? theme.palette.grey[200]
                 : theme.palette.grey[800],
         });
     }
-    function handleOnMouseLeave(event: React.MouseEvent) {
+    function handleOnMouseLeave() {
         setStyle(initStyle);
     }
 
     useEffect(() => {
-        window.addEventListener("scroll", toggleTransparent);
-        return () => window.removeEventListener("scroll", toggleTransparent);
+        window.addEventListener(`scroll`, toggleTransparent);
+        return () => window.removeEventListener(`scroll`, toggleTransparent);
     }, []);
 
     return (
@@ -45,51 +47,51 @@ export default function DefaultHeader() {
         >
             <Toolbar>
                 <Stack
-                    direction="row"
-                    justifyContent="space-between"
+                    direction='row'
+                    justifyContent='space-between'
                     flexGrow={1}
                 >
-                    <Stack direction="row">
+                    <Stack direction='row'>
                         <HexagonOutlined
                             color='secondary'
                             fontSize='large'
                             sx={{
-                                display: { xs: 'none', sm: 'flex' },
+                                display: { xs: `none`, sm: `flex` },
                                 mr: 1
                             }}
                         />
                         <Link
                             href='/'
-                            aria-label="top"
+                            aria-label='top'
                             style={{
-                                textDecoration: 'none',
+                                textDecoration: `none`,
                             }}
                         >
                             <NoDecorationTypography
-                                variant="h5"
+                                variant='h5'
                                 noWrap
                             >
                                 Twitch clip ranking
                             </NoDecorationTypography>
                         </Link>
                         <Divider
-                            orientation="vertical"
+                            orientation='vertical'
                             sx={{
-                                display: { xs: 'none', sm: 'flex' },
+                                display: { xs: `none`, sm: `flex` },
                                 marginX: 3,
                             }}
                         />
                         <Stack
-                            direction="row"
-                            alignItems="center"
+                            direction='row'
+                            alignItems='center'
                             sx={{
-                                display: { xs: 'none', sm: 'flex' },
+                                display: { xs: `none`, sm: `flex` },
                             }}
                         >
                             <Box
                                 sx={{
-                                    transitionDuration: "0.3s",
-                                    position: 'absolute',
+                                    transitionDuration: `0.3s`,
+                                    position: `absolute`,
                                     zIndex: -1,
                                     borderRadius: 1,
                                     ...style
@@ -102,7 +104,7 @@ export default function DefaultHeader() {
                                 sx={{
                                     paddingX: 2,
                                     paddingY: 0.5,
-                                    transitionDuration: "0.3s",
+                                    transitionDuration: `0.3s`,
                                     color: (theme) => theme.palette.text.disabled,
                                     "&:hover": {
                                         color: (theme) => theme.palette.text.primary,
@@ -111,15 +113,15 @@ export default function DefaultHeader() {
                             >
                                 <Link
                                     href='/'
-                                    aria-label="top"
+                                    aria-label='top'
                                     style={{
-                                        textDecoration: 'none',
-                                        color: 'inherit',
+                                        textDecoration: `none`,
+                                        color: `inherit`,
                                     }}
                                 >
-                                    <Tooltip title="ページトップ">
+                                    <Tooltip title='ページトップ'>
                                         <Typography
-                                            variant="body1"
+                                            variant='body1'
                                             noWrap
                                         >
                                             Top
@@ -133,7 +135,7 @@ export default function DefaultHeader() {
                                 sx={{
                                     paddingX: 2,
                                     paddingY: 0.5,
-                                    transitionDuration: "0.3s",
+                                    transitionDuration: `0.3s`,
                                     color: (theme) => theme.palette.text.disabled,
                                     "&:hover": {
                                         color: (theme) => theme.palette.text.primary,
@@ -142,15 +144,15 @@ export default function DefaultHeader() {
                             >
                                 <Link
                                     href='/past'
-                                    aria-label="past clip page link"
+                                    aria-label='past clip page link'
                                     style={{
-                                        textDecoration: 'none',
-                                        color: 'inherit',
+                                        textDecoration: `none`,
+                                        color: `inherit`,
                                     }}
                                 >
-                                    <Tooltip title="過去の年別ランキング">
+                                    <Tooltip title='過去の年別ランキング'>
                                         <Typography
-                                            variant="body1"
+                                            variant='body1'
                                             noWrap
                                         >
                                             Past ranking
@@ -164,7 +166,7 @@ export default function DefaultHeader() {
                                 sx={{
                                     paddingX: 2,
                                     paddingY: 0.5,
-                                    transitionDuration: "0.3s",
+                                    transitionDuration: `0.3s`,
                                     color: (theme) => theme.palette.text.disabled,
                                     "&:hover": {
                                         color: (theme) => theme.palette.text.primary,
@@ -173,15 +175,15 @@ export default function DefaultHeader() {
                             >
                                 <Link
                                     href='/streamers'
-                                    aria-label="channel list page link"
+                                    aria-label='channel list page link'
                                     style={{
-                                        textDecoration: 'none',
-                                        color: 'inherit',
+                                        textDecoration: `none`,
+                                        color: `inherit`,
                                     }}
                                 >
-                                    <Tooltip title="チャンネル一覧">
+                                    <Tooltip title='チャンネル一覧'>
                                         <Typography
-                                            variant="body1"
+                                            variant='body1'
                                             noWrap
                                         >
                                             Channels
@@ -196,7 +198,7 @@ export default function DefaultHeader() {
                         onClick={() => {
                             window.scrollTo({
                                 top: 0,
-                                behavior: "smooth",
+                                behavior: `smooth`,
                             });
                         }}
                     />

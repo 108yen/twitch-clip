@@ -1,8 +1,8 @@
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "";
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || ``;
 
-export const existsGaId = GA_MEASUREMENT_ID !== "";
+export const existsGaId = GA_MEASUREMENT_ID !== ``;
 
-type EventOptions = Record<string, any> & {
+type EventOptions = Record<string, unknown> & {
     category?: string;
     label?: string;
     value?: number;
@@ -39,5 +39,5 @@ export const event = (
     if (userId !== undefined) {
         eventOptions.user_id = userId;
     }
-    window.gtag("event", action, eventOptions);
+    window.gtag(`event`, action, eventOptions);
 };

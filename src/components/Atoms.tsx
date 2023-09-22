@@ -1,10 +1,11 @@
 import { atom } from "jotai";
 import { Swiper as SwiperCore } from 'swiper';
+
 import { event } from "@/components/gtag";
-import { Streamer } from "@/models/streamer";
-import { ClipDoc } from "@/models/clipDoc";
 import getClips from "@/firebase/clips";
 import getStreamers from "@/firebase/streamers";
+import { ClipDoc } from "@/models/clipDoc";
+import { Streamer } from "@/models/streamer";
 
 export const streamersAtom = atom<Promise<Array<Streamer> | undefined>>(
     async () => {
@@ -58,10 +59,14 @@ export const tabAtom = atom(
 );
 export const tabNameListAtom = atom<Promise<Array<string>>>(
     async (get) => {
-        const defaultArray: Array<string> = ['day', 'week', 'month', 'year', 'all'];
+        const defaultArray: Array<string> = [`day`,
+`week`,
+`month`,
+`year`,
+`all`];
         const currentYear = (new Date()).getFullYear();
         const clips = await get(clipsAtom);
-        let tabArray: Array<string> = [];
+        const tabArray: Array<string> = [];
         if (clips == undefined) {
             return defaultArray;
         }
@@ -115,8 +120,8 @@ export const moreItemIsExistAtom = atom(
     },
     (get, set, update: boolean) => {
         if (!update && update != get(overrideMoreItemIsExistAtom)) {
-            event("scroll", {
-                label: "load_all_clips",
+            event(`scroll`, {
+                label: `load_all_clips`,
             });
         }
         set(overrideMoreItemIsExistAtom, update);

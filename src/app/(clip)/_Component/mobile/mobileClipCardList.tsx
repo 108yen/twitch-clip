@@ -1,12 +1,14 @@
-import { tabAtom, tabNameListAtom, swiperAtom } from "@/components/Atoms";
-import { Clip } from "@/models/clip";
 import { Stack, Box, Tabs, Tab } from "@mui/material";
 import { useAtom } from "jotai";
 import { loadable } from "jotai/utils";
 import { Virtual } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ClipCards from "../clipCard";
+
+import { tabAtom, tabNameListAtom, swiperAtom } from "@/components/Atoms";
 import { useWindowSize } from "@/components/hooks";
+import { Clip } from "@/models/clip";
+
+import ClipCards from "../clipCard";
 
 export default function MobileClipCardList({
     setClickedClipUrl,
@@ -19,13 +21,17 @@ export default function MobileClipCardList({
     const tabNameListLoadableAtom = loadable(tabNameListAtom);
     const [tabNameListValue] = useAtom(tabNameListLoadableAtom);
     //use this
-    const tabNameList = tabNameListValue.state === "hasData"
+    const tabNameList = tabNameListValue.state === `hasData`
         ? tabNameListValue.data
-        : ["day", "week", "month", "year", "all"];
+        : [`day`,
+`week`,
+`month`,
+`year`,
+`all`];
     // swipe
     const [swiper, setSwiper] = useAtom(swiperAtom);
     //window size
-    const [windowWidth, windowHeight] = useWindowSize();
+    const [windowWidth] = useWindowSize();
     const top = windowWidth * 9 / 16;
 
     function handleSlideChange(index: number) {
@@ -39,27 +45,27 @@ export default function MobileClipCardList({
 
     return (
         <Stack
-            direction="column"
+            direction='column'
             spacing={0.1}
             sx={{ minWidth: 0}}
         >
             <Box
                 sx={{
-                position: 'sticky',
+                position: `sticky`,
                 top: top,
                 zIndex: 1200,
                 backgroundColor:theme => theme.palette.background.default,
                 borderBottom: 1,
-                borderColor: 'divider',
-                justifyContent: 'center',
-                display: 'flex',
+                borderColor: `divider`,
+                justifyContent: `center`,
+                display: `flex`,
             }}>
                 <Tabs
                     value={tab}
                     onChange={handleTabChange}
-                    textColor="secondary"
-                    indicatorColor="secondary"
-                    variant="scrollable"
+                    textColor='secondary'
+                    indicatorColor='secondary'
+                    variant='scrollable'
                     scrollButtons={true}
                 >
                     {tabNameList.map((e, index) => <Tab key={index} label={e} value={index} />)}

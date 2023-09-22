@@ -1,5 +1,6 @@
-import { ClipDoc } from "@/models/clipDoc";
 import { DocumentData, FirestoreDataConverter, QueryDocumentSnapshot } from "firebase/firestore";
+
+import { ClipDoc } from "@/models/clipDoc";
 
 
 export const clipDocConverter: FirestoreDataConverter<ClipDoc> = {
