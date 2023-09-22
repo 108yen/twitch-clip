@@ -1,9 +1,9 @@
-import { Stack, Avatar, Typography } from "@mui/material";
-import Link from "next/link";
+import { Stack, Avatar, Typography } from "@mui/material"
+import Link from "next/link"
 
-import { event } from "@/components/gtag";
-import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
-import { Streamer } from "@/models/streamer";
+import { event } from "@/components/gtag"
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui"
+import { Streamer } from "@/models/streamer"
 
 export default function StreamerItem({
     streamer
@@ -72,7 +72,7 @@ export default function StreamerItem({
                                     label: `click_twitch_channel`,
                                     channel_title: streamer.display_name,
                                     link_url: `https://www.twitch.tv/` + streamer.login,
-                                });
+                                })
                             }}
                         >
                             <Stack
@@ -115,5 +115,5 @@ export default function StreamerItem({
                 </Stack>
             </Stack>
         </BorderPaper>
-    );
+    )
 }

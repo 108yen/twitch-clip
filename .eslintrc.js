@@ -25,6 +25,7 @@ module.exports = {
     rules: {
         quotes: ["error", "backtick"],
         "jsx-quotes": ["error", "prefer-single"],
+        semi: ["error", "never"],
         "array-element-newline": ["error",
             {
                 "multiline":true,

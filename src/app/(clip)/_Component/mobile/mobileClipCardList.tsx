@@ -1,14 +1,14 @@
-import { Stack, Box, Tabs, Tab } from "@mui/material";
-import { useAtom } from "jotai";
-import { loadable } from "jotai/utils";
-import { Virtual } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Stack, Box, Tabs, Tab } from "@mui/material"
+import { useAtom } from "jotai"
+import { loadable } from "jotai/utils"
+import { Virtual } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { tabAtom, tabNameListAtom, swiperAtom } from "@/components/Atoms";
-import { useWindowSize } from "@/components/hooks";
-import { Clip } from "@/models/clip";
+import { tabAtom, tabNameListAtom, swiperAtom } from "@/components/Atoms"
+import { useWindowSize } from "@/components/hooks"
+import { Clip } from "@/models/clip"
 
-import ClipCards from "../clipCard";
+import ClipCards from "../clipCard"
 
 export default function MobileClipCardList({
     setClickedClipUrl,
@@ -16,10 +16,10 @@ export default function MobileClipCardList({
     setClickedClipUrl: (clip: Clip) => void,
 }) {
     //tab index
-    const [tab, setTab] = useAtom(tabAtom);
+    const [tab, setTab] = useAtom(tabAtom)
     //get tab name list
-    const tabNameListLoadableAtom = loadable(tabNameListAtom);
-    const [tabNameListValue] = useAtom(tabNameListLoadableAtom);
+    const tabNameListLoadableAtom = loadable(tabNameListAtom)
+    const [tabNameListValue] = useAtom(tabNameListLoadableAtom)
     //use this
     const tabNameList = tabNameListValue.state === `hasData`
         ? tabNameListValue.data
@@ -27,19 +27,19 @@ export default function MobileClipCardList({
 `week`,
 `month`,
 `year`,
-`all`];
+`all`]
     // swipe
-    const [swiper, setSwiper] = useAtom(swiperAtom);
+    const [swiper, setSwiper] = useAtom(swiperAtom)
     //window size
-    const [windowWidth] = useWindowSize();
-    const top = windowWidth * 9 / 16;
+    const [windowWidth] = useWindowSize()
+    const top = windowWidth * 9 / 16
 
     function handleSlideChange(index: number) {
-        setTab(index);
+        setTab(index)
     }
     function handleTabChange(_: React.SyntheticEvent, newValue: number) {
-        setTab(newValue);
-        swiper?.slideTo(newValue);
+        setTab(newValue)
+        swiper?.slideTo(newValue)
     }
 
 
@@ -80,8 +80,8 @@ export default function MobileClipCardList({
                     simulateTouch={false}
                     onSlideChange={(index) => handleSlideChange(index.activeIndex)}
                     onSwiper={(swiper) => {
-                        const swiperInstance = swiper;
-                        setSwiper(swiperInstance);
+                        const swiperInstance = swiper
+                        setSwiper(swiperInstance)
                     }}
                     >
                     {Array.from({ length: tabNameList.length }).map((e, index) => (
@@ -94,5 +94,5 @@ export default function MobileClipCardList({
                     ))}
                 </Swiper>
         </Stack>
-    );
+    )
 }

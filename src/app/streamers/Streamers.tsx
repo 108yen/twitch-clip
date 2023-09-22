@@ -1,31 +1,31 @@
 'use client'
-import SearchIcon from '@mui/icons-material/Search';
-import { Typography, Divider, Grid, TextField, InputAdornment, Stack } from "@mui/material";
-import { useAtom } from "jotai";
-import { loadable } from "jotai/utils";
-import { useState } from "react";
+import SearchIcon from '@mui/icons-material/Search'
+import { Typography, Divider, Grid, TextField, InputAdornment, Stack } from "@mui/material"
+import { useAtom } from "jotai"
+import { loadable } from "jotai/utils"
+import { useState } from "react"
 
-import { streamersAtom } from "@/components/Atoms";
+import { streamersAtom } from "@/components/Atoms"
 
-import StreamerList from "./_Component/StreamerList";
+import StreamerList from "./_Component/StreamerList"
 
 export default function Streamers() {
     //streamer info
-    const streamersLoadableAtom = loadable(streamersAtom);
-    const [streamersValue] = useAtom(streamersLoadableAtom);
+    const streamersLoadableAtom = loadable(streamersAtom)
+    const [streamersValue] = useAtom(streamersLoadableAtom)
     // search
-    const [searchText, setSearchText] = useState<string>(``);
+    const [searchText, setSearchText] = useState<string>(``)
     const filteredStreamer = streamersValue.state === `hasData`
         ? streamersValue.data!
             .filter(streamer => {
                 return streamer.display_name?.includes(searchText)
-                    || streamer.login?.includes(searchText);
+                    || streamer.login?.includes(searchText)
             })
-        : [];
-    const channelNum = filteredStreamer.length;
+        : []
+    const channelNum = filteredStreamer.length
 
     function handleSearchTextChange(event: React.ChangeEvent<HTMLInputElement>) {
-        setSearchText(event.target.value);
+        setSearchText(event.target.value)
     }
 
     return (
@@ -89,5 +89,5 @@ export default function Streamers() {
                 </Grid>
             </Grid >
         </>
-    );
+    )
 }

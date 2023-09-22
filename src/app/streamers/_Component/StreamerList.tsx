@@ -1,8 +1,8 @@
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material"
 
-import { Streamer } from "@/models/streamer";
+import { Streamer } from "@/models/streamer"
 
-import StreamerItem from "./StreamerItem";
+import StreamerItem from "./StreamerItem"
 
 export default function StreamerList(
     props: {
@@ -10,11 +10,11 @@ export default function StreamerList(
         fetchState: `hasData` | `hasError` | `loading`
     }
 ) {
-    const { streamers, fetchState } = props;
+    const { streamers, fetchState } = props
     //component
     const loader = <Box key={0} sx={{ display: `flex`, justifyContent: `center` }}>
         <CircularProgress color='secondary' />
-    </Box>;
+    </Box>
     function endMessage(message: string) {
         return (
             <Box key={0} sx={{ m: 3, display: `flex`, justifyContent: `center` }}>
@@ -22,13 +22,13 @@ export default function StreamerList(
                     {message}
                 </Typography>
             </Box>
-        );
+        )
     }
 
     if (fetchState == `hasError`) {
-        return endMessage(`error`);
+        return endMessage(`error`)
     } else if (fetchState == `loading`) {
-        return loader;
+        return loader
     } else {
         return (
             <>
@@ -40,6 +40,6 @@ export default function StreamerList(
                         )
                 }
             </>
-        );
+        )
     }
 }

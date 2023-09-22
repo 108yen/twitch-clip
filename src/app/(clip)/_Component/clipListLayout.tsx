@@ -1,9 +1,9 @@
-import { Grid } from "@mui/material";
+import { Grid } from "@mui/material"
 
-import { Clip } from "@/models/clip";
+import { Clip } from "@/models/clip"
 
-import MainClipCard from "./mainClipCard";
-import StreamerList from "./PC/streamerList";
+import MainClipCard from "./mainClipCard"
+import StreamerList from "./PC/streamerList"
 
 export function ClipListLayout({
     setClickedClip,
@@ -25,5 +25,5 @@ export function ClipListLayout({
                 <StreamerList />
             </Grid>
         </Grid>
-    );
+    )
 }

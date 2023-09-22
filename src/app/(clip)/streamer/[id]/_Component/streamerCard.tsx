@@ -1,17 +1,17 @@
-import { Launch } from "@mui/icons-material";
-import { Avatar, Box, Paper, Skeleton, Typography } from "@mui/material";
-import { Stack } from "@mui/system";
-import { useAtom } from "jotai";
-import { loadable } from "jotai/utils";
-import Link from "next/link";
+import { Launch } from "@mui/icons-material"
+import { Avatar, Box, Paper, Skeleton, Typography } from "@mui/material"
+import { Stack } from "@mui/system"
+import { useAtom } from "jotai"
+import { loadable } from "jotai/utils"
+import Link from "next/link"
 
-import { currentStreamerAtom } from "@/components/Atoms";
-import { event } from "@/components/gtag";
-import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
+import { currentStreamerAtom } from "@/components/Atoms"
+import { event } from "@/components/gtag"
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui"
 
 function StreamerCard() {
-    const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
-    const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom);
+    const currentStreamerLoadableAtom = loadable(currentStreamerAtom)
+    const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom)
 
     if (currentStreamerValue.state === `hasData`
         && currentStreamerValue.data != undefined) {
@@ -80,7 +80,7 @@ function StreamerCard() {
                                             label: `click_twitch_channel`,
                                             channel_title: currentStreamerValue.data!.display_name,
                                             link_url: `https://www.twitch.tv/` + currentStreamerValue.data!.login,
-                                        });
+                                        })
                                     }}
 
                                 >
@@ -117,7 +117,7 @@ function StreamerCard() {
                     </Stack>
                 </BorderPaper>
             </Box>
-        );
+        )
     }
     return (
         <Box
@@ -181,7 +181,7 @@ function StreamerCard() {
                 </Stack>
             </Paper>
         </Box>
-    );
+    )
 }
 
-export default StreamerCard;
+export default StreamerCard

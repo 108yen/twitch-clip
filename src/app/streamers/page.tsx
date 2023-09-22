@@ -1,5 +1,5 @@
-import Streamers from "./Streamers";
+import Streamers from "./Streamers"
 
 export default function StreamersPage() {
-    return <Streamers />;
+    return <Streamers />
 }

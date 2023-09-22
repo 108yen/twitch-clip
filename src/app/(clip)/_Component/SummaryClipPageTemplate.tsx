@@ -1,39 +1,39 @@
 'use client'
-import { useAtom } from "jotai";
-import { useState, useEffect } from "react";
+import { useAtom } from "jotai"
+import { useState, useEffect } from "react"
 
-import { ClipListLayout } from "@/app/(clip)/_Component/clipListLayout";
-import { ClipViewLayout } from "@/app/(clip)/_Component/PC/clipViewLayout";
-import { currentStreamerIdAtom } from "@/components/Atoms";
-import { useWindowSize } from "@/components/hooks";
-import { Clip } from "@/models/clip";
+import { ClipListLayout } from "@/app/(clip)/_Component/clipListLayout"
+import { ClipViewLayout } from "@/app/(clip)/_Component/PC/clipViewLayout"
+import { currentStreamerIdAtom } from "@/components/Atoms"
+import { useWindowSize } from "@/components/hooks"
+import { Clip } from "@/models/clip"
 
-import { MobileClipViewLayout } from "./mobile/mobileClipViewLayout";
+import { MobileClipViewLayout } from "./mobile/mobileClipViewLayout"
 
 export default function SummaryClipPageTemplate(props: { id: string }) {
-    const { id } = props;
+    const { id } = props
     //set clicked clip
-    const [currentClip, setCurrentClip] = useState<Clip | undefined>();
+    const [currentClip, setCurrentClip] = useState<Clip | undefined>()
     function handleSetClip(clip: Clip) {
-        setCurrentClip(clip);
+        setCurrentClip(clip)
     }
-    const [width] = useWindowSize();
+    const [width] = useWindowSize()
 
-    const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
+    const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom)
 
     //to return listview from view layout
     function returnListView() {
-        setCurrentClip(undefined);
+        setCurrentClip(undefined)
     }
     useEffect(() => {
         setCurrentStreamerId(id)
 
-        history.pushState(null, ``, null);
-        window.addEventListener(`popstate`, returnListView, false);
+        history.pushState(null, ``, null)
+        window.addEventListener(`popstate`, returnListView, false)
         return () => {
-            window.removeEventListener(`popstate`, returnListView, false);
-        };
-    }, []);
+            window.removeEventListener(`popstate`, returnListView, false)
+        }
+    }, [])
 
     if (currentClip===undefined) {
         return <ClipListLayout

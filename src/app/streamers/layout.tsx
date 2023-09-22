@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 export const metadata = {
     title: `ストリーマー一覧`,
@@ -6,5 +6,5 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-    return (<section>{children}</section>);
+    return (<section>{children}</section>)
 }

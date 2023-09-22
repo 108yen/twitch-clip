@@ -1,11 +1,11 @@
-import { Analytics } from "@vercel/analytics/react";
-import { Metadata } from 'next';
+import { Analytics } from "@vercel/analytics/react"
+import { Metadata } from 'next'
 import { ReactNode, Suspense } from 'react'
 
-import DefaultHeader from '@/app/_Component/defaultHeader';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import DefaultHeader from '@/app/_Component/defaultHeader'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
-import ThemeRegistry from './_Component/ThemeRegistry';
+import ThemeRegistry from './_Component/ThemeRegistry'
 
 
 export const metadata: Metadata = {

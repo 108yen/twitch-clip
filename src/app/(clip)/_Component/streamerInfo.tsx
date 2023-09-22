@@ -1,9 +1,9 @@
-import { Stack,  Typography,  Avatar, Skeleton } from "@mui/material";
-import Link from "next/link";
+import { Stack,  Typography,  Avatar, Skeleton } from "@mui/material"
+import Link from "next/link"
 
-import { event } from "@/components/gtag";
-import {  NoDecorationTypography, StyledLaunch } from "@/components/styledui";
-import { Streamer } from "@/models/streamer";
+import { event } from "@/components/gtag"
+import {  NoDecorationTypography, StyledLaunch } from "@/components/styledui"
+import { Streamer } from "@/models/streamer"
 
 export function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
     if (streamer != undefined) {
@@ -63,7 +63,7 @@ export function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
                                 label: `click_twitch_channel`,
                                 channel_title: streamer.display_name,
                                 link_url: `https://www.twitch.tv/` + streamer.login,
-                            });
+                            })
                         }}
 
                     >
@@ -81,7 +81,7 @@ export function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
                     </Link>
                 </Stack>
             </Stack>
-        );
+        )
     } else {
         return (
             <Stack
@@ -101,6 +101,6 @@ export function StreamerInfo({ streamer }: { streamer: Streamer | undefined }) {
                 </Stack>
             </Stack>
 
-        );
+        )
     }
 }

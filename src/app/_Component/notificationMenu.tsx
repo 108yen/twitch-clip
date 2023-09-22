@@ -1,31 +1,31 @@
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Box, IconButton, Menu, MenuItem, Switch, Typography, useMediaQuery } from "@mui/material";
-import { useAtom } from "jotai";
-import Link from "next/link";
-import { useState } from "react";
+import MoreVertIcon from '@mui/icons-material/MoreVert'
+import { Box, IconButton, Menu, MenuItem, Switch, Typography, useMediaQuery } from "@mui/material"
+import { useAtom } from "jotai"
+import Link from "next/link"
+import { useState } from "react"
 
-import { isDarkModeAtom } from "@/components/Atoms";
-import { NoDecorationTypography } from "@/components/styledui";
+import { isDarkModeAtom } from "@/components/Atoms"
+import { NoDecorationTypography } from "@/components/styledui"
 
 export default function NotificationMenu() {
     //darkmode
     const prefersDarkMode = useMediaQuery(`(prefers-color-scheme: dark)`, {
         noSsr: true,
-    });
-    const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom);
-    const isDarkMode = isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode;
+    })
+    const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom)
+    const isDarkMode = isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode
     function handleSwitchChange() {
-        setIsDarkMode(!isDarkMode);
+        setIsDarkMode(!isDarkMode)
     }
     //menu
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
+        setAnchorEl(event.currentTarget)
+    }
     const handleClose = () => {
-        setAnchorEl(null);
-    };
+        setAnchorEl(null)
+    }
 
     return (
         <>
@@ -141,5 +141,5 @@ export default function NotificationMenu() {
                 </MenuItem>
             </Menu>
         </>
-    );
+    )
 }

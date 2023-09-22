@@ -15,7 +15,7 @@ export default function GoogleAnalytics({ debugMode = false }) {
         }
         event(`page_view`, {
             page_path: pathname,
-        });
+        })
     }, [pathname])
 
     return (

@@ -1,35 +1,35 @@
 'use client'
 
-import { Box, Snackbar, TextField } from "@mui/material";
-import MuiAlert from '@mui/material/Alert';
-import { useState } from "react";
+import { Box, Snackbar, TextField } from "@mui/material"
+import MuiAlert from '@mui/material/Alert'
+import { useState } from "react"
 
-import { SimpleButton } from "@/components/styledui";
-import postInquiry from "@/firebase/postInquiry";
+import { SimpleButton } from "@/components/styledui"
+import postInquiry from "@/firebase/postInquiry"
 
 export default function InquiryForm() {
-    const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false);
+    const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false)
     function handleSnackbarClose(event?: React.SyntheticEvent | Event, reason?: string) {
         if (reason === `clickaway`) {
-            return;
+            return
         }
-        setSnackbarOpen(false);
+        setSnackbarOpen(false)
     };
 
-    const [inquiry, setInquiry] = useState<string>(``);
+    const [inquiry, setInquiry] = useState<string>(``)
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-        setInquiry(event.target.value);
+        setInquiry(event.target.value)
     }
     async function handleSubmit() {
         //todo: 案内
         if (inquiry == ``) {
-            return;
+            return
         }
         await postInquiry(`others`, inquiry)
             .then(() => {
-                setInquiry(``);
-                setSnackbarOpen(true);
-            });
+                setInquiry(``)
+                setSnackbarOpen(true)
+            })
     }
 
     return (
@@ -68,5 +68,5 @@ export default function InquiryForm() {
                 </MuiAlert>
             </Snackbar>
         </>
-    );
+    )
 }

@@ -1,14 +1,14 @@
-import { Stack, Box, Typography, Grid   } from "@mui/material";
-import { useAtom } from "jotai";
-import { loadable } from "jotai/utils";
+import { Stack, Box, Typography, Grid   } from "@mui/material"
+import { useAtom } from "jotai"
+import { loadable } from "jotai/utils"
 
-import { streamersAtom } from "@/components/Atoms";
-import { BorderPaper } from "@/components/styledui";
-import { Clip } from "@/models/clip";
+import { streamersAtom } from "@/components/Atoms"
+import { BorderPaper } from "@/components/styledui"
+import { Clip } from "@/models/clip"
 
-import { StreamerInfo } from "../streamerInfo";
+import { StreamerInfo } from "../streamerInfo"
 
-import MobileClipCardList from "./mobileClipCardList";
+import MobileClipCardList from "./mobileClipCardList"
 
 export function MobileClipViewLayout({
     currentClip,
@@ -18,11 +18,11 @@ export function MobileClipViewLayout({
     setClickedClip: (clip: Clip) => void,
 }) {
     //streamer info
-    const streamersLoadableAtom = loadable(streamersAtom);
-    const [streamersValue] = useAtom(streamersLoadableAtom);
+    const streamersLoadableAtom = loadable(streamersAtom)
+    const [streamersValue] = useAtom(streamersLoadableAtom)
     const currentStreamer = streamersValue.state === `hasData`
         ? streamersValue.data?.find((e) => e.id == currentClip.broadcaster_id)
-        : undefined;
+        : undefined
 
     return (
         <Grid
@@ -96,5 +96,5 @@ export function MobileClipViewLayout({
                 </Stack>
             </Grid>
         </Grid>
-    );
+    )
 }

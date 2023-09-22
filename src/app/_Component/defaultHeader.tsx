@@ -1,25 +1,25 @@
 'use client'
-import { HexagonOutlined } from "@mui/icons-material";
-import { Box, Divider, Stack,  SxProps,  Theme,  Toolbar, Tooltip, Typography } from "@mui/material";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { HexagonOutlined } from "@mui/icons-material"
+import { Box, Divider, Stack,  SxProps,  Theme,  Toolbar, Tooltip, Typography } from "@mui/material"
+import Link from "next/link"
+import { useEffect, useState } from "react"
 
-import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui";
+import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui"
 
-import NotificationMenu from "./notificationMenu";
+import NotificationMenu from "./notificationMenu"
 
 export default function DefaultHeader() {
-    const [isTransparent, setTransparent] = useState<boolean>(true);
+    const [isTransparent, setTransparent] = useState<boolean>(true)
     function toggleTransparent() {
-        window.scrollY == 0 ? setTransparent(true) : setTransparent(false);
+        window.scrollY == 0 ? setTransparent(true) : setTransparent(false)
     }
 
     const initStyle: SxProps<Theme> = {
         opacity: 0,
-    };
-    const [style, setStyle] = useState<SxProps<Theme>>(initStyle);
+    }
+    const [style, setStyle] = useState<SxProps<Theme>>(initStyle)
     function handleOnMouseEnter(event: React.MouseEvent) {
-        const { left, width, height } = event.currentTarget.getBoundingClientRect();
+        const { left, width, height } = event.currentTarget.getBoundingClientRect()
         // console.log(left);
         setStyle({
             opacity: 1,
@@ -29,16 +29,16 @@ export default function DefaultHeader() {
             background: (theme) => theme.palette.mode === `light`
                 ? theme.palette.grey[200]
                 : theme.palette.grey[800],
-        });
+        })
     }
     function handleOnMouseLeave() {
-        setStyle(initStyle);
+        setStyle(initStyle)
     }
 
     useEffect(() => {
-        window.addEventListener(`scroll`, toggleTransparent);
-        return () => window.removeEventListener(`scroll`, toggleTransparent);
-    }, []);
+        window.addEventListener(`scroll`, toggleTransparent)
+        return () => window.removeEventListener(`scroll`, toggleTransparent)
+    }, [])
 
     return (
         <PaperAppBar
@@ -199,12 +199,12 @@ export default function DefaultHeader() {
                             window.scrollTo({
                                 top: 0,
                                 behavior: `smooth`,
-                            });
+                            })
                         }}
                     />
                     <NotificationMenu />
                 </Stack>
             </Toolbar>
         </PaperAppBar>
-    );
+    )
 }

@@ -1,12 +1,12 @@
 'use client'
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { Box, Divider, Grid, List, ListItem, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
-import Link from "next/link";
+import GitHubIcon from '@mui/icons-material/GitHub'
+import { Box, Divider, Grid, List, ListItem, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material"
+import Link from "next/link"
 
-import { event } from "@/components/gtag";
-import { AboutBodyTypography, BorderPaper } from "@/components/styledui";
+import { event } from "@/components/gtag"
+import { AboutBodyTypography, BorderPaper } from "@/components/styledui"
 
-import InquiryForm from "./_Component/InquiryForm";
+import InquiryForm from "./_Component/InquiryForm"
 
 export default function About() {
     return (
@@ -52,7 +52,7 @@ export default function About() {
                                     event(`click`, {
                                         label: `click_streams_charts_link`,
                                         link_url: `https://streamscharts.com/`,
-                                    });
+                                    })
                                 }}
                             >
                                 <AboutBodyTypography
@@ -78,7 +78,7 @@ export default function About() {
                                     event(`click`, {
                                         label: `click_twitch_tracker_link`,
                                         link_url: `https://twitchtracker.com/`,
-                                    });
+                                    })
                                 }}
                             >
                                 <AboutBodyTypography
@@ -205,7 +205,7 @@ export default function About() {
                                     event(`click`, {
                                         label: `click_google_link`,
                                         link_url: `https://policies.google.com/technologies/cookies?hl=ja`,
-                                    });
+                                    })
                                 }}
                             >
                                 <AboutBodyTypography
@@ -231,7 +231,7 @@ export default function About() {
                                     event(`click`, {
                                         label: `click_google_link`,
                                         link_url: `https://support.google.com/analytics/answer/181881?hl=ja`,
-                                    });
+                                    })
                                 }}
                             >
                                 <AboutBodyTypography
@@ -278,7 +278,7 @@ export default function About() {
                                 event(`click`, {
                                     label: `click_github_link`,
                                     link_url: `https://github.com/108yen`,
-                                });
+                                })
                             }}
                         >
                             <Stack
@@ -299,5 +299,5 @@ export default function About() {
                 </Grid>
             </Grid>
         </>
-    );
+    )
 }

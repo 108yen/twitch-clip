@@ -1,5 +1,5 @@
-import About from "./About";
+import About from "./About"
 
 export default function Page() {
-    return <About />;
+    return <About />
 }
