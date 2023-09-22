@@ -1,10 +1,12 @@
 'use client'
-import { AboutBodyTypography, BorderPaper } from "@/components/styledui";
-import { Box, Divider, Grid, List, ListItem, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
-import InquiryForm from "./_Component/InquiryForm";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import Link from "next/link";
-import { event } from "@/components/gtag";
+import GitHubIcon from '@mui/icons-material/GitHub'
+import { Box, Divider, Grid, List, ListItem, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material"
+import Link from "next/link"
+
+import { event } from "@/components/gtag"
+import { AboutBodyTypography, BorderPaper } from "@/components/styledui"
+
+import InquiryForm from "./_Component/InquiryForm"
 
 export default function About() {
     return (
@@ -21,14 +23,14 @@ export default function About() {
                     p={3}
                 >
                     <Typography
-                        variant="h3"
+                        variant='h3'
                         pt={10}
-                        textAlign="center"
+                        textAlign='center'
                     >
                         本サイトについて
                     </Typography>
                     <Typography
-                        variant="h4"
+                        variant='h4'
                         pt={10}
                     >
                         1. はじめに
@@ -40,23 +42,23 @@ export default function About() {
                     <List>
                         <ListItem>
                             <Link
-                                href="https://streamscharts.com/"
-                                aria-label="streams charts link"
+                                href='https://streamscharts.com/'
+                                aria-label='streams charts link'
                                 target='_blank'
                                 style={{
-                                    textDecoration: 'none',
+                                    textDecoration: `none`,
                                 }}
                                 onClick={() => {
-                                    event("click", {
-                                        label: "click_streams_charts_link",
-                                        link_url: "https://streamscharts.com/",
-                                    });
+                                    event(`click`, {
+                                        label: `click_streams_charts_link`,
+                                        link_url: `https://streamscharts.com/`,
+                                    })
                                 }}
                             >
                                 <AboutBodyTypography
                                     sx={{
                                         "&:hover": {
-                                            textDecorationLine: 'underline'
+                                            textDecorationLine: `underline`
                                         }
                                     }}
                                 >
@@ -66,23 +68,23 @@ export default function About() {
                         </ListItem>
                         <ListItem>
                             <Link
-                                href="https://twitchtracker.com/"
-                                aria-label="twitch tracker link"
+                                href='https://twitchtracker.com/'
+                                aria-label='twitch tracker link'
                                 target='_blank'
                                 style={{
-                                    textDecoration: 'none',
+                                    textDecoration: `none`,
                                 }}
                                 onClick={() => {
-                                    event("click", {
-                                        label: "click_twitch_tracker_link",
-                                        link_url: "https://twitchtracker.com/",
-                                    });
+                                    event(`click`, {
+                                        label: `click_twitch_tracker_link`,
+                                        link_url: `https://twitchtracker.com/`,
+                                    })
                                 }}
                             >
                                 <AboutBodyTypography
                                     sx={{
                                         "&:hover": {
-                                            textDecorationLine: 'underline'
+                                            textDecorationLine: `underline`
                                         }
                                     }}
                                 >
@@ -92,7 +94,7 @@ export default function About() {
                         </ListItem>
                     </List>
                     <Typography
-                        variant="h4"
+                        variant='h4'
                         pt={10}
                     >
                         2. ランキングについて
@@ -102,7 +104,7 @@ export default function About() {
                         本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、100件表示可能です。
                     </AboutBodyTypography>
                     <Typography
-                        variant="h4"
+                        variant='h4'
                         pt={10}
                     >
                         3. コンテンツの更新頻度
@@ -118,7 +120,7 @@ export default function About() {
                                     <TableCell>
                                         day,week,month,yearランキング
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align='right'>
                                         毎日0,6,12,18時
                                     </TableCell>
                                 </TableRow>
@@ -126,7 +128,7 @@ export default function About() {
                                     <TableCell>
                                         allランキング
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align='right'>
                                         毎月1,16日
                                     </TableCell>
                                 </TableRow>
@@ -134,7 +136,7 @@ export default function About() {
                                     <TableCell>
                                         過去ランキング
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align='right'>
                                         毎月4日
                                     </TableCell>
                                 </TableRow>
@@ -142,7 +144,7 @@ export default function About() {
                         </Table>
                     </TableContainer>
                     <Typography
-                        variant="h4"
+                        variant='h4'
                         pt={10}
                     >
                         4. 禁止事項
@@ -181,7 +183,7 @@ export default function About() {
                         </ListItem>
                     </List>
                     <Typography
-                        variant="h4"
+                        variant='h4'
                         pt={10}
                     >
                         5. Google Analytics
@@ -193,23 +195,23 @@ export default function About() {
                     <List>
                         <ListItem>
                             <Link
-                                href="https://policies.google.com/technologies/cookies?hl=ja"
-                                aria-label="google link"
+                                href='https://policies.google.com/technologies/cookies?hl=ja'
+                                aria-label='google link'
                                 target='_blank'
                                 style={{
-                                    textDecoration: 'none',
+                                    textDecoration: `none`,
                                 }}
                                 onClick={() => {
-                                    event("click", {
-                                        label: "click_google_link",
-                                        link_url: "https://policies.google.com/technologies/cookies?hl=ja",
-                                    });
+                                    event(`click`, {
+                                        label: `click_google_link`,
+                                        link_url: `https://policies.google.com/technologies/cookies?hl=ja`,
+                                    })
                                 }}
                             >
                                 <AboutBodyTypography
                                     sx={{
                                         "&:hover": {
-                                            textDecorationLine: 'underline'
+                                            textDecorationLine: `underline`
                                         }
                                     }}
                                 >
@@ -219,23 +221,23 @@ export default function About() {
                         </ListItem>
                         <ListItem>
                             <Link
-                                href="https://support.google.com/analytics/answer/181881?hl=ja"
-                                aria-label="google optout link"
+                                href='https://support.google.com/analytics/answer/181881?hl=ja'
+                                aria-label='google optout link'
                                 target='_blank'
                                 style={{
-                                    textDecoration: 'none',
+                                    textDecoration: `none`,
                                 }}
                                 onClick={() => {
-                                    event("click", {
-                                        label: "click_google_link",
-                                        link_url: "https://support.google.com/analytics/answer/181881?hl=ja",
-                                    });
+                                    event(`click`, {
+                                        label: `click_google_link`,
+                                        link_url: `https://support.google.com/analytics/answer/181881?hl=ja`,
+                                    })
                                 }}
                             >
                                 <AboutBodyTypography
                                     sx={{
                                         "&:hover": {
-                                            textDecorationLine: 'underline'
+                                            textDecorationLine: `underline`
                                         }
                                     }}
                                 >
@@ -245,7 +247,7 @@ export default function About() {
                         </ListItem>
                     </List>
                     <Typography
-                        variant="h4"
+                        variant='h4'
                         pt={10}
                     >
                         6. お問い合わせ
@@ -253,41 +255,41 @@ export default function About() {
                     <Divider sx={{ marginY: 1 }} />
                     <InquiryForm />
                     <Stack
-                        direction="row"
+                        direction='row'
                         mt={10}
                         flexGrow={1}
-                        alignItems="center"
-                        justifyContent="center"
+                        alignItems='center'
+                        justifyContent='center'
                     >
                         <Typography
-                            variant="caption"
-                            color="grey"
+                            variant='caption'
+                            color='grey'
                         >
                             developer:
                         </Typography>
                         <Box sx={{ width: (theme) => theme.spacing(1) }} />
                         <Link
-                            href="https://github.com/108yen"
+                            href='https://github.com/108yen'
                             target='_blank'
                             style={{
-                                textDecoration: 'none',
+                                textDecoration: `none`,
                             }}
                             onClick={() => {
-                                event("click", {
-                                    label: "click_github_link",
-                                    link_url: "https://github.com/108yen",
-                                });
+                                event(`click`, {
+                                    label: `click_github_link`,
+                                    link_url: `https://github.com/108yen`,
+                                })
                             }}
                         >
                             <Stack
-                                direction="row"
-                                alignItems="center"
+                                direction='row'
+                                alignItems='center'
                             >
 
-                                <GitHubIcon sx={{ fontSize: (theme) => theme.typography.caption.fontSize, color: "grey" }} />
+                                <GitHubIcon sx={{ fontSize: (theme) => theme.typography.caption.fontSize, color: `grey` }} />
                                 <Typography
-                                    variant="caption"
-                                    color="grey"
+                                    variant='caption'
+                                    color='grey'
                                 >
                                     108yen
                                 </Typography>
@@ -297,5 +299,5 @@ export default function About() {
                 </Grid>
             </Grid>
         </>
-    );
+    )
 }

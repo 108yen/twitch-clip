@@ -1,42 +1,40 @@
 'use client'
-import { currentStreamerAtom, currentStreamerIdAtom } from "@/components/Atoms";
-import { ClipListLayout } from "@/app/(clip)/_Component/clipListLayout";
-import { ClipViewLayout } from "@/app/(clip)/_Component/PC/clipViewLayout";
-import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/streamerCard";
-import { Clip } from "@/models/clip";
-import { Grid } from "@mui/material";
-import { useAtom } from "jotai";
-import { loadable } from "jotai/utils";
-import { useEffect, useState } from "react";
-import { MobileClipViewLayout } from "../../_Component/mobile/mobileClipViewLayout";
-import { useWindowSize } from "@/components/hooks";
+import { Grid } from "@mui/material"
+import { useAtom } from "jotai"
+import { useEffect, useState } from "react"
+
+import { ClipListLayout } from "@/app/(clip)/_Component/clipListLayout"
+import { ClipViewLayout } from "@/app/(clip)/_Component/PC/clipViewLayout"
+import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/streamerCard"
+import { currentStreamerIdAtom } from "@/components/Atoms"
+import { useWindowSize } from "@/components/hooks"
+import { Clip } from "@/models/clip"
+
+import { MobileClipViewLayout } from "../../_Component/mobile/mobileClipViewLayout"
 
 export default function StreamerClipPage(props: { id: string }) {
-    const id = props.id;
+    const id = props.id
     //set clicked clip
-    const [currentClip, setCurrentClip] = useState<Clip | undefined>();
+    const [currentClip, setCurrentClip] = useState<Clip | undefined>()
     function handleSetClip(clip: Clip) {
-        setCurrentClip(clip);
+        setCurrentClip(clip)
     }
-    //for set title
-    const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
-    const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom);
     //for set id
-    const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom);
-    const [width] = useWindowSize();
+    const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom)
+    const [width] = useWindowSize()
     //to return listview from view layout
     function returnListView() {
-        setCurrentClip(undefined);
+        setCurrentClip(undefined)
     }
     useEffect(() => {
-        setCurrentStreamerId(id);
+        setCurrentStreamerId(id)
 
-        history.pushState(null, '', null);
-        window.addEventListener('popstate', returnListView, false);
+        history.pushState(null, ``, null)
+        window.addEventListener(`popstate`, returnListView, false)
         return () => {
-            window.removeEventListener('popstate', returnListView, false);
-        };
-    }, []);
+            window.removeEventListener(`popstate`, returnListView, false)
+        }
+    }, [])
 
     if (currentClip===undefined) {
         return <>
@@ -59,7 +57,7 @@ export default function StreamerClipPage(props: { id: string }) {
                 currentClip={currentClip}
                 setClickedClip={handleSetClip}
             />
-        } else {   
+        } else {
             return <ClipViewLayout
                 currentClip={currentClip}
                 setClickedClip={handleSetClip}

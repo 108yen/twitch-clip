@@ -1,76 +1,77 @@
-'use client';
-import createCache from '@emotion/cache';
-import { useServerInsertedHTML } from 'next/navigation';
-import { CacheProvider } from '@emotion/react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { useEffect, useState } from 'react';
-import { themeOptions } from '@/theme';
-import { useAtom } from 'jotai';
-import { isDarkModeAtom } from '@/components/Atoms';
-import { useMediaQuery } from '@mui/material';
+"use client"
+import createCache from "@emotion/cache"
+import { CacheProvider } from "@emotion/react"
+import { useMediaQuery } from "@mui/material"
+import CssBaseline from "@mui/material/CssBaseline"
+import { ThemeProvider, createTheme } from "@mui/material/styles"
+import { useAtom } from "jotai"
+import { useServerInsertedHTML } from "next/navigation"
+import { useEffect, useState } from "react"
+
+import { isDarkModeAtom } from "@/components/Atoms"
+import { themeOptions } from "@/theme"
 
 export default function ThemeRegistry(props: {
-    options: { key: string, prepend: boolean },
+    options: { key: string; prepend: boolean }
     children: React.ReactNode
 }) {
-    const { options, children } = props;
-    const [isDarkMode] = useAtom(isDarkModeAtom);
+    const { options, children } = props
+    const [isDarkMode] = useAtom(isDarkModeAtom)
 
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
-        noSsr: true,
-    });
-    const theme = createTheme(themeOptions(
-        isDarkMode == undefined ? prefersDarkMode : isDarkMode
-    ));
+    const prefersDarkMode = useMediaQuery(`(prefers-color-scheme: dark)`, {
+        noSsr: true
+    })
+    const theme = createTheme(
+        themeOptions(isDarkMode == undefined ? prefersDarkMode : isDarkMode)
+    )
 
     const [{ cache, flush }] = useState(() => {
-        const cache = createCache(options);
-        cache.compat = true;
-        const prevInsert = cache.insert;
-        let inserted: string[] = [];
+        const cache = createCache(options)
+        cache.compat = true
+        const prevInsert = cache.insert
+        let inserted: string[] = []
         cache.insert = (...args) => {
-            const serialized = args[1];
+            const serialized = args[1]
             if (cache.inserted[serialized.name] === undefined) {
-                inserted.push(serialized.name);
+                inserted.push(serialized.name)
             }
-            return prevInsert(...args);
-        };
+            return prevInsert(...args)
+        }
         const flush = () => {
-            const prevInserted = inserted;
-            inserted = [];
-            return prevInserted;
-        };
-        return { cache, flush };
-    });
+            const prevInserted = inserted
+            inserted = []
+            return prevInserted
+        }
+        return { cache, flush }
+    })
 
     useServerInsertedHTML(() => {
-        const names = flush();
+        const names = flush()
         if (names.length === 0) {
-            return null;
+            return null
         }
-        let styles = '';
+        let styles = ``
         for (const name of names) {
-            styles += cache.inserted[name];
+            styles += cache.inserted[name]
         }
         return (
             <style
                 key={cache.key}
-                data-emotion={`${cache.key} ${names.join(' ')}`}
+                data-emotion={`${cache.key} ${names.join(` `)}`}
                 dangerouslySetInnerHTML={{
                     // __html: styles,
-                    __html: options.prepend ? `@layer emotion {${styles}}` : styles,
+                    __html: options.prepend ? `@layer emotion {${styles}}` : styles
                 }}
             />
-        );
-    });
+        )
+    })
     // if (typeof window !== 'undefined') return <>{children}</>
 
     //これがないとスタイルが崩れる
-    const [showScreen, setShowScreen] = useState(false);
+    const [showScreen, setShowScreen] = useState(false)
     useEffect(() => {
-        setShowScreen(true);
-    })
+        setShowScreen(true)
+    }, [])
 
     return (
         <CacheProvider value={cache}>
@@ -79,44 +80,5 @@ export default function ThemeRegistry(props: {
                 {showScreen ? children : null}
             </ThemeProvider>
         </CacheProvider>
-    );
-};
-
-// export const EmotionRegistry = ({ children }: { children: React.ReactNode }) => {
-//     const [isDarkMode] = useAtom(isDarkModeAtom);
-//     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
-//         noSsr: true,
-//     });
-//     const theme = createTheme(themeOptions(
-//         isDarkMode == undefined ? prefersDarkMode : isDarkMode
-//     ));
-
-//     const [emotionCache] = useState(() => {
-//         const emotionCache = createCache({ key: 'css', prepend: false });
-//         emotionCache.compat = true;
-//         return emotionCache;
-//     });
-
-//     useServerInsertedHTML(() => {
-//         return (
-//             <style
-//                 data-emotion={`${emotionCache.key} ${Object.keys(
-//                     emotionCache.inserted
-//                 ).join(' ')}`}
-//                 key={emotionCache.key}
-//                 dangerouslySetInnerHTML={{
-//                     __html: Object.values(emotionCache.inserted).join(' '),
-//                 }}
-//             />
-//         );
-//     });
-
-//     return (
-//         <CacheProvider value={emotionCache}>
-//             <ThemeProvider theme={theme}>
-//                 <CssBaseline />
-//                 {children}
-//             </ThemeProvider>
-//         </CacheProvider>
-//     );
-// };
+    )
+}

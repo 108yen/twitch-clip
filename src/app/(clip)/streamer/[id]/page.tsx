@@ -1,5 +1,6 @@
-import { Metadata, ResolvingMetadata } from "next";
-import StreamerClipPage from "./StreamerClipPage";
+import { Metadata } from "next"
+
+import StreamerClipPage from "./StreamerClipPage"
 
 type Props = {
     params: { id: string }
@@ -7,17 +8,16 @@ type Props = {
 }
 
 export async function generateMetadata(
-    { params, searchParams }: Props,
-    parent: ResolvingMetadata
+    {  searchParams }: Props,
 ): Promise<Metadata> {
-    if (typeof searchParams.display_name == 'string') {
-        const display_name = searchParams.display_name;
+    if (typeof searchParams.display_name == `string`) {
+        const display_name = searchParams.display_name
         return {
             title: display_name,
-            description: display_name + 'のTwitch(ツイッチ)クリップの再生数ランキング。',
+            description: display_name + `のTwitch(ツイッチ)クリップの再生数ランキング。`,
         }
     } else {
-        return {};
+        return {}
     }
 
 }
@@ -27,7 +27,7 @@ export default function Page({
 }: {
     params: { id: string },
 }) {
-    const id = params.id;
+    const id = params.id
 
     return <StreamerClipPage id={id} />
 }

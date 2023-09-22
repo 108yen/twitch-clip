@@ -1,136 +1,139 @@
-import { Box, IconButton, Menu, MenuItem, Switch, Typography, useMediaQuery } from "@mui/material";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useState } from "react";
-import Link from "next/link";
-import { NoDecorationTypography } from "@/components/styledui";
-import { useAtom } from "jotai";
-import { isDarkModeAtom } from "@/components/Atoms";
+import MoreVertIcon from '@mui/icons-material/MoreVert'
+import {
+    Box,
+    IconButton,
+    Menu,
+    MenuItem,
+    Switch,
+    Typography,
+    useMediaQuery
+} from '@mui/material'
+import { useAtom } from 'jotai'
+import Link from 'next/link'
+import { useState } from 'react'
+
+import { isDarkModeAtom } from '@/components/Atoms'
+import { NoDecorationTypography } from '@/components/styledui'
 
 export default function NotificationMenu() {
     //darkmode
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)', {
-        noSsr: true,
-    });
-    const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom);
-    const isDarkMode = isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode;
+    const prefersDarkMode = useMediaQuery(`(prefers-color-scheme: dark)`, {
+        noSsr: true
+    })
+    const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom)
+    const isDarkMode = isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode
     function handleSwitchChange() {
-        setIsDarkMode(!isDarkMode);
+        setIsDarkMode(!isDarkMode)
     }
     //menu
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
+        setAnchorEl(event.currentTarget)
+    }
     const handleClose = () => {
-        setAnchorEl(null);
-    };
+        setAnchorEl(null)
+    }
 
     return (
         <>
-            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+            <Box sx={{ display: `flex`, alignItems: `center`, textAlign: `center` }}>
                 <IconButton
                     onClick={handleClick}
-                    size="small"
+                    size='small'
                     sx={{ ml: 2 }}
-                    aria-controls={open ? 'account-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
-                    aria-label="menu"
+                    aria-controls={open ? `account-menu` : undefined}
+                    aria-haspopup='true'
+                    aria-expanded={open ? `true` : undefined}
+                    aria-label='menu'
                 >
                     <MoreVertIcon />
                 </IconButton>
             </Box>
             <Menu
                 anchorEl={anchorEl}
-                id="notification-menu"
+                id='notification-menu'
                 open={open}
                 onClose={handleClose}
                 PaperProps={{
                     elevation: 0,
                     sx: {
-                        overflow: 'visible',
-                        filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                        overflow: `visible`,
+                        filter: `drop-shadow(0px 2px 8px rgba(0,0,0,0.32))`,
                         mt: 1.5,
                         '& .MuiAvatar-root': {
                             width: 32,
                             height: 32,
                             ml: -0.5,
-                            mr: 1,
+                            mr: 1
                         },
                         '&:before': {
-                            content: '""',
-                            display: 'block',
-                            position: 'absolute',
+                            content: `""`,
+                            display: `block`,
+                            position: `absolute`,
                             top: 0,
                             right: 14,
                             width: 10,
                             height: 10,
-                            bgcolor: 'background.paper',
-                            transform: 'translateY(-50%) rotate(45deg)',
-                            zIndex: 1300,
-                        },
-                    },
+                            bgcolor: `background.paper`,
+                            transform: `translateY(-50%) rotate(45deg)`,
+                            zIndex: 1300
+                        }
+                    }
                 }}
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                transformOrigin={{ horizontal: `right`, vertical: `top` }}
+                anchorOrigin={{ horizontal: `right`, vertical: `bottom` }}
             >
                 <MenuItem
                     sx={{
                         height: 40,
-                        justifyContent: 'space-between'
+                        justifyContent: `space-between`
                     }}
                 >
-                    <Typography>
-                        ダークモード
-                    </Typography>
+                    <Typography>ダークモード</Typography>
                     <Switch
                         checked={isDarkMode}
                         onChange={handleSwitchChange}
-                        color="secondary"
+                        color='secondary'
                     />
                 </MenuItem>
                 <MenuItem
                     sx={{
-                        height: 40,
+                        height: 40
                     }}
                 >
                     <Link
                         href='/past'
                         style={{
-                            textDecoration: 'none',
+                            textDecoration: `none`
                         }}
                     >
-                        <NoDecorationTypography>
-                            過去のランキング
-                        </NoDecorationTypography>
+                        <NoDecorationTypography>過去のランキング</NoDecorationTypography>
                     </Link>
                 </MenuItem>
                 <MenuItem
                     sx={{
-                        height: 40,
+                        height: 40
                     }}
                 >
                     <Link
                         href='/streamers'
                         style={{
-                            textDecoration: 'none',
+                            textDecoration: `none`
                         }}
                     >
-                        <NoDecorationTypography>
-                            ストリーマー一覧
-                        </NoDecorationTypography>
+                        <NoDecorationTypography>ストリーマー一覧</NoDecorationTypography>
                     </Link>
                 </MenuItem>
                 <MenuItem
                     sx={{
-                        height: 40,
+                        height: 40
                     }}
                 >
                     <Link
                         href='/about'
                         style={{
-                            textDecoration: 'none',
+                            textDecoration: `none`
                         }}
                     >
                         <NoDecorationTypography>
@@ -140,5 +143,5 @@ export default function NotificationMenu() {
                 </MenuItem>
             </Menu>
         </>
-    );
+    )
 }

@@ -1,114 +1,115 @@
-import { currentStreamerAtom } from "@/components/Atoms";
-import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui";
-import { Launch } from "@mui/icons-material";
-import { Avatar, Box, Paper, Skeleton, Typography } from "@mui/material";
-import { Stack } from "@mui/system";
-import { useAtom } from "jotai";
-import { loadable } from "jotai/utils";
-import Link from "next/link";
-import { event } from "@/components/gtag";
+import { Launch } from "@mui/icons-material"
+import { Avatar, Box, Paper, Skeleton, Typography } from "@mui/material"
+import { Stack } from "@mui/system"
+import { useAtom } from "jotai"
+import { loadable } from "jotai/utils"
+import Link from "next/link"
+
+import { currentStreamerAtom } from "@/components/Atoms"
+import { event } from "@/components/gtag"
+import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui"
 
 function StreamerCard() {
-    const currentStreamerLoadableAtom = loadable(currentStreamerAtom);
-    const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom);
+    const currentStreamerLoadableAtom = loadable(currentStreamerAtom)
+    const [currentStreamerValue] = useAtom(currentStreamerLoadableAtom)
 
-    if (currentStreamerValue.state === "hasData"
+    if (currentStreamerValue.state === `hasData`
         && currentStreamerValue.data != undefined) {
         return (
             <Box
                 sx={{
                     p: 2,
-                    display: 'flex',
-                    justifyContent: 'center',
+                    display: `flex`,
+                    justifyContent: `center`,
                 }}>
                 <BorderPaper
                     sx={{
                         p: 2,
-                        overflow: 'hidden',
+                        overflow: `hidden`,
                         maxWidth: 700,
                         minWidth: { xs: 400, md: 600, },
                     }}
                 >
                     <Stack
-                        direction="row"
-                        justifyContent="flex-start"
-                        alignItems="center"
+                        direction='row'
+                        justifyContent='flex-start'
+                        alignItems='center'
                         spacing={1}
                     >
                         <Link
                             href={currentStreamerValue.data != undefined
                                 ? `/streamer/${currentStreamerValue.data.id}?display_name=${currentStreamerValue.data.display_name}`
-                                : "/"}
-                            aria-label="streamer page link"
+                                : `/`}
+                            aria-label='streamer page link'
                             style={{
-                                textDecoration: 'none',
+                                textDecoration: `none`,
                             }}
                         >
-                            <Avatar alt="top" src={currentStreamerValue.data.profile_image_url} />
+                            <Avatar alt='top' src={currentStreamerValue.data.profile_image_url} />
                         </Link>
 
                         <Stack
                             spacing={0}
-                            direction="column"
-                            justifyContent="space-between"
+                            direction='column'
+                            justifyContent='space-between'
                             flexGrow={1}
-                            overflow="hidden"
+                            overflow='hidden'
                         >
                             <Stack
-                                direction="row"
-                                justifyContent="space-between"
-                                alignItems="start"
+                                direction='row'
+                                justifyContent='space-between'
+                                alignItems='start'
                                 flexGrow={1}
                                 spacing={1}
                             >
                                 <Typography
-                                    variant="subtitle1"
+                                    variant='subtitle1'
                                     noWrap
                                 >
                                     {currentStreamerValue.data.display_name}
                                 </Typography>
                                 <Link
-                                    href={"https://www.twitch.tv/" + currentStreamerValue.data.login}
-                                    aria-label="twitch channel page link"
+                                    href={`https://www.twitch.tv/` + currentStreamerValue.data.login}
+                                    aria-label='twitch channel page link'
                                     target='_blank'
                                     style={{
-                                        textDecoration: 'none',
+                                        textDecoration: `none`,
                                     }}
                                     onClick={() => {
-                                        event("click", {
-                                            label: "click_twitch_channel",
+                                        event(`click`, {
+                                            label: `click_twitch_channel`,
                                             channel_title: currentStreamerValue.data!.display_name,
-                                            link_url: "https://www.twitch.tv/" + currentStreamerValue.data!.login,
-                                        });
+                                            link_url: `https://www.twitch.tv/` + currentStreamerValue.data!.login,
+                                        })
                                     }}
 
                                 >
                                     <Stack
-                                        direction="row"
+                                        direction='row'
                                         spacing={1}
                                     >
                                         <NoDecorationTypography
-                                            variant="body2"
+                                            variant='body2'
                                         >
                                             Twitch
                                         </NoDecorationTypography>
-                                        <StyledLaunch fontSize="small" />
+                                        <StyledLaunch fontSize='small' />
                                     </Stack>
                                 </Link>
                             </Stack>
                             <Typography
-                                variant="body2"
-                                color="gray"
+                                variant='body2'
+                                color='gray'
                             >
                                 {currentStreamerValue.data.description}
                             </Typography>
 
                             <Typography
                                 noWrap
-                                variant="body2"
-                                color="gray"
-                                textAlign="end"
-                                width="100%"
+                                variant='body2'
+                                color='gray'
+                                textAlign='end'
+                                width='100%'
                             >
                                 {currentStreamerValue.data.follower_num?.toLocaleString()} followers
                             </Typography>
@@ -116,37 +117,37 @@ function StreamerCard() {
                     </Stack>
                 </BorderPaper>
             </Box>
-        );
+        )
     }
     return (
         <Box
             sx={{
                 p: 2,
-                display: 'flex',
-                justifyContent: 'center',
+                display: `flex`,
+                justifyContent: `center`,
             }}>
             <Paper
                 sx={{
                     p: 2,
-                    overflow: 'hidden',
+                    overflow: `hidden`,
                     maxWidth: 700,
                     minWidth: { xs: 400, md: 600, },
                 }}
             >
                 <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="flex-start"
+                    direction='row'
+                    justifyContent='space-between'
+                    alignItems='flex-start'
                 >
                     <Stack
-                        direction="row"
-                        justifyContent="flex-start"
-                        alignItems="center"
+                        direction='row'
+                        justifyContent='flex-start'
+                        alignItems='center'
                         spacing={1}
                     >
-                        <Skeleton variant="circular" width={40} height={40} />
+                        <Skeleton variant='circular' width={40} height={40} />
                         <Typography
-                            variant="subtitle1"
+                            variant='subtitle1'
                             noWrap
                         >
                             <Skeleton width={150} />
@@ -154,33 +155,33 @@ function StreamerCard() {
                     </Stack>
 
                     <Stack
-                        direction="row"
+                        direction='row'
                         spacing={1}
                     >
                         <Typography
-                            variant="body2"
+                            variant='body2'
                         >
                             Twitch
                         </Typography>
-                        <Launch fontSize="small" />
+                        <Launch fontSize='small' />
                     </Stack>
                 </Stack>
                 <Stack
                     ml={6}
                     spacing={0}
-                    direction="column"
-                    justifyContent="flex-start"
-                    alignItems="flex-start"
+                    direction='column'
+                    justifyContent='flex-start'
+                    alignItems='flex-start'
                 >
                     <Typography
-                        variant="body2"
+                        variant='body2'
                     >
                         <Skeleton width={350} />
                     </Typography>
                 </Stack>
             </Paper>
         </Box>
-    );
+    )
 }
 
-export default StreamerCard;
+export default StreamerCard
