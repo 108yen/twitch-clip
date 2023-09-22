@@ -28,8 +28,10 @@ module.exports = {
         semi: ["error", "never"],
         "array-element-newline": ["error",
             {
-                "multiline":true,
-                "minItems": 3
+                "ArrayExpression": "always",
+                "ArrayPattern": {
+                    "minItems": 3
+                }
             },
         ],
         "import/order": [
