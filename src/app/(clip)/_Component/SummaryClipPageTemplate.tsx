@@ -1,14 +1,14 @@
 'use client'
-import { useAtom } from "jotai"
-import { useState, useEffect } from "react"
+import { useAtom } from 'jotai'
+import { useState, useEffect } from 'react'
 
-import { ClipListLayout } from "@/app/(clip)/_Component/clipListLayout"
-import { ClipViewLayout } from "@/app/(clip)/_Component/PC/clipViewLayout"
-import { currentStreamerIdAtom } from "@/components/Atoms"
-import { useWindowSize } from "@/components/hooks"
-import { Clip } from "@/models/clip"
+import { Home } from '@/app/(clip)/_Component/home'
+import { PCView } from '@/app/(clip)/_Component/PCView'
+import { currentStreamerIdAtom } from '@/components/Atoms'
+import { useWindowSize } from '@/components/hooks'
+import { Clip } from '@/models/clip'
 
-import { MobileClipViewLayout } from "./mobile/mobileClipViewLayout"
+import { MobileView } from './mobileView'
 
 export default function SummaryClipPageTemplate(props: { id: string }) {
     const { id } = props
@@ -35,21 +35,23 @@ export default function SummaryClipPageTemplate(props: { id: string }) {
         }
     }, [])
 
-    if (currentClip===undefined) {
-        return <ClipListLayout
-                setClickedClip={handleSetClip}
-            />
+    if (currentClip === undefined) {
+        return <Home setClickedClip={handleSetClip} />
     } else {
-        if (width<600) {
-            return <MobileClipViewLayout
-                currentClip={currentClip}
-                setClickedClip={handleSetClip}
-            />
+        if (width < 600) {
+            return (
+                <MobileView
+                    currentClip={currentClip}
+                    setClickedClip={handleSetClip}
+                />
+            )
         } else {
-            return <ClipViewLayout
-                currentClip={currentClip}
-                setClickedClip={handleSetClip}
-            />
+            return (
+                <PCView
+                    currentClip={currentClip}
+                    setClickedClip={handleSetClip}
+                />
+            )
         }
     }
 }

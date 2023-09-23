@@ -1,14 +1,14 @@
-import { Grid } from "@mui/material"
+import { Grid } from '@mui/material'
 
-import { Clip } from "@/models/clip"
+import { Clip } from '@/models/clip'
 
-import MainClipCard from "./mainClipCard"
-import StreamerList from "./PC/streamerList"
+import SwiperClipCardList from './common/swiperClipCardList'
+import StreamerList from './PC/streamerList'
 
-export function ClipListLayout({
-    setClickedClip,
+export function Home({
+    setClickedClip
 }: {
-    setClickedClip: (clip: Clip) => void,
+    setClickedClip: (clip: Clip) => void
 }) {
     return (
         <Grid
@@ -17,9 +17,7 @@ export function ClipListLayout({
             paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
         >
             <Grid item zeroMinWidth xs={12} md={9}>
-                <MainClipCard
-                    setClickedClipUrl={setClickedClip}
-                />
+                <SwiperClipCardList setClickedClipUrl={setClickedClip} />
             </Grid>
             <Grid item zeroMinWidth xs={3} display={{ xs: `none`, md: `flex` }}>
                 <StreamerList />
