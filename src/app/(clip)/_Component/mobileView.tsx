@@ -6,10 +6,10 @@ import { streamersAtom } from '@/components/Atoms'
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
-import MainClipCard from '../mainClipCard'
-import { StreamerInfo } from '../streamerInfo'
+import { StreamerInfo } from './common/streamerInfo'
+import SwiperClipCardList from './common/swiperClipCardList'
 
-export function MobileClipViewLayout({
+export function MobileView({
     currentClip,
     setClickedClip
 }: {
@@ -86,7 +86,7 @@ export function MobileClipViewLayout({
                         </Typography>
                     </Stack>
                     <StreamerInfo streamer={currentStreamer} />
-                    <MainClipCard
+                    <SwiperClipCardList
                         setClickedClipUrl={setClickedClip}
                         sticky={true}
                     />

@@ -2,17 +2,19 @@ import { Box, Stack, Tab, Tabs } from '@mui/material'
 import { useAtom } from 'jotai'
 import { loadable } from 'jotai/utils'
 import { Virtual } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/virtual'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import ClipCards from '@/app/(clip)/_Component/clipCard'
+import ClipCardList from '@/app/(clip)/_Component/common/clipCard'
 import { swiperAtom, tabAtom, tabNameListAtom } from '@/components/Atoms'
 import { Clip } from '@/models/clip'
 
-import { useWindowSize } from '../../../components/hooks'
+import { useWindowSize } from '../../../../components/hooks'
 
-export default function MainClipCard({
+export default function SwiperClipCardList({
     setClickedClipUrl,
-    sticky=false
+    sticky = false
 }: {
     setClickedClipUrl: (clip: Clip) => void
     sticky?: boolean
@@ -90,7 +92,7 @@ export default function MainClipCard({
             >
                 {Array.from({ length: tabNameList.length }).map((_, index) => (
                     <SwiperSlide key={index} virtualIndex={index}>
-                        <ClipCards setClickedClipUrl={setClickedClipUrl} />
+                        <ClipCardList setClickedClipUrl={setClickedClipUrl} />
                     </SwiperSlide>
                 ))}
             </Swiper>

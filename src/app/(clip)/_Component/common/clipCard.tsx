@@ -1,8 +1,15 @@
-import { Avatar, Box, CircularProgress, Skeleton, Stack, Typography } from "@mui/material"
-import { useAtom } from "jotai"
-import { loadable } from "jotai/utils"
-import Link from "next/link"
-import InfiniteScroll from "react-infinite-scroll-component"
+import {
+    Avatar,
+    Box,
+    CircularProgress,
+    Skeleton,
+    Stack,
+    Typography
+} from '@mui/material'
+import { useAtom } from 'jotai'
+import { loadable } from 'jotai/utils'
+import Link from 'next/link'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 import {
     clipCardsDisplayNumAtom,
@@ -10,11 +17,15 @@ import {
     moreItemIsExistAtom,
     tabNameAtom,
     streamersAtom
-} from "@/components/Atoms"
-import { event } from "@/components/gtag"
-import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui"
-import { Clip } from "@/models/clip"
-import { Streamer } from "@/models/streamer"
+} from '@/components/Atoms'
+import { event } from '@/components/gtag'
+import {
+    BorderPaper,
+    NoDecorationTypography,
+    StyledLaunch
+} from '@/components/styledui'
+import { Clip } from '@/models/clip'
+import { Streamer } from '@/models/streamer'
 
 function ClipCardItem({
     clip,
@@ -42,7 +53,9 @@ function ClipCardItem({
             second: `2-digit`
         }
 
-        const formattedDate = new Intl.DateTimeFormat(`ja-JP`, options).format(date)
+        const formattedDate = new Intl.DateTimeFormat(`ja-JP`, options).format(
+            date
+        )
         return formattedDate
     }
 
@@ -71,7 +84,12 @@ function ClipCardItem({
                         height: `100%`
                     }}
                 />
-                <Stack direction='column' overflow='hidden' p={1} sx={{ flexGrow: 1 }}>
+                <Stack
+                    direction='column'
+                    overflow='hidden'
+                    p={1}
+                    sx={{ flexGrow: 1 }}
+                >
                     <Stack direction='row' justifyContent='space-between'>
                         <Typography
                             variant='h6'
@@ -124,9 +142,16 @@ function ClipCardItem({
                     >
                         <Stack direction='row' alignItems='center' spacing={2}>
                             {streamer != undefined ? (
-                                <Avatar alt='icon' src={streamer.profile_image_url} />
+                                <Avatar
+                                    alt='icon'
+                                    src={streamer.profile_image_url}
+                                />
                             ) : (
-                                <Skeleton variant='circular' width={40} height={40} />
+                                <Skeleton
+                                    variant='circular'
+                                    width={40}
+                                    height={40}
+                                />
                             )}
                             <NoDecorationTypography noWrap variant='body1'>
                                 {streamer != undefined ? (
@@ -151,7 +176,12 @@ function ClipCardItem({
                     >
                         created_at : {formatDate(clip.created_at ?? ``)}
                     </Typography>
-                    <Typography noWrap variant='body1' color='gray' textAlign='end'>
+                    <Typography
+                        noWrap
+                        variant='body1'
+                        color='gray'
+                        textAlign='end'
+                    >
                         {clip.view_count?.toLocaleString() + ` views`}
                     </Typography>
                 </Stack>
@@ -160,7 +190,11 @@ function ClipCardItem({
     )
 }
 
-function ClipCards({ setClickedClipUrl }: { setClickedClipUrl: (clip: Clip) => void }) {
+export default function ClipCardList({
+    setClickedClipUrl
+}: {
+    setClickedClipUrl: (clip: Clip) => void
+}) {
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom)
     const [clipsValue] = useAtom(clipsLoadableAtom)
@@ -269,5 +303,3 @@ function ClipCards({ setClickedClipUrl }: { setClickedClipUrl: (clip: Clip) => v
         )
     }
 }
-
-export default ClipCards
