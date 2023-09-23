@@ -1,6 +1,4 @@
 import { Box, Stack, Tab, Tabs } from '@mui/material'
-import 'swiper/css'
-import 'swiper/css/virtual'
 import { useAtom } from 'jotai'
 import { loadable } from 'jotai/utils'
 import { Virtual } from 'swiper'
@@ -10,10 +8,14 @@ import ClipCards from '@/app/(clip)/_Component/clipCard'
 import { swiperAtom, tabAtom, tabNameListAtom } from '@/components/Atoms'
 import { Clip } from '@/models/clip'
 
+import { useWindowSize } from '../../../components/hooks'
+
 export default function MainClipCard({
-    setClickedClipUrl
+    setClickedClipUrl,
+    sticky=false
 }: {
     setClickedClipUrl: (clip: Clip) => void
+    sticky?: boolean
 }) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom)
@@ -33,6 +35,10 @@ export default function MainClipCard({
               ]
     // swipe
     const [swiper, setSwiper] = useAtom(swiperAtom)
+    //style
+    const [windowWidth] = useWindowSize()
+    const top = (windowWidth * 9) / 16
+    const style = sticky ? { position: `sticky`, top: top } : {}
 
     function handleSlideChange(index: number) {
         setTab(index)
@@ -43,9 +49,13 @@ export default function MainClipCard({
     }
 
     return (
-        <Stack direction='column' overflow='hidden' spacing={0.1}>
+        <Stack direction='column' spacing={0.1} sx={{ minWidth: 0 }}>
             <Box
                 sx={{
+                    ...style,
+                    zIndex: 1200,
+                    backgroundColor: (theme) =>
+                        theme.palette.background.default,
                     borderBottom: 1,
                     borderColor: `divider`,
                     justifyContent: `center`,
@@ -78,7 +88,7 @@ export default function MainClipCard({
                     setSwiper(swiperInstance)
                 }}
             >
-                {Array.from({ length: tabNameList.length }).map((e, index) => (
+                {Array.from({ length: tabNameList.length }).map((_, index) => (
                     <SwiperSlide key={index} virtualIndex={index}>
                         <ClipCards setClickedClipUrl={setClickedClipUrl} />
                     </SwiperSlide>
