@@ -90,7 +90,7 @@ export default function SwiperClipCardList({
                     setSwiper(swiperInstance)
                 }}
             >
-                {Array.from({ length: tabNameList.length }).map((_, index) => (
+                {Array.from({ length: tabNameList.length }).map((value, index) => (
                     <SwiperSlide key={index} virtualIndex={index}>
                         <ClipCardList setClickedClipUrl={setClickedClipUrl} />
                     </SwiperSlide>
