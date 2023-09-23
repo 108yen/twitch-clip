@@ -3,7 +3,7 @@ import { Grid } from '@mui/material'
 import { useAtom } from 'jotai'
 import { useEffect, useState } from 'react'
 
-import { home } from '@/app/(clip)/_Component/home'
+import { Home } from '@/app/(clip)/_Component/home'
 import { PCView } from '@/app/(clip)/_Component/PCView'
 import StreamerCard from '@/app/(clip)/streamer/[id]/_Component/streamerCard'
 import { currentStreamerIdAtom } from '@/components/Atoms'
@@ -48,7 +48,7 @@ export default function StreamerClipPage(props: { id: string }) {
                         <StreamerCard />
                     </Grid>
                 </Grid>
-                <home setClickedClip={handleSetClip} />
+                <Home setClickedClip={handleSetClip} />
             </>
         )
     } else {
