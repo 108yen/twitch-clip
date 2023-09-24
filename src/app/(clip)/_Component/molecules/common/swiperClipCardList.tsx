@@ -6,11 +6,11 @@ import 'swiper/css'
 import 'swiper/css/virtual'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import ClipCardList from '@/app/(clip)/_Component/common/clipCard'
+import ClipCardList from '@/app/(clip)/_Component/molecules/common/clipCard'
 import { swiperAtom, tabAtom, tabNameListAtom } from '@/components/Atoms'
 import { Clip } from '@/models/clip'
 
-import { useWindowSize } from '../../../../components/hooks'
+import { useWindowSize } from '../../../../../components/hooks'
 
 export default function SwiperClipCardList({
     setClickedClipUrl,
@@ -90,11 +90,15 @@ export default function SwiperClipCardList({
                     setSwiper(swiperInstance)
                 }}
             >
-                {Array.from({ length: tabNameList.length }).map((value, index) => (
-                    <SwiperSlide key={index} virtualIndex={index}>
-                        <ClipCardList setClickedClipUrl={setClickedClipUrl} />
-                    </SwiperSlide>
-                ))}
+                {Array.from({ length: tabNameList.length }).map(
+                    (value, index) => (
+                        <SwiperSlide key={index} virtualIndex={index}>
+                            <ClipCardList
+                                setClickedClipUrl={setClickedClipUrl}
+                            />
+                        </SwiperSlide>
+                    )
+                )}
             </Swiper>
         </Stack>
     )

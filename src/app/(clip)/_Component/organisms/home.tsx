@@ -2,8 +2,8 @@ import { Grid } from '@mui/material'
 
 import { Clip } from '@/models/clip'
 
-import SwiperClipCardList from './common/swiperClipCardList'
-import StreamerList from './PC/streamerList'
+import SwiperClipCardList from '../molecules/common/swiperClipCardList'
+import StreamerList from '../molecules/PC/streamerList'
 
 export function Home({
     setClickedClip
