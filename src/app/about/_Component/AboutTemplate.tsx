@@ -1,14 +1,27 @@
 'use client'
 import GitHubIcon from '@mui/icons-material/GitHub'
-import { Box, Divider, Grid, List, ListItem, Stack, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material"
-import Link from "next/link"
+import {
+    Box,
+    Divider,
+    Grid,
+    List,
+    ListItem,
+    Stack,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableRow,
+    Typography
+} from '@mui/material'
+import Link from 'next/link'
 
-import { event } from "@/components/gtag"
-import { AboutBodyTypography, BorderPaper } from "@/components/styledui"
+import { event } from '@/components/gtag'
+import { AboutBodyTypography, BorderPaper } from '@/components/styledui'
 
-import InquiryForm from "./_Component/InquiryForm"
+import InquiryForm from './molecules/InquiryForm'
 
-export default function About() {
+export default function AboutTemplate() {
     return (
         <>
             <Grid
@@ -18,21 +31,17 @@ export default function About() {
             >
                 <Grid
                     item
-                    xs={12} md={9} lg={8} xl={7}
+                    xs={12}
+                    md={9}
+                    lg={8}
+                    xl={7}
                     justifyContent='center'
                     p={3}
                 >
-                    <Typography
-                        variant='h3'
-                        pt={10}
-                        textAlign='center'
-                    >
+                    <Typography variant='h3' pt={10} textAlign='center'>
                         本サイトについて
                     </Typography>
-                    <Typography
-                        variant='h4'
-                        pt={10}
-                    >
+                    <Typography variant='h4' pt={10}>
                         1. はじめに
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
@@ -46,18 +55,18 @@ export default function About() {
                                 aria-label='streams charts link'
                                 target='_blank'
                                 style={{
-                                    textDecoration: `none`,
+                                    textDecoration: `none`
                                 }}
                                 onClick={() => {
                                     event(`click`, {
                                         label: `click_streams_charts_link`,
-                                        link_url: `https://streamscharts.com/`,
+                                        link_url: `https://streamscharts.com/`
                                     })
                                 }}
                             >
                                 <AboutBodyTypography
                                     sx={{
-                                        "&:hover": {
+                                        '&:hover': {
                                             textDecorationLine: `underline`
                                         }
                                     }}
@@ -72,18 +81,18 @@ export default function About() {
                                 aria-label='twitch tracker link'
                                 target='_blank'
                                 style={{
-                                    textDecoration: `none`,
+                                    textDecoration: `none`
                                 }}
                                 onClick={() => {
                                     event(`click`, {
                                         label: `click_twitch_tracker_link`,
-                                        link_url: `https://twitchtracker.com/`,
+                                        link_url: `https://twitchtracker.com/`
                                     })
                                 }}
                             >
                                 <AboutBodyTypography
                                     sx={{
-                                        "&:hover": {
+                                        '&:hover': {
                                             textDecorationLine: `underline`
                                         }
                                     }}
@@ -93,28 +102,25 @@ export default function About() {
                             </Link>
                         </ListItem>
                     </List>
-                    <Typography
-                        variant='h4'
-                        pt={10}
-                    >
+                    <Typography variant='h4' pt={10}>
                         2. ランキングについて
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
                         本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、100件表示可能です。
                     </AboutBodyTypography>
-                    <Typography
-                        variant='h4'
-                        pt={10}
-                    >
+                    <Typography variant='h4' pt={10}>
                         3. コンテンツの更新頻度
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
                         当サイトのコンテンツは、定期的に更新されます。更新頻度については、事前の予告なく変更される場合があります。具体的な更新頻度は以下を参照してください。
                     </AboutBodyTypography>
-                    <TableContainer component={BorderPaper} sx={{ marginTop: 5 }}>
-                        <Table >
+                    <TableContainer
+                        component={BorderPaper}
+                        sx={{ marginTop: 5 }}
+                    >
+                        <Table>
                             <TableBody>
                                 <TableRow>
                                     <TableCell>
@@ -125,28 +131,19 @@ export default function About() {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell>
-                                        allランキング
-                                    </TableCell>
+                                    <TableCell>allランキング</TableCell>
                                     <TableCell align='right'>
                                         毎月1,16日
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell>
-                                        過去ランキング
-                                    </TableCell>
-                                    <TableCell align='right'>
-                                        毎月4日
-                                    </TableCell>
+                                    <TableCell>過去ランキング</TableCell>
+                                    <TableCell align='right'>毎月4日</TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Typography
-                        variant='h4'
-                        pt={10}
-                    >
+                    <Typography variant='h4' pt={10}>
                         4. 禁止事項
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
@@ -178,19 +175,18 @@ export default function About() {
                         </ListItem>
                         <ListItem>
                             <AboutBodyTypography>
-                                当サイトのコンテンツをプログラム等を用いて機械的に取得する行為 (Webスクレイピング行為等)
+                                当サイトのコンテンツをプログラム等を用いて機械的に取得する行為
+                                (Webスクレイピング行為等)
                             </AboutBodyTypography>
                         </ListItem>
                     </List>
-                    <Typography
-                        variant='h4'
-                        pt={10}
-                    >
+                    <Typography variant='h4' pt={10}>
                         5. Google Analytics
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
-                        サイトの利用状況を把握するために、Google Analyticsを使用しています。GoogleによるCookieの利用方法やオプトアウトの方法は、下記のリンクから確認できます。
+                        サイトの利用状況を把握するために、Google
+                        Analyticsを使用しています。GoogleによるCookieの利用方法やオプトアウトの方法は、下記のリンクから確認できます。
                     </AboutBodyTypography>
                     <List>
                         <ListItem>
@@ -199,18 +195,18 @@ export default function About() {
                                 aria-label='google link'
                                 target='_blank'
                                 style={{
-                                    textDecoration: `none`,
+                                    textDecoration: `none`
                                 }}
                                 onClick={() => {
                                     event(`click`, {
                                         label: `click_google_link`,
-                                        link_url: `https://policies.google.com/technologies/cookies?hl=ja`,
+                                        link_url: `https://policies.google.com/technologies/cookies?hl=ja`
                                     })
                                 }}
                             >
                                 <AboutBodyTypography
                                     sx={{
-                                        "&:hover": {
+                                        '&:hover': {
                                             textDecorationLine: `underline`
                                         }
                                     }}
@@ -225,18 +221,18 @@ export default function About() {
                                 aria-label='google optout link'
                                 target='_blank'
                                 style={{
-                                    textDecoration: `none`,
+                                    textDecoration: `none`
                                 }}
                                 onClick={() => {
                                     event(`click`, {
                                         label: `click_google_link`,
-                                        link_url: `https://support.google.com/analytics/answer/181881?hl=ja`,
+                                        link_url: `https://support.google.com/analytics/answer/181881?hl=ja`
                                     })
                                 }}
                             >
                                 <AboutBodyTypography
                                     sx={{
-                                        "&:hover": {
+                                        '&:hover': {
                                             textDecorationLine: `underline`
                                         }
                                     }}
@@ -246,10 +242,7 @@ export default function About() {
                             </Link>
                         </ListItem>
                     </List>
-                    <Typography
-                        variant='h4'
-                        pt={10}
-                    >
+                    <Typography variant='h4' pt={10}>
                         6. お問い合わせ
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
@@ -261,10 +254,7 @@ export default function About() {
                         alignItems='center'
                         justifyContent='center'
                     >
-                        <Typography
-                            variant='caption'
-                            color='grey'
-                        >
+                        <Typography variant='caption' color='grey'>
                             developer:
                         </Typography>
                         <Box sx={{ width: (theme) => theme.spacing(1) }} />
@@ -272,25 +262,24 @@ export default function About() {
                             href='https://github.com/108yen'
                             target='_blank'
                             style={{
-                                textDecoration: `none`,
+                                textDecoration: `none`
                             }}
                             onClick={() => {
                                 event(`click`, {
                                     label: `click_github_link`,
-                                    link_url: `https://github.com/108yen`,
+                                    link_url: `https://github.com/108yen`
                                 })
                             }}
                         >
-                            <Stack
-                                direction='row'
-                                alignItems='center'
-                            >
-
-                                <GitHubIcon sx={{ fontSize: (theme) => theme.typography.caption.fontSize, color: `grey` }} />
-                                <Typography
-                                    variant='caption'
-                                    color='grey'
-                                >
+                            <Stack direction='row' alignItems='center'>
+                                <GitHubIcon
+                                    sx={{
+                                        fontSize: (theme) =>
+                                            theme.typography.caption.fontSize,
+                                        color: `grey`
+                                    }}
+                                />
+                                <Typography variant='caption' color='grey'>
                                     108yen
                                 </Typography>
                             </Stack>
