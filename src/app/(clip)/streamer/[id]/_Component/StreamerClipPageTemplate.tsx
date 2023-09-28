@@ -3,16 +3,16 @@ import { Grid } from '@mui/material'
 import { useAtom } from 'jotai'
 import { useEffect, useState } from 'react'
 
-import { Home } from '@/app/(clip)/_Component/home'
-import { PCView } from '@/app/(clip)/_Component/PCView'
-import StreamerCard from '@/app/(clip)/streamer/[id]/_Component/streamerCard'
+import { Home } from '@/app/(clip)/_Component/organisms/home'
+import StreamerCard from '@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard'
 import { currentStreamerIdAtom } from '@/components/Atoms'
 import { useWindowSize } from '@/components/hooks'
 import { Clip } from '@/models/clip'
 
-import { MobileView } from '../../_Component/mobileView'
+import { MobileView } from '../../../_Component/organisms/mobileView'
+import { PCView } from '../../../_Component/organisms/PCView'
 
-export default function StreamerClipPage(props: { id: string }) {
+export default function StreamerClipPageTemplate(props: { id: string }) {
     const id = props.id
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>()

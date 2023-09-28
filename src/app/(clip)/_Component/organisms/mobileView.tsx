@@ -6,8 +6,8 @@ import { streamersAtom } from '@/components/Atoms'
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
-import { StreamerInfo } from './common/streamerInfo'
-import SwiperClipCardList from './common/swiperClipCardList'
+import { StreamerInfo } from '../molecules/common/streamerInfo'
+import SwiperClipCardList from '../molecules/common/swiperClipCardList'
 
 export function MobileView({
     currentClip,
