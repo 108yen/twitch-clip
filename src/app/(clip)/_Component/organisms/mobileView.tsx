@@ -1,8 +1,5 @@
 import { Stack, Box, Typography, Grid } from '@mui/material'
-import { useAtom } from 'jotai'
-import { loadable } from 'jotai/utils'
 
-import { streamersAtom } from '@/components/Atoms'
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
@@ -16,16 +13,6 @@ export function MobileView({
     currentClip: Clip
     setClickedClip: (clip: Clip) => void
 }) {
-    //streamer info
-    const streamersLoadableAtom = loadable(streamersAtom)
-    const [streamersValue] = useAtom(streamersLoadableAtom)
-    const currentStreamer =
-        streamersValue.state === `hasData`
-            ? streamersValue.data?.find(
-                  (e) => e.id == currentClip.broadcaster_id
-              )
-            : undefined
-
     return (
         <Grid container justifyContent='center' paddingX={0} columnSpacing={4}>
             <Grid item zeroMinWidth xs={12}>
@@ -85,7 +72,7 @@ export function MobileView({
                             {`${currentClip.view_count?.toLocaleString()} views`}
                         </Typography>
                     </Stack>
-                    <StreamerInfo streamer={currentStreamer} />
+                    <StreamerInfo clip={currentClip} />
                     <SwiperClipCardList
                         setClickedClipUrl={setClickedClip}
                         sticky={true}
