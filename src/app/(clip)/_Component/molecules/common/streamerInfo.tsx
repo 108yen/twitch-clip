@@ -48,7 +48,10 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
                             {clip.broadcaster_name}
                         </NoDecorationTypography>
                         <Typography variant='inherit' color='grey'>
-                            {`${clip.broadcaster_follower_num?.toLocaleString()} followers`}
+                            {`${
+                                clip.broadcaster_follower_num?.toLocaleString() ??
+                                ``
+                            } followers`}
                         </Typography>
                     </Link>
                 </Stack>
