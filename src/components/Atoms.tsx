@@ -24,17 +24,17 @@ export const clipsAtom = atom<Promise<ClipDoc | undefined>>(
 )
 
 const currentStreamerIdValue = atom<string | undefined>(undefined)
-export const currentStreamerAtom = atom<Promise<Streamer | undefined>>(
-    async (get) => {
-        if (get(currentStreamerIdAtom) == undefined) {
-            return undefined
-        }
-        const users = await get(streamersAtom)
-        return users != undefined
-            ? users.find(user => user.id == get(currentStreamerIdAtom))
-            : undefined
-    }
-)
+// export const currentStreamerAtom = atom<Promise<Streamer | undefined>>(
+//     async (get) => {
+//         if (get(currentStreamerIdAtom) == undefined) {
+//             return undefined
+//         }
+//         const users = await get(streamersAtom)
+//         return users != undefined
+//             ? users.find(user => user.id == get(currentStreamerIdAtom))
+//             : undefined
+//     }
+// )
 
 const tabValueAtom = atom<number>(0)
 export const swiperAtom = atom<SwiperCore | null>(null)

@@ -1,29 +1,43 @@
-import { Typography, Divider, Box, CircularProgress, Stack, Avatar, Skeleton, MenuItem, SelectChangeEvent } from "@mui/material"
-import { useAtom } from "jotai"
-import { loadable } from "jotai/utils"
-import Link from "next/link"
-import InfiniteScroll from "react-infinite-scroll-component"
+import {
+    Typography,
+    Divider,
+    Box,
+    CircularProgress,
+    Stack,
+    Avatar,
+    MenuItem,
+    SelectChangeEvent
+} from '@mui/material'
+import { useAtom } from 'jotai'
+import { loadable } from 'jotai/utils'
+import Link from 'next/link'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
-import { clipCardsDisplayNumAtom, clipsAtom, moreItemIsExistAtom, tabAtom, tabNameAtom, tabNameListAtom, streamersAtom } from "@/components/Atoms"
-import { event } from "@/components/gtag"
-import { useWindowSize } from "@/components/hooks"
-import { BorderPaper, BorderSelect, NoDecorationTypography } from "@/components/styledui"
-import { Clip } from "@/models/clip"
-import { Streamer } from "@/models/streamer"
-
-
+import {
+    clipCardsDisplayNumAtom,
+    clipsAtom,
+    moreItemIsExistAtom,
+    tabAtom,
+    tabNameAtom,
+    tabNameListAtom
+} from '@/components/Atoms'
+import { event } from '@/components/gtag'
+import { useWindowSize } from '@/components/hooks'
+import {
+    BorderPaper,
+    BorderSelect,
+    NoDecorationTypography
+} from '@/components/styledui'
+import { Clip } from '@/models/clip'
 
 function CardList({
-    setClickedClipUrl,
+    setClickedClipUrl
 }: {
-    setClickedClipUrl: (clip: Clip) => void,
+    setClickedClipUrl: (clip: Clip) => void
 }) {
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom)
     const [clipsValue] = useAtom(clipsLoadableAtom)
-    //streamer info
-    const streamersLoadableAtom = loadable(streamersAtom)
-    const [streamersValue] = useAtom(streamersLoadableAtom)
     //to infinite scroller
     const [viewItemNum, setViewItemNum] = useAtom(clipCardsDisplayNumAtom)
     const [hasMore, setHasMore] = useAtom(moreItemIsExistAtom)
@@ -41,42 +55,46 @@ function CardList({
         //load each 1 items
         setViewItemNum(viewItemNum + 1)
     }
-    const loader = <Box key={0} sx={{ display: `flex`, justifyContent: `center` }}>
-        <CircularProgress color='secondary' />
-    </Box>
+    const loader = (
+        <Box key={0} sx={{ display: `flex`, justifyContent: `center` }}>
+            <CircularProgress color='secondary' />
+        </Box>
+    )
 
-    const endMessage = <Box key={0} sx={{ m: 3, display: `flex`, justifyContent: `center` }}>
-        <Typography variant='inherit' color='gray'>
-            no more clips
-        </Typography>
-    </Box>
+    const endMessage = (
+        <Box key={0} sx={{ m: 3, display: `flex`, justifyContent: `center` }}>
+            <Typography variant='inherit' color='gray'>
+                no more clips
+            </Typography>
+        </Box>
+    )
 
-    if (clipsValue.state === `hasData`
-        && tabValue.state === `hasData`) {
+    if (clipsValue.state === `hasData` && tabValue.state === `hasData`) {
         const tab = tabValue.data
-        if (clipsValue.data != undefined
-            && clipsValue.data[tab] != undefined
-            && clipsValue.data[tab].length != 0) {
-            const clips = clipsValue.data[tab]
-
+        let clips: Array<Clip> = []
+        if (clipsValue.data != undefined) {
+            const clipDoc = clipsValue.data[tab]
+            if (clipDoc != undefined) {
+                clips = clipsValue.data[tab] as Array<Clip>
+            }
+        }
+        if (clips.length != 0) {
             return (
                 <InfiniteScroll
                     dataLength={viewItemNum}
-                    next={() => { loadMore(clips) }}
+                    next={() => {
+                        loadMore(clips)
+                    }}
                     hasMore={hasMore}
                     loader={loader}
                     endMessage={endMessage}
                     height={height - 133}
                 >
                     {clips.slice(0, viewItemNum).map((e, index) => {
-                        const streamer = streamersValue.state === `hasData`
-                            ? streamersValue.data?.find((user) => user.id == e.broadcaster_id)
-                            : undefined
                         return (
                             <CardItem
                                 key={index}
                                 clip={e}
-                                streamer={streamer}
                                 tab={tab}
                                 setClickedClipUrl={setClickedClipUrl}
                             />
@@ -87,18 +105,17 @@ function CardList({
         } else {
             return endMessage
         }
-    } else if (clipsValue.state === `loading`
-        || tabValue.state === `loading`) {
+    } else if (clipsValue.state === `loading` || tabValue.state === `loading`) {
         return loader
     } else {
         //error handling
         if (clipsValue.state === `hasError`) {
             event(`error`, {
-                label: `click_load_error`,
+                label: `click_load_error`
             })
         } else if (tabValue.state === `hasError`) {
             event(`error`, {
-                label: `tab_load_error`,
+                label: `tab_load_error`
             })
         }
         return (
@@ -113,14 +130,12 @@ function CardList({
 
 function CardItem({
     clip,
-    streamer,
     tab,
-    setClickedClipUrl,
+    setClickedClipUrl
 }: {
-    clip: Clip,
-    streamer: Streamer | undefined,
-    tab: string,
-    setClickedClipUrl: (clip: Clip) => void,
+    clip: Clip
+    tab: string
+    setClickedClipUrl: (clip: Clip) => void
 }) {
     return (
         <Box
@@ -150,7 +165,7 @@ function CardItem({
                             label: `click_clip_title`,
                             clip_title: clip.title,
                             ranking_period: tab,
-                            link_url: clip.url,
+                            link_url: clip.url
                         })
                     }}
                 >
@@ -164,39 +179,28 @@ function CardItem({
                             left: 0,
                             width: `100%`,
                             height: `100%`,
-                            border: `none`,
+                            border: `none`
                         }}
                     />
                 </BorderPaper>
                 <Link
-                    href={streamer != undefined ? `/streamer/${streamer.id}?display_name=${streamer.display_name}` : `/`}
+                    href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
                     style={{
-                        textDecoration: `none`,
+                        textDecoration: `none`
                     }}
                 >
-                    <Stack
-                        direction='row'
-                        alignItems='center'
-                        spacing={2}
-                    >
-                        {streamer != undefined
-                            ? <Avatar
-                                sx={{ width: 35, height: 35 }}
-                                alt='top'
-                                src={streamer.profile_image_url} />
-                            : <Skeleton
-                                variant='circular'
-                                width={35}
-                                height={35} />}
+                    <Stack direction='row' alignItems='center' spacing={2}>
+                        <Avatar
+                            sx={{ width: 35, height: 35 }}
+                            alt='top'
+                            src={clip.profile_image_url}
+                        />
                         <Stack
                             direction='column'
                             overflow='hidden'
                             flexGrow={1}
                         >
-                            <NoDecorationTypography
-                                variant='body1'
-                                noWrap
-                            >
+                            <NoDecorationTypography variant='body1' noWrap>
                                 {clip.title}
                             </NoDecorationTypography>
                             <Stack
@@ -206,9 +210,7 @@ function CardItem({
                                 flexGrow={1}
                             >
                                 <Typography noWrap variant='body1' color='grey'>
-                                    {streamer != undefined
-                                        ? streamer.display_name
-                                        : <Skeleton width={150} />}
+                                    {clip.broadcaster_name}
                                 </Typography>
                                 <Typography noWrap variant='body2' color='grey'>
                                     {clip.view_count?.toLocaleString()} views
@@ -223,9 +225,9 @@ function CardItem({
 }
 
 export default function SideClipCard({
-    setClickedClipUrl,
+    setClickedClipUrl
 }: {
-    setClickedClipUrl: (clip: Clip) => void,
+    setClickedClipUrl: (clip: Clip) => void
 }) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom)
@@ -233,48 +235,44 @@ export default function SideClipCard({
     const tabNameListLoadableAtom = loadable(tabNameListAtom)
     const [tabNameListValue] = useAtom(tabNameListLoadableAtom)
     //use this
-    const tabNameList = tabNameListValue.state === `hasData`
-        ? tabNameListValue.data
-        : [`day`,
-`week`,
-`month`,
-`year`,
-`all`]
+    const tabNameList =
+        tabNameListValue.state === `hasData`
+            ? tabNameListValue.data
+            : [
+                  `day`, //
+                  `week`,
+                  `month`,
+                  `year`,
+                  `all`
+              ]
 
     function handleTabChange(event: SelectChangeEvent<unknown>) {
         setTab(event.target.value as number)
     }
     return (
-        <Stack
-            direction='column'
-            overflow='hidden'
-            flexGrow={1}
-        >
+        <Stack direction='column' overflow='hidden' flexGrow={1}>
             <Stack
                 direction='row'
                 justifyContent='flex-end'
                 alignItems='center'
             >
-
                 <BorderSelect
                     size='small'
                     value={tab}
                     onChange={handleTabChange}
                 >
-                    {tabNameList.map((e, index) =>
+                    {tabNameList.map((e, index) => (
                         <MenuItem key={index} value={index}>
                             {e}
                         </MenuItem>
-                    )}
+                    ))}
                 </BorderSelect>
             </Stack>
             <Typography variant='subtitle1' color='grey'>
                 clips
             </Typography>
             <Divider />
-            <CardList
-                setClickedClipUrl={setClickedClipUrl}
-            />
+            <CardList setClickedClipUrl={setClickedClipUrl} />
         </Stack>
     )
 }

@@ -1,11 +1,4 @@
-import {
-    Avatar,
-    Box,
-    CircularProgress,
-    Skeleton,
-    Stack,
-    Typography
-} from '@mui/material'
+import { Avatar, Box, CircularProgress, Stack, Typography } from '@mui/material'
 import { useAtom } from 'jotai'
 import { loadable } from 'jotai/utils'
 import Link from 'next/link'
@@ -15,8 +8,7 @@ import {
     clipCardsDisplayNumAtom,
     clipsAtom,
     moreItemIsExistAtom,
-    tabNameAtom,
-    streamersAtom
+    tabNameAtom
 } from '@/components/Atoms'
 import { event } from '@/components/gtag'
 import {
@@ -25,16 +17,13 @@ import {
     StyledLaunch
 } from '@/components/styledui'
 import { Clip } from '@/models/clip'
-import { Streamer } from '@/models/streamer'
 
 function ClipCardItem({
     clip,
-    streamer,
     tab,
     setClickedClipUrl
 }: {
     clip: Clip
-    streamer: Streamer | undefined
     tab: string
     setClickedClipUrl: (clip: Clip) => void
 }) {
@@ -130,35 +119,16 @@ function ClipCardItem({
                         </Link>
                     </Stack>
                     <Link
-                        href={
-                            streamer != undefined
-                                ? `/streamer/${streamer.id}?display_name=${streamer.display_name}`
-                                : `/`
-                        }
+                        href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
                         aria-label='twitch clip page link'
                         style={{
                             textDecoration: `none`
                         }}
                     >
                         <Stack direction='row' alignItems='center' spacing={2}>
-                            {streamer != undefined ? (
-                                <Avatar
-                                    alt='icon'
-                                    src={streamer.profile_image_url}
-                                />
-                            ) : (
-                                <Skeleton
-                                    variant='circular'
-                                    width={40}
-                                    height={40}
-                                />
-                            )}
+                            <Avatar alt='icon' src={clip.profile_image_url} />
                             <NoDecorationTypography noWrap variant='body1'>
-                                {streamer != undefined ? (
-                                    streamer.display_name
-                                ) : (
-                                    <Skeleton width={150} />
-                                )}
+                                {clip.broadcaster_name}
                             </NoDecorationTypography>
                         </Stack>
                     </Link>
@@ -198,9 +168,6 @@ export default function ClipCardList({
     //clips data
     const clipsLoadableAtom = loadable(clipsAtom)
     const [clipsValue] = useAtom(clipsLoadableAtom)
-    //streamer info
-    const streamersLoadableAtom = loadable(streamersAtom)
-    const [streamersValue] = useAtom(streamersLoadableAtom)
     //to infinite scroller
     const [viewItemNum, setViewItemNum] = useAtom(clipCardsDisplayNumAtom)
     const [hasMore, setHasMore] = useAtom(moreItemIsExistAtom)
@@ -240,13 +207,15 @@ export default function ClipCardList({
 
     if (clipsValue.state === `hasData` && tabValue.state === `hasData`) {
         const tab = tabValue.data
-        if (
-            clipsValue.data != undefined &&
-            clipsValue.data[tab] != undefined &&
-            clipsValue.data[tab].length != 0
-        ) {
-            const clips = clipsValue.data[tab]
+        let clips: Array<Clip> = []
+        if (clipsValue.data != undefined) {
+            const clipDoc = clipsValue.data[tab]
+            if (clipDoc != undefined) {
+                clips = clipsValue.data[tab] as Array<Clip>
+            }
+        }
 
+        if (clips.length != 0) {
             return (
                 <>
                     <InfiniteScroll
@@ -259,17 +228,10 @@ export default function ClipCardList({
                         endMessage={endMessage}
                     >
                         {clips.slice(0, viewItemNum).map((e, index) => {
-                            const streamer =
-                                streamersValue.state === `hasData`
-                                    ? streamersValue.data?.find(
-                                          (user) => user.id == e.broadcaster_id
-                                      )
-                                    : undefined
                             return (
                                 <ClipCardItem
                                     key={index}
                                     clip={e}
-                                    streamer={streamer}
                                     tab={tab}
                                     setClickedClipUrl={setClickedClipUrl}
                                 />

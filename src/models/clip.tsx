@@ -15,6 +15,7 @@ export class Clip {
     thumbnail_url?: string
     duration?: number
     vod_offset?: number
+    profile_image_url?: string
 
     constructor(partial?: Partial<Clip>) {
         Object.assign(this, partial)
