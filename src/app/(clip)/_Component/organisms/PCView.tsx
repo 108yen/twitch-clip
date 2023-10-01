@@ -1,8 +1,5 @@
 import { Stack, Box, Typography, Grid } from '@mui/material'
-import { useAtom } from 'jotai'
-import { loadable } from 'jotai/utils'
 
-import { streamersAtom } from '@/components/Atoms'
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
@@ -16,16 +13,6 @@ export function PCView({
     currentClip: Clip
     setClickedClip: (clip: Clip) => void
 }) {
-    //streamer info
-    const streamersLoadableAtom = loadable(streamersAtom)
-    const [streamersValue] = useAtom(streamersLoadableAtom)
-    const currentStreamer =
-        streamersValue.state === `hasData`
-            ? streamersValue.data?.find(
-                  (e) => e.id == currentClip.broadcaster_id
-              )
-            : undefined
-
     return (
         <Grid
             container
@@ -87,7 +74,7 @@ export function PCView({
                             {`${currentClip.view_count?.toLocaleString()} views`}
                         </Typography>
                     </Stack>
-                    <StreamerInfo streamer={currentStreamer} />
+                    <StreamerInfo clip={currentClip} />
                 </Stack>
             </Grid>
             <Grid item zeroMinWidth xs={3}>

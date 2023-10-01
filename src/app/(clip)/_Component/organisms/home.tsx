@@ -3,7 +3,6 @@ import { Grid } from '@mui/material'
 import { Clip } from '@/models/clip'
 
 import SwiperClipCardList from '../molecules/common/swiperClipCardList'
-import StreamerList from '../molecules/PC/streamerList'
 
 export function Home({
     setClickedClip
@@ -18,9 +17,6 @@ export function Home({
         >
             <Grid item zeroMinWidth xs={12} md={9}>
                 <SwiperClipCardList setClickedClipUrl={setClickedClip} />
-            </Grid>
-            <Grid item zeroMinWidth xs={3} display={{ xs: `none`, md: `flex` }}>
-                <StreamerList />
             </Grid>
         </Grid>
     )
