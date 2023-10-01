@@ -1,4 +1,4 @@
-import { Clip } from "./clip";
+import { Clip } from "./clip"
 
 export class ClipDoc {
     [key: string]: Array<Clip>;

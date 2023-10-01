@@ -8,14 +8,14 @@ import { existsGaId, GA_MEASUREMENT_ID, event } from './gtag'
 
 export default function GoogleAnalytics({ debugMode = false }) {
     const pathname = usePathname()
-    
+
     useEffect(() => {
         if (!existsGaId) {
             return
         }
-        event("page_view", {
+        event(`page_view`, {
             page_path: pathname,
-        });
+        })
     }, [pathname])
 
     return (
@@ -32,7 +32,7 @@ export default function GoogleAnalytics({ debugMode = false }) {
                         gtag('config', '${GA_MEASUREMENT_ID}', {
                             page_path: window.location.pathname,
                             send_page_view: false,
-                            ${debugMode ? `debug_mode: ${debugMode},` : ""}
+                            ${debugMode ? `debug_mode: ${debugMode},` : ``}
                         });
                     `}
             </Script>

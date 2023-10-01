@@ -1,26 +1,27 @@
 'use client'
+import { Grid } from '@mui/material'
 import { useAtom } from 'jotai'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Home } from '@/app/(clip)/_Component/organisms/home'
+import StreamerCard from '@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard'
 import { currentStreamerIdAtom } from '@/components/Atoms'
 import { useWindowSize } from '@/components/hooks'
 import { Clip } from '@/models/clip'
 
-import { MobileView } from './organisms/mobileView'
-import { PCView } from './organisms/PCView'
+import { MobileView } from '../../../_Component/organisms/mobileView'
+import { PCView } from '../../../_Component/organisms/PCView'
 
-export default function SummaryClipPageTemplate(props: { id: string }) {
-    const { id } = props
+export default function StreamerClipPageTemplate(props: { id: string }) {
+    const id = props.id
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>()
     function handleSetClip(clip: Clip) {
         setCurrentClip(clip)
     }
-    const [width] = useWindowSize()
-
+    //for set id
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom)
-
+    const [width] = useWindowSize()
     //to return listview from view layout
     function returnListView() {
         setCurrentClip(undefined)
@@ -36,7 +37,20 @@ export default function SummaryClipPageTemplate(props: { id: string }) {
     }, [])
 
     if (currentClip === undefined) {
-        return <Home setClickedClip={handleSetClip} />
+        return (
+            <>
+                <Grid
+                    container
+                    justifyContent='center'
+                    paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
+                >
+                    <Grid item xs={12} md={9}>
+                        <StreamerCard />
+                    </Grid>
+                </Grid>
+                <Home setClickedClip={handleSetClip} />
+            </>
+        )
     } else {
         if (width < 600) {
             return (
