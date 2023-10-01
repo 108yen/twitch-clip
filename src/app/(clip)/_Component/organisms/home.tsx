@@ -18,9 +18,6 @@ export function Home({
             <Grid item zeroMinWidth xs={12} md={9}>
                 <SwiperClipCardList setClickedClipUrl={setClickedClip} />
             </Grid>
-            {/* <Grid item zeroMinWidth xs={3} display={{ xs: `none`, md: `flex` }}>
-                <StreamerList />
-            </Grid> */}
         </Grid>
     )
 }
