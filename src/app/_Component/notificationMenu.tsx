@@ -37,7 +37,13 @@ export default function NotificationMenu() {
 
     return (
         <>
-            <Box sx={{ display: `flex`, alignItems: `center`, textAlign: `center` }}>
+            <Box
+                sx={{
+                    display: `flex`,
+                    alignItems: `center`,
+                    textAlign: `center`
+                }}
+            >
                 <IconButton
                     onClick={handleClick}
                     size='small'
@@ -107,8 +113,11 @@ export default function NotificationMenu() {
                         style={{
                             textDecoration: `none`
                         }}
+                        onClick={handleClose}
                     >
-                        <NoDecorationTypography>過去のランキング</NoDecorationTypography>
+                        <NoDecorationTypography>
+                            過去のランキング
+                        </NoDecorationTypography>
                     </Link>
                 </MenuItem>
                 <MenuItem
@@ -121,8 +130,11 @@ export default function NotificationMenu() {
                         style={{
                             textDecoration: `none`
                         }}
+                        onClick={handleClose}
                     >
-                        <NoDecorationTypography>ストリーマー一覧</NoDecorationTypography>
+                        <NoDecorationTypography>
+                            ストリーマー一覧
+                        </NoDecorationTypography>
                     </Link>
                 </MenuItem>
                 <MenuItem
@@ -135,6 +147,7 @@ export default function NotificationMenu() {
                         style={{
                             textDecoration: `none`
                         }}
+                        onClick={handleClose}
                     >
                         <NoDecorationTypography>
                             このサイトについて
