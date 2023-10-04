@@ -109,6 +109,23 @@ export default function NotificationMenu() {
                     }}
                 >
                     <Link
+                        href='/daily'
+                        style={{
+                            textDecoration: `none`
+                        }}
+                        onClick={handleClose}
+                    >
+                        <NoDecorationTypography>
+                            日別ランキング
+                        </NoDecorationTypography>
+                    </Link>
+                </MenuItem>
+                <MenuItem
+                    sx={{
+                        height: 40
+                    }}
+                >
+                    <Link
                         href='/past'
                         style={{
                             textDecoration: `none`
