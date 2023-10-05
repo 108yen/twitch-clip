@@ -154,6 +154,36 @@ export default function DefaultHeader() {
                                 }}
                             >
                                 <Link
+                                    href='/daily'
+                                    aria-label='daily clip page link'
+                                    style={{
+                                        textDecoration: `none`,
+                                        color: `inherit`
+                                    }}
+                                >
+                                    <Tooltip title='日別ランキング'>
+                                        <Typography variant='body1' noWrap>
+                                            Daily ranking
+                                        </Typography>
+                                    </Tooltip>
+                                </Link>
+                            </Div>
+                            <Div
+                                onMouseEnter={handleOnMouseEnter}
+                                onMouseLeave={handleOnMouseLeave}
+                                sx={{
+                                    paddingX: 2,
+                                    paddingY: 0.5,
+                                    transitionDuration: `0.3s`,
+                                    color: (theme) =>
+                                        theme.palette.text.disabled,
+                                    '&:hover': {
+                                        color: (theme) =>
+                                            theme.palette.text.primary
+                                    }
+                                }}
+                            >
+                                <Link
                                     href='/past'
                                     aria-label='past clip page link'
                                     style={{
