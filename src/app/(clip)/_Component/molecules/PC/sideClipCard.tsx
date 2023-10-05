@@ -144,7 +144,7 @@ function CardItem({
                 marginY: 2
             }}
         >
-            <Tooltip title={clip.title}>
+            <Tooltip followCursor placement='top' title={clip.title}>
                 <Stack
                     direction='column'
                     overflow='hidden'
