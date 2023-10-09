@@ -11,7 +11,7 @@ export function PCView({
     setClickedClip
 }: {
     currentClip: Clip
-    setClickedClip: (clip: Clip) => void
+    setClickedClip: (clip: Clip | undefined) => void
 }) {
     return (
         <Grid
@@ -38,10 +38,7 @@ export function PCView({
                             }}
                         >
                             <iframe
-                                src={
-                                    currentClip.embed_url +
-                                    `&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`
-                                }
+                                src={`${currentClip.embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`}
                                 allowFullScreen
                                 loading='lazy'
                                 style={{

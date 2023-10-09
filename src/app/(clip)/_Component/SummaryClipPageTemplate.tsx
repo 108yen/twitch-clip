@@ -12,27 +12,17 @@ import { PCView } from './organisms/PCView'
 
 export default function SummaryClipPageTemplate(props: { id: string }) {
     const { id } = props
+
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>()
-    function handleSetClip(clip: Clip) {
+    function handleSetClip(clip: Clip | undefined) {
         setCurrentClip(clip)
     }
     const [width] = useWindowSize()
-
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom)
 
-    //to return listview from view layout
-    function returnListView() {
-        setCurrentClip(undefined)
-    }
     useEffect(() => {
         setCurrentStreamerId(id)
-
-        history.pushState(null, ``, null)
-        window.addEventListener(`popstate`, returnListView, false)
-        return () => {
-            window.removeEventListener(`popstate`, returnListView, false)
-        }
     }, [])
 
     if (currentClip === undefined) {

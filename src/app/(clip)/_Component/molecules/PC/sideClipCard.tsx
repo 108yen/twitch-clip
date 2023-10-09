@@ -1,3 +1,4 @@
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import {
     Typography,
     Divider,
@@ -6,7 +7,8 @@ import {
     Stack,
     Avatar,
     MenuItem,
-    SelectChangeEvent
+    SelectChangeEvent,
+    Tooltip
 } from '@mui/material'
 import { useAtom } from 'jotai'
 import { loadable } from 'jotai/utils'
@@ -143,83 +145,95 @@ function CardItem({
                 marginY: 2
             }}
         >
-            <Stack
-                direction='column'
-                overflow='hidden'
-                spacing={1}
-                sx={{ flexGrow: 1 }}
-            >
-                <BorderPaper
-                    sx={{
-                        position: `relative`,
-                        width: `100%`,
-                        height: 0,
-                        paddingBottom: `56.25%`,
-                        display: `flex`,
-                        justifyContent: `center`,
-                        cursor: `pointer`
-                    }}
-                    onClick={() => {
-                        setClickedClipUrl(clip)
-                        event(`click`, {
-                            label: `click_clip_title`,
-                            clip_title: clip.title,
-                            ranking_period: tab,
-                            link_url: clip.url
-                        })
-                    }}
+            <Tooltip followCursor placement='top' title={clip.title}>
+                <Stack
+                    direction='column'
+                    overflow='hidden'
+                    spacing={1}
+                    sx={{ flexGrow: 1 }}
                 >
-                    <img
-                        src={clip.thumbnail_url}
-                        alt={clip.title}
-                        loading='lazy'
-                        style={{
-                            position: `absolute`,
-                            top: 0,
-                            left: 0,
+                    <BorderPaper
+                        sx={{
+                            position: `relative`,
                             width: `100%`,
-                            height: `100%`,
-                            border: `none`
+                            height: 0,
+                            paddingBottom: `56.25%`,
+                            display: `flex`,
+                            justifyContent: `center`,
+                            cursor: `pointer`
                         }}
-                    />
-                </BorderPaper>
-                <Link
-                    href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
-                    style={{
-                        textDecoration: `none`
-                    }}
-                >
-                    <Stack direction='row' alignItems='center' spacing={2}>
-                        <Avatar
-                            sx={{ width: 35, height: 35 }}
-                            alt='top'
-                            src={clip.profile_image_url}
+                        onClick={() => {
+                            setClickedClipUrl(clip)
+                            event(`click`, {
+                                label: `click_clip_title`,
+                                clip_title: clip.title,
+                                ranking_period: tab,
+                                link_url: clip.url
+                            })
+                        }}
+                    >
+                        <img
+                            src={clip.thumbnail_url}
+                            alt={clip.title}
+                            loading='lazy'
+                            style={{
+                                position: `absolute`,
+                                top: 0,
+                                left: 0,
+                                width: `100%`,
+                                height: `100%`,
+                                border: `none`
+                            }}
                         />
-                        <Stack
-                            direction='column'
-                            overflow='hidden'
-                            flexGrow={1}
-                        >
-                            <NoDecorationTypography variant='body1' noWrap>
-                                {clip.title}
-                            </NoDecorationTypography>
+                    </BorderPaper>
+                    <Link
+                        href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
+                        style={{
+                            textDecoration: `none`
+                        }}
+                    >
+                        <Stack direction='row' alignItems='center' spacing={2}>
+                            <Avatar
+                                sx={{ width: 35, height: 35 }}
+                                alt='top'
+                                src={clip.profile_image_url}
+                            />
                             <Stack
-                                direction='row'
-                                justifyContent='space-between'
-                                alignItems='center'
+                                direction='column'
+                                overflow='hidden'
                                 flexGrow={1}
                             >
-                                <Typography noWrap variant='body1' color='grey'>
-                                    {clip.broadcaster_name}
-                                </Typography>
-                                <Typography noWrap variant='body2' color='grey'>
-                                    {clip.view_count?.toLocaleString()} views
-                                </Typography>
+                                <NoDecorationTypography variant='body1' noWrap>
+                                    {clip.title}
+                                </NoDecorationTypography>
+                                <Stack
+                                    direction='row'
+                                    justifyContent='space-between'
+                                    alignItems='center'
+                                    flexGrow={1}
+                                >
+                                    <Typography
+                                        noWrap
+                                        variant='body1'
+                                        color='grey'
+                                    >
+                                        {clip.broadcaster_name}
+                                    </Typography>
+                                    <Typography
+                                        noWrap
+                                        variant='body2'
+                                        color='grey'
+                                    >
+                                        {clip.view_count?.toLocaleString()}
+                                        {` `}
+                                        views
+                                    </Typography>
+                                </Stack>
                             </Stack>
                         </Stack>
-                    </Stack>
-                </Link>
-            </Stack>
+                    </Link>
+                </Stack>
+            </Tooltip>
         </Box>
     )
 }
@@ -227,7 +241,7 @@ function CardItem({
 export default function SideClipCard({
     setClickedClipUrl
 }: {
-    setClickedClipUrl: (clip: Clip) => void
+    setClickedClipUrl: (clip: Clip | undefined) => void
 }) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom)
@@ -268,9 +282,26 @@ export default function SideClipCard({
                     ))}
                 </BorderSelect>
             </Stack>
-            <Typography variant='subtitle1' color='grey'>
-                clips
-            </Typography>
+            <Tooltip followCursor placement='top' title='リスト表示にもどる'>
+                <Stack
+                    direction='row'
+                    justifyContent='flex-start'
+                    alignItems='center'
+                    color='grey'
+                    onClick={() => {
+                        setClickedClipUrl(undefined)
+                        event(`click`, {
+                            label: `click_return_to_list_view`,
+                        })
+                    }}
+                    sx={{
+                        cursor: `pointer`
+                    }}
+                >
+                    <ChevronLeftIcon />
+                    <Typography variant='subtitle1'>clips</Typography>
+                </Stack>
+            </Tooltip>
             <Divider />
             <CardList setClickedClipUrl={setClickedClipUrl} />
         </Stack>
