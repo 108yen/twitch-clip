@@ -1,13 +1,5 @@
 'use client'
-import SearchIcon from '@mui/icons-material/Search'
-import {
-    Typography,
-    Divider,
-    Grid,
-    TextField,
-    InputAdornment,
-    Stack
-} from '@mui/material'
+import { Divider, Grid } from '@mui/material'
 import { useAtom } from 'jotai'
 import { loadable } from 'jotai/utils'
 import { useState } from 'react'
@@ -15,6 +7,7 @@ import { useState } from 'react'
 import { streamersAtom } from '@/components/Atoms'
 
 import StreamerList from './molecules/StreamerList'
+import StreamersPageHeader from './molecules/streamersPageHeader'
 
 export default function StreamersTemplate() {
     //streamer info
@@ -47,47 +40,11 @@ export default function StreamersTemplate() {
                 paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
             >
                 <Grid item xs={12} md={9}>
-                    <Stack
-                        direction='row'
-                        justifyContent='center'
-                        alignItems='center'
-                        spacing={2}
-                        marginX={{ xs: 0, sm: 1 }}
-                        mt={{ xs: 2, sm: 5 }}
-                        overflow='hidden'
-                    >
-                        <TextField
-                            id='search-text-field'
-                            placeholder='search'
-                            variant='standard'
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position='start'>
-                                        <SearchIcon color='action' />
-                                    </InputAdornment>
-                                ),
-                                disableUnderline: true
-                            }}
-                            fullWidth
-                            margin='normal'
-                            color='secondary'
-                            size='small'
-                            value={searchText}
-                            onChange={handleSearchTextChange}
-                            sx={{
-                                marginY: 0
-                            }}
-                        />
-                        <Typography
-                            mr={2}
-                            variant='h5'
-                            color='secondary'
-                            textAlign='end'
-                            minWidth={150}
-                        >
-                            {`${channelNum} channels`}
-                        </Typography>
-                    </Stack>
+                    <StreamersPageHeader
+                        searchText={searchText}
+                        handleSearchTextChange={handleSearchTextChange}
+                        channelNum={channelNum}
+                    />
                     <Divider
                         sx={{
                             marginX: { xs: 0, sm: 1 }

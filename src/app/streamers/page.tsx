@@ -1,5 +1,5 @@
 import StreamersTemplate from './_Component/StreamersTemplate'
 
-export default function StreamersPage() {
+export default async function StreamersPage() {
     return <StreamersTemplate />
 }
