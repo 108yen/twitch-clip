@@ -19,10 +19,8 @@ export default function SummaryClipPageTemplate(props: { id: string }) {
         setCurrentClip(clip)
     }
     const [width] = useWindowSize()
-
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom)
 
-    //to return listview from view layout
     useEffect(() => {
         setCurrentStreamerId(id)
     }, [])

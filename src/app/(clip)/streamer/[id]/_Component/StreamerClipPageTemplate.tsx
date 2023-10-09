@@ -25,24 +25,15 @@ export default function StreamerClipPageTemplate(props: { id: string }) {
             : undefined
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>()
-    function handleSetClip(clip: Clip) {
+    function handleSetClip(clip: Clip | undefined) {
         setCurrentClip(clip)
     }
     //for set id
     const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom)
     const [width] = useWindowSize()
-    //to return listview from view layout
-    function returnListView() {
-        setCurrentClip(undefined)
-    }
+    
     useEffect(() => {
         setCurrentStreamerId(id)
-
-        history.pushState(null, ``, null)
-        window.addEventListener(`popstate`, returnListView, false)
-        return () => {
-            window.removeEventListener(`popstate`, returnListView, false)
-        }
     }, [])
 
     if (currentClip === undefined) {
@@ -54,7 +45,7 @@ export default function StreamerClipPageTemplate(props: { id: string }) {
                     paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
                 >
                     <Grid item xs={12} md={9}>
-                        <StreamerCard streamerInfo={streamerInfo}/>
+                        <StreamerCard streamerInfo={streamerInfo} />
                     </Grid>
                 </Grid>
                 <Home setClickedClip={handleSetClip} />
