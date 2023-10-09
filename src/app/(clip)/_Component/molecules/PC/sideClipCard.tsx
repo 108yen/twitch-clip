@@ -290,6 +290,9 @@ export default function SideClipCard({
                     color='grey'
                     onClick={() => {
                         setClickedClipUrl(undefined)
+                        event(`click`, {
+                            label: `click_return_to_list_view`,
+                        })
                     }}
                     sx={{
                         cursor: `pointer`
