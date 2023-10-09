@@ -11,7 +11,7 @@ export function PCView({
     setClickedClip
 }: {
     currentClip: Clip
-    setClickedClip: (clip: Clip) => void
+    setClickedClip: (clip: Clip | undefined) => void
 }) {
     return (
         <Grid

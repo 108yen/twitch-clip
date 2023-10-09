@@ -1,3 +1,4 @@
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import {
     Typography,
     Divider,
@@ -240,7 +241,7 @@ function CardItem({
 export default function SideClipCard({
     setClickedClipUrl
 }: {
-    setClickedClipUrl: (clip: Clip) => void
+    setClickedClipUrl: (clip: Clip | undefined) => void
 }) {
     //tab index
     const [tab, setTab] = useAtom(tabAtom)
@@ -281,9 +282,23 @@ export default function SideClipCard({
                     ))}
                 </BorderSelect>
             </Stack>
-            <Typography variant='subtitle1' color='grey'>
-                clips
-            </Typography>
+            <Tooltip followCursor placement='top' title='リスト表示にもどる'>
+                <Stack
+                    direction='row'
+                    justifyContent='flex-start'
+                    alignItems='center'
+                    color='grey'
+                    onClick={() => {
+                        setClickedClipUrl(undefined)
+                    }}
+                    sx={{
+                        cursor: `pointer`
+                    }}
+                >
+                    <ChevronLeftIcon />
+                    <Typography variant='subtitle1'>clips</Typography>
+                </Stack>
+            </Tooltip>
             <Divider />
             <CardList setClickedClipUrl={setClickedClipUrl} />
         </Stack>
