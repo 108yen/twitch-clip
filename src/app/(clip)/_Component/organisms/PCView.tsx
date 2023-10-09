@@ -38,10 +38,7 @@ export function PCView({
                             }}
                         >
                             <iframe
-                                src={
-                                    currentClip.embed_url +
-                                    `&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`
-                                }
+                                src={`${currentClip.embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`}
                                 allowFullScreen
                                 loading='lazy'
                                 style={{
