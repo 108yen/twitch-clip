@@ -57,6 +57,7 @@ export default function CardList(props: {
                 loader={loader}
                 endMessage={endMessage}
                 height={height - 133}
+                initialScrollY={0}
             >
                 {clips.slice(0, viewItemNum).map((e, index) => {
                     return (

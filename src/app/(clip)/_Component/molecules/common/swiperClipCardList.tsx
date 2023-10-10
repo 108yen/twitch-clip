@@ -36,6 +36,10 @@ export default function SwiperClipCardList(props: {
     function handleTabChange(_: React.SyntheticEvent, newValue: number) {
         setTab(newValue)
         swiper?.slideTo(newValue)
+
+        window.scrollTo({
+            top: 0,
+        })
     }
 
     return (

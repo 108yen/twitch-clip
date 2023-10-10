@@ -5,7 +5,8 @@ import {
     Stack,
     MenuItem,
     SelectChangeEvent,
-    Tooltip
+    Tooltip,
+    Box
 } from '@mui/material'
 import { useState } from 'react'
 
@@ -53,26 +54,33 @@ export default function SideClipCard(props: {
                     ))}
                 </BorderSelect>
             </Stack>
-            <Tooltip followCursor placement='top' title='リスト表示にもどる'>
-                <Stack
-                    direction='row'
-                    justifyContent='flex-start'
-                    alignItems='center'
-                    color='grey'
-                    onClick={() => {
-                        setClickedClipUrl(undefined)
-                        event(`click`, {
-                            label: `click_return_to_list_view`
-                        })
-                    }}
-                    sx={{
-                        cursor: `pointer`
-                    }}
+            <Stack direction='row'>
+                <Tooltip
+                    followCursor
+                    placement='top'
+                    title='リスト表示にもどる'
                 >
-                    <ChevronLeftIcon />
-                    <Typography variant='subtitle1'>clips</Typography>
-                </Stack>
-            </Tooltip>
+                    <Stack
+                        direction='row'
+                        justifyContent='flex-start'
+                        alignItems='center'
+                        color='grey'
+                        onClick={() => {
+                            setClickedClipUrl(undefined)
+                            event(`click`, {
+                                label: `click_return_to_list_view`
+                            })
+                        }}
+                        sx={{
+                            cursor: `pointer`
+                        }}
+                    >
+                        <ChevronLeftIcon />
+                        <Typography variant='subtitle1'>clips</Typography>
+                    </Stack>
+                </Tooltip>
+                <Box sx={{ flexGrow: 1 }} />
+            </Stack>
             <Divider />
             <CardList
                 tab={currentTabName}
