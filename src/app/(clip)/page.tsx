@@ -1,20 +1,9 @@
-import { unstable_cache } from 'next/cache'
+import { cacheClipDoc } from '../../components/unstableCache'
 
-import getClips from '../../firebase/clips'
-
-import SummaryClipPageTemplate from './_Component/SummaryClipPageTemplate'
+import ClipPageTemplate from './_Component/ClipPageTemplate'
 
 export default async function Home() {
-    const clipDoc = await unstable_cache(
-        async () => {
-            const data = await getClips(`summary`)
-            return data
-        },
-        undefined,
-        {
-            revalidate: 3600
-        }
-    )()
-    
-    return <SummaryClipPageTemplate clipDoc={clipDoc} />
+    const clipDoc = await cacheClipDoc(`summary`)
+
+    return <ClipPageTemplate clipDoc={clipDoc} />
 }

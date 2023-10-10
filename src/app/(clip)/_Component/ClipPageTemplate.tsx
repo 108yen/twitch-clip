@@ -10,7 +10,7 @@ import { ClipDoc } from '../../../models/clipDoc'
 import { MobileView } from './organisms/mobileView'
 import { PCView } from './organisms/PCView'
 
-export default function SummaryClipPageTemplate(props: { clipDoc: ClipDoc }) {
+export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
     const { clipDoc } = props
 
     //set clicked clip

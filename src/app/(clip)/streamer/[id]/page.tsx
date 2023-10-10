@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
+import { cacheClipDoc } from '../../../../components/unstableCache'
+
 import StreamerClipPageTemplate from './_Component/StreamerClipPageTemplate'
-import getClips from '../../../../firebase/clips'
-import { unstable_cache } from 'next/cache'
 
 type Props = {
     params: { id: string }
@@ -26,17 +26,7 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id
-
-    const clipDoc = await unstable_cache(
-        async () => {
-            const data = await getClips(id)
-            return data
-        },
-        undefined,
-        {
-            revalidate: 3600
-        }
-    )()
+    const clipDoc = await cacheClipDoc(id)
 
     return <StreamerClipPageTemplate clipDoc={clipDoc} />
 }
