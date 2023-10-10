@@ -15,7 +15,7 @@ import { BorderSelect } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
 import { ClipDoc } from '../../../../../models/clipDoc'
-import getTabNameList from '../utils/getTabNameList'
+import getTabNameList from '../../utils/getTabNameList'
 
 import CardList from './cardList'
 

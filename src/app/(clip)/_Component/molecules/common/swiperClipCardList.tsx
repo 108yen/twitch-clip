@@ -10,7 +10,7 @@ import { Clip } from '@/models/clip'
 
 import { useWindowSize } from '../../../../../components/hooks'
 import { ClipDoc } from '../../../../../models/clipDoc'
-import getTabNameList from '../utils/getTabNameList'
+import getTabNameList from '../../utils/getTabNameList'
 
 export default function SwiperClipCardList(props: {
     clipDoc: ClipDoc
@@ -38,7 +38,7 @@ export default function SwiperClipCardList(props: {
         swiper?.slideTo(newValue)
 
         window.scrollTo({
-            top: 0,
+            top: 0
         })
     }
 

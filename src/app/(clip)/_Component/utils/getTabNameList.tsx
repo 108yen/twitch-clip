@@ -1,4 +1,4 @@
-import { ClipDoc } from '../../../../../models/clipDoc'
+import { ClipDoc } from '../../../../models/clipDoc'
 
 export default function getTabNameList(clipDoc: ClipDoc) {
     const defaultArray: Array<string> = [
@@ -22,9 +22,9 @@ export default function getTabNameList(clipDoc: ClipDoc) {
         }
     }
     const today = new Date()
-    for (let index = 0; index < 7; index++) {
+    for (let daysAgo = 1; daysAgo < 8; daysAgo++) {
         const targetDay = new Date(
-            today.getTime() - index * 24 * 60 * 60 * 1000
+            today.getTime() - daysAgo * 24 * 60 * 60 * 1000
         )
         const key = `${targetDay.getMonth() + 1}/${targetDay.getDate()}`
         if (clipDoc[key] != undefined) {
