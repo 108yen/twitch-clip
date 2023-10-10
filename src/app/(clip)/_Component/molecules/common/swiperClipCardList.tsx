@@ -5,7 +5,7 @@ import 'swiper/css'
 import 'swiper/css/virtual'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import ClipCardList from '@/app/(clip)/_Component/molecules/common/clipCard'
+import ClipCardList from '@/app/(clip)/_Component/molecules/common/clipCardList'
 import { Clip } from '@/models/clip'
 
 import { useWindowSize } from '../../../../../components/hooks'

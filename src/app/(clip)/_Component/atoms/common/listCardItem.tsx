@@ -1,17 +1,16 @@
-import { Avatar, Box, CircularProgress, Stack, Typography } from '@mui/material'
+import { Stack, Typography, Avatar } from '@mui/material'
 import Link from 'next/link'
-import { useState } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { event } from '@/components/gtag'
+
 import {
     BorderPaper,
-    NoDecorationTypography,
-    StyledLaunch
-} from '@/components/styledui'
-import { Clip } from '@/models/clip'
+    StyledLaunch,
+    NoDecorationTypography
+} from '../../../../../components/styledui'
+import { Clip } from '../../../../../models/clip'
 
-function ClipCardItem({
+export default function ListCardItem({
     clip,
     tab,
     setClickedClipUrl
@@ -151,78 +150,4 @@ function ClipCardItem({
             </Stack>
         </BorderPaper>
     )
-}
-
-export default function ClipCardList(props: {
-    clips: Array<Clip>
-    tab: string
-    setClickedClipUrl: (clip: Clip) => void
-}) {
-    const { clips, tab, setClickedClipUrl } = props
-
-    //to infinite scroller
-    const [viewItemNum, setViewItemNum] = useState(7)
-    const [hasMore, setHasMore] = useState(true)
-
-    function loadMore(clips: Clip[]) {
-        //if max item num is clips num
-        if (viewItemNum >= clips.length - 1) {
-            setHasMore(false)
-            event(`scroll`, {
-                label: `load_all_clips`
-            })
-        }
-        //load each 1 items
-        setViewItemNum(viewItemNum + 1)
-    }
-
-    const loader = (
-        <Box
-            key={0}
-            sx={{
-                display: `flex`,
-                justifyContent: `center`,
-                m: 2
-            }}
-        >
-            <CircularProgress color='secondary' />
-        </Box>
-    )
-
-    const endMessage = (
-        <Box key={0} sx={{ m: 3, display: `flex`, justifyContent: `center` }}>
-            <Typography variant='inherit' color='gray'>
-                no more clips
-            </Typography>
-        </Box>
-    )
-
-    if (clips.length != 0) {
-        return (
-            <>
-                <InfiniteScroll
-                    dataLength={viewItemNum}
-                    next={() => {
-                        loadMore(clips)
-                    }}
-                    hasMore={hasMore}
-                    loader={loader}
-                    endMessage={endMessage}
-                >
-                    {clips.slice(0, viewItemNum).map((e, index) => {
-                        return (
-                            <ClipCardItem
-                                key={index}
-                                clip={e}
-                                tab={tab}
-                                setClickedClipUrl={setClickedClipUrl}
-                            />
-                        )
-                    })}
-                </InfiniteScroll>
-            </>
-        )
-    } else {
-        return endMessage
-    }
 }

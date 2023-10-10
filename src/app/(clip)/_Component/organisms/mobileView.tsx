@@ -4,7 +4,7 @@ import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
 import { ClipDoc } from '../../../../models/clipDoc'
-import Player from '../atoms/player'
+import Player from '../atoms/common/player'
 import ClipInfo from '../molecules/common/clipInfo'
 import { StreamerInfo } from '../molecules/common/streamerInfo'
 import SwiperClipCardList from '../molecules/common/swiperClipCardList'
