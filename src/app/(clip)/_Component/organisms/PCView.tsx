@@ -3,16 +3,17 @@ import { Stack, Box, Typography, Grid } from '@mui/material'
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
+import { ClipDoc } from '../../../../models/clipDoc'
 import { StreamerInfo } from '../molecules/common/streamerInfo'
 import SideClipCard from '../molecules/PC/sideClipCard'
 
-export function PCView({
-    currentClip,
-    setClickedClip
-}: {
+export function PCView(props: {
+    clipDoc: ClipDoc
     currentClip: Clip
     setClickedClip: (clip: Clip | undefined) => void
 }) {
+    const { clipDoc, currentClip, setClickedClip } = props
+
     return (
         <Grid
             container
@@ -75,7 +76,10 @@ export function PCView({
                 </Stack>
             </Grid>
             <Grid item zeroMinWidth xs={3}>
-                <SideClipCard setClickedClipUrl={setClickedClip} />
+                <SideClipCard
+                    clipDoc={clipDoc}
+                    setClickedClipUrl={setClickedClip}
+                />
             </Grid>
         </Grid>
     )

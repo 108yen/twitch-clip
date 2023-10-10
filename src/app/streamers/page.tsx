@@ -5,7 +5,6 @@ import getStreamers from '../../firebase/streamers'
 import StreamersTemplate from './_Component/StreamersTemplate'
 
 export default async function StreamersPage() {
-    // const streamers = await cachedGetStreamers()
     const streamers = await unstable_cache(
         async () => {
             const data = await getStreamers()

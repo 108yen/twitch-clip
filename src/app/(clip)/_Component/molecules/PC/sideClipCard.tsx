@@ -10,19 +10,10 @@ import {
     SelectChangeEvent,
     Tooltip
 } from '@mui/material'
-import { useAtom } from 'jotai'
-import { loadable } from 'jotai/utils'
 import Link from 'next/link'
+import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
-import {
-    clipCardsDisplayNumAtom,
-    clipsAtom,
-    moreItemIsExistAtom,
-    tabAtom,
-    tabNameAtom,
-    tabNameListAtom
-} from '@/components/Atoms'
 import { event } from '@/components/gtag'
 import { useWindowSize } from '@/components/hooks'
 import {
@@ -32,20 +23,17 @@ import {
 } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
-function CardList({
-    setClickedClipUrl
-}: {
+import { ClipDoc } from '../../../../../models/clipDoc'
+
+function CardList(props: {
+    tab: string
+    clips: Array<Clip>
     setClickedClipUrl: (clip: Clip) => void
 }) {
-    //clips data
-    const clipsLoadableAtom = loadable(clipsAtom)
-    const [clipsValue] = useAtom(clipsLoadableAtom)
+    const { tab, clips, setClickedClipUrl } = props
     //to infinite scroller
-    const [viewItemNum, setViewItemNum] = useAtom(clipCardsDisplayNumAtom)
-    const [hasMore, setHasMore] = useAtom(moreItemIsExistAtom)
-    //period tab name
-    const tabLoadableAtom = loadable(tabNameAtom)
-    const [tabValue] = useAtom(tabLoadableAtom)
+    const [viewItemNum, setViewItemNum] = useState(7)
+    const [hasMore, setHasMore] = useState(false)
     //window size
     const [, height] = useWindowSize()
 
@@ -71,74 +59,42 @@ function CardList({
         </Box>
     )
 
-    if (clipsValue.state === `hasData` && tabValue.state === `hasData`) {
-        const tab = tabValue.data
-        let clips: Array<Clip> = []
-        if (clipsValue.data != undefined) {
-            const clipDoc = clipsValue.data[tab]
-            if (clipDoc != undefined) {
-                clips = clipsValue.data[tab] as Array<Clip>
-            }
-        }
-        if (clips.length != 0) {
-            return (
-                <InfiniteScroll
-                    dataLength={viewItemNum}
-                    next={() => {
-                        loadMore(clips)
-                    }}
-                    hasMore={hasMore}
-                    loader={loader}
-                    endMessage={endMessage}
-                    height={height - 133}
-                >
-                    {clips.slice(0, viewItemNum).map((e, index) => {
-                        return (
-                            <CardItem
-                                key={index}
-                                clip={e}
-                                tab={tab}
-                                setClickedClipUrl={setClickedClipUrl}
-                            />
-                        )
-                    })}
-                </InfiniteScroll>
-            )
-        } else {
-            return endMessage
-        }
-    } else if (clipsValue.state === `loading` || tabValue.state === `loading`) {
-        return loader
-    } else {
-        //error handling
-        if (clipsValue.state === `hasError`) {
-            event(`error`, {
-                label: `click_load_error`
-            })
-        } else if (tabValue.state === `hasError`) {
-            event(`error`, {
-                label: `tab_load_error`
-            })
-        }
+    if (clips.length != 0) {
         return (
-            <Box key={0} sx={{ display: `flex`, justifyContent: `center` }}>
-                <Typography variant='inherit' color='gray'>
-                    load error
-                </Typography>
-            </Box>
+            <InfiniteScroll
+                dataLength={viewItemNum}
+                next={() => {
+                    loadMore(clips)
+                }}
+                hasMore={hasMore}
+                loader={loader}
+                endMessage={endMessage}
+                height={height - 133}
+            >
+                {clips.slice(0, viewItemNum).map((e, index) => {
+                    return (
+                        <CardItem
+                            key={index}
+                            clip={e}
+                            tab={tab}
+                            setClickedClipUrl={setClickedClipUrl}
+                        />
+                    )
+                })}
+            </InfiniteScroll>
         )
+    } else {
+        return endMessage
     }
 }
 
-function CardItem({
-    clip,
-    tab,
-    setClickedClipUrl
-}: {
+function CardItem(props: {
     clip: Clip
     tab: string
     setClickedClipUrl: (clip: Clip) => void
 }) {
+    const { clip, tab, setClickedClipUrl } = props
+
     return (
         <Box
             sx={{
@@ -238,31 +194,56 @@ function CardItem({
     )
 }
 
-export default function SideClipCard({
-    setClickedClipUrl
-}: {
+export default function SideClipCard(props: {
+    clipDoc: ClipDoc
     setClickedClipUrl: (clip: Clip | undefined) => void
 }) {
-    //tab index
-    const [tab, setTab] = useAtom(tabAtom)
-    //get tab name list
-    const tabNameListLoadableAtom = loadable(tabNameListAtom)
-    const [tabNameListValue] = useAtom(tabNameListLoadableAtom)
-    //use this
-    const tabNameList =
-        tabNameListValue.state === `hasData`
-            ? tabNameListValue.data
-            : [
-                  `day`, //
-                  `week`,
-                  `month`,
-                  `year`,
-                  `all`
-              ]
+    const { clipDoc, setClickedClipUrl } = props
 
+    const tabNameList = getTabList(clipDoc)
+    //tab index
+    const [tab, setTab] = useState(0)
+    const currentTabName = tabNameList[tab]
+    const currentClips = clipDoc[currentTabName] as Array<Clip>
+
+    function getTabList(clipDoc: ClipDoc) {
+        const defaultArray: Array<string> = [
+            `day`, //
+            `week`,
+            `month`,
+            `year`,
+            `all`
+        ]
+        const currentYear = new Date().getFullYear()
+        const tabArray: Array<string> = []
+        for (const key in defaultArray) {
+            const element = defaultArray[key]
+            if (clipDoc[element] != undefined) {
+                tabArray.push(element)
+            }
+        }
+        for (let year = currentYear - 1; year >= 2016; year--) {
+            if (clipDoc[year.toString()] != undefined) {
+                tabArray.push(year.toString())
+            }
+        }
+        const today = new Date()
+        for (let index = 0; index < 7; index++) {
+            const targetDay = new Date(
+                today.getTime() - index * 24 * 60 * 60 * 1000
+            )
+            const key = `${targetDay.getMonth() + 1}/${targetDay.getDate()}`
+            if (clipDoc[key] != undefined) {
+                tabArray.push(key)
+            }
+        }
+
+        return tabArray
+    }
     function handleTabChange(event: SelectChangeEvent<unknown>) {
         setTab(event.target.value as number)
     }
+
     return (
         <Stack direction='column' overflow='hidden' flexGrow={1}>
             <Stack
@@ -291,7 +272,7 @@ export default function SideClipCard({
                     onClick={() => {
                         setClickedClipUrl(undefined)
                         event(`click`, {
-                            label: `click_return_to_list_view`,
+                            label: `click_return_to_list_view`
                         })
                     }}
                     sx={{
@@ -303,7 +284,11 @@ export default function SideClipCard({
                 </Stack>
             </Tooltip>
             <Divider />
-            <CardList setClickedClipUrl={setClickedClipUrl} />
+            <CardList
+                tab={currentTabName}
+                clips={currentClips}
+                setClickedClipUrl={setClickedClipUrl}
+            />
         </Stack>
     )
 }

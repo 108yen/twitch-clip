@@ -3,16 +3,17 @@ import { Stack, Box, Typography, Grid } from '@mui/material'
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
+import { ClipDoc } from '../../../../models/clipDoc'
 import { StreamerInfo } from '../molecules/common/streamerInfo'
 import SwiperClipCardList from '../molecules/common/swiperClipCardList'
 
-export function MobileView({
-    currentClip,
-    setClickedClip
-}: {
+export function MobileView(props: {
+    clipDoc: ClipDoc
     currentClip: Clip
     setClickedClip: (clip: Clip) => void
 }) {
+    const { clipDoc, currentClip, setClickedClip } = props
+
     return (
         <Grid container justifyContent='center' paddingX={0} columnSpacing={4}>
             <Grid item zeroMinWidth xs={12}>
@@ -71,6 +72,7 @@ export function MobileView({
                     </Stack>
                     <StreamerInfo clip={currentClip} />
                     <SwiperClipCardList
+                        clipDoc={clipDoc}
                         setClickedClipUrl={setClickedClip}
                         sticky={true}
                     />

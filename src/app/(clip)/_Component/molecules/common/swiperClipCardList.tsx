@@ -11,14 +11,14 @@ import { swiperAtom, tabAtom, tabNameListAtom } from '@/components/Atoms'
 import { Clip } from '@/models/clip'
 
 import { useWindowSize } from '../../../../../components/hooks'
+import { ClipDoc } from '../../../../../models/clipDoc'
 
-export default function SwiperClipCardList({
-    setClickedClipUrl,
-    sticky = false
-}: {
+export default function SwiperClipCardList(props: {
+    clipDoc: ClipDoc
     setClickedClipUrl: (clip: Clip) => void
     sticky?: boolean
 }) {
+    const { clipDoc, setClickedClipUrl, sticky = false } = props
     //tab index
     const [tab, setTab] = useAtom(tabAtom)
     //get tab name list
