@@ -53,7 +53,7 @@ export default function DefaultHeader() {
     return (
         <PaperAppBar
             position='sticky'
-            istransparent={isTransparent}
+            istransparent={`${isTransparent}`}
             sx={{
                 zIndex: 1201
             }}

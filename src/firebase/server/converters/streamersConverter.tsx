@@ -4,7 +4,7 @@ import {
     DocumentData,
     FirestoreDataConverter,
     QueryDocumentSnapshot
-} from 'firebase/firestore'
+} from 'firebase-admin/firestore'
 
 import { Streamer } from '@/models/streamer'
 

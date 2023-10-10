@@ -1,20 +1,23 @@
 'use client'
 
-import { Box, Snackbar, TextField } from "@mui/material"
+import { Box, Snackbar, TextField } from '@mui/material'
 import MuiAlert from '@mui/material/Alert'
-import { useState } from "react"
+import { useState } from 'react'
 
-import { SimpleButton } from "@/components/styledui"
-import postInquiry from "@/firebase/postInquiry"
+import { SimpleButton } from '@/components/styledui'
+import postInquiry from '@/firebase/client/postInquiry'
 
 export default function InquiryForm() {
     const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false)
-    function handleSnackbarClose(event?: React.SyntheticEvent | Event, reason?: string) {
+    function handleSnackbarClose(
+        event?: React.SyntheticEvent | Event,
+        reason?: string
+    ) {
         if (reason === `clickaway`) {
             return
         }
         setSnackbarOpen(false)
-    };
+    }
 
     const [inquiry, setInquiry] = useState<string>(``)
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -25,11 +28,10 @@ export default function InquiryForm() {
         if (inquiry == ``) {
             return
         }
-        await postInquiry(`others`, inquiry)
-            .then(() => {
-                setInquiry(``)
-                setSnackbarOpen(true)
-            })
+        await postInquiry(`others`, inquiry).then(() => {
+            setInquiry(``)
+            setSnackbarOpen(true)
+        })
     }
 
     return (

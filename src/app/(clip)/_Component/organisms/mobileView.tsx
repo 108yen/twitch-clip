@@ -1,18 +1,21 @@
-import { Stack, Box, Typography, Grid } from '@mui/material'
+import { Stack, Grid } from '@mui/material'
 
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
+import { ClipDoc } from '../../../../models/clipDoc'
+import Player from '../atoms/common/player'
+import ClipInfo from '../molecules/common/clipInfo'
 import { StreamerInfo } from '../molecules/common/streamerInfo'
 import SwiperClipCardList from '../molecules/common/swiperClipCardList'
 
-export function MobileView({
-    currentClip,
-    setClickedClip
-}: {
+export function MobileView(props: {
+    clipDoc: ClipDoc
     currentClip: Clip
     setClickedClip: (clip: Clip) => void
 }) {
+    const { clipDoc, currentClip, setClickedClip } = props
+
     return (
         <Grid container justifyContent='center' paddingX={0} columnSpacing={4}>
             <Grid item zeroMinWidth xs={12}>
@@ -25,52 +28,15 @@ export function MobileView({
                             marginTop: 0
                         }}
                     >
-                        <Box
-                            sx={{
-                                position: `relative`,
-                                width: `100%`,
-                                height: 0,
-                                paddingBottom: `56.25%`,
-                                display: `flex`,
-                                justifyContent: `center`
-                            }}
-                        >
-                            <iframe
-                                src={`${currentClip.embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`}
-                                allowFullScreen
-                                loading='lazy'
-                                style={{
-                                    position: `absolute`,
-                                    top: 0,
-                                    left: 0,
-                                    width: `100%`,
-                                    height: `100%`,
-                                    border: `none`
-                                }}
-                            />
-                        </Box>
+                        <Player embed_url={currentClip.embed_url} />
                     </BorderPaper>
-                    <Stack
-                        direction='row'
-                        overflow='hidden'
-                        justifyContent='space-between'
-                        alignItems='flex-start'
-                        flexGrow={1}
-                    >
-                        <Typography variant='h6' fontWeight='bold' noWrap>
-                            {currentClip.title}
-                        </Typography>
-                        <Typography
-                            align='right'
-                            minWidth={95}
-                            variant='body2'
-                            color='grey'
-                        >
-                            {`${currentClip.view_count?.toLocaleString()} views`}
-                        </Typography>
-                    </Stack>
+                    <ClipInfo
+                        title={currentClip.title}
+                        view_count={currentClip.view_count}
+                    />
                     <StreamerInfo clip={currentClip} />
                     <SwiperClipCardList
+                        clipDoc={clipDoc}
                         setClickedClipUrl={setClickedClip}
                         sticky={true}
                     />

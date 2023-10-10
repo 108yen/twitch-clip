@@ -1,5 +1,8 @@
-import SummaryClipPageTemplate from "../_Component/SummaryClipPageTemplate"
+import { cacheClipDoc } from '../../../components/unstableCache'
+import ClipPageTemplate from '../_Component/ClipPageTemplate'
 
-export default function PastRanking() {
-    return <SummaryClipPageTemplate id='past_summary' />
+export default async function PastRanking() {
+    const clipDoc = await cacheClipDoc(`past_summary`)
+
+    return <ClipPageTemplate clipDoc={clipDoc} />
 }
