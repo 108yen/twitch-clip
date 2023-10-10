@@ -1,10 +1,11 @@
-import { Stack, Typography, Grid } from '@mui/material'
+import { Stack, Grid } from '@mui/material'
 
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
 import { ClipDoc } from '../../../../models/clipDoc'
 import Player from '../atoms/player'
+import ClipInfo from '../molecules/common/clipInfo'
 import { StreamerInfo } from '../molecules/common/streamerInfo'
 import SwiperClipCardList from '../molecules/common/swiperClipCardList'
 
@@ -29,25 +30,10 @@ export function MobileView(props: {
                     >
                         <Player embed_url={currentClip.embed_url} />
                     </BorderPaper>
-                    <Stack
-                        direction='row'
-                        overflow='hidden'
-                        justifyContent='space-between'
-                        alignItems='flex-start'
-                        flexGrow={1}
-                    >
-                        <Typography variant='h6' fontWeight='bold' noWrap>
-                            {currentClip.title}
-                        </Typography>
-                        <Typography
-                            align='right'
-                            minWidth={95}
-                            variant='body2'
-                            color='grey'
-                        >
-                            {`${currentClip.view_count?.toLocaleString()} views`}
-                        </Typography>
-                    </Stack>
+                    <ClipInfo
+                        title={currentClip.title}
+                        view_count={currentClip.view_count}
+                    />
                     <StreamerInfo clip={currentClip} />
                     <SwiperClipCardList
                         clipDoc={clipDoc}
