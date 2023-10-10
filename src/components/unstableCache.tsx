@@ -1,7 +1,7 @@
 import { unstable_cache } from 'next/cache'
 
-import getClips from '../firebase/clips'
-import getStreamers from '../firebase/streamers'
+import getClips from '../firebase/server/clips'
+import getStreamers from '../firebase/server/streamers'
 
 export async function cacheClipDoc(id: string) {
     const clipDoc = await unstable_cache(

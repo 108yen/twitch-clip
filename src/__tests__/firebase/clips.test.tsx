@@ -1,7 +1,7 @@
 import { deleteApp } from 'firebase/app'
 
-import { db } from '@/firebase/client'
-import getClips from '@/firebase/clips'
+import { db } from '@/firebase/client/client'
+import getClips from '@/firebase/server/clips'
 import { ClipDoc } from '@/models/clipDoc'
 
 function checkClipDoc(

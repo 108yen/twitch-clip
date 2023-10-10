@@ -1,7 +1,7 @@
 import { deleteApp } from 'firebase/app'
 
-import { db } from '@/firebase/client'
-import getStreamers from '@/firebase/streamers'
+import { db } from '@/firebase/client/client'
+import getStreamers from '@/firebase/server/streamers'
 
 describe(`getStreamersのテスト`, () => {
     afterAll(() => {

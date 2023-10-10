@@ -1,6 +1,6 @@
 import { deleteApp } from 'firebase/app'
 
-import { db } from '@/firebase/client'
+import { db } from '@/firebase/client/client'
 
 describe(`postInquiryのテスト`, () => {
     afterAll(() => {
