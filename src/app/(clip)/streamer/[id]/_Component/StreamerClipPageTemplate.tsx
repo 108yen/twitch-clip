@@ -1,40 +1,26 @@
 'use client'
 import { Grid } from '@mui/material'
-import { useAtom } from 'jotai'
-import { loadable } from 'jotai/utils'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { Home } from '@/app/(clip)/_Component/organisms/home'
 import StreamerCard from '@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard'
-import { clipsAtom, currentStreamerIdAtom } from '@/components/Atoms'
 import { useWindowSize } from '@/components/hooks'
 import { Clip } from '@/models/clip'
 
+import { ClipDoc } from '../../../../../models/clipDoc'
 import { MobileView } from '../../../_Component/organisms/mobileView'
 import { PCView } from '../../../_Component/organisms/PCView'
 
-export default function StreamerClipPageTemplate(props: { id: string }) {
-    const id = props.id
+export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
+    const { clipDoc } = props
     //extract streamerinfo
-    //clips data
-    const clipsLoadableAtom = loadable(clipsAtom)
-    const [clipsValue] = useAtom(clipsLoadableAtom)
-    const streamerInfo =
-        clipsValue.state == `hasData`
-            ? clipsValue.data?.streamerInfo
-            : undefined
+    const streamerInfo = clipDoc[`streamerInfo`]
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>()
     function handleSetClip(clip: Clip | undefined) {
         setCurrentClip(clip)
     }
-    //for set id
-    const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom)
     const [width] = useWindowSize()
-    
-    useEffect(() => {
-        setCurrentStreamerId(id)
-    }, [])
 
     if (currentClip === undefined) {
         return (
@@ -55,6 +41,7 @@ export default function StreamerClipPageTemplate(props: { id: string }) {
         if (width < 600) {
             return (
                 <MobileView
+                    clipDoc={clipDoc}
                     currentClip={currentClip}
                     setClickedClip={handleSetClip}
                 />
@@ -62,6 +49,7 @@ export default function StreamerClipPageTemplate(props: { id: string }) {
         } else {
             return (
                 <PCView
+                    clipDoc={clipDoc}
                     currentClip={currentClip}
                     setClickedClip={handleSetClip}
                 />
