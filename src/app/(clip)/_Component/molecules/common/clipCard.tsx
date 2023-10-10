@@ -1,15 +1,8 @@
 import { Avatar, Box, CircularProgress, Stack, Typography } from '@mui/material'
-import { useAtom } from 'jotai'
-import { loadable } from 'jotai/utils'
 import Link from 'next/link'
+import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
-import {
-    clipCardsDisplayNumAtom,
-    clipsAtom,
-    moreItemIsExistAtom,
-    tabNameAtom
-} from '@/components/Atoms'
 import { event } from '@/components/gtag'
 import {
     BorderPaper,
@@ -160,25 +153,24 @@ function ClipCardItem({
     )
 }
 
-export default function ClipCardList({
-    setClickedClipUrl
-}: {
+export default function ClipCardList(props: {
+    clips: Array<Clip>
+    tab: string
     setClickedClipUrl: (clip: Clip) => void
 }) {
-    //clips data
-    const clipsLoadableAtom = loadable(clipsAtom)
-    const [clipsValue] = useAtom(clipsLoadableAtom)
+    const { clips, tab, setClickedClipUrl } = props
+
     //to infinite scroller
-    const [viewItemNum, setViewItemNum] = useAtom(clipCardsDisplayNumAtom)
-    const [hasMore, setHasMore] = useAtom(moreItemIsExistAtom)
-    //period tab name
-    const tabLoadableAtom = loadable(tabNameAtom)
-    const [tabValue] = useAtom(tabLoadableAtom)
+    const [viewItemNum, setViewItemNum] = useState(7)
+    const [hasMore, setHasMore] = useState(true)
 
     function loadMore(clips: Clip[]) {
         //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
             setHasMore(false)
+            event(`scroll`, {
+                label: `load_all_clips`
+            })
         }
         //load each 1 items
         setViewItemNum(viewItemNum + 1)
@@ -205,63 +197,32 @@ export default function ClipCardList({
         </Box>
     )
 
-    if (clipsValue.state === `hasData` && tabValue.state === `hasData`) {
-        const tab = tabValue.data
-        let clips: Array<Clip> = []
-        if (clipsValue.data != undefined) {
-            const clipDoc = clipsValue.data[tab]
-            if (clipDoc != undefined) {
-                clips = clipsValue.data[tab] as Array<Clip>
-            }
-        }
-
-        if (clips.length != 0) {
-            return (
-                <>
-                    <InfiniteScroll
-                        dataLength={viewItemNum}
-                        next={() => {
-                            loadMore(clips)
-                        }}
-                        hasMore={hasMore}
-                        loader={loader}
-                        endMessage={endMessage}
-                    >
-                        {clips.slice(0, viewItemNum).map((e, index) => {
-                            return (
-                                <ClipCardItem
-                                    key={index}
-                                    clip={e}
-                                    tab={tab}
-                                    setClickedClipUrl={setClickedClipUrl}
-                                />
-                            )
-                        })}
-                    </InfiniteScroll>
-                </>
-            )
-        } else {
-            return endMessage
-        }
-    } else if (clipsValue.state === `loading` || tabValue.state === `loading`) {
-        return loader
-    } else {
-        //error handling
-        if (clipsValue.state === `hasError`) {
-            event(`error`, {
-                label: `click_load_error`
-            })
-        } else if (tabValue.state === `hasError`) {
-            event(`error`, {
-                label: `tab_load_error`
-            })
-        }
+    if (clips.length != 0) {
         return (
-            <Box key={0} sx={{ display: `flex`, justifyContent: `center` }}>
-                <Typography variant='inherit' color='gray'>
-                    load error
-                </Typography>
-            </Box>
+            <>
+                <InfiniteScroll
+                    dataLength={viewItemNum}
+                    next={() => {
+                        loadMore(clips)
+                    }}
+                    hasMore={hasMore}
+                    loader={loader}
+                    endMessage={endMessage}
+                >
+                    {clips.slice(0, viewItemNum).map((e, index) => {
+                        return (
+                            <ClipCardItem
+                                key={index}
+                                clip={e}
+                                tab={tab}
+                                setClickedClipUrl={setClickedClipUrl}
+                            />
+                        )
+                    })}
+                </InfiniteScroll>
+            </>
         )
+    } else {
+        return endMessage
     }
 }

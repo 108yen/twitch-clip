@@ -24,6 +24,7 @@ import {
 import { Clip } from '@/models/clip'
 
 import { ClipDoc } from '../../../../../models/clipDoc'
+import getTabNameList from '../utils/getTabNameList'
 
 function CardList(props: {
     tab: string
@@ -31,9 +32,10 @@ function CardList(props: {
     setClickedClipUrl: (clip: Clip) => void
 }) {
     const { tab, clips, setClickedClipUrl } = props
+
     //to infinite scroller
     const [viewItemNum, setViewItemNum] = useState(7)
-    const [hasMore, setHasMore] = useState(false)
+    const [hasMore, setHasMore] = useState(true)
     //window size
     const [, height] = useWindowSize()
 
@@ -41,6 +43,9 @@ function CardList(props: {
         //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
             setHasMore(false)
+            event(`scroll`, {
+                label: `load_all_clips`
+            })
         }
         //load each 1 items
         setViewItemNum(viewItemNum + 1)
@@ -200,46 +205,12 @@ export default function SideClipCard(props: {
 }) {
     const { clipDoc, setClickedClipUrl } = props
 
-    const tabNameList = getTabList(clipDoc)
+    const tabNameList = getTabNameList(clipDoc)
     //tab index
     const [tab, setTab] = useState(0)
     const currentTabName = tabNameList[tab]
     const currentClips = clipDoc[currentTabName] as Array<Clip>
 
-    function getTabList(clipDoc: ClipDoc) {
-        const defaultArray: Array<string> = [
-            `day`, //
-            `week`,
-            `month`,
-            `year`,
-            `all`
-        ]
-        const currentYear = new Date().getFullYear()
-        const tabArray: Array<string> = []
-        for (const key in defaultArray) {
-            const element = defaultArray[key]
-            if (clipDoc[element] != undefined) {
-                tabArray.push(element)
-            }
-        }
-        for (let year = currentYear - 1; year >= 2016; year--) {
-            if (clipDoc[year.toString()] != undefined) {
-                tabArray.push(year.toString())
-            }
-        }
-        const today = new Date()
-        for (let index = 0; index < 7; index++) {
-            const targetDay = new Date(
-                today.getTime() - index * 24 * 60 * 60 * 1000
-            )
-            const key = `${targetDay.getMonth() + 1}/${targetDay.getDate()}`
-            if (clipDoc[key] != undefined) {
-                tabArray.push(key)
-            }
-        }
-
-        return tabArray
-    }
     function handleTabChange(event: SelectChangeEvent<unknown>) {
         setTab(event.target.value as number)
     }

@@ -1,17 +1,16 @@
 import { Box, Stack, Tab, Tabs } from '@mui/material'
-import { useAtom } from 'jotai'
-import { loadable } from 'jotai/utils'
-import { Virtual } from 'swiper'
+import { useState } from 'react'
+import { Virtual, Swiper as SwiperCore } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/virtual'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import ClipCardList from '@/app/(clip)/_Component/molecules/common/clipCard'
-import { swiperAtom, tabAtom, tabNameListAtom } from '@/components/Atoms'
 import { Clip } from '@/models/clip'
 
 import { useWindowSize } from '../../../../../components/hooks'
 import { ClipDoc } from '../../../../../models/clipDoc'
+import getTabNameList from '../utils/getTabNameList'
 
 export default function SwiperClipCardList(props: {
     clipDoc: ClipDoc
@@ -20,23 +19,12 @@ export default function SwiperClipCardList(props: {
 }) {
     const { clipDoc, setClickedClipUrl, sticky = false } = props
     //tab index
-    const [tab, setTab] = useAtom(tabAtom)
-    //get tab name list
-    const tabNameListLoadableAtom = loadable(tabNameListAtom)
-    const [tabNameListValue] = useAtom(tabNameListLoadableAtom)
-    //use this
-    const tabNameList =
-        tabNameListValue.state === `hasData`
-            ? tabNameListValue.data
-            : [
-                  `day`, //
-                  `week`,
-                  `month`,
-                  `year`,
-                  `all`
-              ]
+    const tabNameList = getTabNameList(clipDoc)
+    const [tab, setTab] = useState(0)
+    const currentTabName = tabNameList[tab]
+    const clips = clipDoc[currentTabName] as Array<Clip>
     // swipe
-    const [swiper, setSwiper] = useAtom(swiperAtom)
+    const [swiper, setSwiper] = useState<SwiperCore | null>(null)
     //style
     const [windowWidth] = useWindowSize()
     const top = (windowWidth * 9) / 16
@@ -94,6 +82,8 @@ export default function SwiperClipCardList(props: {
                     (value, index) => (
                         <SwiperSlide key={index} virtualIndex={index}>
                             <ClipCardList
+                                clips={clips}
+                                tab={currentTabName}
                                 setClickedClipUrl={setClickedClipUrl}
                             />
                         </SwiperSlide>
