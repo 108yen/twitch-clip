@@ -1,5 +1,9 @@
-import SummaryClipPageTemplate from "./_Component/SummaryClipPageTemplate"
+import { cacheClipDoc } from '../../components/unstableCache'
 
-export default function Home() {
-    return <SummaryClipPageTemplate id='summary' />
+import ClipPageTemplate from './_Component/ClipPageTemplate'
+
+export default async function Home() {
+    const clipDoc = await cacheClipDoc(`summary`)
+
+    return <ClipPageTemplate clipDoc={clipDoc} />
 }

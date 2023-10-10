@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 
+import { cacheClipDoc } from '../../../../components/unstableCache'
+
 import StreamerClipPageTemplate from './_Component/StreamerClipPageTemplate'
 
 type Props = {
@@ -22,8 +24,9 @@ export async function generateMetadata({
     }
 }
 
-export default function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id
+    const clipDoc = await cacheClipDoc(id)
 
-    return <StreamerClipPageTemplate id={id} />
+    return <StreamerClipPageTemplate clipDoc={clipDoc} />
 }

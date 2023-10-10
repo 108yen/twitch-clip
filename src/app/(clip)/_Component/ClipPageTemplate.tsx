@@ -1,17 +1,17 @@
 'use client'
-import { useAtom } from 'jotai'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import { Home } from '@/app/(clip)/_Component/organisms/home'
-import { currentStreamerIdAtom } from '@/components/Atoms'
 import { useWindowSize } from '@/components/hooks'
 import { Clip } from '@/models/clip'
+
+import { ClipDoc } from '../../../models/clipDoc'
 
 import { MobileView } from './organisms/mobileView'
 import { PCView } from './organisms/PCView'
 
-export default function SummaryClipPageTemplate(props: { id: string }) {
-    const { id } = props
+export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
+    const { clipDoc } = props
 
     //set clicked clip
     const [currentClip, setCurrentClip] = useState<Clip | undefined>()
@@ -19,18 +19,14 @@ export default function SummaryClipPageTemplate(props: { id: string }) {
         setCurrentClip(clip)
     }
     const [width] = useWindowSize()
-    const [, setCurrentStreamerId] = useAtom(currentStreamerIdAtom)
-
-    useEffect(() => {
-        setCurrentStreamerId(id)
-    }, [])
 
     if (currentClip === undefined) {
-        return <Home setClickedClip={handleSetClip} />
+        return <Home clipDoc={clipDoc} setClickedClip={handleSetClip} />
     } else {
         if (width < 600) {
             return (
                 <MobileView
+                    clipDoc={clipDoc}
                     currentClip={currentClip}
                     setClickedClip={handleSetClip}
                 />
@@ -38,6 +34,7 @@ export default function SummaryClipPageTemplate(props: { id: string }) {
         } else {
             return (
                 <PCView
+                    clipDoc={clipDoc}
                     currentClip={currentClip}
                     setClickedClip={handleSetClip}
                 />
