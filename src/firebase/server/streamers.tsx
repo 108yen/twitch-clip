@@ -31,22 +31,3 @@ export default async function getStreamers() {
 
     return streamers
 }
-// export default async function getStreamers() {
-//     const streamersRef = doc(db, `streamers`, `streamers`).withConverter<{
-//         streamers: Array<Streamer>
-//     }>(streamersConverter)
-//     const ds = await getDoc(streamersRef).catch((error) => {
-//         event(`error`, {
-//             label: `get_streamer_info_error`,
-//             value: error
-//         })
-//     })
-
-//     const streamers = ds?.data()?.streamers
-//     assert(
-//         typeof streamers !== `undefined`,
-//         new Error(`getStreamers: streamres is undefined`)
-//     )
-
-//     return streamers
-// }
