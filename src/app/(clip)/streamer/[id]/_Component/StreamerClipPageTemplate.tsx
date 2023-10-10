@@ -34,7 +34,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                         <StreamerCard streamerInfo={streamerInfo} />
                     </Grid>
                 </Grid>
-                <Home setClickedClip={handleSetClip} />
+                <Home clipDoc={clipDoc} setClickedClip={handleSetClip} />
             </>
         )
     } else {
