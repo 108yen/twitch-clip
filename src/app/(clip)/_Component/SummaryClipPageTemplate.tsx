@@ -21,7 +21,7 @@ export default function SummaryClipPageTemplate(props: { clipDoc: ClipDoc }) {
     const [width] = useWindowSize()
 
     if (currentClip === undefined) {
-        return <Home setClickedClip={handleSetClip} />
+        return <Home clipDoc={clipDoc} setClickedClip={handleSetClip} />
     } else {
         if (width < 600) {
             return (

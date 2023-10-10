@@ -1,5 +1,19 @@
-import SummaryClipPageTemplate from "../_Component/SummaryClipPageTemplate"
+import { unstable_cache } from 'next/cache'
 
-export default function PastRanking() {
-    return <SummaryClipPageTemplate id='past_summary' />
+import getClips from '../../../firebase/clips'
+import SummaryClipPageTemplate from '../_Component/SummaryClipPageTemplate'
+
+export default async function PastRanking() {
+    const clipDoc = await unstable_cache(
+        async () => {
+            const data = await getClips(`past_summary`)
+            return data
+        },
+        undefined,
+        {
+            revalidate: 3600
+        }
+    )()
+
+    return <SummaryClipPageTemplate clipDoc={clipDoc} />
 }
