@@ -1,5 +1,4 @@
 import { Box, CircularProgress, Typography } from '@mui/material'
-import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { event } from '@/components/gtag'
@@ -9,28 +8,37 @@ import { Clip } from '../../../../../models/clip'
 import CardItem from '../../atoms/PC/cardItem'
 
 export default function CardList(props: {
+    hasMore: boolean
+    viewItemNum: number
+    loadAll: () => void
+    incrementViewItemNum: () => void
     tab: string
     clips: Array<Clip>
     setClickedClipUrl: (clip: Clip) => void
 }) {
-    const { tab, clips, setClickedClipUrl } = props
+    const {
+        hasMore,
+        viewItemNum,
+        loadAll,
+        incrementViewItemNum,
+        tab,
+        clips,
+        setClickedClipUrl
+    } = props
 
-    //to infinite scroller
-    const [viewItemNum, setViewItemNum] = useState(7)
-    const [hasMore, setHasMore] = useState(true)
     //window size
     const [, height] = useWindowSize()
 
     function loadMore(clips: Clip[]) {
         //if max item num is clips num
         if (viewItemNum >= clips.length - 1) {
-            setHasMore(false)
+            loadAll()
             event(`scroll`, {
                 label: `load_all_clips`
             })
         }
         //load each 1 items
-        setViewItemNum(viewItemNum + 1)
+        incrementViewItemNum()
     }
     const loader = (
         <Box key={0} sx={{ display: `flex`, justifyContent: `center` }}>
