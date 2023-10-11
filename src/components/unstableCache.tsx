@@ -9,7 +9,7 @@ export async function cacheClipDoc(id: string) {
             const data = await getClips(id)
             return data
         },
-        [`clipDoc`, id],
+        [id],
         {
             revalidate: 60
         }
