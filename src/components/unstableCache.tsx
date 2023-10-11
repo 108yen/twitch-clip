@@ -24,7 +24,7 @@ export async function cacheStreamers() {
             const data = await getStreamers()
             return data
         },
-        undefined,
+        [`streamer`],
         {
             revalidate: 60
         }
