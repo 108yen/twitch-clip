@@ -1,6 +1,6 @@
 import { Box, Stack, Tab, Tabs } from '@mui/material'
 import { useState } from 'react'
-import { Virtual, Swiper as SwiperCore } from 'swiper'
+import { Swiper as SwiperCore, Virtual } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/virtual'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -21,8 +21,6 @@ export default function SwiperClipCardList(props: {
     //tab index
     const tabNameList = getTabNameList(clipDoc)
     const [tab, setTab] = useState(0)
-    const currentTabName = tabNameList[tab]
-    const clips = clipDoc[currentTabName] as Array<Clip>
     // swipe
     const [swiper, setSwiper] = useState<SwiperCore | null>(null)
     //style
@@ -71,9 +69,9 @@ export default function SwiperClipCardList(props: {
             </Box>
             <Swiper
                 modules={[Virtual]}
-                allowTouchMove={false}
                 virtual
-                spaceBetween={100}
+                allowTouchMove={false}
+                spaceBetween={50}
                 slidesPerView={1}
                 simulateTouch={false}
                 onSlideChange={(index) => handleSlideChange(index.activeIndex)}
@@ -82,17 +80,18 @@ export default function SwiperClipCardList(props: {
                     setSwiper(swiperInstance)
                 }}
             >
-                {Array.from({ length: tabNameList.length }).map(
-                    (value, index) => (
+                {tabNameList.map((tab, index) => {
+                    const clips = clipDoc[tab] as Array<Clip>
+                    return (
                         <SwiperSlide key={index} virtualIndex={index}>
                             <ClipCardList
                                 clips={clips}
-                                tab={currentTabName}
+                                tab={tab}
                                 setClickedClipUrl={setClickedClipUrl}
                             />
                         </SwiperSlide>
                     )
-                )}
+                })}
             </Swiper>
         </Stack>
     )
