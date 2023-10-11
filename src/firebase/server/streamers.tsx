@@ -2,7 +2,6 @@ import assert from 'assert'
 
 import { DocumentReference } from 'firebase-admin/firestore'
 
-import { event } from '@/components/gtag'
 import { db } from '@/firebase/server/server'
 import { Streamer } from '@/models/streamer'
 
@@ -17,10 +16,6 @@ export default async function getStreamers() {
         .withConverter<{ streamers: Array<Streamer> }>(streamersConverter)
 
     const ds = await streamersDocRef.get().catch((error) => {
-         event(`error`, {
-            label: `get_streamer_info_error`,
-            value: error
-        })
         throw new Error(error)
     })
     const streamers = ds?.data()?.streamers
