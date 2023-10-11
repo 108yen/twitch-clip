@@ -11,7 +11,7 @@ export async function cacheClipDoc(id: string) {
         },
         [id],
         {
-            revalidate: 3600
+            revalidate: 60
         }
     )()
     return clipDoc
@@ -25,7 +25,7 @@ export async function cacheStreamers() {
         },
         undefined,
         {
-            revalidate: 3600
+            revalidate: 60
         }
     )()
     return streamers
