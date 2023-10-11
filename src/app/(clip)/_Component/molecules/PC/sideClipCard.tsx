@@ -31,7 +31,25 @@ export default function SideClipCard(props: {
     const currentTabName = tabNameList[tab]
     const currentClips = clipDoc[currentTabName] as Array<Clip>
 
+    //to infinite scroller
+    const [viewItemNum, setViewItemNum] = useState(7)
+    const [hasMore, setHasMore] = useState(true)
+
+    function loadAll() {
+        setHasMore(false)
+    }
+
+    function incrementViewItemNum() {
+        setViewItemNum(viewItemNum + 1)
+    }
+
+    function resetState() {
+        setHasMore(true)
+        setViewItemNum(7)
+    }
+
     function handleTabChange(event: SelectChangeEvent<unknown>) {
+        resetState()
         setTab(event.target.value as number)
     }
 
@@ -83,8 +101,12 @@ export default function SideClipCard(props: {
             </Stack>
             <Divider />
             <CardList
-                tab={currentTabName}
+                hasMore={hasMore}
+                viewItemNum={viewItemNum}
+                loadAll={loadAll}
+                incrementViewItemNum={incrementViewItemNum}
                 clips={currentClips}
+                tab={currentTabName}
                 setClickedClipUrl={setClickedClipUrl}
             />
         </Stack>

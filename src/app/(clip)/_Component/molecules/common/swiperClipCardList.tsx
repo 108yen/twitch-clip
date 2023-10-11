@@ -1,6 +1,6 @@
 import { Box, Stack, Tab, Tabs } from '@mui/material'
 import { useState } from 'react'
-import { Virtual, Swiper as SwiperCore } from 'swiper'
+import { Swiper as SwiperCore, Virtual } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/virtual'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -21,8 +21,6 @@ export default function SwiperClipCardList(props: {
     //tab index
     const tabNameList = getTabNameList(clipDoc)
     const [tab, setTab] = useState(0)
-    const currentTabName = tabNameList[tab]
-    const clips = clipDoc[currentTabName] as Array<Clip>
     // swipe
     const [swiper, setSwiper] = useState<SwiperCore | null>(null)
     //style
@@ -30,10 +28,26 @@ export default function SwiperClipCardList(props: {
     const top = (windowWidth * 9) / 16
     const style = sticky ? { position: `sticky`, top: top } : {}
 
-    function handleSlideChange(index: number) {
-        setTab(index)
+    //to infinite scroller
+    const [viewItemNum, setViewItemNum] = useState(7)
+    const [hasMore, setHasMore] = useState(true)
+
+    function loadAll() {
+        setHasMore(false)
     }
+
+    function incrementViewItemNum() {
+        setViewItemNum(viewItemNum + 1)
+    }
+
+    function resetState() {
+        setHasMore(true)
+        setViewItemNum(7)
+    }
+
     function handleTabChange(_: React.SyntheticEvent, newValue: number) {
+        resetState()
+        // change tab
         setTab(newValue)
         swiper?.slideTo(newValue)
 
@@ -71,28 +85,33 @@ export default function SwiperClipCardList(props: {
             </Box>
             <Swiper
                 modules={[Virtual]}
-                allowTouchMove={false}
                 virtual
-                spaceBetween={100}
+                allowTouchMove={false}
+                spaceBetween={50}
                 slidesPerView={1}
                 simulateTouch={false}
-                onSlideChange={(index) => handleSlideChange(index.activeIndex)}
                 onSwiper={(swiper) => {
                     const swiperInstance = swiper
                     setSwiper(swiperInstance)
                 }}
             >
-                {Array.from({ length: tabNameList.length }).map(
-                    (value, index) => (
+                {tabNameList.map((tab, index) => {
+                    const clips = clipDoc[tab] as Array<Clip>
+                    return (
                         <SwiperSlide key={index} virtualIndex={index}>
                             <ClipCardList
+                                key={index}
+                                hasMore={hasMore}
+                                viewItemNum={viewItemNum}
+                                loadAll={loadAll}
+                                incrementViewItemNum={incrementViewItemNum}
                                 clips={clips}
-                                tab={currentTabName}
+                                tab={tab}
                                 setClickedClipUrl={setClickedClipUrl}
                             />
                         </SwiperSlide>
                     )
-                )}
+                })}
             </Swiper>
         </Stack>
     )

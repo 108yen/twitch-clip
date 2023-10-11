@@ -11,7 +11,8 @@ export async function cacheClipDoc(id: string) {
         },
         [id],
         {
-            revalidate: 60
+            revalidate: 60,
+            tags: [`all`]
         }
     )()
     return clipDoc
@@ -23,7 +24,7 @@ export async function cacheStreamers() {
             const data = await getStreamers()
             return data
         },
-        undefined,
+        [`streamer`],
         {
             revalidate: 60
         }
