@@ -11,7 +11,8 @@ export async function cacheClipDoc(id: string) {
         },
         [id],
         {
-            revalidate: 60
+            revalidate: 60,
+            tags: [`all`]
         }
     )()
     return clipDoc
