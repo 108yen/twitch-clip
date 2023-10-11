@@ -4,8 +4,8 @@ import {
     CollectionReference,
     DocumentReference
 } from 'firebase-admin/firestore'
+import { notFound } from 'next/navigation'
 
-import { event } from '@/components/gtag'
 import { db } from '@/firebase/server/server'
 import { ClipDoc } from '@/models/clipDoc'
 
@@ -24,17 +24,10 @@ export default async function getClips(id: string) {
     const ds = await clipDocRef({ clipId: id })
         .get()
         .catch((error) => {
-            event(`error`, {
-                label: `get_` + id + `_clips_error`,
-                value: error
-            })
             throw new Error(error)
         })
     const clipDoc = ds?.data()
-    assert(
-        typeof clipDoc !== `undefined`,
-        new Error(`clips/getClips(): clipId: ${id}, clipDoc is undefined`)
-    )
+    assert(typeof clipDoc !== `undefined`, notFound())
 
     return clipDoc
 }

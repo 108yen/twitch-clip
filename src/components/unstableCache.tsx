@@ -9,10 +9,9 @@ export async function cacheClipDoc(id: string) {
             const data = await getClips(id)
             return data
         },
-        [id],
+        [`clipDoc`, id],
         {
-            revalidate: 60,
-            tags: [`all`]
+            revalidate: 60
         }
     )()
     return clipDoc
