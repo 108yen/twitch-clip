@@ -28,10 +28,26 @@ export default function SwiperClipCardList(props: {
     const top = (windowWidth * 9) / 16
     const style = sticky ? { position: `sticky`, top: top } : {}
 
-    function handleSlideChange(index: number) {
-        setTab(index)
+    //to infinite scroller
+    const [viewItemNum, setViewItemNum] = useState(7)
+    const [hasMore, setHasMore] = useState(true)
+
+    function loadAll() {
+        setHasMore(false)
     }
+
+    function incrementViewItemNum() {
+        setViewItemNum(viewItemNum + 1)
+    }
+
+    function resetState() {
+        setHasMore(true)
+        setViewItemNum(7)
+    }
+
     function handleTabChange(_: React.SyntheticEvent, newValue: number) {
+        resetState()
+        // change tab
         setTab(newValue)
         swiper?.slideTo(newValue)
 
@@ -74,7 +90,6 @@ export default function SwiperClipCardList(props: {
                 spaceBetween={50}
                 slidesPerView={1}
                 simulateTouch={false}
-                onSlideChange={(index) => handleSlideChange(index.activeIndex)}
                 onSwiper={(swiper) => {
                     const swiperInstance = swiper
                     setSwiper(swiperInstance)
@@ -85,6 +100,11 @@ export default function SwiperClipCardList(props: {
                     return (
                         <SwiperSlide key={index} virtualIndex={index}>
                             <ClipCardList
+                                key={index}
+                                hasMore={hasMore}
+                                viewItemNum={viewItemNum}
+                                loadAll={loadAll}
+                                incrementViewItemNum={incrementViewItemNum}
                                 clips={clips}
                                 tab={tab}
                                 setClickedClipUrl={setClickedClipUrl}
