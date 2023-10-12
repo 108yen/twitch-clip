@@ -1,9 +1,8 @@
-import assert from 'assert'
-
 import {
     CollectionReference,
     DocumentReference
 } from 'firebase-admin/firestore'
+import { notFound } from 'next/navigation'
 
 import { db } from '@/firebase/server/server'
 import { ClipDoc } from '@/models/clipDoc'
@@ -26,10 +25,10 @@ export default async function getClips(id: string) {
             throw new Error(error)
         })
     const clipDoc = ds?.data()
-    assert(
-        typeof clipDoc !== `undefined`,
-        new Error(`clips/getClips(): clipId: ${id}, clipDoc is undefined`)
-    )
+    if (!clipDoc) {
+        notFound()
+    }
+    console.log(`info: get ${id} clipDoc at ${new Date()}`)
 
     return clipDoc
 }

@@ -1,5 +1,3 @@
-import assert from 'assert'
-
 import {
     DocumentData,
     FirestoreDataConverter,
@@ -13,12 +11,12 @@ export const streamersConverter: FirestoreDataConverter<{
 }> = {
     fromFirestore(qds: QueryDocumentSnapshot): { streamers: Array<Streamer> } {
         const data = qds.data()
-        assert(
-            typeof data.streamers !== `undefined`,
+
+        if (!data.streamers) {
             new Error(
                 `streamersConverter/fromFirestore: data.streamers is undefined`
             )
-        )
+        }
 
         const result: Array<Streamer> = []
         for (const i in data.streamers) {

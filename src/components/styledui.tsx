@@ -1,13 +1,7 @@
 'use client'
 import { Launch } from '@mui/icons-material'
-import {
-    AppBar,
-    Button,
-    Paper,
-    Select,
-    styled,
-    Typography
-} from '@mui/material'
+import { AppBar, Button, Paper, Select, Typography } from '@mui/material'
+import { styled } from '@mui/material/styles'
 
 export const BorderPaper = styled(Paper)(({ theme }) => ({
     boxShadow: `none`,
