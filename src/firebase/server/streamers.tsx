@@ -21,6 +21,7 @@ export default async function getStreamers() {
     if (!streamers) {
         notFound()
     }
+    console.log(`info: get streamers at ${new Date()}`)
 
     return streamers
 }

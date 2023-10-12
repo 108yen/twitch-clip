@@ -28,6 +28,7 @@ export default async function getClips(id: string) {
     if (!clipDoc) {
         notFound()
     }
+    console.log(`info: get ${id} clipDoc at ${new Date()}`)
 
     return clipDoc
 }
