@@ -28,7 +28,11 @@ export default async function getClips(id: string) {
     if (!clipDoc) {
         notFound()
     }
-    console.log(`info: get ${id} clipDoc at ${new Date()}`)
+    console.log(
+        `info: get ${id} clipDoc at ${new Date().toLocaleString(`ja-JP`, {
+            timeZone: `Asia/Tokyo`
+        })}`
+    )
 
     return clipDoc
 }

@@ -21,7 +21,11 @@ export default async function getStreamers() {
     if (!streamers) {
         notFound()
     }
-    console.log(`info: get streamers at ${new Date()}`)
+    console.log(
+        `info: get streamers at ${new Date().toLocaleString(`ja-JP`, {
+            timeZone: `Asia/Tokyo`
+        })}`
+    )
 
     return streamers
 }
