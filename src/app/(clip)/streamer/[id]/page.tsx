@@ -9,7 +9,7 @@ type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export const revalidate = 600 //10minutes
+export const revalidate = 1200 //20minutes
 
 export async function generateMetadata({
     searchParams
