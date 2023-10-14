@@ -76,6 +76,7 @@ export default function DefaultHeader() {
                         <Link
                             href='/'
                             aria-label='top'
+                            prefetch={false}
                             style={{
                                 textDecoration: `none`
                             }}
@@ -126,6 +127,7 @@ export default function DefaultHeader() {
                                 <Link
                                     href='/'
                                     aria-label='top'
+                                    prefetch={false}
                                     style={{
                                         textDecoration: `none`,
                                         color: `inherit`
@@ -155,6 +157,7 @@ export default function DefaultHeader() {
                             >
                                 <Link
                                     href='/daily'
+                                    prefetch={false}
                                     aria-label='daily clip page link'
                                     style={{
                                         textDecoration: `none`,
@@ -185,6 +188,7 @@ export default function DefaultHeader() {
                             >
                                 <Link
                                     href='/past'
+                                    prefetch={false}
                                     aria-label='past clip page link'
                                     style={{
                                         textDecoration: `none`,
@@ -215,6 +219,7 @@ export default function DefaultHeader() {
                             >
                                 <Link
                                     href='/streamers'
+                                    prefetch={false}
                                     aria-label='channel list page link'
                                     style={{
                                         textDecoration: `none`,

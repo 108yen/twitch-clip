@@ -65,6 +65,7 @@ export default function CardItem(props: {
                     </BorderPaper>
                     <Link
                         href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
+                        prefetch={false}
                         style={{
                             textDecoration: `none`
                         }}

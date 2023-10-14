@@ -113,6 +113,7 @@ export default function ListCardItem({
                     <Link
                         href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
                         aria-label='twitch clip page link'
+                        prefetch={false}
                         style={{
                             textDecoration: `none`
                         }}

@@ -39,6 +39,7 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
                         <Link
                             href={`/streamer/${streamerInfo.id}?display_name=${streamerInfo.display_name}`}
                             aria-label='streamer page link'
+                            prefetch={false}
                             style={{
                                 textDecoration: `none`
                             }}
