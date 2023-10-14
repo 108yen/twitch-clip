@@ -17,7 +17,7 @@ export default function StreamerItem({
                 marginY: { xs: 2, sm: 3 },
                 p: 2,
                 height: 140,
-                overflow: `hidden`,
+                overflow: `hidden`
             }}
         >
             <Stack
@@ -30,6 +30,7 @@ export default function StreamerItem({
                 <Link
                     href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
                     aria-label='streamer channel page link'
+                    prefetch={false}
                 >
                     <Avatar alt='top' src={streamer.profile_image_url} />
                 </Link>
@@ -49,14 +50,12 @@ export default function StreamerItem({
                         <Link
                             href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
                             aria-label='streamer channel page link'
+                            prefetch={false}
                             style={{
-                                textDecoration: `none`,
+                                textDecoration: `none`
                             }}
                         >
-                            <NoDecorationTypography
-                                variant='h6'
-                                noWrap
-                            >
+                            <NoDecorationTypography variant='h6' noWrap>
                                 {streamer.display_name}
                             </NoDecorationTypography>
                         </Link>
@@ -65,23 +64,20 @@ export default function StreamerItem({
                             aria-label='twitch channel page link'
                             target='_blank'
                             style={{
-                                textDecoration: `none`,
+                                textDecoration: `none`
                             }}
                             onClick={() => {
                                 event(`click`, {
                                     label: `click_twitch_channel`,
                                     channel_title: streamer.display_name,
-                                    link_url: `https://www.twitch.tv/` + streamer.login,
+                                    link_url:
+                                        `https://www.twitch.tv/` +
+                                        streamer.login
                                 })
                             }}
                         >
-                            <Stack
-                                direction='row'
-                                spacing={1}
-                            >
-                                <NoDecorationTypography
-                                    variant='body2'
-                                >
+                            <Stack direction='row' spacing={1}>
+                                <NoDecorationTypography variant='body2'>
                                     Twitch
                                 </NoDecorationTypography>
                                 <StyledLaunch fontSize='small' />
@@ -96,8 +92,8 @@ export default function StreamerItem({
                         sx={{
                             msOverflowStyle: `none`,
                             scrollbarWidth: `none`,
-                            "::-webkit-scrollbar": {
-                                display: `none`,
+                            '::-webkit-scrollbar': {
+                                display: `none`
                             }
                         }}
                     >
