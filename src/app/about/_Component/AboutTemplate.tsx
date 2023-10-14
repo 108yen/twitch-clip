@@ -137,8 +137,14 @@ export default function AboutTemplate() {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell>過去ランキング</TableCell>
+                                    <TableCell>年別ランキング</TableCell>
                                     <TableCell align='right'>毎月4日</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>日別ランキング</TableCell>
+                                    <TableCell align='right'>
+                                        dayランキング更新時
+                                    </TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>
