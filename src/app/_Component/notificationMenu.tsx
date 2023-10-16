@@ -21,7 +21,8 @@ export default function NotificationMenu() {
         noSsr: true
     })
     const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom)
-    const isDarkMode = isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode
+    const isDarkMode =
+        isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode
     function handleSwitchChange() {
         setIsDarkMode(!isDarkMode)
     }
@@ -110,6 +111,7 @@ export default function NotificationMenu() {
                 >
                     <Link
                         href='/daily'
+                        prefetch={false}
                         style={{
                             textDecoration: `none`
                         }}
@@ -127,6 +129,7 @@ export default function NotificationMenu() {
                 >
                     <Link
                         href='/past'
+                        prefetch={false}
                         style={{
                             textDecoration: `none`
                         }}
@@ -144,6 +147,7 @@ export default function NotificationMenu() {
                 >
                     <Link
                         href='/streamers'
+                        prefetch={false}
                         style={{
                             textDecoration: `none`
                         }}
@@ -161,6 +165,7 @@ export default function NotificationMenu() {
                 >
                     <Link
                         href='/about'
+                        prefetch={false}
                         style={{
                             textDecoration: `none`
                         }}
