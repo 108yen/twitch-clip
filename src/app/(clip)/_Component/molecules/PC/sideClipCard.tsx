@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import { useState } from 'react'
 
-import { event } from '@/components/gtag'
+import { event } from '@/components/googleAnalytics/gtag'
 import { BorderSelect } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 

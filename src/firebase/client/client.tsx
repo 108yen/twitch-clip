@@ -8,7 +8,7 @@ import {
 import { getFirestore } from 'firebase/firestore'
 import { getPerformance } from 'firebase/performance'
 
-import { event } from '@/components/gtag'
+import { event } from '@/components/googleAnalytics/gtag'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

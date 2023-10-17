@@ -1,7 +1,7 @@
 import { Box, CircularProgress, Typography } from '@mui/material'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
-import { event } from '@/components/gtag'
+import { event } from '@/components/googleAnalytics/gtag'
 import { Clip } from '@/models/clip'
 
 import ListCardItem from '../../atoms/common/listCardItem'

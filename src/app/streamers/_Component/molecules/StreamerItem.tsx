@@ -1,15 +1,15 @@
-import { Stack, Avatar, Typography } from "@mui/material"
-import Link from "next/link"
+import { Stack, Avatar, Typography } from '@mui/material'
+import Link from 'next/link'
 
-import { event } from "@/components/gtag"
-import { BorderPaper, NoDecorationTypography, StyledLaunch } from "@/components/styledui"
-import { Streamer } from "@/models/streamer"
+import { event } from '@/components/googleAnalytics/gtag'
+import {
+    BorderPaper,
+    NoDecorationTypography,
+    StyledLaunch
+} from '@/components/styledui'
+import { Streamer } from '@/models/streamer'
 
-export default function StreamerItem({
-    streamer
-}: {
-    streamer: Streamer
-}) {
+export default function StreamerItem({ streamer }: { streamer: Streamer }) {
     return (
         <BorderPaper
             sx={{
