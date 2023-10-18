@@ -24,12 +24,12 @@ export function PCView(props: {
             columnSpacing={4}
         >
             <Grid item xs={12} sm={9}>
-                <Stack direction='column' spacing={1} sx={{ minWidth: 0 }}>
-                    <BorderPaper
-                        sx={{
-                            marginTop: { xs: 0, md: 5 }
-                        }}
-                    >
+                <Stack
+                    direction='column'
+                    spacing={1}
+                    sx={{ minWidth: 0, marginTop: { xs: 0, md: 5 } }}
+                >
+                    <BorderPaper>
                         <Player embed_url={currentClip.embed_url} />
                     </BorderPaper>
                     <ClipInfo
