@@ -1,5 +1,5 @@
 import { Box, Stack, Tab, Tabs } from '@mui/material'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Swiper as SwiperCore, Virtual } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/virtual'
@@ -19,7 +19,7 @@ export default function SwiperClipCardList(props: {
 }) {
     const { clipDoc, setClickedClipUrl, sticky = false } = props
     //tab index
-    const tabNameList = getTabNameList(clipDoc)
+    const tabNameList = useMemo(() => getTabNameList(clipDoc), [clipDoc])
     const [tab, setTab] = useState(0)
     // swipe
     const [swiper, setSwiper] = useState<SwiperCore | null>(null)
