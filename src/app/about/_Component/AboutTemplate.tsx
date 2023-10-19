@@ -1,7 +1,5 @@
-'use client'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import {
-    Box,
     Divider,
     Grid,
     List,
@@ -14,11 +12,10 @@ import {
     TableRow,
     Typography
 } from '@mui/material'
-import Link from 'next/link'
 
-import { event } from '@/components/gtag'
 import { AboutBodyTypography, BorderPaper } from '@/components/styledui'
 
+import ExternalLink from './atoms/externalLink'
 import InquiryForm from './molecules/InquiryForm'
 
 export default function AboutTemplate() {
@@ -50,19 +47,10 @@ export default function AboutTemplate() {
                     </AboutBodyTypography>
                     <List>
                         <ListItem>
-                            <Link
+                            <ExternalLink
                                 href='https://streamscharts.com/'
-                                aria-label='streams charts link'
-                                target='_blank'
-                                style={{
-                                    textDecoration: `none`
-                                }}
-                                onClick={() => {
-                                    event(`click`, {
-                                        label: `click_streams_charts_link`,
-                                        link_url: `https://streamscharts.com/`
-                                    })
-                                }}
+                                ariaLabel='streams charts link'
+                                eventLabel='click_streams_charts_link'
                             >
                                 <AboutBodyTypography
                                     sx={{
@@ -73,22 +61,13 @@ export default function AboutTemplate() {
                                 >
                                     STREAMS CHARTS
                                 </AboutBodyTypography>
-                            </Link>
+                            </ExternalLink>
                         </ListItem>
                         <ListItem>
-                            <Link
+                            <ExternalLink
                                 href='https://twitchtracker.com/'
-                                aria-label='twitch tracker link'
-                                target='_blank'
-                                style={{
-                                    textDecoration: `none`
-                                }}
-                                onClick={() => {
-                                    event(`click`, {
-                                        label: `click_twitch_tracker_link`,
-                                        link_url: `https://twitchtracker.com/`
-                                    })
-                                }}
+                                ariaLabel='twitch tracker link'
+                                eventLabel='click_twitch_tracker_link'
                             >
                                 <AboutBodyTypography
                                     sx={{
@@ -99,7 +78,7 @@ export default function AboutTemplate() {
                                 >
                                     Twitch Tracker
                                 </AboutBodyTypography>
-                            </Link>
+                            </ExternalLink>
                         </ListItem>
                     </List>
                     <Typography variant='h4' pt={10}>
@@ -115,6 +94,7 @@ export default function AboutTemplate() {
                     <Divider sx={{ marginY: 1 }} />
                     <AboutBodyTypography>
                         当サイトのコンテンツは、定期的に更新されます。更新頻度については、事前の予告なく変更される場合があります。具体的な更新頻度は以下を参照してください。
+                        表示の更新は20分程度ずれる可能性があります。
                     </AboutBodyTypography>
                     <TableContainer
                         component={BorderPaper}
@@ -196,19 +176,10 @@ export default function AboutTemplate() {
                     </AboutBodyTypography>
                     <List>
                         <ListItem>
-                            <Link
+                            <ExternalLink
                                 href='https://policies.google.com/technologies/cookies?hl=ja'
-                                aria-label='google link'
-                                target='_blank'
-                                style={{
-                                    textDecoration: `none`
-                                }}
-                                onClick={() => {
-                                    event(`click`, {
-                                        label: `click_google_link`,
-                                        link_url: `https://policies.google.com/technologies/cookies?hl=ja`
-                                    })
-                                }}
+                                ariaLabel='google link'
+                                eventLabel='click_google_link'
                             >
                                 <AboutBodyTypography
                                     sx={{
@@ -219,22 +190,13 @@ export default function AboutTemplate() {
                                 >
                                     GoogleによるCookieの利用方法
                                 </AboutBodyTypography>
-                            </Link>
+                            </ExternalLink>
                         </ListItem>
                         <ListItem>
-                            <Link
+                            <ExternalLink
                                 href='https://support.google.com/analytics/answer/181881?hl=ja'
-                                aria-label='google optout link'
-                                target='_blank'
-                                style={{
-                                    textDecoration: `none`
-                                }}
-                                onClick={() => {
-                                    event(`click`, {
-                                        label: `click_google_link`,
-                                        link_url: `https://support.google.com/analytics/answer/181881?hl=ja`
-                                    })
-                                }}
+                                ariaLabel='google optout link'
+                                eventLabel='click_google_link'
                             >
                                 <AboutBodyTypography
                                     sx={{
@@ -245,7 +207,7 @@ export default function AboutTemplate() {
                                 >
                                     Google Analyticsのオプトアウト
                                 </AboutBodyTypography>
-                            </Link>
+                            </ExternalLink>
                         </ListItem>
                     </List>
                     <Typography variant='h4' pt={10}>
@@ -259,29 +221,20 @@ export default function AboutTemplate() {
                         flexGrow={1}
                         alignItems='center'
                         justifyContent='center'
+                        spacing={1}
                     >
                         <Typography variant='caption' color='grey'>
                             developer:
                         </Typography>
-                        <Box sx={{ width: (theme) => theme.spacing(1) }} />
-                        <Link
+                        <ExternalLink
                             href='https://github.com/108yen'
-                            target='_blank'
-                            style={{
-                                textDecoration: `none`
-                            }}
-                            onClick={() => {
-                                event(`click`, {
-                                    label: `click_github_link`,
-                                    link_url: `https://github.com/108yen`
-                                })
-                            }}
+                            ariaLabel='github link'
+                            eventLabel='click_github_link'
                         >
                             <Stack direction='row' alignItems='center'>
                                 <GitHubIcon
                                     sx={{
-                                        fontSize: (theme) =>
-                                            theme.typography.caption.fontSize,
+                                        fontSize: 14,
                                         color: `grey`
                                     }}
                                 />
@@ -289,7 +242,7 @@ export default function AboutTemplate() {
                                     108yen
                                 </Typography>
                             </Stack>
-                        </Link>
+                        </ExternalLink>
                     </Stack>
                 </Grid>
             </Grid>

@@ -1,10 +1,9 @@
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore'
 
-import { event } from '@/components/gtag'
-
-import { inquiryConverter } from './inquiryConverter'
+import { event } from '@/components/googleAnalytics/gtag'
 
 import { db } from './client'
+import { inquiryConverter } from './inquiryConverter'
 
 export default async function postInquiry(
     category: `additional_request` | `others`,

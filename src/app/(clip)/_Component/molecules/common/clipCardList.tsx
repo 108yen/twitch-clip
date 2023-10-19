@@ -1,7 +1,8 @@
 import { Box, CircularProgress, Typography } from '@mui/material'
+import { useMemo } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
-import { event } from '@/components/gtag'
+import { event } from '@/components/googleAnalytics/gtag'
 import { Clip } from '@/models/clip'
 
 import ListCardItem from '../../atoms/common/listCardItem'
@@ -58,6 +59,27 @@ export default function ClipCardList(props: {
         </Box>
     )
 
+    const cardItems = useMemo(
+        () =>
+            clips.slice(0, viewItemNum).map((e, index) => {
+                return (
+                    <ListCardItem
+                        key={index}
+                        clip={e}
+                        tab={tab}
+                        setClickedClipUrl={setClickedClipUrl}
+                    />
+                )
+            }),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [
+            clips, //
+            tab,
+            // setClickedClipUrl,
+            viewItemNum
+        ]
+    )
+
     if (clips.length != 0) {
         return (
             <InfiniteScroll
@@ -69,16 +91,7 @@ export default function ClipCardList(props: {
                 loader={loader}
                 endMessage={endMessage}
             >
-                {clips.slice(0, viewItemNum).map((e, index) => {
-                    return (
-                        <ListCardItem
-                            key={index}
-                            clip={e}
-                            tab={tab}
-                            setClickedClipUrl={setClickedClipUrl}
-                        />
-                    )
-                })}
+                {cardItems}
             </InfiniteScroll>
         )
     } else {

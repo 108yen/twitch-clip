@@ -2,7 +2,7 @@ import { Launch } from '@mui/icons-material'
 import { Avatar, Box, Paper, Skeleton, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 
-import { event } from '@/components/gtag'
+import { event } from '@/components/googleAnalytics/gtag'
 import {
     BorderPaper,
     NoDecorationTypography,

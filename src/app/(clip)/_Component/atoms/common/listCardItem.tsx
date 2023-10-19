@@ -1,7 +1,7 @@
 import { Stack, Typography, Avatar } from '@mui/material'
 import Link from 'next/link'
 
-import { event } from '@/components/gtag'
+import { event } from '@/components/googleAnalytics/gtag'
 
 import {
     BorderPaper,

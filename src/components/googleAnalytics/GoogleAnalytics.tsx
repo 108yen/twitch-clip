@@ -14,7 +14,7 @@ export default function GoogleAnalytics({ debugMode = false }) {
             return
         }
         event(`page_view`, {
-            page_path: pathname,
+            page_path: pathname
         })
     }, [pathname])
 

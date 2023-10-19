@@ -8,9 +8,9 @@ import {
     Tooltip,
     Box
 } from '@mui/material'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
-import { event } from '@/components/gtag'
+import { event } from '@/components/googleAnalytics/gtag'
 import { BorderSelect } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
@@ -25,7 +25,7 @@ export default function SideClipCard(props: {
 }) {
     const { clipDoc, setClickedClipUrl } = props
 
-    const tabNameList = getTabNameList(clipDoc)
+    const tabNameList = useMemo(() => getTabNameList(clipDoc), [clipDoc])
     //tab index
     const [tab, setTab] = useState(0)
     const currentTabName = tabNameList[tab]
