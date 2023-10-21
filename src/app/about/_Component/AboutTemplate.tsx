@@ -211,7 +211,32 @@ export default function AboutTemplate() {
                         </ListItem>
                     </List>
                     <Typography variant='h4' pt={10}>
-                        6. お問い合わせ
+                        6. Google AdSense
+                    </Typography>
+                    <Divider sx={{ marginY: 1 }} />
+                    <AboutBodyTypography>
+                        当サイトでは、広告提供の一環としてGoogle
+                        AdSenseを使用しています。広告はパーソナライズされることがあり、お使いの興味や訪問履歴に基づいて表示されます。
+                        <ExternalLink
+                            href='https://myadcenter.google.com/home?sasb=true&ref=ad-settings'
+                            ariaLabel='myadcenter link'
+                            eventLabel='click_myadcenter_link'
+                        >
+                            <AboutBodyTypography
+                                sx={{
+                                    '&:hover': {
+                                        textDecorationLine: `underline`
+                                    },
+                                    display: `inline`
+                                }}
+                            >
+                                広告の設定
+                            </AboutBodyTypography>
+                        </ExternalLink>
+                        からパーソナライズ広告を無効にすることができます
+                    </AboutBodyTypography>
+                    <Typography variant='h4' pt={10}>
+                        7. お問い合わせ
                     </Typography>
                     <Divider sx={{ marginY: 1 }} />
                     <InquiryForm />
