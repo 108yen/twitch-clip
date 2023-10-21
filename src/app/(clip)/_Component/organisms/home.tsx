@@ -15,8 +15,6 @@ export function Home(props: {
         <Grid
             container
             justifyContent='space-evenly'
-            // paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-            // spacing={2}
         >
             <Grid item zeroMinWidth xs={12} md={8}>
                 <SwiperClipCardList

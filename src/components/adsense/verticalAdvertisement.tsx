@@ -40,7 +40,7 @@ export default function VerticalAdvertisement() {
                 <Box
                     key={pathname}
                     flexGrow={1}
-                    width={260}
+                    width={200}
                     height={700}
                     textAlign='center'
                     padding={2}
@@ -53,8 +53,9 @@ export default function VerticalAdvertisement() {
                         className='adsbygoogle'
                         style={{
                             display: `block`,
-                            width: `100%`,
-                            height: `100%`
+                            margin: `auto`,
+                            width: 160,
+                            height: 600
                         }}
                         data-adtest={
                             process.env.NODE_ENV === `production` ? `off` : `on`
