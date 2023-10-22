@@ -65,17 +65,16 @@ export default function ClipCardList(props: {
             clips.slice(0, viewItemNum).map((e, index) => {
                 if (index % 10 == 0 && index != 0) {
                     return (
-                        <>
+                        <Box key={index}>
                             <Box display={{ xs: `flex`, md: `none` }}>
                                 <HorizontalAdvertisement />
                             </Box>
                             <ListCardItem
-                                key={index}
                                 clip={e}
                                 tab={tab}
                                 setClickedClipUrl={setClickedClipUrl}
                             />
-                        </>
+                        </Box>
                     )
                 }
                 return (
