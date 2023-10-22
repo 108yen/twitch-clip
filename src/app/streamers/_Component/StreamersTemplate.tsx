@@ -2,11 +2,11 @@
 import { Divider, Grid } from '@mui/material'
 import { useState } from 'react'
 
+import VerticalAdvertisement from '../../../components/adsense/verticalAdvertisement'
 import { Streamer } from '../../../models/streamer'
 
 import StreamerList from './molecules/StreamerList'
 import StreamersPageHeader from './molecules/streamersPageHeader'
-import VerticalAdvertisement from '../../../components/adsense/verticalAdvertisement'
 
 export default function StreamersTemplate(props: {
     streamers: Array<Streamer>
@@ -43,7 +43,13 @@ export default function StreamersTemplate(props: {
                 />
                 <StreamerList streamers={filteredStreamer} />
             </Grid>
-            <Grid item zeroMinWidth md={2} xl={1} display={{ xs: `none`, md: `flex` }}>
+            <Grid
+                item
+                zeroMinWidth
+                md={2}
+                xl={1}
+                display={{ xs: `none`, md: `flex` }}
+            >
                 <VerticalAdvertisement />
             </Grid>
         </Grid>

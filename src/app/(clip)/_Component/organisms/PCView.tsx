@@ -18,8 +18,8 @@ export function PCView(props: {
     const { clipDoc, currentClip, setClickedClip } = props
 
     return (
-        <Grid container justifyContent='space-evenly' columnSpacing={4}>
-            <Grid item xs={9}>
+        <Grid container justifyContent='space-evenly'>
+            <Grid item xs={8}>
                 <Stack
                     direction='column'
                     spacing={1}
