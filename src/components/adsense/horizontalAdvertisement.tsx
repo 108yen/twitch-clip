@@ -10,7 +10,7 @@ export default function HorizontalAdvertisement() {
             window.adsbygoogle = window.adsbygoogle || []
             window.adsbygoogle.push({})
         } catch (error) {
-            // console.error(error)
+            console.error(error)
         }
     }, [pathname])
 

@@ -1,5 +1,5 @@
 'use client'
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Divider, Stack, Typography } from '@mui/material'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -37,25 +37,18 @@ export default function VerticalAdvertisement() {
                 >
                     Advertisement
                 </Typography>
+                <Divider />
                 <Box
                     key={pathname}
                     flexGrow={1}
                     width={200}
-                    height={700}
                     textAlign='center'
                     padding={2}
-                    borderTop='solid'
-                    borderBottom='solid'
-                    borderColor='gray'
-                    sx={{ borderWidth: `0.5px` }}
                 >
                     <ins
                         className='adsbygoogle'
                         style={{
-                            display: `block`,
-                            margin: `auto`,
-                            width: 160,
-                            height: 600
+                            display: `block`
                         }}
                         data-adtest={
                             process.env.NODE_ENV === `production` ? `off` : `on`
