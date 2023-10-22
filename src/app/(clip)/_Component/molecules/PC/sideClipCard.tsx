@@ -5,8 +5,7 @@ import {
     Stack,
     MenuItem,
     SelectChangeEvent,
-    Tooltip,
-    Box
+    Tooltip
 } from '@mui/material'
 import { useMemo, useState } from 'react'
 
@@ -57,22 +56,9 @@ export default function SideClipCard(props: {
         <Stack direction='column' overflow='hidden' flexGrow={1}>
             <Stack
                 direction='row'
-                justifyContent='flex-end'
-                alignItems='center'
+                justifyContent='space-between'
+                alignItems='end'
             >
-                <BorderSelect
-                    size='small'
-                    value={tab}
-                    onChange={handleTabChange}
-                >
-                    {tabNameList.map((e, index) => (
-                        <MenuItem key={index} value={index}>
-                            {e}
-                        </MenuItem>
-                    ))}
-                </BorderSelect>
-            </Stack>
-            <Stack direction='row'>
                 <Tooltip
                     followCursor
                     placement='top'
@@ -97,9 +83,19 @@ export default function SideClipCard(props: {
                         <Typography variant='subtitle1'>clips</Typography>
                     </Stack>
                 </Tooltip>
-                <Box sx={{ flexGrow: 1 }} />
+                <BorderSelect
+                    size='small'
+                    value={tab}
+                    onChange={handleTabChange}
+                >
+                    {tabNameList.map((e, index) => (
+                        <MenuItem key={index} value={index}>
+                            {e}
+                        </MenuItem>
+                    ))}
+                </BorderSelect>
             </Stack>
-            <Divider />
+            <Divider sx={{ width: `65%` }} />
             <CardList
                 hasMore={hasMore}
                 viewItemNum={viewItemNum}

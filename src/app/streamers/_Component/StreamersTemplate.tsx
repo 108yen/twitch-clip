@@ -6,6 +6,7 @@ import { Streamer } from '../../../models/streamer'
 
 import StreamerList from './molecules/StreamerList'
 import StreamersPageHeader from './molecules/streamersPageHeader'
+import VerticalAdvertisement from '../../../components/adsense/verticalAdvertisement'
 
 export default function StreamersTemplate(props: {
     streamers: Array<Streamer>
@@ -28,26 +29,23 @@ export default function StreamersTemplate(props: {
     }
 
     return (
-        <>
-            <Grid
-                container
-                justifyContent='center'
-                paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-            >
-                <Grid item xs={12} md={9}>
-                    <StreamersPageHeader
-                        searchText={searchText}
-                        handleSearchTextChange={handleSearchTextChange}
-                        channelNum={channelNum}
-                    />
-                    <Divider
-                        sx={{
-                            marginX: { xs: 0, sm: 1 }
-                        }}
-                    />
-                    <StreamerList streamers={filteredStreamer} />
-                </Grid>
+        <Grid container justifyContent='space-evenly'>
+            <Grid item xs={12} md={8}>
+                <StreamersPageHeader
+                    searchText={searchText}
+                    handleSearchTextChange={handleSearchTextChange}
+                    channelNum={channelNum}
+                />
+                <Divider
+                    sx={{
+                        marginX: { xs: 0, sm: 1 }
+                    }}
+                />
+                <StreamerList streamers={filteredStreamer} />
             </Grid>
-        </>
+            <Grid item zeroMinWidth md={2} xl={1} display={{ xs: `none`, md: `flex` }}>
+                <VerticalAdvertisement />
+            </Grid>
+        </Grid>
     )
 }

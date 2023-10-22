@@ -3,6 +3,7 @@ import { Stack, Grid } from '@mui/material'
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
+import SquareAdvertisement from '../../../../components/adsense/squareAdvertisement'
 import { ClipDoc } from '../../../../models/clipDoc'
 import Player from '../atoms/common/player'
 import ClipInfo from '../molecules/common/clipInfo'
@@ -17,17 +18,12 @@ export function PCView(props: {
     const { clipDoc, currentClip, setClickedClip } = props
 
     return (
-        <Grid
-            container
-            justifyContent='center'
-            paddingX={{ xs: 0, md: 5, xl: 15 }}
-            columnSpacing={4}
-        >
-            <Grid item xs={12} sm={9}>
+        <Grid container justifyContent='space-evenly' columnSpacing={4}>
+            <Grid item xs={9}>
                 <Stack
                     direction='column'
                     spacing={1}
-                    sx={{ minWidth: 0, marginTop: { xs: 0, md: 5 } }}
+                    sx={{ minWidth: 0, marginTop: 4 }}
                 >
                     <BorderPaper>
                         <Player embed_url={currentClip.embed_url} />
@@ -39,7 +35,8 @@ export function PCView(props: {
                     <StreamerInfo clip={currentClip} />
                 </Stack>
             </Grid>
-            <Grid item zeroMinWidth xs={3}>
+            <Grid item zeroMinWidth xs={2}>
+                <SquareAdvertisement />
                 <SideClipCard
                     clipDoc={clipDoc}
                     setClickedClipUrl={setClickedClip}
