@@ -233,7 +233,7 @@ export default function AboutTemplate() {
                                 広告の設定
                             </AboutBodyTypography>
                         </ExternalLink>
-                        からパーソナライズ広告を無効にすることができます
+                        からパーソナライズ広告を無効にすることができます。
                     </AboutBodyTypography>
                     <Typography variant='h4' pt={10}>
                         7. お問い合わせ

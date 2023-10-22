@@ -1,3 +1,4 @@
+'use client'
 import { Box, Divider, Stack, Typography } from '@mui/material'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
@@ -32,7 +33,7 @@ export default function HorizontalAdvertisement() {
                     Advertisement
                 </Typography>
                 <Divider />
-                <Box key={pathname} marginY={1}>
+                <Box key={pathname} marginTop={0.5}>
                     <ins
                         className='adsbygoogle'
                         style={{

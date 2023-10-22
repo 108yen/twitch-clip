@@ -22,7 +22,7 @@ export function Home(props: {
                     setClickedClipUrl={setClickedClip}
                 />
             </Grid>
-            <Grid item zeroMinWidth md={2} display={{ xs: `none`, md: `flex` }}>
+            <Grid item zeroMinWidth md={2} xl={1} display={{ xs: `none`, md: `flex` }}>
                 <VerticalAdvertisement />
             </Grid>
         </Grid>

@@ -43,7 +43,7 @@ export default function StreamersTemplate(props: {
                 />
                 <StreamerList streamers={filteredStreamer} />
             </Grid>
-            <Grid item zeroMinWidth md={2} display={{ xs: `none`, md: `flex` }}>
+            <Grid item zeroMinWidth md={2} xl={1} display={{ xs: `none`, md: `flex` }}>
                 <VerticalAdvertisement />
             </Grid>
         </Grid>
