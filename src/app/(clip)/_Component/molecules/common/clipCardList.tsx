@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { event } from '@/components/googleAnalytics/gtag'
 import { Clip } from '@/models/clip'
 
+import HorizontalAdvertisement from '../../../../../components/adsense/horizontalAdvertisement'
 import ListCardItem from '../../atoms/common/listCardItem'
 
 export default function ClipCardList(props: {
@@ -62,6 +63,21 @@ export default function ClipCardList(props: {
     const cardItems = useMemo(
         () =>
             clips.slice(0, viewItemNum).map((e, index) => {
+                if (index % 10 == 0 && index != 0) {
+                    return (
+                        <>
+                            <Box display={{ xs: `flex`, md: `none` }}>
+                                <HorizontalAdvertisement />
+                            </Box>
+                            <ListCardItem
+                                key={index}
+                                clip={e}
+                                tab={tab}
+                                setClickedClipUrl={setClickedClipUrl}
+                            />
+                        </>
+                    )
+                }
                 return (
                     <ListCardItem
                         key={index}
