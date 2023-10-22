@@ -23,7 +23,7 @@ export function PCView(props: {
                 <Stack
                     direction='column'
                     spacing={1}
-                    sx={{ minWidth: 0, marginTop: 4 }}
+                    sx={{ minWidth: 0, marginTop: 3 }}
                 >
                     <BorderPaper>
                         <Player embed_url={currentClip.embed_url} />
