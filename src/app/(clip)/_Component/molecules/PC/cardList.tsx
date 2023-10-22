@@ -86,7 +86,7 @@ export default function CardList(props: {
                 hasMore={hasMore}
                 loader={loader}
                 endMessage={endMessage}
-                height={height - 133}
+                height={height - 133 - 130}
                 initialScrollY={0}
             >
                 {cardItems}

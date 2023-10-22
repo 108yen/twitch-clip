@@ -4,6 +4,8 @@ import { ReactNode, Suspense } from 'react'
 import DefaultHeader from '@/app/_Component/defaultHeader'
 import GoogleAnalytics from '@/components/googleAnalytics/GoogleAnalytics'
 
+import Adsbygoogle from '../components/adsense/adsbygoogle'
+
 import ThemeRegistry from './_Component/ThemeRegistry'
 
 export const metadata: Metadata = {
@@ -60,6 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     <GoogleAnalytics
                         debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`}
                     />
+                    <Adsbygoogle />
                 </Suspense>
             </head>
             <body>
