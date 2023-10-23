@@ -16,13 +16,10 @@ export default function HorizontalAdvertisement() {
     }, [pathname])
 
     return (
-        <Box flexGrow={1} position='relative' minHeight={100} overflow='hidden'>
+        <Box flexGrow={1} overflow='hidden'>
             <Stack
                 direction='column'
                 flexGrow={1}
-                position='absolute'
-                width='100%'
-                height='100%'
             >
                 <Typography
                     variant='body2'
