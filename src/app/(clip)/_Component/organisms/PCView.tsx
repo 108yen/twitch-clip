@@ -3,7 +3,6 @@ import { Stack, Grid } from '@mui/material'
 import { BorderPaper } from '@/components/styledui'
 import { Clip } from '@/models/clip'
 
-import SquareAdvertisement from '../../../../components/adsense/squareAdvertisement'
 import { ClipDoc } from '../../../../models/clipDoc'
 import Player from '../atoms/common/player'
 import ClipInfo from '../molecules/common/clipInfo'
@@ -36,7 +35,6 @@ export function PCView(props: {
                 </Stack>
             </Grid>
             <Grid item zeroMinWidth xs={2}>
-                <SquareAdvertisement />
                 <SideClipCard
                     clipDoc={clipDoc}
                     setClickedClipUrl={setClickedClip}
