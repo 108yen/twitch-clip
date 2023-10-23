@@ -11,6 +11,7 @@ import {
     Typography
 } from '@mui/material'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import { Div, NoDecorationTypography, PaperAppBar } from '@/components/styledui'
@@ -49,6 +50,17 @@ export default function DefaultHeader() {
         window.addEventListener(`scroll`, toggleTransparent)
         return () => window.removeEventListener(`scroll`, toggleTransparent)
     }, [])
+
+    const pathname = usePathname()
+    const currentPath = pathname.split(`/`)[1]
+    function setCurrentPageColor(theme: Theme, pagePath: string) {
+        return pagePath == currentPath
+            ? theme.palette.text.primary
+            : theme.palette.text.disabled
+    }
+    function setCurrentPageUnderline(pagePath: string) {
+        return pagePath == currentPath ? `solid 0.7px` : `none`
+    }
 
     return (
         <PaperAppBar
@@ -114,14 +126,7 @@ export default function DefaultHeader() {
                                 onMouseLeave={handleOnMouseLeave}
                                 sx={{
                                     paddingX: 2,
-                                    paddingY: 0.5,
-                                    transitionDuration: `0.3s`,
-                                    color: (theme) =>
-                                        theme.palette.text.disabled,
-                                    '&:hover': {
-                                        color: (theme) =>
-                                            theme.palette.text.primary
-                                    }
+                                    paddingY: 0.5
                                 }}
                             >
                                 <Link
@@ -134,7 +139,25 @@ export default function DefaultHeader() {
                                     }}
                                 >
                                     <Tooltip title='ページトップ'>
-                                        <Typography variant='body1' noWrap>
+                                        <Typography
+                                            variant='body1'
+                                            noWrap
+                                            sx={{
+                                                transitionDuration: `0.3s`,
+                                                borderBottom: () =>
+                                                    setCurrentPageUnderline(``),
+                                                color: (theme) =>
+                                                    setCurrentPageColor(
+                                                        theme,
+                                                        ``
+                                                    ),
+                                                '&:hover': {
+                                                    color: (theme) =>
+                                                        theme.palette.text
+                                                            .primary
+                                                }
+                                            }}
+                                        >
                                             Top
                                         </Typography>
                                     </Tooltip>
@@ -145,14 +168,7 @@ export default function DefaultHeader() {
                                 onMouseLeave={handleOnMouseLeave}
                                 sx={{
                                     paddingX: 2,
-                                    paddingY: 0.5,
-                                    transitionDuration: `0.3s`,
-                                    color: (theme) =>
-                                        theme.palette.text.disabled,
-                                    '&:hover': {
-                                        color: (theme) =>
-                                            theme.palette.text.primary
-                                    }
+                                    paddingY: 0.5
                                 }}
                             >
                                 <Link
@@ -165,7 +181,27 @@ export default function DefaultHeader() {
                                     }}
                                 >
                                     <Tooltip title='日別ランキング'>
-                                        <Typography variant='body1' noWrap>
+                                        <Typography
+                                            variant='body1'
+                                            noWrap
+                                            sx={{
+                                                transitionDuration: `0.3s`,
+                                                borderBottom: () =>
+                                                    setCurrentPageUnderline(
+                                                        `daily`
+                                                    ),
+                                                color: (theme) =>
+                                                    setCurrentPageColor(
+                                                        theme,
+                                                        `daily`
+                                                    ),
+                                                '&:hover': {
+                                                    color: (theme) =>
+                                                        theme.palette.text
+                                                            .primary
+                                                }
+                                            }}
+                                        >
                                             Daily ranking
                                         </Typography>
                                     </Tooltip>
@@ -176,14 +212,7 @@ export default function DefaultHeader() {
                                 onMouseLeave={handleOnMouseLeave}
                                 sx={{
                                     paddingX: 2,
-                                    paddingY: 0.5,
-                                    transitionDuration: `0.3s`,
-                                    color: (theme) =>
-                                        theme.palette.text.disabled,
-                                    '&:hover': {
-                                        color: (theme) =>
-                                            theme.palette.text.primary
-                                    }
+                                    paddingY: 0.5
                                 }}
                             >
                                 <Link
@@ -196,7 +225,27 @@ export default function DefaultHeader() {
                                     }}
                                 >
                                     <Tooltip title='過去の年別ランキング'>
-                                        <Typography variant='body1' noWrap>
+                                        <Typography
+                                            variant='body1'
+                                            noWrap
+                                            sx={{
+                                                transitionDuration: `0.3s`,
+                                                borderBottom: () =>
+                                                    setCurrentPageUnderline(
+                                                        `past`
+                                                    ),
+                                                color: (theme) =>
+                                                    setCurrentPageColor(
+                                                        theme,
+                                                        `past`
+                                                    ),
+                                                '&:hover': {
+                                                    color: (theme) =>
+                                                        theme.palette.text
+                                                            .primary
+                                                }
+                                            }}
+                                        >
                                             Past ranking
                                         </Typography>
                                     </Tooltip>
@@ -207,14 +256,7 @@ export default function DefaultHeader() {
                                 onMouseLeave={handleOnMouseLeave}
                                 sx={{
                                     paddingX: 2,
-                                    paddingY: 0.5,
-                                    transitionDuration: `0.3s`,
-                                    color: (theme) =>
-                                        theme.palette.text.disabled,
-                                    '&:hover': {
-                                        color: (theme) =>
-                                            theme.palette.text.primary
-                                    }
+                                    paddingY: 0.5
                                 }}
                             >
                                 <Link
@@ -227,7 +269,28 @@ export default function DefaultHeader() {
                                     }}
                                 >
                                     <Tooltip title='チャンネル一覧'>
-                                        <Typography variant='body1' noWrap>
+                                        <Typography
+                                            variant='body1'
+                                            noWrap
+                                            component='div'
+                                            sx={{
+                                                transitionDuration: `0.3s`,
+                                                borderBottom: () =>
+                                                    setCurrentPageUnderline(
+                                                        `streamers`
+                                                    ),
+                                                color: (theme) =>
+                                                    setCurrentPageColor(
+                                                        theme,
+                                                        `streamers`
+                                                    ),
+                                                '&:hover': {
+                                                    color: (theme) =>
+                                                        theme.palette.text
+                                                            .primary
+                                                }
+                                            }}
+                                        >
                                             Channels
                                         </Typography>
                                     </Tooltip>
