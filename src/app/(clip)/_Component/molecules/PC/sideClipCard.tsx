@@ -87,6 +87,7 @@ export default function SideClipCard(props: {
                     size='small'
                     value={tab}
                     onChange={handleTabChange}
+                    sx={{ marginBottom: 2 }}
                 >
                     {tabNameList.map((e, index) => (
                         <MenuItem key={index} value={index}>
@@ -95,7 +96,7 @@ export default function SideClipCard(props: {
                     ))}
                 </BorderSelect>
             </Stack>
-            <Divider sx={{ width: `65%` }} />
+            <Divider />
             <CardList
                 hasMore={hasMore}
                 viewItemNum={viewItemNum}

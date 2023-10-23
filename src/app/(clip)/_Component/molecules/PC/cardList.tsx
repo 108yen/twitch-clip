@@ -1,10 +1,10 @@
-import { Box, CircularProgress, Typography } from '@mui/material'
-import { useMemo } from 'react'
+import { Box, CircularProgress, Stack, Typography } from '@mui/material'
+import { useEffect, useMemo } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { event } from '@/components/googleAnalytics/gtag'
 
-import { useWindowSize } from '../../../../../components/hooks'
+import SquareAdvertisement from '../../../../../components/adsense/squareAdvertisement'
 import { Clip } from '../../../../../models/clip'
 import CardItem from '../../atoms/PC/cardItem'
 
@@ -28,7 +28,11 @@ export default function CardList(props: {
     } = props
 
     //window size
-    const [, height] = useWindowSize()
+    const height = window.innerHeight
+
+    useEffect(() => {
+        console.log(height)
+    }, [height])
 
     function loadMore(clips: Clip[]) {
         //if max item num is clips num
@@ -58,6 +62,18 @@ export default function CardList(props: {
     const cardItems = useMemo(
         () =>
             clips.slice(0, viewItemNum).map((e, index) => {
+                if ((index % 10 == 0 && index != 0) || index == 3) {
+                    return (
+                        <Stack key={index} direction='column'>
+                            <SquareAdvertisement />
+                            <CardItem
+                                clip={e}
+                                tab={tab}
+                                setClickedClipUrl={setClickedClipUrl}
+                            />
+                        </Stack>
+                    )
+                }
                 return (
                     <CardItem
                         key={index}
@@ -86,8 +102,7 @@ export default function CardList(props: {
                 hasMore={hasMore}
                 loader={loader}
                 endMessage={endMessage}
-                height={height - 133 - 130}
-                initialScrollY={0}
+                height={height - 121}
             >
                 {cardItems}
             </InfiniteScroll>
