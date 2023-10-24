@@ -95,6 +95,7 @@ export default function CardList(props: {
     if (clips.length != 0) {
         return (
             <InfiniteScroll
+                style={{ overflowX: `hidden` }}
                 dataLength={viewItemNum}
                 next={() => {
                     loadMore(clips)

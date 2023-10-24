@@ -26,7 +26,7 @@ export default function SquareAdvertisement() {
                 Advertisement
             </Typography>
             <Divider />
-            <Box key={pathname} margin={1} textAlign='center' minWidth={200}>
+            <Box key={pathname} margin={1} textAlign='center' minWidth={250}>
                 <ins
                     className='adsbygoogle'
                     style={{
