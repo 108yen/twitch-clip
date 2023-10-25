@@ -16,19 +16,15 @@ export default function VerticalAdvertisement() {
     }, [pathname])
 
     return (
-        <Box flexGrow={1} position='relative' top={50}>
-            <Stack
-                direction='column'
-                overflow='hidden'
-                flexGrow={1}
-                position='absolute'
-                left='50%'
-                sx={{
-                    transform: `translateX(-50%)`,
-                    '-webkit-transform': `translateX(-50%)`,
-                    '-ms-transform': `translateX(-50%)`
-                }}
-            >
+        <Stack
+            direction='column'
+            flexGrow={1}
+            justifyContent='flex-start'
+            alignItems='center'
+            position='fixed'
+            top={100}
+        >
+            <Box position='relative'>
                 <Typography
                     variant='body2'
                     color='grey'
@@ -48,7 +44,9 @@ export default function VerticalAdvertisement() {
                     <ins
                         className='adsbygoogle'
                         style={{
-                            display: `block`
+                            display: `block`,
+                            position: `relative`,
+                            top: 0
                         }}
                         data-adtest={
                             process.env.NODE_ENV === `production` ? `off` : `on`
@@ -59,7 +57,7 @@ export default function VerticalAdvertisement() {
                         data-full-width-responsive='true'
                     />
                 </Box>
-            </Stack>
-        </Box>
+            </Box>
+        </Stack>
     )
 }

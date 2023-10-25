@@ -12,17 +12,21 @@ export function Home(props: {
 }) {
     const { clipDoc, setClickedClip } = props
     return (
-        <Grid
-            container
-            justifyContent='space-evenly'
-        >
+        <Grid container justifyContent='space-evenly'>
             <Grid item zeroMinWidth xs={12} md={8}>
                 <SwiperClipCardList
                     clipDoc={clipDoc}
                     setClickedClipUrl={setClickedClip}
                 />
             </Grid>
-            <Grid item zeroMinWidth md={2} xl={1} display={{ xs: `none`, md: `flex` }}>
+            <Grid
+                item
+                zeroMinWidth
+                md={2}
+                xl={1}
+                display={{ xs: `none`, md: `flex` }}
+                justifyContent='center'
+            >
                 <VerticalAdvertisement />
             </Grid>
         </Grid>

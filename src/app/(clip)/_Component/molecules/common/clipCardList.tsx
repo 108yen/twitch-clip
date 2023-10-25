@@ -63,7 +63,7 @@ export default function ClipCardList(props: {
     const cardItems = useMemo(
         () =>
             clips.slice(0, viewItemNum).map((e, index) => {
-                if ((index % 10 == 0 && index != 0) || index == 3) {
+                if ((index % 10 == 0 && index != 0) || index == 2) {
                     return (
                         <Box key={index}>
                             <Box display={{ xs: `flex`, md: `none` }}>
