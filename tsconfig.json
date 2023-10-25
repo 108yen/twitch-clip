@@ -29,7 +29,7 @@
         "name": "next"
       }
     ],
-    "types": ["node", "jest", "@testing-library/jest-dom"]
+    "types": ["node", "jest", "@testing-library/jest-dom", "gtag.js"]
   },
   "include": [
     "next-env.d.ts",
