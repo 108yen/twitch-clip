@@ -8,7 +8,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import ClipCardList from '@/app/(clip)/_Component/molecules/common/clipCardList'
 import { Clip } from '@/models/clip'
 
-import { useWindowSize } from '../../../../../components/hooks'
 import { ClipDoc } from '../../../../../models/clipDoc'
 import getTabNameList from '../../utils/getTabNameList'
 
@@ -24,7 +23,7 @@ export default function SwiperClipCardList(props: {
     // swipe
     const [swiper, setSwiper] = useState<SwiperCore | null>(null)
     //style
-    const [windowWidth] = useWindowSize()
+    const windowWidth = window.innerWidth
     const top = (windowWidth * 9) / 16
     const style = sticky ? { position: `sticky`, top: top } : {}
 

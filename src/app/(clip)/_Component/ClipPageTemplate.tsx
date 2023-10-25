@@ -2,7 +2,6 @@
 import { useState } from 'react'
 
 import { Home } from '@/app/(clip)/_Component/organisms/home'
-import { useWindowSize } from '@/components/hooks'
 import { Clip } from '@/models/clip'
 
 import { ClipDoc } from '../../../models/clipDoc'
@@ -18,7 +17,7 @@ export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
     function handleSetClip(clip: Clip | undefined) {
         setCurrentClip(clip)
     }
-    const [width] = useWindowSize()
+    const width = window.innerWidth
 
     if (currentClip === undefined) {
         return <Home clipDoc={clipDoc} setClickedClip={handleSetClip} />

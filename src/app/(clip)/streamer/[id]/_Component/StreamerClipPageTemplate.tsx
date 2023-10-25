@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 import { Home } from '@/app/(clip)/_Component/organisms/home'
 import StreamerCard from '@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard'
-import { useWindowSize } from '@/components/hooks'
 import { Clip } from '@/models/clip'
 
 import { ClipDoc } from '../../../../../models/clipDoc'
@@ -20,7 +19,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
     function handleSetClip(clip: Clip | undefined) {
         setCurrentClip(clip)
     }
-    const [width] = useWindowSize()
+    const width = window.innerWidth
 
     if (currentClip === undefined) {
         return (
