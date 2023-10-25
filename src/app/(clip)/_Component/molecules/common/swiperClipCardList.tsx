@@ -97,7 +97,7 @@ export default function SwiperClipCardList(props: {
                 {tabNameList.map((tab, index) => {
                     const clips = clipDoc[tab] as Array<Clip>
                     return (
-                        <SwiperSlide key={index} virtualIndex={index}>
+                        <SwiperSlide key={tab} virtualIndex={index}>
                             <ClipCardList
                                 key={index}
                                 hasMore={hasMore}
