@@ -66,7 +66,10 @@ export default function ClipCardList(props: {
                 if ((index % 10 == 0 && index != 0) || index == 2) {
                     return (
                         <Box key={index}>
-                            <Box display={{ xs: `flex`, md: `none` }}>
+                            <Box
+                                display={{ xs: `flex`, md: `none` }}
+                                width='100%'
+                            >
                                 <HorizontalAdvertisement />
                             </Box>
                             <ListCardItem
