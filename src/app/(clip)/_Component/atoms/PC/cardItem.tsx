@@ -48,7 +48,13 @@ export default function CardItem(props: {
                         })
                     }}
                 >
-                    <Tooltip followCursor placement='top' title={clip.title}>
+                    <Tooltip
+                        followCursor
+                        placement='top'
+                        title={clip.title}
+                        enterDelay={500}
+                        enterNextDelay={500}
+                    >
                         <img
                             src={clip.thumbnail_url}
                             alt={clip.title}
