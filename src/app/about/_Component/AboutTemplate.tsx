@@ -107,7 +107,7 @@ export default function AboutTemplate() {
                                         day,week,month,yearランキング
                                     </TableCell>
                                     <TableCell align='right'>
-                                        毎日0,6,12,18時
+                                        3時間毎
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
