@@ -18,7 +18,7 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
                     justifyContent: `center`,
                     overflow: `hidden`,
                     maxWidth: 700,
-                    margin: `auto`
+                    margin: `auto`,
                 }}
             >
                 <Stack
