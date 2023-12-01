@@ -1,5 +1,5 @@
 'use client'
-import { Grid } from '@mui/material'
+import { AppBar, Divider, Grid, Toolbar } from '@mui/material'
 import { useState } from 'react'
 
 import { Home } from '@/app/(clip)/_Component/organisms/home'
@@ -24,15 +24,20 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
     if (currentClip === undefined) {
         return (
             <>
-                <Grid
-                    container
-                    justifyContent='center'
-                    paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
-                >
-                    <Grid item xs={12} md={9}>
-                        <StreamerCard streamerInfo={streamerInfo} />
-                    </Grid>
-                </Grid>
+                <Divider />
+                <AppBar position='relative' elevation={0}>
+                    <Toolbar>
+                        <Grid
+                            container
+                            justifyContent='center'
+                            paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
+                        >
+                            <Grid item xs={12} md={9}>
+                                <StreamerCard streamerInfo={streamerInfo} />
+                            </Grid>
+                        </Grid>
+                    </Toolbar>
+                </AppBar>
                 <Home clipDoc={clipDoc} setClickedClip={handleSetClip} />
             </>
         )
