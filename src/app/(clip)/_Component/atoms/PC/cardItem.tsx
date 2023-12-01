@@ -48,61 +48,83 @@ export default function CardItem(props: {
                         })
                     }}
                 >
-                    <Tooltip followCursor placement='top' title={clip.title}>
-                        <img
-                            src={clip.thumbnail_url}
-                            alt={clip.title}
-                            loading='lazy'
-                            style={{
-                                position: `absolute`,
-                                top: 0,
-                                left: 0,
-                                width: `100%`,
-                                height: `100%`,
-                                border: `none`
-                            }}
-                        />
-                    </Tooltip>
+                    <img
+                        src={clip.thumbnail_url}
+                        alt={clip.title}
+                        loading='lazy'
+                        style={{
+                            position: `absolute`,
+                            top: 0,
+                            left: 0,
+                            width: `100%`,
+                            height: `100%`,
+                            border: `none`
+                        }}
+                    />
                 </BorderPaper>
-                <Link
-                    href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
-                    prefetch={false}
-                    style={{
-                        textDecoration: `none`
-                    }}
-                >
-                    <Stack direction='row' alignItems='center' spacing={2}>
+                <Stack direction='row' alignItems='center' spacing={2}>
+                    <Link
+                        href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
+                        prefetch={false}
+                        style={{
+                            textDecoration: `none`
+                        }}
+                    >
                         <Avatar
                             sx={{ width: 35, height: 35 }}
                             alt='top'
                             src={clip.profile_image_url}
                         />
-                        <Stack
-                            direction='column'
-                            overflow='hidden'
-                            flexGrow={1}
+                    </Link>
+                    <Stack direction='column' overflow='hidden' flexGrow={1}>
+                        <Tooltip
+                            followCursor
+                            placement='top'
+                            title={clip.title}
+                            enterDelay={500}
+                            enterNextDelay={500}
                         >
-                            <NoDecorationTypography variant='body1' noWrap>
+                            <NoDecorationTypography
+                                variant='body1'
+                                noWrap
+                                onClick={() => {
+                                    setClickedClipUrl(clip)
+                                    event(`click`, {
+                                        label: `click_clip_title`,
+                                        clip_title: clip.title,
+                                        ranking_period: tab,
+                                        link_url: clip.url
+                                    })
+                                }}
+                            >
                                 {clip.title}
                             </NoDecorationTypography>
-                            <Stack
-                                direction='row'
-                                justifyContent='space-between'
-                                alignItems='center'
-                                flexGrow={1}
+                        </Tooltip>
+                        <Stack
+                            direction='row'
+                            justifyContent='space-between'
+                            alignItems='center'
+                            flexGrow={1}
+                        >
+                            <Link
+                                href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
+                                prefetch={false}
+                                style={{
+                                    textDecoration: `none`
+                                }}
                             >
                                 <Typography noWrap variant='body1' color='grey'>
                                     {clip.broadcaster_name}
                                 </Typography>
-                                <Typography noWrap variant='body2' color='grey'>
-                                    {clip.view_count?.toLocaleString()}
-                                    {` `}
-                                    views
-                                </Typography>
-                            </Stack>
+                            </Link>
+                            <Typography noWrap variant='body2' color='grey'>
+                                {clip.view_count?.toLocaleString()}
+                                {` `}
+                                views
+                            </Typography>
                         </Stack>
                     </Stack>
-                </Link>
+                </Stack>
             </Stack>
         </Box>
     )

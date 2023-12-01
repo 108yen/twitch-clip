@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import React, { ReactNode } from 'react'
 
+import '@testing-library/jest-dom'
 import ListCardItem from '../../../../../../app/(clip)/_Component/atoms/common/listCardItem'
 
 // ダミーデータを作成（テスト用）
@@ -20,19 +21,19 @@ const dummyClip = {
 const setClickedClipUrlMock = jest.fn()
 const eventMock = jest.fn()
 
-jest.mock(`next/link`, () => {
-    return ({ children }: { children: ReactNode }) => {
-        return children
-    }
-})
-
-jest.mock(`@/components/googleAnalytics/gtag`, () => {
-    return {
-        event: eventMock
-    }
-})
-
 describe(`ListCardItem`, () => {
+    beforeAll(() => {
+        jest.mock(`next/link`, () => {
+            return ({ children }: { children: ReactNode }) => {
+                return children
+            }
+        })
+
+        jest.mock(`@/components/googleAnalytics/gtag`, () => ({
+            event: eventMock
+        }))
+    })
+
     it(`renders component correctly`, () => {
         render(
             <ListCardItem
@@ -78,7 +79,7 @@ describe(`ListCardItem`, () => {
             />
         )
 
-        const twitchClipLink = screen.getByText(`Twitch Clip Link`)
+        const twitchClipLink = screen.getByText(`Test Clip`)
         fireEvent.click(twitchClipLink)
 
         // eventが正しく呼び出されたことを確認

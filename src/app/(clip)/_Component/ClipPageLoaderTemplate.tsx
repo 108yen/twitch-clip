@@ -1,4 +1,3 @@
-'use client'
 import { Box, CircularProgress, Grid, Stack, Tab, Tabs } from '@mui/material'
 
 export default function ClipPageLoaderTemplate() {
@@ -21,8 +20,6 @@ export default function ClipPageLoaderTemplate() {
                     <Box
                         sx={{
                             zIndex: 1200,
-                            backgroundColor: (theme) =>
-                                theme.palette.background.default,
                             borderBottom: 1,
                             borderColor: `divider`,
                             justifyContent: `center`,

@@ -18,7 +18,7 @@ const customJestConfig = {
         '^@/(.*)$': [`<rootDir>/$1`]
     },
     // ↓1行を変更しています: React Testing Libraryはまだ利用しないのでコメントアウト
-    // testEnvironment: 'jest-environment-jsdom',
+    testEnvironment: `jest-environment-jsdom`,
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

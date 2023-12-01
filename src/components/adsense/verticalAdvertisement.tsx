@@ -3,7 +3,7 @@ import { Box, Divider, Stack, Typography } from '@mui/material'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
-export default function VerticalAdvertisement() {
+export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
     const pathname = usePathname()
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export default function VerticalAdvertisement() {
             justifyContent='flex-start'
             alignItems='center'
             position='fixed'
-            top={100}
+            top={top}
         >
             <Box position='relative'>
                 <Typography
