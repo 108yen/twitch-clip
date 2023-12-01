@@ -3,7 +3,7 @@ import { Box, Divider, Stack, Typography } from '@mui/material'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
-export default function VerticalAdvertisement({ top = 200 }: { top?: number }) {
+export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
     const pathname = usePathname()
 
     useEffect(() => {
