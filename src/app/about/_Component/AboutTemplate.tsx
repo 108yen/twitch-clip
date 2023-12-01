@@ -80,6 +80,23 @@ export default function AboutTemplate() {
                                 </AboutBodyTypography>
                             </ExternalLink>
                         </ListItem>
+                        <ListItem>
+                            <ExternalLink
+                                href='https://twitchstats.net/twitch-clip-search'
+                                ariaLabel='twitch stats link'
+                                eventLabel='click_twitch_stats_link'
+                            >
+                                <AboutBodyTypography
+                                    sx={{
+                                        '&:hover': {
+                                            textDecorationLine: `underline`
+                                        }
+                                    }}
+                                >
+                                    Twitch Stats and analysis
+                                </AboutBodyTypography>
+                            </ExternalLink>
+                        </ListItem>
                     </List>
                     <Typography variant='h4' pt={10}>
                         2. ランキングについて
@@ -106,9 +123,7 @@ export default function AboutTemplate() {
                                     <TableCell>
                                         day,week,month,yearランキング
                                     </TableCell>
-                                    <TableCell align='right'>
-                                        3時間毎
-                                    </TableCell>
+                                    <TableCell align='right'>3時間毎</TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>allランキング</TableCell>
