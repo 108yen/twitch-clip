@@ -13,12 +13,12 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
         return (
             <Box
                 sx={{
-                    paddingY: 10,
+                    paddingY: 5,
                     flexGrow: 1,
                     justifyContent: `center`,
                     overflow: `hidden`,
                     maxWidth: 700,
-                    margin: `auto`,
+                    margin: `auto`
                 }}
             >
                 <Stack
@@ -43,7 +43,7 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
                     </Link>
 
                     <Stack
-                        spacing={0}
+                        spacing={1}
                         direction='column'
                         justifyContent='space-between'
                         flexGrow={1}
@@ -52,11 +52,11 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
                         <Stack
                             direction='row'
                             justifyContent='space-between'
-                            alignItems='start'
+                            alignItems='center'
                             flexGrow={1}
                             spacing={1}
                         >
-                            <Typography variant='subtitle1' noWrap>
+                            <Typography variant='h5' fontWeight='bold' noWrap>
                                 {streamerInfo.display_name}
                             </Typography>
                             <Link
@@ -88,7 +88,19 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
                                 </Stack>
                             </Link>
                         </Stack>
-                        <Typography variant='body2' color='gray'>
+                        <Typography
+                            variant='body2'
+                            color='gray'
+                            height={50}
+                            overflow='auto'
+                            sx={{
+                                msOverflowStyle: `none`,
+                                scrollbarWidth: `none`,
+                                '::-webkit-scrollbar': {
+                                    display: `none`
+                                }
+                            }}
+                        >
                             {streamerInfo.description}
                         </Typography>
 
