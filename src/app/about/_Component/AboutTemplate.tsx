@@ -1,4 +1,4 @@
-import GitHubIcon from '@mui/icons-material/GitHub'
+import TwitterIcon from '@mui/icons-material/Twitter'
 import {
     Divider,
     Grid,
@@ -267,12 +267,12 @@ export default function AboutTemplate() {
                             developer:
                         </Typography>
                         <ExternalLink
-                            href='https://github.com/108yen'
-                            ariaLabel='github link'
-                            eventLabel='click_github_link'
+                            href='https://twitter.com/108yen___'
+                            ariaLabel='twitter link'
+                            eventLabel='click_twitter_link'
                         >
                             <Stack direction='row' alignItems='center'>
-                                <GitHubIcon
+                                <TwitterIcon
                                     sx={{
                                         fontSize: 14,
                                         color: `grey`
