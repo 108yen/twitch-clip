@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 
 import { Clip } from '@/models/clip'
 
-import VerticalAdvertisement from '../../../../components/adsense/verticalAdvertisement'
+import PollgateAD from '../../../../components/pollgateAD'
 import { ClipDoc } from '../../../../models/clipDoc'
 import SwiperClipCardList from '../molecules/common/swiperClipCardList'
 
@@ -27,7 +27,8 @@ export function Home(props: {
                 display={{ xs: `none`, md: `flex` }}
                 justifyContent='center'
             >
-                <VerticalAdvertisement />
+                {/* <VerticalAdvertisement /> */}
+                <PollgateAD />
             </Grid>
         </Grid>
     )
