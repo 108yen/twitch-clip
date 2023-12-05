@@ -28,7 +28,7 @@ export default function StreamerItem({ streamer }: { streamer: Streamer }) {
                 spacing={1}
             >
                 <Link
-                    href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
+                    href={`/streamer/${streamer.id}`}
                     aria-label='streamer channel page link'
                     prefetch={false}
                 >
@@ -48,7 +48,7 @@ export default function StreamerItem({ streamer }: { streamer: Streamer }) {
                         width='100%'
                     >
                         <Link
-                            href={`/streamer/${streamer.id}?display_name=${streamer.display_name}`}
+                            href={`/streamer/${streamer.id}`}
                             aria-label='streamer channel page link'
                             prefetch={false}
                             style={{
