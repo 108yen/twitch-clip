@@ -15,7 +15,7 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
             spacing={1}
         >
             <Link
-                href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
+                href={`/streamer/${clip.broadcaster_id}`}
                 prefetch={false}
                 style={{
                     textDecoration: `none`
@@ -36,7 +36,7 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
             >
                 <Stack direction='column' overflow='hidden'>
                     <Link
-                        href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
+                        href={`/streamer/${clip.broadcaster_id}`}
                         prefetch={false}
                         aria-label='streamer page link'
                         style={{

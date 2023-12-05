@@ -4,25 +4,18 @@ import getClips from '../../../../firebase/server/clips'
 
 import StreamerClipPageTemplate from './_Component/StreamerClipPageTemplate'
 
-type Props = {
-    params: { id: string }
-    searchParams: { [key: string]: string | string[] | undefined }
-}
-
-export const revalidate = 1200 //20minutes
-
 export async function generateMetadata({
-    searchParams
-}: Props): Promise<Metadata> {
-    if (typeof searchParams.display_name == `string`) {
-        const display_name = searchParams.display_name
-        return {
-            title: display_name,
-            description:
-                display_name + `のTwitch(ツイッチ)クリップの再生数ランキング。`
-        }
-    } else {
-        return {}
+    params
+}: {
+    params: { id: string }
+}): Promise<Metadata> {
+    const id = params.id
+    const clipDoc = await getClips(id)
+    const streamerInfo = clipDoc.streamerInfo
+
+    return {
+        title: streamerInfo?.display_name,
+        description: `${streamerInfo?.display_name}のTwitch(ツイッチ)クリップの再生数ランキング。`
     }
 }
 

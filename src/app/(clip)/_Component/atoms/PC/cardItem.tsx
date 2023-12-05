@@ -64,7 +64,7 @@ export default function CardItem(props: {
                 </BorderPaper>
                 <Stack direction='row' alignItems='center' spacing={2}>
                     <Link
-                        href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
+                        href={`/streamer/${clip.broadcaster_id}`}
                         prefetch={false}
                         style={{
                             textDecoration: `none`
@@ -107,7 +107,7 @@ export default function CardItem(props: {
                             flexGrow={1}
                         >
                             <Link
-                                href={`/streamer/${clip.broadcaster_id}?display_name=${clip.broadcaster_name}`}
+                                href={`/streamer/${clip.broadcaster_id}`}
                                 prefetch={false}
                                 style={{
                                     textDecoration: `none`
