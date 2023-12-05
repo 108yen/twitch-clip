@@ -37,13 +37,13 @@ export default function InquiryForm() {
             setSnackbarState({
                 open: true,
                 severity: `error`,
-                message: `投票作成失敗`
+                message: `お問い合わせ失敗`
             })
         } else {
             setSnackbarState({
                 open: true,
                 severity: `success`,
-                message: `投票作成完了`
+                message: `お問い合わせ完了`
             })
             reset()
         }
