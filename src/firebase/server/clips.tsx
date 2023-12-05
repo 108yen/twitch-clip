@@ -10,7 +10,7 @@ import { ClipDoc } from '@/models/clipDoc'
 
 import { clipDocConverter } from './converters/clipDocConverter'
 
-const getClips = unstable_cache(uncache_getClips, [`get-clips`], {
+const getClips = unstable_cache((id) => uncache_getClips(id), [`get-clips`], {
     revalidate: 1200 //20minutes
 })
 export default getClips

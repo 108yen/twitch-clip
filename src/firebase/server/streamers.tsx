@@ -7,9 +7,13 @@ import { Streamer } from '@/models/streamer'
 
 import { streamersConverter } from './converters/streamersConverter'
 
-const getStreamers = unstable_cache(uncache_getStreamers, [`get-streamers`], {
-    revalidate: 10800 //3hours
-})
+const getStreamers = unstable_cache(
+    () => uncache_getStreamers(),
+    [`get-streamers`],
+    {
+        revalidate: 10800 //3hours
+    }
+)
 export default getStreamers
 
 async function uncache_getStreamers() {
