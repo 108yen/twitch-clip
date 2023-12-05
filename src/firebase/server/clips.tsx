@@ -2,6 +2,7 @@ import {
     CollectionReference,
     DocumentReference
 } from 'firebase-admin/firestore'
+import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
 
 import { db } from '@/firebase/server/server'
@@ -9,7 +10,12 @@ import { ClipDoc } from '@/models/clipDoc'
 
 import { clipDocConverter } from './converters/clipDocConverter'
 
-export default async function getClips(id: string) {
+const getClips = unstable_cache(uncache_getClips, [`get-clips`], {
+    revalidate: 1200 //20minutes
+})
+export default getClips
+
+async function uncache_getClips(id: string) {
     const clipColRef: CollectionReference<ClipDoc> = db
         .collection(`clips`)
         .withConverter<ClipDoc>(clipDocConverter)
