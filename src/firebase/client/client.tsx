@@ -5,7 +5,6 @@ import {
     ReCaptchaV3Provider,
     getToken
 } from 'firebase/app-check'
-import { getFirestore } from 'firebase/firestore'
 import { getPerformance } from 'firebase/performance'
 
 import { event } from '@/components/googleAnalytics/gtag'
@@ -27,12 +26,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-export const db = getFirestore(app)
-
-// firestore emulator
-// if (process.env.NEXT_PUBLIC_DEBUG_MODE == `1`) {
-//     connectFirestoreEmulator(db, `localhost`, 8080)
-// }
 
 if (typeof document !== `undefined`) {
     // Performance monitoring
