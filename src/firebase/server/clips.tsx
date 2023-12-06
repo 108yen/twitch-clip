@@ -10,9 +10,13 @@ import { ClipDoc } from '@/models/clipDoc'
 
 import { clipDocConverter } from './converters/clipDocConverter'
 
-const getClips = unstable_cache((id) => uncache_getClips(id), [`get-clips`], {
-    revalidate: 1200 //20minutes
-})
+const getClips = unstable_cache(
+    async (id) => uncache_getClips(id),
+    [`get-clips`],
+    {
+        revalidate: 1200 //20minutes
+    }
+)
 export default getClips
 
 async function uncache_getClips(id: string) {
