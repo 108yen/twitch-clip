@@ -55,7 +55,7 @@ export const AdsCard = () => {
                 <div
                     className='admax-ads'
                     data-admax-id={adMaxId}
-                    style={{ display: `inline-block` }}
+                    style={{ display: `inline-block`, width: 300, height: 250 }}
                 ></div>
             </Box>
         </Stack>
@@ -98,7 +98,7 @@ export const PCCard = () => {
                 <div
                     className='admax-ads'
                     data-admax-id={adMaxId}
-                    style={{ display: `inline-block` }}
+                    style={{ display: `inline-block`, width: 300, height: 250 }}
                 ></div>
             </Box>
         </Stack>
