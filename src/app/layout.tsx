@@ -4,6 +4,7 @@ import { ReactNode, Suspense } from 'react'
 import DefaultHeader from '@/app/_Component/defaultHeader'
 import GoogleAnalytics from '@/components/googleAnalytics/GoogleAnalytics'
 
+import { Adsbyadmax } from '../components/admax/adsCard'
 import Adsbygoogle from '../components/adsense/adsbygoogle'
 
 import ThemeRegistry from './_Component/ThemeRegistry'
@@ -63,6 +64,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                         debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`}
                     />
                     <Adsbygoogle />
+                    {/* !: admax */}
+                    <Adsbyadmax />
                 </Suspense>
             </head>
             <body>
