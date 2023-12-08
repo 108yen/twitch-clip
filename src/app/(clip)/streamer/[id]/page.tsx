@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 
 import getClips from '../../../../firebase/server/clips'
+import generateTemplateMetadata from '../../../../utils/generateTemplateMetadata'
 
 import StreamerClipPageTemplate from './_Component/StreamerClipPageTemplate'
 
@@ -13,10 +14,7 @@ export async function generateMetadata({
     const clipDoc = await getClips(id)
     const streamerInfo = clipDoc.streamerInfo
 
-    return {
-        title: streamerInfo?.display_name,
-        description: `${streamerInfo?.display_name}のTwitch(ツイッチ)クリップの再生数ランキング。`
-    }
+    return generateTemplateMetadata({ caption: streamerInfo?.display_name })
 }
 
 export const revalidate = 60 // 1minutes

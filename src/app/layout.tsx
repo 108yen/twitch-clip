@@ -1,57 +1,15 @@
-import { Metadata } from 'next'
 import { ReactNode, Suspense } from 'react'
 
 import DefaultHeader from '@/app/_Component/defaultHeader'
 import GoogleAnalytics from '@/components/googleAnalytics/GoogleAnalytics'
 
 import Adsbygoogle from '../components/adsense/adsbygoogle'
+import generateTemplateMetadata from '../utils/generateTemplateMetadata'
 
 import ThemeRegistry from './_Component/ThemeRegistry'
 
-export const metadata: Metadata = {
-    metadataBase: new URL(process.env.URL!),
-    title: {
-        default: `Twitchクリップランキング`,
-        template: `Twitchクリップランキング | %s`
-    },
-    description: `Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。`,
-    openGraph: {
-        type: `website`,
-        title: {
-            default: `Twitchクリップランキング`,
-            template: `Twitchクリップランキング | %s`
-        },
-        description: `Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。`,
-        siteName: `Twitch clip ranking`,
-        url: `https://www.twitchclipsranking.com/`,
-        images: [
-            {
-                url: `https://www.twitchclipsranking.com/android-chrome-512x512.png`,
-                width: 512,
-                height: 512,
-                alt: `Twitchクリップランキング`,
-                type: `image/png`
-            }
-        ]
-    },
-    twitter: {
-        title: {
-            default: `Twitchクリップランキング`,
-            template: `Twitchクリップランキング | %s`
-        },
-        description: `Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。`,
-        site: `@site`,
-        card: `summary`,
-        images: [
-            {
-                url: `https://www.twitchclipsranking.com/android-chrome-512x512.png`,
-                width: 512,
-                height: 512,
-                alt: `Twitchクリップランキング`,
-                type: `image/png`
-            }
-        ]
-    }
+export function generateMetadata() {
+    return generateTemplateMetadata()
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
