@@ -19,6 +19,8 @@ export async function generateMetadata({
     }
 }
 
+export const revalidate = 60 // 1minutes
+
 export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id
     const clipDoc = await getClips(id)
