@@ -4,9 +4,9 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { event } from '@/components/googleAnalytics/gtag'
 
-import { PCCard } from '../../../../../components/admax/adsCard'
 import { Clip } from '../../../../../models/clip'
 import CardItem from '../../atoms/PC/cardItem'
+import SquareAdvertisement from '../../../../../components/adsense/squareAdvertisement'
 
 export default function CardList(props: {
     hasMore: boolean
@@ -65,8 +65,7 @@ export default function CardList(props: {
                 if ((index % 10 == 0 && index != 0) || index == 2) {
                     return (
                         <Stack key={index} direction='column'>
-                            {/* <SquareAdvertisement /> */}
-                            <PCCard />
+                            <SquareAdvertisement />
                             <CardItem
                                 clip={e}
                                 tab={tab}

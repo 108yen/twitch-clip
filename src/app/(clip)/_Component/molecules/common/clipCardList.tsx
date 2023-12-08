@@ -5,8 +5,8 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { event } from '@/components/googleAnalytics/gtag'
 import { Clip } from '@/models/clip'
 
-import { AdsCard } from '../../../../../components/admax/adsCard'
 import ListCardItem from '../../atoms/common/listCardItem'
+import HorizontalAdvertisement from '../../../../../components/adsense/horizontalAdvertisement'
 
 export default function ClipCardList(props: {
     hasMore: boolean
@@ -70,8 +70,7 @@ export default function ClipCardList(props: {
                                 display={{ xs: `flex`, md: `none` }}
                                 width='100%'
                             >
-                                {/* <HorizontalAdvertisement /> */}
-                                <AdsCard />
+                                <HorizontalAdvertisement />
                             </Box>
                             <ListCardItem
                                 clip={e}
