@@ -1,10 +1,14 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
-export const metadata = {
-    title: `ストリーマー一覧`,
-    description: `ランキング集計しているストリーマーの一覧ページです。`,
+import generateTemplateMetadata from '../../utils/generateTemplateMetadata'
+
+export function generateMetadata() {
+    return generateTemplateMetadata({
+        caption: `ストリーマー一覧`,
+        discription: `ランキング集計しているストリーマーの一覧ページです。`
+    })
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-    return (<section>{children}</section>)
+    return <section>{children}</section>
 }
