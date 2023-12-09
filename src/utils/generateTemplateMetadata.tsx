@@ -9,7 +9,7 @@ export default function generateTemplateMetadata(props?: {
         ? `Twitchクリップランキング | ${caption}`
         : `Twitchクリップランキング`
     const description = caption
-        ? `${caption}のTwitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。`
+        ? `${caption}のTwitch(ツイッチ)クリップの再生数ランキング。`
         : `Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。`
 
     const metadata: Metadata = {
