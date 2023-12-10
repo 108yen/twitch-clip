@@ -17,7 +17,7 @@ export async function generateMetadata({
     return generateTemplateMetadata({ caption: streamerInfo?.display_name })
 }
 
-export const revalidate = 60 // 1minutes
+export const revalidate = 600 // 10minutes
 
 export default async function Page({ params }: { params: { id: string } }) {
     const id = params.id
