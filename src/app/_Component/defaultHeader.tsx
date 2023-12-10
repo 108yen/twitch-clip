@@ -58,9 +58,6 @@ export default function DefaultHeader() {
             ? theme.palette.text.primary
             : theme.palette.text.disabled
     }
-    function setCurrentPageUnderline(pagePath: string) {
-        return pagePath == currentPath ? `solid 0.7px` : `none`
-    }
 
     return (
         <PaperAppBar
@@ -144,8 +141,6 @@ export default function DefaultHeader() {
                                             noWrap
                                             sx={{
                                                 transitionDuration: `0.3s`,
-                                                borderBottom: () =>
-                                                    setCurrentPageUnderline(``),
                                                 color: (theme) =>
                                                     setCurrentPageColor(
                                                         theme,
@@ -186,10 +181,6 @@ export default function DefaultHeader() {
                                             noWrap
                                             sx={{
                                                 transitionDuration: `0.3s`,
-                                                borderBottom: () =>
-                                                    setCurrentPageUnderline(
-                                                        `daily`
-                                                    ),
                                                 color: (theme) =>
                                                     setCurrentPageColor(
                                                         theme,
@@ -230,10 +221,6 @@ export default function DefaultHeader() {
                                             noWrap
                                             sx={{
                                                 transitionDuration: `0.3s`,
-                                                borderBottom: () =>
-                                                    setCurrentPageUnderline(
-                                                        `past`
-                                                    ),
                                                 color: (theme) =>
                                                     setCurrentPageColor(
                                                         theme,
@@ -275,10 +262,6 @@ export default function DefaultHeader() {
                                             component='div'
                                             sx={{
                                                 transitionDuration: `0.3s`,
-                                                borderBottom: () =>
-                                                    setCurrentPageUnderline(
-                                                        `streamers`
-                                                    ),
                                                 color: (theme) =>
                                                     setCurrentPageColor(
                                                         theme,
