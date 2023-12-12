@@ -128,12 +128,12 @@ export default function AboutTemplate() {
                                 <TableRow>
                                     <TableCell>allランキング</TableCell>
                                     <TableCell align='right'>
-                                        毎月1,16日
+                                        毎月1日
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>年別ランキング</TableCell>
-                                    <TableCell align='right'>毎月4日</TableCell>
+                                    <TableCell align='right'>毎月1日</TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>日別ランキング</TableCell>
