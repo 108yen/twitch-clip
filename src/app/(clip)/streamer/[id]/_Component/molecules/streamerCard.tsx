@@ -11,113 +11,98 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
     const { streamerInfo } = props
     if (streamerInfo != undefined) {
         return (
-            <Box
-                sx={{
-                    paddingY: 5,
-                    flexGrow: 1,
-                    justifyContent: `center`,
-                    overflow: `hidden`,
-                    maxWidth: 700,
-                    margin: `auto`
-                }}
+            <Stack
+                direction='row'
+                justifyContent='flex-start'
+                alignItems='center'
+                spacing={1}
             >
-                <Stack
-                    direction='row'
-                    justifyContent='flex-start'
-                    alignItems='center'
-                    spacing={1}
+                <Link
+                    href={`/streamer/${streamerInfo.id}`}
+                    aria-label='streamer page link'
+                    prefetch={false}
+                    style={{
+                        textDecoration: `none`
+                    }}
                 >
-                    <Link
-                        href={`/streamer/${streamerInfo.id}`}
-                        aria-label='streamer page link'
-                        prefetch={false}
-                        style={{
-                            textDecoration: `none`
-                        }}
-                    >
-                        <Avatar
-                            alt='top'
-                            src={streamerInfo.profile_image_url}
-                            sx={{ width: 70, height: 70 }}
-                        />
-                    </Link>
+                    <Avatar
+                        alt='top'
+                        src={streamerInfo.profile_image_url}
+                        sx={{ width: 70, height: 70 }}
+                    />
+                </Link>
 
+                <Stack
+                    spacing={1}
+                    direction='column'
+                    justifyContent='space-between'
+                    flexGrow={1}
+                    overflow='hidden'
+                >
                     <Stack
-                        spacing={1}
-                        direction='column'
+                        direction='row'
                         justifyContent='space-between'
+                        alignItems='center'
                         flexGrow={1}
-                        overflow='hidden'
+                        spacing={1}
                     >
-                        <Stack
-                            direction='row'
-                            justifyContent='space-between'
-                            alignItems='center'
-                            flexGrow={1}
-                            spacing={1}
-                        >
-                            <Typography variant='h5' fontWeight='bold' noWrap>
-                                {streamerInfo.display_name}
-                            </Typography>
-                            <Link
-                                href={
-                                    `https://www.twitch.tv/` +
-                                    streamerInfo.login
-                                }
-                                aria-label='twitch channel page link'
-                                target='_blank'
-                                style={{
-                                    textDecoration: `none`
-                                }}
-                                onClick={() => {
-                                    event(`click`, {
-                                        label: `click_twitch_channel`,
-                                        channel_title:
-                                            streamerInfo.display_name,
-                                        link_url:
-                                            `https://www.twitch.tv/` +
-                                            streamerInfo.login
-                                    })
-                                }}
-                            >
-                                <Stack direction='row' spacing={1}>
-                                    <NoDecorationTypography variant='body2'>
-                                        Twitch
-                                    </NoDecorationTypography>
-                                    <StyledLaunch fontSize='small' />
-                                </Stack>
-                            </Link>
-                        </Stack>
-                        <Typography
-                            variant='body2'
-                            color='gray'
-                            height={50}
-                            overflow='auto'
-                            sx={{
-                                msOverflowStyle: `none`,
-                                scrollbarWidth: `none`,
-                                '::-webkit-scrollbar': {
-                                    display: `none`
-                                }
+                        <Typography variant='h5' fontWeight='bold' noWrap>
+                            {streamerInfo.display_name}
+                        </Typography>
+                        <Link
+                            href={`https://www.twitch.tv/` + streamerInfo.login}
+                            aria-label='twitch channel page link'
+                            target='_blank'
+                            style={{
+                                textDecoration: `none`
+                            }}
+                            onClick={() => {
+                                event(`click`, {
+                                    label: `click_twitch_channel`,
+                                    channel_title: streamerInfo.display_name,
+                                    link_url:
+                                        `https://www.twitch.tv/` +
+                                        streamerInfo.login
+                                })
                             }}
                         >
-                            {streamerInfo.description}
-                        </Typography>
-
-                        <Typography
-                            noWrap
-                            variant='body2'
-                            color='gray'
-                            textAlign='end'
-                            width='100%'
-                        >
-                            {streamerInfo.follower_num?.toLocaleString()}
-                            {` `}
-                            followers
-                        </Typography>
+                            <Stack direction='row' spacing={1}>
+                                <NoDecorationTypography variant='body2'>
+                                    Twitch
+                                </NoDecorationTypography>
+                                <StyledLaunch fontSize='small' />
+                            </Stack>
+                        </Link>
                     </Stack>
+                    <Typography
+                        variant='body2'
+                        color='gray'
+                        height={50}
+                        overflow='auto'
+                        sx={{
+                            msOverflowStyle: `none`,
+                            scrollbarWidth: `none`,
+                            '::-webkit-scrollbar': {
+                                display: `none`
+                            }
+                        }}
+                    >
+                        {streamerInfo.description}
+                    </Typography>
+
+                    <Typography
+                        noWrap
+                        variant='body2'
+                        color='gray'
+                        textAlign='end'
+                        width='100%'
+                    >
+                        {streamerInfo.follower_num?.toLocaleString()}
+                        {` `}
+                        followers
+                    </Typography>
                 </Stack>
-            </Box>
+            </Stack>
         )
     }
     return (
