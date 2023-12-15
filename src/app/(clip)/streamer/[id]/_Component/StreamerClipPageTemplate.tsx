@@ -70,7 +70,14 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                                         <Tabs
                                             TabIndicatorProps={{
                                                 sx: {
-                                                    display: `none`
+                                                    height: `1px`
+                                                }
+                                            }}
+                                            sx={{
+                                                '& .MuiTab-root': {
+                                                    padding: 1,
+                                                    minWidth: 0,
+                                                    textTransform: `none`
                                                 }
                                             }}
                                             textColor='inherit'
@@ -79,12 +86,12 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                                         >
                                             <Tab
                                                 key={0}
-                                                label='期間'
+                                                label='Trend'
                                                 value={0}
                                             />
                                             <Tab
                                                 key={1}
-                                                label='年別'
+                                                label='History'
                                                 value={1}
                                             />
                                         </Tabs>
