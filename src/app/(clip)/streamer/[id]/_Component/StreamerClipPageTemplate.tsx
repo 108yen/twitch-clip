@@ -7,7 +7,7 @@ import {
     Stack,
     Tab,
     Tabs,
-    Toolbar,
+    Toolbar
 } from '@mui/material'
 import { SyntheticEvent, useState } from 'react'
 
@@ -93,7 +93,8 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                                         <Tabs
                                             TabIndicatorProps={{
                                                 sx: {
-                                                    height: `1px`
+                                                    height: `1px`,
+                                                    backgroundColor: `text.primary`
                                                 }
                                             }}
                                             sx={{
