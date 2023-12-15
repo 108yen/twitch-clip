@@ -7,7 +7,7 @@ import {
     Stack,
     Tab,
     Tabs,
-    Toolbar
+    Toolbar,
 } from '@mui/material'
 import { SyntheticEvent, useState } from 'react'
 
@@ -30,13 +30,36 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
         setCurrentClip(clip)
     }
     //set select
-    const [selectTab, setSelectTab] = useState(0)
+    const [selectTab, setSelectTab] = useState<`trend` | `history`>(`trend`)
     function handleTabChange(
         event: SyntheticEvent<Element, Event>,
-        val: number
+        val: `trend` | `history`
     ) {
         setSelectTab(val)
     }
+    function clipSeparation(clipDoc: ClipDoc, val: `trend` | `history`) {
+        const trend = [
+            `day`, //
+            `week`,
+            `month`,
+            `year`,
+            `all`
+        ]
+
+        const result = new ClipDoc()
+        for (const prop in clipDoc) {
+            if (
+                (val == `trend` && trend.includes(prop)) ||
+                (val == `history` && !trend.includes(prop))
+            ) {
+                result[prop] = clipDoc[prop]
+            }
+        }
+        return result
+    }
+    const filterdClipDoc = clipSeparation(clipDoc, selectTab)
+
+    //width
     const width = window.innerWidth
 
     if (currentClip === undefined) {
@@ -75,7 +98,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                                             }}
                                             sx={{
                                                 '& .MuiTab-root': {
-                                                    padding: 1,
+                                                    paddingX: 2,
                                                     minWidth: 0,
                                                     textTransform: `none`
                                                 }
@@ -87,12 +110,12 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                                             <Tab
                                                 key={0}
                                                 label='Trend'
-                                                value={0}
+                                                value='trend'
                                             />
                                             <Tab
                                                 key={1}
                                                 label='History'
-                                                value={1}
+                                                value='history'
                                             />
                                         </Tabs>
                                     </Box>
@@ -100,7 +123,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                             </Toolbar>
                         </AppBar>
                         <SwiperClipCardList
-                            clipDoc={clipDoc}
+                            clipDoc={filterdClipDoc}
                             setClickedClipUrl={handleSetClip}
                         />
                     </Grid>
