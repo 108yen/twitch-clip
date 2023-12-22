@@ -14,7 +14,7 @@ import { SyntheticEvent, useState } from 'react'
 import StreamerCard from '@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard'
 import { Clip } from '@/models/clip'
 
-import PollgateAD from '../../../../../components/pollgateAD'
+import VerticalAdvertisement from '../../../../../components/adsense/verticalAdvertisement'
 import { ClipDoc } from '../../../../../models/clipDoc'
 import SwiperClipCardList from '../../../_Component/molecules/common/swiperClipCardList'
 import { MobileView } from '../../../_Component/organisms/mobileView'
@@ -136,8 +136,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                         display={{ xs: `none`, md: `flex` }}
                         justifyContent='center'
                     >
-                        {/* <VerticalAdvertisement /> */}
-                        <PollgateAD />
+                        <VerticalAdvertisement />
                     </Grid>
                 </Grid>
             </>
