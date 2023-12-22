@@ -120,26 +120,26 @@ export default function AboutTemplate() {
                         <Table>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell>
-                                        day,week,month,yearランキング
-                                    </TableCell>
+                                    <TableCell>dayランキング</TableCell>
                                     <TableCell align='right'>3時間毎</TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell>allランキング</TableCell>
-                                    <TableCell align='right'>
-                                        毎月1日
+                                    <TableCell>
+                                        week,month,yearランキング
                                     </TableCell>
+                                    <TableCell align='right'>毎日0時</TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell>年別ランキング</TableCell>
+                                    <TableCell>allランキング</TableCell>
                                     <TableCell align='right'>毎月1日</TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell>日別ランキング</TableCell>
-                                    <TableCell align='right'>
-                                        dayランキング更新時
-                                    </TableCell>
+                                    <TableCell align='right'>毎日0時</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>年別ランキング</TableCell>
+                                    <TableCell align='right'>毎月1日</TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>
