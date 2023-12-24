@@ -1,3 +1,4 @@
+'use client'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import {
     Box,
