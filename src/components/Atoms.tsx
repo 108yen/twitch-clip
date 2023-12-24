@@ -3,8 +3,10 @@ import { atom } from 'jotai'
 const isDarkMode = atom<boolean | undefined>(undefined)
 export const isDarkModeAtom = atom(
     (get) => {
-        if (get(isDarkMode)) return get(isDarkMode)
-        if (typeof window === `undefined`) return undefined
+        const isDarkModeState = get(isDarkMode)
+        if (isDarkModeState != undefined) return isDarkModeState
+        // local check
+        if (typeof window === `undefined`) return false
         const localStrageState = localStorage.getItem(`isDarkMode`)
         if (localStrageState != undefined) return localStrageState == `true`
         return undefined
