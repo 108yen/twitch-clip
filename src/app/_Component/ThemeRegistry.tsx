@@ -18,6 +18,8 @@ export default function ThemeRegistry(props: {
     const { options, children } = props
     const [isDarkMode] = useAtom(isDarkModeAtom)
 
+    
+
     const prefersDarkMode = useMediaQuery(`(prefers-color-scheme: dark)`, {
         noSsr: true
     })
