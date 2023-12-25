@@ -6,7 +6,7 @@ export default function generateTemplateMetadata(props?: {
 }) {
     const caption = props?.caption
     const title = caption
-        ? `Twitchクリップランキング | ${caption}`
+        ? `${caption} | Twitchクリップランキング`
         : `Twitchクリップランキング`
     const description = caption
         ? `${caption}のTwitch(ツイッチ)クリップの再生数ランキング。`
