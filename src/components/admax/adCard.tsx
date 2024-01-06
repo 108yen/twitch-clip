@@ -22,13 +22,24 @@ export function AdmaxAdsCard() {
         tag.src = `https://adm.shinobi.jp/st/t.js`
         tag.async = true
         document.body.appendChild(tag)
+
+        const newAdmaxObj = {
+            admax_id: adMaxId,
+            type: `banner`
+        }
         try {
-            ;(globalThis.admaxads = window.admaxads || []).push({
-                admax_id: adMaxId,
-                type: `banner`
-            })
+            ;(globalThis.admaxads = window.admaxads || []).push(newAdmaxObj)
         } catch (error) {
             console.error(error)
+        }
+
+        return () => {
+            document.body.removeChild(tag)
+
+            const index = globalThis.admaxads.indexOf(newAdmaxObj)
+            if (index !== -1) {
+                globalThis.admaxads.splice(index, 1)
+            }
         }
     }, [pathname])
 
@@ -43,9 +54,8 @@ export function AdmaxAdsCard() {
                 Advertisement
             </Typography>
             <Divider />
-            <Box marginY={1} width='100%' minHeight={250}>
+            <Box key={pathname} marginY={1} width='100%' minHeight={250}>
                 <div
-                    key={pathname}
                     className='admax-ads'
                     data-admax-id={adMaxId}
                     style={{
@@ -68,13 +78,23 @@ export function AdmaxSideCard({ top = 100 }: { top?: number }) {
         tag.src = `https://adm.shinobi.jp/st/t.js`
         tag.async = true
         document.body.appendChild(tag)
+
+        const newAdmaxObj = {
+            admax_id: adMaxId,
+            type: `banner`
+        }
         try {
-            ;(globalThis.admaxads = window.admaxads || []).push({
-                admax_id: adMaxId,
-                type: `banner`
-            })
+            ;(globalThis.admaxads = window.admaxads || []).push(newAdmaxObj)
         } catch (error) {
             console.error(error)
+        }
+        return () => {
+            document.body.removeChild(tag)
+
+            const index = globalThis.admaxads.indexOf(newAdmaxObj)
+            if (index !== -1) {
+                globalThis.admaxads.splice(index, 1)
+            }
         }
     }, [pathname])
 
@@ -118,49 +138,3 @@ export function AdmaxSideCard({ top = 100 }: { top?: number }) {
         </Stack>
     )
 }
-// export const PCCard = () => {
-//     const adMaxId = `0aa7b9e105fd42461725c2bddad1d300`
-//     const pathname = usePathname()
-
-//     useEffect(() => {
-//         const tag = document.createElement(`script`)
-//         tag.src = `https://adm.shinobi.jp/st/t.js`
-//         tag.async = true
-//         document.body.appendChild(tag)
-//         try {
-//             ;(globalThis.admaxads = window.admaxads || []).push({
-//                 admax_id: adMaxId,
-//                 type: `banner`
-//             })
-//         } catch (error) {
-//             console.error(error)
-//         }
-//     }, [pathname])
-
-//     return (
-//         <Stack direction='column' flexGrow={1}>
-//             <Typography
-//                 variant='body2'
-//                 color='grey'
-//                 flexGrow={1}
-//                 textAlign='left'
-//             >
-//                 Advertisement
-//             </Typography>
-//             <Divider />
-//             <Box
-//                 key={pathname}
-//                 margin={1}
-//                 textAlign='center'
-//                 minWidth={300}
-//                 minHeight={250}
-//             >
-//                 <div
-//                     className='admax-ads'
-//                     data-admax-id={adMaxId}
-//                     style={{ display: `inline-block`, width: 300, height: 250 }}
-//                 ></div>
-//             </Box>
-//         </Stack>
-//     )
-// }
