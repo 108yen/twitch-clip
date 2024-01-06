@@ -2,7 +2,7 @@
 import { Divider, Grid } from '@mui/material'
 import { useState } from 'react'
 
-import VerticalAdvertisement from '../../../components/adsense/verticalAdvertisement'
+import { AdmaxSideCard } from '../../../components/admax/adCard'
 import { Streamer } from '../../../models/streamer'
 
 import StreamerList from './molecules/StreamerList'
@@ -50,7 +50,8 @@ export default function StreamersTemplate(props: {
                 xl={1}
                 display={{ xs: `none`, md: `flex` }}
             >
-                <VerticalAdvertisement />
+                {/* <VerticalAdvertisement /> */}
+                <AdmaxSideCard />
             </Grid>
         </Grid>
     )
