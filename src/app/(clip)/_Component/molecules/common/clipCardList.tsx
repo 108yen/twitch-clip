@@ -5,8 +5,8 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { event } from '@/components/googleAnalytics/gtag'
 import { Clip } from '@/models/clip'
 
+import { AdmaxAdsCard } from '../../../../../components/admax/adCard'
 import ListCardItem from '../../atoms/common/listCardItem'
-import HorizontalAdvertisement from '../../../../../components/adsense/horizontalAdvertisement'
 
 export default function ClipCardList(props: {
     hasMore: boolean
@@ -63,14 +63,16 @@ export default function ClipCardList(props: {
     const cardItems = useMemo(
         () =>
             clips.slice(0, viewItemNum).map((e, index) => {
-                if (index % 10 == 0 && index != 0) {
+                // if (index % 10 == 0 && index != 0) {
+                if (index == 10) {
                     return (
                         <Box key={index}>
                             <Box
                                 display={{ xs: `flex`, md: `none` }}
                                 width='100%'
                             >
-                                <HorizontalAdvertisement />
+                                {/* <HorizontalAdvertisement /> */}
+                                <AdmaxAdsCard />
                             </Box>
                             <ListCardItem
                                 clip={e}
