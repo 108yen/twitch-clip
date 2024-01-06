@@ -5,12 +5,14 @@ import React, { useEffect } from 'react'
 
 type AdmaxAdType = {
     admax_id: string // 広告ID
-    type: string // PC/SP切替広告なら"switch"
+    type: `banner` | `switch` // PC/SP切替広告なら"switch"
 }
 
 declare global {
     // eslint-disable-next-line no-var
     var admaxads: AdmaxAdType[]
+    // eslint-disable-next-line no-var
+    var __admax_tag__: unknown
 }
 
 export function AdmaxAdsCard() {
@@ -23,12 +25,12 @@ export function AdmaxAdsCard() {
         tag.async = true
         document.body.appendChild(tag)
 
-        const newAdmaxObj = {
+        const newAdmaxObj: AdmaxAdType = {
             admax_id: adMaxId,
             type: `banner`
         }
         try {
-            ;(globalThis.admaxads = window.admaxads || []).push(newAdmaxObj)
+            ;(window.admaxads = window.admaxads || []).push(newAdmaxObj)
         } catch (error) {
             console.error(error)
         }
@@ -36,10 +38,12 @@ export function AdmaxAdsCard() {
         return () => {
             document.body.removeChild(tag)
 
-            const index = globalThis.admaxads.indexOf(newAdmaxObj)
+            const index = window.admaxads.indexOf(newAdmaxObj)
             if (index !== -1) {
-                globalThis.admaxads.splice(index, 1)
+                window.admaxads.splice(index, 1)
             }
+
+            window.__admax_tag__ = undefined
         }
     }, [pathname])
 
@@ -79,22 +83,24 @@ export function AdmaxSideCard({ top = 100 }: { top?: number }) {
         tag.async = true
         document.body.appendChild(tag)
 
-        const newAdmaxObj = {
+        const newAdmaxObj: AdmaxAdType = {
             admax_id: adMaxId,
             type: `banner`
         }
         try {
-            ;(globalThis.admaxads = window.admaxads || []).push(newAdmaxObj)
+            ;(window.admaxads = window.admaxads || []).push(newAdmaxObj)
         } catch (error) {
             console.error(error)
         }
         return () => {
             document.body.removeChild(tag)
 
-            const index = globalThis.admaxads.indexOf(newAdmaxObj)
+            const index = window.admaxads.indexOf(newAdmaxObj)
             if (index !== -1) {
-                globalThis.admaxads.splice(index, 1)
+                window.admaxads.splice(index, 1)
             }
+
+            window.__admax_tag__ = undefined
         }
     }, [pathname])
 
