@@ -6,7 +6,13 @@ import { useEffect } from 'react'
 
 import { existsGaId, GA_MEASUREMENT_ID, event } from './gtag'
 
-export default function GoogleAnalytics({ debugMode = false }) {
+export default function GoogleAnalytics({
+    debugMode = false,
+    clientIp
+}: {
+    debugMode: boolean
+    clientIp: string
+}) {
     const pathname = usePathname()
 
     useEffect(() => {
@@ -32,6 +38,7 @@ export default function GoogleAnalytics({ debugMode = false }) {
                         gtag('config', '${GA_MEASUREMENT_ID}', {
                             page_path: window.location.pathname,
                             send_page_view: false,
+                            ip_address: '${clientIp}',
                             ${debugMode ? `debug_mode: ${debugMode},` : ``}
                         });
                     `}
