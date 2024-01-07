@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 
 import { Clip } from '@/models/clip'
 
-import { AdmaxSideCard } from '../../../../components/admax/adCard'
+import { AdmaxPCSideCard } from '../../../../components/admax/adCard'
 import { ClipDoc } from '../../../../models/clipDoc'
 import SwiperClipCardList from '../molecules/common/swiperClipCardList'
 
@@ -28,7 +28,7 @@ export function Home(props: {
                 justifyContent='center'
             >
                 {/* <VerticalAdvertisement /> */}
-                <AdmaxSideCard />
+                <AdmaxPCSideCard />
             </Grid>
         </Grid>
     )
