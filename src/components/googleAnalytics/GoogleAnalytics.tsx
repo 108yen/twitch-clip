@@ -1,10 +1,8 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
 import Script from 'next/script'
-import { useEffect } from 'react'
 
-import { existsGaId, GA_MEASUREMENT_ID, event } from './gtag'
+import { GA_MEASUREMENT_ID } from './gtag'
 
 export default function GoogleAnalytics({
     debugMode = false,
@@ -13,17 +11,6 @@ export default function GoogleAnalytics({
     debugMode: boolean
     clientIp: string
 }) {
-    const pathname = usePathname()
-
-    useEffect(() => {
-        if (!existsGaId) {
-            return
-        }
-        event(`page_view`, {
-            page_path: pathname
-        })
-    }, [pathname])
-
     return (
         <>
             <Script
@@ -37,7 +24,6 @@ export default function GoogleAnalytics({
                         gtag('js', new Date());
                         gtag('config', '${GA_MEASUREMENT_ID}', {
                             page_path: window.location.pathname,
-                            send_page_view: false,
                             ip_address: '${clientIp}',
                             ${debugMode ? `debug_mode: ${debugMode},` : ``}
                         });
