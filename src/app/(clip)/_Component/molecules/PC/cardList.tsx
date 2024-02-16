@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 import { event } from '@/components/googleAnalytics/gtag'
 
-import { AdmaxPCInlineCard } from '../../../../../components/admax/adCard'
+import SquareAdvertisement from '../../../../../components/adsense/squareAdvertisement'
 import { Clip } from '../../../../../models/clip'
 import CardItem from '../../atoms/PC/cardItem'
 
@@ -65,8 +65,8 @@ export default function CardList(props: {
                 if ((index % 10 == 0 && index != 0) || index == 2) {
                     return (
                         <Stack key={index} direction='column'>
-                            {/* <SquareAdvertisement /> */}
-                            <AdmaxPCInlineCard />
+                            <SquareAdvertisement />
+                            {/* <AdmaxPCInlineCard /> */}
                             <CardItem
                                 clip={e}
                                 tab={tab}
