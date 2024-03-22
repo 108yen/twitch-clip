@@ -2,10 +2,10 @@ import { Box, CircularProgress, Typography } from '@mui/material'
 import { useMemo } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
+import HorizontalAdvertisement from '@/components/adsense/horizontalAdvertisement'
 import { event } from '@/components/googleAnalytics/gtag'
 import { Clip } from '@/models/clip'
 
-import { AdmaxMbInlineCard } from '../../../../../components/admax/adCard'
 import ListCardItem from '../../atoms/common/listCardItem'
 
 export default function ClipCardList(props: {
@@ -71,8 +71,7 @@ export default function ClipCardList(props: {
                                 display={{ xs: `flex`, md: `none` }}
                                 width='100%'
                             >
-                                {/* <HorizontalAdvertisement /> */}
-                                <AdmaxMbInlineCard />
+                                <HorizontalAdvertisement />
                             </Box>
                             <ListCardItem
                                 clip={e}

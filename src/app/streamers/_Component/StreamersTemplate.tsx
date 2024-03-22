@@ -51,7 +51,6 @@ export default function StreamersTemplate(props: {
                 display={{ xs: `none`, md: `flex` }}
             >
                 <VerticalAdvertisement />
-                {/* <AdmaxPCSideCard /> */}
             </Grid>
         </Grid>
     )
