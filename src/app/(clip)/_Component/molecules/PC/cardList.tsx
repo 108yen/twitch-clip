@@ -66,7 +66,6 @@ export default function CardList(props: {
                     return (
                         <Stack key={index} direction='column'>
                             <SquareAdvertisement />
-                            {/* <AdmaxPCInlineCard /> */}
                             <CardItem
                                 clip={e}
                                 tab={tab}
