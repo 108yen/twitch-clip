@@ -7,6 +7,7 @@ export const revalidate = 600 // 10minutes
 export default async function Home() {
     // const clipDoc = await getClips(`summary`)
     const clipDoc = await uncache_getClips(`summary`)
+    console.log(`revalidated page`)
 
     return <ClipPageTemplate clipDoc={clipDoc} />
 }
