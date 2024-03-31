@@ -2,23 +2,22 @@ import {
     CollectionReference,
     DocumentReference
 } from 'firebase-admin/firestore'
+import { unstable_cache } from 'next/cache'
 import { notFound } from 'next/navigation'
-// eslint-disable-next-line import/named
-import { cache } from 'react'
 
 import { db } from '@/firebase/server/server'
 import { ClipDoc } from '@/models/clipDoc'
 
 import { clipDocConverter } from './converters/clipDocConverter'
 
-// const getClips = unstable_cache(
-//     async (id) => uncache_getClips(id),
-//     [`get-clips`],
-//     {
-//         revalidate: 1200, //20minutes
-//     }
-// )
-const getClips = cache(async (id: string) => uncache_getClips(id))
+const getClips = unstable_cache(
+    async (id) => uncache_getClips(id),
+    [`get-clips`],
+    {
+        revalidate: 1200 //20minutes
+    }
+)
+// const getClips = cache(async (id: string) => uncache_getClips(id))
 export default getClips
 
 async function uncache_getClips(id: string) {
