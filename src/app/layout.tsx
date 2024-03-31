@@ -9,6 +9,8 @@ import generateTemplateMetadata from '../utils/generateTemplateMetadata'
 
 import ThemeRegistry from './_Component/ThemeRegistry'
 
+export const revalidate = 600 // 10minutes
+
 export function generateMetadata() {
     return generateTemplateMetadata()
 }

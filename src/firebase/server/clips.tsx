@@ -21,7 +21,7 @@ import { clipDocConverter } from './converters/clipDocConverter'
 const getClips = cache(async (id: string) => uncache_getClips(id))
 export default getClips
 
-export async function uncache_getClips(id: string) {
+async function uncache_getClips(id: string) {
     const clipColRef: CollectionReference<ClipDoc> = db
         .collection(`clips`)
         .withConverter<ClipDoc>(clipDocConverter)
