@@ -1,5 +1,5 @@
 import { headers } from 'next/headers'
-import { ReactNode, Suspense } from 'react'
+import { ReactNode } from 'react'
 
 import DefaultHeader from '@/app/_Component/defaultHeader'
 import GoogleAnalytics from '@/components/googleAnalytics/GoogleAnalytics'
@@ -20,13 +20,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang='ja'>
             <head>
-                <Suspense>
-                    <GoogleAnalytics
-                        debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`}
-                        clientIp={ip}
-                    />
-                    <Adsbygoogle />
-                </Suspense>
+                <GoogleAnalytics
+                    debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`}
+                    clientIp={ip}
+                />
+                <Adsbygoogle />
             </head>
             <body>
                 <ThemeRegistry options={{ key: `css`, prepend: true }}>
