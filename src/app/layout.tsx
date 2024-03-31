@@ -1,5 +1,3 @@
-// import { headers } from 'next/headers'
-import { headers } from 'next/headers'
 import { ReactNode, Suspense } from 'react'
 
 import DefaultHeader from '@/app/_Component/defaultHeader'
@@ -14,8 +12,8 @@ export function generateMetadata() {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-    const header = headers()
-    const ip = (header.get(`x-forwarded-for`) ?? ``).split(`,`)[0]
+    // const header = headers()
+    // const ip = (header.get(`x-forwarded-for`) ?? ``).split(`,`)[0]
 
     return (
         <html lang='ja'>
@@ -23,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <Suspense>
                     <GoogleAnalytics
                         debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`}
-                        clientIp={ip}
+                    // clientIp={ip}
                     />
                     {/* <Adsbygoogle /> */}
                 </Suspense>

@@ -6,10 +6,10 @@ import { GA_MEASUREMENT_ID } from './gtag'
 
 export default function GoogleAnalytics({
     debugMode = false,
-    clientIp
+    clientIp = `none`
 }: {
     debugMode: boolean
-    clientIp: string
+    clientIp?: string
 }) {
     return (
         <>
