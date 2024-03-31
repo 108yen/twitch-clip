@@ -6,7 +6,6 @@ export const revalidate = 1800 //30minites
 
 export default async function Home() {
     const clipDoc = await getClips(`summary`)
-    console.log(`revalidated page`)
 
     return <ClipPageTemplate clipDoc={clipDoc} />
 }
