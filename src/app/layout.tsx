@@ -11,26 +11,26 @@ import ThemeRegistry from './_Component/ThemeRegistry'
 export const revalidate = 1800 //30minites
 
 export function generateMetadata() {
-    return generateTemplateMetadata()
+  return generateTemplateMetadata()
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-    return (
-        <html lang='ja'>
-            <head>
-                <Suspense>
-                    <GoogleAnalytics
-                        debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`}
-                    />
-                    <Adsbygoogle />
-                </Suspense>
-            </head>
-            <body>
-                <ThemeRegistry options={{ key: `css`, prepend: true }}>
-                    <DefaultHeader />
-                    {children}
-                </ThemeRegistry>
-            </body>
-        </html>
-    )
+  return (
+    <html lang='ja'>
+      <head>
+        <Suspense>
+          <GoogleAnalytics
+            debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`}
+          />
+          <Adsbygoogle />
+        </Suspense>
+      </head>
+      <body>
+        <ThemeRegistry options={{ key: `css`, prepend: true }}>
+          <DefaultHeader />
+          {children}
+        </ThemeRegistry>
+      </body>
+    </html>
+  )
 }

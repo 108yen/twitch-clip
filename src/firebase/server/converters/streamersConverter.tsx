@@ -1,32 +1,30 @@
 import {
-    DocumentData,
-    FirestoreDataConverter,
-    QueryDocumentSnapshot
+  DocumentData,
+  FirestoreDataConverter,
+  QueryDocumentSnapshot
 } from 'firebase-admin/firestore'
 
 import { Streamer } from '@/models/streamer'
 
 export const streamersConverter: FirestoreDataConverter<{
-    streamers: Array<Streamer>
+  streamers: Array<Streamer>
 }> = {
-    fromFirestore(qds: QueryDocumentSnapshot): { streamers: Array<Streamer> } {
-        const data = qds.data()
+  fromFirestore(qds: QueryDocumentSnapshot): { streamers: Array<Streamer> } {
+    const data = qds.data()
 
-        if (!data.streamers) {
-            new Error(
-                `streamersConverter/fromFirestore: data.streamers is undefined`
-            )
-        }
-
-        const result: Array<Streamer> = []
-        for (const i in data.streamers) {
-            const streamer = data.streamers[i] as Streamer
-            result.push(streamer)
-        }
-
-        return { streamers: result }
-    },
-    toFirestore(doc: { streamers: Array<Streamer> }): DocumentData {
-        return doc
+    if (!data.streamers) {
+      new Error(`streamersConverter/fromFirestore: data.streamers is undefined`)
     }
+
+    const result: Array<Streamer> = []
+    for (const i in data.streamers) {
+      const streamer = data.streamers[i] as Streamer
+      result.push(streamer)
+    }
+
+    return { streamers: result }
+  },
+  toFirestore(doc: { streamers: Array<Streamer> }): DocumentData {
+    return doc
+  }
 }

@@ -1,17 +1,15 @@
 declare global {
-    interface Window {
-        adsbygoogle: { [key: string]: unknown }[]
-    }
+  interface Window {
+    adsbygoogle: { [key: string]: unknown }[]
+  }
 }
 
 export default function Adsbygoogle() {
-    return (
-        <script
-            async
-            src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1615921337969017'
-            crossOrigin='anonymous'
-        />
-    )
+  return (
+    <script
+      async
+      src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1615921337969017'
+      crossOrigin='anonymous'
+    />
+  )
 }
-
-

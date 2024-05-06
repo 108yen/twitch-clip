@@ -4,12 +4,14 @@
 		"enabled": true,
 		"formatWithErrors": false,
 		"indentStyle": "space",
-		"indentWidth": 4,
+		"indentWidth": 2,
 		"lineEnding": "lf",
 		"lineWidth": 80,
 		"attributePosition": "auto"
 	},
-	"organizeImports": { "enabled": true },
+	"organizeImports": {
+		"enabled": true
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -109,7 +111,12 @@
 	},
 	"overrides": [
 		{
-			"include": ["*.ts", "*.tsx", "*.mts", "*.cts"],
+			"include": [
+				"*.ts",
+				"*.tsx",
+				"*.mts",
+				"*.cts"
+			],
 			"linter": {
 				"rules": {
 					"correctness": {

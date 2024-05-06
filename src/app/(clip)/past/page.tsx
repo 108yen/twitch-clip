@@ -4,7 +4,7 @@ import ClipPageTemplate from '../_Component/ClipPageTemplate'
 export const revalidate = 1800 //30minites
 
 export default async function PastRanking() {
-    const clipDoc = await getClips(`past_summary`)
+  const clipDoc = await getClips(`past_summary`)
 
-    return <ClipPageTemplate clipDoc={clipDoc} />
+  return <ClipPageTemplate clipDoc={clipDoc} />
 }

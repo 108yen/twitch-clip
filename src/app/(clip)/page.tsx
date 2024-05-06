@@ -5,7 +5,7 @@ import ClipPageTemplate from './_Component/ClipPageTemplate'
 export const revalidate = 1800 //30minites
 
 export default async function Home() {
-    const clipDoc = await getClips(`summary`)
+  const clipDoc = await getClips(`summary`)
 
-    return <ClipPageTemplate clipDoc={clipDoc} />
+  return <ClipPageTemplate clipDoc={clipDoc} />
 }
