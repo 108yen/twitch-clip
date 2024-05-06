@@ -1,15 +1,15 @@
 import {
-    CollectionReference,
-    DocumentReference
-} from 'firebase-admin/firestore'
-import { notFound } from 'next/navigation'
+  CollectionReference,
+  DocumentReference
+} from "firebase-admin/firestore"
+import { notFound } from "next/navigation"
 // eslint-disable-next-line import/named
-import { cache } from 'react'
+import { cache } from "react"
 
-import { db } from '@/firebase/server/server'
-import { ClipDoc } from '@/models/clipDoc'
+import { db } from "@/firebase/server/server"
+import { ClipDoc } from "@/models/clipDoc"
 
-import { clipDocConverter } from './converters/clipDocConverter'
+import { clipDocConverter } from "./converters/clipDocConverter"
 
 // const getClips = unstable_cache(
 //     async (id) => uncache_getClips(id),
@@ -22,29 +22,29 @@ const getClips = cache(async (id: string) => uncache_getClips(id))
 export default getClips
 
 async function uncache_getClips(id: string) {
-    const clipColRef: CollectionReference<ClipDoc> = db
-        .collection(`clips`)
-        .withConverter<ClipDoc>(clipDocConverter)
-    const clipDocRef = ({
-        clipId
-    }: {
-        clipId: string
-    }): DocumentReference<ClipDoc> => clipColRef.doc(clipId)
+  const clipColRef: CollectionReference<ClipDoc> = db
+    .collection(`clips`)
+    .withConverter<ClipDoc>(clipDocConverter)
+  const clipDocRef = ({
+    clipId
+  }: {
+    clipId: string
+  }): DocumentReference<ClipDoc> => clipColRef.doc(clipId)
 
-    const ds = await clipDocRef({ clipId: id })
-        .get()
-        .catch((error) => {
-            throw new Error(error)
-        })
-    const clipDoc = ds?.data()
-    if (!clipDoc) {
-        notFound()
-    }
-    console.log(
-        `info: get ${id} clipDoc at ${new Date().toLocaleString(`ja-JP`, {
-            timeZone: `Asia/Tokyo`
-        })}`
-    )
+  const ds = await clipDocRef({ clipId: id })
+    .get()
+    .catch((error) => {
+      throw new Error(error)
+    })
+  const clipDoc = ds?.data()
+  if (!clipDoc) {
+    notFound()
+  }
+  console.log(
+    `info: get ${id} clipDoc at ${new Date().toLocaleString(`ja-JP`, {
+      timeZone: `Asia/Tokyo`
+    })}`
+  )
 
-    return clipDoc
+  return clipDoc
 }

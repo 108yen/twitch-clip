@@ -1,17 +1,17 @@
 import {
-    DocumentData,
-    FirestoreDataConverter,
-    QueryDocumentSnapshot
-} from 'firebase-admin/firestore'
+  DocumentData,
+  FirestoreDataConverter,
+  QueryDocumentSnapshot
+} from "firebase-admin/firestore"
 
-import { ClipDoc } from '@/models/clipDoc'
+import { ClipDoc } from "@/models/clipDoc"
 
 export const clipDocConverter: FirestoreDataConverter<ClipDoc> = {
-    fromFirestore(qds: QueryDocumentSnapshot): ClipDoc {
-        const data = qds.data() as ClipDoc
-        return data
-    },
-    toFirestore(doc: ClipDoc): DocumentData {
-        return doc
-    }
+  fromFirestore(qds: QueryDocumentSnapshot): ClipDoc {
+    const data = qds.data() as ClipDoc
+    return data
+  },
+  toFirestore(doc: ClipDoc): DocumentData {
+    return doc
+  }
 }

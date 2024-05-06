@@ -1,15 +1,15 @@
-import { Streamer } from '@/models/streamer'
+import { Streamer } from "@/models/streamer"
 
-import StreamerItem from './StreamerItem'
+import StreamerItem from "./StreamerItem"
 
 export default function StreamerList(props: { streamers: Array<Streamer> }) {
-    const { streamers } = props
+  const { streamers } = props
 
-    return (
-        <>
-            {streamers.map((streamer, index) => (
-                <StreamerItem key={index} streamer={streamer} />
-            ))}
-        </>
-    )
+  return (
+    <>
+      {streamers.map((streamer, index) => (
+        <StreamerItem key={index} streamer={streamer} />
+      ))}
+    </>
+  )
 }

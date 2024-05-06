@@ -1,14 +1,14 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react"
 
-import generateTemplateMetadata from '../../utils/generateTemplateMetadata'
+import generateTemplateMetadata from "../../utils/generateTemplateMetadata"
 
 export function generateMetadata() {
-    return generateTemplateMetadata({
-        caption: `このサイトについて`,
-        discription: `Twitchクリップランキングの説明ページ`
-    })
+  return generateTemplateMetadata({
+    caption: `このサイトについて`,
+    discription: `Twitchクリップランキングの説明ページ`
+  })
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-    return <section>{children}</section>
+  return <section>{children}</section>
 }
