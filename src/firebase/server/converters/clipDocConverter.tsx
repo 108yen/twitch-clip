@@ -2,9 +2,9 @@ import {
   DocumentData,
   FirestoreDataConverter,
   QueryDocumentSnapshot
-} from 'firebase-admin/firestore'
+} from "firebase-admin/firestore"
 
-import { ClipDoc } from '@/models/clipDoc'
+import { ClipDoc } from "@/models/clipDoc"
 
 export const clipDocConverter: FirestoreDataConverter<ClipDoc> = {
   fromFirestore(qds: QueryDocumentSnapshot): ClipDoc {

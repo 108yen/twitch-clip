@@ -1,8 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import React, { ReactNode } from 'react'
+import { fireEvent, render, screen } from "@testing-library/react"
+import React, { ReactNode } from "react"
 
-import '@testing-library/jest-dom'
-import ListCardItem from '../../../../../../app/(clip)/_Component/atoms/common/listCardItem'
+import "@testing-library/jest-dom"
+import ListCardItem from "../../../../../../app/(clip)/_Component/atoms/common/listCardItem"
 
 // ダミーデータを作成（テスト用）
 const dummyClip = {
@@ -38,7 +38,7 @@ describe(`ListCardItem`, () => {
     render(
       <ListCardItem
         clip={dummyClip}
-        tab='testTab'
+        tab="testTab"
         setClickedClipUrl={setClickedClipUrlMock}
       />
     )
@@ -52,7 +52,7 @@ describe(`ListCardItem`, () => {
     render(
       <ListCardItem
         clip={dummyClip}
-        tab='testTab'
+        tab="testTab"
         setClickedClipUrl={setClickedClipUrlMock}
       />
     )
@@ -74,7 +74,7 @@ describe(`ListCardItem`, () => {
     render(
       <ListCardItem
         clip={dummyClip}
-        tab='testTab'
+        tab="testTab"
         setClickedClipUrl={setClickedClipUrlMock}
       />
     )

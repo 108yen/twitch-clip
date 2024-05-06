@@ -1,13 +1,13 @@
-'use client'
+"use client"
 
-import { Alert, Box, Snackbar, TextField } from '@mui/material'
-import { useState } from 'react'
-import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { Alert, Box, Snackbar, TextField } from "@mui/material"
+import { useState } from "react"
+import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
-import { event } from '@/components/googleAnalytics/gtag'
-import { SimpleButton } from '@/components/styledui'
+import { event } from "@/components/googleAnalytics/gtag"
+import { SimpleButton } from "@/components/styledui"
 
-import postInquiry from '../../../../firebase/server/inquiry'
+import postInquiry from "../../../../firebase/server/inquiry"
 
 type Inputs = {
   inquiry: string
@@ -76,25 +76,25 @@ export default function InquiryForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} onKeyDown={(e) => checkKeyDown(e)}>
       <Controller
-        name='inquiry'
+        name="inquiry"
         control={control}
         rules={validationRules.inquiry}
         render={({ field, fieldState }) => (
           <TextField
             {...field}
-            id='inquiry'
+            id="inquiry"
             fullWidth
             multiline
             rows={4}
-            margin='normal'
-            color='secondary'
+            margin="normal"
+            color="secondary"
             error={fieldState.invalid}
             helperText={fieldState.error?.message}
           />
         )}
       />
-      <Box textAlign='center' m={2}>
-        <SimpleButton type='submit' variant='outlined' color='primary'>
+      <Box textAlign="center" m={2}>
+        <SimpleButton type="submit" variant="outlined" color="primary">
           問い合わせ
         </SimpleButton>
       </Box>

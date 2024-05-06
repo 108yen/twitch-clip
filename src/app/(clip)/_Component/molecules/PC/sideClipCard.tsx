@@ -1,4 +1,4 @@
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import {
   Divider,
   MenuItem,
@@ -6,17 +6,17 @@ import {
   Stack,
   Tooltip,
   Typography
-} from '@mui/material'
-import { useMemo, useState } from 'react'
+} from "@mui/material"
+import { useMemo, useState } from "react"
 
-import { event } from '@/components/googleAnalytics/gtag'
-import { BorderSelect } from '@/components/styledui'
-import { Clip } from '@/models/clip'
+import { event } from "@/components/googleAnalytics/gtag"
+import { BorderSelect } from "@/components/styledui"
+import { Clip } from "@/models/clip"
 
-import { ClipDoc } from '../../../../../models/clipDoc'
-import getTabNameList from '../../utils/getTabNameList'
+import { ClipDoc } from "../../../../../models/clipDoc"
+import getTabNameList from "../../utils/getTabNameList"
 
-import CardList from './cardList'
+import CardList from "./cardList"
 
 export default function SideClipCard(props: {
   clipDoc: ClipDoc
@@ -53,14 +53,14 @@ export default function SideClipCard(props: {
   }
 
   return (
-    <Stack direction='column' overflow='hidden' flexGrow={1}>
-      <Stack direction='row' justifyContent='space-between' alignItems='end'>
-        <Tooltip followCursor placement='top' title='リスト表示にもどる'>
+    <Stack direction="column" overflow="hidden" flexGrow={1}>
+      <Stack direction="row" justifyContent="space-between" alignItems="end">
+        <Tooltip followCursor placement="top" title="リスト表示にもどる">
           <Stack
-            direction='row'
-            justifyContent='flex-start'
-            alignItems='center'
-            color='grey'
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="center"
+            color="grey"
             onClick={() => {
               setClickedClipUrl(undefined)
               event(`click`, {
@@ -72,11 +72,11 @@ export default function SideClipCard(props: {
             }}
           >
             <ChevronLeftIcon />
-            <Typography variant='subtitle1'>clips</Typography>
+            <Typography variant="subtitle1">clips</Typography>
           </Stack>
         </Tooltip>
         <BorderSelect
-          size='small'
+          size="small"
           value={tab}
           onChange={handleTabChange}
           sx={{ marginBottom: 2 }}

@@ -1,12 +1,12 @@
-'use client'
-import { Divider, Grid } from '@mui/material'
-import { useState } from 'react'
+"use client"
+import { Divider, Grid } from "@mui/material"
+import { useState } from "react"
 
-import VerticalAdvertisement from '../../../components/adsense/verticalAdvertisement'
-import { Streamer } from '../../../models/streamer'
+import VerticalAdvertisement from "../../../components/adsense/verticalAdvertisement"
+import { Streamer } from "../../../models/streamer"
 
-import StreamerList from './molecules/StreamerList'
-import StreamersPageHeader from './molecules/streamersPageHeader'
+import StreamerList from "./molecules/StreamerList"
+import StreamersPageHeader from "./molecules/streamersPageHeader"
 
 export default function StreamersTemplate(props: {
   streamers: Array<Streamer>
@@ -27,7 +27,7 @@ export default function StreamersTemplate(props: {
   }
 
   return (
-    <Grid container justifyContent='space-evenly'>
+    <Grid container justifyContent="space-evenly">
       <Grid item xs={12} md={8}>
         <StreamersPageHeader
           searchText={searchText}

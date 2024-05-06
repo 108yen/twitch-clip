@@ -1,9 +1,9 @@
-import { Metadata } from 'next'
+import { Metadata } from "next"
 
-import getClips from '../../../../firebase/server/clips'
-import generateTemplateMetadata from '../../../../utils/generateTemplateMetadata'
+import getClips from "../../../../firebase/server/clips"
+import generateTemplateMetadata from "../../../../utils/generateTemplateMetadata"
 
-import StreamerClipPageTemplate from './_Component/StreamerClipPageTemplate'
+import StreamerClipPageTemplate from "./_Component/StreamerClipPageTemplate"
 
 export async function generateMetadata({
   params

@@ -1,7 +1,7 @@
-'use client'
-import { Box, CircularProgress, Divider, Grid } from '@mui/material'
+"use client"
+import { Box, CircularProgress, Divider, Grid } from "@mui/material"
 
-import StreamersPageHeader from './_Component/molecules/streamersPageHeader'
+import StreamersPageHeader from "./_Component/molecules/streamersPageHeader"
 
 export default function Loading() {
   const searchText = ``
@@ -13,7 +13,7 @@ export default function Loading() {
     <>
       <Grid
         container
-        justifyContent='center'
+        justifyContent="center"
         paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
       >
         <Grid item xs={12} md={9}>
@@ -28,7 +28,7 @@ export default function Loading() {
             }}
           />
           <Box key={0} sx={{ display: `flex`, justifyContent: `center`, m: 5 }}>
-            <CircularProgress color='secondary' />
+            <CircularProgress color="secondary" />
           </Box>
         </Grid>
       </Grid>

@@ -1,13 +1,13 @@
-import { Grid, Stack } from '@mui/material'
+import { Grid, Stack } from "@mui/material"
 
-import { BorderPaper } from '@/components/styledui'
-import { Clip } from '@/models/clip'
+import { BorderPaper } from "@/components/styledui"
+import { Clip } from "@/models/clip"
 
-import { ClipDoc } from '../../../../models/clipDoc'
-import Player from '../atoms/common/player'
-import ClipInfo from '../molecules/common/clipInfo'
-import { StreamerInfo } from '../molecules/common/streamerInfo'
-import SwiperClipCardList from '../molecules/common/swiperClipCardList'
+import { ClipDoc } from "../../../../models/clipDoc"
+import Player from "../atoms/common/player"
+import ClipInfo from "../molecules/common/clipInfo"
+import { StreamerInfo } from "../molecules/common/streamerInfo"
+import SwiperClipCardList from "../molecules/common/swiperClipCardList"
 
 export function MobileView(props: {
   clipDoc: ClipDoc
@@ -17,9 +17,9 @@ export function MobileView(props: {
   const { clipDoc, currentClip, setClickedClip } = props
 
   return (
-    <Grid container justifyContent='center' paddingX={0} columnSpacing={4}>
+    <Grid container justifyContent="center" paddingX={0} columnSpacing={4}>
       <Grid item zeroMinWidth xs={12}>
-        <Stack direction='column' spacing={1} sx={{ minWidth: 0 }}>
+        <Stack direction="column" spacing={1} sx={{ minWidth: 0 }}>
           <BorderPaper
             sx={{
               position: `sticky`,

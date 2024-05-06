@@ -1,15 +1,15 @@
-import { Box, Stack, Tab, Tabs } from '@mui/material'
-import { useMemo, useState } from 'react'
-import { Swiper as SwiperCore, Virtual } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/virtual'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Box, Stack, Tab, Tabs } from "@mui/material"
+import { useMemo, useState } from "react"
+import { Swiper as SwiperCore, Virtual } from "swiper"
+import "swiper/css"
+import "swiper/css/virtual"
+import { Swiper, SwiperSlide } from "swiper/react"
 
-import ClipCardList from '@/app/(clip)/_Component/molecules/common/clipCardList'
-import { Clip } from '@/models/clip'
+import ClipCardList from "@/app/(clip)/_Component/molecules/common/clipCardList"
+import { Clip } from "@/models/clip"
 
-import { ClipDoc } from '../../../../../models/clipDoc'
-import getTabNameList from '../../utils/getTabNameList'
+import { ClipDoc } from "../../../../../models/clipDoc"
+import getTabNameList from "../../utils/getTabNameList"
 
 export default function SwiperClipCardList(props: {
   clipDoc: ClipDoc
@@ -56,7 +56,7 @@ export default function SwiperClipCardList(props: {
   }
 
   return (
-    <Stack direction='column' spacing={0.1} sx={{ minWidth: 0 }}>
+    <Stack direction="column" spacing={0.1} sx={{ minWidth: 0 }}>
       <Box
         sx={{
           ...style,
@@ -71,9 +71,9 @@ export default function SwiperClipCardList(props: {
         <Tabs
           value={tab}
           onChange={handleTabChange}
-          textColor='secondary'
-          indicatorColor='secondary'
-          variant='scrollable'
+          textColor="secondary"
+          indicatorColor="secondary"
+          variant="scrollable"
           scrollButtons={true}
         >
           {tabNameList.map((e, index) => (

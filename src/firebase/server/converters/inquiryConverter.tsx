@@ -2,7 +2,7 @@ import {
   DocumentData,
   FirestoreDataConverter,
   QueryDocumentSnapshot
-} from 'firebase-admin/firestore'
+} from "firebase-admin/firestore"
 
 export const inquiryConverter: FirestoreDataConverter<{
   inquiry_array: Array<string>

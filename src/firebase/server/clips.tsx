@@ -1,15 +1,15 @@
 import {
   CollectionReference,
   DocumentReference
-} from 'firebase-admin/firestore'
-import { notFound } from 'next/navigation'
+} from "firebase-admin/firestore"
+import { notFound } from "next/navigation"
 // eslint-disable-next-line import/named
-import { cache } from 'react'
+import { cache } from "react"
 
-import { db } from '@/firebase/server/server'
-import { ClipDoc } from '@/models/clipDoc'
+import { db } from "@/firebase/server/server"
+import { ClipDoc } from "@/models/clipDoc"
 
-import { clipDocConverter } from './converters/clipDocConverter'
+import { clipDocConverter } from "./converters/clipDocConverter"
 
 // const getClips = unstable_cache(
 //     async (id) => uncache_getClips(id),

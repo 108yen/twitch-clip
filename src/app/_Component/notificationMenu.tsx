@@ -1,5 +1,5 @@
-'use client'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
+"use client"
+import MoreVertIcon from "@mui/icons-material/MoreVert"
 import {
   Box,
   IconButton,
@@ -8,13 +8,13 @@ import {
   Switch,
   Typography,
   useMediaQuery
-} from '@mui/material'
-import { useAtom } from 'jotai'
-import Link from 'next/link'
-import { useState } from 'react'
+} from "@mui/material"
+import { useAtom } from "jotai"
+import Link from "next/link"
+import { useState } from "react"
 
-import { isDarkModeAtom } from '@/components/Atoms'
-import { NoDecorationTypography } from '@/components/styledui'
+import { isDarkModeAtom } from "@/components/Atoms"
+import { NoDecorationTypography } from "@/components/styledui"
 
 export default function NotificationMenu() {
   //darkmode
@@ -48,19 +48,19 @@ export default function NotificationMenu() {
       >
         <IconButton
           onClick={handleClick}
-          size='small'
+          size="small"
           sx={{ ml: 2 }}
           aria-controls={open ? `account-menu` : undefined}
-          aria-haspopup='true'
+          aria-haspopup="true"
           aria-expanded={open ? `true` : undefined}
-          aria-label='menu'
+          aria-label="menu"
         >
           <MoreVertIcon />
         </IconButton>
       </Box>
       <Menu
         anchorEl={anchorEl}
-        id='notification-menu'
+        id="notification-menu"
         open={open}
         onClose={handleClose}
         PaperProps={{
@@ -69,13 +69,13 @@ export default function NotificationMenu() {
             overflow: `visible`,
             filter: `drop-shadow(0px 2px 8px rgba(0,0,0,0.32))`,
             mt: 1.5,
-            '& .MuiAvatar-root': {
+            "& .MuiAvatar-root": {
               width: 32,
               height: 32,
               ml: -0.5,
               mr: 1
             },
-            '&:before': {
+            "&:before": {
               content: `""`,
               display: `block`,
               position: `absolute`,
@@ -102,7 +102,7 @@ export default function NotificationMenu() {
           <Switch
             checked={isDarkMode}
             onChange={handleSwitchChange}
-            color='secondary'
+            color="secondary"
           />
         </MenuItem>
         <MenuItem
@@ -111,7 +111,7 @@ export default function NotificationMenu() {
           }}
         >
           <Link
-            href='/daily'
+            href="/daily"
             prefetch={false}
             style={{
               textDecoration: `none`
@@ -127,7 +127,7 @@ export default function NotificationMenu() {
           }}
         >
           <Link
-            href='/past'
+            href="/past"
             prefetch={false}
             style={{
               textDecoration: `none`
@@ -143,7 +143,7 @@ export default function NotificationMenu() {
           }}
         >
           <Link
-            href='/streamers'
+            href="/streamers"
             prefetch={false}
             style={{
               textDecoration: `none`
@@ -159,7 +159,7 @@ export default function NotificationMenu() {
           }}
         >
           <Link
-            href='/about'
+            href="/about"
             prefetch={false}
             style={{
               textDecoration: `none`

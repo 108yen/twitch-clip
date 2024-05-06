@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import {
   AppBar,
   Box,
@@ -8,17 +8,17 @@ import {
   Tab,
   Tabs,
   Toolbar
-} from '@mui/material'
-import { SyntheticEvent, useState } from 'react'
+} from "@mui/material"
+import { SyntheticEvent, useState } from "react"
 
-import StreamerCard from '@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard'
-import { Clip } from '@/models/clip'
+import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard"
+import { Clip } from "@/models/clip"
 
-import VerticalAdvertisement from '../../../../../components/adsense/verticalAdvertisement'
-import { ClipDoc } from '../../../../../models/clipDoc'
-import SwiperClipCardList from '../../../_Component/molecules/common/swiperClipCardList'
-import { PCView } from '../../../_Component/organisms/PCView'
-import { MobileView } from '../../../_Component/organisms/mobileView'
+import VerticalAdvertisement from "../../../../../components/adsense/verticalAdvertisement"
+import { ClipDoc } from "../../../../../models/clipDoc"
+import SwiperClipCardList from "../../../_Component/molecules/common/swiperClipCardList"
+import { PCView } from "../../../_Component/organisms/PCView"
+import { MobileView } from "../../../_Component/organisms/mobileView"
 
 export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
@@ -66,9 +66,9 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
     return (
       <>
         <Divider />
-        <Grid container justifyContent='space-evenly'>
+        <Grid container justifyContent="space-evenly">
           <Grid item zeroMinWidth xs={12} md={8}>
-            <AppBar position='relative' elevation={0}>
+            <AppBar position="relative" elevation={0}>
               <Toolbar
                 sx={{
                   display: `flex`,
@@ -76,11 +76,11 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                 }}
               >
                 <Stack
-                  direction='column'
+                  direction="column"
                   flexGrow={1}
                   paddingY={5}
-                  justifyContent='center'
-                  overflow='hidden'
+                  justifyContent="center"
+                  overflow="hidden"
                   maxWidth={800}
                 >
                   <StreamerCard streamerInfo={streamerInfo} />
@@ -98,18 +98,18 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                         }
                       }}
                       sx={{
-                        '& .MuiTab-root': {
+                        "& .MuiTab-root": {
                           paddingX: 2,
                           minWidth: 0,
                           textTransform: `none`
                         }
                       }}
-                      textColor='inherit'
+                      textColor="inherit"
                       value={selectTab}
                       onChange={handleTabChange}
                     >
-                      <Tab key={0} label='Trend' value='trend' />
-                      <Tab key={1} label='History' value='history' />
+                      <Tab key={0} label="Trend" value="trend" />
+                      <Tab key={1} label="History" value="history" />
                     </Tabs>
                   </Box>
                 </Stack>
@@ -126,7 +126,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
             md={2}
             xl={1}
             display={{ xs: `none`, md: `flex` }}
-            justifyContent='center'
+            justifyContent="center"
           >
             <VerticalAdvertisement />
             {/* <AdmaxPCSideCard /> */}

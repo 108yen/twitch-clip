@@ -1,4 +1,4 @@
-import { ClipDoc } from '../../../../models/clipDoc'
+import { ClipDoc } from "../../../../models/clipDoc"
 
 export default function getTabNameList(clipDoc: ClipDoc) {
   const defaultArray: Array<string> = [

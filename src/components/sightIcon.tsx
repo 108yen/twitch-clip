@@ -1,4 +1,4 @@
-import { SvgIcon, SvgIconProps } from '@mui/material'
+import { SvgIcon, SvgIconProps } from "@mui/material"
 
 export default function SiteIcon(props: SvgIconProps) {
   const size = 24
@@ -11,27 +11,27 @@ export default function SiteIcon(props: SvgIconProps) {
 
   return (
     <SvgIcon {...props}>
-      <svg width={size} height={size} fill='none'>
+      <svg width={size} height={size} fill="none">
         <rect
           width={rectWidth}
           height={rectHeight1}
           x={padding}
           y={size - rectHeight1}
-          fill='#909fac'
+          fill="#909fac"
         />
         <rect
           width={rectWidth}
           height={rectHeight2}
           x={padding + rectWidth + space}
           y={size - rectHeight2}
-          fill='#f69061'
+          fill="#f69061"
         />
         <rect
           width={rectWidth}
           height={rectHeight3}
           x={padding + (rectWidth + space) * 2}
           y={size - rectHeight3}
-          fill='#5b687a'
+          fill="#5b687a"
         />
       </svg>
     </SvgIcon>

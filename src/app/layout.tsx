@@ -1,12 +1,12 @@
-import { ReactNode, Suspense } from 'react'
+import { ReactNode, Suspense } from "react"
 
-import DefaultHeader from '@/app/_Component/defaultHeader'
-import Adsbygoogle from '@/components/adsense/adsbygoogle'
-import GoogleAnalytics from '@/components/googleAnalytics/GoogleAnalytics'
+import DefaultHeader from "@/app/_Component/defaultHeader"
+import Adsbygoogle from "@/components/adsense/adsbygoogle"
+import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
 
-import generateTemplateMetadata from '../utils/generateTemplateMetadata'
+import generateTemplateMetadata from "../utils/generateTemplateMetadata"
 
-import ThemeRegistry from './_Component/ThemeRegistry'
+import ThemeRegistry from "./_Component/ThemeRegistry"
 
 export const revalidate = 1800 //30minites
 
@@ -16,7 +16,7 @@ export function generateMetadata() {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='ja'>
+    <html lang="ja">
       <head>
         <Suspense>
           <GoogleAnalytics

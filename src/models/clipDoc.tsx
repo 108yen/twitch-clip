@@ -1,5 +1,5 @@
-import { Clip } from './clip'
-import { Streamer } from './streamer'
+import { Clip } from "./clip"
+import { Streamer } from "./streamer"
 
 export class ClipDoc {
   streamerInfo?: Streamer;

@@ -1,7 +1,7 @@
-'use client'
-import { Launch } from '@mui/icons-material'
-import { AppBar, Button, Paper, Select, Typography } from '@mui/material'
-import { styled } from '@mui/material/styles'
+"use client"
+import { Launch } from "@mui/icons-material"
+import { AppBar, Button, Paper, Select, Typography } from "@mui/material"
+import { styled } from "@mui/material/styles"
 
 export const BorderPaper = styled(Paper)(({ theme }) => ({
   boxShadow: `none`,
@@ -17,7 +17,7 @@ export const NoDecorationTypography = styled(Typography)(({ theme }) => ({
 export const SelectTypography = styled(Typography)(({ theme }) => ({
   transitionDuration: `0.3s`,
   color: theme.palette.text.disabled,
-  '&:hover': {
+  "&:hover": {
     color: theme.palette.text.primary
   }
 }))
@@ -59,7 +59,7 @@ export const SimpleButton = styled(Button)(({ theme }) => {
     return {
       color: theme.palette.text.primary,
       borderColor: theme.palette.grey[400],
-      '&:hover': {
+      "&:hover": {
         borderColor: theme.palette.text.primary,
         backgroundColor: theme.palette.grey[50]
       }
@@ -69,7 +69,7 @@ export const SimpleButton = styled(Button)(({ theme }) => {
 
 export const BorderSelect = styled(Select)(({ theme }) => {
   return {
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
       borderColor: theme.palette.text.primary
     }
   }

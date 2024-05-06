@@ -1,14 +1,14 @@
-import { Avatar, Stack, Typography } from '@mui/material'
-import Link from 'next/link'
+import { Avatar, Stack, Typography } from "@mui/material"
+import Link from "next/link"
 
-import { event } from '@/components/googleAnalytics/gtag'
+import { event } from "@/components/googleAnalytics/gtag"
 
 import {
   BorderPaper,
   NoDecorationTypography,
   StyledLaunch
-} from '../../../../../components/styledui'
-import { Clip } from '../../../../../models/clip'
+} from "../../../../../components/styledui"
+import { Clip } from "../../../../../models/clip"
 
 export default function ListCardItem({
   clip,
@@ -46,8 +46,8 @@ export default function ListCardItem({
       }}
     >
       <Stack
-        direction='row'
-        overflow='hidden'
+        direction="row"
+        overflow="hidden"
         sx={{
           height: { xs: 110, sm: 170 }
         }}
@@ -57,19 +57,19 @@ export default function ListCardItem({
           alt={clip.title}
           width={imageWidth}
           height={(imageWidth * 9) / 16}
-          loading='lazy'
+          loading="lazy"
           style={{
             width: `auto`,
             height: `100%`
           }}
         />
-        <Stack direction='column' overflow='hidden' p={1} sx={{ flexGrow: 1 }}>
-          <Stack direction='row' justifyContent='space-between'>
+        <Stack direction="column" overflow="hidden" p={1} sx={{ flexGrow: 1 }}>
+          <Stack direction="row" justifyContent="space-between">
             <Typography
-              variant='h6'
+              variant="h6"
               noWrap
-              fontWeight='bold'
-              component='div'
+              fontWeight="bold"
+              component="div"
               sx={{
                 cursor: `pointer`
               }}
@@ -87,7 +87,7 @@ export default function ListCardItem({
             </Typography>
             <Link
               href={clip.url ?? ``}
-              target='_blank'
+              target="_blank"
               style={{
                 textDecoration: `none`
               }}
@@ -100,39 +100,39 @@ export default function ListCardItem({
                 })
               }}
             >
-              <StyledLaunch fontSize='small' />
+              <StyledLaunch fontSize="small" />
             </Link>
           </Stack>
           <Link
             href={`/streamer/${clip.broadcaster_id}`}
-            aria-label='twitch clip page link'
+            aria-label="twitch clip page link"
             prefetch={false}
             style={{
               textDecoration: `none`
             }}
           >
-            <Stack direction='row' alignItems='center' spacing={2}>
-              <Avatar alt='icon' src={clip.profile_image_url} />
-              <NoDecorationTypography noWrap variant='body1'>
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <Avatar alt="icon" src={clip.profile_image_url} />
+              <NoDecorationTypography noWrap variant="body1">
                 {clip.broadcaster_name}
               </NoDecorationTypography>
             </Stack>
           </Link>
           <Typography
             noWrap
-            variant='body1'
+            variant="body1"
             display={{ xs: `none`, sm: `flex` }}
           >
             created_by : {clip.creator_name}
           </Typography>
           <Typography
             noWrap
-            variant='body1'
+            variant="body1"
             display={{ xs: `none`, sm: `flex` }}
           >
             created_at : {formatDate(clip.created_at ?? ``)}
           </Typography>
-          <Typography noWrap variant='body1' color='gray' textAlign='end'>
+          <Typography noWrap variant="body1" color="gray" textAlign="end">
             {clip.view_count?.toLocaleString() + ` views`}
           </Typography>
         </Stack>

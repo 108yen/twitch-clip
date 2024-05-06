@@ -1,4 +1,4 @@
-import TwitterIcon from '@mui/icons-material/Twitter'
+import TwitterIcon from "@mui/icons-material/Twitter"
 import {
   Divider,
   Grid,
@@ -11,26 +11,26 @@ import {
   TableContainer,
   TableRow,
   Typography
-} from '@mui/material'
+} from "@mui/material"
 
-import { AboutBodyTypography, BorderPaper } from '@/components/styledui'
+import { AboutBodyTypography, BorderPaper } from "@/components/styledui"
 
-import ExternalLink from './atoms/externalLink'
-import InquiryForm from './molecules/InquiryForm'
+import ExternalLink from "./atoms/externalLink"
+import InquiryForm from "./molecules/InquiryForm"
 
 export default function AboutTemplate() {
   return (
     <>
       <Grid
         container
-        justifyContent='center'
+        justifyContent="center"
         paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
       >
-        <Grid item xs={12} md={9} lg={8} xl={7} justifyContent='center' p={3}>
-          <Typography variant='h3' pt={10} textAlign='center'>
+        <Grid item xs={12} md={9} lg={8} xl={7} justifyContent="center" p={3}>
+          <Typography variant="h3" pt={10} textAlign="center">
             本サイトについて
           </Typography>
-          <Typography variant='h4' pt={10}>
+          <Typography variant="h4" pt={10}>
             1. はじめに
           </Typography>
           <Divider sx={{ marginY: 1 }} />
@@ -40,13 +40,13 @@ export default function AboutTemplate() {
           <List>
             <ListItem>
               <ExternalLink
-                href='https://streamscharts.com/'
-                ariaLabel='streams charts link'
-                eventLabel='click_streams_charts_link'
+                href="https://streamscharts.com/"
+                ariaLabel="streams charts link"
+                eventLabel="click_streams_charts_link"
               >
                 <AboutBodyTypography
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       textDecorationLine: `underline`
                     }
                   }}
@@ -57,13 +57,13 @@ export default function AboutTemplate() {
             </ListItem>
             <ListItem>
               <ExternalLink
-                href='https://twitchtracker.com/'
-                ariaLabel='twitch tracker link'
-                eventLabel='click_twitch_tracker_link'
+                href="https://twitchtracker.com/"
+                ariaLabel="twitch tracker link"
+                eventLabel="click_twitch_tracker_link"
               >
                 <AboutBodyTypography
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       textDecorationLine: `underline`
                     }
                   }}
@@ -74,13 +74,13 @@ export default function AboutTemplate() {
             </ListItem>
             <ListItem>
               <ExternalLink
-                href='https://twitchstats.net/twitch-clip-search'
-                ariaLabel='twitch stats link'
-                eventLabel='click_twitch_stats_link'
+                href="https://twitchstats.net/twitch-clip-search"
+                ariaLabel="twitch stats link"
+                eventLabel="click_twitch_stats_link"
               >
                 <AboutBodyTypography
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       textDecorationLine: `underline`
                     }
                   }}
@@ -90,14 +90,14 @@ export default function AboutTemplate() {
               </ExternalLink>
             </ListItem>
           </List>
-          <Typography variant='h4' pt={10}>
+          <Typography variant="h4" pt={10}>
             2. ランキングについて
           </Typography>
           <Divider sx={{ marginY: 1 }} />
           <AboutBodyTypography>
             本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、100件表示可能です。
           </AboutBodyTypography>
-          <Typography variant='h4' pt={10}>
+          <Typography variant="h4" pt={10}>
             3. コンテンツの更新頻度
           </Typography>
           <Divider sx={{ marginY: 1 }} />
@@ -110,28 +110,28 @@ export default function AboutTemplate() {
               <TableBody>
                 <TableRow>
                   <TableCell>dayランキング</TableCell>
-                  <TableCell align='right'>3時間毎</TableCell>
+                  <TableCell align="right">3時間毎</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>week,month,yearランキング</TableCell>
-                  <TableCell align='right'>毎日0時</TableCell>
+                  <TableCell align="right">毎日0時</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>allランキング</TableCell>
-                  <TableCell align='right'>毎月1日</TableCell>
+                  <TableCell align="right">毎月1日</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>日別ランキング</TableCell>
-                  <TableCell align='right'>毎日0時</TableCell>
+                  <TableCell align="right">毎日0時</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>年別ランキング</TableCell>
-                  <TableCell align='right'>毎月1日</TableCell>
+                  <TableCell align="right">毎月1日</TableCell>
                 </TableRow>
               </TableBody>
             </Table>
           </TableContainer>
-          <Typography variant='h4' pt={10}>
+          <Typography variant="h4" pt={10}>
             4. 禁止事項
           </Typography>
           <Divider sx={{ marginY: 1 }} />
@@ -168,7 +168,7 @@ export default function AboutTemplate() {
               </AboutBodyTypography>
             </ListItem>
           </List>
-          <Typography variant='h4' pt={10}>
+          <Typography variant="h4" pt={10}>
             5. Google Analytics
           </Typography>
           <Divider sx={{ marginY: 1 }} />
@@ -179,13 +179,13 @@ export default function AboutTemplate() {
           <List>
             <ListItem>
               <ExternalLink
-                href='https://policies.google.com/technologies/cookies?hl=ja'
-                ariaLabel='google link'
-                eventLabel='click_google_link'
+                href="https://policies.google.com/technologies/cookies?hl=ja"
+                ariaLabel="google link"
+                eventLabel="click_google_link"
               >
                 <AboutBodyTypography
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       textDecorationLine: `underline`
                     }
                   }}
@@ -196,13 +196,13 @@ export default function AboutTemplate() {
             </ListItem>
             <ListItem>
               <ExternalLink
-                href='https://support.google.com/analytics/answer/181881?hl=ja'
-                ariaLabel='google optout link'
-                eventLabel='click_google_link'
+                href="https://support.google.com/analytics/answer/181881?hl=ja"
+                ariaLabel="google optout link"
+                eventLabel="click_google_link"
               >
                 <AboutBodyTypography
                   sx={{
-                    '&:hover': {
+                    "&:hover": {
                       textDecorationLine: `underline`
                     }
                   }}
@@ -212,7 +212,7 @@ export default function AboutTemplate() {
               </ExternalLink>
             </ListItem>
           </List>
-          <Typography variant='h4' pt={10}>
+          <Typography variant="h4" pt={10}>
             6. Google AdSense
           </Typography>
           <Divider sx={{ marginY: 1 }} />
@@ -220,13 +220,13 @@ export default function AboutTemplate() {
             当サイトでは、広告提供の一環としてGoogle
             AdSenseを使用しています。広告はパーソナライズされることがあり、お使いの興味や訪問履歴に基づいて表示されます。
             <ExternalLink
-              href='https://myadcenter.google.com/home?sasb=true&ref=ad-settings'
-              ariaLabel='myadcenter link'
-              eventLabel='click_myadcenter_link'
+              href="https://myadcenter.google.com/home?sasb=true&ref=ad-settings"
+              ariaLabel="myadcenter link"
+              eventLabel="click_myadcenter_link"
             >
               <AboutBodyTypography
                 sx={{
-                  '&:hover': {
+                  "&:hover": {
                     textDecorationLine: `underline`
                   },
                   display: `inline`
@@ -237,35 +237,35 @@ export default function AboutTemplate() {
             </ExternalLink>
             からパーソナライズ広告を無効にすることができます。
           </AboutBodyTypography>
-          <Typography variant='h4' pt={10}>
+          <Typography variant="h4" pt={10}>
             7. お問い合わせ
           </Typography>
           <Divider sx={{ marginY: 1 }} />
           <InquiryForm />
           <Stack
-            direction='row'
+            direction="row"
             mt={10}
             flexGrow={1}
-            alignItems='center'
-            justifyContent='center'
+            alignItems="center"
+            justifyContent="center"
             spacing={1}
           >
-            <Typography variant='caption' color='grey'>
+            <Typography variant="caption" color="grey">
               developer:
             </Typography>
             <ExternalLink
-              href='https://twitter.com/108yen___'
-              ariaLabel='twitter link'
-              eventLabel='click_twitter_link'
+              href="https://twitter.com/108yen___"
+              ariaLabel="twitter link"
+              eventLabel="click_twitter_link"
             >
-              <Stack direction='row' alignItems='center'>
+              <Stack direction="row" alignItems="center">
                 <TwitterIcon
                   sx={{
                     fontSize: 14,
                     color: `grey`
                   }}
                 />
-                <Typography variant='caption' color='grey'>
+                <Typography variant="caption" color="grey">
                   108yen
                 </Typography>
               </Stack>

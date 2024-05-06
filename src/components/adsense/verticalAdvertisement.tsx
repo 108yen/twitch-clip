@@ -1,7 +1,7 @@
-'use client'
-import { Box, Divider, Stack, Typography } from '@mui/material'
-import { usePathname } from 'next/navigation'
-import { useEffect } from 'react'
+"use client"
+import { Box, Divider, Stack, Typography } from "@mui/material"
+import { usePathname } from "next/navigation"
+import { useEffect } from "react"
 
 export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
   const pathname = usePathname()
@@ -17,19 +17,19 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
 
   return (
     <Stack
-      direction='column'
+      direction="column"
       flexGrow={1}
-      justifyContent='flex-start'
-      alignItems='center'
-      position='fixed'
+      justifyContent="flex-start"
+      alignItems="center"
+      position="fixed"
       top={top}
     >
-      <Box position='relative'>
+      <Box position="relative">
         <Typography
-          variant='body2'
-          color='grey'
+          variant="body2"
+          color="grey"
           flexGrow={1}
-          textAlign='center'
+          textAlign="center"
         >
           Advertisement
         </Typography>
@@ -38,21 +38,21 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
           key={pathname}
           flexGrow={1}
           width={200}
-          textAlign='center'
+          textAlign="center"
           padding={2}
         >
           <ins
-            className='adsbygoogle'
+            className="adsbygoogle"
             style={{
               display: `block`,
               position: `relative`,
               top: 0
             }}
             data-adtest={process.env.NODE_ENV === `production` ? `off` : `on`}
-            data-ad-client='ca-pub-1615921337969017'
-            data-ad-slot='1041812482'
-            data-ad-format='auto'
-            data-full-width-responsive='true'
+            data-ad-client="ca-pub-1615921337969017"
+            data-ad-slot="1041812482"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
           />
         </Box>
       </Box>

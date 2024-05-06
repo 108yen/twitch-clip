@@ -1,14 +1,14 @@
-import { Avatar, Stack, Typography } from '@mui/material'
-import Link from 'next/link'
+import { Avatar, Stack, Typography } from "@mui/material"
+import Link from "next/link"
 
-import { event } from '@/components/googleAnalytics/gtag'
-import { NoDecorationTypography, StyledLaunch } from '@/components/styledui'
+import { event } from "@/components/googleAnalytics/gtag"
+import { NoDecorationTypography, StyledLaunch } from "@/components/styledui"
 
-import { Clip } from '../../../../../models/clip'
+import { Clip } from "../../../../../models/clip"
 
 export function StreamerInfo({ clip }: { clip: Clip }) {
   return (
-    <Stack direction='row' overflow='hidden' alignItems='center' spacing={1}>
+    <Stack direction="row" overflow="hidden" alignItems="center" spacing={1}>
       <Link
         href={`/streamer/${clip.broadcaster_id}`}
         prefetch={false}
@@ -18,30 +18,30 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
       >
         <Avatar
           sx={{ width: 35, height: 35 }}
-          alt='top'
+          alt="top"
           src={clip.profile_image_url}
         />
       </Link>
       <Stack
-        direction='row'
-        overflow='hidden'
-        justifyContent='space-between'
-        alignItems='flex-start'
+        direction="row"
+        overflow="hidden"
+        justifyContent="space-between"
+        alignItems="flex-start"
         flexGrow={1}
       >
-        <Stack direction='column' overflow='hidden'>
+        <Stack direction="column" overflow="hidden">
           <Link
             href={`/streamer/${clip.broadcaster_id}`}
             prefetch={false}
-            aria-label='streamer page link'
+            aria-label="streamer page link"
             style={{
               textDecoration: `none`
             }}
           >
-            <NoDecorationTypography variant='body1' fontWeight='bold'>
+            <NoDecorationTypography variant="body1" fontWeight="bold">
               {clip.broadcaster_name}
             </NoDecorationTypography>
-            <Typography variant='inherit' color='grey'>
+            <Typography variant="inherit" color="grey">
               {`${
                 clip.broadcaster_follower_num?.toLocaleString() ?? ``
               } followers`}
@@ -50,8 +50,8 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
         </Stack>
         <Link
           href={`https://www.twitch.tv/` + clip.broadcaster_login}
-          aria-label='twitch channel page link'
-          target='_blank'
+          aria-label="twitch channel page link"
+          target="_blank"
           style={{
             textDecoration: `none`
           }}
@@ -63,11 +63,11 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
             })
           }}
         >
-          <Stack direction='row' spacing={1}>
-            <NoDecorationTypography variant='body2'>
+          <Stack direction="row" spacing={1}>
+            <NoDecorationTypography variant="body2">
               Twitch
             </NoDecorationTypography>
-            <StyledLaunch fontSize='small' />
+            <StyledLaunch fontSize="small" />
           </Stack>
         </Link>
       </Stack>

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box } from "@mui/material"
 
 export default function Player(props: { embed_url?: string }) {
   const { embed_url } = props
@@ -17,7 +17,7 @@ export default function Player(props: { embed_url?: string }) {
       <iframe
         src={`${embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`}
         allowFullScreen
-        loading='lazy'
+        loading="lazy"
         style={{
           position: `absolute`,
           top: 0,

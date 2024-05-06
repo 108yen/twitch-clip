@@ -1,10 +1,10 @@
-import { Grid } from '@mui/material'
+import { Grid } from "@mui/material"
 
-import { Clip } from '@/models/clip'
+import { Clip } from "@/models/clip"
 
-import VerticalAdvertisement from '../../../../components/adsense/verticalAdvertisement'
-import { ClipDoc } from '../../../../models/clipDoc'
-import SwiperClipCardList from '../molecules/common/swiperClipCardList'
+import VerticalAdvertisement from "../../../../components/adsense/verticalAdvertisement"
+import { ClipDoc } from "../../../../models/clipDoc"
+import SwiperClipCardList from "../molecules/common/swiperClipCardList"
 
 export function Home(props: {
   clipDoc: ClipDoc
@@ -12,7 +12,7 @@ export function Home(props: {
 }) {
   const { clipDoc, setClickedClip } = props
   return (
-    <Grid container justifyContent='space-evenly'>
+    <Grid container justifyContent="space-evenly">
       <Grid item zeroMinWidth xs={12} md={8}>
         <SwiperClipCardList
           clipDoc={clipDoc}
@@ -25,7 +25,7 @@ export function Home(props: {
         md={2}
         xl={1}
         display={{ xs: `none`, md: `flex` }}
-        justifyContent='center'
+        justifyContent="center"
       >
         <VerticalAdvertisement />
         {/* <AdmaxPCSideCard /> */}

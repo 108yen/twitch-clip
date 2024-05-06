@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react"
 
-import generateTemplateMetadata from '../../utils/generateTemplateMetadata'
+import generateTemplateMetadata from "../../utils/generateTemplateMetadata"
 
 export function generateMetadata() {
   return generateTemplateMetadata({

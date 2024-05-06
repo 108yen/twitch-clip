@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography } from "@mui/material"
 
 export default function ClipInfo(props: {
   title?: string
@@ -8,16 +8,16 @@ export default function ClipInfo(props: {
 
   return (
     <Stack
-      direction='row'
-      overflow='hidden'
-      justifyContent='space-between'
-      alignItems='flex-start'
+      direction="row"
+      overflow="hidden"
+      justifyContent="space-between"
+      alignItems="flex-start"
       flexGrow={1}
     >
-      <Typography variant='h6' fontWeight='bold' noWrap>
+      <Typography variant="h6" fontWeight="bold" noWrap>
         {title}
       </Typography>
-      <Typography align='right' minWidth={95} variant='body2' color='grey'>
+      <Typography align="right" minWidth={95} variant="body2" color="grey">
         {`${view_count?.toLocaleString()} views`}
       </Typography>
     </Stack>

@@ -1,4 +1,4 @@
-import * as admin from 'firebase-admin'
+import * as admin from "firebase-admin"
 
 const serviceAccount = {
   type: process.env.TYPE!,

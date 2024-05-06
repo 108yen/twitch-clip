@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Grid, Stack, Tab, Tabs } from '@mui/material'
+import { Box, CircularProgress, Grid, Stack, Tab, Tabs } from "@mui/material"
 
 export default function ClipPageLoaderTemplate() {
   const tabNameList = [
@@ -12,11 +12,11 @@ export default function ClipPageLoaderTemplate() {
   return (
     <Grid
       container
-      justifyContent='center'
+      justifyContent="center"
       paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
     >
       <Grid item zeroMinWidth xs={12} md={9}>
-        <Stack direction='column' spacing={0.1} sx={{ minWidth: 0 }}>
+        <Stack direction="column" spacing={0.1} sx={{ minWidth: 0 }}>
           <Box
             sx={{
               zIndex: 1200,
@@ -28,9 +28,9 @@ export default function ClipPageLoaderTemplate() {
           >
             <Tabs
               value={0}
-              textColor='secondary'
-              indicatorColor='secondary'
-              variant='scrollable'
+              textColor="secondary"
+              indicatorColor="secondary"
+              variant="scrollable"
               scrollButtons={true}
             >
               {tabNameList.map((e, index) => (
@@ -46,7 +46,7 @@ export default function ClipPageLoaderTemplate() {
               p: 5
             }}
           >
-            <CircularProgress color='secondary' />
+            <CircularProgress color="secondary" />
           </Box>
         </Stack>
       </Grid>

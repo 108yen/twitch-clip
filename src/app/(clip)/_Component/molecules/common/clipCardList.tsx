@@ -1,12 +1,12 @@
-import { Box, CircularProgress, Typography } from '@mui/material'
-import { useMemo } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
+import { Box, CircularProgress, Typography } from "@mui/material"
+import { useMemo } from "react"
+import InfiniteScroll from "react-infinite-scroll-component"
 
-import HorizontalAdvertisement from '@/components/adsense/horizontalAdvertisement'
-import { event } from '@/components/googleAnalytics/gtag'
-import { Clip } from '@/models/clip'
+import HorizontalAdvertisement from "@/components/adsense/horizontalAdvertisement"
+import { event } from "@/components/googleAnalytics/gtag"
+import { Clip } from "@/models/clip"
 
-import ListCardItem from '../../atoms/common/listCardItem'
+import ListCardItem from "../../atoms/common/listCardItem"
 
 export default function ClipCardList(props: {
   hasMore: boolean
@@ -48,13 +48,13 @@ export default function ClipCardList(props: {
         m: 2
       }}
     >
-      <CircularProgress color='secondary' />
+      <CircularProgress color="secondary" />
     </Box>
   )
 
   const endMessage = (
     <Box key={0} sx={{ m: 3, display: `flex`, justifyContent: `center` }}>
-      <Typography variant='inherit' color='gray'>
+      <Typography variant="inherit" color="gray">
         no more clips
       </Typography>
     </Box>
@@ -67,7 +67,7 @@ export default function ClipCardList(props: {
         if (index == 10) {
           return (
             <Box key={index}>
-              <Box display={{ xs: `flex`, md: `none` }} width='100%'>
+              <Box display={{ xs: `flex`, md: `none` }} width="100%">
                 <HorizontalAdvertisement />
               </Box>
               <ListCardItem

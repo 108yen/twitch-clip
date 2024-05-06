@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import Link from 'next/link'
-import { ReactNode } from 'react'
+import Link from "next/link"
+import { ReactNode } from "react"
 
-import { event } from '@/components/googleAnalytics/gtag'
+import { event } from "@/components/googleAnalytics/gtag"
 
 export default function ExternalLink(props: {
   children: ReactNode
@@ -17,7 +17,7 @@ export default function ExternalLink(props: {
     <Link
       href={href}
       aria-label={ariaLabel}
-      target='_blank'
+      target="_blank"
       style={{
         textDecoration: `none`
       }}

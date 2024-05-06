@@ -1,12 +1,12 @@
-import { Box, CircularProgress, Stack, Typography } from '@mui/material'
-import { useEffect, useMemo } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
+import { Box, CircularProgress, Stack, Typography } from "@mui/material"
+import { useEffect, useMemo } from "react"
+import InfiniteScroll from "react-infinite-scroll-component"
 
-import { event } from '@/components/googleAnalytics/gtag'
+import { event } from "@/components/googleAnalytics/gtag"
 
-import SquareAdvertisement from '../../../../../components/adsense/squareAdvertisement'
-import { Clip } from '../../../../../models/clip'
-import CardItem from '../../atoms/PC/cardItem'
+import SquareAdvertisement from "../../../../../components/adsense/squareAdvertisement"
+import { Clip } from "../../../../../models/clip"
+import CardItem from "../../atoms/PC/cardItem"
 
 export default function CardList(props: {
   hasMore: boolean
@@ -47,13 +47,13 @@ export default function CardList(props: {
   }
   const loader = (
     <Box key={0} sx={{ display: `flex`, justifyContent: `center` }}>
-      <CircularProgress color='secondary' />
+      <CircularProgress color="secondary" />
     </Box>
   )
 
   const endMessage = (
     <Box key={0} sx={{ m: 3, display: `flex`, justifyContent: `center` }}>
-      <Typography variant='inherit' color='gray'>
+      <Typography variant="inherit" color="gray">
         no more clips
       </Typography>
     </Box>
@@ -64,7 +64,7 @@ export default function CardList(props: {
       clips.slice(0, viewItemNum).map((e, index) => {
         if ((index % 10 == 0 && index != 0) || index == 2) {
           return (
-            <Stack key={index} direction='column'>
+            <Stack key={index} direction="column">
               <SquareAdvertisement />
               <CardItem
                 clip={e}

@@ -1,5 +1,5 @@
-'use client'
-import { HexagonOutlined } from '@mui/icons-material'
+"use client"
+import { HexagonOutlined } from "@mui/icons-material"
 import {
   Box,
   Divider,
@@ -9,14 +9,14 @@ import {
   Toolbar,
   Tooltip,
   Typography
-} from '@mui/material'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+} from "@mui/material"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 
-import { Div, NoDecorationTypography, PaperAppBar } from '@/components/styledui'
+import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui"
 
-import NotificationMenu from './notificationMenu'
+import NotificationMenu from "./notificationMenu"
 
 export default function DefaultHeader() {
   const [isTransparent, setTransparent] = useState<boolean>(true)
@@ -60,45 +60,45 @@ export default function DefaultHeader() {
 
   return (
     <PaperAppBar
-      position='sticky'
+      position="sticky"
       istransparent={`${isTransparent}`}
       sx={{
         zIndex: 1201
       }}
     >
       <Toolbar>
-        <Stack direction='row' justifyContent='space-between' flexGrow={1}>
-          <Stack direction='row'>
+        <Stack direction="row" justifyContent="space-between" flexGrow={1}>
+          <Stack direction="row">
             <HexagonOutlined
-              color='secondary'
-              fontSize='large'
+              color="secondary"
+              fontSize="large"
               sx={{
                 display: { xs: `none`, sm: `flex` },
                 mr: 1
               }}
             />
             <Link
-              href='/'
-              aria-label='top'
+              href="/"
+              aria-label="top"
               prefetch={false}
               style={{
                 textDecoration: `none`
               }}
             >
-              <NoDecorationTypography variant='h5' noWrap>
+              <NoDecorationTypography variant="h5" noWrap>
                 Twitch clip ranking
               </NoDecorationTypography>
             </Link>
             <Divider
-              orientation='vertical'
+              orientation="vertical"
               sx={{
                 display: { xs: `none`, sm: `flex` },
                 marginX: 3
               }}
             />
             <Stack
-              direction='row'
-              alignItems='center'
+              direction="row"
+              alignItems="center"
               sx={{
                 display: { xs: `none`, sm: `flex` }
               }}
@@ -122,22 +122,22 @@ export default function DefaultHeader() {
                 }}
               >
                 <Link
-                  href='/'
-                  aria-label='top'
+                  href="/"
+                  aria-label="top"
                   prefetch={false}
                   style={{
                     textDecoration: `none`,
                     color: `inherit`
                   }}
                 >
-                  <Tooltip title='ページトップ'>
+                  <Tooltip title="ページトップ">
                     <Typography
-                      variant='body1'
+                      variant="body1"
                       noWrap
                       sx={{
                         transitionDuration: `0.3s`,
                         color: (theme) => setCurrentPageColor(theme, ``),
-                        '&:hover': {
+                        "&:hover": {
                           color: (theme) => theme.palette.text.primary
                         }
                       }}
@@ -156,22 +156,22 @@ export default function DefaultHeader() {
                 }}
               >
                 <Link
-                  href='/daily'
+                  href="/daily"
                   prefetch={false}
-                  aria-label='daily clip page link'
+                  aria-label="daily clip page link"
                   style={{
                     textDecoration: `none`,
                     color: `inherit`
                   }}
                 >
-                  <Tooltip title='日別ランキング'>
+                  <Tooltip title="日別ランキング">
                     <Typography
-                      variant='body1'
+                      variant="body1"
                       noWrap
                       sx={{
                         transitionDuration: `0.3s`,
                         color: (theme) => setCurrentPageColor(theme, `daily`),
-                        '&:hover': {
+                        "&:hover": {
                           color: (theme) => theme.palette.text.primary
                         }
                       }}
@@ -190,22 +190,22 @@ export default function DefaultHeader() {
                 }}
               >
                 <Link
-                  href='/past'
+                  href="/past"
                   prefetch={false}
-                  aria-label='past clip page link'
+                  aria-label="past clip page link"
                   style={{
                     textDecoration: `none`,
                     color: `inherit`
                   }}
                 >
-                  <Tooltip title='過去の年別ランキング'>
+                  <Tooltip title="過去の年別ランキング">
                     <Typography
-                      variant='body1'
+                      variant="body1"
                       noWrap
                       sx={{
                         transitionDuration: `0.3s`,
                         color: (theme) => setCurrentPageColor(theme, `past`),
-                        '&:hover': {
+                        "&:hover": {
                           color: (theme) => theme.palette.text.primary
                         }
                       }}
@@ -224,24 +224,24 @@ export default function DefaultHeader() {
                 }}
               >
                 <Link
-                  href='/streamers'
+                  href="/streamers"
                   prefetch={false}
-                  aria-label='channel list page link'
+                  aria-label="channel list page link"
                   style={{
                     textDecoration: `none`,
                     color: `inherit`
                   }}
                 >
-                  <Tooltip title='チャンネル一覧'>
+                  <Tooltip title="チャンネル一覧">
                     <Typography
-                      variant='body1'
+                      variant="body1"
                       noWrap
-                      component='div'
+                      component="div"
                       sx={{
                         transitionDuration: `0.3s`,
                         color: (theme) =>
                           setCurrentPageColor(theme, `streamers`),
-                        '&:hover': {
+                        "&:hover": {
                           color: (theme) => theme.palette.text.primary
                         }
                       }}

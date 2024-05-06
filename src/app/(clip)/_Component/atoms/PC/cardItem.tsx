@@ -1,13 +1,13 @@
-import { Avatar, Box, Stack, Tooltip, Typography } from '@mui/material'
-import Link from 'next/link'
+import { Avatar, Box, Stack, Tooltip, Typography } from "@mui/material"
+import Link from "next/link"
 
-import { event } from '@/components/googleAnalytics/gtag'
+import { event } from "@/components/googleAnalytics/gtag"
 
 import {
   BorderPaper,
   NoDecorationTypography
-} from '../../../../../components/styledui'
-import { Clip } from '../../../../../models/clip'
+} from "../../../../../components/styledui"
+import { Clip } from "../../../../../models/clip"
 
 export default function CardItem(props: {
   clip: Clip
@@ -23,8 +23,8 @@ export default function CardItem(props: {
       }}
     >
       <Stack
-        direction='column'
-        overflow='hidden'
+        direction="column"
+        overflow="hidden"
         spacing={1}
         sx={{ flexGrow: 1 }}
       >
@@ -51,7 +51,7 @@ export default function CardItem(props: {
           <img
             src={clip.thumbnail_url}
             alt={clip.title}
-            loading='lazy'
+            loading="lazy"
             style={{
               position: `absolute`,
               top: 0,
@@ -62,7 +62,7 @@ export default function CardItem(props: {
             }}
           />
         </BorderPaper>
-        <Stack direction='row' alignItems='center' spacing={2}>
+        <Stack direction="row" alignItems="center" spacing={2}>
           <Link
             href={`/streamer/${clip.broadcaster_id}`}
             prefetch={false}
@@ -72,20 +72,20 @@ export default function CardItem(props: {
           >
             <Avatar
               sx={{ width: 35, height: 35 }}
-              alt='top'
+              alt="top"
               src={clip.profile_image_url}
             />
           </Link>
-          <Stack direction='column' overflow='hidden' flexGrow={1}>
+          <Stack direction="column" overflow="hidden" flexGrow={1}>
             <Tooltip
               followCursor
-              placement='top'
+              placement="top"
               title={clip.title}
               enterDelay={500}
               enterNextDelay={500}
             >
               <NoDecorationTypography
-                variant='body1'
+                variant="body1"
                 noWrap
                 onClick={() => {
                   setClickedClipUrl(clip)
@@ -101,9 +101,9 @@ export default function CardItem(props: {
               </NoDecorationTypography>
             </Tooltip>
             <Stack
-              direction='row'
-              justifyContent='space-between'
-              alignItems='center'
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
               flexGrow={1}
             >
               <Link
@@ -113,11 +113,11 @@ export default function CardItem(props: {
                   textDecoration: `none`
                 }}
               >
-                <Typography noWrap variant='body1' color='grey'>
+                <Typography noWrap variant="body1" color="grey">
                   {clip.broadcaster_name}
                 </Typography>
               </Link>
-              <Typography noWrap variant='body2' color='grey'>
+              <Typography noWrap variant="body2" color="grey">
                 {clip.view_count?.toLocaleString()}
                 {` `}
                 views

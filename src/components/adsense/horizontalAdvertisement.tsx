@@ -1,7 +1,7 @@
-'use client'
-import { Box, Divider, Stack, Typography } from '@mui/material'
-import { usePathname } from 'next/navigation'
-import { useEffect } from 'react'
+"use client"
+import { Box, Divider, Stack, Typography } from "@mui/material"
+import { usePathname } from "next/navigation"
+import { useEffect } from "react"
 
 export default function HorizontalAdvertisement() {
   const pathname = usePathname()
@@ -16,22 +16,22 @@ export default function HorizontalAdvertisement() {
   }, [pathname])
 
   return (
-    <Stack direction='column' width='100%'>
-      <Typography variant='body2' color='grey' flexGrow={1} textAlign='left'>
+    <Stack direction="column" width="100%">
+      <Typography variant="body2" color="grey" flexGrow={1} textAlign="left">
         Advertisement
       </Typography>
       <Divider />
       <Box key={pathname} marginTop={0.5}>
         <ins
-          className='adsbygoogle'
+          className="adsbygoogle"
           style={{
             display: `block`,
             textAlign: `center`
           }}
-          data-ad-format='fluid'
-          data-ad-layout='in-article'
-          data-ad-client='ca-pub-1615921337969017'
-          data-ad-slot='8553448913'
+          data-ad-format="fluid"
+          data-ad-layout="in-article"
+          data-ad-client="ca-pub-1615921337969017"
+          data-ad-slot="8553448913"
         />
       </Box>
     </Stack>

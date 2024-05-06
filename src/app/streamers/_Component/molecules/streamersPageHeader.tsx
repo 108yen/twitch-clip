@@ -1,5 +1,5 @@
-import SearchIcon from '@mui/icons-material/Search'
-import { InputAdornment, Stack, TextField, Typography } from '@mui/material'
+import SearchIcon from "@mui/icons-material/Search"
+import { InputAdornment, Stack, TextField, Typography } from "@mui/material"
 
 export default function StreamersPageHeader(props: {
   searchText: string
@@ -10,30 +10,30 @@ export default function StreamersPageHeader(props: {
 
   return (
     <Stack
-      direction='row'
-      justifyContent='center'
-      alignItems='center'
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
       spacing={2}
       marginX={{ xs: 0, sm: 1 }}
       mt={{ xs: 2, sm: 5 }}
-      overflow='hidden'
+      overflow="hidden"
     >
       <TextField
-        id='search-text-field'
-        placeholder='search'
-        variant='standard'
+        id="search-text-field"
+        placeholder="search"
+        variant="standard"
         InputProps={{
           startAdornment: (
-            <InputAdornment position='start'>
-              <SearchIcon color='action' />
+            <InputAdornment position="start">
+              <SearchIcon color="action" />
             </InputAdornment>
           ),
           disableUnderline: true
         }}
         fullWidth
-        margin='normal'
-        color='secondary'
-        size='small'
+        margin="normal"
+        color="secondary"
+        size="small"
         value={searchText}
         onChange={handleSearchTextChange}
         sx={{
@@ -42,9 +42,9 @@ export default function StreamersPageHeader(props: {
       />
       <Typography
         mr={2}
-        variant='h5'
-        color='secondary'
-        textAlign='end'
+        variant="h5"
+        color="secondary"
+        textAlign="end"
         minWidth={150}
       >
         {`${channelNum} channels`}

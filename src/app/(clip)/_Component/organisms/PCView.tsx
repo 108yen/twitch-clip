@@ -1,13 +1,13 @@
-import { Grid, Stack } from '@mui/material'
+import { Grid, Stack } from "@mui/material"
 
-import { BorderPaper } from '@/components/styledui'
-import { Clip } from '@/models/clip'
+import { BorderPaper } from "@/components/styledui"
+import { Clip } from "@/models/clip"
 
-import { ClipDoc } from '../../../../models/clipDoc'
-import Player from '../atoms/common/player'
-import SideClipCard from '../molecules/PC/sideClipCard'
-import ClipInfo from '../molecules/common/clipInfo'
-import { StreamerInfo } from '../molecules/common/streamerInfo'
+import { ClipDoc } from "../../../../models/clipDoc"
+import Player from "../atoms/common/player"
+import SideClipCard from "../molecules/PC/sideClipCard"
+import ClipInfo from "../molecules/common/clipInfo"
+import { StreamerInfo } from "../molecules/common/streamerInfo"
 
 export function PCView(props: {
   clipDoc: ClipDoc
@@ -17,10 +17,10 @@ export function PCView(props: {
   const { clipDoc, currentClip, setClickedClip } = props
 
   return (
-    <Grid container justifyContent='space-evenly'>
+    <Grid container justifyContent="space-evenly">
       <Grid item xs={8}>
         <Stack
-          direction='column'
+          direction="column"
           spacing={1}
           sx={{ minWidth: 0, marginTop: 3 }}
         >

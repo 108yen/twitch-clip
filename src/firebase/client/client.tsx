@@ -1,13 +1,13 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app'
+import { initializeApp } from "firebase/app"
 import {
   ReCaptchaV3Provider,
   getToken,
   initializeAppCheck
-} from 'firebase/app-check'
-import { getPerformance } from 'firebase/performance'
+} from "firebase/app-check"
+import { getPerformance } from "firebase/performance"
 
-import { event } from '@/components/googleAnalytics/gtag'
+import { event } from "@/components/googleAnalytics/gtag"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,7 +27,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 
-if (typeof document !== 'undefined') {
+if (typeof document !== "undefined") {
   // Performance monitoring
   getPerformance(app)
   // AppCheck
