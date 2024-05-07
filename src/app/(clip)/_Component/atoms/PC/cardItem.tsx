@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Avatar, Box, Stack, Tooltip, Typography } from "@mui/material"
 import Link from "next/link"
 
