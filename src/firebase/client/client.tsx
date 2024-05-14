@@ -36,8 +36,8 @@ if (typeof document !== "undefined") {
     isTokenAutoRefreshEnabled: true
   })
   getToken(appCheck).catch((error) => {
-    event(`error`, {
-      label: `app_check_error`,
+    event("error", {
+      label: "app_check_error",
       value: error
     })
   })

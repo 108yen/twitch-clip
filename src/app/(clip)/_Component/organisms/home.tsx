@@ -24,7 +24,7 @@ export function Home(props: {
         zeroMinWidth
         md={2}
         xl={1}
-        display={{ xs: `none`, md: `flex` }}
+        display={{ xs: "none", md: "flex" }}
         justifyContent="center"
       >
         <VerticalAdvertisement />

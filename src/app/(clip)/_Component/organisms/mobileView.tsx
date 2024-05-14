@@ -22,7 +22,7 @@ export function MobileView(props: {
         <Stack direction="column" spacing={1} sx={{ minWidth: 0 }}>
           <BorderPaper
             sx={{
-              position: `sticky`,
+              position: "sticky",
               top: 0,
               zIndex: 1202,
               marginTop: 0

@@ -6,12 +6,12 @@ export default function Player(props: { embed_url?: string }) {
   return (
     <Box
       sx={{
-        position: `relative`,
-        width: `100%`,
+        position: "relative",
+        width: "100%",
         height: 0,
-        paddingBottom: `56.25%`,
-        display: `flex`,
-        justifyContent: `center`
+        paddingBottom: "56.25%",
+        display: "flex",
+        justifyContent: "center"
       }}
     >
       <iframe
@@ -19,12 +19,12 @@ export default function Player(props: { embed_url?: string }) {
         allowFullScreen
         loading="lazy"
         style={{
-          position: `absolute`,
+          position: "absolute",
           top: 0,
           left: 0,
-          width: `100%`,
-          height: `100%`,
-          border: `none`
+          width: "100%",
+          height: "100%",
+          border: "none"
         }}
       />
     </Box>

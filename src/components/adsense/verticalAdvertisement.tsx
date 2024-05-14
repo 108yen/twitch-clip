@@ -44,11 +44,11 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
           <ins
             className="adsbygoogle"
             style={{
-              display: `block`,
-              position: `relative`,
+              display: "block",
+              position: "relative",
               top: 0
             }}
-            data-adtest={process.env.NODE_ENV === `production` ? `off` : `on`}
+            data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
             data-ad-client="ca-pub-1615921337969017"
             data-ad-slot="1041812482"
             data-ad-format="auto"

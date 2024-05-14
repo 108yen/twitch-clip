@@ -47,7 +47,7 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: `underline`
+                      textDecorationLine: "underline"
                     }
                   }}
                 >
@@ -64,7 +64,7 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: `underline`
+                      textDecorationLine: "underline"
                     }
                   }}
                 >
@@ -81,7 +81,7 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: `underline`
+                      textDecorationLine: "underline"
                     }
                   }}
                 >
@@ -186,7 +186,7 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: `underline`
+                      textDecorationLine: "underline"
                     }
                   }}
                 >
@@ -203,7 +203,7 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: `underline`
+                      textDecorationLine: "underline"
                     }
                   }}
                 >
@@ -227,9 +227,9 @@ export default function AboutTemplate() {
               <AboutBodyTypography
                 sx={{
                   "&:hover": {
-                    textDecorationLine: `underline`
+                    textDecorationLine: "underline"
                   },
-                  display: `inline`
+                  display: "inline"
                 }}
               >
                 広告の設定
@@ -262,7 +262,7 @@ export default function AboutTemplate() {
                 <TwitterIcon
                   sx={{
                     fontSize: 14,
-                    color: `grey`
+                    color: "grey"
                   }}
                 />
                 <Typography variant="caption" color="grey">

@@ -25,7 +25,7 @@ export default function SwiperClipCardList(props: {
   //style
   const windowWidth = window.innerWidth
   const top = (windowWidth * 9) / 16
-  const style = sticky ? { position: `sticky`, top: top } : {}
+  const style = sticky ? { position: "sticky", top: top } : {}
 
   //to infinite scroller
   const [viewItemNum, setViewItemNum] = useState(7)
@@ -63,9 +63,9 @@ export default function SwiperClipCardList(props: {
           zIndex: 1200,
           backgroundColor: (theme) => theme.palette.background.default,
           borderBottom: 1,
-          borderColor: `divider`,
-          justifyContent: `center`,
-          display: `flex`
+          borderColor: "divider",
+          justifyContent: "center",
+          display: "flex"
         }}
       >
         <Tabs

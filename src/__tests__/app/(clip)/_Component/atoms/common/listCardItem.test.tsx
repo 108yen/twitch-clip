@@ -6,14 +6,14 @@ import ListCardItem from "../../../../../../app/(clip)/_Component/atoms/common/l
 
 // ダミーデータを作成（テスト用）
 const dummyClip = {
-  title: `Test Clip`,
-  thumbnail_url: `test_thumbnail_url`,
-  url: `test_url`,
-  broadcaster_id: `test_broadcaster_id`,
-  broadcaster_name: `test_broadcaster_name`,
-  profile_image_url: `test_profile_image_url`,
-  creator_name: `test_creator_name`,
-  created_at: `2023-10-24T12:00:00Z`,
+  title: "Test Clip",
+  thumbnail_url: "test_thumbnail_url",
+  url: "test_url",
+  broadcaster_id: "test_broadcaster_id",
+  broadcaster_name: "test_broadcaster_name",
+  profile_image_url: "test_profile_image_url",
+  creator_name: "test_creator_name",
+  created_at: "2023-10-24T12:00:00Z",
   view_count: 1000
 }
 
@@ -21,20 +21,20 @@ const dummyClip = {
 const setClickedClipUrlMock = jest.fn()
 const eventMock = jest.fn()
 
-describe(`ListCardItem`, () => {
+describe("ListCardItem", () => {
   beforeAll(() => {
-    jest.mock(`next/link`, () => {
+    jest.mock("next/link", () => {
       return ({ children }: { children: ReactNode }) => {
         return children
       }
     })
 
-    jest.mock(`@/components/googleAnalytics/gtag`, () => ({
+    jest.mock("@/components/googleAnalytics/gtag", () => ({
       event: eventMock
     }))
   })
 
-  it(`renders component correctly`, () => {
+  it("renders component correctly", () => {
     render(
       <ListCardItem
         clip={dummyClip}
@@ -44,11 +44,11 @@ describe(`ListCardItem`, () => {
     )
 
     // コンポーネントが正しくレンダリングされたことを確認
-    expect(screen.getByText(`Test Clip`)).toBeInTheDocument()
+    expect(screen.getByText("Test Clip")).toBeInTheDocument()
     // 他の必要な要素も同様に確認
   })
 
-  it(`clicking on title calls setClickedClipUrl and event`, () => {
+  it("clicking on title calls setClickedClipUrl and event", () => {
     render(
       <ListCardItem
         clip={dummyClip}
@@ -57,20 +57,20 @@ describe(`ListCardItem`, () => {
       />
     )
 
-    const title = screen.getByText(`Test Clip`)
+    const title = screen.getByText("Test Clip")
     fireEvent.click(title)
 
     // setClickedClipUrlとeventが正しく呼び出されたことを確認
     expect(setClickedClipUrlMock).toHaveBeenCalledWith(dummyClip)
-    expect(eventMock).toHaveBeenCalledWith(`click`, {
-      label: `click_clip_title`,
-      clip_title: `Test Clip`,
-      ranking_period: `testTab`,
-      link_url: `test_url`
+    expect(eventMock).toHaveBeenCalledWith("click", {
+      label: "click_clip_title",
+      clip_title: "Test Clip",
+      ranking_period: "testTab",
+      link_url: "test_url"
     })
   })
 
-  it(`clicking on Twitch clip link calls event`, () => {
+  it("clicking on Twitch clip link calls event", () => {
     render(
       <ListCardItem
         clip={dummyClip}
@@ -79,15 +79,15 @@ describe(`ListCardItem`, () => {
       />
     )
 
-    const twitchClipLink = screen.getByText(`Test Clip`)
+    const twitchClipLink = screen.getByText("Test Clip")
     fireEvent.click(twitchClipLink)
 
     // eventが正しく呼び出されたことを確認
-    expect(eventMock).toHaveBeenCalledWith(`click`, {
-      label: `click_twitch_clip_link`,
-      clip_title: `Test Clip`,
-      ranking_period: `testTab`,
-      link_url: `test_url`
+    expect(eventMock).toHaveBeenCalledWith("click", {
+      label: "click_twitch_clip_link",
+      clip_title: "Test Clip",
+      ranking_period: "testTab",
+      link_url: "test_url"
     })
   })
 })

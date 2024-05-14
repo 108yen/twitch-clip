@@ -38,21 +38,21 @@ export default function CardList(props: {
     //if max item num is clips num
     if (viewItemNum >= clips.length - 1) {
       loadAll()
-      event(`scroll`, {
-        label: `load_all_clips`
+      event("scroll", {
+        label: "load_all_clips"
       })
     }
     //load each 1 items
     incrementViewItemNum()
   }
   const loader = (
-    <Box key={0} sx={{ display: `flex`, justifyContent: `center` }}>
+    <Box key={0} sx={{ display: "flex", justifyContent: "center" }}>
       <CircularProgress color="secondary" />
     </Box>
   )
 
   const endMessage = (
-    <Box key={0} sx={{ m: 3, display: `flex`, justifyContent: `center` }}>
+    <Box key={0} sx={{ m: 3, display: "flex", justifyContent: "center" }}>
       <Typography variant="inherit" color="gray">
         no more clips
       </Typography>
@@ -95,7 +95,7 @@ export default function CardList(props: {
   if (clips.length != 0) {
     return (
       <InfiniteScroll
-        style={{ overflowX: `hidden` }}
+        style={{ overflowX: "hidden" }}
         dataLength={viewItemNum}
         next={() => {
           loadMore(clips)

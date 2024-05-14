@@ -18,7 +18,7 @@ export default function ThemeRegistry(props: {
   const { options, children } = props
   const [isDarkMode] = useAtom(isDarkModeAtom)
 
-  const prefersDarkMode = useMediaQuery(`(prefers-color-scheme: dark)`, {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true
   })
   const theme = createTheme(
@@ -50,14 +50,14 @@ export default function ThemeRegistry(props: {
     if (names.length === 0) {
       return null
     }
-    let styles = ``
+    let styles = ""
     for (const name of names) {
       styles += cache.inserted[name]
     }
     return (
       <style
         key={cache.key}
-        data-emotion={`${cache.key} ${names.join(` `)}`}
+        data-emotion={`${cache.key} ${names.join(" ")}`}
         dangerouslySetInnerHTML={{
           // __html: styles,
           __html: options.prepend ? `@layer emotion {${styles}}` : styles

@@ -13,7 +13,7 @@ export const streamersConverter: FirestoreDataConverter<{
     const data = qds.data()
 
     if (!data.streamers) {
-      new Error(`streamersConverter/fromFirestore: data.streamers is undefined`)
+      new Error("streamersConverter/fromFirestore: data.streamers is undefined")
     }
 
     const result: Array<Streamer> = []

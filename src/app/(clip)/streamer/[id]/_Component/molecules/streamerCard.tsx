@@ -22,7 +22,7 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
           aria-label="streamer page link"
           prefetch={false}
           style={{
-            textDecoration: `none`
+            textDecoration: "none"
           }}
         >
           <Avatar
@@ -50,17 +50,17 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
               {streamerInfo.display_name}
             </Typography>
             <Link
-              href={`https://www.twitch.tv/` + streamerInfo.login}
+              href={"https://www.twitch.tv/" + streamerInfo.login}
               aria-label="twitch channel page link"
               target="_blank"
               style={{
-                textDecoration: `none`
+                textDecoration: "none"
               }}
               onClick={() => {
-                event(`click`, {
-                  label: `click_twitch_channel`,
+                event("click", {
+                  label: "click_twitch_channel",
                   channel_title: streamerInfo.display_name,
-                  link_url: `https://www.twitch.tv/` + streamerInfo.login
+                  link_url: "https://www.twitch.tv/" + streamerInfo.login
                 })
               }}
             >
@@ -78,10 +78,10 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
             height={50}
             overflow="auto"
             sx={{
-              msOverflowStyle: `none`,
-              scrollbarWidth: `none`,
+              msOverflowStyle: "none",
+              scrollbarWidth: "none",
               "::-webkit-scrollbar": {
-                display: `none`
+                display: "none"
               }
             }}
           >
@@ -95,9 +95,7 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
             textAlign="end"
             width="100%"
           >
-            {streamerInfo.follower_num?.toLocaleString()}
-            {` `}
-            followers
+            {streamerInfo.follower_num?.toLocaleString()} followers
           </Typography>
         </Stack>
       </Stack>
@@ -107,14 +105,14 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
     <Box
       sx={{
         p: 2,
-        display: `flex`,
-        justifyContent: `center`
+        display: "flex",
+        justifyContent: "center"
       }}
     >
       <Paper
         sx={{
           p: 2,
-          overflow: `hidden`,
+          overflow: "hidden",
           maxWidth: 700,
           minWidth: { xs: 400, md: 600 }
         }}
