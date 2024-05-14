@@ -10,7 +10,7 @@
     "format": "biome format ./src",
     "lint": "biome lint ./src",
     "eslint": "eslint ./src --max-warnings=0",
-    "check": "biome check --apply ./src && eslint ./src --fix --max-warnings=0",
+    "check": "biome check --apply ./src",
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "prepare": "husky"
@@ -75,3 +75,4 @@
     "ts-jest": "^29.1.1"
   }
 }
+
