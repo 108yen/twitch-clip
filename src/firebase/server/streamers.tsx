@@ -7,7 +7,7 @@ import { Streamer } from "@/models/streamer"
 
 import { streamersConverter } from "./converters/streamersConverter"
 
-const tags = [`get-streamers`]
+const tags = ["get-streamers"]
 
 const getStreamers = unstable_cache(uncache_getStreamers, tags, {
   tags,
@@ -19,8 +19,8 @@ async function uncache_getStreamers() {
   const streamersDocRef: DocumentReference<{
     streamers: Array<Streamer>
   }> = db
-    .collection(`streamers`)
-    .doc(`streamers`)
+    .collection("streamers")
+    .doc("streamers")
     .withConverter<{ streamers: Array<Streamer> }>(streamersConverter)
 
   const ds = await streamersDocRef.get().catch((error) => {
@@ -31,8 +31,8 @@ async function uncache_getStreamers() {
     notFound()
   }
   console.log(
-    `info: get streamers at ${new Date().toLocaleString(`ja-JP`, {
-      timeZone: `Asia/Tokyo`
+    `info: get streamers at ${new Date().toLocaleString("ja-JP", {
+      timeZone: "Asia/Tokyo"
     })}`
   )
 

@@ -23,7 +23,7 @@ export default getClips
 
 async function uncache_getClips(id: string) {
   const clipColRef: CollectionReference<ClipDoc> = db
-    .collection(`clips`)
+    .collection("clips")
     .withConverter<ClipDoc>(clipDocConverter)
   const clipDocRef = ({
     clipId
@@ -41,8 +41,8 @@ async function uncache_getClips(id: string) {
     notFound()
   }
   console.log(
-    `info: get ${id} clipDoc at ${new Date().toLocaleString(`ja-JP`, {
-      timeZone: `Asia/Tokyo`
+    `info: get ${id} clipDoc at ${new Date().toLocaleString("ja-JP", {
+      timeZone: "Asia/Tokyo"
     })}`
   )
 

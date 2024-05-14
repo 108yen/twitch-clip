@@ -26,16 +26,16 @@ export default function ListCardItem({
     const date = new Date(dateString)
 
     const options: Intl.DateTimeFormatOptions = {
-      timeZone: `Asia/Tokyo`,
-      year: `numeric`,
-      month: `2-digit`,
-      day: `2-digit`,
-      hour: `2-digit`,
-      minute: `2-digit`,
-      second: `2-digit`
+      timeZone: "Asia/Tokyo",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
     }
 
-    const formattedDate = new Intl.DateTimeFormat(`ja-JP`, options).format(date)
+    const formattedDate = new Intl.DateTimeFormat("ja-JP", options).format(date)
     return formattedDate
   }
 
@@ -60,8 +60,8 @@ export default function ListCardItem({
           height={(imageWidth * 9) / 16}
           loading="lazy"
           style={{
-            width: `auto`,
-            height: `100%`
+            width: "auto",
+            height: "100%"
           }}
         />
         <Stack direction="column" overflow="hidden" p={1} sx={{ flexGrow: 1 }}>
@@ -72,12 +72,12 @@ export default function ListCardItem({
               fontWeight="bold"
               component="div"
               sx={{
-                cursor: `pointer`
+                cursor: "pointer"
               }}
               onClick={() => {
                 setClickedClipUrl(clip)
-                event(`click`, {
-                  label: `click_clip_title`,
+                event("click", {
+                  label: "click_clip_title",
                   clip_title: clip.title,
                   ranking_period: tab,
                   link_url: clip.url
@@ -87,14 +87,14 @@ export default function ListCardItem({
               {clip.title}
             </Typography>
             <Link
-              href={clip.url ?? ``}
+              href={clip.url ?? ""}
               target="_blank"
               style={{
-                textDecoration: `none`
+                textDecoration: "none"
               }}
               onClick={() => {
-                event(`click`, {
-                  label: `click_twitch_clip_link`,
+                event("click", {
+                  label: "click_twitch_clip_link",
                   clip_title: clip.title,
                   ranking_period: tab,
                   link_url: clip.url
@@ -109,7 +109,7 @@ export default function ListCardItem({
             aria-label="twitch clip page link"
             prefetch={false}
             style={{
-              textDecoration: `none`
+              textDecoration: "none"
             }}
           >
             <Stack direction="row" alignItems="center" spacing={2}>
@@ -122,19 +122,19 @@ export default function ListCardItem({
           <Typography
             noWrap
             variant="body1"
-            display={{ xs: `none`, sm: `flex` }}
+            display={{ xs: "none", sm: "flex" }}
           >
             created_by : {clip.creator_name}
           </Typography>
           <Typography
             noWrap
             variant="body1"
-            display={{ xs: `none`, sm: `flex` }}
+            display={{ xs: "none", sm: "flex" }}
           >
-            created_at : {formatDate(clip.created_at ?? ``)}
+            created_at : {formatDate(clip.created_at ?? "")}
           </Typography>
           <Typography noWrap variant="body1" color="gray" textAlign="end">
-            {clip.view_count?.toLocaleString() + ` views`}
+            {clip.view_count?.toLocaleString() + " views"}
           </Typography>
         </Stack>
       </Stack>

@@ -25,10 +25,10 @@ export default function SquareAdvertisement() {
         <ins
           className="adsbygoogle"
           style={{
-            display: `block`,
-            height: `100%`
+            display: "block",
+            height: "100%"
           }}
-          data-adtest={process.env.NODE_ENV === `production` ? `off` : `on`}
+          data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
           data-ad-client="ca-pub-1615921337969017"
           data-ad-slot="1058689000"
           data-ad-format="rectangle"

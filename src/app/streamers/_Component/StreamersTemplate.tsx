@@ -13,7 +13,7 @@ export default function StreamersTemplate(props: {
 }) {
   const { streamers } = props
   // search
-  const [searchText, setSearchText] = useState<string>(``)
+  const [searchText, setSearchText] = useState<string>("")
   const filteredStreamer = streamers.filter((streamer) => {
     return (
       streamer.display_name?.includes(searchText) ||
@@ -46,7 +46,7 @@ export default function StreamersTemplate(props: {
         zeroMinWidth
         md={2}
         xl={1}
-        display={{ xs: `none`, md: `flex` }}
+        display={{ xs: "none", md: "flex" }}
       >
         <VerticalAdvertisement />
       </Grid>

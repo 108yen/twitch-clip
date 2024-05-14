@@ -2,11 +2,11 @@ import { Box, CircularProgress, Grid, Stack, Tab, Tabs } from "@mui/material"
 
 export default function ClipPageLoaderTemplate() {
   const tabNameList = [
-    `day`, //
-    `week`,
-    `month`,
-    `year`,
-    `all`
+    "day", //
+    "week",
+    "month",
+    "year",
+    "all"
   ]
 
   return (
@@ -21,9 +21,9 @@ export default function ClipPageLoaderTemplate() {
             sx={{
               zIndex: 1200,
               borderBottom: 1,
-              borderColor: `divider`,
-              justifyContent: `center`,
-              display: `flex`
+              borderColor: "divider",
+              justifyContent: "center",
+              display: "flex"
             }}
           >
             <Tabs
@@ -41,8 +41,8 @@ export default function ClipPageLoaderTemplate() {
           <Box
             key={0}
             sx={{
-              display: `flex`,
-              justifyContent: `center`,
+              display: "flex",
+              justifyContent: "center",
               p: 5
             }}
           >

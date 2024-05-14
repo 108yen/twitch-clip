@@ -36,7 +36,7 @@ export default function DefaultHeader() {
       width: width,
       height: height,
       background: (theme) =>
-        theme.palette.mode === `light`
+        theme.palette.mode === "light"
           ? theme.palette.grey[200]
           : theme.palette.grey[800]
     })
@@ -46,12 +46,12 @@ export default function DefaultHeader() {
   }
 
   useEffect(() => {
-    window.addEventListener(`scroll`, toggleTransparent)
-    return () => window.removeEventListener(`scroll`, toggleTransparent)
+    window.addEventListener("scroll", toggleTransparent)
+    return () => window.removeEventListener("scroll", toggleTransparent)
   }, [])
 
   const pathname = usePathname()
-  const currentPath = pathname.split(`/`)[1]
+  const currentPath = pathname.split("/")[1]
   function setCurrentPageColor(theme: Theme, pagePath: string) {
     return pagePath == currentPath
       ? theme.palette.text.primary
@@ -73,7 +73,7 @@ export default function DefaultHeader() {
               color="secondary"
               fontSize="large"
               sx={{
-                display: { xs: `none`, sm: `flex` },
+                display: { xs: "none", sm: "flex" },
                 mr: 1
               }}
             />
@@ -82,7 +82,7 @@ export default function DefaultHeader() {
               aria-label="top"
               prefetch={false}
               style={{
-                textDecoration: `none`
+                textDecoration: "none"
               }}
             >
               <NoDecorationTypography variant="h5" noWrap>
@@ -92,7 +92,7 @@ export default function DefaultHeader() {
             <Divider
               orientation="vertical"
               sx={{
-                display: { xs: `none`, sm: `flex` },
+                display: { xs: "none", sm: "flex" },
                 marginX: 3
               }}
             />
@@ -100,13 +100,13 @@ export default function DefaultHeader() {
               direction="row"
               alignItems="center"
               sx={{
-                display: { xs: `none`, sm: `flex` }
+                display: { xs: "none", sm: "flex" }
               }}
             >
               <Box
                 sx={{
-                  transitionDuration: `0.3s`,
-                  position: `absolute`,
+                  transitionDuration: "0.3s",
+                  position: "absolute",
                   zIndex: -1,
                   borderRadius: 1,
                   ...style
@@ -126,8 +126,8 @@ export default function DefaultHeader() {
                   aria-label="top"
                   prefetch={false}
                   style={{
-                    textDecoration: `none`,
-                    color: `inherit`
+                    textDecoration: "none",
+                    color: "inherit"
                   }}
                 >
                   <Tooltip title="ページトップ">
@@ -135,8 +135,8 @@ export default function DefaultHeader() {
                       variant="body1"
                       noWrap
                       sx={{
-                        transitionDuration: `0.3s`,
-                        color: (theme) => setCurrentPageColor(theme, ``),
+                        transitionDuration: "0.3s",
+                        color: (theme) => setCurrentPageColor(theme, ""),
                         "&:hover": {
                           color: (theme) => theme.palette.text.primary
                         }
@@ -160,8 +160,8 @@ export default function DefaultHeader() {
                   prefetch={false}
                   aria-label="daily clip page link"
                   style={{
-                    textDecoration: `none`,
-                    color: `inherit`
+                    textDecoration: "none",
+                    color: "inherit"
                   }}
                 >
                   <Tooltip title="日別ランキング">
@@ -169,8 +169,8 @@ export default function DefaultHeader() {
                       variant="body1"
                       noWrap
                       sx={{
-                        transitionDuration: `0.3s`,
-                        color: (theme) => setCurrentPageColor(theme, `daily`),
+                        transitionDuration: "0.3s",
+                        color: (theme) => setCurrentPageColor(theme, "daily"),
                         "&:hover": {
                           color: (theme) => theme.palette.text.primary
                         }
@@ -194,8 +194,8 @@ export default function DefaultHeader() {
                   prefetch={false}
                   aria-label="past clip page link"
                   style={{
-                    textDecoration: `none`,
-                    color: `inherit`
+                    textDecoration: "none",
+                    color: "inherit"
                   }}
                 >
                   <Tooltip title="過去の年別ランキング">
@@ -203,8 +203,8 @@ export default function DefaultHeader() {
                       variant="body1"
                       noWrap
                       sx={{
-                        transitionDuration: `0.3s`,
-                        color: (theme) => setCurrentPageColor(theme, `past`),
+                        transitionDuration: "0.3s",
+                        color: (theme) => setCurrentPageColor(theme, "past"),
                         "&:hover": {
                           color: (theme) => theme.palette.text.primary
                         }
@@ -228,8 +228,8 @@ export default function DefaultHeader() {
                   prefetch={false}
                   aria-label="channel list page link"
                   style={{
-                    textDecoration: `none`,
-                    color: `inherit`
+                    textDecoration: "none",
+                    color: "inherit"
                   }}
                 >
                   <Tooltip title="チャンネル一覧">
@@ -238,9 +238,9 @@ export default function DefaultHeader() {
                       noWrap
                       component="div"
                       sx={{
-                        transitionDuration: `0.3s`,
+                        transitionDuration: "0.3s",
                         color: (theme) =>
-                          setCurrentPageColor(theme, `streamers`),
+                          setCurrentPageColor(theme, "streamers"),
                         "&:hover": {
                           color: (theme) => theme.palette.text.primary
                         }
@@ -258,7 +258,7 @@ export default function DefaultHeader() {
             onClick={() => {
               window.scrollTo({
                 top: 0,
-                behavior: `smooth`
+                behavior: "smooth"
               })
             }}
           />

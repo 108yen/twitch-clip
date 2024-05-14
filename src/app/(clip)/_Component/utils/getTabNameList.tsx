@@ -2,11 +2,11 @@ import { ClipDoc } from "../../../../models/clipDoc"
 
 export default function getTabNameList(clipDoc: ClipDoc) {
   const defaultArray: Array<string> = [
-    `day`, //
-    `week`,
-    `month`,
-    `year`,
-    `all`
+    "day", //
+    "week",
+    "month",
+    "year",
+    "all"
   ]
   const currentYear = new Date().getFullYear()
   const tabArray: Array<string> = []

@@ -4,7 +4,7 @@ import { Box, CircularProgress, Divider, Grid } from "@mui/material"
 import StreamersPageHeader from "./_Component/molecules/streamersPageHeader"
 
 export default function Loading() {
-  const searchText = ``
+  const searchText = ""
   // biome-ignore lint/suspicious/noEmptyBlockStatements: <explanation>
   const handleSearchTextChange = () => {}
   const channelNum = 0
@@ -27,7 +27,7 @@ export default function Loading() {
               marginX: { xs: 0, sm: 1 }
             }}
           />
-          <Box key={0} sx={{ display: `flex`, justifyContent: `center`, m: 5 }}>
+          <Box key={0} sx={{ display: "flex", justifyContent: "center", m: 5 }}>
             <CircularProgress color="secondary" />
           </Box>
         </Grid>

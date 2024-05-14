@@ -5,7 +5,7 @@ import { inquiryConverter } from "./converters/inquiryConverter"
 import { db } from "./server"
 
 export default async function postInquiry(body: string) {
-  const inquiryDoc = db.collection(`inquiries`).doc(`others`).withConverter<{
+  const inquiryDoc = db.collection("inquiries").doc("others").withConverter<{
     inquiry_array: Array<string>
   }>(inquiryConverter)
   try {
@@ -13,8 +13,8 @@ export default async function postInquiry(body: string) {
       inquiry_array: admin.firestore.FieldValue.arrayUnion(body)
     })
     console.log(
-      `info: post inquiry at ${new Date().toLocaleString(`ja-JP`, {
-        timeZone: `Asia/Tokyo`
+      `info: post inquiry at ${new Date().toLocaleString("ja-JP", {
+        timeZone: "Asia/Tokyo"
       })}`
     )
   } catch (error) {

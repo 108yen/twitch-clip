@@ -6,8 +6,8 @@ import { Clip } from "@/models/clip"
 
 import { ClipDoc } from "../../../models/clipDoc"
 
-import { PCView } from "./organisms/PCView"
 import { MobileView } from "./organisms/mobileView"
+import { PCView } from "./organisms/PCView"
 
 export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props

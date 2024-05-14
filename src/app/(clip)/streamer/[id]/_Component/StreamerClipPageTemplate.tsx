@@ -17,40 +17,40 @@ import { Clip } from "@/models/clip"
 import VerticalAdvertisement from "../../../../../components/adsense/verticalAdvertisement"
 import { ClipDoc } from "../../../../../models/clipDoc"
 import SwiperClipCardList from "../../../_Component/molecules/common/swiperClipCardList"
-import { PCView } from "../../../_Component/organisms/PCView"
 import { MobileView } from "../../../_Component/organisms/mobileView"
+import { PCView } from "../../../_Component/organisms/PCView"
 
 export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
   //extract streamerinfo
-  const streamerInfo = clipDoc[`streamerInfo`]
+  const streamerInfo = clipDoc["streamerInfo"]
   //set clicked clip
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)
   }
   //set select
-  const [selectTab, setSelectTab] = useState<`trend` | `history`>(`trend`)
+  const [selectTab, setSelectTab] = useState<"trend" | "history">("trend")
   function handleTabChange(
     _: SyntheticEvent<Element, Event>,
-    val: `trend` | `history`
+    val: "trend" | "history"
   ) {
     setSelectTab(val)
   }
-  function clipSeparation(clipDoc: ClipDoc, val: `trend` | `history`) {
+  function clipSeparation(clipDoc: ClipDoc, val: "trend" | "history") {
     const trend = [
-      `day`, //
-      `week`,
-      `month`,
-      `year`,
-      `all`
+      "day", //
+      "week",
+      "month",
+      "year",
+      "all"
     ]
 
     const result = new ClipDoc()
     for (const prop in clipDoc) {
       if (
-        (val == `trend` && trend.includes(prop)) ||
-        (val == `history` && !trend.includes(prop))
+        (val == "trend" && trend.includes(prop)) ||
+        (val == "history" && !trend.includes(prop))
       ) {
         result[prop] = clipDoc[prop]
       }
@@ -71,8 +71,8 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
             <AppBar position="relative" elevation={0}>
               <Toolbar
                 sx={{
-                  display: `flex`,
-                  justifyContent: `center`
+                  display: "flex",
+                  justifyContent: "center"
                 }}
               >
                 <Stack
@@ -86,22 +86,22 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                   <StreamerCard streamerInfo={streamerInfo} />
                   <Box
                     sx={{
-                      justifyContent: `start`,
-                      display: `flex`
+                      justifyContent: "start",
+                      display: "flex"
                     }}
                   >
                     <Tabs
                       TabIndicatorProps={{
                         sx: {
-                          height: `1px`,
-                          backgroundColor: `text.primary`
+                          height: "1px",
+                          backgroundColor: "text.primary"
                         }
                       }}
                       sx={{
                         "& .MuiTab-root": {
                           paddingX: 2,
                           minWidth: 0,
-                          textTransform: `none`
+                          textTransform: "none"
                         }
                       }}
                       textColor="inherit"
@@ -125,7 +125,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
             zeroMinWidth
             md={2}
             xl={1}
-            display={{ xs: `none`, md: `flex` }}
+            display={{ xs: "none", md: "flex" }}
             justifyContent="center"
           >
             <VerticalAdvertisement />

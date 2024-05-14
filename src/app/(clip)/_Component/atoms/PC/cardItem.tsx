@@ -31,18 +31,18 @@ export default function CardItem(props: {
       >
         <BorderPaper
           sx={{
-            position: `relative`,
-            width: `100%`,
+            position: "relative",
+            width: "100%",
             height: 0,
-            paddingBottom: `56.25%`,
-            display: `flex`,
-            justifyContent: `center`,
-            cursor: `pointer`
+            paddingBottom: "56.25%",
+            display: "flex",
+            justifyContent: "center",
+            cursor: "pointer"
           }}
           onClick={() => {
             setClickedClipUrl(clip)
-            event(`click`, {
-              label: `click_clip_title`,
+            event("click", {
+              label: "click_clip_title",
               clip_title: clip.title,
               ranking_period: tab,
               link_url: clip.url
@@ -54,12 +54,12 @@ export default function CardItem(props: {
             alt={clip.title}
             loading="lazy"
             style={{
-              position: `absolute`,
+              position: "absolute",
               top: 0,
               left: 0,
-              width: `100%`,
-              height: `100%`,
-              border: `none`
+              width: "100%",
+              height: "100%",
+              border: "none"
             }}
           />
         </BorderPaper>
@@ -68,7 +68,7 @@ export default function CardItem(props: {
             href={`/streamer/${clip.broadcaster_id}`}
             prefetch={false}
             style={{
-              textDecoration: `none`
+              textDecoration: "none"
             }}
           >
             <Avatar
@@ -90,8 +90,8 @@ export default function CardItem(props: {
                 noWrap
                 onClick={() => {
                   setClickedClipUrl(clip)
-                  event(`click`, {
-                    label: `click_clip_title`,
+                  event("click", {
+                    label: "click_clip_title",
                     clip_title: clip.title,
                     ranking_period: tab,
                     link_url: clip.url
@@ -111,7 +111,7 @@ export default function CardItem(props: {
                 href={`/streamer/${clip.broadcaster_id}`}
                 prefetch={false}
                 style={{
-                  textDecoration: `none`
+                  textDecoration: "none"
                 }}
               >
                 <Typography noWrap variant="body1" color="grey">
@@ -119,9 +119,7 @@ export default function CardItem(props: {
                 </Typography>
               </Link>
               <Typography noWrap variant="body2" color="grey">
-                {clip.view_count?.toLocaleString()}
-                {` `}
-                views
+                {clip.view_count?.toLocaleString()} views
               </Typography>
             </Stack>
           </Stack>

@@ -5,9 +5,9 @@ import { Clip } from "@/models/clip"
 
 import { ClipDoc } from "../../../../models/clipDoc"
 import Player from "../atoms/common/player"
-import SideClipCard from "../molecules/PC/sideClipCard"
 import ClipInfo from "../molecules/common/clipInfo"
 import { StreamerInfo } from "../molecules/common/streamerInfo"
+import SideClipCard from "../molecules/PC/sideClipCard"
 
 export function PCView(props: {
   clipDoc: ClipDoc

@@ -63,12 +63,12 @@ export default function SideClipCard(props: {
             color="grey"
             onClick={() => {
               setClickedClipUrl(undefined)
-              event(`click`, {
-                label: `click_return_to_list_view`
+              event("click", {
+                label: "click_return_to_list_view"
               })
             }}
             sx={{
-              cursor: `pointer`
+              cursor: "pointer"
             }}
           >
             <ChevronLeftIcon />

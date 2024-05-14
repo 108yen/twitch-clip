@@ -20,13 +20,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <Suspense>
           <GoogleAnalytics
-            debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == `1`}
+            debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == "1"}
           />
           <Adsbygoogle />
         </Suspense>
       </head>
       <body>
-        <ThemeRegistry options={{ key: `css`, prepend: true }}>
+        <ThemeRegistry options={{ key: "css", prepend: true }}>
           <DefaultHeader />
           {children}
         </ThemeRegistry>

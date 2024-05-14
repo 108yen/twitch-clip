@@ -6,7 +6,7 @@ import { GA_MEASUREMENT_ID } from "./gtag"
 
 export default function GoogleAnalytics({
   debugMode = false,
-  clientIp = `none`
+  clientIp = "none"
 }: {
   debugMode: boolean
   clientIp?: string
@@ -25,7 +25,7 @@ export default function GoogleAnalytics({
                         gtag('config', '${GA_MEASUREMENT_ID}', {
                             page_path: window.location.pathname,
                             ip_address: '${clientIp}',
-                            ${debugMode ? `debug_mode: ${debugMode},` : ``}
+                            ${debugMode ? `debug_mode: ${debugMode},` : ""}
                         });
                     `}
       </Script>

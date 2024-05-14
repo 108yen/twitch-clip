@@ -18,7 +18,7 @@ import { NoDecorationTypography } from "@/components/styledui"
 
 export default function NotificationMenu() {
   //darkmode
-  const prefersDarkMode = useMediaQuery(`(prefers-color-scheme: dark)`, {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true
   })
   const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom)
@@ -41,18 +41,18 @@ export default function NotificationMenu() {
     <>
       <Box
         sx={{
-          display: `flex`,
-          alignItems: `center`,
-          textAlign: `center`
+          display: "flex",
+          alignItems: "center",
+          textAlign: "center"
         }}
       >
         <IconButton
           onClick={handleClick}
           size="small"
           sx={{ ml: 2 }}
-          aria-controls={open ? `account-menu` : undefined}
+          aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
-          aria-expanded={open ? `true` : undefined}
+          aria-expanded={open ? "true" : undefined}
           aria-label="menu"
         >
           <MoreVertIcon />
@@ -66,8 +66,8 @@ export default function NotificationMenu() {
         PaperProps={{
           elevation: 0,
           sx: {
-            overflow: `visible`,
-            filter: `drop-shadow(0px 2px 8px rgba(0,0,0,0.32))`,
+            overflow: "visible",
+            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
             mt: 1.5,
             "& .MuiAvatar-root": {
               width: 32,
@@ -76,26 +76,26 @@ export default function NotificationMenu() {
               mr: 1
             },
             "&:before": {
-              content: `""`,
-              display: `block`,
-              position: `absolute`,
+              content: "\"\"",
+              display: "block",
+              position: "absolute",
               top: 0,
               right: 14,
               width: 10,
               height: 10,
-              bgcolor: `background.paper`,
-              transform: `translateY(-50%) rotate(45deg)`,
+              bgcolor: "background.paper",
+              transform: "translateY(-50%) rotate(45deg)",
               zIndex: 1300
             }
           }
         }}
-        transformOrigin={{ horizontal: `right`, vertical: `top` }}
-        anchorOrigin={{ horizontal: `right`, vertical: `bottom` }}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem
           sx={{
             height: 40,
-            justifyContent: `space-between`
+            justifyContent: "space-between"
           }}
         >
           <Typography>ダークモード</Typography>
@@ -114,7 +114,7 @@ export default function NotificationMenu() {
             href="/daily"
             prefetch={false}
             style={{
-              textDecoration: `none`
+              textDecoration: "none"
             }}
             onClick={handleClose}
           >
@@ -130,7 +130,7 @@ export default function NotificationMenu() {
             href="/past"
             prefetch={false}
             style={{
-              textDecoration: `none`
+              textDecoration: "none"
             }}
             onClick={handleClose}
           >
@@ -146,7 +146,7 @@ export default function NotificationMenu() {
             href="/streamers"
             prefetch={false}
             style={{
-              textDecoration: `none`
+              textDecoration: "none"
             }}
             onClick={handleClose}
           >
@@ -162,7 +162,7 @@ export default function NotificationMenu() {
             href="/about"
             prefetch={false}
             style={{
-              textDecoration: `none`
+              textDecoration: "none"
             }}
             onClick={handleClose}
           >

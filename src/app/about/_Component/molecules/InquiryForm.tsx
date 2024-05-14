@@ -16,41 +16,41 @@ type Inputs = {
 export default function InquiryForm() {
   const { control, handleSubmit, reset } = useForm<Inputs>({
     defaultValues: {
-      inquiry: ``
+      inquiry: ""
     }
   })
 
   const validationRules = {
     inquiry: {
-      required: `お問い合わせを入力してください`,
-      minLength: { value: 3, message: `お問い合わせを入力してください` }
+      required: "お問い合わせを入力してください",
+      minLength: { value: 3, message: "お問い合わせを入力してください" }
     }
   }
 
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
-    event(`click`, {
-      label: `post_inquiry`
+    event("click", {
+      label: "post_inquiry"
     })
     const result = await postInquiry(data.inquiry)
 
     if (result?.error) {
       setSnackbarState({
         open: true,
-        severity: `error`,
-        message: `お問い合わせ失敗`
+        severity: "error",
+        message: "お問い合わせ失敗"
       })
     } else {
       setSnackbarState({
         open: true,
-        severity: `success`,
-        message: `お問い合わせ完了`
+        severity: "success",
+        message: "お問い合わせ完了"
       })
       reset()
     }
   }
 
   const checkKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
-    if (e.key === `Enter`) {
+    if (e.key === "Enter") {
       e.preventDefault()
     }
   }
@@ -63,14 +63,14 @@ export default function InquiryForm() {
 
   type SnackbarStateProps = {
     open: boolean
-    severity: `success` | `info` | `warning` | `error`
+    severity: "success" | "info" | "warning" | "error"
     message: string
   }
 
   const [snackbarState, setSnackbarState] = useState<SnackbarStateProps>({
     open: false,
-    severity: `success`,
-    message: ``
+    severity: "success",
+    message: ""
   })
 
   return (

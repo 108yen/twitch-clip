@@ -31,8 +31,8 @@ export default function ClipCardList(props: {
     //if max item num is clips num
     if (viewItemNum >= clips.length - 1) {
       loadAll()
-      event(`scroll`, {
-        label: `load_all_clips`
+      event("scroll", {
+        label: "load_all_clips"
       })
     }
     //load each 1 items
@@ -43,8 +43,8 @@ export default function ClipCardList(props: {
     <Box
       key={0}
       sx={{
-        display: `flex`,
-        justifyContent: `center`,
+        display: "flex",
+        justifyContent: "center",
         m: 2
       }}
     >
@@ -53,7 +53,7 @@ export default function ClipCardList(props: {
   )
 
   const endMessage = (
-    <Box key={0} sx={{ m: 3, display: `flex`, justifyContent: `center` }}>
+    <Box key={0} sx={{ m: 3, display: "flex", justifyContent: "center" }}>
       <Typography variant="inherit" color="gray">
         no more clips
       </Typography>
@@ -67,7 +67,7 @@ export default function ClipCardList(props: {
         if (index == 10) {
           return (
             <Box key={index}>
-              <Box display={{ xs: `flex`, md: `none` }} width="100%">
+              <Box display={{ xs: "flex", md: "none" }} width="100%">
                 <HorizontalAdvertisement />
               </Box>
               <ListCardItem
