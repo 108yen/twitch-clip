@@ -23,7 +23,7 @@ export default function HorizontalAdvertisement() {
     <Stack
       direction="column"
       width="100%"
-      display={isAdClicked ? "none" : "block"}
+      display={isAdClicked ? "none" : "flex"}
     >
       <Typography variant="body2" color="grey" flexGrow={1} textAlign="left">
         Advertisement
