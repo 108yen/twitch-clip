@@ -17,8 +17,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "biome check --apply-unsafe --no-errors-on-unmatched",
-      "eslint --fix --max-warnings=0"
+      "biome check --apply-unsafe --no-errors-on-unmatched"
     ]
   },
   "dependencies": {
@@ -75,4 +74,3 @@
     "ts-jest": "^29.1.1"
   }
 }
-

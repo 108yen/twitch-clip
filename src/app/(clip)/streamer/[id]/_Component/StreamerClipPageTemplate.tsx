@@ -17,8 +17,8 @@ import { Clip } from "@/models/clip"
 import VerticalAdvertisement from "../../../../../components/adsense/verticalAdvertisement"
 import { ClipDoc } from "../../../../../models/clipDoc"
 import SwiperClipCardList from "../../../_Component/molecules/common/swiperClipCardList"
-import { MobileView } from "../../../_Component/organisms/mobileView"
 import { PCView } from "../../../_Component/organisms/PCView"
+import { MobileView } from "../../../_Component/organisms/mobileView"
 
 export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
