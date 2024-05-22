@@ -29,13 +29,7 @@ export default function HorizontalAdvertisement() {
         Advertisement
       </Typography>
       <Divider />
-      <Box
-        key={pathname}
-        marginTop={0.5}
-        onClick={() => {
-          setIsAdClicked(true)
-        }}
-      >
+      <Box key={pathname} marginTop={0.5}>
         <ins
           className="adsbygoogle"
           style={{
@@ -46,6 +40,9 @@ export default function HorizontalAdvertisement() {
           data-ad-layout="in-article"
           data-ad-client="ca-pub-1615921337969017"
           data-ad-slot="8553448913"
+          onClick={() => {
+            setIsAdClicked(true)
+          }}
         />
       </Box>
     </Stack>
