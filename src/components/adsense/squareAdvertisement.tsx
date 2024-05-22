@@ -29,7 +29,15 @@ export default function SquareAdvertisement() {
         Advertisement
       </Typography>
       <Divider />
-      <Box key={pathname} margin={1} textAlign="center" minWidth={250}>
+      <Box
+        key={pathname}
+        margin={1}
+        textAlign="center"
+        minWidth={250}
+        onClick={() => {
+          setIsAdClicked(true)
+        }}
+      >
         <ins
           className="adsbygoogle"
           style={{
@@ -41,9 +49,6 @@ export default function SquareAdvertisement() {
           data-ad-slot="1058689000"
           data-ad-format="rectangle"
           data-full-width-responsive="true"
-          onClick={() => {
-            setIsAdClicked(true)
-          }}
         />
       </Box>
     </Stack>

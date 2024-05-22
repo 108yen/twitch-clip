@@ -45,6 +45,9 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
           width={200}
           textAlign="center"
           padding={2}
+          onClick={() => {
+            setIsAdClicked(true)
+          }}
         >
           <ins
             className="adsbygoogle"
@@ -58,9 +61,6 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
             data-ad-slot="1041812482"
             data-ad-format="auto"
             data-full-width-responsive="true"
-            onClick={() => {
-              setIsAdClicked(true)
-            }}
           />
         </Box>
       </Box>
