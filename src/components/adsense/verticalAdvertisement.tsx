@@ -1,14 +1,10 @@
 "use client"
 import { Box, Divider, Stack, Typography } from "@mui/material"
-import { useAtom } from "jotai"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
-import { adClickAtom } from "../Atoms"
-
 export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
   const pathname = usePathname()
-  const [isAdClicked, setIsAdClicked] = useAtom(adClickAtom)
 
   useEffect(() => {
     try {
@@ -27,7 +23,6 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
       alignItems="center"
       position="fixed"
       top={top}
-      display={isAdClicked ? "none" : "flex"}
     >
       <Box position="relative">
         <Typography
@@ -45,9 +40,6 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
           width={200}
           textAlign="center"
           padding={2}
-          onClick={() => {
-            setIsAdClicked(true)
-          }}
         >
           <ins
             className="adsbygoogle"

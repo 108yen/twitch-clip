@@ -1,14 +1,10 @@
 "use client"
 import { Box, Divider, Stack, Typography } from "@mui/material"
-import { useAtom } from "jotai"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
-import { adClickAtom } from "../Atoms"
-
 export default function HorizontalAdvertisement() {
   const pathname = usePathname()
-  const [isAdClicked, setIsAdClicked] = useAtom(adClickAtom)
 
   useEffect(() => {
     try {
@@ -20,22 +16,12 @@ export default function HorizontalAdvertisement() {
   }, [pathname])
 
   return (
-    <Stack
-      direction="column"
-      width="100%"
-      display={isAdClicked ? "none" : "flex"}
-    >
+    <Stack direction="column" width="100%">
       <Typography variant="body2" color="grey" flexGrow={1} textAlign="left">
         Advertisement
       </Typography>
       <Divider />
-      <Box
-        key={pathname}
-        marginTop={0.5}
-        onClick={() => {
-          setIsAdClicked(true)
-        }}
-      >
+      <Box key={pathname} marginTop={0.5}>
         <ins
           className="adsbygoogle"
           style={{
