@@ -1,9 +1,16 @@
 import { Metadata } from "next"
 
-import getClips from "../../../../firebase/server/clips"
-import generateTemplateMetadata from "../../../../utils/generateTemplateMetadata"
+import getClips from "@/firebase/server/clips"
+import getStreamers from "@/firebase/server/streamers"
+import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
 
 import StreamerClipPageTemplate from "./_Component/StreamerClipPageTemplate"
+
+export async function generateStaticParams() {
+  const streamers = await getStreamers()
+
+  return streamers.slice(0, 100).map((streamer) => ({ id: streamer.id }))
+}
 
 export async function generateMetadata({
   params
@@ -17,7 +24,7 @@ export async function generateMetadata({
   return generateTemplateMetadata({ caption: streamerInfo?.display_name })
 }
 
-export const revalidate = 600 // 10minutes
+export const revalidate = 3600 // 1hour
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id

@@ -12,14 +12,13 @@ import { ClipDoc } from "@/models/clipDoc"
 import { clipDocConverter } from "./converters/clipDocConverter"
 
 // const getClips = unstable_cache(
-//     async (id) => uncache_getClips(id),
-//     [`get-clips`],
-//     {
-//         revalidate: 1200 //20minutes
-//     }
+//   async (id) => uncache_getClips(id),
+//   ["get-clips"],
+//   {
+//     revalidate: 1200 //20minutes
+//   }
 // )
 const getClips = cache(async (id: string) => uncache_getClips(id))
-export default getClips
 
 async function uncache_getClips(id: string) {
   const clipColRef: CollectionReference<ClipDoc> = db
@@ -48,3 +47,5 @@ async function uncache_getClips(id: string) {
 
   return clipDoc
 }
+
+export default getClips

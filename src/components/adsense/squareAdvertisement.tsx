@@ -1,14 +1,10 @@
 "use client"
 import { Box, Divider, Stack, Typography } from "@mui/material"
-import { useAtom } from "jotai"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
-import { adClickAtom } from "../Atoms"
-
 export default function SquareAdvertisement() {
   const pathname = usePathname()
-  const [isAdClicked, setIsAdClicked] = useAtom(adClickAtom)
 
   useEffect(() => {
     try {
@@ -20,11 +16,7 @@ export default function SquareAdvertisement() {
   }, [pathname])
 
   return (
-    <Stack
-      direction="column"
-      flexGrow={1}
-      display={isAdClicked ? "none" : "flex"}
-    >
+    <Stack direction="column" flexGrow={1}>
       <Typography variant="body2" color="grey" flexGrow={1} textAlign="left">
         Advertisement
       </Typography>
@@ -41,9 +33,6 @@ export default function SquareAdvertisement() {
           data-ad-slot="1058689000"
           data-ad-format="rectangle"
           data-full-width-responsive="true"
-          onClick={() => {
-            setIsAdClicked(true)
-          }}
         />
       </Box>
     </Stack>
