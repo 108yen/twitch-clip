@@ -8,7 +8,7 @@ const nextConfig = {
     //NOTE: use biome
     ignoreDuringBuilds: true
   },
-  cacheMaxMemorySize: 1024
+  cacheMaxMemorySize: 1024000
 }
 
 module.exports = nextConfig
