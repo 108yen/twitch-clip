@@ -7,6 +7,7 @@ import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
 import generateTemplateMetadata from "../utils/generateTemplateMetadata"
 
 import ThemeRegistry from "./_Component/ThemeRegistry"
+import FirebaseInitScript from "./_Component/firebaseScript"
 
 export function generateMetadata() {
   return generateTemplateMetadata()
@@ -24,6 +25,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </Suspense>
       </head>
       <body>
+        <FirebaseInitScript />
+
         <ThemeRegistry options={{ key: "css", prepend: true }}>
           <DefaultHeader />
           {children}
