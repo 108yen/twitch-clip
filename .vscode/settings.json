@@ -19,10 +19,10 @@
         80
     ],
     "editor.wordWrap": "on",
-    "eslint.packageManager": "yarn",
+    "eslint.packageManager": "pnpm",
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "npm.packageManager": "yarn",
+    "npm.packageManager": "pnpm",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "typescript.preferences.importModuleSpecifier": "relative",
 }
