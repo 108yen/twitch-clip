@@ -8,8 +8,10 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
 
   useEffect(() => {
     try {
-      window.adsbygoogle = window.adsbygoogle || []
-      window.adsbygoogle.push({})
+      ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
+      if ((window as any).adsbygoogle) {
+        ;(window as any).adsbygoogle.push({})
+      }
     } catch (error) {
       console.error(error)
     }
