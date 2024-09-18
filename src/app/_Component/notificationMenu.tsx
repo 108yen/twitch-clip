@@ -7,7 +7,7 @@ import {
   MenuItem,
   Switch,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material"
 import { useAtom } from "jotai"
 import Link from "next/link"
@@ -19,7 +19,7 @@ import { NoDecorationTypography } from "@/components/styledui"
 export default function NotificationMenu() {
   //darkmode
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
-    noSsr: true
+    noSsr: true,
   })
   const [isSetDarkMode, setIsDarkMode] = useAtom(isDarkModeAtom)
   const isDarkMode =
@@ -43,7 +43,7 @@ export default function NotificationMenu() {
         sx={{
           display: "flex",
           alignItems: "center",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
         <IconButton
@@ -73,7 +73,7 @@ export default function NotificationMenu() {
               width: 32,
               height: 32,
               ml: -0.5,
-              mr: 1
+              mr: 1,
             },
             "&:before": {
               content: "",
@@ -85,9 +85,9 @@ export default function NotificationMenu() {
               height: 10,
               bgcolor: "background.paper",
               transform: "translateY(-50%) rotate(45deg)",
-              zIndex: 1300
-            }
-          }
+              zIndex: 1300,
+            },
+          },
         }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
@@ -95,7 +95,7 @@ export default function NotificationMenu() {
         <MenuItem
           sx={{
             height: 40,
-            justifyContent: "space-between"
+            justifyContent: "space-between",
           }}
         >
           <Typography>ダークモード</Typography>
@@ -107,14 +107,14 @@ export default function NotificationMenu() {
         </MenuItem>
         <MenuItem
           sx={{
-            height: 40
+            height: 40,
           }}
         >
           <Link
             href="/daily"
             prefetch={false}
             style={{
-              textDecoration: "none"
+              textDecoration: "none",
             }}
             onClick={handleClose}
           >
@@ -123,14 +123,14 @@ export default function NotificationMenu() {
         </MenuItem>
         <MenuItem
           sx={{
-            height: 40
+            height: 40,
           }}
         >
           <Link
             href="/past"
             prefetch={false}
             style={{
-              textDecoration: "none"
+              textDecoration: "none",
             }}
             onClick={handleClose}
           >
@@ -139,14 +139,14 @@ export default function NotificationMenu() {
         </MenuItem>
         <MenuItem
           sx={{
-            height: 40
+            height: 40,
           }}
         >
           <Link
             href="/streamers"
             prefetch={false}
             style={{
-              textDecoration: "none"
+              textDecoration: "none",
             }}
             onClick={handleClose}
           >
@@ -155,14 +155,14 @@ export default function NotificationMenu() {
         </MenuItem>
         <MenuItem
           sx={{
-            height: 40
+            height: 40,
           }}
         >
           <Link
             href="/about"
             prefetch={false}
             style={{
-              textDecoration: "none"
+              textDecoration: "none",
             }}
             onClick={handleClose}
           >

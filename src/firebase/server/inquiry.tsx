@@ -10,12 +10,12 @@ export default async function postInquiry(body: string) {
   }>(inquiryConverter)
   try {
     await inquiryDoc.update({
-      inquiry_array: admin.firestore.FieldValue.arrayUnion(body)
+      inquiry_array: admin.firestore.FieldValue.arrayUnion(body),
     })
     console.log(
       `info: post inquiry at ${new Date().toLocaleString("ja-JP", {
-        timeZone: "Asia/Tokyo"
-      })}`
+        timeZone: "Asia/Tokyo",
+      })}`,
     )
   } catch (error) {
     console.log(error)

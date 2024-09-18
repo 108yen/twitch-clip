@@ -6,7 +6,7 @@ export default function getTabNameList(clipDoc: ClipDoc) {
     "week",
     "month",
     "year",
-    "all"
+    "all",
   ]
   const currentYear = new Date().getFullYear()
   const tabArray: Array<string> = []

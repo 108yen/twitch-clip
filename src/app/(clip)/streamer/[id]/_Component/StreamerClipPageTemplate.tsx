@@ -7,10 +7,9 @@ import {
   Stack,
   Tab,
   Tabs,
-  Toolbar
+  Toolbar,
 } from "@mui/material"
 import { SyntheticEvent, useState } from "react"
-
 
 import VerticalAdvertisement from "../../../../../components/adsense/verticalAdvertisement"
 import { ClipDoc } from "../../../../../models/clipDoc"
@@ -33,7 +32,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const [selectTab, setSelectTab] = useState<"trend" | "history">("trend")
   function handleTabChange(
     _: SyntheticEvent<Element, Event>,
-    val: "trend" | "history"
+    val: "trend" | "history",
   ) {
     setSelectTab(val)
   }
@@ -43,7 +42,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
       "week",
       "month",
       "year",
-      "all"
+      "all",
     ]
 
     const result = new ClipDoc()
@@ -72,7 +71,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
               <Toolbar
                 sx={{
                   display: "flex",
-                  justifyContent: "center"
+                  justifyContent: "center",
                 }}
               >
                 <Stack
@@ -87,22 +86,22 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                   <Box
                     sx={{
                       justifyContent: "start",
-                      display: "flex"
+                      display: "flex",
                     }}
                   >
                     <Tabs
                       TabIndicatorProps={{
                         sx: {
                           height: "1px",
-                          backgroundColor: "text.primary"
-                        }
+                          backgroundColor: "text.primary",
+                        },
                       }}
                       sx={{
                         "& .MuiTab-root": {
                           paddingX: 2,
                           minWidth: 0,
-                          textTransform: "none"
-                        }
+                          textTransform: "none",
+                        },
                       }}
                       textColor="inherit"
                       value={selectTab}

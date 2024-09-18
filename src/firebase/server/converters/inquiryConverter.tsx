@@ -1,7 +1,7 @@
 import {
   DocumentData,
   FirestoreDataConverter,
-  QueryDocumentSnapshot
+  QueryDocumentSnapshot,
 } from "firebase-admin/firestore"
 
 export const inquiryConverter: FirestoreDataConverter<{
@@ -15,5 +15,5 @@ export const inquiryConverter: FirestoreDataConverter<{
   },
   toFirestore(doc: { inquiry_array: Array<string> }): DocumentData {
     return doc
-  }
+  },
 }

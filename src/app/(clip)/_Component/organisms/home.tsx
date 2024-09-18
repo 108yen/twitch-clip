@@ -1,6 +1,5 @@
 import { Grid } from "@mui/material"
 
-
 import VerticalAdvertisement from "../../../../components/adsense/verticalAdvertisement"
 import { ClipDoc } from "../../../../models/clipDoc"
 import SwiperClipCardList from "../molecules/common/swiperClipCardList"

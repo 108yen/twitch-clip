@@ -10,13 +10,13 @@ const serviceAccount = {
   authUri: process.env.AUTH_URI!,
   tokenUri: process.env.TOKEN_URI!,
   authProviderX509CertUrl: process.env.AUTH_PROVIDER_X509_CERT_URL!,
-  clientC509CertUrl: process.env.CLIENT_X509_CERT_URL!
+  clientC509CertUrl: process.env.CLIENT_X509_CERT_URL!,
 }
 
 if (admin.apps.length === 0) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: `https://${serviceAccount.projectId}.firebaseio.com`
+    databaseURL: `https://${serviceAccount.projectId}.firebaseio.com`,
   })
 }
 

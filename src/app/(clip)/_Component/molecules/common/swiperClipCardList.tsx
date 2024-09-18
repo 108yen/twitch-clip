@@ -10,7 +10,6 @@ import getTabNameList from "../../utils/getTabNameList"
 import ClipCardList from "@/app/(clip)/_Component/molecules/common/clipCardList"
 import { Clip } from "@/models/clip"
 
-
 export default function SwiperClipCardList(props: {
   clipDoc: ClipDoc
   setClickedClipUrl: (clip: Clip) => void
@@ -51,7 +50,7 @@ export default function SwiperClipCardList(props: {
     swiper?.slideTo(newValue)
 
     window.scrollTo({
-      top: 0
+      top: 0,
     })
   }
 
@@ -65,7 +64,7 @@ export default function SwiperClipCardList(props: {
           borderBottom: 1,
           borderColor: "divider",
           justifyContent: "center",
-          display: "flex"
+          display: "flex",
         }}
       >
         <Tabs

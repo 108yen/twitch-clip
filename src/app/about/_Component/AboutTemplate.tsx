@@ -10,9 +10,8 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-  Typography
+  Typography,
 } from "@mui/material"
-
 
 import ExternalLink from "./atoms/externalLink"
 import InquiryForm from "./molecules/InquiryForm"
@@ -47,8 +46,8 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: "underline"
-                    }
+                      textDecorationLine: "underline",
+                    },
                   }}
                 >
                   STREAMS CHARTS
@@ -64,8 +63,8 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: "underline"
-                    }
+                      textDecorationLine: "underline",
+                    },
                   }}
                 >
                   Twitch Tracker
@@ -81,8 +80,8 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: "underline"
-                    }
+                      textDecorationLine: "underline",
+                    },
                   }}
                 >
                   Twitch Stats and analysis
@@ -186,8 +185,8 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: "underline"
-                    }
+                      textDecorationLine: "underline",
+                    },
                   }}
                 >
                   GoogleによるCookieの利用方法
@@ -203,8 +202,8 @@ export default function AboutTemplate() {
                 <AboutBodyTypography
                   sx={{
                     "&:hover": {
-                      textDecorationLine: "underline"
-                    }
+                      textDecorationLine: "underline",
+                    },
                   }}
                 >
                   Google Analyticsのオプトアウト
@@ -227,9 +226,9 @@ export default function AboutTemplate() {
               <AboutBodyTypography
                 sx={{
                   "&:hover": {
-                    textDecorationLine: "underline"
+                    textDecorationLine: "underline",
                   },
-                  display: "inline"
+                  display: "inline",
                 }}
               >
                 広告の設定
@@ -262,7 +261,7 @@ export default function AboutTemplate() {
                 <TwitterIcon
                   sx={{
                     fontSize: 14,
-                    color: "grey"
+                    color: "grey",
                   }}
                 />
                 <Typography variant="caption" color="grey">

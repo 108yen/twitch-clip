@@ -2,11 +2,10 @@
 import { Avatar, Stack, Typography } from "@mui/material"
 import Link from "next/link"
 
-
 import {
   BorderPaper,
   NoDecorationTypography,
-  StyledLaunch
+  StyledLaunch,
 } from "../../../../../components/styledui"
 import { Clip } from "../../../../../models/clip"
 import { event } from "@/components/googleAnalytics/gtag"
@@ -14,7 +13,7 @@ import { event } from "@/components/googleAnalytics/gtag"
 export default function ListCardItem({
   clip,
   tab,
-  setClickedClipUrl
+  setClickedClipUrl,
 }: {
   clip: Clip
   tab: string
@@ -32,7 +31,7 @@ export default function ListCardItem({
       day: "2-digit",
       hour: "2-digit",
       minute: "2-digit",
-      second: "2-digit"
+      second: "2-digit",
     }
 
     const formattedDate = new Intl.DateTimeFormat("ja-JP", options).format(date)
@@ -43,14 +42,14 @@ export default function ListCardItem({
     <BorderPaper
       sx={{
         marginX: { xs: 0, sm: 1 },
-        marginY: { xs: 1, sm: 2 }
+        marginY: { xs: 1, sm: 2 },
       }}
     >
       <Stack
         direction="row"
         overflow="hidden"
         sx={{
-          height: { xs: 110, sm: 170 }
+          height: { xs: 110, sm: 170 },
         }}
       >
         <img
@@ -61,7 +60,7 @@ export default function ListCardItem({
           loading="lazy"
           style={{
             width: "auto",
-            height: "100%"
+            height: "100%",
           }}
         />
         <Stack direction="column" overflow="hidden" p={1} sx={{ flexGrow: 1 }}>
@@ -72,7 +71,7 @@ export default function ListCardItem({
               fontWeight="bold"
               component="div"
               sx={{
-                cursor: "pointer"
+                cursor: "pointer",
               }}
               onClick={() => {
                 setClickedClipUrl(clip)
@@ -80,7 +79,7 @@ export default function ListCardItem({
                   label: "click_clip_title",
                   clip_title: clip.title,
                   ranking_period: tab,
-                  link_url: clip.url
+                  link_url: clip.url,
                 })
               }}
             >
@@ -90,14 +89,14 @@ export default function ListCardItem({
               href={clip.url ?? ""}
               target="_blank"
               style={{
-                textDecoration: "none"
+                textDecoration: "none",
               }}
               onClick={() => {
                 event("click", {
                   label: "click_twitch_clip_link",
                   clip_title: clip.title,
                   ranking_period: tab,
-                  link_url: clip.url
+                  link_url: clip.url,
                 })
               }}
             >
@@ -109,7 +108,7 @@ export default function ListCardItem({
             aria-label="twitch clip page link"
             prefetch={false}
             style={{
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <Stack direction="row" alignItems="center" spacing={2}>

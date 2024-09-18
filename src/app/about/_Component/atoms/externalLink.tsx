@@ -19,12 +19,12 @@ export default function ExternalLink(props: {
       aria-label={ariaLabel}
       target="_blank"
       style={{
-        textDecoration: "none"
+        textDecoration: "none",
       }}
       onClick={() => {
         event("click", {
           label: eventLabel,
-          link_url: href
+          link_url: href,
         })
       }}
     >

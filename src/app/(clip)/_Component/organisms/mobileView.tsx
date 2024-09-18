@@ -1,6 +1,5 @@
 import { Grid, Stack } from "@mui/material"
 
-
 import { ClipDoc } from "../../../../models/clipDoc"
 import Player from "../atoms/common/player"
 import ClipInfo from "../molecules/common/clipInfo"
@@ -25,7 +24,7 @@ export function MobileView(props: {
               position: "sticky",
               top: 0,
               zIndex: 1202,
-              marginTop: 0
+              marginTop: 0,
             }}
           >
             <Player embed_url={currentClip.embed_url} />

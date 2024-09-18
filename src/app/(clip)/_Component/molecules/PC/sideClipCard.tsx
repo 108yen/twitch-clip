@@ -5,7 +5,7 @@ import {
   SelectChangeEvent,
   Stack,
   Tooltip,
-  Typography
+  Typography,
 } from "@mui/material"
 import { useMemo, useState } from "react"
 
@@ -15,8 +15,6 @@ import CardList from "./cardList"
 import { event } from "@/components/googleAnalytics/gtag"
 import { BorderSelect } from "@/components/styledui"
 import { Clip } from "@/models/clip"
-
-
 
 export default function SideClipCard(props: {
   clipDoc: ClipDoc
@@ -64,11 +62,11 @@ export default function SideClipCard(props: {
             onClick={() => {
               setClickedClipUrl(undefined)
               event("click", {
-                label: "click_return_to_list_view"
+                label: "click_return_to_list_view",
               })
             }}
             sx={{
-              cursor: "pointer"
+              cursor: "pointer",
             }}
           >
             <ChevronLeftIcon />

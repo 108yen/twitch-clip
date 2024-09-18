@@ -8,7 +8,6 @@ import postInquiry from "../../../../firebase/server/inquiry"
 import { event } from "@/components/googleAnalytics/gtag"
 import { SimpleButton } from "@/components/styledui"
 
-
 type Inputs = {
   inquiry: string
 }
@@ -16,20 +15,20 @@ type Inputs = {
 export default function InquiryForm() {
   const { control, handleSubmit, reset } = useForm<Inputs>({
     defaultValues: {
-      inquiry: ""
-    }
+      inquiry: "",
+    },
   })
 
   const validationRules = {
     inquiry: {
       required: "お問い合わせを入力してください",
-      minLength: { value: 3, message: "お問い合わせを入力してください" }
-    }
+      minLength: { value: 3, message: "お問い合わせを入力してください" },
+    },
   }
 
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
     event("click", {
-      label: "post_inquiry"
+      label: "post_inquiry",
     })
     const result = await postInquiry(data.inquiry)
 
@@ -37,13 +36,13 @@ export default function InquiryForm() {
       setSnackbarState({
         open: true,
         severity: "error",
-        message: "お問い合わせ失敗"
+        message: "お問い合わせ失敗",
       })
     } else {
       setSnackbarState({
         open: true,
         severity: "success",
-        message: "お問い合わせ完了"
+        message: "お問い合わせ完了",
       })
       reset()
     }
@@ -70,7 +69,7 @@ export default function InquiryForm() {
   const [snackbarState, setSnackbarState] = useState<SnackbarStateProps>({
     open: false,
     severity: "success",
-    message: ""
+    message: "",
   })
 
   return (

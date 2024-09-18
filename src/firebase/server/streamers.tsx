@@ -6,12 +6,11 @@ import { streamersConverter } from "./converters/streamersConverter"
 import { db } from "@/firebase/server/server"
 import { Streamer } from "@/models/streamer"
 
-
 const tags = ["get-streamers"]
 
 const getStreamers = unstable_cache(uncache_getStreamers, tags, {
   tags,
-  revalidate: 10800 //3hours
+  revalidate: 10800, //3hours
 })
 export default getStreamers
 
@@ -32,8 +31,8 @@ async function uncache_getStreamers() {
   }
   console.log(
     `info: get streamers at ${new Date().toLocaleString("ja-JP", {
-      timeZone: "Asia/Tokyo"
-    })}`
+      timeZone: "Asia/Tokyo",
+    })}`,
   )
 
   return streamers

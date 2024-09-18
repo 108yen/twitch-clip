@@ -1,6 +1,5 @@
 import { Grid, Stack } from "@mui/material"
 
-
 import { ClipDoc } from "../../../../models/clipDoc"
 import Player from "../atoms/common/player"
 import SideClipCard from "../molecules/PC/sideClipCard"

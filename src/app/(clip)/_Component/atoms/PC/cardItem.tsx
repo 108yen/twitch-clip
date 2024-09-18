@@ -2,10 +2,9 @@
 import { Avatar, Box, Stack, Tooltip, Typography } from "@mui/material"
 import Link from "next/link"
 
-
 import {
   BorderPaper,
-  NoDecorationTypography
+  NoDecorationTypography,
 } from "../../../../../components/styledui"
 import { Clip } from "../../../../../models/clip"
 import { event } from "@/components/googleAnalytics/gtag"
@@ -20,7 +19,7 @@ export default function CardItem(props: {
   return (
     <Box
       sx={{
-        marginY: 2
+        marginY: 2,
       }}
     >
       <Stack
@@ -37,7 +36,7 @@ export default function CardItem(props: {
             paddingBottom: "56.25%",
             display: "flex",
             justifyContent: "center",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
           onClick={() => {
             setClickedClipUrl(clip)
@@ -45,7 +44,7 @@ export default function CardItem(props: {
               label: "click_clip_title",
               clip_title: clip.title,
               ranking_period: tab,
-              link_url: clip.url
+              link_url: clip.url,
             })
           }}
         >
@@ -59,7 +58,7 @@ export default function CardItem(props: {
               left: 0,
               width: "100%",
               height: "100%",
-              border: "none"
+              border: "none",
             }}
           />
         </BorderPaper>
@@ -68,7 +67,7 @@ export default function CardItem(props: {
             href={`/streamer/${clip.broadcaster_id}`}
             prefetch={false}
             style={{
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <Avatar
@@ -94,7 +93,7 @@ export default function CardItem(props: {
                     label: "click_clip_title",
                     clip_title: clip.title,
                     ranking_period: tab,
-                    link_url: clip.url
+                    link_url: clip.url,
                   })
                 }}
               >
@@ -111,7 +110,7 @@ export default function CardItem(props: {
                 href={`/streamer/${clip.broadcaster_id}`}
                 prefetch={false}
                 style={{
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 <Typography noWrap variant="body1" color="grey">

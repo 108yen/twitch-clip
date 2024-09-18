@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
 
   try {
     revalidatePath("/")
-    
+
     return NextResponse.json("Revalidated")
   } catch (error) {
     console.error("revalidate request error: ", error)

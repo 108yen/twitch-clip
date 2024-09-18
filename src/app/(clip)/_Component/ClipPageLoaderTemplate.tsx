@@ -6,7 +6,7 @@ export default function ClipPageLoaderTemplate() {
     "week",
     "month",
     "year",
-    "all"
+    "all",
   ]
 
   return (
@@ -23,7 +23,7 @@ export default function ClipPageLoaderTemplate() {
               borderBottom: 1,
               borderColor: "divider",
               justifyContent: "center",
-              display: "flex"
+              display: "flex",
             }}
           >
             <Tabs
@@ -43,7 +43,7 @@ export default function ClipPageLoaderTemplate() {
             sx={{
               display: "flex",
               justifyContent: "center",
-              p: 5
+              p: 5,
             }}
           >
             <CircularProgress color="secondary" />
