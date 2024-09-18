@@ -5,7 +5,7 @@ import { event } from "@/components/googleAnalytics/gtag"
 import {
   BorderPaper,
   NoDecorationTypography,
-  StyledLaunch
+  StyledLaunch,
 } from "@/components/styledui"
 import { Streamer } from "@/models/streamer"
 
@@ -17,14 +17,14 @@ export default function StreamerItem({ streamer }: { streamer: Streamer }) {
         marginY: { xs: 2, sm: 3 },
         p: 2,
         height: 140,
-        overflow: "hidden"
+        overflow: "hidden",
       }}
     >
       <Stack
         direction="row"
         justifyContent="flex-start"
         alignItems="center"
-        height={"100%"}
+        height="100%"
         spacing={1}
       >
         <Link
@@ -48,7 +48,7 @@ export default function StreamerItem({ streamer }: { streamer: Streamer }) {
               aria-label="streamer channel page link"
               prefetch={false}
               style={{
-                textDecoration: "none"
+                textDecoration: "none",
               }}
             >
               <NoDecorationTypography variant="h6" noWrap>
@@ -60,13 +60,13 @@ export default function StreamerItem({ streamer }: { streamer: Streamer }) {
               aria-label="twitch channel page link"
               target="_blank"
               style={{
-                textDecoration: "none"
+                textDecoration: "none",
               }}
               onClick={() => {
                 event("click", {
                   label: "click_twitch_channel",
                   channel_title: streamer.display_name,
-                  link_url: "https://www.twitch.tv/" + streamer.login
+                  link_url: "https://www.twitch.tv/" + streamer.login,
                 })
               }}
             >
@@ -87,8 +87,8 @@ export default function StreamerItem({ streamer }: { streamer: Streamer }) {
               msOverflowStyle: "none",
               scrollbarWidth: "none",
               "::-webkit-scrollbar": {
-                display: "none"
-              }
+                display: "none",
+              },
             }}
           >
             {streamer.description}

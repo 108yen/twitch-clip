@@ -8,8 +8,10 @@ export default function SquareAdvertisement() {
 
   useEffect(() => {
     try {
-      window.adsbygoogle = window.adsbygoogle || []
-      window.adsbygoogle.push({})
+      ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
+      if ((window as any).adsbygoogle) {
+        ;(window as any).adsbygoogle.push({})
+      }
     } catch (error) {
       console.error(error)
     }
@@ -26,7 +28,7 @@ export default function SquareAdvertisement() {
           className="adsbygoogle"
           style={{
             display: "block",
-            height: "100%"
+            height: "100%",
           }}
           data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
           data-ad-client="ca-pub-1615921337969017"

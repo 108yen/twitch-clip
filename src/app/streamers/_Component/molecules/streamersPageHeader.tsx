@@ -28,7 +28,7 @@ export default function StreamersPageHeader(props: {
               <SearchIcon color="action" />
             </InputAdornment>
           ),
-          disableUnderline: true
+          disableUnderline: true,
         }}
         fullWidth
         margin="normal"
@@ -37,7 +37,7 @@ export default function StreamersPageHeader(props: {
         value={searchText}
         onChange={handleSearchTextChange}
         sx={{
-          marginY: 0
+          marginY: 0,
         }}
       />
       <Typography

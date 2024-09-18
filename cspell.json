@@ -1,21 +1,33 @@
 {
   "words": [
+    "Admax",
     "adsbygoogle",
     "adsense",
+    "adtest",
+    "AUTHDOMAIN",
     "commitlint",
     "compat",
     "firestore",
     "fontsource",
     "gtag",
+    "istransparent",
     "lefthook",
+    "MEASUREMENTID",
+    "MESSAGINGSENDERID",
     "multilines",
+    "myadcenter",
+    "optout",
     "postbuild",
+    "PROJECTID",
     "proptypes",
     "roboto",
     "scroller",
+    "STORAGEBUCKET",
+    "styledui",
     "swiper",
     "TSES",
     "tseslint",
+    "twitchclipsranking",
     "typecheck"
   ]
 }

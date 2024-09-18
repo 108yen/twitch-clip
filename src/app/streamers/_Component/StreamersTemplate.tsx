@@ -36,7 +36,7 @@ export default function StreamersTemplate(props: {
         />
         <Divider
           sx={{
-            marginX: { xs: 0, sm: 1 }
+            marginX: { xs: 0, sm: 1 },
           }}
         />
         <StreamerList streamers={filteredStreamer} />

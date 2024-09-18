@@ -37,3 +37,4 @@ next-env.d.ts
 .env
 .cspellcache
 .husky
+.eslintcache

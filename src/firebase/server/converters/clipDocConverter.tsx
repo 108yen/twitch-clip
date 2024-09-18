@@ -1,7 +1,7 @@
 import {
   DocumentData,
   FirestoreDataConverter,
-  QueryDocumentSnapshot
+  QueryDocumentSnapshot,
 } from "firebase-admin/firestore"
 
 import { ClipDoc } from "@/models/clipDoc"
@@ -13,5 +13,5 @@ export const clipDocConverter: FirestoreDataConverter<ClipDoc> = {
   },
   toFirestore(doc: ClipDoc): DocumentData {
     return doc
-  }
+  },
 }

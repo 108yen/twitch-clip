@@ -18,7 +18,7 @@ export const event = (
     nonInteraction,
     userId,
     ...otherOptions
-  }: EventOptions
+  }: EventOptions,
 ) => {
   if (!window.gtag) {
     return

@@ -1,10 +1,9 @@
 import { Avatar, Stack, Typography } from "@mui/material"
 import Link from "next/link"
 
+import { Clip } from "../../../../../models/clip"
 import { event } from "@/components/googleAnalytics/gtag"
 import { NoDecorationTypography, StyledLaunch } from "@/components/styledui"
-
-import { Clip } from "../../../../../models/clip"
 
 export function StreamerInfo({ clip }: { clip: Clip }) {
   return (
@@ -13,7 +12,7 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
         href={`/streamer/${clip.broadcaster_id}`}
         prefetch={false}
         style={{
-          textDecoration: "none"
+          textDecoration: "none",
         }}
       >
         <Avatar
@@ -35,7 +34,7 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
             prefetch={false}
             aria-label="streamer page link"
             style={{
-              textDecoration: "none"
+              textDecoration: "none",
             }}
           >
             <NoDecorationTypography variant="body1" fontWeight="bold">
@@ -53,13 +52,13 @@ export function StreamerInfo({ clip }: { clip: Clip }) {
           aria-label="twitch channel page link"
           target="_blank"
           style={{
-            textDecoration: "none"
+            textDecoration: "none",
           }}
           onClick={() => {
             event("click", {
               label: "click_twitch_channel",
               channel_title: clip.broadcaster_name,
-              link_url: "https://www.twitch.tv/" + clip.broadcaster_login
+              link_url: "https://www.twitch.tv/" + clip.broadcaster_login,
             })
           }}
         >
