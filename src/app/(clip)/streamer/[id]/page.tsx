@@ -24,8 +24,6 @@ export async function generateMetadata({
   return generateTemplateMetadata({ caption: streamerInfo?.display_name })
 }
 
-export const revalidate = 3600 // 1hour
-
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id
   const clipDoc = await getClips(id)
