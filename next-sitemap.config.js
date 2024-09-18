@@ -5,7 +5,7 @@ module.exports = {
     policies: [
       {
         userAgent: "*",
-        disallow: ["/about", "/streamer/*"],
+        disallow: ["/about"],
       },
     ],
   },
