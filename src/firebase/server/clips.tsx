@@ -11,15 +11,15 @@ import { db } from "@/firebase/server/server"
 import { ClipDoc } from "@/models/clipDoc"
 
 // const getClips = unstable_cache(
-//   async (id) => uncache_getClips(id),
+//   async (id) => uncached_getClips(id),
 //   ["get-clips"],
 //   {
 //     revalidate: 1200 //20minutes
 //   }
 // )
-const getClips = cache(async (id: string) => uncache_getClips(id))
+const getClips = cache(async (id: string) => uncached_getClips(id))
 
-async function uncache_getClips(id: string) {
+async function uncached_getClips(id: string) {
   const clipColRef: CollectionReference<ClipDoc> = db
     .collection("clips")
     .withConverter<ClipDoc>(clipDocConverter)

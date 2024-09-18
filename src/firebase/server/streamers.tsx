@@ -8,13 +8,13 @@ import { Streamer } from "@/models/streamer"
 
 const tags = ["get-streamers"]
 
-const getStreamers = unstable_cache(uncache_getStreamers, tags, {
+const getStreamers = unstable_cache(uncached_getStreamers, tags, {
   tags,
   revalidate: 10800, //3hours
 })
 export default getStreamers
 
-async function uncache_getStreamers() {
+async function uncached_getStreamers() {
   const streamersDocRef: DocumentReference<{
     streamers: Array<Streamer>
   }> = db

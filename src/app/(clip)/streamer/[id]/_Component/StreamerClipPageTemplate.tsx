@@ -21,7 +21,7 @@ import { Clip } from "@/models/clip"
 
 export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
-  //extract streamerinfo
+  //extract streamer info
   const streamerInfo = clipDoc["streamerInfo"]
   //set clicked clip
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
@@ -56,7 +56,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
     }
     return result
   }
-  const filterdClipDoc = clipSeparation(clipDoc, selectTab)
+  const filteredClipDoc = clipSeparation(clipDoc, selectTab)
 
   //width
   const width = window.innerWidth
@@ -115,7 +115,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
               </Toolbar>
             </AppBar>
             <SwiperClipCardList
-              clipDoc={filterdClipDoc}
+              clipDoc={filteredClipDoc}
               setClickedClipUrl={handleSetClip}
             />
           </Grid>

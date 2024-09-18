@@ -17,7 +17,7 @@ import { isDarkModeAtom } from "@/components/Atoms"
 import { NoDecorationTypography } from "@/components/styledui"
 
 export default function NotificationMenu() {
-  //darkmode
+  //dark mode
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true,
   })
