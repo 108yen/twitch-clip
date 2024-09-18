@@ -1,6 +1,21 @@
 {
   "words": [
     "adsbygoogle",
-    "adsense"
+    "adsense",
+    "commitlint",
+    "compat",
+    "firestore",
+    "fontsource",
+    "gtag",
+    "lefthook",
+    "multilines",
+    "postbuild",
+    "proptypes",
+    "roboto",
+    "scroller",
+    "swiper",
+    "TSES",
+    "tseslint",
+    "typecheck"
   ]
 }
