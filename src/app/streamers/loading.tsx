@@ -5,6 +5,7 @@ import StreamersPageHeader from "./_Component/molecules/streamersPageHeader"
 
 export default function Loading() {
   const searchText = ""
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const handleSearchTextChange = () => { }
   const channelNum = 0
 

@@ -2,10 +2,10 @@ import { Launch } from "@mui/icons-material"
 import { Avatar, Box, Paper, Skeleton, Stack, Typography } from "@mui/material"
 import Link from "next/link"
 
+import { Streamer } from "../../../../../../models/streamer"
 import { event } from "@/components/googleAnalytics/gtag"
 import { NoDecorationTypography, StyledLaunch } from "@/components/styledui"
 
-import { Streamer } from "../../../../../../models/streamer"
 
 function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
   const { streamerInfo } = props

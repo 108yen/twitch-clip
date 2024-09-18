@@ -13,10 +13,10 @@ import {
   Typography
 } from "@mui/material"
 
-import { AboutBodyTypography, BorderPaper } from "@/components/styledui"
 
 import ExternalLink from "./atoms/externalLink"
 import InquiryForm from "./molecules/InquiryForm"
+import { AboutBodyTypography, BorderPaper } from "@/components/styledui"
 
 export default function AboutTemplate() {
   return (

@@ -9,14 +9,14 @@ import {
 } from "@mui/material"
 import { useMemo, useState } from "react"
 
+import { ClipDoc } from "../../../../../models/clipDoc"
+import getTabNameList from "../../utils/getTabNameList"
+import CardList from "./cardList"
 import { event } from "@/components/googleAnalytics/gtag"
 import { BorderSelect } from "@/components/styledui"
 import { Clip } from "@/models/clip"
 
-import { ClipDoc } from "../../../../../models/clipDoc"
-import getTabNameList from "../../utils/getTabNameList"
 
-import CardList from "./cardList"
 
 export default function SideClipCard(props: {
   clipDoc: ClipDoc

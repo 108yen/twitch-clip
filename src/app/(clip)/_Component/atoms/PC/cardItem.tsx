@@ -2,13 +2,13 @@
 import { Avatar, Box, Stack, Tooltip, Typography } from "@mui/material"
 import Link from "next/link"
 
-import { event } from "@/components/googleAnalytics/gtag"
 
 import {
   BorderPaper,
   NoDecorationTypography
 } from "../../../../../components/styledui"
 import { Clip } from "../../../../../models/clip"
+import { event } from "@/components/googleAnalytics/gtag"
 
 export default function CardItem(props: {
   clip: Clip

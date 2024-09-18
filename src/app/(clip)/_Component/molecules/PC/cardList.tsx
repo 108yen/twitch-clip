@@ -2,11 +2,11 @@ import { Box, CircularProgress, Stack, Typography } from "@mui/material"
 import { useEffect, useMemo } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 
-import { event } from "@/components/googleAnalytics/gtag"
 
 import SquareAdvertisement from "../../../../../components/adsense/squareAdvertisement"
 import { Clip } from "../../../../../models/clip"
 import CardItem from "../../atoms/PC/cardItem"
+import { event } from "@/components/googleAnalytics/gtag"
 
 export default function CardList(props: {
   hasMore: boolean

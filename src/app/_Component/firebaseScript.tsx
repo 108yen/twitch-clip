@@ -8,9 +8,9 @@ import {
 import { getPerformance } from "firebase/performance"
 import { useEffect } from "react"
 
+import { clientApp } from "../../firebase/client/client"
 import { event } from "@/components/googleAnalytics/gtag"
 
-import { clientApp } from "../../firebase/client/client"
 
 export default function FirebaseInitScript() {
   useEffect(() => {

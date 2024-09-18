@@ -2,11 +2,11 @@ import { Box, CircularProgress, Typography } from "@mui/material"
 import { useMemo } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 
+import ListCardItem from "../../atoms/common/listCardItem"
 import HorizontalAdvertisement from "@/components/adsense/horizontalAdvertisement"
 import { event } from "@/components/googleAnalytics/gtag"
 import { Clip } from "@/models/clip"
 
-import ListCardItem from "../../atoms/common/listCardItem"
 
 export default function ClipCardList(props: {
   hasMore: boolean

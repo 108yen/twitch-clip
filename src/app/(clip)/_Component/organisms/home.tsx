@@ -1,10 +1,10 @@
 import { Grid } from "@mui/material"
 
-import { Clip } from "@/models/clip"
 
 import VerticalAdvertisement from "../../../../components/adsense/verticalAdvertisement"
 import { ClipDoc } from "../../../../models/clipDoc"
 import SwiperClipCardList from "../molecules/common/swiperClipCardList"
+import { Clip } from "@/models/clip"
 
 export function Home(props: {
   clipDoc: ClipDoc

@@ -8,24 +8,24 @@ import {
   Theme,
   Toolbar,
   Tooltip,
-  Typography
+  Typography,
 } from "@mui/material"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 
-import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui"
-
 import NotificationMenu from "./notificationMenu"
+import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui"
 
 export default function DefaultHeader() {
   const [isTransparent, setTransparent] = useState<boolean>(true)
   function toggleTransparent() {
-    window.scrollY == 0 ? setTransparent(true) : setTransparent(false)
+    if (window.scrollY == 0) setTransparent(true)
+    else setTransparent(false)
   }
 
   const initStyle: SxProps<Theme> = {
-    opacity: 0
+    opacity: 0,
   }
   const [style, setStyle] = useState<SxProps<Theme>>(initStyle)
   function handleOnMouseEnter(event: React.MouseEvent) {
@@ -38,7 +38,7 @@ export default function DefaultHeader() {
       background: (theme) =>
         theme.palette.mode === "light"
           ? theme.palette.grey[200]
-          : theme.palette.grey[800]
+          : theme.palette.grey[800],
     })
   }
   function handleOnMouseLeave() {
@@ -63,7 +63,7 @@ export default function DefaultHeader() {
       position="sticky"
       istransparent={`${isTransparent}`}
       sx={{
-        zIndex: 1201
+        zIndex: 1201,
       }}
     >
       <Toolbar>
@@ -74,7 +74,7 @@ export default function DefaultHeader() {
               fontSize="large"
               sx={{
                 display: { xs: "none", sm: "flex" },
-                mr: 1
+                mr: 1,
               }}
             />
             <Link
@@ -82,7 +82,7 @@ export default function DefaultHeader() {
               aria-label="top"
               prefetch={false}
               style={{
-                textDecoration: "none"
+                textDecoration: "none",
               }}
             >
               <NoDecorationTypography variant="h5" noWrap>
@@ -93,14 +93,14 @@ export default function DefaultHeader() {
               orientation="vertical"
               sx={{
                 display: { xs: "none", sm: "flex" },
-                marginX: 3
+                marginX: 3,
               }}
             />
             <Stack
               direction="row"
               alignItems="center"
               sx={{
-                display: { xs: "none", sm: "flex" }
+                display: { xs: "none", sm: "flex" },
               }}
             >
               <Box
@@ -109,7 +109,7 @@ export default function DefaultHeader() {
                   position: "absolute",
                   zIndex: -1,
                   borderRadius: 1,
-                  ...style
+                  ...style,
                 }}
               />
               {/* <LinkButton href='/' tooltip='ページトップ' title='Top' /> */}
@@ -118,7 +118,7 @@ export default function DefaultHeader() {
                 onMouseLeave={handleOnMouseLeave}
                 sx={{
                   paddingX: 2,
-                  paddingY: 0.5
+                  paddingY: 0.5,
                 }}
               >
                 <Link
@@ -127,7 +127,7 @@ export default function DefaultHeader() {
                   prefetch={false}
                   style={{
                     textDecoration: "none",
-                    color: "inherit"
+                    color: "inherit",
                   }}
                 >
                   <Tooltip title="ページトップ">
@@ -138,8 +138,8 @@ export default function DefaultHeader() {
                         transitionDuration: "0.3s",
                         color: (theme) => setCurrentPageColor(theme, ""),
                         "&:hover": {
-                          color: (theme) => theme.palette.text.primary
-                        }
+                          color: (theme) => theme.palette.text.primary,
+                        },
                       }}
                     >
                       Top
@@ -152,7 +152,7 @@ export default function DefaultHeader() {
                 onMouseLeave={handleOnMouseLeave}
                 sx={{
                   paddingX: 2,
-                  paddingY: 0.5
+                  paddingY: 0.5,
                 }}
               >
                 <Link
@@ -161,7 +161,7 @@ export default function DefaultHeader() {
                   aria-label="daily clip page link"
                   style={{
                     textDecoration: "none",
-                    color: "inherit"
+                    color: "inherit",
                   }}
                 >
                   <Tooltip title="日別ランキング">
@@ -172,8 +172,8 @@ export default function DefaultHeader() {
                         transitionDuration: "0.3s",
                         color: (theme) => setCurrentPageColor(theme, "daily"),
                         "&:hover": {
-                          color: (theme) => theme.palette.text.primary
-                        }
+                          color: (theme) => theme.palette.text.primary,
+                        },
                       }}
                     >
                       Daily ranking
@@ -186,7 +186,7 @@ export default function DefaultHeader() {
                 onMouseLeave={handleOnMouseLeave}
                 sx={{
                   paddingX: 2,
-                  paddingY: 0.5
+                  paddingY: 0.5,
                 }}
               >
                 <Link
@@ -195,7 +195,7 @@ export default function DefaultHeader() {
                   aria-label="past clip page link"
                   style={{
                     textDecoration: "none",
-                    color: "inherit"
+                    color: "inherit",
                   }}
                 >
                   <Tooltip title="過去の年別ランキング">
@@ -206,8 +206,8 @@ export default function DefaultHeader() {
                         transitionDuration: "0.3s",
                         color: (theme) => setCurrentPageColor(theme, "past"),
                         "&:hover": {
-                          color: (theme) => theme.palette.text.primary
-                        }
+                          color: (theme) => theme.palette.text.primary,
+                        },
                       }}
                     >
                       Past ranking
@@ -220,7 +220,7 @@ export default function DefaultHeader() {
                 onMouseLeave={handleOnMouseLeave}
                 sx={{
                   paddingX: 2,
-                  paddingY: 0.5
+                  paddingY: 0.5,
                 }}
               >
                 <Link
@@ -229,7 +229,7 @@ export default function DefaultHeader() {
                   aria-label="channel list page link"
                   style={{
                     textDecoration: "none",
-                    color: "inherit"
+                    color: "inherit",
                   }}
                 >
                   <Tooltip title="チャンネル一覧">
@@ -242,8 +242,8 @@ export default function DefaultHeader() {
                         color: (theme) =>
                           setCurrentPageColor(theme, "streamers"),
                         "&:hover": {
-                          color: (theme) => theme.palette.text.primary
-                        }
+                          color: (theme) => theme.palette.text.primary,
+                        },
                       }}
                     >
                       Channels
@@ -258,7 +258,7 @@ export default function DefaultHeader() {
             onClick={() => {
               window.scrollTo({
                 top: 0,
-                behavior: "smooth"
+                behavior: "smooth",
               })
             }}
           />

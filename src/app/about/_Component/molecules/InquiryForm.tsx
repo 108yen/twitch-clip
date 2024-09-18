@@ -4,10 +4,10 @@ import { Alert, Box, Snackbar, TextField } from "@mui/material"
 import { useState } from "react"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
+import postInquiry from "../../../../firebase/server/inquiry"
 import { event } from "@/components/googleAnalytics/gtag"
 import { SimpleButton } from "@/components/styledui"
 
-import postInquiry from "../../../../firebase/server/inquiry"
 
 type Inputs = {
   inquiry: string

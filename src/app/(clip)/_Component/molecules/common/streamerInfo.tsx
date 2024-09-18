@@ -1,10 +1,10 @@
 import { Avatar, Stack, Typography } from "@mui/material"
 import Link from "next/link"
 
+import { Clip } from "../../../../../models/clip"
 import { event } from "@/components/googleAnalytics/gtag"
 import { NoDecorationTypography, StyledLaunch } from "@/components/styledui"
 
-import { Clip } from "../../../../../models/clip"
 
 export function StreamerInfo({ clip }: { clip: Clip }) {
   return (

@@ -2,7 +2,6 @@
 import { Avatar, Stack, Typography } from "@mui/material"
 import Link from "next/link"
 
-import { event } from "@/components/googleAnalytics/gtag"
 
 import {
   BorderPaper,
@@ -10,6 +9,7 @@ import {
   StyledLaunch
 } from "../../../../../components/styledui"
 import { Clip } from "../../../../../models/clip"
+import { event } from "@/components/googleAnalytics/gtag"
 
 export default function ListCardItem({
   clip,

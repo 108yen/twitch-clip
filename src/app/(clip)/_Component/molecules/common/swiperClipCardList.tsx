@@ -5,11 +5,11 @@ import "swiper/css"
 import "swiper/css/virtual"
 import { Swiper, SwiperSlide } from "swiper/react"
 
+import { ClipDoc } from "../../../../../models/clipDoc"
+import getTabNameList from "../../utils/getTabNameList"
 import ClipCardList from "@/app/(clip)/_Component/molecules/common/clipCardList"
 import { Clip } from "@/models/clip"
 
-import { ClipDoc } from "../../../../../models/clipDoc"
-import getTabNameList from "../../utils/getTabNameList"
 
 export default function SwiperClipCardList(props: {
   clipDoc: ClipDoc
