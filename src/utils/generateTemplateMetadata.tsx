@@ -2,7 +2,7 @@ import { Metadata } from "next"
 
 export default function generateTemplateMetadata(props?: {
   caption?: string
-  discription?: string
+  description?: string
 }) {
   const caption = props?.caption
   const title = caption
@@ -15,23 +15,23 @@ export default function generateTemplateMetadata(props?: {
   const metadata: Metadata = {
     metadataBase: new URL(process.env.URL!),
     title: title,
-    description: props?.discription ?? description,
+    description: props?.description ?? description,
     openGraph: {
       type: "website",
       title: title,
-      description: props?.discription ?? description,
+      description: props?.description ?? description,
       siteName: "Twitch clip ranking",
       url: process.env.URL!,
       images: [
         {
           url: `${process.env.URL!}/android-chrome-512x512.png`,
-          type: "image/png"
-        }
-      ]
+          type: "image/png",
+        },
+      ],
     },
     twitter: {
-      card: "summary"
-    }
+      card: "summary",
+    },
   }
 
   return metadata

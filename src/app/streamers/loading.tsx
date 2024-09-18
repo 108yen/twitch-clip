@@ -5,8 +5,7 @@ import StreamersPageHeader from "./_Component/molecules/streamersPageHeader"
 
 export default function Loading() {
   const searchText = ""
-  // biome-ignore lint/suspicious/noEmptyBlockStatements: <explanation>
-  const handleSearchTextChange = () => {}
+  const handleSearchTextChange = () => { }
   const channelNum = 0
 
   return (
@@ -24,7 +23,7 @@ export default function Loading() {
           />
           <Divider
             sx={{
-              marginX: { xs: 0, sm: 1 }
+              marginX: { xs: 0, sm: 1 },
             }}
           />
           <Box key={0} sx={{ display: "flex", justifyContent: "center", m: 5 }}>
