@@ -1,19 +1,19 @@
 import { Metadata } from "next"
 
+import StreamerClipPageTemplate from "./_Component/StreamerClipPageTemplate"
 import getClips from "@/firebase/server/clips"
 import getStreamers from "@/firebase/server/streamers"
 import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
 
-import StreamerClipPageTemplate from "./_Component/StreamerClipPageTemplate"
-
 export async function generateStaticParams() {
-  const streamers = await getStreamers()
+  if (process.env.NEXT_PUBLIC_DEBUG_MODE == "1") return []
 
+  const streamers = await getStreamers()
   return streamers.slice(0, 100).map((streamer) => ({ id: streamer.id }))
 }
 
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: { id: string }
 }): Promise<Metadata> {
