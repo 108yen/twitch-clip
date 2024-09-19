@@ -8,14 +8,14 @@ export function themeOptions(isDarkMode: boolean): ThemeOptions {
       primary: {
         main: "#ffffff",
         dark: "#c7c7c7",
-        light: "#ffffff"
+        light: "#ffffff",
       },
       // background: {
       //     default: isDarkMode ? '#000000' : '#ffffff',
       // },
       secondary: {
-        main: "#607d8b"
-      }
+        main: "#607d8b",
+      },
     },
     components: {
       MuiCssBaseline: {
@@ -38,8 +38,8 @@ export function themeOptions(isDarkMode: boolean): ThemeOptions {
                     body {
                         overflow: overlay;
                     }
-                `
-      }
-    }
+                `,
+      },
+    },
   }
 }

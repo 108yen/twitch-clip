@@ -5,7 +5,7 @@ import generateTemplateMetadata from "../../utils/generateTemplateMetadata"
 export function generateMetadata() {
   return generateTemplateMetadata({
     caption: "ストリーマー一覧",
-    discription: "ランキング集計しているストリーマーの一覧ページです。"
+    description: "ランキング集計しているストリーマーの一覧ページです。",
   })
 }
 

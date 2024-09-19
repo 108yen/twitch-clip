@@ -1,31 +1,30 @@
 import {
   CollectionReference,
-  DocumentReference
+  DocumentReference,
 } from "firebase-admin/firestore"
 import { notFound } from "next/navigation"
-// eslint-disable-next-line import/named
+
 import { cache } from "react"
 
+import { clipDocConverter } from "./converters/clipDocConverter"
 import { db } from "@/firebase/server/server"
 import { ClipDoc } from "@/models/clipDoc"
 
-import { clipDocConverter } from "./converters/clipDocConverter"
-
 // const getClips = unstable_cache(
-//   async (id) => uncache_getClips(id),
+//   async (id) => uncached_getClips(id),
 //   ["get-clips"],
 //   {
 //     revalidate: 1200 //20minutes
 //   }
 // )
-const getClips = cache(async (id: string) => uncache_getClips(id))
+const getClips = cache(async (id: string) => uncached_getClips(id))
 
-async function uncache_getClips(id: string) {
+async function uncached_getClips(id: string) {
   const clipColRef: CollectionReference<ClipDoc> = db
     .collection("clips")
     .withConverter<ClipDoc>(clipDocConverter)
   const clipDocRef = ({
-    clipId
+    clipId,
   }: {
     clipId: string
   }): DocumentReference<ClipDoc> => clipColRef.doc(clipId)
@@ -41,8 +40,8 @@ async function uncache_getClips(id: string) {
   }
   console.log(
     `info: get ${id} clipDoc at ${new Date().toLocaleString("ja-JP", {
-      timeZone: "Asia/Tokyo"
-    })}`
+      timeZone: "Asia/Tokyo",
+    })}`,
   )
 
   return clipDoc

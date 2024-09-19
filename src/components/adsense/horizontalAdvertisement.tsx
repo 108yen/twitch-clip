@@ -8,8 +8,10 @@ export default function HorizontalAdvertisement() {
 
   useEffect(() => {
     try {
-      window.adsbygoogle = window.adsbygoogle || []
-      window.adsbygoogle.push({})
+      ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
+      if ((window as any).adsbygoogle) {
+        ;(window as any).adsbygoogle.push({})
+      }
     } catch (error) {
       console.error(error)
     }
@@ -26,7 +28,7 @@ export default function HorizontalAdvertisement() {
           className="adsbygoogle"
           style={{
             display: "block",
-            textAlign: "center"
+            textAlign: "center",
           }}
           data-ad-format="fluid"
           data-ad-layout="in-article"

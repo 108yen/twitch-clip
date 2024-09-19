@@ -1,13 +1,11 @@
 import { ReactNode, Suspense } from "react"
 
+import generateTemplateMetadata from "../utils/generateTemplateMetadata"
+import ThemeRegistry from "./_Component/ThemeRegistry"
+import FirebaseInitScript from "./_Component/firebaseScript"
 import DefaultHeader from "@/app/_Component/defaultHeader"
 import Adsbygoogle from "@/components/adsense/adsbygoogle"
 import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
-
-import generateTemplateMetadata from "../utils/generateTemplateMetadata"
-
-import ThemeRegistry from "./_Component/ThemeRegistry"
-import FirebaseInitScript from "./_Component/firebaseScript"
 
 export function generateMetadata() {
   return generateTemplateMetadata()

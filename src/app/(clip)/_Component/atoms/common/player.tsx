@@ -11,7 +11,7 @@ export default function Player(props: { embed_url?: string }) {
         height: 0,
         paddingBottom: "56.25%",
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       <iframe
@@ -24,7 +24,7 @@ export default function Player(props: { embed_url?: string }) {
           left: 0,
           width: "100%",
           height: "100%",
-          border: "none"
+          border: "none",
         }}
       />
     </Box>

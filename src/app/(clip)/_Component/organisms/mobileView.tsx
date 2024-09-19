@@ -1,13 +1,12 @@
 import { Grid, Stack } from "@mui/material"
 
-import { BorderPaper } from "@/components/styledui"
-import { Clip } from "@/models/clip"
-
 import { ClipDoc } from "../../../../models/clipDoc"
 import Player from "../atoms/common/player"
 import ClipInfo from "../molecules/common/clipInfo"
 import { StreamerInfo } from "../molecules/common/streamerInfo"
 import SwiperClipCardList from "../molecules/common/swiperClipCardList"
+import { BorderPaper } from "@/components/styledui"
+import { Clip } from "@/models/clip"
 
 export function MobileView(props: {
   clipDoc: ClipDoc
@@ -25,7 +24,7 @@ export function MobileView(props: {
               position: "sticky",
               top: 0,
               zIndex: 1202,
-              marginTop: 0
+              marginTop: 0,
             }}
           >
             <Player embed_url={currentClip.embed_url} />

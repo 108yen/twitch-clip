@@ -5,7 +5,7 @@ import generateTemplateMetadata from "../../utils/generateTemplateMetadata"
 export function generateMetadata() {
   return generateTemplateMetadata({
     caption: "このサイトについて",
-    discription: "Twitchクリップランキングの説明ページ"
+    description: "Twitchクリップランキングの説明ページ",
   })
 }
 

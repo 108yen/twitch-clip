@@ -7,22 +7,21 @@ import {
   Stack,
   Tab,
   Tabs,
-  Toolbar
+  Toolbar,
 } from "@mui/material"
 import { SyntheticEvent, useState } from "react"
-
-import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard"
-import { Clip } from "@/models/clip"
 
 import VerticalAdvertisement from "../../../../../components/adsense/verticalAdvertisement"
 import { ClipDoc } from "../../../../../models/clipDoc"
 import SwiperClipCardList from "../../../_Component/molecules/common/swiperClipCardList"
 import { PCView } from "../../../_Component/organisms/PCView"
 import { MobileView } from "../../../_Component/organisms/mobileView"
+import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard"
+import { Clip } from "@/models/clip"
 
 export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
-  //extract streamerinfo
+  //extract streamer info
   const streamerInfo = clipDoc["streamerInfo"]
   //set clicked clip
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
@@ -33,7 +32,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const [selectTab, setSelectTab] = useState<"trend" | "history">("trend")
   function handleTabChange(
     _: SyntheticEvent<Element, Event>,
-    val: "trend" | "history"
+    val: "trend" | "history",
   ) {
     setSelectTab(val)
   }
@@ -43,7 +42,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
       "week",
       "month",
       "year",
-      "all"
+      "all",
     ]
 
     const result = new ClipDoc()
@@ -57,7 +56,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
     }
     return result
   }
-  const filterdClipDoc = clipSeparation(clipDoc, selectTab)
+  const filteredClipDoc = clipSeparation(clipDoc, selectTab)
 
   //width
   const width = window.innerWidth
@@ -72,7 +71,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
               <Toolbar
                 sx={{
                   display: "flex",
-                  justifyContent: "center"
+                  justifyContent: "center",
                 }}
               >
                 <Stack
@@ -87,22 +86,22 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                   <Box
                     sx={{
                       justifyContent: "start",
-                      display: "flex"
+                      display: "flex",
                     }}
                   >
                     <Tabs
                       TabIndicatorProps={{
                         sx: {
                           height: "1px",
-                          backgroundColor: "text.primary"
-                        }
+                          backgroundColor: "text.primary",
+                        },
                       }}
                       sx={{
                         "& .MuiTab-root": {
                           paddingX: 2,
                           minWidth: 0,
-                          textTransform: "none"
-                        }
+                          textTransform: "none",
+                        },
                       }}
                       textColor="inherit"
                       value={selectTab}
@@ -116,7 +115,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
               </Toolbar>
             </AppBar>
             <SwiperClipCardList
-              clipDoc={filterdClipDoc}
+              clipDoc={filteredClipDoc}
               setClickedClipUrl={handleSetClip}
             />
           </Grid>

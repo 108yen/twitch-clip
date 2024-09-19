@@ -2,10 +2,9 @@ import { Launch } from "@mui/icons-material"
 import { Avatar, Box, Paper, Skeleton, Stack, Typography } from "@mui/material"
 import Link from "next/link"
 
+import { Streamer } from "../../../../../../models/streamer"
 import { event } from "@/components/googleAnalytics/gtag"
 import { NoDecorationTypography, StyledLaunch } from "@/components/styledui"
-
-import { Streamer } from "../../../../../../models/streamer"
 
 function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
   const { streamerInfo } = props
@@ -22,7 +21,7 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
           aria-label="streamer page link"
           prefetch={false}
           style={{
-            textDecoration: "none"
+            textDecoration: "none",
           }}
         >
           <Avatar
@@ -54,13 +53,13 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
               aria-label="twitch channel page link"
               target="_blank"
               style={{
-                textDecoration: "none"
+                textDecoration: "none",
               }}
               onClick={() => {
                 event("click", {
                   label: "click_twitch_channel",
                   channel_title: streamerInfo.display_name,
-                  link_url: "https://www.twitch.tv/" + streamerInfo.login
+                  link_url: "https://www.twitch.tv/" + streamerInfo.login,
                 })
               }}
             >
@@ -81,8 +80,8 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
               msOverflowStyle: "none",
               scrollbarWidth: "none",
               "::-webkit-scrollbar": {
-                display: "none"
-              }
+                display: "none",
+              },
             }}
           >
             {streamerInfo.description}
@@ -106,7 +105,7 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
       sx={{
         p: 2,
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       <Paper
@@ -114,7 +113,7 @@ function StreamerCard(props: { streamerInfo: Streamer | undefined }) {
           p: 2,
           overflow: "hidden",
           maxWidth: 700,
-          minWidth: { xs: 400, md: 600 }
+          minWidth: { xs: 400, md: 600 },
         }}
       >
         <Stack

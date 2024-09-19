@@ -2,13 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["clips-media-assets2.twitch.tv"]
+    domains: ["clips-media-assets2.twitch.tv"],
   },
   eslint: {
     //NOTE: use biome
-    ignoreDuringBuilds: true
+    ignoreDuringBuilds: true,
   },
-  cacheMaxMemorySize: 1500 * 1024 * 1024 // 1.5G
+  cacheMaxMemorySize: 1500 * 1024 * 1024, // 1.5G
 }
 
 module.exports = nextConfig

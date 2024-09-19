@@ -1,7 +1,7 @@
 import {
   DocumentData,
   FirestoreDataConverter,
-  QueryDocumentSnapshot
+  QueryDocumentSnapshot,
 } from "firebase-admin/firestore"
 
 import { Streamer } from "@/models/streamer"
@@ -26,5 +26,5 @@ export const streamersConverter: FirestoreDataConverter<{
   },
   toFirestore(doc: { streamers: Array<Streamer> }): DocumentData {
     return doc
-  }
+  },
 }

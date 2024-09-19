@@ -2,11 +2,10 @@ import { Box, CircularProgress, Typography } from "@mui/material"
 import { useMemo } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 
+import ListCardItem from "../../atoms/common/listCardItem"
 import HorizontalAdvertisement from "@/components/adsense/horizontalAdvertisement"
 import { event } from "@/components/googleAnalytics/gtag"
 import { Clip } from "@/models/clip"
-
-import ListCardItem from "../../atoms/common/listCardItem"
 
 export default function ClipCardList(props: {
   hasMore: boolean
@@ -24,7 +23,7 @@ export default function ClipCardList(props: {
     incrementViewItemNum,
     tab,
     clips,
-    setClickedClipUrl
+    setClickedClipUrl,
   } = props
 
   function loadMore(clips: Clip[]) {
@@ -32,7 +31,7 @@ export default function ClipCardList(props: {
     if (viewItemNum >= clips.length - 1) {
       loadAll()
       event("scroll", {
-        label: "load_all_clips"
+        label: "load_all_clips",
       })
     }
     //load each 1 items
@@ -45,7 +44,7 @@ export default function ClipCardList(props: {
       sx={{
         display: "flex",
         justifyContent: "center",
-        m: 2
+        m: 2,
       }}
     >
       <CircularProgress color="secondary" />
@@ -92,8 +91,8 @@ export default function ClipCardList(props: {
       clips, //
       tab,
       // setClickedClipUrl,
-      viewItemNum
-    ]
+      viewItemNum,
+    ],
   )
 
   if (clips.length != 0) {

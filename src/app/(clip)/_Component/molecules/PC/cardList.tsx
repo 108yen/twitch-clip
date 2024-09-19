@@ -2,11 +2,10 @@ import { Box, CircularProgress, Stack, Typography } from "@mui/material"
 import { useEffect, useMemo } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 
-import { event } from "@/components/googleAnalytics/gtag"
-
 import SquareAdvertisement from "../../../../../components/adsense/squareAdvertisement"
 import { Clip } from "../../../../../models/clip"
 import CardItem from "../../atoms/PC/cardItem"
+import { event } from "@/components/googleAnalytics/gtag"
 
 export default function CardList(props: {
   hasMore: boolean
@@ -24,7 +23,7 @@ export default function CardList(props: {
     incrementViewItemNum,
     tab,
     clips,
-    setClickedClipUrl
+    setClickedClipUrl,
   } = props
 
   //window size
@@ -39,7 +38,7 @@ export default function CardList(props: {
     if (viewItemNum >= clips.length - 1) {
       loadAll()
       event("scroll", {
-        label: "load_all_clips"
+        label: "load_all_clips",
       })
     }
     //load each 1 items
@@ -88,8 +87,8 @@ export default function CardList(props: {
       clips, //
       tab,
       // setClickedClipUrl,
-      viewItemNum
-    ]
+      viewItemNum,
+    ],
   )
 
   if (clips.length != 0) {
