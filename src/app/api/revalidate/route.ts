@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 })
 
   try {
-    revalidatePath("/")
+    revalidatePath("/", "layout")
 
     return NextResponse.json("Revalidated")
   } catch (error) {
