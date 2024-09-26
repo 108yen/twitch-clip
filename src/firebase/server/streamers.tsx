@@ -1,18 +1,18 @@
 import { DocumentReference } from "firebase-admin/firestore"
-import { unstable_cache } from "next/cache"
 import { notFound } from "next/navigation"
 
+import { cache } from "react"
 import { streamersConverter } from "./converters/streamersConverter"
 import { db } from "@/firebase/server/server"
 import { Streamer } from "@/models/streamer"
 
-const tags = ["get-streamers"]
+// const tags = ["get-streamers"]
 
-const getStreamers = unstable_cache(uncached_getStreamers, tags, {
-  tags,
-  revalidate: 10800, //3hours
-})
-export default getStreamers
+// const getStreamers = unstable_cache(uncached_getStreamers, tags, {
+//   tags,
+//   revalidate: 10800, //3hours
+// })
+const getStreamers = cache(uncached_getStreamers)
 
 async function uncached_getStreamers() {
   const streamersDocRef: DocumentReference<{
@@ -37,3 +37,5 @@ async function uncached_getStreamers() {
 
   return streamers
 }
+
+export default getStreamers

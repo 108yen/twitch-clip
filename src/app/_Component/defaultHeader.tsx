@@ -19,6 +19,7 @@ import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui"
 
 export default function DefaultHeader() {
   const [isTransparent, setTransparent] = useState<boolean>(true)
+
   function toggleTransparent() {
     if (window.scrollY == 0) setTransparent(true)
     else setTransparent(false)
@@ -262,6 +263,7 @@ export default function DefaultHeader() {
               })
             }}
           />
+
           <NotificationMenu />
         </Stack>
       </Toolbar>
