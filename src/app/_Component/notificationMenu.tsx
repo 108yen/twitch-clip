@@ -5,6 +5,7 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Stack,
   Switch,
   Typography,
   useMediaQuery,
@@ -15,8 +16,10 @@ import { useState } from "react"
 
 import { isDarkModeAtom } from "@/components/Atoms"
 import { NoDecorationTypography } from "@/components/styledui"
+import { usePage } from "@/contexts"
 
 export default function NotificationMenu() {
+  const { version } = usePage()
   //dark mode
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true,
@@ -76,7 +79,7 @@ export default function NotificationMenu() {
               mr: 1,
             },
             "&:before": {
-              content: "",
+              content: '""',
               display: "block",
               position: "absolute",
               top: 0,
@@ -168,6 +171,21 @@ export default function NotificationMenu() {
           >
             <NoDecorationTypography>このサイトについて</NoDecorationTypography>
           </Link>
+        </MenuItem>
+        <MenuItem
+          sx={{
+            height: 40,
+            justifyContent: "flex-end",
+          }}
+        >
+          <Stack direction="row" justifyContent="space-between" flexGrow={1}>
+          <Typography variant="body2" color="gray">
+            version:
+          </Typography>
+          <Typography variant="body2" color="gray">
+            {version}
+          </Typography>
+          </Stack>
         </MenuItem>
       </Menu>
     </>
