@@ -1,6 +1,8 @@
 import { ReactNode, Suspense } from "react"
 
+import { PageProvider } from "../contexts"
 import generateTemplateMetadata from "../utils/generateTemplateMetadata"
+import { getVersion } from "../utils/next"
 import ThemeRegistry from "./_Component/ThemeRegistry"
 import FirebaseInitScript from "./_Component/firebaseScript"
 import DefaultHeader from "@/app/_Component/defaultHeader"
@@ -11,7 +13,13 @@ export function generateMetadata() {
   return generateTemplateMetadata()
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode
+}) {
+  const version = await getVersion()
+
   return (
     <html lang="ja">
       <head>
@@ -26,8 +34,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <FirebaseInitScript />
 
         <ThemeRegistry options={{ key: "css", prepend: true }}>
-          <DefaultHeader />
-          {children}
+          <PageProvider version={version}>
+            <DefaultHeader/>
+            {children}
+          </PageProvider>
         </ThemeRegistry>
       </body>
     </html>

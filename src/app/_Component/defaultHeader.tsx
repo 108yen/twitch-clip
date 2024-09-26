@@ -16,9 +16,12 @@ import { useEffect, useState } from "react"
 
 import NotificationMenu from "./notificationMenu"
 import { Div, NoDecorationTypography, PaperAppBar } from "@/components/styledui"
+import { usePage } from "@/contexts"
 
 export default function DefaultHeader() {
   const [isTransparent, setTransparent] = useState<boolean>(true)
+  const { version } = usePage()
+
   function toggleTransparent() {
     if (window.scrollY == 0) setTransparent(true)
     else setTransparent(false)
@@ -262,7 +265,19 @@ export default function DefaultHeader() {
               })
             }}
           />
-          <NotificationMenu />
+
+          <Stack direction="row" alignItems="center">
+            <Typography
+              variant="body2"
+              color="gray"
+              sx={{
+                display: { xs: "none", lg: "flex" },
+              }}
+            >
+              {version}
+            </Typography>
+            <NotificationMenu />
+          </Stack>
         </Stack>
       </Toolbar>
     </PaperAppBar>
