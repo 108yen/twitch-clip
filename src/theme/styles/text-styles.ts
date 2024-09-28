@@ -7,5 +7,8 @@ export const textStyles: TextStyles = {
     _hover: {
       color: ["black", "white"],
     },
+    _selected: {
+      color: ["black", "white"],
+    },
   },
 }

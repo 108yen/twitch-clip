@@ -9,11 +9,11 @@ import {
   HStack,
   mergeRefs,
   Spacer,
-  Text,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { memo, useRef } from "react"
 import { HexagonOutlined } from "@/components/media-and-icons"
+import { HeaderTab } from "@/components/navigation"
 import { useScrollY } from "@/hooks"
 
 export type HeaderProps = CenterProps
@@ -45,7 +45,13 @@ export const Header = memo(
         zIndex="guldo"
         {...rest}
       >
-        <HStack w="full" maxW="9xl" py="3" px={{ base: "lg", md: "md" }} gap="lg">
+        <HStack
+          w="full"
+          maxW="9xl"
+          py="3"
+          px={{ base: "lg", md: "md" }}
+          gap="lg"
+        >
           <HStack
             as={Link}
             href="/"
@@ -61,35 +67,7 @@ export const Header = memo(
 
           <Divider h="7xs" orientation="vertical" />
 
-          <HStack as="nav" gap="lg">
-            <Text href="/" as={Link} prefetch={false} textStyle="navigation">
-              Top
-            </Text>
-            <Text
-              href="/daily"
-              as={Link}
-              prefetch={false}
-              textStyle="navigation"
-            >
-              Daily ranking
-            </Text>
-            <Text
-              href="/past"
-              as={Link}
-              prefetch={false}
-              textStyle="navigation"
-            >
-              Past ranking
-            </Text>
-            <Text
-              href="/streamers"
-              as={Link}
-              prefetch={false}
-              textStyle="navigation"
-            >
-              Channels
-            </Text>
-          </HStack>
+          <HeaderTab />
 
           <Spacer />
         </HStack>
