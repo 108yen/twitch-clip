@@ -3,9 +3,9 @@ import { ReactNode, Suspense } from "react"
 
 import ThemeRegistry from "./_Component/ThemeRegistry"
 import FirebaseInitScript from "./_Component/firebaseScript"
-import DefaultHeader from "@/app/_Component/defaultHeader"
 import Adsbygoogle from "@/components/adsense/adsbygoogle"
 import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
+import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
 import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
 import { getVersion } from "@/utils/next"
@@ -37,7 +37,7 @@ export default async function RootLayout({
         <ThemeRegistry options={{ key: "css", prepend: true }}>
           <PageProvider version={version}>
             <UIProvider>
-              <DefaultHeader />
+              <Header />
               {children}
             </UIProvider>
           </PageProvider>
