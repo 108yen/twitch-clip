@@ -10,6 +10,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material"
+import { useColorMode } from "@yamada-ui/react"
 import { useAtom } from "jotai"
 import Link from "next/link"
 import { useState } from "react"
@@ -20,6 +21,8 @@ import { usePage } from "@/contexts"
 
 export default function NotificationMenu() {
   const { version } = usePage()
+  //yamada-ui
+  const { changeColorMode } = useColorMode()
   //dark mode
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
     noSsr: true,
@@ -29,6 +32,7 @@ export default function NotificationMenu() {
     isSetDarkMode == undefined ? prefersDarkMode : isSetDarkMode
   function handleSwitchChange() {
     setIsDarkMode(!isDarkMode)
+    changeColorMode(!isDarkMode ? "dark" : "light")
   }
   //menu
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -179,12 +183,12 @@ export default function NotificationMenu() {
           }}
         >
           <Stack direction="row" justifyContent="space-between" flexGrow={1}>
-          <Typography variant="body2" color="gray">
-            version:
-          </Typography>
-          <Typography variant="body2" color="gray">
-            {version}
-          </Typography>
+            <Typography variant="body2" color="gray">
+              version:
+            </Typography>
+            <Typography variant="body2" color="gray">
+              {version}
+            </Typography>
           </Stack>
         </MenuItem>
       </Menu>

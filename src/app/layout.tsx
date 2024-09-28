@@ -1,3 +1,4 @@
+import { UIProvider } from "@yamada-ui/react"
 import { ReactNode, Suspense } from "react"
 
 import ThemeRegistry from "./_Component/ThemeRegistry"
@@ -35,8 +36,10 @@ export default async function RootLayout({
 
         <ThemeRegistry options={{ key: "css", prepend: true }}>
           <PageProvider version={version}>
-            <DefaultHeader />
-            {children}
+            <UIProvider>
+              <DefaultHeader />
+              {children}
+            </UIProvider>
           </PageProvider>
         </ThemeRegistry>
       </body>
