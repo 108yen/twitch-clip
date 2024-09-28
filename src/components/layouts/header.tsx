@@ -8,6 +8,7 @@ import {
   Heading,
   HStack,
   mergeRefs,
+  Spacer,
   Text,
 } from "@yamada-ui/react"
 import Link from "next/link"
@@ -44,7 +45,7 @@ export const Header = memo(
         zIndex="guldo"
         {...rest}
       >
-        <HStack w="full" maxW="9xl" py="3" px={{ base: "lg", md: "md" }}>
+        <HStack w="full" maxW="9xl" py="3" px={{ base: "lg", md: "md" }} gap="lg">
           <HStack
             as={Link}
             href="/"
@@ -57,12 +58,40 @@ export const Header = memo(
               Twitch clip ranking
             </Heading>
           </HStack>
-          <Divider orientation="vertical" />
-          <HStack as="nav">
+
+          <Divider h="7xs" orientation="vertical" />
+
+          <HStack as="nav" gap="lg">
             <Text href="/" as={Link} prefetch={false} textStyle="navigation">
               Top
             </Text>
+            <Text
+              href="/daily"
+              as={Link}
+              prefetch={false}
+              textStyle="navigation"
+            >
+              Daily ranking
+            </Text>
+            <Text
+              href="/past"
+              as={Link}
+              prefetch={false}
+              textStyle="navigation"
+            >
+              Past ranking
+            </Text>
+            <Text
+              href="/streamers"
+              as={Link}
+              prefetch={false}
+              textStyle="navigation"
+            >
+              Channels
+            </Text>
           </HStack>
+
+          <Spacer />
         </HStack>
       </Center>
     )
