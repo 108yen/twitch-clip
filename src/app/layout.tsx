@@ -7,6 +7,7 @@ import Adsbygoogle from "@/components/adsense/adsbygoogle"
 import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
 import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
+import { config, theme } from "@/theme"
 import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
 import { getVersion } from "@/utils/next"
 
@@ -36,7 +37,7 @@ export default async function RootLayout({
 
         <ThemeRegistry options={{ key: "css", prepend: true }}>
           <PageProvider version={version}>
-            <UIProvider>
+            <UIProvider config={config} theme={theme}>
               <Header />
               {children}
             </UIProvider>

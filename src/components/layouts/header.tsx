@@ -8,6 +8,7 @@ import {
   Heading,
   HStack,
   mergeRefs,
+  Text,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { memo, useRef } from "react"
@@ -57,6 +58,11 @@ export const Header = memo(
             </Heading>
           </HStack>
           <Divider orientation="vertical" />
+          <HStack as="nav">
+            <Text href="/" as={Link} prefetch={false} textStyle="navigation">
+              Top
+            </Text>
+          </HStack>
         </HStack>
       </Center>
     )

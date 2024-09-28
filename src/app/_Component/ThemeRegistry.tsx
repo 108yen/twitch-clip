@@ -9,7 +9,7 @@ import { useServerInsertedHTML } from "next/navigation"
 import { useEffect, useState } from "react"
 
 import { isDarkModeAtom } from "@/components/Atoms"
-import { themeOptions } from "@/theme"
+import { themeOptions } from "@/mui-theme"
 
 export default function ThemeRegistry(props: {
   options: { key: string; prepend: boolean }
