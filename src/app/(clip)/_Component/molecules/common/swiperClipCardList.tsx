@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 import { ClipDoc } from "../../../../../models/clipDoc"
 import getTabNameList from "../../utils/getTabNameList"
-import ClipCardList from "@/app/(clip)/_Component/molecules/common/clipCardList"
+import { ClipList } from "@/components/data-display"
 import { Clip } from "@/models/clip"
 
 export default function SwiperClipCardList(props: {
@@ -96,12 +96,18 @@ export default function SwiperClipCardList(props: {
           const clips = clipDoc[tab] as Array<Clip>
           return (
             <SwiperSlide key={tab} virtualIndex={index}>
-              <ClipCardList
+              {/* <ClipCardList
                 key={index}
                 hasMore={hasMore}
                 viewItemNum={viewItemNum}
                 loadAll={loadAll}
                 incrementViewItemNum={incrementViewItemNum}
+                clips={clips}
+                tab={tab}
+                setClickedClipUrl={setClickedClipUrl}
+              /> */}
+              <ClipList
+                key={index}
                 clips={clips}
                 tab={tab}
                 setClickedClipUrl={setClickedClipUrl}
