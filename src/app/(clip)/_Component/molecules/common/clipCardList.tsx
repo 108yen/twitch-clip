@@ -5,6 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import ListCardItem from "../../atoms/common/listCardItem"
 import HorizontalAdvertisement from "@/components/adsense/horizontalAdvertisement"
 import { event } from "@/components/googleAnalytics/gtag"
+import { ClipCard } from "@/components/layouts"
 import { Clip } from "@/models/clip"
 
 export default function ClipCardList(props: {
@@ -69,21 +70,23 @@ export default function ClipCardList(props: {
               <Box display={{ xs: "flex", md: "none" }} width="100%">
                 <HorizontalAdvertisement />
               </Box>
-              <ListCardItem
+              <ClipCard clip={e} />
+              {/* <ListCardItem
                 clip={e}
                 tab={tab}
                 setClickedClipUrl={setClickedClipUrl}
-              />
+              /> */}
             </Box>
           )
         }
         return (
-          <ListCardItem
-            key={index}
-            clip={e}
-            tab={tab}
-            setClickedClipUrl={setClickedClipUrl}
-          />
+          <ClipCard key={index} clip={e}/>
+          // <ListCardItem
+          //   key={index}
+          //   clip={e}
+          //   tab={tab}
+          //   setClickedClipUrl={setClickedClipUrl}
+          // />
         )
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps

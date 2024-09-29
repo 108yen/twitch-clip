@@ -21,8 +21,8 @@ export default function ListCardItem({
 }) {
   const imageWidth = 300
 
-  function formatDate(dateString: string) {
-    const date = new Date(dateString)
+  function formatDate(value: string) {
+    const date = new Date(value)
 
     const options: Intl.DateTimeFormatOptions = {
       timeZone: "Asia/Tokyo",
