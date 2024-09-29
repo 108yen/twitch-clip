@@ -6,7 +6,7 @@ export const semantics: ThemeSemantics = {
     secondary: "whaleShark.500",
   },
   colorSchemes: {
-    primary: "blackAlpha",
+    // primary: "blackAlpha",
     secondary: "whaleShark",
   },
 }

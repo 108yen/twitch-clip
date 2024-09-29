@@ -25,6 +25,7 @@
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.14.14",
     "@mui/material": "^5.14.14",
+    "@yamada-ui/lucide": "^1.6.0",
     "@yamada-ui/react": "^1.5.2",
     "axios": "^1.3.4",
     "crypto": "^1.0.1",

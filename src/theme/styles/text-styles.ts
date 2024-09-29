@@ -11,4 +11,8 @@ export const textStyles: TextStyles = {
       color: ["black", "white"],
     },
   },
+  version: {
+    color: ["blackAlpha.500", "whiteAlpha.500"],
+    fontSize:"sm"
+  },
 }

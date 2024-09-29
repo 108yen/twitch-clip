@@ -16,6 +16,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { memo, useRef } from "react"
 import { HexagonOutlined } from "@/components/media-and-icons"
+import { HeaderMenu } from "@/components/navigation"
 import { CONSTANT } from "@/constant"
 import { useScrollY } from "@/hooks"
 
@@ -77,6 +78,7 @@ export const Header = memo(
 
           <HStack as="nav" gap="lg">
             {CONSTANT.PATHS.map(({ href, title }) => (
+              //TODO: tooltip
               <Text
                 key={title}
                 as={Link}
@@ -92,6 +94,8 @@ export const Header = memo(
           </HStack>
 
           <Spacer />
+
+          <HeaderMenu />
         </HStack>
       </Center>
     )
