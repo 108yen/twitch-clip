@@ -4,8 +4,9 @@ import { ClipDoc } from "../../../../models/clipDoc"
 import Player from "../atoms/common/player"
 import ClipInfo from "../molecules/common/clipInfo"
 import { StreamerInfo } from "../molecules/common/streamerInfo"
-import SwiperClipCardList from "../molecules/common/swiperClipCardList"
+import { ClipListView } from "@/components/data-display"
 import { BorderPaper } from "@/components/styledui"
+import { ClipProvider } from "@/contexts"
 import { Clip } from "@/models/clip"
 
 export function MobileView(props: {
@@ -34,11 +35,10 @@ export function MobileView(props: {
             view_count={currentClip.view_count}
           />
           <StreamerInfo clip={currentClip} />
-          <SwiperClipCardList
-            clipDoc={clipDoc}
-            setClickedClipUrl={setClickedClip}
-            sticky={true}
-          />
+
+          <ClipProvider clipDoc={clipDoc} setClipUrl={setClickedClip}>
+            <ClipListView />
+          </ClipProvider>
         </Stack>
       </Grid>
     </Grid>

@@ -14,10 +14,6 @@ export function Home(props: {
   return (
     <Grid container justifyContent="space-evenly">
       <Grid item zeroMinWidth xs={12} md={8}>
-        {/* <SwiperClipCardList
-          clipDoc={clipDoc}
-          setClickedClipUrl={setClickedClip}
-        /> */}
         <ClipProvider clipDoc={clipDoc} setClipUrl={setClickedClip}>
           <ClipListView />
         </ClipProvider>

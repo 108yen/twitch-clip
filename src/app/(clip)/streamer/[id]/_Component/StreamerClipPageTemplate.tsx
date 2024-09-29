@@ -13,10 +13,11 @@ import { SyntheticEvent, useState } from "react"
 
 import VerticalAdvertisement from "../../../../../components/adsense/verticalAdvertisement"
 import { ClipDoc } from "../../../../../models/clipDoc"
-import SwiperClipCardList from "../../../_Component/molecules/common/swiperClipCardList"
 import { PCView } from "../../../_Component/organisms/PCView"
 import { MobileView } from "../../../_Component/organisms/mobileView"
 import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard"
+import { ClipListView } from "@/components/data-display"
+import { ClipProvider } from "@/contexts"
 import { Clip } from "@/models/clip"
 
 export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
@@ -114,10 +115,10 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                 </Stack>
               </Toolbar>
             </AppBar>
-            <SwiperClipCardList
-              clipDoc={filteredClipDoc}
-              setClickedClipUrl={handleSetClip}
-            />
+
+            <ClipProvider clipDoc={filteredClipDoc} setClipUrl={handleSetClip}>
+              <ClipListView />
+            </ClipProvider>
           </Grid>
           <Grid
             item
