@@ -2,7 +2,6 @@ import { Box, CircularProgress, Typography } from "@mui/material"
 import { useMemo } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 
-import ListCardItem from "../../atoms/common/listCardItem"
 import HorizontalAdvertisement from "@/components/adsense/horizontalAdvertisement"
 import { event } from "@/components/googleAnalytics/gtag"
 import { ClipCard } from "@/components/layouts"
@@ -24,7 +23,7 @@ export default function ClipCardList(props: {
     incrementViewItemNum,
     tab,
     clips,
-    setClickedClipUrl,
+    // setClickedClipUrl,
   } = props
 
   function loadMore(clips: Clip[]) {
@@ -80,7 +79,7 @@ export default function ClipCardList(props: {
           )
         }
         return (
-          <ClipCard key={index} clip={e}/>
+          <ClipCard key={index} clip={e} />
           // <ListCardItem
           //   key={index}
           //   clip={e}
