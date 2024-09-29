@@ -11,6 +11,7 @@ import {
   mergeRefs,
   Spacer,
   Text,
+  Tooltip,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -39,7 +40,7 @@ export const Header = memo(
         bg={isScroll ? ["whiteAlpha.500", "blackAlpha.200"] : undefined}
         backdropFilter="auto"
         backdropSaturate="180%"
-        backdropBlur="10px"
+        backdropBlur="20px"
         shadow={isScroll ? ["base", "dark-sm"] : undefined}
         transitionProperty="common"
         transitionDuration="slower"
@@ -77,23 +78,30 @@ export const Header = memo(
           />
 
           <HStack as="nav" gap="lg">
-            {CONSTANT.PATHS.map(({ href, title }) => (
-              //TODO: tooltip
-              <Text
-                key={title}
-                as={Link}
-                prefetch={false}
-                href={href}
-                aria-label={title}
-                data-selected={dataAttr(pathname === href)}
-                textStyle="navigation"
-              >
-                {title}
-              </Text>
+            {CONSTANT.PATHS.map(({ href, title, tooltip }) => (
+              <Tooltip key={title} label={tooltip}>
+                <Text
+                  as={Link}
+                  prefetch={false}
+                  href={href}
+                  aria-label={title}
+                  data-selected={dataAttr(pathname === href)}
+                  textStyle="navigation"
+                >
+                  {title}
+                </Text>
+              </Tooltip>
             ))}
           </HStack>
 
-          <Spacer />
+          <Spacer
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }
+          />
 
           <HeaderMenu />
         </HStack>
