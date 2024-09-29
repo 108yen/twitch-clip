@@ -3,8 +3,8 @@ import { useMemo } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 
 import HorizontalAdvertisement from "@/components/adsense/horizontalAdvertisement"
+import { ClipCard } from "@/components/data-display"
 import { event } from "@/components/googleAnalytics/gtag"
-import { ClipCard } from "@/components/layouts"
 import { Clip } from "@/models/clip"
 
 export default function ClipCardList(props: {
