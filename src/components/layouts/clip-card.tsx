@@ -11,18 +11,23 @@ import {
   VStack,
   Text,
 } from "@yamada-ui/react"
+import Link from "next/link"
+import { event } from "@/components/googleAnalytics/gtag"
 import { Clip } from "@/models/clip"
 import { formatDate } from "@/utils/string"
 
 type ClipCardProps = {
   clip: Clip
+  tab: string
+  setClickedClipUrl: (clip: Clip) => void
 }
 
-export function ClipCard({ clip }: ClipCardProps) {
+export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
   const {
     title,
     thumbnail_url,
     broadcaster_name,
+    broadcaster_id,
     profile_image_url,
     creator_name,
     created_at: _created_at = "",
@@ -41,16 +46,51 @@ export function ClipCard({ clip }: ClipCardProps) {
 
         <VStack w="full" gap={0} marginX="sm">
           <HStack aria-label={title}>
-            <Heading variant="h5" fontSize="xl">
+            <Heading
+              variant="h5"
+              fontSize="xl"
+              cursor="pointer"
+              onClick={() => {
+                setClickedClipUrl(clip)
+                event("click", {
+                  label: "click_clip_title",
+                  clip_title: clip.title,
+                  ranking_period: tab,
+                  link_url: clip.url,
+                })
+              }}
+            >
               {title}
             </Heading>
 
             <Spacer />
 
-            <IconButton icon={<SquareArrowOutUpRight />} variant="primary" />
+            <IconButton
+              as={Link}
+              icon={<SquareArrowOutUpRight />}
+              variant="primary"
+              href={clip.url ?? ""}
+              target="_blank"
+              style={{
+                textDecoration: "none",
+              }}
+              onClick={() => {
+                event("click", {
+                  label: "click_twitch_clip_link",
+                  clip_title: clip.title,
+                  ranking_period: tab,
+                  link_url: clip.url,
+                })
+              }}
+            />
           </HStack>
 
-          <HStack aria-label={broadcaster_name}>
+          <HStack
+            as={Link}
+            aria-label={broadcaster_name}
+            href={`/streamer/${broadcaster_id}`}
+            prefetch={false}
+          >
             <Avatar name={broadcaster_name} src={profile_image_url} />
             <Text>{broadcaster_name}</Text>
           </HStack>

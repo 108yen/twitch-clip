@@ -23,7 +23,7 @@ export default function ClipCardList(props: {
     incrementViewItemNum,
     tab,
     clips,
-    // setClickedClipUrl,
+    setClickedClipUrl,
   } = props
 
   function loadMore(clips: Clip[]) {
@@ -69,23 +69,21 @@ export default function ClipCardList(props: {
               <Box display={{ xs: "flex", md: "none" }} width="100%">
                 <HorizontalAdvertisement />
               </Box>
-              <ClipCard clip={e} />
-              {/* <ListCardItem
+              <ClipCard
                 clip={e}
                 tab={tab}
                 setClickedClipUrl={setClickedClipUrl}
-              /> */}
+              />
             </Box>
           )
         }
         return (
-          <ClipCard key={index} clip={e} />
-          // <ListCardItem
-          //   key={index}
-          //   clip={e}
-          //   tab={tab}
-          //   setClickedClipUrl={setClickedClipUrl}
-          // />
+          <ClipCard
+            key={index}
+            clip={e}
+            tab={tab}
+            setClickedClipUrl={setClickedClipUrl}
+          />
         )
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
