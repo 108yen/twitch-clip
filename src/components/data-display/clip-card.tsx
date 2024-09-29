@@ -95,15 +95,19 @@ export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
             <Text>{broadcaster_name}</Text>
           </HStack>
 
-          <Text aria-describedby="Clip creator name">
+          <Text textAlign="start" aria-describedby="Clip creator name">
             created_by : {creator_name}
           </Text>
 
-          <Text aria-describedby="Clip created date">
+          <Text textAlign="start" aria-describedby="Clip created date">
             created_at : {created_at}
           </Text>
 
-          <Text textAlign="end" color={["blackAlpha.600", "whiteAlpha.600"]}>
+          <Text
+            textAlign="end"
+            color={["blackAlpha.600", "whiteAlpha.600"]}
+            aria-describedby="Clip view count"
+          >
             {view_count}
           </Text>
         </VStack>
