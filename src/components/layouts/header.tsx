@@ -28,9 +28,7 @@ export const Header = memo(
     const pathname = usePathname()
 
     const { height = 0 } = headerRef.current?.getBoundingClientRect() ?? {}
-
     const isScroll = y > height
-    const currentPath = pathname.split("/")[1]
 
     return (
       <Center
@@ -71,7 +69,11 @@ export const Header = memo(
             </Heading>
           </HStack>
 
-          <Divider h="7xs" orientation="vertical" />
+          <Divider
+            h="7xs"
+            orientation="vertical"
+            borderColor={["blackAlpha.300", "whiteAlpha.300"]}
+          />
 
           <HStack as="nav" gap="lg">
             {CONSTANT.PATHS.map(({ href, title }) => (
@@ -81,7 +83,7 @@ export const Header = memo(
                 prefetch={false}
                 href={href}
                 aria-label={title}
-                data-selected={dataAttr(currentPath === title)}
+                data-selected={dataAttr(pathname === href)}
                 textStyle="navigation"
               >
                 {title}
