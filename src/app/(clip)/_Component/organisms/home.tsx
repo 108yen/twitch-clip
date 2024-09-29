@@ -1,9 +1,10 @@
 import { Grid } from "@mui/material"
 
-import VerticalAdvertisement from "../../../../components/adsense/verticalAdvertisement"
-import { ClipDoc } from "../../../../models/clipDoc"
-import SwiperClipCardList from "../molecules/common/swiperClipCardList"
+import VerticalAdvertisement from "@/components/adsense/verticalAdvertisement"
+import { ClipListView } from "@/components/data-display"
+import { ClipProvider } from "@/contexts"
 import { Clip } from "@/models/clip"
+import { ClipDoc } from "@/models/clipDoc"
 
 export function Home(props: {
   clipDoc: ClipDoc
@@ -13,10 +14,13 @@ export function Home(props: {
   return (
     <Grid container justifyContent="space-evenly">
       <Grid item zeroMinWidth xs={12} md={8}>
-        <SwiperClipCardList
+        {/* <SwiperClipCardList
           clipDoc={clipDoc}
           setClickedClipUrl={setClickedClip}
-        />
+        /> */}
+        <ClipProvider clipDoc={clipDoc} setClipUrl={setClickedClip}>
+          <ClipListView />
+        </ClipProvider>
       </Grid>
       <Grid
         item

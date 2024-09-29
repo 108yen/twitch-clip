@@ -19,7 +19,7 @@ import { formatDate } from "@/utils/string"
 type ClipCardProps = {
   clip: Clip
   tab: string
-  setClickedClipUrl: (clip: Clip) => void
+  setClickedClipUrl?: (clip: Clip) => void
 }
 
 export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
@@ -51,7 +51,7 @@ export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
               fontSize="xl"
               cursor="pointer"
               onClick={() => {
-                setClickedClipUrl(clip)
+                setClickedClipUrl?.(clip)
                 event("click", {
                   label: "click_clip_title",
                   clip_title: clip.title,

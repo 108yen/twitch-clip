@@ -9,7 +9,7 @@ const LOAD_INDEX = 2
 type ClipListProps = {
   clips: Clip[]
   tab: string
-  setClickedClipUrl: (clip: Clip) => void
+  setClickedClipUrl?: (clip: Clip) => void
 }
 
 export function ClipList({ clips, tab, setClickedClipUrl }: ClipListProps) {
@@ -32,6 +32,7 @@ export function ClipList({ clips, tab, setClickedClipUrl }: ClipListProps) {
 
   return (
     <InfiniteScrollArea
+      marginY="md"
       onLoad={({ index, finish }) => {
         setCount((prev) => prev + LOAD_INDEX)
 
