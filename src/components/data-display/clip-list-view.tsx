@@ -1,6 +1,5 @@
 "use client"
-import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
-import { isArray, Tab, Tabs } from "@yamada-ui/react"
+import { isArray, Tab, TabPanel, Tabs } from "@yamada-ui/react"
 import { useMemo, useState } from "react"
 import { ClipList } from "@/components/data-display"
 import { useClip } from "@/contexts"
@@ -16,19 +15,45 @@ export function ClipListView() {
     <>
       <Tabs
         index={index}
-        onChange={(index) => {
-          console.log(index)
-          onChange(index)
-        }}
+        onChange={(index) => onChange(index)}
         align="center"
         colorScheme="secondary"
       >
         {tabs.map((tab) => (
-          <Tab key={tab}>{tab}</Tab>
+          <Tab
+            key={tab}
+            fontSize="sm"
+            p={3}
+            w="4xs"
+            _selected={{
+              borderWidth: "2px",
+              color: "secondary",
+              borderColor: "currentColor",
+            }}
+          >
+            {tab.toUpperCase()}
+          </Tab>
         ))}
+
+        {tabs.map((tab) => {
+          const clips = clipDoc?.[tab]
+
+          if (!isArray(clips)) return
+
+          return (
+            <TabPanel key={tab} p={0}>
+              <ClipList
+                key={tab}
+                clips={clips}
+                tab={tab}
+                setClickedClipUrl={setClipUrl}
+              />
+            </TabPanel>
+          )
+        })}
       </Tabs>
 
-      <Carousel
+      {/* <Carousel
         index={index}
         withControls={false}
         withIndicators={false}
@@ -51,7 +76,7 @@ export function ClipListView() {
             </CarouselSlide>
           )
         })}
-      </Carousel>
+      </Carousel> */}
     </>
   )
 }
