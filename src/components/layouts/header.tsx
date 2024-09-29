@@ -63,7 +63,7 @@ export const Header = memo(
             textDecoration="none"
             gap="sm"
           >
-            <HexagonOutlined />
+            <HexagonOutlined color="secondary" />
             <Heading as="h1" fontSize="2xl" fontWeight="normal">
               Twitch clip ranking
             </Heading>
