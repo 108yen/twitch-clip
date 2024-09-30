@@ -22,18 +22,17 @@ export function SideBarAD(props: BoxProps) {
     <Box
       position="fixed"
       top={100}
-      w="xs"
+      w="fit-content"
       justifyContent="flex-start"
       alignItems="center"
-      border="solid"
       {...props}
     >
-      <Box position="relative">
+      <Box position="relative" alignItems="center">
         <Text textStyle="adsenseTitle">Advertisement</Text>
 
         <Divider />
 
-        <Box key={pathname} w={200} textAlign="center" p={2}>
+        <Box key={pathname} w="fit-content" textAlign="center" p={2}>
           <Box
             as="ins"
             className="adsbygoogle"

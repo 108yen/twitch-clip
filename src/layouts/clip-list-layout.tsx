@@ -16,11 +16,16 @@ export function ClipListLayout({ children, ...rest }: ClipListLayoutProps) {
         gap="md"
         {...rest}
       >
-        <GridItem colSpan={4} w="full">
+        <GridItem colSpan={{ base: 4, lg: 5 }} w="full">
           {children}
         </GridItem>
 
-        <GridItem colSpan={1} w="full" textAlign="center">
+        <GridItem
+          colSpan={{ base: 1, lg: 0 }}
+          w="full"
+          display={{ base: "flex", lg: "none" }}
+          justifyContent="center"
+        >
           <SideBarAD />
         </GridItem>
       </Grid>
