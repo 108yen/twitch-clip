@@ -3,7 +3,9 @@ import { useState } from "react"
 
 import { PCView } from "./organisms/PCView"
 import { MobileView } from "./organisms/mobileView"
-import { Home } from "@/app/(clip)/_Component/organisms/home"
+import { ClipListView } from "@/components/data-display"
+import { ClipProvider } from "@/contexts"
+import { ClipListLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 
@@ -18,7 +20,13 @@ export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const width = window.innerWidth
 
   if (currentClip === undefined) {
-    return <Home clipDoc={clipDoc} setClickedClip={handleSetClip} />
+    return (
+      <ClipProvider clipDoc={clipDoc} setClipUrl={handleSetClip}>
+        <ClipListLayout >
+          <ClipListView />
+        </ClipListLayout>
+      </ClipProvider>
+    )
   } else {
     if (width < 600) {
       return (
