@@ -33,6 +33,7 @@ export function ClipList({ clips, tab, setClickedClipUrl }: ClipListProps) {
   return (
     <InfiniteScrollArea
       marginY="md"
+      gap={{ base: "md", sm: "sm" }}
       onLoad={({ index, finish }) => {
         setCount((prev) => prev + LOAD_INDEX)
 

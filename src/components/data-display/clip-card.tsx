@@ -38,18 +38,24 @@ export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
   const view_count = _view_count?.toLocaleString() + " views"
 
   return (
-    <Container apply="layoutStyles.borderCard">
+    <Container apply="layoutStyles.borderCard" p={0}>
       <HStack gap={0}>
-        <AspectRatio w="lg" ratio={16 / 9}>
+        <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
           <img src={thumbnail_url} alt={title} loading="lazy" />
         </AspectRatio>
 
-        <VStack w="full" gap={0} marginX="sm">
+        <VStack
+          w="full"
+          gap={0}
+          marginX={{ base: "sm", sm: "xs" }}
+          overflow="hidden"
+        >
           <HStack aria-label={title}>
             <Heading
               variant="h5"
               fontSize="xl"
               cursor="pointer"
+              isTruncated
               onClick={() => {
                 setClickedClipUrl?.(clip)
                 event("click", {
@@ -91,15 +97,27 @@ export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
             href={`/streamer/${broadcaster_id}`}
             prefetch={false}
           >
-            <Avatar name={broadcaster_name} src={profile_image_url} />
+            <Avatar
+              name={broadcaster_name}
+              src={profile_image_url}
+              size={{ base: "md", sm: "sm" }}
+            />
             <Text>{broadcaster_name}</Text>
           </HStack>
 
-          <Text textAlign="start" aria-describedby="Clip creator name">
+          <Text
+            textAlign="start"
+            aria-describedby="Clip creator name"
+            display={{ base: "flex", sm: "none" }}
+          >
             created_by : {creator_name}
           </Text>
 
-          <Text textAlign="start" aria-describedby="Clip created date">
+          <Text
+            textAlign="start"
+            aria-describedby="Clip created date"
+            display={{ base: "flex", sm: "none" }}
+          >
             created_at : {created_at}
           </Text>
 

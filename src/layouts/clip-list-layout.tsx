@@ -12,7 +12,7 @@ export function ClipListLayout({ children, ...rest }: ClipListLayoutProps) {
         w="full"
         maxW="9xl"
         py="3"
-        px={{ base: "lg", md: "md" }}
+        px={{ base: "lg", lg: "md", sm: "xs" }}
         gap="md"
         {...rest}
       >

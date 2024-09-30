@@ -6,6 +6,5 @@ export const layoutStyles: Dict<CSSUIObject> = {
     borderColor: "secondary",
     borderRadius: "md",
     overflow: "hidden",
-    p: 0
   },
 }

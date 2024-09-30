@@ -53,8 +53,8 @@ export const Header = memo(
       >
         <HStack
           w="full"
-          py="3"
-          px={{ base: "lg", md: "md" }}
+          py={{ base: "3", sm: "2" }}
+          px={{ base: "lg", lg: "md" }}
           gap="lg"
         >
           <HStack
@@ -64,19 +64,23 @@ export const Header = memo(
             textDecoration="none"
             gap="sm"
           >
-            <HexagonOutlined color="secondary" />
-            <Heading as="h1" fontSize="2xl" fontWeight="normal">
+            <HexagonOutlined
+              color="secondary"
+              display={{ base: "flex", sm: "none" }}
+            />
+            <Heading as="h1" fontSize="2xl" fontWeight="normal" isTruncated>
               Twitch clip ranking
             </Heading>
           </HStack>
 
           <Divider
             h="7xs"
+            display={{ base: "flex", sm: "none" }}
             orientation="vertical"
             borderColor={["blackAlpha.300", "whiteAlpha.300"]}
           />
 
-          <HStack as="nav" gap="lg">
+          <HStack as="nav" display={{ base: "flex", sm: "none" }} gap="lg">
             {CONSTANT.PATHS.map(({ href, title, tooltip }) => (
               <Tooltip key={title} label={tooltip}>
                 <Text
@@ -86,6 +90,7 @@ export const Header = memo(
                   aria-label={title}
                   data-selected={dataAttr(pathname === href)}
                   textStyle="navigation"
+                  isTruncated
                 >
                   {title}
                 </Text>
