@@ -2,21 +2,21 @@ export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || ""
 
 export const existsGaId = GA_MEASUREMENT_ID !== ""
 
-type EventOptions = Record<string, unknown> & {
+type EventOptions = {
   category?: string
   label?: string
-  value?: number
   nonInteraction?: boolean
   userId?: string
-}
+  value?: number
+} & Record<string, unknown>
 export const event = (
   action: string,
   {
     category,
     label,
-    value,
     nonInteraction,
     userId,
+    value,
     ...otherOptions
   }: EventOptions,
 ) => {

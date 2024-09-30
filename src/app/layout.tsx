@@ -1,8 +1,3 @@
-import { UIProvider } from "@yamada-ui/react"
-import { ReactNode, Suspense } from "react"
-
-import ThemeRegistry from "./_Component/ThemeRegistry"
-import FirebaseInitScript from "./_Component/firebaseScript"
 import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
 import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
@@ -10,6 +5,11 @@ import { config, theme } from "@/theme"
 import { Adsbygoogle } from "@/utils/adsense"
 import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
 import { getVersion } from "@/utils/next"
+import { UIProvider } from "@yamada-ui/react"
+import { ReactNode, Suspense } from "react"
+
+import FirebaseInitScript from "./_Component/firebaseScript"
+import ThemeRegistry from "./_Component/ThemeRegistry"
 
 export function generateMetadata() {
   return generateTemplateMetadata()

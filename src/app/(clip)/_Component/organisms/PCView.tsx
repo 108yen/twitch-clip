@@ -1,12 +1,12 @@
+import { BorderPaper } from "@/components/styledui"
+import { Clip } from "@/models/clip"
 import { Grid, Stack } from "@mui/material"
 
 import { ClipDoc } from "../../../../models/clipDoc"
 import Player from "../atoms/common/player"
-import SideClipCard from "../molecules/PC/sideClipCard"
 import ClipInfo from "../molecules/common/clipInfo"
 import { StreamerInfo } from "../molecules/common/streamerInfo"
-import { BorderPaper } from "@/components/styledui"
-import { Clip } from "@/models/clip"
+import SideClipCard from "../molecules/PC/sideClipCard"
 
 export function PCView(props: {
   clipDoc: ClipDoc
@@ -21,7 +21,7 @@ export function PCView(props: {
         <Stack
           direction="column"
           spacing={1}
-          sx={{ minWidth: 0, marginTop: 3 }}
+          sx={{ marginTop: 3, minWidth: 0 }}
         >
           <BorderPaper>
             <Player embed_url={currentClip.embed_url} />
@@ -33,7 +33,7 @@ export function PCView(props: {
           <StreamerInfo clip={currentClip} />
         </Stack>
       </Grid>
-      <Grid item zeroMinWidth xs={2}>
+      <Grid item xs={2} zeroMinWidth>
         <SideClipCard clipDoc={clipDoc} setClickedClipUrl={setClickedClip} />
       </Grid>
     </Grid>

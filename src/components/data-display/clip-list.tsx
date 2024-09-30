@@ -1,19 +1,19 @@
-import { Box, InfiniteScrollArea, Loading, Text } from "@yamada-ui/react"
-import { useMemo, useState } from "react"
 import { InlineAD } from "@/components/adsense"
 import { ClipCard } from "@/components/data-display"
 import { Clip } from "@/models/clip"
+import { Box, InfiniteScrollArea, Loading, Text } from "@yamada-ui/react"
+import { useMemo, useState } from "react"
 
 const START_INDEX = 6
 const LOAD_INDEX = 2
 
 type ClipListProps = {
   clips: Clip[]
-  tab: string
   setClickedClipUrl?: (clip: Clip) => void
+  tab: string
 }
 
-export function ClipList({ clips, tab, setClickedClipUrl }: ClipListProps) {
+export function ClipList({ clips, setClickedClipUrl, tab }: ClipListProps) {
   const [count, setCount] = useState<number>(START_INDEX)
 
   const filteredClips = useMemo(
@@ -24,16 +24,16 @@ export function ClipList({ clips, tab, setClickedClipUrl }: ClipListProps) {
             <InlineAD />
             <ClipCard
               clip={clip}
-              tab={tab}
               setClickedClipUrl={setClickedClipUrl}
+              tab={tab}
             />
           </Box>
         ) : (
           <ClipCard
-            key={index}
             clip={clip}
-            tab={tab}
+            key={index}
             setClickedClipUrl={setClickedClipUrl}
+            tab={tab}
           />
         ),
       ),
@@ -42,17 +42,17 @@ export function ClipList({ clips, tab, setClickedClipUrl }: ClipListProps) {
 
   return (
     <InfiniteScrollArea
-      marginY="md"
+      finish={<Text>no more clips</Text>}
       gap={{ base: "md", sm: "sm" }}
-      onLoad={({ index, finish }) => {
+      loading={<Loading fontSize="2xl" />}
+      marginY="md"
+      onLoad={({ finish, index }) => {
         setCount((prev) => prev + LOAD_INDEX)
 
         if (index * LOAD_INDEX + 6 >= 100) {
           finish()
         }
       }}
-      loading={<Loading fontSize="2xl" />}
-      finish={<Text>no more clips</Text>}
     >
       {filteredClips}
     </InfiniteScrollArea>

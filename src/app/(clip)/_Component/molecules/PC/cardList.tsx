@@ -1,3 +1,4 @@
+import { event } from "@/components/googleAnalytics/gtag"
 import { Box, CircularProgress, Stack, Typography } from "@mui/material"
 import { useEffect, useMemo } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
@@ -5,25 +6,24 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import SquareAdvertisement from "../../../../../components/adsense/squareAdvertisement"
 import { Clip } from "../../../../../models/clip"
 import CardItem from "../../atoms/PC/cardItem"
-import { event } from "@/components/googleAnalytics/gtag"
 
 export default function CardList(props: {
-  hasMore: boolean
-  viewItemNum: number
-  loadAll: () => void
-  incrementViewItemNum: () => void
-  tab: string
   clips: Array<Clip>
+  hasMore: boolean
+  incrementViewItemNum: () => void
+  loadAll: () => void
   setClickedClipUrl: (clip: Clip) => void
+  tab: string
+  viewItemNum: number
 }) {
   const {
-    hasMore,
-    viewItemNum,
-    loadAll,
-    incrementViewItemNum,
-    tab,
     clips,
+    hasMore,
+    incrementViewItemNum,
+    loadAll,
     setClickedClipUrl,
+    tab,
+    viewItemNum,
   } = props
 
   //window size
@@ -51,8 +51,8 @@ export default function CardList(props: {
   )
 
   const endMessage = (
-    <Box key={0} sx={{ m: 3, display: "flex", justifyContent: "center" }}>
-      <Typography variant="inherit" color="gray">
+    <Box key={0} sx={{ display: "flex", justifyContent: "center", m: 3 }}>
+      <Typography color="gray" variant="inherit">
         no more clips
       </Typography>
     </Box>
@@ -63,22 +63,22 @@ export default function CardList(props: {
       clips.slice(0, viewItemNum).map((e, index) => {
         if ((index % 10 == 0 && index != 0) || index == 2) {
           return (
-            <Stack key={index} direction="column">
+            <Stack direction="column" key={index}>
               <SquareAdvertisement />
               <CardItem
                 clip={e}
-                tab={tab}
                 setClickedClipUrl={setClickedClipUrl}
+                tab={tab}
               />
             </Stack>
           )
         }
         return (
           <CardItem
-            key={index}
             clip={e}
-            tab={tab}
+            key={index}
             setClickedClipUrl={setClickedClipUrl}
+            tab={tab}
           />
         )
       }),
@@ -94,15 +94,15 @@ export default function CardList(props: {
   if (clips.length != 0) {
     return (
       <InfiniteScroll
-        style={{ overflowX: "hidden" }}
         dataLength={viewItemNum}
+        endMessage={endMessage}
+        hasMore={hasMore}
+        height={height - 121}
+        loader={loader}
         next={() => {
           loadMore(clips)
         }}
-        hasMore={hasMore}
-        loader={loader}
-        endMessage={endMessage}
-        height={height - 121}
+        style={{ overflowX: "hidden" }}
       >
         {cardItems}
       </InfiniteScroll>

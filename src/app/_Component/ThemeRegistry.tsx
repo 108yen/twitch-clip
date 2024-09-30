@@ -1,21 +1,20 @@
 "use client"
+import { isDarkModeAtom } from "@/components/Atoms"
+import { themeOptions } from "@/mui-theme"
 import createCache from "@emotion/cache"
 import { CacheProvider } from "@emotion/react"
 import { useMediaQuery } from "@mui/material"
 import CssBaseline from "@mui/material/CssBaseline"
-import { ThemeProvider, createTheme } from "@mui/material/styles"
+import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { useAtom } from "jotai"
 import { useServerInsertedHTML } from "next/navigation"
 import { useEffect, useState } from "react"
 
-import { isDarkModeAtom } from "@/components/Atoms"
-import { themeOptions } from "@/mui-theme"
-
 export default function ThemeRegistry(props: {
-  options: { key: string; prepend: boolean }
   children: React.ReactNode
+  options: { key: string; prepend: boolean }
 }) {
-  const { options, children } = props
+  const { children, options } = props
   const [isDarkMode] = useAtom(isDarkModeAtom)
 
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
@@ -56,12 +55,12 @@ export default function ThemeRegistry(props: {
     }
     return (
       <style
-        key={cache.key}
-        data-emotion={`${cache.key} ${names.join(" ")}`}
         dangerouslySetInnerHTML={{
           // __html: styles,
           __html: options.prepend ? `@layer emotion {${styles}}` : styles,
         }}
+        data-emotion={`${cache.key} ${names.join(" ")}`}
+        key={cache.key}
       />
     )
   })

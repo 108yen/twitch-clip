@@ -1,12 +1,12 @@
 "use client"
 
-import { createContext, PropsWithChildren, useContext, useMemo } from "react"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
+import { createContext, PropsWithChildren, useContext, useMemo } from "react"
 
 export interface ClipProviderProps extends PropsWithChildren {
-  setClipUrl?: (clip: Clip) => void
   clipDoc?: ClipDoc
+  setClipUrl?: (clip: Clip) => void
 }
 
 export const ClipContext = createContext<ClipProviderProps>({})

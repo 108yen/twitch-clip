@@ -1,4 +1,8 @@
 "use client"
+import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard"
+import { ClipListView } from "@/components/data-display"
+import { ClipProvider } from "@/contexts"
+import { Clip } from "@/models/clip"
 import {
   AppBar,
   Box,
@@ -13,12 +17,8 @@ import { SyntheticEvent, useState } from "react"
 
 import VerticalAdvertisement from "../../../../../components/adsense/side-bar-ad"
 import { ClipDoc } from "../../../../../models/clipDoc"
-import { PCView } from "../../../_Component/organisms/PCView"
 import { MobileView } from "../../../_Component/organisms/mobileView"
-import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard"
-import { ClipListView } from "@/components/data-display"
-import { ClipProvider } from "@/contexts"
-import { Clip } from "@/models/clip"
+import { PCView } from "../../../_Component/organisms/PCView"
 
 export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
@@ -30,14 +30,14 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
     setCurrentClip(clip)
   }
   //set select
-  const [selectTab, setSelectTab] = useState<"trend" | "history">("trend")
+  const [selectTab, setSelectTab] = useState<"history" | "trend">("trend")
   function handleTabChange(
     _: SyntheticEvent<Element, Event>,
-    val: "trend" | "history",
+    val: "history" | "trend",
   ) {
     setSelectTab(val)
   }
-  function clipSeparation(clipDoc: ClipDoc, val: "trend" | "history") {
+  function clipSeparation(clipDoc: ClipDoc, val: "history" | "trend") {
     const trend = [
       "day", //
       "week",
@@ -67,8 +67,8 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
       <>
         <Divider />
         <Grid container justifyContent="space-evenly">
-          <Grid item zeroMinWidth xs={12} md={8}>
-            <AppBar position="relative" elevation={0}>
+          <Grid item md={8} xs={12} zeroMinWidth>
+            <AppBar elevation={0} position="relative">
               <Toolbar
                 sx={{
                   display: "flex",
@@ -78,35 +78,35 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
                 <Stack
                   direction="column"
                   flexGrow={1}
-                  paddingY={5}
                   justifyContent="center"
-                  overflow="hidden"
                   maxWidth={800}
+                  overflow="hidden"
+                  paddingY={5}
                 >
                   <StreamerCard streamerInfo={streamerInfo} />
                   <Box
                     sx={{
-                      justifyContent: "start",
                       display: "flex",
+                      justifyContent: "start",
                     }}
                   >
                     <Tabs
-                      TabIndicatorProps={{
-                        sx: {
-                          height: "1px",
-                          backgroundColor: "text.primary",
-                        },
-                      }}
+                      onChange={handleTabChange}
                       sx={{
                         "& .MuiTab-root": {
-                          paddingX: 2,
                           minWidth: 0,
+                          paddingX: 2,
                           textTransform: "none",
+                        },
+                      }}
+                      TabIndicatorProps={{
+                        sx: {
+                          backgroundColor: "text.primary",
+                          height: "1px",
                         },
                       }}
                       textColor="inherit"
                       value={selectTab}
-                      onChange={handleTabChange}
                     >
                       <Tab key={0} label="Trend" value="trend" />
                       <Tab key={1} label="History" value="history" />
@@ -121,12 +121,12 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
             </ClipProvider>
           </Grid>
           <Grid
+            display={{ md: "flex", xs: "none" }}
             item
-            zeroMinWidth
+            justifyContent="center"
             md={2}
             xl={1}
-            display={{ xs: "none", md: "flex" }}
-            justifyContent="center"
+            zeroMinWidth
           >
             <VerticalAdvertisement />
             {/* <AdmaxPCSideCard /> */}

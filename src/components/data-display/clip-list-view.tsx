@@ -1,15 +1,15 @@
 "use client"
-import { isArray, Tab, TabList, TabPanel, Tabs } from "@yamada-ui/react"
-import { useMemo, useState } from "react"
 import { ClipList } from "@/components/data-display"
 import { useClip } from "@/contexts"
 import { getTabs } from "@/utils/clip"
+import { isArray, Tab, TabList, TabPanel, Tabs } from "@yamada-ui/react"
+import { useMemo, useState } from "react"
 
-interface ClipListViewProps {
-  isSticky?: boolean
-}
+// interface ClipListViewProps {
+//   isSticky?: boolean
+// }
 
-export function ClipListView({ isSticky }: ClipListViewProps) {
+export function ClipListView() {
   const { clipDoc, setClipUrl } = useClip()
   const [index, onChange] = useState(0)
 
@@ -25,24 +25,24 @@ export function ClipListView({ isSticky }: ClipListViewProps) {
   return (
     <>
       <Tabs
-        index={index}
-        onChange={(index) => onChange(index)}
         align="center"
         colorScheme="secondary"
+        index={index}
+        onChange={(index) => onChange(index)}
       >
         <TabList>
           {/* <TabList {...tabStyles}> */}
           {tabs.map((tab) => (
             <Tab
-              key={tab}
-              fontSize="sm"
-              p={3}
-              w="4xs"
               _selected={{
+                borderColor: "currentColor",
                 borderWidth: "2px",
                 color: "secondary",
-                borderColor: "currentColor",
               }}
+              fontSize="sm"
+              key={tab}
+              p={3}
+              w="4xs"
             >
               {tab.toUpperCase()}
             </Tab>
@@ -57,10 +57,10 @@ export function ClipListView({ isSticky }: ClipListViewProps) {
           return (
             <TabPanel key={tab} p={0}>
               <ClipList
-                key={tab}
                 clips={clips}
-                tab={tab}
+                key={tab}
                 setClickedClipUrl={setClipUrl}
+                tab={tab}
               />
             </TabPanel>
           )

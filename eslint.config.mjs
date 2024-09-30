@@ -3,14 +3,15 @@ import eslint from "@eslint/js"
 import pluginNext from "@next/eslint-plugin-next"
 import pluginImport from "eslint-plugin-import"
 import pluginJsxA11y from "eslint-plugin-jsx-a11y"
+import perfectionist from "eslint-plugin-perfectionist"
 import pluginReact from "eslint-plugin-react"
 import pluginReactHooks from "eslint-plugin-react-hooks"
 import pluginUnusedImports from "eslint-plugin-unused-imports"
 import globals from "globals"
 import {
   config as tseslintConfig,
-  parser as tseslintParser,
   configs as tseslintConfigs,
+  parser as tseslintParser,
   plugin as tseslintPlugin,
 } from "typescript-eslint"
 
@@ -18,8 +19,6 @@ import {
 
 /** @type {{js: string[], ts: string[], all: string[]}} */
 const sourceFilePaths = {
-  js: ["**/*.js", "**/*.cjs", "**/*.mjs", "**/*.jsx"],
-  ts: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx", "**/*.d.ts"],
   all: [
     "**/*.js",
     "**/*.cjs",
@@ -31,32 +30,34 @@ const sourceFilePaths = {
     "**/*.tsx",
     "**/*.d.ts",
   ],
+  js: ["**/*.js", "**/*.cjs", "**/*.mjs", "**/*.jsx"],
+  ts: ["**/*.ts", "**/*.cts", "**/*.mts", "**/*.tsx", "**/*.d.ts"],
 }
 
 /** @type {Pick<TSESLintConfig, "name" | "ignores">} */
 const ignoreTSESConfig = {
+  ignores: [".next/**", "node_modules/**", "**/pnpm-lock.yaml",".eslintcache"],
   name: "@twitch-clip/ignores/base",
-  ignores: [".next/**", "node_modules/**", "**/pnpm-lock.yaml"],
 }
 
 /** @type {Pick<TSESLintConfig, "name" | "languageOptions">} */
 const languageOptionTSESConfig = {
-  name: "@twitch-clip/language-options/base",
   languageOptions: {
-    parser: tseslintParser,
-    parserOptions: {
-      ecmaVersion: 2025,
-      ecmaFeatures: {
-        jsx: true,
-      },
-      sourceType: "module",
-    },
     globals: {
       ...globals.browser,
       ...globals.node,
       ...globals.es2025,
     },
+    parser: tseslintParser,
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+      ecmaVersion: 2025,
+      sourceType: "module",
+    },
   },
+  name: "@twitch-clip/language-options/base",
 }
 
 const allSourceFileExtensions = [
@@ -73,8 +74,8 @@ const allSourceFileExtensions = [
 
 /** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules" | "settings">} */
 const importTSESConfig = {
-  name: "@twitch-clip/import/base",
   files: sourceFilePaths.all,
+  name: "@twitch-clip/import/base",
   plugins: {
     import: fixupPluginRules(pluginImport),
     "unused-imports": pluginUnusedImports,
@@ -82,19 +83,11 @@ const importTSESConfig = {
   rules: {
     ...pluginImport.configs.recommended.rules,
     ...pluginImport.configs.typescript.rules,
-    "import/order": [
-      "error",
-      {
-        alphabetize: {
-          order: "asc",
-        },
-      },
-    ],
+    // Set of `import` rules that existed in `eslint-config-next`.
+    "import/no-anonymous-default-export": "error",
+
     // These rules existed in the `.eslintrc`.
     "unused-imports/no-unused-imports": "error",
-
-    // Set of `import` rules that existed in `eslint-config-next`.
-    "import/no-anonymous-default-export": "warn",
   },
   settings: {
     "import/parsers": {
@@ -113,8 +106,8 @@ const importTSESConfig = {
 
 /** @type {Pick<TSESLintConfig, "name" | "files" | "rules">} */
 const eslintTSESConfig = {
-  name: "@twitch-clip/eslint/base",
   files: sourceFilePaths.all,
+  name: "@twitch-clip/eslint/base",
   rules: {
     ...eslint.configs.recommended.rules,
   },
@@ -123,8 +116,8 @@ const eslintTSESConfig = {
 /** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules">[]} */
 const typescriptTSESConfigArray = [
   {
-    name: "@twitch-clip/typescript/base",
     files: sourceFilePaths.all,
+    name: "@twitch-clip/typescript/base",
     plugins: {
       "@typescript-eslint": tseslintPlugin,
     },
@@ -137,22 +130,22 @@ const typescriptTSESConfigArray = [
         .filter((config) => config.rules !== undefined)
         .reduce((acc, config) => ({ ...acc, ...config.rules }), {}),
 
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-unnecessary-type-constraint": "off",
-      "@typescript-eslint/ban-types": "off",
-      "@typescript-eslint/no-inferrable-types": "off",
       "@typescript-eslint/array-type": "off",
-
+      "@typescript-eslint/ban-types": "off",
       // If you want to unify the type definition method to either `type` or `interface`, you can enable this rule.
       // https://typescript-eslint.io/rules/consistent-type-definitions
       "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-inferrable-types": "off",
+
+      "@typescript-eslint/no-unnecessary-type-constraint": "off",
     },
   },
 
   // These rules existed in the `.eslintrc`.
   {
-    name: "@twitch-clip/typescript/disabled-in-js",
     files: sourceFilePaths.js,
+    name: "@twitch-clip/typescript/disabled-in-js",
     plugins: {
       "@typescript-eslint": tseslintPlugin,
     },
@@ -164,23 +157,23 @@ const typescriptTSESConfigArray = [
 
 /** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules" | "settings">} */
 const reactTSESConfig = {
-  name: "@twitch-clip/react/base",
   files: sourceFilePaths.all,
+  name: "@twitch-clip/react/base",
   plugins: {
     react: pluginReact,
   },
   rules: {
     ...pluginReact.configs.recommended.rules,
 
-    // Set of `react` rules that existed in `eslint-config-next`.
-    "react/no-unknown-property": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
+    "react/jsx-curly-brace-presence": "error",
     "react/jsx-no-target-blank": "off",
-
     // These rules existed in the `.eslintrc`.
     "react/no-unescaped-entities": "off",
-    "react/jsx-curly-brace-presence": "error",
+    // Set of `react` rules that existed in `eslint-config-next`.
+    "react/no-unknown-property": "off",
+
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
   },
   settings: {
     react: {
@@ -191,8 +184,8 @@ const reactTSESConfig = {
 
 /** @type {Pick<TSESLintConfig, "name | "files" | "plugins" | "rules">} */
 const reactHooksTSESConfig = {
-  name: "@twitch-clip/react-hooks/base",
   files: sourceFilePaths.all,
+  name: "@twitch-clip/react-hooks/base",
   plugins: {
     "react-hooks": fixupPluginRules(pluginReactHooks),
   },
@@ -203,8 +196,8 @@ const reactHooksTSESConfig = {
 
 /** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules">} */
 const nextTSESConfig = {
-  name: "@twitch-clip/next/base",
   files: sourceFilePaths.all,
+  name: "@twitch-clip/next/base",
   plugins: {
     "@next/next": fixupPluginRules(pluginNext),
   },
@@ -223,8 +216,8 @@ const nextTSESConfig = {
  * @description Set of `jsx-a11y` rules existed in `eslint-config-next`.
  */
 const jsxA11yTSESConfig = {
-  name: "@twitch-clip/jsx-a11y/base",
   files: sourceFilePaths.all,
+  name: "@twitch-clip/jsx-a11y/base",
   plugins: {
     "jsx-a11y": pluginJsxA11y,
   },
@@ -248,8 +241,8 @@ const jsxA11yTSESConfig = {
  * @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules">}
  */
 const prettierTSESConfig = {
-  name: "@twitch-clip/prettier/base",
   files: sourceFilePaths.all,
+  name: "@twitch-clip/prettier/base",
   plugins: {
     react: pluginReact,
   },
@@ -274,6 +267,16 @@ const prettierTSESConfig = {
   },
 }
 
+/** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules" | "settings">} */
+const sortTSESConfig = {
+  files: sourceFilePaths.all,
+  name: "@twitch-clip/sort/base",
+  plugins: {
+    perfectionist
+  },
+  rules: perfectionist.configs['recommended-natural'].rules
+}
+
 export default tseslintConfig(
   ignoreTSESConfig,
   languageOptionTSESConfig,
@@ -285,4 +288,5 @@ export default tseslintConfig(
   reactHooksTSESConfig,
   jsxA11yTSESConfig,
   prettierTSESConfig,
+  sortTSESConfig,
 )

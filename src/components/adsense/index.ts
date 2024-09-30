@@ -1,2 +1,2 @@
-export * from "./side-bar-ad"
 export * from "./inline-ad"
+export * from "./side-bar-ad"

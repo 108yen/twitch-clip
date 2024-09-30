@@ -5,11 +5,11 @@ export const X = forwardRef<SVGSVGElement, IconProps>(
   ({ fontSize = "5xl", ...rest }, ref) => {
     return (
       <Icon
-        ref={ref}
-        fontSize={fontSize}
         fill="currentColor"
-        viewBox="0 0 24 24"
         focusable="false"
+        fontSize={fontSize}
+        ref={ref}
+        viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         {...rest}
       >

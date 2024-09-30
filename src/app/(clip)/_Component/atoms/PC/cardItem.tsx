@@ -1,3 +1,4 @@
+import { event } from "@/components/googleAnalytics/gtag"
 /* eslint-disable @next/next/no-img-element */
 import { Avatar, Box, Stack, Tooltip, Typography } from "@mui/material"
 import Link from "next/link"
@@ -7,14 +8,13 @@ import {
   NoDecorationTypography,
 } from "../../../../../components/styledui"
 import { Clip } from "../../../../../models/clip"
-import { event } from "@/components/googleAnalytics/gtag"
 
 export default function CardItem(props: {
   clip: Clip
-  tab: string
   setClickedClipUrl: (clip: Clip) => void
+  tab: string
 }) {
-  const { clip, tab, setClickedClipUrl } = props
+  const { clip, setClickedClipUrl, tab } = props
 
   return (
     <Box
@@ -23,11 +23,11 @@ export default function CardItem(props: {
       }}
     >
       <Tooltip
+        enterDelay={500}
+        enterNextDelay={500}
         followCursor
         placement="top"
         title={clip.title}
-        enterDelay={500}
-        enterNextDelay={500}
       >
         <Stack
           direction="column"
@@ -36,40 +36,40 @@ export default function CardItem(props: {
           sx={{ flexGrow: 1 }}
         >
           <BorderPaper
-            sx={{
-              position: "relative",
-              width: "100%",
-              height: 0,
-              paddingBottom: "56.25%",
-              display: "flex",
-              justifyContent: "center",
-              cursor: "pointer",
-            }}
             onClick={() => {
               setClickedClipUrl(clip)
               event("click", {
-                label: "click_clip_title",
                 clip_title: clip.title,
-                ranking_period: tab,
+                label: "click_clip_title",
                 link_url: clip.url,
+                ranking_period: tab,
               })
+            }}
+            sx={{
+              cursor: "pointer",
+              display: "flex",
+              height: 0,
+              justifyContent: "center",
+              paddingBottom: "56.25%",
+              position: "relative",
+              width: "100%",
             }}
           >
             <img
-              src={clip.thumbnail_url}
               alt={clip.title}
               loading="lazy"
+              src={clip.thumbnail_url}
               style={{
+                border: "none",
+                height: "100%",
+                left: 0,
                 position: "absolute",
                 top: 0,
-                left: 0,
                 width: "100%",
-                height: "100%",
-                border: "none",
               }}
             />
           </BorderPaper>
-          <Stack direction="row" alignItems="center" spacing={2}>
+          <Stack alignItems="center" direction="row" spacing={2}>
             <Link
               href={`/streamer/${clip.broadcaster_id}`}
               prefetch={false}
@@ -78,32 +78,32 @@ export default function CardItem(props: {
               }}
             >
               <Avatar
-                sx={{ width: 35, height: 35 }}
                 alt="top"
                 src={clip.profile_image_url}
+                sx={{ height: 35, width: 35 }}
               />
             </Link>
-            <Stack direction="column" overflow="hidden" flexGrow={1}>
+            <Stack direction="column" flexGrow={1} overflow="hidden">
               <NoDecorationTypography
-                variant="body1"
                 noWrap
                 onClick={() => {
                   setClickedClipUrl(clip)
                   event("click", {
-                    label: "click_clip_title",
                     clip_title: clip.title,
-                    ranking_period: tab,
+                    label: "click_clip_title",
                     link_url: clip.url,
+                    ranking_period: tab,
                   })
                 }}
+                variant="body1"
               >
                 {clip.title}
               </NoDecorationTypography>
               <Stack
-                direction="row"
-                justifyContent="space-between"
                 alignItems="center"
+                direction="row"
                 flexGrow={1}
+                justifyContent="space-between"
               >
                 <Link
                   href={`/streamer/${clip.broadcaster_id}`}
@@ -112,11 +112,11 @@ export default function CardItem(props: {
                     textDecoration: "none",
                   }}
                 >
-                  <Typography noWrap variant="body1" color="grey">
+                  <Typography color="grey" noWrap variant="body1">
                     {clip.broadcaster_name}
                   </Typography>
                 </Link>
-                <Typography noWrap variant="body2" color="grey">
+                <Typography color="grey" noWrap variant="body2">
                   {clip.view_count?.toLocaleString()} views
                 </Typography>
               </Stack>

@@ -13,25 +13,25 @@ export default function ClipPageLoaderTemplate() {
     <Grid
       container
       justifyContent="center"
-      paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
+      paddingX={{ lg: 15, md: 5, xl: 20, xs: 0 }}
     >
-      <Grid item zeroMinWidth xs={12} md={9}>
+      <Grid item md={9} xs={12} zeroMinWidth>
         <Stack direction="column" spacing={0.1} sx={{ minWidth: 0 }}>
           <Box
             sx={{
-              zIndex: 1200,
               borderBottom: 1,
               borderColor: "divider",
-              justifyContent: "center",
               display: "flex",
+              justifyContent: "center",
+              zIndex: 1200,
             }}
           >
             <Tabs
-              value={0}
-              textColor="secondary"
               indicatorColor="secondary"
-              variant="scrollable"
               scrollButtons={true}
+              textColor="secondary"
+              value={0}
+              variant="scrollable"
             >
               {tabNameList.map((e, index) => (
                 <Tab key={index} label={e} value={index} />

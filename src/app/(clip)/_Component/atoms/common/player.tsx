@@ -6,25 +6,25 @@ export default function Player(props: { embed_url?: string }) {
   return (
     <Box
       sx={{
+        display: "flex",
+        height: 0,
+        justifyContent: "center",
+        paddingBottom: "56.25%",
         position: "relative",
         width: "100%",
-        height: 0,
-        paddingBottom: "56.25%",
-        display: "flex",
-        justifyContent: "center",
       }}
     >
       <iframe
-        src={`${embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`}
         allowFullScreen
         loading="lazy"
+        src={`${embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`}
         style={{
+          border: "none",
+          height: "100%",
+          left: 0,
           position: "absolute",
           top: 0,
-          left: 0,
           width: "100%",
-          height: "100%",
-          border: "none",
         }}
       />
     </Box>

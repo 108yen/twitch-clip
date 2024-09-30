@@ -1,6 +1,6 @@
 "use client"
 
-import { Text, Divider, Box, BoxProps } from "@yamada-ui/react"
+import { Box, BoxProps, Divider, Text } from "@yamada-ui/react"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
@@ -20,30 +20,30 @@ export function SideBarAD(props: BoxProps) {
 
   return (
     <Box
+      alignItems="center"
+      justifyContent="flex-start"
       position="fixed"
       top={100}
       w="fit-content"
-      justifyContent="flex-start"
-      alignItems="center"
       {...props}
     >
-      <Box position="relative" alignItems="center">
+      <Box alignItems="center" position="relative">
         <Text textStyle="adsenseTitle">Advertisement</Text>
 
         <Divider />
 
-        <Box key={pathname} w="fit-content" textAlign="center" p={2}>
+        <Box key={pathname} p={2} textAlign="center" w="fit-content">
           <Box
             as="ins"
             className="adsbygoogle"
+            data-ad-client="ca-pub-1615921337969017"
+            data-ad-format="auto"
+            data-ad-slot="1041812482"
+            data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
+            data-full-width-responsive="true"
             display="block"
             position="relative"
             top={0}
-            data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
-            data-ad-client="ca-pub-1615921337969017"
-            data-ad-slot="1041812482"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
           />
         </Box>
       </Box>

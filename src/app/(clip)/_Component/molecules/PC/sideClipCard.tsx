@@ -1,3 +1,6 @@
+import { event } from "@/components/googleAnalytics/gtag"
+import { BorderSelect } from "@/components/styledui"
+import { Clip } from "@/models/clip"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import {
   Divider,
@@ -12,9 +15,6 @@ import { useMemo, useState } from "react"
 import { ClipDoc } from "../../../../../models/clipDoc"
 import getTabNameList from "../../utils/getTabNameList"
 import CardList from "./cardList"
-import { event } from "@/components/googleAnalytics/gtag"
-import { BorderSelect } from "@/components/styledui"
-import { Clip } from "@/models/clip"
 
 export default function SideClipCard(props: {
   clipDoc: ClipDoc
@@ -51,14 +51,14 @@ export default function SideClipCard(props: {
   }
 
   return (
-    <Stack direction="column" overflow="hidden" flexGrow={1}>
-      <Stack direction="row" justifyContent="space-between" alignItems="end">
+    <Stack direction="column" flexGrow={1} overflow="hidden">
+      <Stack alignItems="end" direction="row" justifyContent="space-between">
         <Tooltip followCursor placement="top" title="リスト表示にもどる">
           <Stack
-            direction="row"
-            justifyContent="flex-start"
             alignItems="center"
             color="grey"
+            direction="row"
+            justifyContent="flex-start"
             onClick={() => {
               setClickedClipUrl(undefined)
               event("click", {
@@ -74,10 +74,10 @@ export default function SideClipCard(props: {
           </Stack>
         </Tooltip>
         <BorderSelect
-          size="small"
-          value={tab}
           onChange={handleTabChange}
+          size="small"
           sx={{ marginBottom: 2 }}
+          value={tab}
         >
           {tabNameList.map((e, index) => (
             <MenuItem key={index} value={index}>
@@ -88,13 +88,13 @@ export default function SideClipCard(props: {
       </Stack>
       <Divider />
       <CardList
-        hasMore={hasMore}
-        viewItemNum={viewItemNum}
-        loadAll={loadAll}
-        incrementViewItemNum={incrementViewItemNum}
         clips={currentClips}
-        tab={currentTabName}
+        hasMore={hasMore}
+        incrementViewItemNum={incrementViewItemNum}
+        loadAll={loadAll}
         setClickedClipUrl={setClickedClipUrl}
+        tab={currentTabName}
+        viewItemNum={viewItemNum}
       />
     </Stack>
   )

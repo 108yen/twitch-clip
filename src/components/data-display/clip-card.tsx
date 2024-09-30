@@ -1,3 +1,6 @@
+import { event } from "@/components/googleAnalytics/gtag"
+import { Clip } from "@/models/clip"
+import { formatDate } from "@/utils/string"
 /* eslint-disable @next/next/no-img-element */
 import { SquareArrowOutUpRight } from "@yamada-ui/lucide"
 import {
@@ -8,29 +11,26 @@ import {
   HStack,
   IconButton,
   Spacer,
-  VStack,
   Text,
+  VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { event } from "@/components/googleAnalytics/gtag"
-import { Clip } from "@/models/clip"
-import { formatDate } from "@/utils/string"
 
 type ClipCardProps = {
   clip: Clip
-  tab: string
   setClickedClipUrl?: (clip: Clip) => void
+  tab: string
 }
 
-export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
+export function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
   const {
-    title,
-    thumbnail_url,
-    broadcaster_name,
     broadcaster_id,
-    profile_image_url,
-    creator_name,
+    broadcaster_name,
     created_at: _created_at = "",
+    creator_name,
+    profile_image_url,
+    thumbnail_url,
+    title,
     view_count: _view_count,
   } = clip
 
@@ -41,30 +41,30 @@ export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
     <Container apply="layoutStyles.borderCard" p={0}>
       <HStack gap={0}>
         <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
-          <img src={thumbnail_url} alt={title} loading="lazy" />
+          <img alt={title} loading="lazy" src={thumbnail_url} />
         </AspectRatio>
 
         <VStack
-          w="full"
           gap={0}
           marginX={{ base: "sm", sm: "xs" }}
           overflow="hidden"
+          w="full"
         >
           <HStack aria-label={title}>
             <Heading
-              variant="h5"
-              fontSize="xl"
               cursor="pointer"
+              fontSize="xl"
               isTruncated
               onClick={() => {
                 setClickedClipUrl?.(clip)
                 event("click", {
-                  label: "click_clip_title",
                   clip_title: clip.title,
-                  ranking_period: tab,
+                  label: "click_clip_title",
                   link_url: clip.url,
+                  ranking_period: tab,
                 })
               }}
+              variant="h5"
             >
               {title}
             </Heading>
@@ -73,58 +73,58 @@ export function ClipCard({ clip, tab, setClickedClipUrl }: ClipCardProps) {
 
             <IconButton
               as={Link}
-              icon={<SquareArrowOutUpRight />}
-              variant="primary"
               href={clip.url ?? ""}
-              target="_blank"
+              icon={<SquareArrowOutUpRight />}
+              onClick={() => {
+                event("click", {
+                  clip_title: clip.title,
+                  label: "click_twitch_clip_link",
+                  link_url: clip.url,
+                  ranking_period: tab,
+                })
+              }}
               style={{
                 textDecoration: "none",
               }}
-              onClick={() => {
-                event("click", {
-                  label: "click_twitch_clip_link",
-                  clip_title: clip.title,
-                  ranking_period: tab,
-                  link_url: clip.url,
-                })
-              }}
+              target="_blank"
+              variant="primary"
             />
           </HStack>
 
           <HStack
-            as={Link}
             aria-label={broadcaster_name}
+            as={Link}
             href={`/streamer/${broadcaster_id}`}
             prefetch={false}
           >
             <Avatar
               name={broadcaster_name}
-              src={profile_image_url}
               size={{ base: "md", sm: "sm" }}
+              src={profile_image_url}
             />
             <Text>{broadcaster_name}</Text>
           </HStack>
 
           <Text
-            textAlign="start"
             aria-describedby="Clip creator name"
             display={{ base: "flex", sm: "none" }}
+            textAlign="start"
           >
             created_by : {creator_name}
           </Text>
 
           <Text
-            textAlign="start"
             aria-describedby="Clip created date"
             display={{ base: "flex", sm: "none" }}
+            textAlign="start"
           >
             created_at : {created_at}
           </Text>
 
           <Text
-            textAlign="end"
-            color={["blackAlpha.600", "whiteAlpha.600"]}
             aria-describedby="Clip view count"
+            color={["blackAlpha.600", "whiteAlpha.600"]}
+            textAlign="end"
           >
             {view_count}
           </Text>

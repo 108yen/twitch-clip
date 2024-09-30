@@ -8,16 +8,16 @@ export default function ClipInfo(props: {
 
   return (
     <Stack
-      direction="row"
-      overflow="hidden"
-      justifyContent="space-between"
       alignItems="flex-start"
+      direction="row"
       flexGrow={1}
+      justifyContent="space-between"
+      overflow="hidden"
     >
-      <Typography variant="h6" fontWeight="bold" noWrap>
+      <Typography fontWeight="bold" noWrap variant="h6">
         {title}
       </Typography>
-      <Typography align="right" minWidth={95} variant="body2" color="grey">
+      <Typography align="right" color="grey" minWidth={95} variant="body2">
         {`${view_count?.toLocaleString()} views`}
       </Typography>
     </Stack>

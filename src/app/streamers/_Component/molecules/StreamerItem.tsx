@@ -1,6 +1,3 @@
-import { Avatar, Stack, Typography } from "@mui/material"
-import Link from "next/link"
-
 import { event } from "@/components/googleAnalytics/gtag"
 import {
   BorderPaper,
@@ -8,67 +5,69 @@ import {
   StyledLaunch,
 } from "@/components/styledui"
 import { Streamer } from "@/models/streamer"
+import { Avatar, Stack, Typography } from "@mui/material"
+import Link from "next/link"
 
 export default function StreamerItem({ streamer }: { streamer: Streamer }) {
   return (
     <BorderPaper
       sx={{
-        marginX: { xs: 0, sm: 1 },
-        marginY: { xs: 2, sm: 3 },
-        p: 2,
         height: 140,
+        marginX: { sm: 1, xs: 0 },
+        marginY: { sm: 3, xs: 2 },
         overflow: "hidden",
+        p: 2,
       }}
     >
       <Stack
-        direction="row"
-        justifyContent="flex-start"
         alignItems="center"
+        direction="row"
         height="100%"
+        justifyContent="flex-start"
         spacing={1}
       >
         <Link
-          href={`/streamer/${streamer.id}`}
           aria-label="streamer channel page link"
+          href={`/streamer/${streamer.id}`}
           prefetch={false}
         >
           <Avatar alt="top" src={streamer.profile_image_url} />
         </Link>
         <Stack
-          direction="column"
-          justifyContent="flex-start"
           alignItems="flex-start"
-          width="100%"
+          direction="column"
           height="100%"
+          justifyContent="flex-start"
           overflow="hidden"
+          width="100%"
         >
           <Stack direction="row" justifyContent="space-between" width="100%">
             <Link
-              href={`/streamer/${streamer.id}`}
               aria-label="streamer channel page link"
+              href={`/streamer/${streamer.id}`}
               prefetch={false}
               style={{
                 textDecoration: "none",
               }}
             >
-              <NoDecorationTypography variant="h6" noWrap>
+              <NoDecorationTypography noWrap variant="h6">
                 {streamer.display_name}
               </NoDecorationTypography>
             </Link>
             <Link
-              href={"https://www.twitch.tv/" + streamer.login}
               aria-label="twitch channel page link"
-              target="_blank"
-              style={{
-                textDecoration: "none",
-              }}
+              href={"https://www.twitch.tv/" + streamer.login}
               onClick={() => {
                 event("click", {
-                  label: "click_twitch_channel",
                   channel_title: streamer.display_name,
+                  label: "click_twitch_channel",
                   link_url: "https://www.twitch.tv/" + streamer.login,
                 })
               }}
+              style={{
+                textDecoration: "none",
+              }}
+              target="_blank"
             >
               <Stack direction="row" spacing={1}>
                 <NoDecorationTypography variant="body2">
@@ -79,25 +78,25 @@ export default function StreamerItem({ streamer }: { streamer: Streamer }) {
             </Link>
           </Stack>
           <Typography
-            variant="body1"
             color="gray"
             height={50}
             overflow="auto"
             sx={{
-              msOverflowStyle: "none",
-              scrollbarWidth: "none",
               "::-webkit-scrollbar": {
                 display: "none",
               },
+              msOverflowStyle: "none",
+              scrollbarWidth: "none",
             }}
+            variant="body1"
           >
             {streamer.description}
           </Typography>
           <Typography
-            noWrap
-            variant="body2"
             color="gray"
+            noWrap
             textAlign="end"
+            variant="body2"
             width="100%"
           >
             {streamer.follower_num?.toLocaleString() + " followers"}

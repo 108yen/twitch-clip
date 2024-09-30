@@ -14,17 +14,17 @@ export default function Loading() {
       <Grid
         container
         justifyContent="center"
-        paddingX={{ xs: 0, md: 5, lg: 15, xl: 20 }}
+        paddingX={{ lg: 15, md: 5, xl: 20, xs: 0 }}
       >
-        <Grid item xs={12} md={9}>
+        <Grid item md={9} xs={12}>
           <StreamersPageHeader
-            searchText={searchText}
-            handleSearchTextChange={handleSearchTextChange}
             channelNum={channelNum}
+            handleSearchTextChange={handleSearchTextChange}
+            searchText={searchText}
           />
           <Divider
             sx={{
-              marginX: { xs: 0, sm: 1 },
+              marginX: { sm: 1, xs: 0 },
             }}
           />
           <Box key={0} sx={{ display: "flex", justifyContent: "center", m: 5 }}>

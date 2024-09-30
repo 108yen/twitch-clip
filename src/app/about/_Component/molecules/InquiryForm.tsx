@@ -1,12 +1,12 @@
 "use client"
 
+import { event } from "@/components/googleAnalytics/gtag"
+import { SimpleButton } from "@/components/styledui"
 import { Alert, Box, Snackbar, TextField } from "@mui/material"
 import { useState } from "react"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
 import postInquiry from "../../../../firebase/server/inquiry"
-import { event } from "@/components/googleAnalytics/gtag"
-import { SimpleButton } from "@/components/styledui"
 
 type Inputs = {
   inquiry: string
@@ -21,8 +21,8 @@ export default function InquiryForm() {
 
   const validationRules = {
     inquiry: {
+      minLength: { message: "お問い合わせを入力してください", value: 3 },
       required: "お問い合わせを入力してください",
-      minLength: { value: 3, message: "お問い合わせを入力してください" },
     },
   }
 
@@ -34,15 +34,15 @@ export default function InquiryForm() {
 
     if (result?.error) {
       setSnackbarState({
+        message: "お問い合わせ失敗",
         open: true,
         severity: "error",
-        message: "お問い合わせ失敗",
       })
     } else {
       setSnackbarState({
+        message: "お問い合わせ完了",
         open: true,
         severity: "success",
-        message: "お問い合わせ完了",
       })
       reset()
     }
@@ -61,46 +61,46 @@ export default function InquiryForm() {
   }
 
   type SnackbarStateProps = {
-    open: boolean
-    severity: "success" | "info" | "warning" | "error"
     message: string
+    open: boolean
+    severity: "error" | "info" | "success" | "warning"
   }
 
   const [snackbarState, setSnackbarState] = useState<SnackbarStateProps>({
+    message: "",
     open: false,
     severity: "success",
-    message: "",
   })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} onKeyDown={(e) => checkKeyDown(e)}>
+    <form onKeyDown={(e) => checkKeyDown(e)} onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        name="inquiry"
         control={control}
-        rules={validationRules.inquiry}
+        name="inquiry"
         render={({ field, fieldState }) => (
           <TextField
             {...field}
-            id="inquiry"
-            fullWidth
-            multiline
-            rows={4}
-            margin="normal"
             color="secondary"
             error={fieldState.invalid}
+            fullWidth
             helperText={fieldState.error?.message}
+            id="inquiry"
+            margin="normal"
+            multiline
+            rows={4}
           />
         )}
+        rules={validationRules.inquiry}
       />
-      <Box textAlign="center" m={2}>
-        <SimpleButton type="submit" variant="outlined" color="primary">
+      <Box m={2} textAlign="center">
+        <SimpleButton color="primary" type="submit" variant="outlined">
           問い合わせ
         </SimpleButton>
       </Box>
       <Snackbar
-        open={snackbarState.open}
         autoHideDuration={6000}
         onClose={handleSnackbarClose}
+        open={snackbarState.open}
       >
         <Alert onClose={handleSnackbarClose} severity={snackbarState.severity}>
           {snackbarState.message}

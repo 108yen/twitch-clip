@@ -4,9 +4,9 @@ import { AppBar, Button, Paper, Select, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 
 export const BorderPaper = styled(Paper)(({ theme }) => ({
-  boxShadow: "none",
   border: "1px solid",
   borderColor: theme.palette.secondary.main,
+  boxShadow: "none",
   overflow: "hidden",
 }))
 
@@ -15,11 +15,11 @@ export const NoDecorationTypography = styled(Typography)(({ theme }) => ({
 }))
 
 export const SelectTypography = styled(Typography)(({ theme }) => ({
-  transitionDuration: "0.3s",
-  color: theme.palette.text.disabled,
   "&:hover": {
     color: theme.palette.text.primary,
   },
+  color: theme.palette.text.disabled,
+  transitionDuration: "0.3s",
 }))
 
 export const StyledLaunch = styled(Launch)(({ theme }) => ({
@@ -27,17 +27,17 @@ export const StyledLaunch = styled(Launch)(({ theme }) => ({
 }))
 
 export const AboutBodyTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.primary,
   variant: "body1",
   whiteSpace: "pre-line",
-  color: theme.palette.text.primary,
 }))
 
 type PaperAppBarProps = {
   istransparent: string
 }
 export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({
-  theme,
   istransparent: istransparent,
+  theme,
 }) => {
   const backgroundColorDefault =
     theme.palette.mode === "light"
@@ -47,9 +47,9 @@ export const PaperAppBar = styled(AppBar)<PaperAppBarProps>(({
     istransparent == "true" ? "transparent" : backgroundColorDefault
 
   return {
+    background: background,
     boxShadow: "none",
     transition: "background-color 0.3s",
-    background: background,
   }
 })
 
@@ -58,12 +58,12 @@ export const Div = styled("div")(() => ({}))
 export const SimpleButton = styled(Button)(({ theme }) => {
   if (theme.palette.mode === "light") {
     return {
-      color: theme.palette.text.primary,
-      borderColor: theme.palette.grey[400],
       "&:hover": {
-        borderColor: theme.palette.text.primary,
         backgroundColor: theme.palette.grey[50],
+        borderColor: theme.palette.text.primary,
       },
+      borderColor: theme.palette.grey[400],
+      color: theme.palette.text.primary,
     }
   }
 })

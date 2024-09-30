@@ -1,6 +1,6 @@
+import { SideBarAD } from "@/components/adsense"
 import { Center, Grid, GridItem, SimpleGridProps } from "@yamada-ui/react"
 import { PropsWithChildren } from "react"
-import { SideBarAD } from "@/components/adsense"
 
 interface ClipListLayoutProps extends SimpleGridProps, PropsWithChildren {}
 
@@ -8,12 +8,12 @@ export function ClipListLayout({ children, ...rest }: ClipListLayoutProps) {
   return (
     <Center>
       <Grid
+        gap="md"
+        maxW="9xl"
+        px={{ base: "lg", lg: "md", sm: "xs" }}
+        py="3"
         templateColumns="repeat(5, 1fr)"
         w="full"
-        maxW="9xl"
-        py="3"
-        px={{ base: "lg", lg: "md", sm: "xs" }}
-        gap="md"
         {...rest}
       >
         <GridItem colSpan={{ base: 4, lg: 5 }} w="full">
@@ -22,9 +22,9 @@ export function ClipListLayout({ children, ...rest }: ClipListLayoutProps) {
 
         <GridItem
           colSpan={{ base: 1, lg: 0 }}
-          w="full"
           display={{ base: "flex", lg: "none" }}
           justifyContent="center"
+          w="full"
         >
           <SideBarAD />
         </GridItem>

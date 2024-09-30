@@ -3,20 +3,6 @@ import { ThemeOptions } from "@mui/material/styles"
 //https://zenoo.github.io/mui-theme-creator/
 export function themeOptions(isDarkMode: boolean): ThemeOptions {
   return {
-    palette: {
-      mode: isDarkMode ? "dark" : "light",
-      primary: {
-        main: "#ffffff",
-        dark: "#c7c7c7",
-        light: "#ffffff",
-      },
-      // background: {
-      //     default: isDarkMode ? '#000000' : '#ffffff',
-      // },
-      secondary: {
-        main: "#607d8b",
-      },
-    },
     components: {
       MuiCssBaseline: {
         styleOverrides: `
@@ -39,6 +25,20 @@ export function themeOptions(isDarkMode: boolean): ThemeOptions {
                         overflow: overlay;
                     }
                 `,
+      },
+    },
+    palette: {
+      mode: isDarkMode ? "dark" : "light",
+      primary: {
+        dark: "#c7c7c7",
+        light: "#ffffff",
+        main: "#ffffff",
+      },
+      // background: {
+      //     default: isDarkMode ? '#000000' : '#ffffff',
+      // },
+      secondary: {
+        main: "#607d8b",
       },
     },
   }

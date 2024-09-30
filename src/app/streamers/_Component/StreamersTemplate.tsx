@@ -4,7 +4,6 @@ import { useState } from "react"
 
 import VerticalAdvertisement from "../../../components/adsense/side-bar-ad"
 import { Streamer } from "../../../models/streamer"
-
 import StreamerList from "./molecules/StreamerList"
 import StreamersPageHeader from "./molecules/streamersPageHeader"
 
@@ -28,25 +27,25 @@ export default function StreamersTemplate(props: {
 
   return (
     <Grid container justifyContent="space-evenly">
-      <Grid item xs={12} md={8}>
+      <Grid item md={8} xs={12}>
         <StreamersPageHeader
-          searchText={searchText}
-          handleSearchTextChange={handleSearchTextChange}
           channelNum={channelNum}
+          handleSearchTextChange={handleSearchTextChange}
+          searchText={searchText}
         />
         <Divider
           sx={{
-            marginX: { xs: 0, sm: 1 },
+            marginX: { sm: 1, xs: 0 },
           }}
         />
         <StreamerList streamers={filteredStreamer} />
       </Grid>
       <Grid
+        display={{ md: "flex", xs: "none" }}
         item
-        zeroMinWidth
         md={2}
         xl={1}
-        display={{ xs: "none", md: "flex" }}
+        zeroMinWidth
       >
         <VerticalAdvertisement />
       </Grid>

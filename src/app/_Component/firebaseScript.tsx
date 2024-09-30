@@ -1,15 +1,15 @@
 "use client"
 
+import { event } from "@/components/googleAnalytics/gtag"
 import {
-  ReCaptchaV3Provider,
   getToken,
   initializeAppCheck,
+  ReCaptchaV3Provider,
 } from "firebase/app-check"
 import { getPerformance } from "firebase/performance"
 import { useEffect } from "react"
 
 import { clientApp } from "../../firebase/client/client"
-import { event } from "@/components/googleAnalytics/gtag"
 
 export default function FirebaseInitScript() {
   useEffect(() => {
@@ -19,8 +19,8 @@ export default function FirebaseInitScript() {
 
       // AppCheck
       const appCheck = initializeAppCheck(clientApp, {
-        provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA!),
         isTokenAutoRefreshEnabled: true,
+        provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA!),
       })
 
       getToken(appCheck).catch((error) => {

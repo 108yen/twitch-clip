@@ -1,32 +1,31 @@
 "use client"
 
+import { event } from "@/components/googleAnalytics/gtag"
 import Link from "next/link"
 import { ReactNode } from "react"
 
-import { event } from "@/components/googleAnalytics/gtag"
-
 export default function ExternalLink(props: {
-  children: ReactNode
-  href: string
   ariaLabel: string
+  children: ReactNode
   eventLabel: string
+  href: string
 }) {
-  const { children, href, ariaLabel, eventLabel } = props
+  const { ariaLabel, children, eventLabel, href } = props
 
   return (
     <Link
-      href={href}
       aria-label={ariaLabel}
-      target="_blank"
-      style={{
-        textDecoration: "none",
-      }}
+      href={href}
       onClick={() => {
         event("click", {
           label: eventLabel,
           link_url: href,
         })
       }}
+      style={{
+        textDecoration: "none",
+      }}
+      target="_blank"
     >
       {children}
     </Link>

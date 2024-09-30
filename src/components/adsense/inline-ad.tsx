@@ -1,6 +1,6 @@
 "use client"
 
-import { Text, Divider, Box, HStack, StackProps } from "@yamada-ui/react"
+import { Box, Divider, HStack, StackProps, Text } from "@yamada-ui/react"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
@@ -24,17 +24,17 @@ export function InlineAD(props: StackProps) {
 
       <Divider />
 
-      <Box key={pathname} w="fit-content" textAlign="center" p={2}>
+      <Box key={pathname} p={2} textAlign="center" w="fit-content">
         <Box
           as="ins"
           className="adsbygoogle"
-          display="block"
-          textAlign="center"
-          data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
+          data-ad-client="ca-pub-1615921337969017"
           data-ad-format="fluid"
           data-ad-layout="in-article"
-          data-ad-client="ca-pub-1615921337969017"
           data-ad-slot="8553448913"
+          data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
+          display="block"
+          textAlign="center"
         />
       </Box>
     </HStack>

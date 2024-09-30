@@ -1,3 +1,5 @@
+import { CONSTANT } from "@/constant"
+import { usePage } from "@/contexts"
 import { EllipsisVertical } from "@yamada-ui/lucide"
 import {
   HStack,
@@ -15,8 +17,6 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { useId } from "react"
-import { CONSTANT } from "@/constant"
-import { usePage } from "@/contexts"
 
 export function HeaderMenu() {
   const id = useId()
@@ -50,7 +50,7 @@ export function HeaderMenu() {
 
         {CONSTANT.MENU.map(({ href, title }) => (
           <MenuItem key={title}>
-            <Text as={Link} prefetch={false} href={href} aria-label={title}>
+            <Text aria-label={title} as={Link} href={href} prefetch={false}>
               {title}
             </Text>
           </MenuItem>

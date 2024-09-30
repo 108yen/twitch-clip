@@ -1,5 +1,9 @@
 "use client"
 
+import { HexagonOutlined } from "@/components/media-and-icons"
+import { HeaderMenu } from "@/components/navigation"
+import { CONSTANT } from "@/constant"
+import { useScrollY } from "@/hooks"
 import {
   Center,
   CenterProps,
@@ -16,10 +20,6 @@ import {
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { memo, useRef } from "react"
-import { HexagonOutlined } from "@/components/media-and-icons"
-import { HeaderMenu } from "@/components/navigation"
-import { CONSTANT } from "@/constant"
-import { useScrollY } from "@/hooks"
 
 export type HeaderProps = CenterProps
 
@@ -34,35 +34,35 @@ export const Header = memo(
 
     return (
       <Center
-        ref={mergeRefs(ref, headerRef)}
         as="header"
-        w="full"
-        bg={isScroll ? ["whiteAlpha.700", "blackAlpha.400"] : undefined}
+        backdropBlur="20px"
         backdropFilter="auto"
         backdropSaturate="180%"
-        backdropBlur="20px"
-        shadow={isScroll ? ["base", "dark-sm"] : undefined}
-        transitionProperty="common"
-        transitionDuration="slower"
-        position="sticky"
-        top="0"
+        bg={isScroll ? ["whiteAlpha.700", "blackAlpha.400"] : undefined}
         left="0"
+        position="sticky"
+        ref={mergeRefs(ref, headerRef)}
         right="0"
+        shadow={isScroll ? ["base", "dark-sm"] : undefined}
+        top="0"
+        transitionDuration="slower"
+        transitionProperty="common"
+        w="full"
         zIndex="guldo"
         {...rest}
       >
         <HStack
-          w="full"
-          py={{ base: "3", sm: "2" }}
-          px={{ base: "lg", lg: "md" }}
           gap="lg"
+          px={{ base: "lg", lg: "md" }}
+          py={{ base: "3", sm: "2" }}
+          w="full"
         >
           <HStack
-            as={Link}
-            href="/"
             aria-label="Twitch clip ranking"
-            textDecoration="none"
+            as={Link}
             gap="sm"
+            href="/"
+            textDecoration="none"
           >
             <HexagonOutlined
               color="secondary"
@@ -74,23 +74,23 @@ export const Header = memo(
           </HStack>
 
           <Divider
-            h="7xs"
-            display={{ base: "flex", sm: "none" }}
-            orientation="vertical"
             borderColor={["blackAlpha.300", "whiteAlpha.300"]}
+            display={{ base: "flex", sm: "none" }}
+            h="7xs"
+            orientation="vertical"
           />
 
           <HStack as="nav" display={{ base: "flex", sm: "none" }} gap="lg">
             {CONSTANT.PATHS.map(({ href, title, tooltip }) => (
               <Tooltip key={title} label={tooltip}>
                 <Text
-                  as={Link}
-                  prefetch={false}
-                  href={href}
                   aria-label={title}
+                  as={Link}
                   data-selected={dataAttr(pathname === href)}
-                  textStyle="navigation"
+                  href={href}
                   isTruncated
+                  prefetch={false}
+                  textStyle="navigation"
                 >
                   {title}
                 </Text>
@@ -101,8 +101,8 @@ export const Header = memo(
           <Spacer
             onClick={() =>
               window.scrollTo({
-                top: 0,
                 behavior: "smooth",
+                top: 0,
               })
             }
           />
