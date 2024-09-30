@@ -53,7 +53,6 @@ export const Header = memo(
       >
         <HStack
           w="full"
-          maxW="9xl"
           py="3"
           px={{ base: "lg", md: "md" }}
           gap="lg"

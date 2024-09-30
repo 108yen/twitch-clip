@@ -3,11 +3,11 @@ import { ReactNode, Suspense } from "react"
 
 import ThemeRegistry from "./_Component/ThemeRegistry"
 import FirebaseInitScript from "./_Component/firebaseScript"
-import Adsbygoogle from "@/components/adsense/adsbygoogle"
 import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
 import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
 import { config, theme } from "@/theme"
+import { Adsbygoogle } from "@/utils/adsense"
 import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
 import { getVersion } from "@/utils/next"
 

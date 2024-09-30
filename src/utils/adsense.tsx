@@ -1,4 +1,4 @@
-export default function Adsbygoogle() {
+export function Adsbygoogle() {
   return (
     <script
       async
