@@ -2,7 +2,7 @@
 import { Divider, Grid } from "@mui/material"
 import { useState } from "react"
 
-import VerticalAdvertisement from "../../../components/adsense/verticalAdvertisement"
+import VerticalAdvertisement from "../../../components/adsense/side-bar-ad"
 import { Streamer } from "../../../models/streamer"
 
 import StreamerList from "./molecules/StreamerList"

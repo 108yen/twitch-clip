@@ -11,7 +11,7 @@ import {
 } from "@mui/material"
 import { SyntheticEvent, useState } from "react"
 
-import VerticalAdvertisement from "../../../../../components/adsense/verticalAdvertisement"
+import VerticalAdvertisement from "../../../../../components/adsense/side-bar-ad"
 import { ClipDoc } from "../../../../../models/clipDoc"
 import { PCView } from "../../../_Component/organisms/PCView"
 import { MobileView } from "../../../_Component/organisms/mobileView"

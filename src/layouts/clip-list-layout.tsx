@@ -1,6 +1,6 @@
 import { Center, Grid, GridItem, SimpleGridProps } from "@yamada-ui/react"
 import { PropsWithChildren } from "react"
-import VerticalAdvertisement from "@/components/adsense/verticalAdvertisement"
+import { SideBarAD } from "@/components/adsense"
 
 interface ClipListLayoutProps extends SimpleGridProps, PropsWithChildren {}
 
@@ -20,8 +20,8 @@ export function ClipListLayout({ children, ...rest }: ClipListLayoutProps) {
           {children}
         </GridItem>
 
-        <GridItem colSpan={1} w="full">
-          <VerticalAdvertisement />
+        <GridItem colSpan={1} w="full" textAlign="center">
+          <SideBarAD />
         </GridItem>
       </Grid>
     </Center>

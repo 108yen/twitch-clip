@@ -1,9 +1,10 @@
 "use client"
-import { Box, Divider, Stack, Typography } from "@mui/material"
+
+import { Text, Divider, Box, BoxProps } from "@yamada-ui/react"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
-export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
+export function SideBarAD(props: BoxProps) {
   const pathname = usePathname()
 
   useEffect(() => {
@@ -18,38 +19,27 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
   }, [pathname])
 
   return (
-    <Stack
-      direction="column"
-      flexGrow={1}
+    <Box
+      position="fixed"
+      top={100}
+      w="xs"
       justifyContent="flex-start"
       alignItems="center"
-      position="fixed"
-      top={top}
+      border="solid"
+      {...props}
     >
       <Box position="relative">
-        <Typography
-          variant="body2"
-          color="grey"
-          flexGrow={1}
-          textAlign="center"
-        >
-          Advertisement
-        </Typography>
+        <Text textStyle="adsenseTitle">Advertisement</Text>
+
         <Divider />
-        <Box
-          key={pathname}
-          flexGrow={1}
-          width={200}
-          textAlign="center"
-          padding={2}
-        >
-          <ins
+
+        <Box key={pathname} w={200} textAlign="center" p={2}>
+          <Box
+            as="ins"
             className="adsbygoogle"
-            style={{
-              display: "block",
-              position: "relative",
-              top: 0,
-            }}
+            display="block"
+            position="relative"
+            top={0}
             data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
             data-ad-client="ca-pub-1615921337969017"
             data-ad-slot="1041812482"
@@ -58,6 +48,6 @@ export default function VerticalAdvertisement({ top = 100 }: { top?: number }) {
           />
         </Box>
       </Box>
-    </Stack>
+    </Box>
   )
 }

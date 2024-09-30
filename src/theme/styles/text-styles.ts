@@ -13,6 +13,11 @@ export const textStyles: TextStyles = {
   },
   version: {
     color: ["blackAlpha.500", "whiteAlpha.500"],
-    fontSize:"sm"
+    fontSize: "sm",
+  },
+  adsenseTitle: {
+    color: ["blackAlpha.500", "whiteAlpha.500"],
+    textAlign:"center",
+    fontSize: "sm",
   },
 }
