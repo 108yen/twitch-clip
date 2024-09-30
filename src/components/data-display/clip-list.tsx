@@ -1,5 +1,6 @@
-import { InfiniteScrollArea, Loading, Text } from "@yamada-ui/react"
+import { Box, InfiniteScrollArea, Loading, Text } from "@yamada-ui/react"
 import { useMemo, useState } from "react"
+import { InlineAD } from "@/components/adsense"
 import { ClipCard } from "@/components/data-display"
 import { Clip } from "@/models/clip"
 
@@ -17,16 +18,25 @@ export function ClipList({ clips, tab, setClickedClipUrl }: ClipListProps) {
 
   const filteredClips = useMemo(
     () =>
-      clips
-        .slice(0, count)
-        .map((clip, index) => (
+      clips.slice(0, count).map((clip, index) =>
+        index == 10 ? (
+          <Box key={index}>
+            <InlineAD />
+            <ClipCard
+              clip={clip}
+              tab={tab}
+              setClickedClipUrl={setClickedClipUrl}
+            />
+          </Box>
+        ) : (
           <ClipCard
             key={index}
             clip={clip}
             tab={tab}
             setClickedClipUrl={setClickedClipUrl}
           />
-        )),
+        ),
+      ),
     [clips, count, setClickedClipUrl, tab],
   )
 
