@@ -30,7 +30,7 @@ export function SideBarAD(props: BoxProps) {
       <Box alignItems="center" position="relative">
         <Text textStyle="adsenseTitle">Advertisement</Text>
 
-        <Divider />
+        <Divider minW="2xs"/>
 
         <Box key={pathname} p={2} textAlign="center" w="fit-content">
           <Box

@@ -21,7 +21,7 @@ export function ClipList({ clips, setClickedClipUrl, tab }: ClipListProps) {
       clips.slice(0, count).map((clip, index) =>
         index == 10 ? (
           <Box key={index}>
-            <InlineAD />
+            <InlineAD display={{ base: "none", lg: "flex" }} />
             <ClipCard
               clip={clip}
               setClickedClipUrl={setClickedClipUrl}

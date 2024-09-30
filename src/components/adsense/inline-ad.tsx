@@ -1,6 +1,13 @@
 "use client"
 
-import { Box, Divider, HStack, StackProps, Text } from "@yamada-ui/react"
+import {
+  Box,
+  Divider,
+  HStack,
+  StackProps,
+  Text,
+  VStack,
+} from "@yamada-ui/react"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
@@ -19,12 +26,17 @@ export function InlineAD(props: StackProps) {
   }, [pathname])
 
   return (
-    <HStack w="full" {...props}>
+    <VStack w="full" gap={0} {...props}>
       <Text textStyle="adsenseTitle">Advertisement</Text>
 
       <Divider />
 
-      <Box key={pathname} p={2} textAlign="center" w="fit-content">
+      <Box
+        key={pathname}
+        p={2}
+        textAlign="center"
+        w="full"
+      >
         <Box
           as="ins"
           className="adsbygoogle"
@@ -37,6 +49,6 @@ export function InlineAD(props: StackProps) {
           textAlign="center"
         />
       </Box>
-    </HStack>
+    </VStack>
   )
 }
