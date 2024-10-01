@@ -7,6 +7,7 @@ import { createContext, PropsWithChildren, useContext, useMemo } from "react"
 export interface ClipProviderProps extends PropsWithChildren {
   clipDoc?: ClipDoc
   setClipUrl?: (clip: Clip) => void
+  currentClip?: Clip
 }
 
 export const ClipContext = createContext<ClipProviderProps>({})
