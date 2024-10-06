@@ -17,10 +17,9 @@
   "editor.lineNumbers": "on",
   "editor.rulers": [80],
   "editor.wordWrap": "on",
-  "eslint.packageManager": "pnpm",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "npm.packageManager": "pnpm",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.preferences.importModuleSpecifier": "relative"
+  "typescript.preferences.importModuleSpecifier": "non-relative"
 }
