@@ -5,7 +5,7 @@ on:
     types:
       - closed
     branches:
-      - dev
+      - release
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -24,29 +24,20 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v3.0.0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
       - name: Setup Git user
         run: |
           git config --global user.email "kazuking.1911@gmail.com"
           git config --global user.name "108yen"
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Create GitHub Release
+        uses: 108yen/changeset-release@v1
+        with:
+          target: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Merge branch
         run: |
           git switch main
-          git merge dev
+          git merge release
           git push
-
-      - name: Create release
-        run: pnpm release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
