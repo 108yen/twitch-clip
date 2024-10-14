@@ -5,8 +5,8 @@ import {
   Grid,
   GridItem,
   HStack,
-  VStack,
   Text,
+  VStack,
 } from "@yamada-ui/react"
 
 export function PCView() {
@@ -15,20 +15,20 @@ export function PCView() {
   const src = `${currentClip?.embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`
 
   return (
-    <Grid w="full" templateColumns="repeat(10, 1fr)">
+    <Grid templateColumns="repeat(10, 1fr)" w="full">
       <GridItem colSpan={8}>
         <HStack gap={1}>
           <AspectRatio
-            as="iframe"
-            apply="layoutStyles.borderCard"
-            w="full"
-            ratio={16 / 9}
             allowFullScreen
+            apply="layoutStyles.borderCard"
+            as="iframe"
             loading="lazy"
+            ratio={16 / 9}
             src={src}
+            w="full"
           />
 
-          <VStack w="full" overflow="hidden">
+          <VStack overflow="hidden" w="full">
             <Text>{currentClip?.title}</Text>
 
             <Text>{`${currentClip?.view_count?.toLocaleString()} views`}</Text>

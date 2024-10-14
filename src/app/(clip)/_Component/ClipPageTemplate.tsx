@@ -1,5 +1,5 @@
 "use client"
-import { ClipListView } from "@/components/data-display"
+import { ClipListTabs } from "@/components/data-display"
 import { ClipProvider } from "@/contexts"
 import { ClipListLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
@@ -22,8 +22,8 @@ export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
   if (currentClip === undefined) {
     return (
       <ClipProvider clipDoc={clipDoc} setClipUrl={handleSetClip}>
-        <ClipListLayout >
-          <ClipListView />
+        <ClipListLayout>
+          <ClipListTabs />
         </ClipListLayout>
       </ClipProvider>
     )

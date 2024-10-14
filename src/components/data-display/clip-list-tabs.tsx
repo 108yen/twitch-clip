@@ -9,7 +9,7 @@ import { useMemo, useState } from "react"
 //   isSticky?: boolean
 // }
 
-export function ClipListView() {
+export function ClipListTabs() {
   const { clipDoc, setClipUrl } = useClip()
   const [index, onChange] = useState(0)
 

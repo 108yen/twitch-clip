@@ -1,4 +1,4 @@
-import { ClipListView } from "@/components/data-display"
+import { ClipListTabs } from "@/components/data-display"
 import { BorderPaper } from "@/components/styledui"
 import { ClipProvider } from "@/contexts"
 import { Clip } from "@/models/clip"
@@ -37,7 +37,7 @@ export function MobileView(props: {
           <StreamerInfo clip={currentClip} />
 
           <ClipProvider clipDoc={clipDoc} setClipUrl={setClickedClip}>
-            <ClipListView />
+            <ClipListTabs />
           </ClipProvider>
         </Stack>
       </Grid>

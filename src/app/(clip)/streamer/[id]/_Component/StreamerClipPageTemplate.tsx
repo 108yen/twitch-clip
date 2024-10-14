@@ -1,6 +1,6 @@
 "use client"
 import StreamerCard from "@/app/(clip)/streamer/[id]/_Component/molecules/streamerCard"
-import { ClipListView } from "@/components/data-display"
+import { ClipListTabs } from "@/components/data-display"
 import { ClipProvider } from "@/contexts"
 import { Clip } from "@/models/clip"
 import {
@@ -117,7 +117,7 @@ export default function StreamerClipPageTemplate(props: { clipDoc: ClipDoc }) {
             </AppBar>
 
             <ClipProvider clipDoc={filteredClipDoc} setClipUrl={handleSetClip}>
-              <ClipListView />
+              <ClipListTabs />
             </ClipProvider>
           </Grid>
           <Grid

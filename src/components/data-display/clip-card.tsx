@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { event } from "@/components/googleAnalytics/gtag"
 import { Clip } from "@/models/clip"
 import { formatDate } from "@/utils/string"
-/* eslint-disable @next/next/no-img-element */
 import { SquareArrowOutUpRight } from "@yamada-ui/lucide"
 import {
   AspectRatio,
