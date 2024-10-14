@@ -9,6 +9,7 @@ type EventOptions = {
   userId?: string
   value?: number
 } & Record<string, unknown>
+
 export const event = (
   action: string,
   {

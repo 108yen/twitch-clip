@@ -51,6 +51,7 @@ export function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
           w="full"
         >
           <HStack aria-label={title}>
+            {/* TODO: ボタンでは？ */}
             <Heading
               cursor="pointer"
               fontSize="xl"
@@ -102,6 +103,7 @@ export function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
               size={{ base: "md", sm: "sm" }}
               src={profile_image_url}
             />
+
             <Text>{broadcaster_name}</Text>
           </HStack>
 
@@ -126,7 +128,7 @@ export function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
             color={["blackAlpha.600", "whiteAlpha.600"]}
             textAlign="end"
           >
-            {view_count}
+            {`${view_count} views`}
           </Text>
         </VStack>
       </HStack>
