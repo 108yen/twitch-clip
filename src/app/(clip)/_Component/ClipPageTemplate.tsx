@@ -8,12 +8,10 @@ import { ClipDoc } from "@/models/clipDoc"
 import { useState } from "react"
 
 import { MobileView } from "./organisms/mobileView"
-// import { PCView } from "./organisms/PCView"
 
 export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
 
-  //set clicked clip
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)
@@ -38,13 +36,6 @@ export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
         />
       )
     } else {
-      // return (
-      //   <PCView
-      //     clipDoc={clipDoc}
-      //     currentClip={currentClip}
-      //     setClickedClip={handleSetClip}
-      //   />
-      // )
       return (
         <ClipProvider clipDoc={clipDoc} setClipUrl={handleSetClip}>
             <PCView />
