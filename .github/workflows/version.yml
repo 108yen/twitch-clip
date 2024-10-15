@@ -28,11 +28,6 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Setup Git user
-        run: |
-          git config --global user.email "kazuking.1911@gmail.com"
-          git config --global user.name "108yen"
-
       - name: Install dependencies
         run: pnpm install
 
@@ -40,8 +35,6 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: "ci(changesets): update version"
-          setupGitUser: false
           branch: release
         env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
