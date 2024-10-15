@@ -17,17 +17,11 @@ export function PCView() {
 
   return (
     <Grid templateColumns="repeat(10, 1fr)" w="full">
-      <GridItem colSpan={8}>
+      <GridItem colSpan={8} w="full">
         <HStack gap={1}>
-          <AspectRatio
-            allowFullScreen
-            apply="layoutStyles.borderCard"
-            as="iframe"
-            loading="lazy"
-            ratio={16 / 9}
-            src={src}
-            w="full"
-          />
+          <AspectRatio apply="layoutStyles.borderCard" ratio={16 / 9} w="full">
+            <iframe allowFullScreen loading="lazy" src={src} />
+          </AspectRatio>
 
           <VStack overflow="hidden" w="full">
             <Text>{currentClip?.title}</Text>
@@ -37,7 +31,7 @@ export function PCView() {
         </HStack>
       </GridItem>
 
-      <GridItem colSpan={2}>
+      <GridItem colSpan={2} w="full">
         <SideClipTabs />
       </GridItem>
     </Grid>

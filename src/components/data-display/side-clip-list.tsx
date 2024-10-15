@@ -14,6 +14,7 @@ import {
   HStack,
   InfiniteScrollArea,
   Loading,
+  NativeImage,
   Select,
   SelectItem,
   Spacer,
@@ -61,14 +62,9 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
             }}
             p={0}
           >
-            <AspectRatio
-              alt={title}
-              as="img"
-              loading="lazy"
-              minW={{ base: "sm", sm: "48" }}
-              ratio={16 / 9}
-              src={thumbnail_url}
-            />
+            <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
+              <NativeImage alt={title} loading="lazy" src={thumbnail_url} />
+            </AspectRatio>
           </Container>
 
           <HStack>
