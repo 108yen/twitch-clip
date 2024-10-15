@@ -1,4 +1,5 @@
 "use client"
+import { SideClipTabs } from "@/components/data-display"
 import { useClip } from "@/contexts"
 import {
   AspectRatio,
@@ -36,8 +37,9 @@ export function PCView() {
         </HStack>
       </GridItem>
 
-      {/* TODO: side-clip-card */}
-      <GridItem colSpan={2}></GridItem>
+      <GridItem colSpan={2}>
+        <SideClipTabs />
+      </GridItem>
     </Grid>
   )
 }

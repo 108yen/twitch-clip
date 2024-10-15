@@ -1,18 +1,31 @@
+"use client"
+import { InlineAD } from "@/components/adsense"
 import { event } from "@/components/googleAnalytics"
+import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
+import { getTabs } from "@/utils/clip"
 import {
   AspectRatio,
   Avatar,
   Box,
   Button,
   Container,
+  Divider,
   HStack,
+  InfiniteScrollArea,
+  Loading,
+  Select,
+  SelectItem,
   Spacer,
   Text,
   Tooltip,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
+import { useMemo, useState } from "react"
+
+const START_INDEX = 6
+const LOAD_INDEX = 2
 
 type ClipCardProps = {
   clip: Clip
@@ -110,9 +123,85 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
   )
 }
 
-type SideClipCardProps = {
-  clip: Clip
-  setClickedClipUrl?: (clip: Clip) => void
+type ClipListProps = {
+  clips: Clip[]
+  setClickedClipUrl: (clip: Clip) => void
+  tab: string
 }
 
-export function SideClipCard(props: SideClipCardProps) {}
+function ClipList({ clips, setClickedClipUrl, tab }: ClipListProps) {
+  const [count, setCount] = useState<number>(START_INDEX)
+
+  const filteredClips = useMemo(
+    () =>
+      clips.slice(0, count).map((clip, index) =>
+        index == 10 ? (
+          <Box key={index}>
+            <InlineAD display={{ base: "none", lg: "flex" }} />
+            <ClipCard
+              clip={clip}
+              setClickedClipUrl={setClickedClipUrl}
+              tab={tab}
+            />
+          </Box>
+        ) : (
+          <ClipCard
+            clip={clip}
+            key={index}
+            setClickedClipUrl={setClickedClipUrl}
+            tab={tab}
+          />
+        ),
+      ),
+    [clips, count, setClickedClipUrl, tab],
+  )
+
+  return (
+    <InfiniteScrollArea
+      finish={<Text>no more clips</Text>}
+      gap={{ base: "md", sm: "sm" }}
+      loading={<Loading fontSize="2xl" />}
+      marginY="md"
+      onLoad={({ finish, index }) => {
+        setCount((prev) => prev + LOAD_INDEX)
+
+        if (index * LOAD_INDEX + 6 >= 100) {
+          finish()
+        }
+      }}
+    >
+      {filteredClips}
+    </InfiniteScrollArea>
+  )
+}
+
+export function SideClipTabs() {
+  const { clipDoc, setClipUrl } = useClip()
+
+  const tabs = useMemo(() => getTabs(clipDoc), [clipDoc])
+
+  const [tab, onChange] = useState<string>(tabs[0])
+
+  const items: SelectItem[] = useMemo(
+    () => tabs.map((tab) => ({ label: tab, value: tab })),
+    [tabs],
+  )
+
+  const clips = clipDoc?.[tab] as Clip[]
+
+  return (
+    <VStack divider={<Divider />} gap={0}>
+      <HStack>
+        <Tooltip label="リスト表示にもどる">
+          <Button>clips</Button>
+        </Tooltip>
+
+        <Spacer />
+
+        <Select items={items} onChange={onChange} value={tab} />
+      </HStack>
+
+      <ClipList clips={clips} setClickedClipUrl={setClipUrl} tab={tab} />
+    </VStack>
+  )
+}

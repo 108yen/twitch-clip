@@ -5,12 +5,18 @@ import { ClipDoc } from "@/models/clipDoc"
 import { createContext, PropsWithChildren, useContext, useMemo } from "react"
 
 export interface ClipProviderProps extends PropsWithChildren {
-  clipDoc?: ClipDoc
-  setClipUrl?: (clip: Clip) => void
+  clipDoc: ClipDoc
   currentClip?: Clip
+  setClipUrl: (clip: Clip | undefined) => void
 }
 
-export const ClipContext = createContext<ClipProviderProps>({})
+const initialContext: ClipProviderProps = {
+  clipDoc: new ClipDoc(),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+  setClipUrl: (_?: Clip) => {},
+}
+
+export const ClipContext = createContext<ClipProviderProps>(initialContext)
 
 export function ClipProvider({ children, ...rest }: ClipProviderProps) {
   const value = useMemo(() => ({ ...rest }), [rest])
