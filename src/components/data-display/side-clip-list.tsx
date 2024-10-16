@@ -47,7 +47,12 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
 
   return (
     <Box>
-      <Tooltip closeDelay={500} label={title} openDelay={500}>
+      <Tooltip
+        closeDelay={500}
+        label={title}
+        openDelay={500}
+        placeContent="top"
+      >
         <VStack gap="1" w="full">
           <Container
             apply="layoutStyles.borderCard"
@@ -76,8 +81,10 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
               src={profile_image_url}
             />
 
-            <VStack w="full">
-              <Button
+            <VStack gap={0} overflow="hidden" w="full">
+              <Text
+                fontWeight="bold"
+                isTruncated
                 onClick={() => {
                   setClickedClipUrl(clip)
                   event("click", {
@@ -89,7 +96,7 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
                 }}
               >
                 {title}
-              </Button>
+              </Text>
 
               <HStack>
                 <Text
