@@ -4,8 +4,10 @@ import { event } from "@/components/googleAnalytics"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
+import { AlignJustify } from "@yamada-ui/lucide"
 import {
   AspectRatio,
+  assignRef,
   Avatar,
   Box,
   Button,
@@ -24,7 +26,7 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { useMemo, useRef, useState } from "react"
+import { MutableRefObject, useMemo, useRef, useState } from "react"
 
 const START_INDEX = 6
 const LOAD_INDEX = 2
@@ -48,12 +50,7 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
 
   return (
     <Box>
-      <Tooltip
-        closeDelay={500}
-        label={title}
-        openDelay={500}
-        placeContent="top"
-      >
+      <Tooltip closeDelay={500} label={title} openDelay={500} placement="top">
         <VStack gap="1" w="full">
           <Container
             apply="layoutStyles.borderCard"
@@ -129,14 +126,19 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
 
 type ClipListProps = {
   clips: Clip[]
+  resetRef: MutableRefObject<() => void>
   setClickedClipUrl: (clip: Clip) => void
   tab: string
 }
 
-function ClipList({ clips, setClickedClipUrl, tab }: ClipListProps) {
+function ClipList({
+  clips,
+  resetRef: resetRefProp,
+  setClickedClipUrl,
+  tab,
+}: ClipListProps) {
   const [count, setCount] = useState<number>(START_INDEX)
   const rootRef = useRef<HTMLDivElement>(null)
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const resetRef = useRef<() => void>(() => {})
 
   let height: number = window.innerHeight
@@ -144,6 +146,13 @@ function ClipList({ clips, setClickedClipUrl, tab }: ClipListProps) {
   useWindowEvent("resize", () => {
     height = window.innerHeight
   })
+
+  function resetCount() {
+    resetRef.current()
+    setCount(START_INDEX)
+  }
+
+  assignRef(resetRefProp, resetCount)
 
   const filteredClips = useMemo(
     () =>
@@ -170,7 +179,7 @@ function ClipList({ clips, setClickedClipUrl, tab }: ClipListProps) {
   )
 
   return (
-    <Container h={height - 106} overflowY="scroll" p={0} ref={rootRef}>
+    <Container h={height - 110} overflowY="scroll" p={0} ref={rootRef}>
       <InfiniteScrollArea
         finish={<Text>no more clips</Text>}
         loading={<Loading fontSize="2xl" />}
@@ -196,6 +205,7 @@ export function SideClipTabs() {
   const tabs = useMemo(() => getTabs(clipDoc), [clipDoc])
 
   const [tab, onChange] = useState<string>(tabs[0])
+  const resetRef = useRef<() => void>(() => {})
 
   const items: SelectItem[] = useMemo(
     () => tabs.map((tab) => ({ label: tab, value: tab })),
@@ -204,23 +214,43 @@ export function SideClipTabs() {
 
   const clips = clipDoc?.[tab] as Clip[]
 
+  function handleChange(value: string) {
+    onChange(value)
+    resetRef.current()
+  }
+
   return (
-    <VStack
-      divider={<Divider />}
-      gap={0}
-      overflow="hidden"
-    >
+    <VStack divider={<Divider />} gap={0} overflow="hidden">
       <HStack>
-        <Tooltip label="リスト表示にもどる">
-          <Button>clips</Button>
+        <Tooltip label="リスト表示にもどる" placement="top">
+          <Button
+            leftIcon={<AlignJustify />}
+            onClick={() => {
+              setClipUrl(undefined)
+            }}
+            variant="link"
+          >
+            clips
+          </Button>
         </Tooltip>
 
         <Spacer />
 
-        <Select items={items} onChange={onChange} value={tab} />
+        <Select
+          items={items}
+          marginBottom="xs"
+          maxW="4xs"
+          onChange={handleChange}
+          value={tab}
+        />
       </HStack>
 
-      <ClipList clips={clips} setClickedClipUrl={setClipUrl} tab={tab} />
+      <ClipList
+        clips={clips}
+        resetRef={resetRef}
+        setClickedClipUrl={setClipUrl}
+        tab={tab}
+      />
     </VStack>
   )
 }
