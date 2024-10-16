@@ -1,16 +1,17 @@
 "use client"
-import { SideClipTabs } from "@/components/data-display"
+import { SideClipTabs, StreamerInfo } from "@/components/data-display"
 import { useClip } from "@/contexts"
 import {
   AspectRatio,
   Grid,
   GridItem,
+  Heading,
   HStack,
+  Spacer,
   Text,
   VStack,
 } from "@yamada-ui/react"
 
-// TODO: refactor styles
 export function PCView() {
   const { currentClip } = useClip()
 
@@ -19,16 +20,22 @@ export function PCView() {
   return (
     <Grid gap="3xl" marginX="3xl" templateColumns="repeat(12, 1fr)">
       <GridItem colSpan={9} w="full">
-        <VStack gap={1} marginTop="md">
+        <VStack gap={2} marginTop="md">
           <AspectRatio apply="layoutStyles.borderCard" ratio={16 / 9} w="full">
             <iframe allowFullScreen loading="lazy" src={src} />
           </AspectRatio>
 
           <HStack overflow="hidden" w="full">
-            <Text>{currentClip?.title}</Text>
+            <Heading as="h2" isTruncated size="md">
+              {currentClip?.title}
+            </Heading>
 
-            <Text>{`${currentClip?.view_count?.toLocaleString()} views`}</Text>
+            <Spacer />
+
+            <Text textStyle="viewCount">{`${currentClip?.view_count?.toLocaleString()} views`}</Text>
           </HStack>
+
+          <StreamerInfo />
         </VStack>
       </GridItem>
 

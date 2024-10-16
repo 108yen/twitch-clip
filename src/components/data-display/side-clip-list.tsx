@@ -105,8 +105,8 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
 
                 <Text
                   aria-describedby="Clip view count"
-                  color={["blackAlpha.600", "whiteAlpha.600"]}
                   textAlign="end"
+                  textStyle="viewCount"
                 >
                   {`${view_count} views`}
                 </Text>

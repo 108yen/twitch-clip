@@ -4,7 +4,7 @@ export const textStyles: TextStyles = {
   adsenseTitle: {
     color: ["blackAlpha.500", "whiteAlpha.500"],
     fontSize: "sm",
-    textAlign:"center",
+    textAlign: "center",
   },
   navigation: {
     _hover: {
@@ -18,6 +18,10 @@ export const textStyles: TextStyles = {
   },
   version: {
     color: ["blackAlpha.500", "whiteAlpha.500"],
+    fontSize: "sm",
+  },
+  viewCount: {
+    color: ["blackAlpha.700", "whiteAlpha.600"],
     fontSize: "sm",
   },
 }
