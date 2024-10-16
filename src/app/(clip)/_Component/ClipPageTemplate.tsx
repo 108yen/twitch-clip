@@ -18,29 +18,25 @@ export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
   }
   const width = window.innerWidth
 
-  if (currentClip === undefined) {
-    return (
-      <ClipProvider clipDoc={clipDoc} setClipUrl={handleSetClip}>
+  return (
+    <ClipProvider
+      clipDoc={clipDoc}
+      currentClip={currentClip}
+      setClipUrl={handleSetClip}
+    >
+      {currentClip === undefined ? (
         <ClipListLayout>
           <ClipListTabs />
         </ClipListLayout>
-      </ClipProvider>
-    )
-  } else {
-    if (width < 600) {
-      return (
+      ) : width < 600 ? (
         <MobileView
           clipDoc={clipDoc}
-          currentClip={currentClip}
+          currentClip={currentClip!}
           setClickedClip={handleSetClip}
         />
-      )
-    } else {
-      return (
-        <ClipProvider clipDoc={clipDoc} setClipUrl={handleSetClip}>
-            <PCView />
-        </ClipProvider>
-      )
-    }
-  }
+      ) : (
+        <PCView />
+      )}
+    </ClipProvider>
+  )
 }

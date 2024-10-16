@@ -68,7 +68,7 @@ export const Header = memo(
               color="secondary"
               display={{ base: "flex", sm: "none" }}
             />
-            <Heading as="h1" fontSize="2xl" fontWeight="normal" isTruncated>
+            <Heading as="h1" fontSize="2xl" fontWeight="medium" isTruncated>
               Twitch clip ranking
             </Heading>
           </HStack>
