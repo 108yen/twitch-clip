@@ -18,7 +18,11 @@ export function PCView() {
   const src = `${currentClip?.embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`
 
   return (
-    <Grid gap="3xl" marginX="3xl" templateColumns="repeat(12, 1fr)">
+    <Grid
+      gap="3xl"
+      marginX="3xl"
+      templateColumns="repeat(12, 1fr)"
+    >
       <GridItem colSpan={9} w="full">
         <VStack gap={2} marginTop="md">
           <AspectRatio apply="layoutStyles.borderCard" ratio={16 / 9} w="full">

@@ -20,10 +20,11 @@ import {
   Spacer,
   Text,
   Tooltip,
+  useWindowEvent,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 
 const START_INDEX = 6
 const LOAD_INDEX = 2
@@ -134,6 +135,15 @@ type ClipListProps = {
 
 function ClipList({ clips, setClickedClipUrl, tab }: ClipListProps) {
   const [count, setCount] = useState<number>(START_INDEX)
+  const rootRef = useRef<HTMLDivElement>(null)
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const resetRef = useRef<() => void>(() => {})
+
+  let height: number = window.innerHeight
+
+  useWindowEvent("resize", () => {
+    height = window.innerHeight
+  })
 
   const filteredClips = useMemo(
     () =>
@@ -160,21 +170,23 @@ function ClipList({ clips, setClickedClipUrl, tab }: ClipListProps) {
   )
 
   return (
-    <InfiniteScrollArea
-      finish={<Text>no more clips</Text>}
-      gap={{ base: "md", sm: "sm" }}
-      loading={<Loading fontSize="2xl" />}
-      marginY="md"
-      onLoad={({ finish, index }) => {
-        setCount((prev) => prev + LOAD_INDEX)
+    <Container h={height - 106} overflowY="scroll" p={0} ref={rootRef}>
+      <InfiniteScrollArea
+        finish={<Text>no more clips</Text>}
+        loading={<Loading fontSize="2xl" />}
+        onLoad={({ finish, index }) => {
+          setCount((prev) => prev + LOAD_INDEX)
 
-        if (index * LOAD_INDEX + 6 >= 100) {
-          finish()
-        }
-      }}
-    >
-      {filteredClips}
-    </InfiniteScrollArea>
+          if (index * LOAD_INDEX + 6 >= 100) {
+            finish()
+          }
+        }}
+        resetRef={resetRef}
+        rootRef={rootRef}
+      >
+        <VStack marginY="md">{filteredClips}</VStack>
+      </InfiniteScrollArea>
+    </Container>
   )
 }
 
@@ -193,7 +205,11 @@ export function SideClipTabs() {
   const clips = clipDoc?.[tab] as Clip[]
 
   return (
-    <VStack divider={<Divider />} gap={0}>
+    <VStack
+      divider={<Divider />}
+      gap={0}
+      overflow="hidden"
+    >
       <HStack>
         <Tooltip label="リスト表示にもどる">
           <Button>clips</Button>
