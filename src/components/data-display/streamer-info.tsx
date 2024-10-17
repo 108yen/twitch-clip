@@ -1,7 +1,6 @@
 "use client"
-import { event } from "@/components/googleAnalytics"
+import { TwitchLink } from "@/components/media-and-icons"
 import { useClip } from "@/contexts"
-import { SquareArrowOutUpRight } from "@yamada-ui/lucide"
 import { Avatar, HStack, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
 
@@ -15,6 +14,8 @@ export function StreamerInfo() {
     broadcaster_name,
     profile_image_url,
   } = currentClip!
+
+  const followers = `${broadcaster_follower_num?.toLocaleString()} followers`
 
   return (
     <HStack gap={1}>
@@ -36,29 +37,10 @@ export function StreamerInfo() {
         >
           <Text fontWeight="bold">{broadcaster_name}</Text>
 
-          <Text textStyle="follower">
-            {`${broadcaster_follower_num?.toLocaleString() ?? ""} followers`}
-          </Text>
+          <Text textStyle="follower">{followers}</Text>
         </VStack>
 
-        <HStack
-          aria-label="twitch channel page link"
-          as={Link}
-          gap={1}
-          href={"https://www.twitch.tv/" + broadcaster_login}
-          onClick={() => {
-            event("click", {
-              channel_title: broadcaster_name,
-              label: "click_twitch_channel",
-              link_url: "https://www.twitch.tv/" + broadcaster_login,
-            })
-          }}
-          target="_blank"
-        >
-          <Text>Twitch</Text>
-
-          <SquareArrowOutUpRight />
-        </HStack>
+        <TwitchLink login={broadcaster_login} name={broadcaster_name} />
       </HStack>
     </HStack>
   )
