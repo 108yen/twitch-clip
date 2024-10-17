@@ -51,7 +51,6 @@ export function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
           w="full"
         >
           <HStack aria-label={title}>
-            {/* TODO: ボタンでは？ */}
             <Heading
               cursor="pointer"
               fontSize="xl"
@@ -125,10 +124,10 @@ export function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
 
           <Text
             aria-describedby="Clip view count"
-            color={["blackAlpha.600", "whiteAlpha.600"]}
             textAlign="end"
+            textStyle="viewCount"
           >
-            {`${view_count} views`}
+            {view_count}
           </Text>
         </VStack>
       </HStack>

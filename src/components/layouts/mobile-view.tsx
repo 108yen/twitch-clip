@@ -1,4 +1,4 @@
-import { ClipListTabs, StreamerInfo } from "@/components/data-display"
+import { ClipInfo, ClipListTabs, StreamerInfo } from "@/components/data-display"
 import { useClip } from "@/contexts"
 import { AspectRatio, VStack } from "@yamada-ui/react"
 
@@ -20,7 +20,7 @@ export function MobileView() {
         <iframe allowFullScreen loading="lazy" src={src} />
       </AspectRatio>
 
-      {/* ClipInfo */}
+      <ClipInfo />
 
       <StreamerInfo />
 
