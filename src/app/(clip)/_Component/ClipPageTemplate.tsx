@@ -1,13 +1,11 @@
 "use client"
 import { ClipListTabs } from "@/components/data-display"
-import { PCView } from "@/components/layouts"
+import { MobileView, PCView } from "@/components/layouts"
 import { ClipProvider } from "@/contexts"
 import { ClipListLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { useState } from "react"
-
-import { MobileView } from "./organisms/mobileView"
 
 export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
@@ -29,11 +27,7 @@ export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
           <ClipListTabs />
         </ClipListLayout>
       ) : width < 600 ? (
-        <MobileView
-          clipDoc={clipDoc}
-          currentClip={currentClip!}
-          setClickedClip={handleSetClip}
-        />
+        <MobileView />
       ) : (
         <PCView />
       )}

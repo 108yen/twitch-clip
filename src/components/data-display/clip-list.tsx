@@ -1,3 +1,4 @@
+"use client"
 import { InlineAD } from "@/components/adsense"
 import { ClipCard } from "@/components/data-display"
 import { Clip } from "@/models/clip"
