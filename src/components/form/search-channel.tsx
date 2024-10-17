@@ -27,8 +27,10 @@ export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
         variant="flushed"
       />
 
-      <InputRightElement>
-        <Text colorScheme="secondary">{num}</Text>
+      <InputRightElement w="fit-content">
+        <Text color="secondary.500" fontSize="2xl" >
+          {num}
+        </Text>
       </InputRightElement>
     </InputGroup>
   )
