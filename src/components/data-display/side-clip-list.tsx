@@ -46,8 +46,10 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     thumbnail_url = "",
     title,
     url,
-    view_count,
+    view_count: _view_count,
   } = clip
+
+  const view_count = _view_count?.toLocaleString()
 
   return (
     <Box>
@@ -66,7 +68,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             }}
             p={0}
           >
-            <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
+            <AspectRatio ratio={16 / 9} w="full">
               <NativeImage alt={title} loading="lazy" src={thumbnail_url} />
             </AspectRatio>
           </Container>
@@ -102,6 +104,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
                   aria-label={broadcaster_name}
                   as={Link}
                   href={`/streamer/${broadcaster_id}`}
+                  isTruncated
                   prefetch={false}
                 >
                   {broadcaster_name}
@@ -111,6 +114,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
                 <Text
                   aria-describedby="Clip view count"
+                  isTruncated
                   textAlign="end"
                   textStyle="viewCount"
                 >

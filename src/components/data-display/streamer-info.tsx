@@ -36,7 +36,7 @@ export function StreamerInfo() {
         >
           <Text fontWeight="bold">{broadcaster_name}</Text>
 
-          <Text textStyle="viewCount">
+          <Text textStyle="follower">
             {`${broadcaster_follower_num?.toLocaleString() ?? ""} followers`}
           </Text>
         </VStack>

@@ -6,6 +6,11 @@ export const textStyles: TextStyles = {
     fontSize: "sm",
     textAlign: "center",
   },
+  follower: {
+    color: ["blackAlpha.700", "whiteAlpha.600"],
+    fontSize: "sm",
+    minW: "4xs",
+  },
   navigation: {
     _hover: {
       color: ["black", "white"],
@@ -23,5 +28,7 @@ export const textStyles: TextStyles = {
   viewCount: {
     color: ["blackAlpha.700", "whiteAlpha.600"],
     fontSize: "sm",
+    minW: "4xs",
+    textAlign: "right",
   },
 }

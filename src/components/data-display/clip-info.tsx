@@ -17,8 +17,6 @@ export function ClipInfo() {
 
       <Text
         isTruncated
-        minWidth="4xs"
-        textAlign="right"
         textStyle="viewCount"
       >{`${view_count?.toLocaleString()} views`}</Text>
     </HStack>
