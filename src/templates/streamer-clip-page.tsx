@@ -15,7 +15,7 @@ interface StreamerClipPageProps {
 }
 
 export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState(window.innerWidth ?? 0)
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
   const [index, onChange] = useState(0)
 

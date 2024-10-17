@@ -1,5 +1,4 @@
 "use client"
-
 import { event } from "@/components/googleAnalytics/gtag"
 import {
   getToken,
@@ -9,9 +8,9 @@ import {
 import { getPerformance } from "firebase/performance"
 import { useEffect } from "react"
 
-import { clientApp } from "../../firebase/client/client"
+import { clientApp } from "./client"
 
-export default function FirebaseInitScript() {
+export function FirebaseInitScript() {
   useEffect(() => {
     if (typeof document !== "undefined") {
       // Performance monitoring

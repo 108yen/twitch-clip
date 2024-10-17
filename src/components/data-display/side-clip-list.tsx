@@ -137,7 +137,7 @@ type ClipListProps = {
 
 function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const [count, setCount] = useState<number>(START_INDEX)
-  const [height, setHeight] = useState(window.innerHeight)
+  const [height, setHeight] = useState(window.innerHeight ?? 0)
   const rootRef = useRef<HTMLDivElement>(null)
   const resetRef = useRef<() => void>(() => {})
 

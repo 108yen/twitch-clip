@@ -1,15 +1,13 @@
 import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
 import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
+import { FirebaseInitScript } from "@/firebase/client"
 import { config, theme } from "@/theme"
 import { Adsbygoogle } from "@/utils/adsense"
 import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
 import { getVersion } from "@/utils/next"
 import { UIProvider } from "@yamada-ui/react"
 import { ReactNode, Suspense } from "react"
-
-import FirebaseInitScript from "./_Component/firebaseScript"
-import ThemeRegistry from "./_Component/ThemeRegistry"
 
 export function generateMetadata() {
   return generateTemplateMetadata()
@@ -35,14 +33,12 @@ export default async function RootLayout({
       <body>
         <FirebaseInitScript />
 
-        <ThemeRegistry options={{ key: "css", prepend: true }}>
-          <PageProvider version={version}>
-            <UIProvider config={config} theme={theme}>
-              <Header />
-              {children}
-            </UIProvider>
-          </PageProvider>
-        </ThemeRegistry>
+        <PageProvider version={version}>
+          <UIProvider config={config} theme={theme}>
+            <Header />
+            {children}
+          </UIProvider>
+        </PageProvider>
       </body>
     </html>
   )
