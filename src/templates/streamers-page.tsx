@@ -1,7 +1,9 @@
+"use client"
 import { ChannelCard } from "@/components/data-display"
 import { SearchChannel } from "@/components/form"
 import { ClipListLayout } from "@/layouts"
 import { Streamer } from "@/models/streamer"
+import { VStack } from "@yamada-ui/react"
 import { useMemo, useState } from "react"
 
 interface StreamersProps {
@@ -23,11 +25,13 @@ export function Streamers({ streamers }: StreamersProps) {
 
   return (
     <ClipListLayout>
-      <SearchChannel num={filteredChannels.length} onChange={setText} />
+      <VStack gap="md">
+        <SearchChannel num={filteredChannels.length} onChange={setText} />
 
-      {filteredChannels.map((streamer, index) => (
-        <ChannelCard key={index} streamer={streamer} />
-      ))}
+        {filteredChannels.map((streamer, index) => (
+          <ChannelCard key={index} streamer={streamer} />
+        ))}
+      </VStack>
     </ClipListLayout>
   )
 }

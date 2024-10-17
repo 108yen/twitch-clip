@@ -7,8 +7,9 @@ export const textStyles: TextStyles = {
     textAlign: "center",
   },
   description: {
-    color: ["blackAlpha.900", "whiteAlpha.900"],
-    h: "sm",
+    color: ["blackAlpha.700", "whiteAlpha.700"],
+    fontSize: "sm",
+    h: "6xs",
     overflow: "auto",
     scrollbarWidth: "none",
   },

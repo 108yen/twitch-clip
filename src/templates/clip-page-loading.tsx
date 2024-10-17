@@ -1,6 +1,6 @@
 import { PERIODS } from "@/constant/periods"
 import { ClipListLayout } from "@/layouts"
-import { Center, CircleProgress, Tab, TabList, Tabs } from "@yamada-ui/react"
+import { Center, Loading, Tab, TabList, Tabs } from "@yamada-ui/react"
 
 export function ClipPageLoading() {
   return (
@@ -26,7 +26,7 @@ export function ClipPageLoading() {
       </Tabs>
 
       <Center w="full">
-        <CircleProgress isAnimation />
+        <Loading fontSize="2xl" />
       </Center>
     </ClipListLayout>
   )

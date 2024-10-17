@@ -28,8 +28,8 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
   const follower_num = `${_follower_num?.toLocaleString()} followers`
 
   return (
-    <Container apply="layoutStyles.borderCard" p={0}>
-      <HStack gap={1} w="full">
+    <Container apply="layoutStyles.borderCard" p="sm">
+      <HStack gap={2} w="full">
         <Avatar
           alt="top"
           aria-label="Streamer channel page link"
@@ -44,8 +44,13 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
             <Heading
               aria-label="streamer channel page link"
               as={Link}
+              cursor="pointer"
+              fontSize="xl"
+              fontWeight="semibold"
               href={`/streamer/${id}`}
+              isTruncated
               prefetch={false}
+              variant="h5"
             >
               {display_name}
             </Heading>

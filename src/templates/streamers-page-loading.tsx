@@ -1,6 +1,7 @@
+"use client"
 import { SearchChannel } from "@/components/form"
 import { ClipListLayout } from "@/layouts"
-import { Center, CircleProgress } from "@yamada-ui/react"
+import { Center, Loading } from "@yamada-ui/react"
 
 export function StreamersLoading() {
   return (
@@ -8,7 +9,7 @@ export function StreamersLoading() {
       <SearchChannel num={0} onChange={() => {}} />
 
       <Center w="full">
-        <CircleProgress isAnimation />
+        <Loading fontSize="2xl" />
       </Center>
     </ClipListLayout>
   )
