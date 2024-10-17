@@ -52,7 +52,7 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
   } = clip
 
   const created_at = formatDate(_created_at)
-  const view_count = _view_count?.toLocaleString() + " views"
+  const view_count = `${_view_count?.toLocaleString()} views`
 
   return (
     <Container apply="layoutStyles.borderCard" p={0}>
@@ -61,12 +61,17 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
           <Image alt={title} loading="lazy" src={thumbnail_url} />
         </AspectRatio>
 
-        <VStack gap={0} marginX={{ base: "sm", sm: "xs" }}>
-          <HStack aria-label={title}>
+        <VStack
+          gap={0}
+          marginX={{ base: "sm", sm: "xs" }}
+          overflow="hidden"
+          w="full"
+        >
+          <HStack aria-label={title} overflow="hidden">
             <Heading
               cursor="pointer"
-              fontSize="xl"
-              isTruncated
+              fontSize={{ base: "xl", sm: "lg" }}
+              lineClamp={1}
               onClick={() => {
                 setClipUrl(clip)
                 event("click", {
