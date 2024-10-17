@@ -66,7 +66,7 @@ export const Header = memo(
           >
             <HexagonOutlined
               color="secondary"
-              display={{ base: "flex", sm: "none" }}
+              display={{ base: "flex", md: "none" }}
             />
             <Heading as="h1" fontSize="2xl" fontWeight="medium" isTruncated>
               Twitch clip ranking
@@ -75,12 +75,12 @@ export const Header = memo(
 
           <Divider
             borderColor={["blackAlpha.300", "whiteAlpha.300"]}
-            display={{ base: "flex", sm: "none" }}
+            display={{ base: "flex", md: "none" }}
             h="7xs"
             orientation="vertical"
           />
 
-          <HStack as="nav" display={{ base: "flex", sm: "none" }} gap="lg">
+          <HStack as="nav" display={{ base: "flex", md: "none" }} gap="lg">
             {CONSTANT.PATHS.map(({ href, title, tooltip }) => (
               <Tooltip key={title} label={tooltip}>
                 <Text
