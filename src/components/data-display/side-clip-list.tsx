@@ -173,7 +173,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
         onLoad={({ finish, index }) => {
           setCount((prev) => prev + LOAD_INDEX)
 
-          if (index * LOAD_INDEX + 6 >= 100) {
+          if (index * LOAD_INDEX + 6 >= clips.length) {
             finish()
           }
         }}

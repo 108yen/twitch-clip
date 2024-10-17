@@ -7,7 +7,7 @@ import { ClipListLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { splitClipDoc } from "@/utils/clip"
-import { Tab, Tabs, VStack } from "@yamada-ui/react"
+import { Tab, Tabs, useWindowEvent, VStack } from "@yamada-ui/react"
 import { useMemo, useState } from "react"
 
 interface StreamerClipPageProps {
@@ -15,17 +15,19 @@ interface StreamerClipPageProps {
 }
 
 export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
+  const [width, setWidth] = useState(window.innerWidth)
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
   const [index, onChange] = useState(0)
 
+  const [trend, history] = useMemo(() => splitClipDoc(clipDoc), [clipDoc])
+
+  useWindowEvent("resize", () => setWidth(window.innerWidth))
+
   const streamer = clipDoc.streamerInfo
-  const width = window.innerWidth
 
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)
   }
-
-  const [trend, history] = useMemo(() => splitClipDoc(clipDoc), [clipDoc])
 
   return (
     <ClipProvider
@@ -35,7 +37,7 @@ export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
     >
       {currentClip === undefined ? (
         <ClipListLayout>
-          <VStack gap="md" mt="md" overflow="hidden">
+          <VStack gap="md" mt="md" w="full">
             <StreamerCard streamer={streamer!} />
 
             <Tabs

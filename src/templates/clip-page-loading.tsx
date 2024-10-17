@@ -25,7 +25,7 @@ export function ClipPageLoading() {
         </TabList>
       </Tabs>
 
-      <Center w="full">
+      <Center h="3xs" w="full">
         <Loading fontSize="2xl" />
       </Center>
     </ClipListLayout>

@@ -8,7 +8,7 @@ export function StreamersLoading() {
     <ClipListLayout>
       <SearchChannel num={0} onChange={() => {}} />
 
-      <Center w="full">
+      <Center h="3xs" w="full">
         <Loading fontSize="2xl" />
       </Center>
     </ClipListLayout>

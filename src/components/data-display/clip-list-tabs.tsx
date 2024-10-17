@@ -61,12 +61,7 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
           <Image alt={title} loading="lazy" src={thumbnail_url} />
         </AspectRatio>
 
-        <VStack
-          gap={0}
-          marginX={{ base: "sm", sm: "xs" }}
-          overflow="hidden"
-          w="full"
-        >
+        <VStack gap={0} marginX={{ base: "sm", sm: "xs" }}>
           <HStack aria-label={title}>
             <Heading
               cursor="pointer"
@@ -184,7 +179,7 @@ function ClipList({ clips, tab }: ClipListProps) {
       onLoad={({ finish, index }) => {
         setCount((prev) => prev + LOAD_INDEX)
 
-        if (index * LOAD_INDEX + 6 >= 100) {
+        if (index * LOAD_INDEX + 6 >= clips.length) {
           finish()
         }
       }}
