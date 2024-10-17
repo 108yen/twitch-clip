@@ -18,13 +18,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@emotion/cache": "^11.10.5",
-    "@emotion/react": "^11.10.6",
-    "@emotion/server": "^11.10.0",
-    "@emotion/styled": "^11.10.6",
-    "@fontsource/roboto": "^4.5.8",
-    "@mui/icons-material": "^5.14.14",
-    "@mui/material": "^5.14.14",
     "@yamada-ui/carousel": "^2.0.7",
     "@yamada-ui/lucide": "^1.6.0",
     "@yamada-ui/react": "^1.5.4",
