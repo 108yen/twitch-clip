@@ -13,6 +13,7 @@ export function TwitchLink({ login, name }: TwitchLinkProps) {
     <HStack
       aria-label="twitch channel page link"
       as={Link}
+      color={["black", "white"]}
       gap={1}
       href={"https://www.twitch.tv/" + login}
       onClick={() => {
@@ -23,6 +24,7 @@ export function TwitchLink({ login, name }: TwitchLinkProps) {
         })
       }}
       target="_blank"
+      textDecoration="none"
     >
       <Text>Twitch</Text>
 
