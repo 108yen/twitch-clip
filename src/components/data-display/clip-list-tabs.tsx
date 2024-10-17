@@ -5,6 +5,7 @@ import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { formatDate } from "@/utils/string"
+import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
 import { SquareArrowOutUpRight } from "@yamada-ui/lucide"
 import {
   AspectRatio,
@@ -21,7 +22,6 @@ import {
   Spacer,
   Tab,
   TabList,
-  TabPanel,
   Tabs,
   Text,
   VStack,
@@ -239,26 +239,15 @@ export function ClipListTabs() {
             </Tab>
           ))}
         </TabList>
-
-        {tabs.map((tab) => {
-          const clips = clipDoc?.[tab]
-
-          if (!isArray(clips)) return
-
-          return (
-            <TabPanel key={tab} p={0}>
-              <ClipList clips={clips} key={tab} tab={tab} />
-            </TabPanel>
-          )
-        })}
       </Tabs>
 
-      {/* <Carousel
-        index={index}
-        withControls={false}
-        withIndicators={false}
+      <Carousel
         draggable={false}
         h="full"
+        index={index}
+        loop={false}
+        withControls={false}
+        withIndicators={false}
       >
         {tabs.map((tab) => {
           const clips = clipDoc?.[tab]
@@ -267,16 +256,11 @@ export function ClipListTabs() {
 
           return (
             <CarouselSlide key={tab}>
-              <ClipList
-                key={tab}
-                clips={clips}
-                tab={tab}
-                setClickedClipUrl={setClipUrl}
-              />
+              <ClipList clips={clips} key={tab} tab={tab} />
             </CarouselSlide>
           )
         })}
-      </Carousel> */}
+      </Carousel>
     </>
   )
 }
