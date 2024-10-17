@@ -1,8 +1,8 @@
-import getClips from "../../../firebase/server/clips"
-import ClipPageTemplate from "../_Component/ClipPageTemplate"
+import getClips from "@/firebase/server/clips"
+import { ClipPage } from "@/templates"
 
 export default async function PastRanking() {
   const clipDoc = await getClips("daily")
 
-  return <ClipPageTemplate clipDoc={clipDoc} />
+  return <ClipPage clipDoc={clipDoc} />
 }

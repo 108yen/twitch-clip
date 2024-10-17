@@ -7,7 +7,7 @@ import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { useState } from "react"
 
-export default function ClipPageTemplate(props: { clipDoc: ClipDoc }) {
+export function ClipPage(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
 
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()

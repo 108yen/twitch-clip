@@ -1,5 +1,5 @@
-import ClipPageLoaderTemplate from "./_Component/ClipPageLoaderTemplate"
+import { ClipPageLoading } from "@/templates"
 
 export default function Loading() {
-  return <ClipPageLoaderTemplate />
+  return <ClipPageLoading />
 }

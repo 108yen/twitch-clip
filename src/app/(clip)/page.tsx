@@ -1,9 +1,8 @@
 import getClips from "@/firebase/server/clips"
-
-import ClipPageTemplate from "./_Component/ClipPageTemplate"
+import { ClipPage } from "@/templates"
 
 export default async function Home() {
   const clipDoc = await getClips("summary")
 
-  return <ClipPageTemplate clipDoc={clipDoc} />
+  return <ClipPage clipDoc={clipDoc} />
 }
