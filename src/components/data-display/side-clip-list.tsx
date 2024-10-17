@@ -33,11 +33,12 @@ const LOAD_INDEX = 2
 
 type ClipCardProps = {
   clip: Clip
-  setClickedClipUrl: (clip: Clip) => void
   tab: string
 }
 
-function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
+function ClipCard({ clip, tab }: ClipCardProps) {
+  const { setClipUrl } = useClip()
+
   const {
     broadcaster_id,
     broadcaster_name,
@@ -55,7 +56,7 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
           <Container
             apply="layoutStyles.borderCard"
             onClick={() => {
-              setClickedClipUrl(clip)
+              setClipUrl(clip)
               event("click", {
                 clip_title: title,
                 label: "click_clip_title",
@@ -84,7 +85,7 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
                 fontWeight="bold"
                 isTruncated
                 onClick={() => {
-                  setClickedClipUrl(clip)
+                  setClipUrl(clip)
                   event("click", {
                     clip_title: title,
                     label: "click_clip_title",
@@ -127,25 +128,16 @@ function ClipCard({ clip, setClickedClipUrl, tab }: ClipCardProps) {
 type ClipListProps = {
   clips: Clip[]
   resetRef: MutableRefObject<() => void>
-  setClickedClipUrl: (clip: Clip) => void
   tab: string
 }
 
-function ClipList({
-  clips,
-  resetRef: resetRefProp,
-  setClickedClipUrl,
-  tab,
-}: ClipListProps) {
+function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const [count, setCount] = useState<number>(START_INDEX)
+  const [height, setHeight] = useState(window.innerHeight)
   const rootRef = useRef<HTMLDivElement>(null)
   const resetRef = useRef<() => void>(() => {})
 
-  let height: number = window.innerHeight
-
-  useWindowEvent("resize", () => {
-    height = window.innerHeight
-  })
+  useWindowEvent("resize", () => setHeight(window.innerHeight))
 
   function resetCount() {
     resetRef.current()
@@ -160,22 +152,13 @@ function ClipList({
         index == 10 ? (
           <Box key={index}>
             <InlineAD display={{ base: "none", lg: "flex" }} />
-            <ClipCard
-              clip={clip}
-              setClickedClipUrl={setClickedClipUrl}
-              tab={tab}
-            />
+            <ClipCard clip={clip} tab={tab} />
           </Box>
         ) : (
-          <ClipCard
-            clip={clip}
-            key={index}
-            setClickedClipUrl={setClickedClipUrl}
-            tab={tab}
-          />
+          <ClipCard clip={clip} key={index} tab={tab} />
         ),
       ),
-    [clips, count, setClickedClipUrl, tab],
+    [clips, count, tab],
   )
 
   return (
@@ -245,12 +228,7 @@ export function SideClipTabs() {
         />
       </HStack>
 
-      <ClipList
-        clips={clips}
-        resetRef={resetRef}
-        setClickedClipUrl={setClipUrl}
-        tab={tab}
-      />
+      <ClipList clips={clips} resetRef={resetRef} tab={tab} />
     </VStack>
   )
 }
