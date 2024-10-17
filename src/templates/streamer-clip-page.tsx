@@ -34,18 +34,24 @@ export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
       setClipUrl={handleSetClip}
     >
       {currentClip === undefined ? (
-        <VStack>
-          <StreamerCard streamer={streamer!} />
+        <ClipListLayout>
+          <VStack gap="md" mt="md" overflow="hidden">
+            <StreamerCard streamer={streamer!} />
 
-          <Tabs index={index} onChange={onChange}>
-            <Tab value="trend">Trend</Tab>
-            <Tab value="history">History</Tab>
-          </Tabs>
+            <Tabs
+              color={["blackAlpha.600", "whiteAlpha.600"]}
+              colorScheme="neutral"
+              index={index}
+              onChange={onChange}
+              w="fit-content"
+            >
+              <Tab value="trend">Trend</Tab>
+              <Tab value="history">History</Tab>
+            </Tabs>
 
-          <ClipListLayout>
             <ClipListTabs />
-          </ClipListLayout>
-        </VStack>
+          </VStack>
+        </ClipListLayout>
       ) : width < 600 ? (
         <MobileView />
       ) : (

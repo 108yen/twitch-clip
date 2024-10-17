@@ -20,7 +20,7 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
   const follower_num = `${_follower_num?.toLocaleString()} followers`
 
   return (
-    <HStack gap={1} justifyContent="flex-start" w="full">
+    <HStack gap={2} justifyContent="flex-start" w="full">
       <Avatar
         alt="Top"
         aria-label="streamer page link"
@@ -33,7 +33,14 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
 
       <VStack gap={1} w="full">
         <HStack w="full">
-          <Heading isTruncated>{display_name}</Heading>
+          <Heading
+            fontSize="2xl"
+            fontWeight="semibold"
+            isTruncated
+            variant="h4"
+          >
+            {display_name}
+          </Heading>
 
           <Spacer />
 
