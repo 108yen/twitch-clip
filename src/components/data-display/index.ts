@@ -1,3 +1,4 @@
+export * from "./channel-card"
 export * from "./clip-info"
 export * from "./clip-list-tabs"
 export * from "./side-clip-list"
