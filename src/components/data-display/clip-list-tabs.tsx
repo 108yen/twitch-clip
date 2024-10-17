@@ -219,7 +219,7 @@ export function ClipListTabs() {
         align="center"
         colorScheme="secondary"
         index={index}
-        onChange={(index) => onChange(index)}
+        onChange={onChange}
       >
         <TabList>
           {/* <TabList {...tabStyles}> */}

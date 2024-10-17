@@ -1,4 +1,5 @@
 import { ClipDoc } from "@/models/clipDoc"
+import { splitObject } from "@yamada-ui/react"
 
 export function getTabs(clipDoc: ClipDoc | undefined) {
   if (!clipDoc) return []
@@ -33,4 +34,10 @@ export function getTabs(clipDoc: ClipDoc | undefined) {
   }
 
   return tabArray
+}
+
+export function splitClipDoc(clipDoc: ClipDoc) {
+  const trendKeys = ["day", "week", "month", "year", "all"]
+
+  return splitObject(clipDoc, trendKeys) as ClipDoc[]
 }

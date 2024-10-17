@@ -1,9 +1,8 @@
 import getClips from "@/firebase/server/clips"
 import getStreamers from "@/firebase/server/streamers"
+import { StreamerClipPage } from "@/templates"
 import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
 import { Metadata } from "next"
-
-import StreamerClipPageTemplate from "./_Component/StreamerClipPageTemplate"
 
 export async function generateStaticParams() {
   if (process.env.NEXT_PUBLIC_DEBUG_MODE == "1") return []
@@ -28,5 +27,5 @@ export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id
   const clipDoc = await getClips(id)
 
-  return <StreamerClipPageTemplate clipDoc={clipDoc} />
+  return <StreamerClipPage clipDoc={clipDoc} />
 }

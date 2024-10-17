@@ -6,6 +6,12 @@ export const textStyles: TextStyles = {
     fontSize: "sm",
     textAlign: "center",
   },
+  description: {
+    color: ["blackAlpha.900", "whiteAlpha.900"],
+    h: "sm",
+    overflow: "auto",
+    scrollbarWidth: "none",
+  },
   follower: {
     color: ["blackAlpha.700", "whiteAlpha.600"],
     fontSize: "sm",
