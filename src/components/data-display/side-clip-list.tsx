@@ -50,20 +50,22 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
   const view_count = _view_count?.toLocaleString()
 
+  function onClick() {
+    setClipUrl(clip)
+    event("click", {
+      clip_title: title,
+      label: "click_clip_title",
+      link_url: url,
+      ranking_period: tab,
+    })
+  }
+
   return (
     <VStack gap="1" w="full">
       <Container
         apply="layoutStyles.borderCard"
         cursor="pointer"
-        onClick={() => {
-          setClipUrl(clip)
-          event("click", {
-            clip_title: title,
-            label: "click_clip_title",
-            link_url: url,
-            ranking_period: tab,
-          })
-        }}
+        onClick={onClick}
         p={0}
       >
         <AspectRatio ratio={16 / 9} w="full">
@@ -81,19 +83,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         />
 
         <VStack gap={0} overflow="hidden" w="full">
-          <Text
-            fontWeight="bold"
-            isTruncated
-            onClick={() => {
-              setClipUrl(clip)
-              event("click", {
-                clip_title: title,
-                label: "click_clip_title",
-                link_url: url,
-                ranking_period: tab,
-              })
-            }}
-          >
+          <Text fontWeight="bold" isTruncated onClick={onClick}>
             {title}
           </Text>
 
@@ -175,6 +165,9 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
 
           if (index * CLIP_LIST.LOAD_INDEX + 6 >= clips.length) {
             finish()
+            event("scroll", {
+              label: "load_all_clips",
+            })
           }
         }}
         resetRef={resetRef}
@@ -214,6 +207,9 @@ export function SideClipTabs() {
             leftIcon={<AlignJustify />}
             onClick={() => {
               setClipUrl(undefined)
+              event("click", {
+                label: "click_return_to_list_view",
+              })
             }}
             variant="link"
           >

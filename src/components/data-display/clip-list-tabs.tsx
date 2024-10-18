@@ -48,6 +48,7 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
     profile_image_url,
     thumbnail_url,
     title,
+    url,
     view_count: _view_count,
   } = clip
 
@@ -75,9 +76,9 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
               onClick={() => {
                 setClipUrl(clip)
                 event("click", {
-                  clip_title: clip.title,
+                  clip_title: title,
                   label: "click_clip_title",
-                  link_url: clip.url,
+                  link_url: url,
                   ranking_period: tab,
                 })
               }}
@@ -92,14 +93,14 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
               as={Link}
               href={clip.url ?? ""}
               icon={<SquareArrowOutUpRight />}
-              onClick={() => {
+              onClick={() =>
                 event("click", {
-                  clip_title: clip.title,
+                  clip_title: title,
                   label: "click_twitch_clip_link",
-                  link_url: clip.url,
+                  link_url: url,
                   ranking_period: tab,
                 })
-              }}
+              }
               style={{
                 textDecoration: "none",
               }}
@@ -165,7 +166,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
 
   function resetCount() {
     if (window) window.scrollTo({ top: 0 })
-    
+
     resetRef.current()
     setCount(CLIP_LIST.START_INDEX)
   }
@@ -198,6 +199,9 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
 
         if (index * CLIP_LIST.LOAD_INDEX + 6 >= clips.length) {
           finish()
+          event("scroll", {
+            label: "load_all_clips",
+          })
         }
       }}
     >
