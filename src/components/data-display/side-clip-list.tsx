@@ -1,6 +1,7 @@
 "use client"
 import { InlineAD } from "@/components/adsense"
 import { event } from "@/components/googleAnalytics"
+import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
@@ -27,9 +28,6 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { MutableRefObject, useMemo, useRef, useState } from "react"
-
-const START_INDEX = 6
-const LOAD_INDEX = 2
 
 type ClipCardProps = {
   clip: Clip
@@ -136,7 +134,7 @@ type ClipListProps = {
 }
 
 function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
-  const [count, setCount] = useState<number>(START_INDEX)
+  const [count, setCount] = useState<number>(CLIP_LIST.START_INDEX)
   const [height, setHeight] = useState(
     typeof window == "undefined" ? 0 : window.innerHeight,
   )
@@ -147,7 +145,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
 
   function resetCount() {
     resetRef.current()
-    setCount(START_INDEX)
+    setCount(CLIP_LIST.START_INDEX)
   }
 
   assignRef(resetRefProp, resetCount)
@@ -173,9 +171,9 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
         finish={<Text>no more clips</Text>}
         loading={<Loading fontSize="2xl" />}
         onLoad={({ finish, index }) => {
-          setCount((prev) => prev + LOAD_INDEX)
+          setCount((prev) => prev + CLIP_LIST.LOAD_INDEX)
 
-          if (index * LOAD_INDEX + 6 >= clips.length) {
+          if (index * CLIP_LIST.LOAD_INDEX + 6 >= clips.length) {
             finish()
           }
         }}
