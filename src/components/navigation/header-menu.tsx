@@ -10,6 +10,7 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Portal,
   Spacer,
   Switch,
   Text,
@@ -31,43 +32,45 @@ export function HeaderMenu() {
         variant="primary"
       />
 
-      <MenuList contentProps={{  zIndex: "burter" }}>
-        <MenuItem closeOnSelect={false}>
-          <HStack w="full">
-            <Label htmlFor={id} userSelect="none">
-              ダークモード
-            </Label>
+      <Portal>
+        <MenuList contentProps={{ zIndex: "burter" }}>
+          <MenuItem closeOnSelect={false}>
+            <HStack w="full">
+              <Label htmlFor={id} userSelect="none">
+                ダークモード
+              </Label>
 
-            <Spacer />
+              <Spacer />
 
-            <Switch
-              id={id}
-              isChecked={colorMode === "dark"}
-              onChange={toggleColorMode}
-            />
-          </HStack>
-        </MenuItem>
-
-        {CONSTANT.MENU.map(({ href, title }) => (
-          <MenuItem key={title}>
-            <Text aria-label={title} as={Link} href={href} prefetch={false}>
-              {title}
-            </Text>
+              <Switch
+                id={id}
+                isChecked={colorMode === "dark"}
+                onChange={toggleColorMode}
+              />
+            </HStack>
           </MenuItem>
-        ))}
 
-        <MenuDivider />
+          {CONSTANT.MENU.map(({ href, title }) => (
+            <MenuItem key={title}>
+              <Text aria-label={title} as={Link} href={href} prefetch={false}>
+                {title}
+              </Text>
+            </MenuItem>
+          ))}
 
-        <MenuItem>
-          <HStack w="full">
-            <Text textStyle="version">version:</Text>
+          <MenuDivider />
 
-            <Spacer />
+          <MenuItem>
+            <HStack w="full">
+              <Text textStyle="version">version:</Text>
 
-            <Text textStyle="version">{version}</Text>
-          </HStack>
-        </MenuItem>
-      </MenuList>
+              <Spacer />
+
+              <Text textStyle="version">{version}</Text>
+            </HStack>
+          </MenuItem>
+        </MenuList>
+      </Portal>
     </Menu>
   )
 }
