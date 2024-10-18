@@ -7,4 +7,14 @@ export const layoutStyles: Dict<CSSUIObject> = {
     borderRadius: "md",
     overflow: "hidden",
   },
+  scrollArea: {
+    _scrollbar: {
+      display: "auto",
+      width: "1.5",
+    },
+    _scrollbarThumb: {
+      bg: "gray.500",
+      borderRadius: "full",
+    },
+  },
 }

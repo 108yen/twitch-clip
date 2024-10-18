@@ -166,7 +166,13 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   )
 
   return (
-    <Container h={height - 110} overflowY="scroll" p={0} ref={rootRef}>
+    <Container
+      apply="layoutStyles.scrollArea"
+      h={height - 110}
+      overflowY="scroll"
+      p={0}
+      ref={rootRef}
+    >
       <InfiniteScrollArea
         finish={<Text>no more clips</Text>}
         loading={<Loading fontSize="2xl" />}
