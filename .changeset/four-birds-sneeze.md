@@ -2,4 +2,4 @@
 "twitch-clip": major
 ---
 
-Replace UI library.
+Replaced UI library.

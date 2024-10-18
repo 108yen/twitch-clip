@@ -1,6 +1,7 @@
 "use client"
 import { InlineAD } from "@/components/adsense"
 import { event } from "@/components/googleAnalytics"
+import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
@@ -9,6 +10,7 @@ import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
 import { SquareArrowOutUpRight } from "@yamada-ui/lucide"
 import {
   AspectRatio,
+  assignRef,
   Avatar,
   Box,
   Container,
@@ -28,10 +30,7 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { useMemo, useState } from "react"
-
-const START_INDEX = 6
-const LOAD_INDEX = 2
+import { MutableRefObject, useMemo, useRef, useState } from "react"
 
 interface ClipCardProps {
   clip: Clip
@@ -155,11 +154,23 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
 
 interface ClipListProps {
   clips: Clip[]
+  resetRef: MutableRefObject<() => void>
   tab: string
 }
 
-function ClipList({ clips, tab }: ClipListProps) {
-  const [count, setCount] = useState<number>(START_INDEX)
+function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
+  const [count, setCount] = useState<number>(CLIP_LIST.START_INDEX)
+
+  const resetRef = useRef<() => void>(() => {})
+
+  function resetCount() {
+    if (window) window.scrollTo({ top: 0 })
+    
+    resetRef.current()
+    setCount(CLIP_LIST.START_INDEX)
+  }
+
+  assignRef(resetRefProp, resetCount)
 
   const filteredClips = useMemo(
     () =>
@@ -183,9 +194,9 @@ function ClipList({ clips, tab }: ClipListProps) {
       loading={<Loading fontSize="2xl" />}
       marginY="md"
       onLoad={({ finish, index }) => {
-        setCount((prev) => prev + LOAD_INDEX)
+        setCount((prev) => prev + CLIP_LIST.LOAD_INDEX)
 
-        if (index * LOAD_INDEX + 6 >= clips.length) {
+        if (index * CLIP_LIST.LOAD_INDEX + 6 >= clips.length) {
           finish()
         }
       }}
@@ -203,7 +214,14 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
   const { clipDoc } = useClip()
   const [index, onChange] = useState(0)
 
+  const resetRef = useRef<() => void>(() => {})
+
   const tabs = useMemo(() => getTabs(clipDoc), [clipDoc])
+
+  function handleChange(value: number) {
+    onChange(value)
+    resetRef.current()
+  }
 
   return (
     <>
@@ -211,7 +229,7 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
         align="center"
         colorScheme="secondary"
         index={index}
-        onChange={onChange}
+        onChange={handleChange}
         {...tabsProps}
       >
         <TabList>
@@ -248,7 +266,7 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
 
           return (
             <CarouselSlide key={tab}>
-              <ClipList clips={clips} key={tab} tab={tab} />
+              <ClipList clips={clips} key={tab} resetRef={resetRef} tab={tab} />
             </CarouselSlide>
           )
         })}
