@@ -10,7 +10,6 @@ import {
   AspectRatio,
   assignRef,
   Avatar,
-  Box,
   Button,
   Container,
   Divider,
@@ -50,11 +49,39 @@ function ClipCard({ clip, tab }: ClipCardProps) {
   const view_count = _view_count?.toLocaleString()
 
   return (
-    <Box>
-      <Tooltip closeDelay={500} label={title} openDelay={500} placement="top">
-        <VStack gap="1" w="full">
-          <Container
-            apply="layoutStyles.borderCard"
+    <VStack gap="1" w="full">
+      <Container
+        apply="layoutStyles.borderCard"
+        cursor="pointer"
+        onClick={() => {
+          setClipUrl(clip)
+          event("click", {
+            clip_title: title,
+            label: "click_clip_title",
+            link_url: url,
+            ranking_period: tab,
+          })
+        }}
+        p={0}
+      >
+        <AspectRatio ratio={16 / 9} w="full">
+          <NativeImage alt={title} loading="lazy" src={thumbnail_url} />
+        </AspectRatio>
+      </Container>
+
+      <HStack>
+        <Avatar
+          alt="top"
+          as={Link}
+          href={`/streamer/${broadcaster_id}`}
+          prefetch={false}
+          src={profile_image_url}
+        />
+
+        <VStack gap={0} overflow="hidden" w="full">
+          <Text
+            fontWeight="bold"
+            isTruncated
             onClick={() => {
               setClipUrl(clip)
               event("click", {
@@ -64,66 +91,35 @@ function ClipCard({ clip, tab }: ClipCardProps) {
                 ranking_period: tab,
               })
             }}
-            p={0}
           >
-            <AspectRatio ratio={16 / 9} w="full">
-              <NativeImage alt={title} loading="lazy" src={thumbnail_url} />
-            </AspectRatio>
-          </Container>
+            {title}
+          </Text>
 
           <HStack>
-            <Avatar
-              alt="top"
+            <Text
+              aria-label={broadcaster_name}
               as={Link}
               href={`/streamer/${broadcaster_id}`}
+              isTruncated
               prefetch={false}
-              src={profile_image_url}
-            />
+            >
+              {broadcaster_name}
+            </Text>
 
-            <VStack gap={0} overflow="hidden" w="full">
-              <Text
-                fontWeight="bold"
-                isTruncated
-                onClick={() => {
-                  setClipUrl(clip)
-                  event("click", {
-                    clip_title: title,
-                    label: "click_clip_title",
-                    link_url: url,
-                    ranking_period: tab,
-                  })
-                }}
-              >
-                {title}
-              </Text>
+            <Spacer />
 
-              <HStack>
-                <Text
-                  aria-label={broadcaster_name}
-                  as={Link}
-                  href={`/streamer/${broadcaster_id}`}
-                  isTruncated
-                  prefetch={false}
-                >
-                  {broadcaster_name}
-                </Text>
-
-                <Spacer />
-
-                <Text
-                  aria-describedby="Clip view count"
-                  isTruncated
-                  textAlign="end"
-                  textStyle="viewCount"
-                >
-                  {`${view_count} views`}
-                </Text>
-              </HStack>
-            </VStack>
+            <Text
+              aria-describedby="Clip view count"
+              isTruncated
+              textAlign="end"
+              textStyle="viewCount"
+            >
+              {`${view_count} views`}
+            </Text>
           </HStack>
         </VStack>
-      </Tooltip>
-    </Box>
+      </HStack>
+    </VStack>
   )
 }
 
@@ -155,10 +151,10 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
     () =>
       clips.slice(0, count).map((clip, index) =>
         index == 10 ? (
-          <Box key={index}>
+          <VStack gap={1} key={index} w="full">
             <InlineAD display={{ base: "none", lg: "flex" }} />
             <ClipCard clip={clip} tab={tab} />
-          </Box>
+          </VStack>
         ) : (
           <ClipCard clip={clip} key={index} tab={tab} />
         ),
