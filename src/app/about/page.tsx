@@ -1,5 +1,5 @@
-import AboutTemplate from "./_Component/AboutTemplate"
+import { About } from "@/templates"
 
 export default function Page() {
-  return <AboutTemplate />
+  return <About />
 }

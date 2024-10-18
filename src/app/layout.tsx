@@ -1,13 +1,14 @@
-import { ReactNode, Suspense } from "react"
-
-import { PageProvider } from "../contexts"
-import generateTemplateMetadata from "../utils/generateTemplateMetadata"
-import { getVersion } from "../utils/next"
-import ThemeRegistry from "./_Component/ThemeRegistry"
-import FirebaseInitScript from "./_Component/firebaseScript"
-import DefaultHeader from "@/app/_Component/defaultHeader"
-import Adsbygoogle from "@/components/adsense/adsbygoogle"
 import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
+import { Header } from "@/components/layouts"
+import { PageProvider } from "@/contexts"
+import { FirebaseInitScript } from "@/firebase/client"
+import { config, theme } from "@/theme"
+import { Adsbygoogle } from "@/utils/adsense"
+import generateTemplateMetadata from "@/utils/generate-template-metadata"
+import { getVersion } from "@/utils/next"
+import { YamadaUIScripts } from "@/utils/yamada-ui-scripts"
+import { UIProvider } from "@yamada-ui/react"
+import { ReactNode, Suspense } from "react"
 
 export function generateMetadata() {
   return generateTemplateMetadata()
@@ -33,12 +34,14 @@ export default async function RootLayout({
       <body>
         <FirebaseInitScript />
 
-        <ThemeRegistry options={{ key: "css", prepend: true }}>
-          <PageProvider version={version}>
-            <DefaultHeader/>
+        <YamadaUIScripts />
+
+        <PageProvider version={version}>
+          <UIProvider config={config} theme={theme}>
+            <Header />
             {children}
-          </PageProvider>
-        </ThemeRegistry>
+          </UIProvider>
+        </PageProvider>
       </body>
     </html>
   )

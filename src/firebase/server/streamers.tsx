@@ -1,10 +1,10 @@
-import { DocumentReference } from "firebase-admin/firestore"
-import { notFound } from "next/navigation"
-
-import { cache } from "react"
-import { streamersConverter } from "./converters/streamersConverter"
 import { db } from "@/firebase/server/server"
 import { Streamer } from "@/models/streamer"
+import { DocumentReference } from "firebase-admin/firestore"
+import { notFound } from "next/navigation"
+import { cache } from "react"
+
+import { streamersConverter } from "./converters/streamersConverter"
 
 // const tags = ["get-streamers"]
 

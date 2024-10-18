@@ -4,7 +4,7 @@ import * as admin from "firebase-admin"
 import { inquiryConverter } from "./converters/inquiryConverter"
 import { db } from "./server"
 
-export default async function postInquiry(body: string) {
+export async function postInquiry(body: string) {
   const inquiryDoc = db.collection("inquiries").doc("others").withConverter<{
     inquiry_array: Array<string>
   }>(inquiryConverter)
