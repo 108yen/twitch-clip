@@ -1,7 +1,7 @@
 import getClips from "@/firebase/server/clips"
 import getStreamers from "@/firebase/server/streamers"
 import { StreamerClipPage } from "@/templates"
-import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
+import generateTemplateMetadata from "@/utils/generate-template-metadata"
 import { Metadata } from "next"
 
 export async function generateStaticParams() {

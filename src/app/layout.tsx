@@ -4,8 +4,9 @@ import { PageProvider } from "@/contexts"
 import { FirebaseInitScript } from "@/firebase/client"
 import { config, theme } from "@/theme"
 import { Adsbygoogle } from "@/utils/adsense"
-import generateTemplateMetadata from "@/utils/generateTemplateMetadata"
+import generateTemplateMetadata from "@/utils/generate-template-metadata"
 import { getVersion } from "@/utils/next"
+import { YamadaUIScripts } from "@/utils/yamada-ui-scripts"
 import { UIProvider } from "@yamada-ui/react"
 import { ReactNode, Suspense } from "react"
 
@@ -32,6 +33,8 @@ export default async function RootLayout({
       </head>
       <body>
         <FirebaseInitScript />
+
+        <YamadaUIScripts />
 
         <PageProvider version={version}>
           <UIProvider config={config} theme={theme}>

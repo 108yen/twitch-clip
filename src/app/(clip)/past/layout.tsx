@@ -1,6 +1,5 @@
+import generateTemplateMetadata from "@/utils/generate-template-metadata"
 import { ReactNode } from "react"
-
-import generateTemplateMetadata from "../../../utils/generateTemplateMetadata"
 
 export function generateMetadata() {
   return generateTemplateMetadata({
