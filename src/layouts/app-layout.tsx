@@ -2,9 +2,9 @@ import { SideBarAD } from "@/components/adsense"
 import { Center, Grid, GridItem, SimpleGridProps } from "@yamada-ui/react"
 import { PropsWithChildren } from "react"
 
-interface ClipListLayoutProps extends SimpleGridProps, PropsWithChildren {}
+interface AppLayoutProps extends SimpleGridProps, PropsWithChildren {}
 
-export function ClipListLayout({ children, ...rest }: ClipListLayoutProps) {
+export function AppLayout({ children, ...rest }: AppLayoutProps) {
   return (
     <Center>
       <Grid

@@ -1,10 +1,10 @@
 import { PERIODS } from "@/constant/periods"
-import { ClipListLayout } from "@/layouts"
+import { AppLayout } from "@/layouts"
 import { Center, Loading, Tab, TabList, Tabs } from "@yamada-ui/react"
 
 export function ClipPageLoading() {
   return (
-    <ClipListLayout>
+    <AppLayout>
       <Tabs align="center" colorScheme="secondary">
         <TabList>
           {PERIODS.trend.map((tab) => (
@@ -28,6 +28,6 @@ export function ClipPageLoading() {
       <Center h="3xs" w="full">
         <Loading fontSize="2xl" />
       </Center>
-    </ClipListLayout>
+    </AppLayout>
   )
 }

@@ -2,7 +2,7 @@
 import { ClipListTabs } from "@/components/data-display"
 import { MobileView, PCView } from "@/components/layouts"
 import { ClipProvider } from "@/contexts"
-import { ClipListLayout } from "@/layouts"
+import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { useWindowEvent } from "@yamada-ui/react"
@@ -27,9 +27,9 @@ export function ClipPage(props: { clipDoc: ClipDoc }) {
       setClipUrl={handleSetClip}
     >
       {currentClip === undefined ? (
-        <ClipListLayout>
+        <AppLayout>
           <ClipListTabs />
-        </ClipListLayout>
+        </AppLayout>
       ) : width < 600 ? (
         <MobileView />
       ) : (

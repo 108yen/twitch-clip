@@ -3,7 +3,7 @@
 import { ClipListTabs, StreamerCard } from "@/components/data-display"
 import { MobileView, PCView } from "@/components/layouts"
 import { ClipProvider } from "@/contexts"
-import { ClipListLayout } from "@/layouts"
+import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { splitClipDoc } from "@/utils/clip"
@@ -36,7 +36,7 @@ export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
       setClipUrl={handleSetClip}
     >
       {currentClip === undefined ? (
-        <ClipListLayout>
+        <AppLayout>
           <VStack gap="md" mt="md" w="full">
             <StreamerCard streamer={streamer!} />
 
@@ -53,7 +53,7 @@ export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
 
             <ClipListTabs />
           </VStack>
-        </ClipListLayout>
+        </AppLayout>
       ) : width < 600 ? (
         <MobileView />
       ) : (
