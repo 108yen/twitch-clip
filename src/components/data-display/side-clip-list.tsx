@@ -1,5 +1,5 @@
 "use client"
-import { InlineAD } from "@/components/adsense"
+import { SideCardAD } from "@/components/adsense"
 import { event } from "@/components/googleAnalytics"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
@@ -10,6 +10,7 @@ import {
   AspectRatio,
   assignRef,
   Avatar,
+  Box,
   Button,
   Container,
   createdDom,
@@ -152,10 +153,10 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
     () =>
       clips.slice(0, count).map((clip, index) =>
         index == 10 ? (
-          <VStack gap={1} key={index} w="full">
-            <InlineAD display={{ base: "none", lg: "flex" }} />
+          <Box key={index}>
+            <SideCardAD />
             <ClipCard clip={clip} tab={tab} />
-          </VStack>
+          </Box>
         ) : (
           <ClipCard clip={clip} key={index} tab={tab} />
         ),

@@ -4,7 +4,7 @@ import { Box, Divider, StackProps, Text, VStack } from "@yamada-ui/react"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
-export function InlineAD(props: StackProps) {
+export function SideCardAD(props: StackProps) {
   const pathname = usePathname()
 
   useEffect(() => {
@@ -29,12 +29,11 @@ export function InlineAD(props: StackProps) {
           as="ins"
           className="adsbygoogle"
           data-ad-client="ca-pub-1615921337969017"
-          data-ad-format="fluid"
-          data-ad-layout="in-article"
-          data-ad-slot="8553448913"
+          data-ad-format="rectangle"
+          data-ad-slot="1058689000"
           data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
+          data-full-width-responsive="true"
           display="block"
-          maxW="md"
           textAlign="center"
         />
       </Box>
