@@ -100,7 +100,7 @@ export const Header = memo(
 
           <Spacer
             onClick={() =>
-              window.scrollTo({
+              window?.scrollTo({
                 behavior: "smooth",
                 top: 0,
               })

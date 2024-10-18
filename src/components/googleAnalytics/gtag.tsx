@@ -21,7 +21,7 @@ export const event = (
     ...otherOptions
   }: EventOptions,
 ) => {
-  if (!window.gtag) {
+  if (!window?.gtag) {
     return
   }
   const eventOptions = Object.assign({}, otherOptions)

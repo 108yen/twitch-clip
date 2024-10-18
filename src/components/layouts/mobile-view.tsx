@@ -14,7 +14,7 @@ export function MobileView() {
   const tabsRef = useRef<HTMLDivElement>()
   const { currentClip } = useClip()
   const y = useScrollY()
-  const [width, setWidth] = useState(window.innerWidth ?? 0)
+  const [width, setWidth] = useState(window?.innerWidth ?? 0)
 
   const { height = 0 } = tabsRef.current?.getBoundingClientRect() ?? {}
   const isScroll = y > height
@@ -33,7 +33,7 @@ export function MobileView() {
     [isScroll, width],
   )
 
-  useWindowEvent("resize", () => setWidth(window.innerWidth))
+  useWindowEvent("resize", () => setWidth(window?.innerWidth))
 
   const src = `${currentClip?.embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`
 
