@@ -15,17 +15,17 @@ interface StreamerClipPageProps {
 }
 
 export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
-  const [width, setWidth] = useState(
-    typeof window == "undefined" ? 0 : window.innerWidth,
-  )
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
   const [index, onChange] = useState(0)
 
   const [trend, history] = useMemo(() => splitClipDoc(clipDoc), [clipDoc])
 
-  useWindowEvent("resize", () => setWidth(window.innerWidth))
-
   const streamer = clipDoc.streamerInfo
+  let width = window.innerWidth
+
+  useWindowEvent("resize", () => {
+    width = window.innerWidth
+  })
 
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)

@@ -135,13 +135,14 @@ type ClipListProps = {
 
 function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const [count, setCount] = useState<number>(CLIP_LIST.START_INDEX)
-  const [height, setHeight] = useState(
-    typeof window == "undefined" ? 0 : window.innerHeight,
-  )
   const rootRef = useRef<HTMLDivElement>(null)
   const resetRef = useRef<() => void>(() => {})
 
-  useWindowEvent("resize", () => setHeight(window.innerHeight))
+  let height = window.innerHeight - 112
+
+  useWindowEvent("resize", () => {
+    height = window.innerHeight - 112
+  })
 
   function resetCount() {
     resetRef.current()
@@ -166,16 +167,11 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   )
 
   return (
-    <Container
-      apply="layoutStyles.scrollArea"
-      h={height - 110}
-      overflowY="scroll"
-      p={0}
-      ref={rootRef}
-    >
+    <Container apply="layoutStyles.scrollArea" maxH={height} ref={rootRef}>
       <InfiniteScrollArea
         finish={<Text>no more clips</Text>}
         loading={<Loading fontSize="2xl" />}
+        marginY="md"
         onLoad={({ finish, index }) => {
           setCount((prev) => prev + CLIP_LIST.LOAD_INDEX)
 
@@ -186,7 +182,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
         resetRef={resetRef}
         rootRef={rootRef}
       >
-        <VStack marginY="md">{filteredClips}</VStack>
+        {filteredClips}
       </InfiniteScrollArea>
     </Container>
   )
@@ -213,7 +209,7 @@ export function SideClipTabs() {
   }
 
   return (
-    <VStack divider={<Divider />} gap={0} overflow="hidden">
+    <VStack divider={<Divider />} gap={0}>
       <HStack>
         <Tooltip label="リスト表示にもどる" placement="top">
           <Button

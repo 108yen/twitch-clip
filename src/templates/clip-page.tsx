@@ -11,12 +11,13 @@ import { useState } from "react"
 export function ClipPage(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
 
-  const [width, setWidth] = useState(
-    typeof window == "undefined" ? 0 : window.innerWidth,
-  )
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
 
-  useWindowEvent("resize", () => setWidth(window.innerWidth))
+  let width = window.innerWidth
+  
+  useWindowEvent("resize", () => {
+    width = window.innerWidth
+  })
 
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)
