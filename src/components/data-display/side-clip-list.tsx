@@ -12,6 +12,7 @@ import {
   Avatar,
   Button,
   Container,
+  createdDom,
   Divider,
   HStack,
   InfiniteScrollArea,
@@ -134,7 +135,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const rootRef = useRef<HTMLDivElement>(null)
   const resetRef = useRef<() => void>(() => {})
 
-  let height = window.innerHeight - 112
+  let height = createdDom() ? window.innerHeight - 112 : 0
 
   useWindowEvent("resize", () => {
     height = window.innerHeight - 112

@@ -7,7 +7,7 @@ import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { splitClipDoc } from "@/utils/clip"
-import { Tab, Tabs, useWindowEvent, VStack } from "@yamada-ui/react"
+import { createdDom, Tab, Tabs, useWindowEvent, VStack } from "@yamada-ui/react"
 import { useMemo, useState } from "react"
 
 interface StreamerClipPageProps {
@@ -21,7 +21,7 @@ export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
   const [trend, history] = useMemo(() => splitClipDoc(clipDoc), [clipDoc])
 
   const streamer = clipDoc.streamerInfo
-  let width = window.innerWidth
+  let width = createdDom() ? window.innerWidth : 0
 
   useWindowEvent("resize", () => {
     width = window.innerWidth

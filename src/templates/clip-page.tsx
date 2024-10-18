@@ -5,7 +5,7 @@ import { ClipProvider } from "@/contexts"
 import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
-import { useWindowEvent } from "@yamada-ui/react"
+import { createdDom, useWindowEvent } from "@yamada-ui/react"
 import { useState } from "react"
 
 export function ClipPage(props: { clipDoc: ClipDoc }) {
@@ -13,8 +13,8 @@ export function ClipPage(props: { clipDoc: ClipDoc }) {
 
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
 
-  let width = window.innerWidth
-  
+  let width = createdDom() ? window.innerWidth : 0
+
   useWindowEvent("resize", () => {
     width = window.innerWidth
   })
