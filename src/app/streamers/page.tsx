@@ -1,9 +1,9 @@
-import getStreamers from "../../firebase/server/streamers"
+import { Streamers } from "@/templates"
 
-import StreamersTemplate from "./_Component/StreamersTemplate"
+import getStreamers from "../../firebase/server/streamers"
 
 export default async function StreamersPage() {
   const streamers = await getStreamers()
 
-  return <StreamersTemplate streamers={streamers} />
+  return <Streamers streamers={streamers} />
 }

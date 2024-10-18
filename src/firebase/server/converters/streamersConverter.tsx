@@ -1,10 +1,9 @@
+import { Streamer } from "@/models/streamer"
 import {
   DocumentData,
   FirestoreDataConverter,
   QueryDocumentSnapshot,
 } from "firebase-admin/firestore"
-
-import { Streamer } from "@/models/streamer"
 
 export const streamersConverter: FirestoreDataConverter<{
   streamers: Array<Streamer>

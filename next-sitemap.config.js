@@ -1,12 +1,12 @@
 module.exports = {
-  siteUrl: "https://www.twitchclipsranking.com/",
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [
       {
-        userAgent: "*",
         disallow: ["/about"],
+        userAgent: "*",
       },
     ],
   },
+  siteUrl: "https://www.twitchclipsranking.com/",
 }

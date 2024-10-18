@@ -13,22 +13,22 @@ export default function generateTemplateMetadata(props?: {
     : "Twitch(ツイッチ)クリップの再生数ランキング。※すべての配信者の集計ではありません。"
 
   const metadata: Metadata = {
-    metadataBase: new URL(process.env.URL!),
-    title: title,
     description: props?.description ?? description,
+    metadataBase: new URL(process.env.URL!),
     openGraph: {
-      type: "website",
-      title: title,
       description: props?.description ?? description,
-      siteName: "Twitch clip ranking",
-      url: process.env.URL!,
       images: [
         {
-          url: `${process.env.URL!}/android-chrome-512x512.png`,
           type: "image/png",
+          url: `${process.env.URL!}/android-chrome-512x512.png`,
         },
       ],
+      siteName: "Twitch clip ranking",
+      title: title,
+      type: "website",
+      url: process.env.URL!,
     },
+    title: title,
     twitter: {
       card: "summary",
     },

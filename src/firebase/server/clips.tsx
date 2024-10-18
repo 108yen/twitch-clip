@@ -1,14 +1,13 @@
+import { db } from "@/firebase/server/server"
+import { ClipDoc } from "@/models/clipDoc"
 import {
   CollectionReference,
   DocumentReference,
 } from "firebase-admin/firestore"
 import { notFound } from "next/navigation"
-
 import { cache } from "react"
 
 import { clipDocConverter } from "./converters/clipDocConverter"
-import { db } from "@/firebase/server/server"
-import { ClipDoc } from "@/models/clipDoc"
 
 // const getClips = unstable_cache(
 //   async (id) => uncached_getClips(id),
