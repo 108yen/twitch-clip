@@ -9,7 +9,7 @@ import tokens from "./tokens"
 const customTheme: UsageTheme = {
   semantics,
   styles,
-  ...tokens
+  ...tokens,
 }
 
 export const theme = extendTheme(customTheme)()
