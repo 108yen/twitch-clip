@@ -31,7 +31,7 @@ export function HeaderMenu() {
         variant="primary"
       />
 
-      <MenuList>
+      <MenuList contentProps={{  zIndex: "burter" }}>
         <MenuItem closeOnSelect={false}>
           <HStack w="full">
             <Label htmlFor={id} userSelect="none">

@@ -23,6 +23,7 @@ import {
   Tab,
   TabList,
   Tabs,
+  TabsProps,
   Text,
   VStack,
 } from "@yamada-ui/react"
@@ -194,24 +195,15 @@ function ClipList({ clips, tab }: ClipListProps) {
   )
 }
 
-// interface ClipListViewProps {
-//   isSticky?: boolean
-// }
+interface ClipListTabProps {
+  tabsProps?: TabsProps
+}
 
-// TODO: refactor files. Merge files.
-
-export function ClipListTabs() {
+export function ClipListTabs({ tabsProps }: ClipListTabProps) {
   const { clipDoc } = useClip()
   const [index, onChange] = useState(0)
 
   const tabs = useMemo(() => getTabs(clipDoc), [clipDoc])
-
-  //TODO: sticky
-  // const tabStyles = useMemo(
-  //   () =>
-  //     isSticky ? { position: "sticky", top: (window.innerWidth * 9) / 16 } : {},
-  //   [isSticky],
-  // )
 
   return (
     <>
@@ -220,9 +212,9 @@ export function ClipListTabs() {
         colorScheme="secondary"
         index={index}
         onChange={onChange}
+        {...tabsProps}
       >
         <TabList>
-          {/* <TabList {...tabStyles}> */}
           {tabs.map((tab) => (
             <Tab
               _selected={{
