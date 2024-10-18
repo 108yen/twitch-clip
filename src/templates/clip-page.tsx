@@ -5,18 +5,19 @@ import { ClipProvider } from "@/contexts"
 import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
-import { useWindowEvent } from "@yamada-ui/react"
+import { createdDom, useWindowEvent } from "@yamada-ui/react"
 import { useState } from "react"
 
 export function ClipPage(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
 
-  const [width, setWidth] = useState(
-    typeof window == "undefined" ? 0 : window.innerWidth,
-  )
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
 
-  useWindowEvent("resize", () => setWidth(window.innerWidth))
+  let width = createdDom() ? window.innerWidth : 0
+
+  useWindowEvent("resize", () => {
+    width = window.innerWidth
+  })
 
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)

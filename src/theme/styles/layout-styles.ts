@@ -16,5 +16,7 @@ export const layoutStyles: Dict<CSSUIObject> = {
       bg: "gray.500",
       borderRadius: "full",
     },
+    overflowY: "scroll",
+    p: 0,
   },
 }

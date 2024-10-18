@@ -10,9 +10,9 @@ import {
   AspectRatio,
   assignRef,
   Avatar,
-  Box,
   Button,
   Container,
+  createdDom,
   Divider,
   HStack,
   InfiniteScrollArea,
@@ -50,11 +50,39 @@ function ClipCard({ clip, tab }: ClipCardProps) {
   const view_count = _view_count?.toLocaleString()
 
   return (
-    <Box>
-      <Tooltip closeDelay={500} label={title} openDelay={500} placement="top">
-        <VStack gap="1" w="full">
-          <Container
-            apply="layoutStyles.borderCard"
+    <VStack gap="1" w="full">
+      <Container
+        apply="layoutStyles.borderCard"
+        cursor="pointer"
+        onClick={() => {
+          setClipUrl(clip)
+          event("click", {
+            clip_title: title,
+            label: "click_clip_title",
+            link_url: url,
+            ranking_period: tab,
+          })
+        }}
+        p={0}
+      >
+        <AspectRatio ratio={16 / 9} w="full">
+          <NativeImage alt={title} loading="lazy" src={thumbnail_url} />
+        </AspectRatio>
+      </Container>
+
+      <HStack>
+        <Avatar
+          alt="top"
+          as={Link}
+          href={`/streamer/${broadcaster_id}`}
+          prefetch={false}
+          src={profile_image_url}
+        />
+
+        <VStack gap={0} overflow="hidden" w="full">
+          <Text
+            fontWeight="bold"
+            isTruncated
             onClick={() => {
               setClipUrl(clip)
               event("click", {
@@ -64,66 +92,35 @@ function ClipCard({ clip, tab }: ClipCardProps) {
                 ranking_period: tab,
               })
             }}
-            p={0}
           >
-            <AspectRatio ratio={16 / 9} w="full">
-              <NativeImage alt={title} loading="lazy" src={thumbnail_url} />
-            </AspectRatio>
-          </Container>
+            {title}
+          </Text>
 
           <HStack>
-            <Avatar
-              alt="top"
+            <Text
+              aria-label={broadcaster_name}
               as={Link}
               href={`/streamer/${broadcaster_id}`}
+              isTruncated
               prefetch={false}
-              src={profile_image_url}
-            />
+            >
+              {broadcaster_name}
+            </Text>
 
-            <VStack gap={0} overflow="hidden" w="full">
-              <Text
-                fontWeight="bold"
-                isTruncated
-                onClick={() => {
-                  setClipUrl(clip)
-                  event("click", {
-                    clip_title: title,
-                    label: "click_clip_title",
-                    link_url: url,
-                    ranking_period: tab,
-                  })
-                }}
-              >
-                {title}
-              </Text>
+            <Spacer />
 
-              <HStack>
-                <Text
-                  aria-label={broadcaster_name}
-                  as={Link}
-                  href={`/streamer/${broadcaster_id}`}
-                  isTruncated
-                  prefetch={false}
-                >
-                  {broadcaster_name}
-                </Text>
-
-                <Spacer />
-
-                <Text
-                  aria-describedby="Clip view count"
-                  isTruncated
-                  textAlign="end"
-                  textStyle="viewCount"
-                >
-                  {`${view_count} views`}
-                </Text>
-              </HStack>
-            </VStack>
+            <Text
+              aria-describedby="Clip view count"
+              isTruncated
+              textAlign="end"
+              textStyle="viewCount"
+            >
+              {`${view_count} views`}
+            </Text>
           </HStack>
         </VStack>
-      </Tooltip>
-    </Box>
+      </HStack>
+    </VStack>
   )
 }
 
@@ -135,13 +132,14 @@ type ClipListProps = {
 
 function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const [count, setCount] = useState<number>(CLIP_LIST.START_INDEX)
-  const [height, setHeight] = useState(
-    typeof window == "undefined" ? 0 : window.innerHeight,
-  )
   const rootRef = useRef<HTMLDivElement>(null)
   const resetRef = useRef<() => void>(() => {})
 
-  useWindowEvent("resize", () => setHeight(window.innerHeight))
+  let height = createdDom() ? window.innerHeight - 112 : 0
+
+  useWindowEvent("resize", () => {
+    height = window.innerHeight - 112
+  })
 
   function resetCount() {
     resetRef.current()
@@ -154,10 +152,10 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
     () =>
       clips.slice(0, count).map((clip, index) =>
         index == 10 ? (
-          <Box key={index}>
+          <VStack gap={1} key={index} w="full">
             <InlineAD display={{ base: "none", lg: "flex" }} />
             <ClipCard clip={clip} tab={tab} />
-          </Box>
+          </VStack>
         ) : (
           <ClipCard clip={clip} key={index} tab={tab} />
         ),
@@ -166,16 +164,11 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   )
 
   return (
-    <Container
-      apply="layoutStyles.scrollArea"
-      h={height - 110}
-      overflowY="scroll"
-      p={0}
-      ref={rootRef}
-    >
+    <Container apply="layoutStyles.scrollArea" maxH={height} ref={rootRef}>
       <InfiniteScrollArea
         finish={<Text>no more clips</Text>}
         loading={<Loading fontSize="2xl" />}
+        marginY="md"
         onLoad={({ finish, index }) => {
           setCount((prev) => prev + CLIP_LIST.LOAD_INDEX)
 
@@ -186,7 +179,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
         resetRef={resetRef}
         rootRef={rootRef}
       >
-        <VStack marginY="md">{filteredClips}</VStack>
+        {filteredClips}
       </InfiniteScrollArea>
     </Container>
   )
@@ -213,7 +206,7 @@ export function SideClipTabs() {
   }
 
   return (
-    <VStack divider={<Divider />} gap={0} overflow="hidden">
+    <VStack divider={<Divider />} gap={0}>
       <HStack>
         <Tooltip label="リスト表示にもどる" placement="top">
           <Button

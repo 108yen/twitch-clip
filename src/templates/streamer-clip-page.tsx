@@ -7,7 +7,7 @@ import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { splitClipDoc } from "@/utils/clip"
-import { Tab, Tabs, useWindowEvent, VStack } from "@yamada-ui/react"
+import { createdDom, Tab, Tabs, useWindowEvent, VStack } from "@yamada-ui/react"
 import { useMemo, useState } from "react"
 
 interface StreamerClipPageProps {
@@ -15,17 +15,17 @@ interface StreamerClipPageProps {
 }
 
 export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
-  const [width, setWidth] = useState(
-    typeof window == "undefined" ? 0 : window.innerWidth,
-  )
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
   const [index, onChange] = useState(0)
 
   const [trend, history] = useMemo(() => splitClipDoc(clipDoc), [clipDoc])
 
-  useWindowEvent("resize", () => setWidth(window.innerWidth))
-
   const streamer = clipDoc.streamerInfo
+  let width = createdDom() ? window.innerWidth : 0
+
+  useWindowEvent("resize", () => {
+    width = window.innerWidth
+  })
 
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)
