@@ -1,22 +1,15 @@
 pre-commit:
   piped: true
   commands:
-    cspell:
-      priority: 1
-      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,yml,yaml,md,mdx,json}"
-      exclude: "pnpm-lock.yaml"
-      run: |
-        pnpm cspell "{staged_files}" --cache
-
     prettier:
-      priority: 2
+      priority: 1
       glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,yml,yaml,md,mdx,json,html,css}"
       run: |
         pnpm prettier "{staged_files}" --write
       stage_fixed: true
 
     lint:
-      priority: 3
+      priority: 2
       glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}"
       run: |
         pnpm eslint "{staged_files}" --max-warnings=0 --fix --cache

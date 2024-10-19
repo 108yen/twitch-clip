@@ -1,3 +1,4 @@
+import cspellPlugin from "@cspell/eslint-plugin"
 import { fixupPluginRules } from "@eslint/compat"
 import eslint from "@eslint/js"
 import pluginNext from "@next/eslint-plugin-next"
@@ -36,7 +37,7 @@ const sourceFilePaths = {
 
 /** @type {Pick<TSESLintConfig, "name" | "ignores">} */
 const ignoreTSESConfig = {
-  ignores: [".next/**", "node_modules/**", "**/pnpm-lock.yaml",".eslintcache"],
+  ignores: [".next/**", "node_modules/**", "**/pnpm-lock.yaml", ".eslintcache"],
   name: "@twitch-clip/ignores/base",
 }
 
@@ -135,7 +136,7 @@ const typescriptTSESConfigArray = [
       // If you want to unify the type definition method to either `type` or `interface`, you can enable this rule.
       // https://typescript-eslint.io/rules/consistent-type-definitions
       "@typescript-eslint/consistent-type-definitions": "off",
-      "@typescript-eslint/no-empty-function":"off",
+      "@typescript-eslint/no-empty-function": "off",
       "@typescript-eslint/no-explicit-any": "off",
 
       "@typescript-eslint/no-inferrable-types": "off",
@@ -273,9 +274,27 @@ const sortTSESConfig = {
   files: sourceFilePaths.all,
   name: "@twitch-clip/sort/base",
   plugins: {
-    perfectionist
+    perfectionist,
   },
-  rules: perfectionist.configs['recommended-natural'].rules
+  rules: perfectionist.configs["recommended-natural"].rules,
+}
+
+/** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules" | "settings">} */
+const cspellConfig = {
+  files: sourceFilePaths.all,
+  name: "@twitch-clip-function/cspell/base",
+  plugins: {
+    "@cspell": cspellPlugin,
+  },
+  rules: {
+    "@cspell/spellchecker": [
+      "warn",
+      {
+        configFile: new URL("./cspell.json", import.meta.url).toString(),
+        cspell: {},
+      },
+    ],
+  },
 }
 
 export default tseslintConfig(
@@ -290,4 +309,5 @@ export default tseslintConfig(
   jsxA11yTSESConfig,
   prettierTSESConfig,
   sortTSESConfig,
+  cspellConfig,
 )
