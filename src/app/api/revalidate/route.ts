@@ -1,3 +1,4 @@
+import { isArray } from "@yamada-ui/react"
 import crypto from "crypto"
 import { revalidatePath } from "next/cache"
 import { NextRequest, NextResponse } from "next/server"
@@ -7,6 +8,23 @@ function generateSignature(data: string) {
     .createHmac(`sha256`, process.env.TWITCH_CLIP_FUNCTION_SIGNATURE as string)
     .update(data)
     .digest(`hex`)
+}
+
+function revalidatePaths(data: any) {
+  const paths: string[] = data.paths
+
+  if (!isArray(paths)) return
+
+  paths.forEach((path) => {
+    if (path == "/") {
+      revalidatePath("/", "page")
+      revalidatePath("/streamer/[id]", "page")
+    } else {
+      revalidatePath(path, "page")
+    }
+
+    console.log(`revalidate path: ${path}`)
+  })
 }
 
 export async function POST(req: NextRequest) {
@@ -22,7 +40,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 })
 
   try {
-    revalidatePath("/", "layout")
+    revalidatePaths(body)
 
     return NextResponse.json("Revalidated")
   } catch (error) {
