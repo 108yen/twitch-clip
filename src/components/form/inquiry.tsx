@@ -17,7 +17,7 @@ interface Inputs {
 export function Inquiry() {
   const notice = useNotice({ placement: "bottom-left" })
 
-  const { control, formState, handleSubmit, reset } = useForm<Inputs>({
+  const { control, handleSubmit, reset } = useForm<Inputs>({
     defaultValues: {
       inquiry: "",
     },
@@ -58,33 +58,35 @@ export function Inquiry() {
   }
 
   return (
-    <FormControl
-      errorMessage={
-        formState.errors.inquiry ? formState.errors.inquiry.message : undefined
-      }
-      isInvalid={!!formState.errors.inquiry}
+    <VStack
+      alignItems="center"
+      as="form"
+      gap="md"
       onKeyDown={(e) => checkKeyDown(e)}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <VStack alignItems="center" gap="md">
-        <Controller
-          control={control}
-          name="inquiry"
-          render={({ field }) => (
+      <Controller
+        control={control}
+        name="inquiry"
+        render={({ field, fieldState }) => (
+          <FormControl
+            errorMessage={fieldState.error?.message}
+            isInvalid={fieldState.invalid}
+          >
             <Textarea
               {...field}
               colorScheme="secondary"
               id="inquiry"
               rows={4}
             />
-          )}
-          rules={validationRules.inquiry}
-        />
+          </FormControl>
+        )}
+        rules={validationRules.inquiry}
+      />
 
-        <Button type="submit" variant="outline" w="fit-content">
-          問い合わせ
-        </Button>
-      </VStack>
-    </FormControl>
+      <Button type="submit" variant="outline" w="fit-content">
+        問い合わせ
+      </Button>
+    </VStack>
   )
 }
