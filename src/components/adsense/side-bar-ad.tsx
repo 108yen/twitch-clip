@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, BoxProps, Divider, Text } from "@yamada-ui/react"
+import { Box, BoxProps, Divider, Text, VStack } from "@yamada-ui/react"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
@@ -27,12 +27,12 @@ export function SideBarAD(props: BoxProps) {
       w="fit-content"
       {...props}
     >
-      <Box alignItems="center" position="relative">
+      <VStack alignItems="center" gap={0} position="relative">
         <Text textStyle="adsenseTitle">Advertisement</Text>
 
-        <Divider minW="2xs"/>
+        <Divider minW="2xs" />
 
-        <Box key={pathname} p={2} textAlign="center" w="fit-content">
+        <Box key={pathname} p={2} textAlign="center">
           <Box
             as="ins"
             className="adsbygoogle"
@@ -42,11 +42,13 @@ export function SideBarAD(props: BoxProps) {
             data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
             data-full-width-responsive="true"
             display="block"
+            minH="2xl"
+            minW="2xs"
             position="relative"
             top={0}
           />
         </Box>
-      </Box>
+      </VStack>
     </Box>
   )
 }

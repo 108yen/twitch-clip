@@ -12,8 +12,7 @@ export interface ClipProviderProps extends PropsWithChildren {
 
 const initialContext: ClipProviderProps = {
   clipDoc: new ClipDoc(),
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
-  setClipUrl: (_?: Clip) => {},
+  setClipUrl: () => {},
 }
 
 export const ClipContext = createContext<ClipProviderProps>(initialContext)

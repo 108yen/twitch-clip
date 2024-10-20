@@ -8,10 +8,12 @@ export async function postInquiry(body: string) {
   const inquiryDoc = db.collection("inquiries").doc("others").withConverter<{
     inquiry_array: Array<string>
   }>(inquiryConverter)
+
   try {
     await inquiryDoc.update({
       inquiry_array: admin.firestore.FieldValue.arrayUnion(body),
     })
+
     console.log(
       `info: post inquiry at ${new Date().toLocaleString("ja-JP", {
         timeZone: "Asia/Tokyo",
