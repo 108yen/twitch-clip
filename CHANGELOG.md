@@ -1,5 +1,13 @@
 # twitch-clip
 
+## 2.0.1
+
+### Patch Changes
+
+- [#229](https://github.com/108yen/twitch-clip/pull/229) [`f0bb765`](https://github.com/108yen/twitch-clip/commit/f0bb765776ccbce71b83e857057b15bf9f0f7181) Thanks [@108yen](https://github.com/108yen)! - Fixed bug that sidebar ad does not displayed.
+
+- [#223](https://github.com/108yen/twitch-clip/pull/223) [`0c98c7a`](https://github.com/108yen/twitch-clip/commit/0c98c7afbc56c98dbeaf97f69098de7e62c5460c) Thanks [@108yen](https://github.com/108yen)! - Fixed submit inquiry dont work.
+
 ## 2.0.0
 
 ### Major Changes
