@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   cacheMaxMemorySize: 1500 * 1024 * 1024, // 1.5G
-  eslint: {
-    //NOTE: use biome
-    ignoreDuringBuilds: true,
+  experimental: {
+    urlImports:["https://player.twitch.tv/js/embed/v1.js"]
   },
   images: {
     domains: ["clips-media-assets2.twitch.tv"],

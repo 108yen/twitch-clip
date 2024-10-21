@@ -37,6 +37,7 @@
     "TSES",
     "tseslint",
     "twitchclipsranking",
-    "typecheck"
+    "typecheck",
+    "volumelevel"
   ]
 }

@@ -1,6 +1,7 @@
 export * from "./channel-card"
 export * from "./clip-info"
 export * from "./clip-list-tabs"
+export * from "./player"
 export * from "./side-clip-list"
 export * from "./streamer-card"
 export * from "./streamer-info"
