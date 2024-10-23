@@ -1,4 +1,4 @@
-import GoogleAnalytics from "@/components/googleAnalytics/GoogleAnalytics"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
 import { FirebaseInitScript } from "@/firebase/client"
