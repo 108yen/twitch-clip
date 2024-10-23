@@ -1,6 +1,6 @@
 "use client"
 import { InlineAD } from "@/components/adsense"
-import { event } from "@/components/googleAnalytics"
+import { event } from "@/components/google-analytics"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"

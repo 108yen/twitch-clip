@@ -1,5 +1,5 @@
 "use client"
-import { event } from "@/components/googleAnalytics/gtag"
+import { event } from "@/components/google-analytics/gtag"
 import { postInquiry } from "@/firebase/server"
 import {
   Button,
