@@ -1,5 +1,6 @@
 import { TwitchLink } from "@/components/media-and-icons"
 import { Streamer } from "@/models/streamer"
+import { Ghost } from "@yamada-ui/lucide"
 import { Avatar, Heading, HStack, Spacer, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
 
@@ -22,10 +23,11 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
   return (
     <HStack gap={2} justifyContent="flex-start" w="full">
       <Avatar
-        alt="Top"
+        alt={display_name}
         aria-label="streamer page link"
         as={Link}
         href={`/streamer/${id}`}
+        icon={<Ghost />}
         prefetch={false}
         size="lg"
         src={profile_image_url}
