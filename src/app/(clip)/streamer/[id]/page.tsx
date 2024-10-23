@@ -5,7 +5,7 @@ import generateTemplateMetadata from "@/utils/generate-template-metadata"
 import { Metadata } from "next"
 
 export async function generateStaticParams() {
-  if (process.env.NEXT_PUBLIC_DEBUG_MODE == "1") return []
+  if (process.env.VERCEL_ENV != "production") return []
 
   const streamers = await getStreamers()
   return streamers.slice(0, 100).map((streamer) => ({ id: streamer.id }))

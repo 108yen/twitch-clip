@@ -25,9 +25,7 @@ export default async function RootLayout({
     <html lang="ja">
       <head>
         <Suspense>
-          <GoogleAnalytics
-            debugMode={process.env.NEXT_PUBLIC_DEBUG_MODE == "1"}
-          />
+          <GoogleAnalytics debugMode={process.env.VERCEL_ENV != "production"} />
           <Adsbygoogle />
         </Suspense>
       </head>
