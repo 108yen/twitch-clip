@@ -7,7 +7,7 @@ import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { formatDate } from "@/utils/string"
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
-import { SquareArrowOutUpRight } from "@yamada-ui/lucide"
+import { Ghost, SquareArrowOutUpRight } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
@@ -116,7 +116,8 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
             prefetch={false}
           >
             <Avatar
-              name={broadcaster_name}
+              alt={broadcaster_name}
+              icon={<Ghost />}
               size={{ base: "md", sm: "sm" }}
               src={profile_image_url}
             />
