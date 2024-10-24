@@ -7,17 +7,27 @@ on:
     branches:
       - release
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   release:
     name: release
 
-    permissions:
-      contents: write
-
     if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'changeset-release')
+
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,6 +48,7 @@ jobs:
 
       - name: Merge branch
         run: |
+          set -X
           git switch main
           git merge release
           git push
