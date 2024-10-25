@@ -48,7 +48,7 @@ jobs:
 
       - name: Merge branch
         run: |
-          set -X
+          set -x
           git switch main
           git merge release
           git push
