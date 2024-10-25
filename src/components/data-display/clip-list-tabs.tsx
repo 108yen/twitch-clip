@@ -177,7 +177,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const filteredClips = useMemo(
     () =>
       clips.slice(0, count).map((clip, index) =>
-        index == 10 ? (
+        index == 4 ? (
           <Box key={index}>
             <InlineAD display={{ base: "none", lg: "flex" }} />
             <ClipCard clip={clip} tab={tab} />
