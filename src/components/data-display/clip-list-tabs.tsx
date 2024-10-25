@@ -122,7 +122,7 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
               src={profile_image_url}
             />
 
-            <Text>{broadcaster_name}</Text>
+            <Text lineClamp={1}>{broadcaster_name}</Text>
           </HStack>
 
           <Text
