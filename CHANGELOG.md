@@ -1,5 +1,25 @@
 # twitch-clip
 
+## 2.1.0
+
+### Minor Changes
+
+- [#230](https://github.com/108yen/twitch-clip/pull/230) [`25447af`](https://github.com/108yen/twitch-clip/commit/25447afb65bf04535a119d600be1a0e72d0e9139) Thanks [@108yen](https://github.com/108yen)! - Added feature of revalidate paths according to received data from update function.
+
+### Patch Changes
+
+- [#233](https://github.com/108yen/twitch-clip/pull/233) [`f0e5251`](https://github.com/108yen/twitch-clip/commit/f0e52517a6cc0197b5d5ab9b7eaf5c24a3bbb3e3) Thanks [@108yen](https://github.com/108yen)! - Change used env to vercel default env.
+
+- [#234](https://github.com/108yen/twitch-clip/pull/234) [`d85a38f`](https://github.com/108yen/twitch-clip/commit/d85a38f37c50f708994047964a009959060dc63b) Thanks [@108yen](https://github.com/108yen)! - Set Avatar alt icon.
+
+- [`3218e8d`](https://github.com/108yen/twitch-clip/commit/3218e8dc6611ad1f01e9dab927169a708aff435b) Thanks [@108yen](https://github.com/108yen)! - Change display position of ad.
+
+- [`49b778f`](https://github.com/108yen/twitch-clip/commit/49b778ff22a4a9c0fab998215dc809625bd309ea) Thanks [@108yen](https://github.com/108yen)! - Update size of about page title.
+
+- [`e01f39e`](https://github.com/108yen/twitch-clip/commit/e01f39ed59994bbbc487f758a9e645918a3840b1) Thanks [@108yen](https://github.com/108yen)! - Fixed header menu does not close on select.
+
+- [`1b82290`](https://github.com/108yen/twitch-clip/commit/1b822905c2f498c78b9282570c701e5cdcce62f1) Thanks [@108yen](https://github.com/108yen)! - Fixed long streamer name overflow.
+
 ## 2.0.1
 
 ### Patch Changes
