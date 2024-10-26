@@ -16,11 +16,20 @@ function revalidatePaths(data: any) {
   if (!isArray(paths)) return
 
   paths.forEach((path) => {
-    if (path == "/") {
-      revalidatePath("/", "page")
-      revalidatePath("/streamer/[id]", "page")
-    } else {
-      revalidatePath(path, "page")
+    switch (path) {
+      case "/":
+        revalidatePath("/(clip)", "page")
+        revalidatePath("/(clip)/streamer/[id]", "page")
+        break
+      case "/daily":
+        revalidatePath("/(clip)/daily", "page")
+        break
+      case "/past":
+        revalidatePath("/(clip)/past", "page")
+        break
+      case "/streamers":
+        revalidatePath("/streamers", "page")
+        break
     }
 
     console.log(`revalidate path: ${path}`)
