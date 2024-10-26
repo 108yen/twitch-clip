@@ -11,6 +11,7 @@
     "compat",
     "CSSUI",
     "Depenencies",
+    "env",
     "firestore",
     "fontsource",
     "freeza",
@@ -37,6 +38,7 @@
     "TSES",
     "tseslint",
     "twitchclipsranking",
-    "typecheck"
+    "typecheck",
+    "vercel"
   ]
 }

@@ -24,7 +24,7 @@ export function About() {
   return (
     <Center>
       <VStack gap="2xl" maxW="5xl" p="md">
-        <Heading fontSize="6xl" textAlign="center" variant="h1">
+        <Heading size="3xl" textAlign="center" variant="h1">
           このサイトについて
         </Heading>
 

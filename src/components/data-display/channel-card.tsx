@@ -1,5 +1,6 @@
 import { TwitchLink } from "@/components/media-and-icons"
 import { Streamer } from "@/models/streamer"
+import { Ghost } from "@yamada-ui/lucide"
 import {
   Avatar,
   Container,
@@ -31,10 +32,11 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
     <Container apply="layoutStyles.borderCard" p="sm">
       <HStack gap={2} w="full">
         <Avatar
-          alt="top"
+          alt={display_name}
           aria-label="Streamer channel page link"
           as={Link}
           href={`/streamer/${id}`}
+          icon={<Ghost />}
           prefetch={false}
           src={profile_image_url}
         />

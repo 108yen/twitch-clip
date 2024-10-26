@@ -1,5 +1,5 @@
 "use client"
-import { event } from "@/components/googleAnalytics"
+import { event } from "@/components/google-analytics"
 import { SquareArrowOutUpRight } from "@yamada-ui/lucide"
 import { HStack, Link, Text } from "@yamada-ui/react"
 

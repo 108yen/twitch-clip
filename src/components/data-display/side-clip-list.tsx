@@ -1,11 +1,11 @@
 "use client"
 import { SideCardAD } from "@/components/adsense"
-import { event } from "@/components/googleAnalytics"
+import { event } from "@/components/google-analytics"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
-import { AlignJustify } from "@yamada-ui/lucide"
+import { AlignJustify, Ghost } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
@@ -75,9 +75,10 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
       <HStack>
         <Avatar
-          alt="top"
+          alt={broadcaster_name}
           as={Link}
           href={`/streamer/${broadcaster_id}`}
+          icon={<Ghost />}
           prefetch={false}
           src={profile_image_url}
         />
@@ -142,7 +143,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const filteredClips = useMemo(
     () =>
       clips.slice(0, count).map((clip, index) =>
-        index == 10 ? (
+        index == 2 ? (
           <Box key={index}>
             <SideCardAD />
             <ClipCard clip={clip} tab={tab} />
