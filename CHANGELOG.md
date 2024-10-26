@@ -1,5 +1,13 @@
 # twitch-clip
 
+## 2.1.1
+
+### Patch Changes
+
+- [#243](https://github.com/108yen/twitch-clip/pull/243) [`4d6e144`](https://github.com/108yen/twitch-clip/commit/4d6e14493799a2a4f135e332093607577f84ead2) Thanks [@108yen](https://github.com/108yen)! - Fixed revalidate path is wrong.
+
+- [#244](https://github.com/108yen/twitch-clip/pull/244) [`6ea47e2`](https://github.com/108yen/twitch-clip/commit/6ea47e24ece278791aa148ad2a95fe29fa941c34) Thanks [@108yen](https://github.com/108yen)! - Fixed a bug in mobile that display is shaken on scrolling after header menu opened.
+
 ## 2.1.0
 
 ### Minor Changes

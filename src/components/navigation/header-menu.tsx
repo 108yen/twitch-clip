@@ -15,19 +15,17 @@ import {
   Switch,
   Text,
   useColorMode,
-  useDisclosure,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { useId } from "react"
 
 export function HeaderMenu() {
   const id = useId()
-  const { isOpen, onClose, onOpen } = useDisclosure()
   const { colorMode, toggleColorMode } = useColorMode()
   const { version } = usePage()
 
   return (
-    <Menu isOpen={isOpen} onClose={onClose} onOpen={onOpen}>
+    <Menu>
       <MenuButton
         as={IconButton}
         icon={<EllipsisVertical fontSize="xl" />}
@@ -53,16 +51,14 @@ export function HeaderMenu() {
           </MenuItem>
 
           {CONSTANT.MENU.map(({ href, title }) => (
-            <MenuItem key={title}>
-              <Text
-                aria-label={title}
-                as={Link}
-                href={href}
-                onClick={() => onClose()}
-                prefetch={false}
-              >
-                {title}
-              </Text>
+            <MenuItem
+              aria-label={title}
+              as={Link}
+              href={href}
+              key={title}
+              prefetch={false}
+            >
+              {title}
             </MenuItem>
           ))}
 
