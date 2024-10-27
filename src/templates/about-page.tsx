@@ -1,5 +1,6 @@
 import { Inquiry } from "@/components/form"
 import { X } from "@/components/media-and-icons"
+import { DocumentLayout } from "@/layouts"
 import {
   Center,
   DecimalList,
@@ -22,8 +23,8 @@ import Link from "next/link"
 
 export function About() {
   return (
-    <Center>
-      <VStack gap="2xl" maxW="5xl" p="md">
+    <DocumentLayout>
+      <VStack gap="2xl">
         <Heading as="h1" size="3xl" textAlign="center">
           このサイトについて
         </Heading>
@@ -174,6 +175,7 @@ export function About() {
                 aria-label="google link"
                 as={Link}
                 href="https://policies.google.com/technologies/cookies?hl=ja"
+                target="_blank"
               >
                 GoogleによるCookieの利用方法
               </Text>
@@ -184,6 +186,7 @@ export function About() {
                 aria-label="google optout link"
                 as={Link}
                 href="https://support.google.com/analytics/answer/181881?hl=ja"
+                target="_blank"
               >
                 Google Analyticsのオプトアウト
               </Text>
@@ -205,6 +208,7 @@ export function About() {
               as={Link}
               display="inline"
               href="https://myadcenter.google.com/home?sasb=true&ref=ad-settings"
+              target="_blank"
             >
               広告の設定
             </Text>
@@ -231,6 +235,7 @@ export function About() {
               as={Link}
               gap={0}
               href="https://twitter.com/108yen___"
+              target="_blank"
             >
               <X fontSize="sm" />
               <Text>108yen</Text>
@@ -238,6 +243,6 @@ export function About() {
           </HStack>
         </Center>
       </VStack>
-    </Center>
+    </DocumentLayout>
   )
 }
