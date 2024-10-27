@@ -64,7 +64,7 @@ export function HeaderMenu() {
 
           <MenuDivider />
 
-          <MenuItem>
+          <MenuItem aria-label="リリースノート" as={Link} href="/release-note">
             <HStack w="full">
               <Text textStyle="version">version:</Text>
 
