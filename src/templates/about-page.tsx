@@ -24,12 +24,12 @@ export function About() {
   return (
     <Center>
       <VStack gap="2xl" maxW="5xl" p="md">
-        <Heading size="3xl" textAlign="center" variant="h1">
+        <Heading as="h1" size="3xl" textAlign="center">
           このサイトについて
         </Heading>
 
         <VStack>
-          <Heading variant="h2">1. はじめに</Heading>
+          <Heading as="h2">1. はじめに</Heading>
 
           <Divider />
 
@@ -72,7 +72,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading variant="h2">2. ランキングについて</Heading>
+          <Heading as="h2">2. ランキングについて</Heading>
 
           <Divider />
 
@@ -82,7 +82,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading variant="h2">3. コンテンツの更新頻度</Heading>
+          <Heading as="h2">3. コンテンツの更新頻度</Heading>
 
           <Divider />
 
@@ -127,7 +127,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading variant="h2">4. 禁止事項</Heading>
+          <Heading as="h2">4. 禁止事項</Heading>
 
           <Divider />
 
@@ -158,7 +158,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading variant="h2">5. Google Analytics</Heading>
+          <Heading as="h2">5. Google Analytics</Heading>
 
           <Divider />
 
@@ -192,7 +192,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading variant="h2">6. Google AdSense</Heading>
+          <Heading as="h2">6. Google AdSense</Heading>
 
           <Divider />
 
@@ -213,7 +213,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading variant="h2">7. お問い合わせ</Heading>
+          <Heading as="h2">7. お問い合わせ</Heading>
 
           <Divider />
 
