@@ -25,7 +25,6 @@ export function StreamerInfo() {
         as={Link}
         href={`/streamer/${broadcaster_id}`}
         icon={<Ghost />}
-        prefetch={false}
         src={profile_image_url}
       />
 
@@ -35,7 +34,6 @@ export function StreamerInfo() {
           as={Link}
           gap={1}
           href={`/streamer/${broadcaster_id}`}
-          prefetch={false}
         >
           <Text fontWeight="bold">{broadcaster_name}</Text>
 

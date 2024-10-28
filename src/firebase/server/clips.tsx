@@ -4,19 +4,15 @@ import {
   CollectionReference,
   DocumentReference,
 } from "firebase-admin/firestore"
+import { unstable_cache } from "next/cache"
 import { notFound } from "next/navigation"
 import { cache } from "react"
 
 import { clipDocConverter } from "./converters/clipDocConverter"
 
-// const getClips = unstable_cache(
-//   async (id) => uncached_getClips(id),
-//   ["get-clips"],
-//   {
-//     revalidate: 1200 //20minutes
-//   }
-// )
-const getClips = cache(async (id: string) => uncached_getClips(id))
+export const unstable_getClips = unstable_cache(uncached_getClips, ["clips"])
+
+export const getClips = cache(async (id: string) => uncached_getClips(id))
 
 async function uncached_getClips(id: string) {
   const clipColRef: CollectionReference<ClipDoc> = db
@@ -45,5 +41,3 @@ async function uncached_getClips(id: string) {
 
   return clipDoc
 }
-
-export default getClips
