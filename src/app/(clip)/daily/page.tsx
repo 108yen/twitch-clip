@@ -1,4 +1,4 @@
-import getClips from "@/firebase/server/clips"
+import { getClips } from "@/firebase/server"
 import { ClipPage } from "@/templates"
 
 export default async function PastRanking() {

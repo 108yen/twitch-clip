@@ -12,7 +12,7 @@ import { streamersConverter } from "./converters/streamersConverter"
 //   tags,
 //   revalidate: 10800, //3hours
 // })
-const getStreamers = cache(uncached_getStreamers)
+export const getStreamers = cache(uncached_getStreamers)
 
 async function uncached_getStreamers() {
   const streamersDocRef: DocumentReference<{
@@ -37,5 +37,3 @@ async function uncached_getStreamers() {
 
   return streamers
 }
-
-export default getStreamers
