@@ -1,3 +1,4 @@
+"use server"
 import { db } from "@/firebase/server/server"
 import { Streamer } from "@/models/streamer"
 import { DocumentReference } from "firebase-admin/firestore"

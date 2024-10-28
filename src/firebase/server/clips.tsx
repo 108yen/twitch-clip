@@ -1,3 +1,4 @@
+"use server"
 import { db } from "@/firebase/server/server"
 import { ClipDoc } from "@/models/clipDoc"
 import {
