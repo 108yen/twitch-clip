@@ -1,5 +1,23 @@
 # twitch-clip
 
+## 2.2.0
+
+### Minor Changes
+
+- [#251](https://github.com/108yen/twitch-clip/pull/251) [`3ed0862`](https://github.com/108yen/twitch-clip/commit/3ed08620bb2e6b00a6c5b0e8d9e893a552254efa) Thanks [@108yen](https://github.com/108yen)! - Added release note page.
+
+### Patch Changes
+
+- [#250](https://github.com/108yen/twitch-clip/pull/250) [`1997e5f`](https://github.com/108yen/twitch-clip/commit/1997e5fab9782e8cd80677cb546425b0a2e3dd5c) Thanks [@108yen](https://github.com/108yen)! - Fixed thumb of switch animate by unrelated layout changes.
+
+- [#248](https://github.com/108yen/twitch-clip/pull/248) [`8c8af72`](https://github.com/108yen/twitch-clip/commit/8c8af724bdcdeaa014dc192ead6b19dc5e1f1402) Thanks [@108yen](https://github.com/108yen)! - Change streamer channel page cache to data-cache. And enable prefetch to the page.
+
+- [#251](https://github.com/108yen/twitch-clip/pull/251) [`80a9e98`](https://github.com/108yen/twitch-clip/commit/80a9e984b8c500f6fdaa705a3711ef661461f31e) Thanks [@108yen](https://github.com/108yen)! - Fixed setting wrong html tag to heading components.
+
+- [#248](https://github.com/108yen/twitch-clip/pull/248) [`16fff9e`](https://github.com/108yen/twitch-clip/commit/16fff9eb44ee3fc36926feb86f2aa0768ace95e5) Thanks [@108yen](https://github.com/108yen)! - Prefetch optimization. Prefetch to completely static page.
+
+- [`7237e26`](https://github.com/108yen/twitch-clip/commit/7237e26037bee75b2a5f880451685ba59b3b7f60) Thanks [@108yen](https://github.com/108yen)! - Update metadata generation. Search streamer from constant data.
+
 ## 2.1.1
 
 ### Patch Changes
