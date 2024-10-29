@@ -89,7 +89,6 @@ export const Header = memo(
                   data-selected={dataAttr(pathname === href)}
                   href={href}
                   isTruncated
-                  prefetch={false}
                   textStyle="navigation"
                 >
                   {title}

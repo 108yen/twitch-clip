@@ -79,7 +79,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           as={Link}
           href={`/streamer/${broadcaster_id}`}
           icon={<Ghost />}
-          prefetch={false}
           src={profile_image_url}
         />
 
@@ -94,7 +93,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
               as={Link}
               href={`/streamer/${broadcaster_id}`}
               isTruncated
-              prefetch={false}
             >
               {broadcaster_name}
             </Text>

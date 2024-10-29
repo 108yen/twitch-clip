@@ -51,13 +51,7 @@ export function HeaderMenu() {
           </MenuItem>
 
           {CONSTANT.MENU.map(({ href, title }) => (
-            <MenuItem
-              aria-label={title}
-              as={Link}
-              href={href}
-              key={title}
-              prefetch={false}
-            >
+            <MenuItem aria-label={title} as={Link} href={href} key={title}>
               {title}
             </MenuItem>
           ))}
