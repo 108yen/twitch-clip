@@ -37,7 +37,6 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
           as={Link}
           href={`/streamer/${id}`}
           icon={<Ghost />}
-          prefetch={false}
           src={profile_image_url}
         />
 
@@ -51,7 +50,6 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
               fontWeight="semibold"
               href={`/streamer/${id}`}
               isTruncated
-              prefetch={false}
               variant="h5"
             >
               {display_name}
