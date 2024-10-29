@@ -28,7 +28,7 @@ export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
       />
 
       <InputRightElement w="fit-content">
-        <Text color="secondary.500" fontSize="2xl" >
+        <Text color="secondary.500" fontSize="2xl">
           {num}
         </Text>
       </InputRightElement>
