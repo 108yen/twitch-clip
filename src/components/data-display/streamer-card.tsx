@@ -28,7 +28,6 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
         as={Link}
         href={`/streamer/${id}`}
         icon={<Ghost />}
-        prefetch={false}
         size="lg"
         src={profile_image_url}
       />

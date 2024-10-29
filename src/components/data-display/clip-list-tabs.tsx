@@ -113,7 +113,6 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
             aria-label={broadcaster_name}
             as={Link}
             href={`/streamer/${broadcaster_id}`}
-            prefetch={false}
           >
             <Avatar
               alt={broadcaster_name}

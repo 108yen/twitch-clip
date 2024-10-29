@@ -51,20 +51,14 @@ export function HeaderMenu() {
           </MenuItem>
 
           {CONSTANT.MENU.map(({ href, title }) => (
-            <MenuItem
-              aria-label={title}
-              as={Link}
-              href={href}
-              key={title}
-              prefetch={false}
-            >
+            <MenuItem aria-label={title} as={Link} href={href} key={title}>
               {title}
             </MenuItem>
           ))}
 
           <MenuDivider />
 
-          <MenuItem>
+          <MenuItem aria-label="リリースノート" as={Link} href="/release-note">
             <HStack w="full">
               <Text textStyle="version">version:</Text>
 

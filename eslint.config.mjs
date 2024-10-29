@@ -282,6 +282,7 @@ const sortTSESConfig = {
 /** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules" | "settings">} */
 const cspellConfig = {
   files: sourceFilePaths.all,
+  ignores: ["src/constant/streamers.ts"],
   name: "@twitch-clip-function/cspell/base",
   plugins: {
     "@cspell": cspellPlugin,
@@ -290,8 +291,7 @@ const cspellConfig = {
     "@cspell/spellchecker": [
       "warn",
       {
-        configFile: new URL("./cspell.json", import.meta.url).toString(),
-        cspell: {},
+        configFile: "./cspell.json",
       },
     ],
   },
