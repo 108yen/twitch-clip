@@ -4,7 +4,6 @@ import { EllipsisVertical } from "@yamada-ui/lucide"
 import {
   HStack,
   IconButton,
-  Label,
   Menu,
   MenuButton,
   MenuDivider,
@@ -36,17 +35,16 @@ export function HeaderMenu() {
         <MenuList contentProps={{ zIndex: "burter" }}>
           <MenuItem closeOnSelect={false}>
             <HStack w="full">
-              <Label htmlFor={id} userSelect="none">
-                ダークモード
-              </Label>
-
-              <Spacer />
-
               <Switch
                 id={id}
                 isChecked={colorMode === "dark"}
+                isReverse
+                labelProps={{ w: "full" }}
                 onChange={toggleColorMode}
-              />
+                w="full"
+              >
+                ダークモード
+              </Switch>
             </HStack>
           </MenuItem>
 
