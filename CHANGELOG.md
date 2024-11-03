@@ -1,5 +1,15 @@
 # twitch-clip
 
+## 2.2.1
+
+### Patch Changes
+
+- [`de3eca9`](https://github.com/108yen/twitch-clip/commit/de3eca9a92586a7257affa17a61725333a890635) Thanks [@108yen](https://github.com/108yen)! - Adjustment of margin in tablet view.
+
+- [`f6933ba`](https://github.com/108yen/twitch-clip/commit/f6933ba656b9c6d0a362fb98c38390c6185dccaa) Thanks [@108yen](https://github.com/108yen)! - Change color mode switch to use default switch label.
+
+- [`50a5e49`](https://github.com/108yen/twitch-clip/commit/50a5e49f6b86cc6926ca1720043e76e0c36f94ff) Thanks [@108yen](https://github.com/108yen)! - Updated number of itmes to load in infinite scroll.
+
 ## 2.2.0
 
 ### Minor Changes
