@@ -1,4 +1,4 @@
-import { ThemeTokens } from "@yamada-ui/react";
+import { ThemeTokens } from "@yamada-ui/react"
 
 export const colors: ThemeTokens = {
   whaleShark: {

@@ -45,5 +45,5 @@ jobs:
         uses: changesets/action@v1
         with:
           branch: release
-        env :
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

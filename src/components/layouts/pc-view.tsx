@@ -19,8 +19,8 @@ export function PCView() {
 
   return (
     <Grid
-      gap="3xl"
-      marginX="3xl"
+      gap={{ base: "3xl", xl: "lg" }}
+      marginX={{ base: "3xl", xl: "lg" }}
       templateColumns="repeat(12, 1fr)"
     >
       <GridItem colSpan={9} w="full">
