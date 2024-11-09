@@ -57,7 +57,7 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
 
   return (
     <Container apply="layoutStyles.borderCard" p={0}>
-      <HStack gap={0}>
+      <HStack gap={0} overflow="hidden">
         <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
           <Image alt={title} loading="lazy" src={thumbnail_url} />
         </AspectRatio>
@@ -68,7 +68,7 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
           overflow="hidden"
           w="full"
         >
-          <HStack aria-label={title} overflow="hidden">
+          <HStack aria-label={title}>
             <Heading
               cursor="pointer"
               fontSize={{ base: "xl", sm: "lg" }}
@@ -82,6 +82,7 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
                   ranking_period: tab,
                 })
               }}
+              overflowWrap="anywhere"
               variant="h5"
             >
               {title}
@@ -112,6 +113,7 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
           <HStack
             aria-label={broadcaster_name}
             as={Link}
+            gap="xs"
             href={`/streamer/${broadcaster_id}`}
           >
             <Avatar
@@ -121,7 +123,9 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
               src={profile_image_url}
             />
 
-            <Text lineClamp={1}>{broadcaster_name}</Text>
+            <Text lineClamp={1} overflowWrap="anywhere">
+              {broadcaster_name}
+            </Text>
           </HStack>
 
           <Text
