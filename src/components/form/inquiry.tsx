@@ -1,6 +1,6 @@
 "use client"
 import { event } from "@/components/google-analytics/gtag"
-import { postInquiry } from "@/firebase/server"
+import { postInquiry } from "@/firebase/server/inquiry"
 import {
   Button,
   FormControl,
