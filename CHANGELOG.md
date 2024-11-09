@@ -1,5 +1,15 @@
 # twitch-clip
 
+## 2.2.2
+
+### Patch Changes
+
+- [`5492310`](https://github.com/108yen/twitch-clip/commit/5492310ba2a65a5dd7fd263383aeb77b6334955b) Thanks [@108yen](https://github.com/108yen)! - update ad position of side-clip-list
+
+- [#270](https://github.com/108yen/twitch-clip/pull/270) [`eb372a5`](https://github.com/108yen/twitch-clip/commit/eb372a56130e52123bcf86d2a6284cfd1df63850) Thanks [@108yen](https://github.com/108yen)! - Fixed bug caused by `【` in title. Added `overflow="anywhere"` to prevent overflow.
+
+- [#267](https://github.com/108yen/twitch-clip/pull/267) [`27f7211`](https://github.com/108yen/twitch-clip/commit/27f72113b48337e99345d14248af2414a582d571) Thanks [@108yen](https://github.com/108yen)! - Fixed server function imports.
+
 ## 2.2.1
 
 ### Patch Changes
