@@ -1,6 +1,6 @@
 {
   "name": "twitch-clip",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "private": true,
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee",
   "scripts": {
@@ -31,9 +31,10 @@
     "react": "^18.2.0",
     "react-dom": "18.3.1",
     "react-hook-form": "^7.48.2",
-    "typescript": "5.6.3"
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
+    "typescript": "5.6.3",
     "@actions/github": "^6.0.0",
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.8",
@@ -46,7 +47,7 @@
     "@next/eslint-plugin-next": "^15.0.0",
     "@types/gtag.js": "^0.0.20",
     "@types/mdx": "^2.0.13",
-    "@types/node": "22.8.7",
+    "@types/node": "22.9.0",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
