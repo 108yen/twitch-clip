@@ -141,7 +141,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const filteredClips = useMemo(
     () =>
       clips.slice(0, count).map((clip, index) =>
-        index == 2 ? (
+        index == 2 || (index != 0 && index % 20 == 0) ? (
           <Box key={index}>
             <SideCardAD />
             <ClipCard clip={clip} tab={tab} />
