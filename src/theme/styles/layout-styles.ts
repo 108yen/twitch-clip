@@ -4,7 +4,7 @@ export const layoutStyles: Dict<CSSUIObject> = {
   borderCard: {
     _hover: {
       bg: ["blackAlpha.50", "whiteAlpha.50"],
-      borderColor: "secondary.500",
+      borderColor: "primary.500",
     },
     border: "1px solid",
     borderColor: "border",

@@ -233,20 +233,14 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
 
   return (
     <>
-      <Tabs
-        align="center"
-        colorScheme="secondary"
-        index={index}
-        onChange={handleChange}
-        {...tabsProps}
-      >
+      <Tabs align="center" index={index} onChange={handleChange} {...tabsProps}>
         <TabList>
           {tabs.map((tab) => (
             <Tab
               _selected={{
                 borderColor: "currentColor",
                 borderWidth: "2px",
-                color: "secondary",
+                color: "primary.500",
               }}
               fontSize="sm"
               key={tab}
