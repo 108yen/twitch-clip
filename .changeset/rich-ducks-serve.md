@@ -2,4 +2,4 @@
 "twitch-clip": patch
 ---
 
-Updated `broderCard` styles.
+Updated `borderCard` styles.
