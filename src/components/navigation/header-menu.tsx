@@ -58,7 +58,7 @@ export function HeaderMenu() {
           <MenuItem closeOnSelect={false}>
             <Menu>
               <MenuItemButton>カラーモード</MenuItemButton>
-
+              {/* TODO: mobile nest menu is bug */}
               <MenuList>
                 <MenuOptionGroup
                   onChange={changeThemeScheme}
