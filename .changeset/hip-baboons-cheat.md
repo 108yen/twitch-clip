@@ -2,4 +2,4 @@
 "twitch-clip": minor
 ---
 
-Change `ChannelCard` to `LinkBox`.
+Changed `ChannelCard` and `ClipCard` to clickable.

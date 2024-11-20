@@ -1,4 +1,4 @@
-export class Clip {
+export interface Clip {
   broadcaster_follower_num?: number
   broadcaster_id?: string
   broadcaster_login?: string
@@ -18,8 +18,4 @@ export class Clip {
   video_id?: string
   view_count?: number
   vod_offset?: number
-
-  constructor(partial?: Partial<Clip>) {
-    Object.assign(this, partial)
-  }
 }
