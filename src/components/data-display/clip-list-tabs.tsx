@@ -7,7 +7,7 @@ import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { formatDate } from "@/utils/string"
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
-import { Ghost, SquareArrowOutUpRight } from "@yamada-ui/lucide"
+import { GhostIcon, SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
@@ -56,7 +56,20 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
   const view_count = `${_view_count?.toLocaleString()} views`
 
   return (
-    <Container apply="layoutStyles.borderCard" p={0}>
+    <Container
+      apply="layoutStyles.borderCard"
+      cursor="pointer"
+      onClick={() => {
+        setClipUrl(clip)
+        event("click", {
+          clip_title: title,
+          label: "click_clip_title",
+          link_url: url,
+          ranking_period: tab,
+        })
+      }}
+      p={0}
+    >
       <HStack gap={0} overflow="hidden">
         <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
           <Image alt={title} loading="lazy" src={thumbnail_url} />
@@ -70,18 +83,8 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
         >
           <HStack aria-label={title}>
             <Heading
-              cursor="pointer"
               fontSize={{ base: "xl", sm: "lg" }}
               lineClamp={1}
-              onClick={() => {
-                setClipUrl(clip)
-                event("click", {
-                  clip_title: title,
-                  label: "click_clip_title",
-                  link_url: url,
-                  ranking_period: tab,
-                })
-              }}
               overflowWrap="anywhere"
               variant="h5"
             >
@@ -93,15 +96,16 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
             <IconButton
               as={Link}
               href={clip.url ?? ""}
-              icon={<SquareArrowOutUpRight />}
-              onClick={() =>
+              icon={<SquareArrowOutUpRightIcon />}
+              onClick={(ev) => {
+                ev.stopPropagation()
                 event("click", {
                   clip_title: title,
                   label: "click_twitch_clip_link",
                   link_url: url,
                   ranking_period: tab,
                 })
-              }
+              }}
               style={{
                 textDecoration: "none",
               }}
@@ -115,10 +119,14 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
             as={Link}
             gap="xs"
             href={`/streamer/${broadcaster_id}`}
+            onClick={(ev) => {
+              ev.stopPropagation()
+            }}
+            w="fit-content"
           >
             <Avatar
               alt={broadcaster_name}
-              icon={<Ghost />}
+              icon={<GhostIcon />}
               size={{ base: "md", sm: "sm" }}
               src={profile_image_url}
             />
@@ -233,20 +241,14 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
 
   return (
     <>
-      <Tabs
-        align="center"
-        colorScheme="secondary"
-        index={index}
-        onChange={handleChange}
-        {...tabsProps}
-      >
+      <Tabs align="center" index={index} onChange={handleChange} {...tabsProps}>
         <TabList>
           {tabs.map((tab) => (
             <Tab
               _selected={{
                 borderColor: "currentColor",
                 borderWidth: "2px",
-                color: "secondary",
+                color: "primary.500",
               }}
               fontSize="sm"
               key={tab}

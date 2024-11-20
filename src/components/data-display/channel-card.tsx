@@ -1,11 +1,12 @@
 import { TwitchLink } from "@/components/media-and-icons"
 import { Streamer } from "@/models/streamer"
-import { Ghost } from "@yamada-ui/lucide"
+import { GhostIcon } from "@yamada-ui/lucide"
 import {
   Avatar,
-  Container,
   Heading,
   HStack,
+  LinkBox,
+  LinkOverlay,
   Spacer,
   Text,
   VStack,
@@ -29,30 +30,30 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
   const follower_num = `${_follower_num?.toLocaleString()} followers`
 
   return (
-    <Container apply="layoutStyles.borderCard" p="sm">
+    <LinkBox apply="layoutStyles.borderCard" as="article" p="sm">
       <HStack gap={2} w="full">
         <Avatar
           alt={display_name}
-          aria-label="Streamer channel page link"
-          as={Link}
-          href={`/streamer/${id}`}
-          icon={<Ghost />}
+          icon={<GhostIcon />}
           src={profile_image_url}
         />
 
         <VStack overflow="hidden" w="full">
           <HStack>
             <Heading
-              aria-label="streamer channel page link"
-              as={Link}
-              cursor="pointer"
               fontSize="xl"
               fontWeight="semibold"
-              href={`/streamer/${id}`}
               isTruncated
               variant="h5"
             >
-              {display_name}
+              <LinkOverlay
+                aria-label="Streamer channel page link"
+                as={Link}
+                href={`/streamer/${id}`}
+                isExternal
+              >
+                {display_name}
+              </LinkOverlay>
             </Heading>
 
             <Spacer />
@@ -67,6 +68,6 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
           </Text>
         </VStack>
       </HStack>
-    </Container>
+    </LinkBox>
   )
 }

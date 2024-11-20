@@ -5,14 +5,14 @@ import { Center, Loading, Tab, TabList, Tabs } from "@yamada-ui/react"
 export function ClipPageLoading() {
   return (
     <AppLayout>
-      <Tabs align="center" colorScheme="secondary">
+      <Tabs align="center">
         <TabList>
           {PERIODS.trend.map((tab) => (
             <Tab
               _selected={{
                 borderColor: "currentColor",
                 borderWidth: "2px",
-                color: "secondary",
+                color: "primary.500",
               }}
               fontSize="sm"
               key={tab}

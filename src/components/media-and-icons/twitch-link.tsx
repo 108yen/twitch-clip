@@ -1,6 +1,6 @@
 "use client"
 import { event } from "@/components/google-analytics"
-import { SquareArrowOutUpRight } from "@yamada-ui/lucide"
+import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import { HStack, Link, Text } from "@yamada-ui/react"
 
 interface TwitchLinkProps {
@@ -28,7 +28,7 @@ export function TwitchLink({ login, name }: TwitchLinkProps) {
     >
       <Text>Twitch</Text>
 
-      <SquareArrowOutUpRight />
+      <SquareArrowOutUpRightIcon />
     </HStack>
   )
 }
