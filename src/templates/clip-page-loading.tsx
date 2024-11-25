@@ -5,7 +5,7 @@ import { Center, Loading, Tab, TabList, Tabs } from "@yamada-ui/react"
 export function ClipPageLoading() {
   return (
     <AppLayout>
-      <Tabs align="center">
+      <Tabs align="center" index={0}>
         <TabList>
           {PERIODS.trend.map((tab) => (
             <Tab
