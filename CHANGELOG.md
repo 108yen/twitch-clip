@@ -1,5 +1,19 @@
 # twitch-clip
 
+## 2.3.0
+
+### Minor Changes
+
+- [#276](https://github.com/108yen/twitch-clip/pull/276) [`520994c`](https://github.com/108yen/twitch-clip/commit/520994c26faa20d7a387a87e6bb8b2a0ac13e47a) Thanks [@108yen](https://github.com/108yen)! - Changed `ChannelCard` and `ClipCard` to clickable.
+
+- [#284](https://github.com/108yen/twitch-clip/pull/284) [`c448f8f`](https://github.com/108yen/twitch-clip/commit/c448f8f75d5118861f4957b5f12594bf8420f6ce) Thanks [@108yen](https://github.com/108yen)! - Added ability of change color theme.
+
+### Patch Changes
+
+- [#276](https://github.com/108yen/twitch-clip/pull/276) [`188c388`](https://github.com/108yen/twitch-clip/commit/188c38859c370b89120383c3ba9da8109ebc12b3) Thanks [@108yen](https://github.com/108yen)! - Updated `borderCard` styles.
+
+- [#283](https://github.com/108yen/twitch-clip/pull/283) [`e6aae9e`](https://github.com/108yen/twitch-clip/commit/e6aae9e6ed869de0641e2a7c4a776cbf386aa5cf) Thanks [@108yen](https://github.com/108yen)! - Fixed display style of tabs being different when loaded.
+
 ## 2.2.2
 
 ### Patch Changes
