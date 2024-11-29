@@ -1,9 +1,10 @@
+import { STREAMERS } from "@/constant/streamers"
 import { streamersConverter } from "@/firebase/server/converters/streamersConverter"
 import { Streamer } from "@/models/streamer"
 import * as admin from "firebase-admin"
 import { DocumentReference } from "firebase-admin/firestore"
-import { writeFile } from "fs/promises"
 import "dotenv/config"
+import { writeFile } from "fs/promises"
 
 function getDB() {
   const serviceAccount = {
@@ -56,13 +57,26 @@ async function getStreamers() {
   return streamers
 }
 
+function getDiff(streamers: Streamer[]) {
+  const added = streamers
+    .filter(({ id }) => !STREAMERS.some(({ id: _id }) => id == _id))
+    .map(({ display_name }) => display_name)
+
+  const removed = STREAMERS.filter(
+    ({ id }) => !streamers.some(({ id: _id }) => id == _id),
+  ).map(({ display_name }) => display_name)
+
+  console.log(`Added streamers: ${added}\nRemoved streamers: ${removed}`)
+}
+
 async function main() {
   const streamers = await getStreamers()
 
   if (!streamers) return
 
-  const content = "export const STREAMERS = " + JSON.stringify(streamers)
+  getDiff(streamers)
 
+  const content = "export const STREAMERS = " + JSON.stringify(streamers)
   await writeFile("src/constant/streamers.ts", content)
 }
 

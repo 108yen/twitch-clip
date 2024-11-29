@@ -2,7 +2,7 @@ import { SideBarAD } from "@/components/adsense"
 import { Center, Grid, GridItem, SimpleGridProps } from "@yamada-ui/react"
 import { PropsWithChildren } from "react"
 
-interface AppLayoutProps extends SimpleGridProps, PropsWithChildren {}
+interface AppLayoutProps extends PropsWithChildren, SimpleGridProps {}
 
 export function AppLayout({ children, ...rest }: AppLayoutProps) {
   return (

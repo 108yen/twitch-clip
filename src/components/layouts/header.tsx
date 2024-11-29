@@ -65,7 +65,7 @@ export const Header = memo(
             textDecoration="none"
           >
             <HexagonOutlined
-              color="secondary"
+              color="primary"
               display={{ base: "flex", md: "none" }}
             />
             <Heading as="h1" fontSize="2xl" fontWeight="medium" isTruncated>
