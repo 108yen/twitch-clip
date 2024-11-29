@@ -2,6 +2,10 @@ import { CSSUIObject, Dict } from "@yamada-ui/react"
 
 export const layoutStyles: Dict<CSSUIObject> = {
   borderCard: {
+    _active: {
+      bg: ["blackAlpha.50", "whiteAlpha.50"],
+      borderColor: "primary.500",
+    },
     _hover: {
       bg: ["blackAlpha.50", "whiteAlpha.50"],
       borderColor: "primary.500",
