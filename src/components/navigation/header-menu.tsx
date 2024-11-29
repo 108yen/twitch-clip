@@ -1,19 +1,25 @@
 import { CONSTANT } from "@/constant"
+import { COLOR_SCHEMES } from "@/constant/color-schemes"
 import { usePage } from "@/contexts"
-import { EllipsisVertical } from "@yamada-ui/lucide"
+import { EllipsisVerticalIcon } from "@yamada-ui/lucide"
 import {
+  Box,
   HStack,
   IconButton,
   Menu,
   MenuButton,
   MenuDivider,
   MenuItem,
+  MenuItemButton,
   MenuList,
+  MenuOptionGroup,
+  MenuOptionItem,
   Portal,
   Spacer,
   Switch,
   Text,
   useColorMode,
+  useTheme,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { useId } from "react"
@@ -21,13 +27,14 @@ import { useId } from "react"
 export function HeaderMenu() {
   const id = useId()
   const { colorMode, toggleColorMode } = useColorMode()
+  const { changeThemeScheme, themeScheme } = useTheme()
   const { version } = usePage()
 
   return (
     <Menu>
       <MenuButton
         as={IconButton}
-        icon={<EllipsisVertical fontSize="xl" />}
+        icon={<EllipsisVerticalIcon fontSize="xl" />}
         variant="primary"
       />
 
@@ -46,6 +53,32 @@ export function HeaderMenu() {
                 ダークモード
               </Switch>
             </HStack>
+          </MenuItem>
+
+          <MenuItem closeOnSelect={false}>
+            <Menu placement={{ base: "left-start", sm: "bottom-end" }}>
+              <MenuItemButton>カラーモード</MenuItemButton>
+              <MenuList>
+                <MenuOptionGroup
+                  onChange={changeThemeScheme}
+                  type="radio"
+                  value={themeScheme}
+                >
+                  {COLOR_SCHEMES.map((value, index) => (
+                    <MenuOptionItem key={index} value={value}>
+                      <Box
+                        bg={`${value}.500`}
+                        boxShadow="inner"
+                        minH="6"
+                        minW="6"
+                        rounded="md"
+                      />
+                      {value}
+                    </MenuOptionItem>
+                  ))}
+                </MenuOptionGroup>
+              </MenuList>
+            </Menu>
           </MenuItem>
 
           {CONSTANT.MENU.map(({ href, title }) => (

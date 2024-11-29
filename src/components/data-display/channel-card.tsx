@@ -50,7 +50,6 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
                 aria-label="Streamer channel page link"
                 as={Link}
                 href={`/streamer/${id}`}
-                isExternal
               >
                 {display_name}
               </LinkOverlay>
