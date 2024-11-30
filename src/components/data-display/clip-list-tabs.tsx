@@ -7,11 +7,12 @@ import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { formatDate } from "@/utils/string"
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
-import { GhostIcon, SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
+import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
   Avatar,
+  AvatarProps,
   Box,
   Container,
   Heading,
@@ -21,23 +22,37 @@ import {
   InfiniteScrollArea,
   isArray,
   Loading,
+  SkeletonCircle,
   Spacer,
   Tab,
   TabList,
   Tabs,
   TabsProps,
   Text,
+  useBoolean,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { MutableRefObject, useMemo, useRef, useState } from "react"
+
+interface UIAvatarProps extends AvatarProps {}
+
+function UIAvatar(props: UIAvatarProps) {
+  const [avatarLoaded, { on: avatarOn }] = useBoolean()
+
+  return (
+    <SkeletonCircle isLoaded={avatarLoaded}>
+      <Avatar onLoad={avatarOn} {...props} />
+    </SkeletonCircle>
+  )
+}
 
 interface ClipCardProps {
   clip: Clip
   tab: string
 }
 
-export function ClipCard({ clip, tab }: ClipCardProps) {
+function ClipCard({ clip, tab }: ClipCardProps) {
   const { setClipUrl } = useClip()
 
   const {
@@ -124,9 +139,8 @@ export function ClipCard({ clip, tab }: ClipCardProps) {
             }}
             w="fit-content"
           >
-            <Avatar
+            <UIAvatar
               alt={broadcaster_name}
-              icon={<GhostIcon />}
               size={{ base: "md", sm: "sm" }}
               src={profile_image_url}
             />
