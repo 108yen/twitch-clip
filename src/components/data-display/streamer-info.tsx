@@ -1,7 +1,7 @@
 "use client"
 import { TwitchLink } from "@/components/media-and-icons"
 import { useClip } from "@/contexts"
-import { Ghost } from "@yamada-ui/lucide"
+import { GhostIcon } from "@yamada-ui/lucide"
 import { Avatar, HStack, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
 
@@ -24,7 +24,7 @@ export function StreamerInfo() {
         alt={broadcaster_name}
         as={Link}
         href={`/streamer/${broadcaster_id}`}
-        icon={<Ghost />}
+        icon={<GhostIcon />}
         src={profile_image_url}
       />
 
