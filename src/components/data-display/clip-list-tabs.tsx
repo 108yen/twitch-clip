@@ -132,7 +132,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           <HStack
             aria-label={broadcaster_name}
             as={Link}
-            gap="xs"
+            gap="sm"
             href={`/streamer/${broadcaster_id}`}
             onClick={(ev) => {
               ev.stopPropagation()

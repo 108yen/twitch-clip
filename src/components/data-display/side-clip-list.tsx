@@ -5,7 +5,7 @@ import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
-import { AlignJustify, Ghost } from "@yamada-ui/lucide"
+import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
@@ -14,13 +14,13 @@ import {
   Button,
   Container,
   createdDom,
-  Divider,
   HStack,
   InfiniteScrollArea,
   Loading,
   NativeImage,
   Select,
   SelectItem,
+  Separator,
   Spacer,
   Text,
   Tooltip,
@@ -77,9 +77,11 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         <Avatar
           alt={broadcaster_name}
           as={Link}
+          h={10}
           href={`/streamer/${broadcaster_id}`}
-          icon={<Ghost />}
+          icon={<GhostIcon />}
           src={profile_image_url}
+          w={10}
         />
 
         <VStack gap={0} overflow="hidden" w="full">
@@ -199,11 +201,11 @@ export function SideClipTabs() {
   }
 
   return (
-    <VStack divider={<Divider />} gap={0}>
+    <VStack divider={<Separator />} gap={0}>
       <HStack>
         <Tooltip label="リスト表示にもどる" placement="top">
           <Button
-            leftIcon={<AlignJustify />}
+            leftIcon={<AlignJustifyIcon />}
             onClick={() => {
               setClipUrl(undefined)
               event("click", {
