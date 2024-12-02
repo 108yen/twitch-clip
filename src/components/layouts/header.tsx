@@ -8,11 +8,11 @@ import {
   Center,
   CenterProps,
   dataAttr,
-  Divider,
   forwardRef,
   Heading,
   HStack,
   mergeRefs,
+  Separator,
   Spacer,
   Text,
   Tooltip,
@@ -73,7 +73,7 @@ export const Header = memo(
             </Heading>
           </HStack>
 
-          <Divider
+          <Separator
             borderColor={["blackAlpha.300", "whiteAlpha.300"]}
             display={{ base: "flex", md: "none" }}
             h="7xs"

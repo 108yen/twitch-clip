@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Divider, StackProps, Text, VStack } from "@yamada-ui/react"
+import { Box, Separator, StackProps, Text, VStack } from "@yamada-ui/react"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
@@ -22,7 +22,7 @@ export function SideCardAD(props: StackProps) {
     <VStack gap={0} {...props}>
       <Text textStyle="adsenseTitle">Advertisement</Text>
 
-      <Divider />
+      <Separator />
 
       <Box key={pathname} p={2} textAlign="center">
         <Box

@@ -132,7 +132,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           <HStack
             aria-label={broadcaster_name}
             as={Link}
-            gap="xs"
+            gap="sm"
             href={`/streamer/${broadcaster_id}`}
             onClick={(ev) => {
               ev.stopPropagation()
@@ -181,11 +181,17 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
 interface ClipListProps {
   clips: Clip[]
+  index: number
   resetRef: MutableRefObject<() => void>
   tab: string
 }
 
-function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
+function ClipList({
+  clips,
+  index: tabIndex,
+  resetRef: resetRefProp,
+  tab,
+}: ClipListProps) {
   const [count, setCount] = useState<number>(CLIP_LIST.START_INDEX)
 
   const resetRef = useRef<() => void>(() => {})
@@ -202,7 +208,8 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const filteredClips = useMemo(
     () =>
       clips.slice(0, count).map((clip, index) =>
-        index == 4 ? (
+        (index == 4 && tabIndex == 0) ||
+        (index == CLIP_LIST.START_INDEX && tabIndex != 0) ? (
           <Box key={index}>
             <InlineAD display={{ base: "none", lg: "flex" }} />
             <ClipCard clip={clip} tab={tab} />
@@ -211,7 +218,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
           <ClipCard clip={clip} key={index} tab={tab} />
         ),
       ),
-    [clips, count, tab],
+    [clips, count, tab, tabIndex],
   )
 
   return (
@@ -283,14 +290,20 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
         withControls={false}
         withIndicators={false}
       >
-        {tabs.map((tab) => {
+        {tabs.map((tab, index) => {
           const clips = clipDoc?.[tab]
 
           if (!isArray(clips)) return
 
           return (
             <CarouselSlide key={tab}>
-              <ClipList clips={clips} key={tab} resetRef={resetRef} tab={tab} />
+              <ClipList
+                clips={clips}
+                index={index}
+                key={tab}
+                resetRef={resetRef}
+                tab={tab}
+              />
             </CarouselSlide>
           )
         })}

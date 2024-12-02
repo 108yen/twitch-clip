@@ -4,12 +4,12 @@ import { DocumentLayout } from "@/layouts"
 import {
   Center,
   DecimalList,
-  Divider,
   Heading,
   HStack,
   List,
   ListItem,
   NativeTable,
+  Separator,
   TableContainer,
   Tbody,
   Td,
@@ -32,7 +32,7 @@ export function About() {
         <VStack>
           <Heading as="h2">1. はじめに</Heading>
 
-          <Divider />
+          <Separator />
 
           <Text>
             当サイトは日本語配信者のTwitchのクリップをランキング形式でまとめた非公式サイトです。各ランキング100件までクリップがリストされます。より多くのクリップを視聴したい場合やチャンネルの分析をしたい場合は以下のサイトを利用ください。
@@ -75,7 +75,7 @@ export function About() {
         <VStack>
           <Heading as="h2">2. ランキングについて</Heading>
 
-          <Divider />
+          <Separator />
 
           <Text>
             本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、100件表示可能です。
@@ -85,7 +85,7 @@ export function About() {
         <VStack>
           <Heading as="h2">3. コンテンツの更新頻度</Heading>
 
-          <Divider />
+          <Separator />
 
           <Text>
             当サイトのコンテンツは、定期的に更新されます。更新頻度については、事前の予告なく変更される場合があります。具体的な更新頻度は以下を参照してください。
@@ -130,7 +130,7 @@ export function About() {
         <VStack>
           <Heading as="h2">4. 禁止事項</Heading>
 
-          <Divider />
+          <Separator />
 
           <Text>当サイトの利用に際して、以下の行為は禁止とします。</Text>
 
@@ -161,7 +161,7 @@ export function About() {
         <VStack>
           <Heading as="h2">5. Google Analytics</Heading>
 
-          <Divider />
+          <Separator />
 
           <Text>
             サイトの利用状況を把握するために、Google
@@ -197,7 +197,7 @@ export function About() {
         <VStack>
           <Heading as="h2">6. Google AdSense</Heading>
 
-          <Divider />
+          <Separator />
 
           <Text>
             当サイトでは、広告提供の一環としてGoogle
@@ -219,7 +219,7 @@ export function About() {
         <VStack>
           <Heading as="h2">7. お問い合わせ</Heading>
 
-          <Divider />
+          <Separator />
 
           <Inquiry />
         </VStack>

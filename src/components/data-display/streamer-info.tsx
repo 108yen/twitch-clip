@@ -19,7 +19,7 @@ export function StreamerInfo() {
   const followers = `${broadcaster_follower_num?.toLocaleString()} followers`
 
   return (
-    <HStack gap={1}>
+    <HStack>
       <Avatar
         alt={broadcaster_name}
         as={Link}

@@ -16,6 +16,20 @@ export const layoutStyles: Dict<CSSUIObject> = {
     overflow: "hidden",
     transition: "0.2s ease",
   },
+  player: {
+    _active: {
+      borderColor: "primary.500",
+    },
+    _hover: {
+      borderColor: "primary.500",
+    },
+    bg: ["white", "black"],
+    border: { base: "1px solid", sm: "none" },
+    borderColor: "border",
+    borderRadius: { base: "md", sm: "none" },
+    overflow: "hidden",
+    transition: "0.2s ease",
+  },
   scrollArea: {
     _scrollbar: {
       display: "auto",
