@@ -40,9 +40,10 @@ export function MobileView() {
   return (
     <VStack gap={1}>
       <AspectRatio
-        apply="layoutStyles.borderCard"
+        apply="layoutStyles.player"
         position="sticky"
         ratio={16 / 9}
+        top={0}
         w="full"
         zIndex="jeice"
       >
