@@ -1,5 +1,13 @@
 # twitch-clip
 
+## 2.3.1
+
+### Patch Changes
+
+- [#291](https://github.com/108yen/twitch-clip/pull/291) [`481d2bd`](https://github.com/108yen/twitch-clip/commit/481d2bd62f08914565545cd109e0e46ede65244e) Thanks [@108yen](https://github.com/108yen)! - Update `Avatar` display when loading state.
+
+- [#291](https://github.com/108yen/twitch-clip/pull/291) [`d6f4929`](https://github.com/108yen/twitch-clip/commit/d6f49293190084f0cf133162f484776fbfa22877) Thanks [@108yen](https://github.com/108yen)! - Fixed iframe background color is `transparent` on loading. Added `Skelton`.
+
 ## 2.3.0
 
 ### Minor Changes

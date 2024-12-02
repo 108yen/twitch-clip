@@ -33,6 +33,12 @@
       "groupName": "eslint",
       "matchPackageNames": ["/eslint/"],
       "automerge": true
+    },
+    {
+      "groupName": "package manager",
+      "labels": ["pnpm"],
+      "matchPackageNames": ["/pnpm/"],
+      "automerge": true
     }
   ]
 }
