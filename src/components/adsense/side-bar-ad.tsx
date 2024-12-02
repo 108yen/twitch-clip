@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, BoxProps, Divider, Text, VStack } from "@yamada-ui/react"
+import { Box, BoxProps, Separator, Text, VStack } from "@yamada-ui/react"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
 
@@ -30,7 +30,7 @@ export function SideBarAD(props: BoxProps) {
       <VStack alignItems="center" gap={0} position="relative">
         <Text textStyle="adsenseTitle">Advertisement</Text>
 
-        <Divider minW="2xs" />
+        <Separator minW="2xs" />
 
         <Box key={pathname} p={2} textAlign="center">
           <Box

@@ -201,17 +201,17 @@ export function SideClipTabs() {
   }
 
   return (
-    <VStack divider={<Separator />} gap={0}>
+    <VStack gap={0} separator={<Separator />}>
       <HStack>
         <Tooltip label="リスト表示にもどる" placement="top">
           <Button
-            leftIcon={<AlignJustifyIcon />}
             onClick={() => {
               setClipUrl(undefined)
               event("click", {
                 label: "click_return_to_list_view",
               })
             }}
+            startIcon={<AlignJustifyIcon />}
             variant="link"
           >
             clips
