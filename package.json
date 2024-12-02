@@ -4,7 +4,8 @@
   "private": true,
   "packageManager": "pnpm@9.14.4+sha512.c8180b3fbe4e4bca02c94234717896b5529740a6cbadf19fa78254270403ea2f27d4e1d46a08a0f56c89b63dc8ebfd3ee53326da720273794e6200fcf0d184ab",
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"pnpm firestore:emulators\" \"pnpm next dev\"",
+    "firestore:emulators": "firebase emulators:start --project=twitch-clip-66e5b --only firestore --import data/2024-12-02T041612_35880",
     "scan": "pnpm dlx react-scan@latest localhost:3000",
     "build": "next build",
     "postbuild": "next-sitemap",
@@ -35,7 +36,6 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "typescript": "5.7.2",
     "@actions/github": "^6.0.0",
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.8",
@@ -53,6 +53,7 @@
     "@types/react-dom": "18.3.1",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
+    "concurrently": "^9.1.0",
     "cspell": "^8.14.2",
     "dotenv": "^16.4.5",
     "eslint": "^9.10.0",
@@ -64,11 +65,13 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "firebase-tools": "^13.27.0",
     "globals": "^15.9.0",
     "lefthook": "^1.7.14",
     "prettier": "^3.0.3",
     "svelte-eslint-parser": "^0.43.0",
     "tsx": "^4.19.2",
+    "typescript": "5.7.2",
     "typescript-eslint": "^8.0.1"
   }
 }
