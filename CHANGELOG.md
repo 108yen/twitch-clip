@@ -1,5 +1,17 @@
 # twitch-clip
 
+## 2.3.2
+
+### Patch Changes
+
+- [#297](https://github.com/108yen/twitch-clip/pull/297) [`6edd04e`](https://github.com/108yen/twitch-clip/commit/6edd04e0d015cbf8caddd7380de7577de4d1a666) Thanks [@108yen](https://github.com/108yen)! - Updated `Avatar` style.
+
+- [#297](https://github.com/108yen/twitch-clip/pull/297) [`a3bb94e`](https://github.com/108yen/twitch-clip/commit/a3bb94e949466792a79e77c7d3400fcfc8f481ab) Thanks [@108yen](https://github.com/108yen)! - Updated mobile player style.
+
+- [#297](https://github.com/108yen/twitch-clip/pull/297) [`8e5984f`](https://github.com/108yen/twitch-clip/commit/8e5984fe3cc1daf901a4f2e97e8fba7caecfde6b) Thanks [@108yen](https://github.com/108yen)! - Fixed bug that prevented ads from being displayed. Change position to display ads when changed mobile-view.
+
+- [#297](https://github.com/108yen/twitch-clip/pull/297) [`0cd9a83`](https://github.com/108yen/twitch-clip/commit/0cd9a832bbf5ed469dc8666d4ab3df0121175fdf) Thanks [@108yen](https://github.com/108yen)! - Revocation of display skeleton with loading `iframe`.
+
 ## 2.3.1
 
 ### Patch Changes

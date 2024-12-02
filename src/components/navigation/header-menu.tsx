@@ -8,12 +8,12 @@ import {
   IconButton,
   Menu,
   MenuButton,
-  MenuDivider,
   MenuItem,
   MenuItemButton,
   MenuList,
   MenuOptionGroup,
   MenuOptionItem,
+  MenuSeparator,
   Portal,
   Spacer,
   Switch,
@@ -87,7 +87,7 @@ export function HeaderMenu() {
             </MenuItem>
           ))}
 
-          <MenuDivider />
+          <MenuSeparator />
 
           <MenuItem aria-label="リリースノート" as={Link} href="/release-note">
             <HStack w="full">
