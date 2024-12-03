@@ -1,4 +1,5 @@
 export const COLOR_SCHEMES = [
+  "mono",
   "whaleShark",
   "gray",
   "neutral",
