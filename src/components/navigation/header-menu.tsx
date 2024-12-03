@@ -43,6 +43,7 @@ export function HeaderMenu() {
           <MenuItem closeOnSelect={false}>
             <HStack w="full">
               <Switch
+                colorScheme="blue"
                 id={id}
                 isChecked={colorMode === "dark"}
                 isReverse
