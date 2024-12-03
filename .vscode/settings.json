@@ -20,6 +20,6 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "npm.packageManager": "pnpm",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.preferences.importModuleSpecifier": "non-relative"
+  "typescript.enablePromptUseWorkspaceTsdk": true
+  // "typescript.preferences.importModuleSpecifier": "non-relative"
 }

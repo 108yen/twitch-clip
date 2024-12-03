@@ -1,4 +1,4 @@
-import { PERIODS } from "@/constant/periods"
+import { CONSTANT } from "@/constant"
 import { AppLayout } from "@/layouts"
 import { Center, Loading, Tab, TabList, Tabs } from "@yamada-ui/react"
 
@@ -7,7 +7,7 @@ export function ClipPageLoading() {
     <AppLayout>
       <Tabs align="center" index={0}>
         <TabList>
-          {PERIODS.trend.map((tab) => (
+          {CONSTANT.PERIODS.trend.map((tab) => (
             <Tab
               _selected={{
                 borderColor: "currentColor",
