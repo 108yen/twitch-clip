@@ -12,7 +12,10 @@ import { clientApp } from "./client"
 
 export function FirebaseInitScript() {
   useEffect(() => {
-    if (typeof document !== "undefined") {
+    if (
+      typeof document !== "undefined" &&
+      process.env.VERCEL_ENV == "production"
+    ) {
       // Performance monitoring
       getPerformance(clientApp)
 
