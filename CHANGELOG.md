@@ -1,5 +1,11 @@
 # twitch-clip
 
+## 2.4.0
+
+### Minor Changes
+
+- [#299](https://github.com/108yen/twitch-clip/pull/299) [`f1580db`](https://github.com/108yen/twitch-clip/commit/f1580dba82a9073ee8d5dcc008082ef6a98c837d) Thanks [@108yen](https://github.com/108yen)! - Added `mono` colorScheme.
+
 ## 2.3.2
 
 ### Patch Changes
