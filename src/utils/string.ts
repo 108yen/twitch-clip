@@ -1,3 +1,5 @@
+import { toNumber } from "@yamada-ui/react"
+
 export function formatDate(value: string) {
   const date = new Date(value)
 
@@ -13,4 +15,36 @@ export function formatDate(value: string) {
 
   const formattedDate = new Intl.DateTimeFormat("ja-JP", options).format(date)
   return formattedDate
+}
+
+/**
+ * Compare number for use sort.
+ * @param a
+ * @param b
+ * @returns b-a
+ */
+export function compareNumber(a: string, b: string): number {
+  return toNumber(b) - toNumber(a)
+}
+
+/**
+ * Compare date for sort.
+ * @param a String like `10/4`
+ * @param b String like `9/1`
+ * @returns If b after a, return 1. If reverse return -1.
+ */
+export function compareDate(a: string, b: string): number {
+  const [monthA, dayA] = a.split("/").map(toNumber)
+  const [monthB, dayB] = b.split("/").map(toNumber)
+
+  if (monthA == 12 && monthB == 1) return 1
+  if (monthA == 1 && monthB == 12) return -1
+
+  if (monthA < monthB) return 1
+  if (monthA > monthB) return -1
+
+  if (dayA < dayB) return 1
+  if (dayA > dayB) return -1
+
+  return 0
 }

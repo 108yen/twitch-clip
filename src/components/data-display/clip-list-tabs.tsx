@@ -141,7 +141,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           >
             <UIAvatar
               alt={broadcaster_name}
-              size={{ base: "md", sm: "sm" }}
+              size={{ base: "base", sm: "sm" }}
               src={profile_image_url}
             />
 
