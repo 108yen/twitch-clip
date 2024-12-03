@@ -77,11 +77,10 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         <Avatar
           alt={broadcaster_name}
           as={Link}
-          h={10}
           href={`/streamer/${broadcaster_id}`}
           icon={<GhostIcon />}
+          size="base"
           src={profile_image_url}
-          w={10}
         />
 
         <VStack gap={0} overflow="hidden" w="full">
