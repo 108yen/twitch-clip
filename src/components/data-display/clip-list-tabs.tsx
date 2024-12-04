@@ -260,9 +260,17 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
     resetRef.current()
   }
 
+  if (tabs.length == 0) return <Text textAlign="center">no clips</Text>
+
   return (
     <>
-      <Tabs align="center" index={index} onChange={handleChange} {...tabsProps}>
+      <Tabs
+        align="center"
+        defaultIndex={0}
+        index={index}
+        onChange={handleChange}
+        {...tabsProps}
+      >
         <TabList>
           {tabs.map((tab) => (
             <Tab
