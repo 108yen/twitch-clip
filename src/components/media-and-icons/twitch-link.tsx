@@ -1,5 +1,5 @@
 "use client"
-import { event } from "@/components/google-analytics"
+import { sendGAEvent } from "@next/third-parties/google"
 import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import { HStack, Link, Text } from "@yamada-ui/react"
 
@@ -17,7 +17,7 @@ export function TwitchLink({ login, name }: TwitchLinkProps) {
       gap={1}
       href={"https://www.twitch.tv/" + login}
       onClick={() => {
-        event("click", {
+        sendGAEvent("click", {
           channel_title: name,
           label: "click_twitch_channel",
           link_url: "https://www.twitch.tv/" + login,

@@ -1,5 +1,5 @@
 "use client"
-import { event } from "@/components/google-analytics/gtag"
+import { sendGAEvent } from "@next/third-parties/google"
 import {
   getToken,
   initializeAppCheck,
@@ -26,7 +26,7 @@ export function FirebaseInitScript() {
       })
 
       getToken(appCheck).catch((error) => {
-        event("error", {
+        sendGAEvent("error", {
           label: "app_check_error",
           value: error,
         })

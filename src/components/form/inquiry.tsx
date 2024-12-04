@@ -1,6 +1,6 @@
 "use client"
-import { event } from "@/components/google-analytics/gtag"
 import { postInquiry } from "@/firebase/server/inquiry"
+import { sendGAEvent } from "@next/third-parties/google"
 import {
   Button,
   FormControl,
@@ -31,7 +31,7 @@ export function Inquiry() {
   }
 
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
-    event("click", {
+    sendGAEvent("click", {
       label: "post_inquiry",
     })
     const result = await postInquiry(data.inquiry)

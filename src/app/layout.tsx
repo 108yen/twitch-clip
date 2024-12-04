@@ -1,4 +1,3 @@
-import { GoogleAnalytics } from "@/components/google-analytics"
 import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
 import { FirebaseInitScript } from "@/firebase/client"
@@ -7,6 +6,7 @@ import { Adsbygoogle } from "@/utils/adsense"
 import generateTemplateMetadata from "@/utils/generate-template-metadata"
 import { getVersion } from "@/utils/next"
 import { YamadaUIScripts } from "@/utils/yamada-ui-scripts"
+import { GoogleAnalytics } from "@next/third-parties/google"
 import { UIProvider } from "@yamada-ui/react"
 import { ReactNode, Suspense } from "react"
 
@@ -25,7 +25,6 @@ export default async function RootLayout({
     <html lang="ja">
       <head>
         <Suspense>
-          <GoogleAnalytics debugMode={process.env.VERCEL_ENV != "production"} />
           <Adsbygoogle />
         </Suspense>
       </head>
@@ -41,6 +40,10 @@ export default async function RootLayout({
           </UIProvider>
         </PageProvider>
       </body>
+      <GoogleAnalytics
+        debugMode={process.env.VERCEL_ENV != "production"}
+        gaId={process.env.NEXT_PUBLIC_GA_ID ?? ""}
+      />
     </html>
   )
 }
