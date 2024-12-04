@@ -14,7 +14,7 @@ export function getTabs(clipDoc: ClipDoc | undefined) {
 
   const tabArray: string[] = []
 
-  if (keys.every((key) => CONSTANT.PERIODS.trend.includes(key))) {
+  if (keys.some((key) => CONSTANT.PERIODS.trend.includes(key))) {
     tabArray.push(...CONSTANT.PERIODS.trend)
   } else if (keys.every((key) => yearKeysReg.test(key))) {
     tabArray.push(...keys.sort(compareNumber))

@@ -7,7 +7,15 @@ import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { splitClipDoc } from "@/utils/clip"
-import { createdDom, Tab, Tabs, useWindowEvent, VStack } from "@yamada-ui/react"
+import {
+  createdDom,
+  Tab,
+  TabList,
+  TabPanel,
+  Tabs,
+  useWindowEvent,
+  VStack,
+} from "@yamada-ui/react"
 import { useMemo, useState } from "react"
 
 interface StreamerClipPageProps {
@@ -42,18 +50,22 @@ export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
           <VStack gap="md" mt="md" w="full">
             <StreamerCard streamer={streamer!} />
 
-            <Tabs
-              color={["blackAlpha.600", "whiteAlpha.600"]}
-              colorScheme="neutral"
-              index={index}
-              onChange={onChange}
-              w="fit-content"
-            >
-              <Tab value="trend">Trend</Tab>
-              <Tab value="history">History</Tab>
-            </Tabs>
+            <Tabs colorScheme="neutral" index={index} onChange={onChange}>
+              <TabList
+                color={["blackAlpha.600", "whiteAlpha.600"]}
+                w="fit-content"
+              >
+                <Tab value="trend">Trend</Tab>
+                <Tab value="history">History</Tab>
+              </TabList>
 
-            <ClipListTabs />
+              <TabPanel>
+                <ClipListTabs />
+              </TabPanel>
+              <TabPanel>
+                <ClipListTabs />
+              </TabPanel>
+            </Tabs>
           </VStack>
         </AppLayout>
       ) : width < 600 ? (
