@@ -101,7 +101,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             <Spacer />
 
             <Text
-              aria-describedby="Clip view count"
+              aria-label="Clip view count"
               isTruncated
               textAlign="end"
               textStyle="viewCount"

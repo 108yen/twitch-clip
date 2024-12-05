@@ -1,4 +1,4 @@
-import { Search } from "@yamada-ui/lucide"
+import { SearchIcon } from "@yamada-ui/lucide"
 import {
   Input,
   InputGroup,
@@ -17,10 +17,12 @@ export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
   return (
     <InputGroup>
       <InputLeftElement>
-        <Search />
+        <SearchIcon />
       </InputLeftElement>
 
       <Input
+        aria-label="Text form for search streamers"
+        focusBorderColor="primary.500"
         onChange={(ev) => onChange(ev.target.value)}
         placeholder="search"
         type="text"
@@ -28,7 +30,11 @@ export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
       />
 
       <InputRightElement w="fit-content">
-        <Text color="primary.500" fontSize="2xl">
+        <Text
+          aria-label="Number of hit streamers"
+          color="primary.500"
+          fontSize="2xl"
+        >
           {num}
         </Text>
       </InputRightElement>
