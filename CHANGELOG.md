@@ -1,5 +1,17 @@
 # twitch-clip
 
+## 2.4.1
+
+### Patch Changes
+
+- [#307](https://github.com/108yen/twitch-clip/pull/307) [`2a4e391`](https://github.com/108yen/twitch-clip/commit/2a4e39103bfbff2cab307a48306050cea07b2141) Thanks [@108yen](https://github.com/108yen)! - Change color of search input to `primary.500`.
+
+- [#305](https://github.com/108yen/twitch-clip/pull/305) [`5806005`](https://github.com/108yen/twitch-clip/commit/58060056d611f581fedb8342ea8fba10570f69c2) Thanks [@108yen](https://github.com/108yen)! - Fixed trend ranking is not displayed when there is no all ranking.
+
+- [#305](https://github.com/108yen/twitch-clip/pull/305) [`3d75a92`](https://github.com/108yen/twitch-clip/commit/3d75a92be705c29914080c0d167a790c93d5131c) Thanks [@108yen](https://github.com/108yen)! - Fixed tab index is not reset when `History` and `Trend` tab switch in `StreamerClipPage`.
+
+- [#302](https://github.com/108yen/twitch-clip/pull/302) [`9c3a7cd`](https://github.com/108yen/twitch-clip/commit/9c3a7cd32600b99b2b9fac5a036d96de1ff00eca) Thanks [@108yen](https://github.com/108yen)! - Added `base` style to `Avatar`.
+
 ## 2.4.0
 
 ### Minor Changes
