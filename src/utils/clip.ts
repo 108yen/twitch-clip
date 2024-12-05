@@ -1,43 +1,30 @@
+import { CONSTANT } from "@/constant"
 import { ClipDoc } from "@/models/clipDoc"
 import { splitObject } from "@yamada-ui/react"
+
+import { compareDate, compareNumber } from "./string"
+
+const yearKeysReg = /^\d{4}$/
+const dailyKeysReg = /^(1[0-2]|0?[1-9])\/(3[01]|[12][0-9]|0?[1-9])$/
 
 export function getTabs(clipDoc: ClipDoc | undefined) {
   if (!clipDoc) return []
 
-  const defaultArray: Array<string> = [
-    "day", //
-    "week",
-    "month",
-    "year",
-    "all",
-  ]
-  const currentYear = new Date().getFullYear()
-  const tabArray: Array<string> = []
-  for (const key in defaultArray) {
-    const element = defaultArray[key]
-    if (clipDoc[element] != undefined) {
-      tabArray.push(element)
-    }
-  }
-  for (let year = currentYear - 1; year >= 2016; year--) {
-    if (clipDoc[year.toString()] != undefined) {
-      tabArray.push(year.toString())
-    }
-  }
-  const today = new Date()
-  for (let daysAgo = 1; daysAgo < 8; daysAgo++) {
-    const targetDay = new Date(today.getTime() - daysAgo * 24 * 60 * 60 * 1000)
-    const key = `${targetDay.getMonth() + 1}/${targetDay.getDate()}`
-    if (clipDoc[key] != undefined) {
-      tabArray.push(key)
-    }
+  const keys = Object.keys(clipDoc).filter((value) => value != "streamerInfo")
+
+  const tabArray: string[] = []
+
+  if (keys.some((key) => CONSTANT.PERIODS.trend.includes(key))) {
+    tabArray.push(...CONSTANT.PERIODS.trend)
+  } else if (keys.every((key) => yearKeysReg.test(key))) {
+    tabArray.push(...keys.sort(compareNumber))
+  } else if (keys.every((key) => dailyKeysReg.test(key))) {
+    tabArray.push(...keys.sort(compareDate))
   }
 
   return tabArray
 }
 
 export function splitClipDoc(clipDoc: ClipDoc) {
-  const trendKeys = ["day", "week", "month", "year", "all"]
-
-  return splitObject(clipDoc, trendKeys) as ClipDoc[]
+  return splitObject(clipDoc, CONSTANT.PERIODS.trend) as ClipDoc[]
 }
