@@ -4,7 +4,7 @@ import { SearchChannel } from "@/components/form"
 import { AppLayout } from "@/layouts"
 import { Streamer } from "@/models/streamer"
 import { VStack } from "@yamada-ui/react"
-import { useMemo, useState } from "react"
+import { useDeferredValue, useMemo, useState } from "react"
 
 interface StreamersProps {
   streamers: Streamer[]
@@ -12,15 +12,16 @@ interface StreamersProps {
 
 export function Streamers({ streamers }: StreamersProps) {
   const [text, setText] = useState("")
+  const deferredText = useDeferredValue(text)
 
   const filteredChannels = useMemo(
     () =>
       streamers.filter(
         (streamer) =>
-          streamer.display_name?.includes(text) ||
-          streamer.login?.includes(text),
+          streamer.display_name?.includes(deferredText) ||
+          streamer.login?.includes(deferredText),
       ),
-    [streamers, text],
+    [streamers, deferredText],
   )
 
   return (
