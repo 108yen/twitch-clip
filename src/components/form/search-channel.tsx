@@ -7,13 +7,13 @@ import {
   Text,
 } from "@yamada-ui/react"
 
+import { CountUp } from "../transitions"
+
 interface SearchChannelProps {
   num: number
   onChange: (value: string) => void
 }
 export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
-  const num = `${_num} channels`
-
   return (
     <InputGroup>
       <InputLeftElement>
@@ -35,7 +35,7 @@ export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
           color="primary.500"
           fontSize="2xl"
         >
-          {num}
+          <CountUp count={_num} /> channels
         </Text>
       </InputRightElement>
     </InputGroup>

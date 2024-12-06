@@ -73,7 +73,12 @@ export function Inquiry() {
             errorMessage={fieldState.error?.message}
             isInvalid={fieldState.invalid}
           >
-            <Textarea {...field} colorScheme="primary" id="inquiry" rows={4} />
+            <Textarea
+              {...field}
+              focusBorderColor="primary.500"
+              id="inquiry"
+              rows={4}
+            />
           </FormControl>
         )}
         rules={validationRules.inquiry}
