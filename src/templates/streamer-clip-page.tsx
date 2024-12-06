@@ -59,10 +59,10 @@ export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
                 <Tab value="history">History</Tab>
               </TabList>
 
-              <TabPanel>
+              <TabPanel paddingX={0} paddingY="md">
                 <ClipListTabs />
               </TabPanel>
-              <TabPanel>
+              <TabPanel paddingX={0} paddingY="md">
                 <ClipListTabs />
               </TabPanel>
             </Tabs>
