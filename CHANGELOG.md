@@ -1,5 +1,17 @@
 # twitch-clip
 
+## 2.4.2
+
+### Patch Changes
+
+- [#311](https://github.com/108yen/twitch-clip/pull/311) [`bd2a6a6`](https://github.com/108yen/twitch-clip/commit/bd2a6a6b7a7d0b66628f5df587ae1a4236b82b83) Thanks [@108yen](https://github.com/108yen)! - Fixed unexpected padding in `TabPanel`.
+
+- [#311](https://github.com/108yen/twitch-clip/pull/311) [`e7537e2`](https://github.com/108yen/twitch-clip/commit/e7537e22e38e4c0c5933428fe148c2c93bfc6982) Thanks [@108yen](https://github.com/108yen)! - Use `useDeferredValue` for search streamers. User input is not block, because deferred value is delay rerendering during user input.
+
+- [#311](https://github.com/108yen/twitch-clip/pull/311) [`b64875f`](https://github.com/108yen/twitch-clip/commit/b64875f8549c45f2edd11f3bce496b4095eb819e) Thanks [@108yen](https://github.com/108yen)! - Added `CountUp` component and updated hit channel num to `CountUp`.
+
+- [#311](https://github.com/108yen/twitch-clip/pull/311) [`54d90e1`](https://github.com/108yen/twitch-clip/commit/54d90e177f1b9e1b0f2832cdca32c82c72d3d2f0) Thanks [@108yen](https://github.com/108yen)! - Update focus borde color of inquiry form.
+
 ## 2.4.1
 
 ### Patch Changes
