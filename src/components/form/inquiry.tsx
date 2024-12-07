@@ -8,6 +8,7 @@ import {
   useNotice,
   VStack,
 } from "@yamada-ui/react"
+import { KeyboardEvent } from "react"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
 interface Inputs {
@@ -51,7 +52,7 @@ export function Inquiry() {
     }
   }
 
-  const checkKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const checkKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter") {
       e.preventDefault()
     }
@@ -62,7 +63,7 @@ export function Inquiry() {
       alignItems="center"
       as="form"
       gap="md"
-      onKeyDown={(e) => checkKeyDown(e)}
+      onKeyDown={checkKeyDown}
       onSubmit={handleSubmit(onSubmit)}
     >
       <Controller

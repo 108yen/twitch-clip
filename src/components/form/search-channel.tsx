@@ -6,6 +6,7 @@ import {
   InputRightElement,
   Text,
 } from "@yamada-ui/react"
+import { ChangeEvent } from "react"
 
 import { CountUp } from "../transitions"
 
@@ -23,7 +24,9 @@ export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
       <Input
         aria-label="Text form for search streamers"
         focusBorderColor="primary.500"
-        onChange={(ev) => onChange(ev.target.value)}
+        onChange={(ev: ChangeEvent<HTMLInputElement>) =>
+          onChange(ev.target.value)
+        }
         placeholder="search"
         type="text"
         variant="flushed"

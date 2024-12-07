@@ -33,7 +33,7 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { MutableRefObject, useMemo, useRef, useState } from "react"
+import { RefObject, useMemo, useRef, useState } from "react"
 
 interface UIAvatarProps extends AvatarProps {}
 
@@ -112,7 +112,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
               as={Link}
               href={clip.url ?? ""}
               icon={<SquareArrowOutUpRightIcon />}
-              onClick={(ev) => {
+              onClick={(ev: MouseEvent) => {
                 ev.stopPropagation()
                 event("click", {
                   clip_title: title,
@@ -134,7 +134,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             as={Link}
             gap="sm"
             href={`/streamer/${broadcaster_id}`}
-            onClick={(ev) => {
+            onClick={(ev: MouseEvent) => {
               ev.stopPropagation()
             }}
             w="fit-content"
@@ -182,7 +182,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 interface ClipListProps {
   clips: Clip[]
   index: number
-  resetRef: MutableRefObject<() => void>
+  resetRef: RefObject<() => void>
   tab: string
 }
 

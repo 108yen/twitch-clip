@@ -1,6 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  cacheMaxMemorySize: 1500 * 1024 * 1024, // 1.5G
+import { NextConfig } from "next"
+
+const nextConfig: NextConfig = {
+  cacheMaxMemorySize: 1572864000, // 1.5G = 1500 * 1024 * 1024
   eslint: {
     //NOTE: use biome
     ignoreDuringBuilds: true,
@@ -11,4 +12,4 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+export default nextConfig

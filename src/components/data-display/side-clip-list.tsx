@@ -12,12 +12,14 @@ import {
   Avatar,
   Box,
   Button,
+  ButtonProps,
   Container,
   createdDom,
   HStack,
   InfiniteScrollArea,
   Loading,
   NativeImage,
+  noop,
   Select,
   SelectItem,
   Separator,
@@ -28,7 +30,7 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { MutableRefObject, useMemo, useRef, useState } from "react"
+import { RefObject, useMemo, useRef, useState } from "react"
 
 type ClipCardProps = {
   clip: Clip
@@ -117,14 +119,14 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
 type ClipListProps = {
   clips: Clip[]
-  resetRef: MutableRefObject<() => void>
+  resetRef: RefObject<() => void>
   tab: string
 }
 
 function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const [count, setCount] = useState<number>(CLIP_LIST.START_INDEX)
-  const rootRef = useRef<HTMLDivElement>(null)
-  const resetRef = useRef<() => void>(() => {})
+  const rootRef = useRef<HTMLDivElement>(undefined!)
+  const resetRef = useRef<() => void>(noop)
 
   let height = createdDom() ? window.innerHeight - 112 : 0
 
@@ -199,22 +201,28 @@ export function SideClipTabs() {
     resetRef.current()
   }
 
+  //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
+  const tooltipProps: any = {
+    label: "リスト表示にもどる",
+    placement: "top",
+  }
+
+  const buttonProps: ButtonProps = {
+    onClick: () => {
+      setClipUrl(undefined)
+      event("click", {
+        label: "click_return_to_list_view",
+      })
+    },
+    startIcon: <AlignJustifyIcon />,
+    variant: "link",
+  }
+
   return (
     <VStack gap={0} separator={<Separator />}>
       <HStack>
-        <Tooltip label="リスト表示にもどる" placement="top">
-          <Button
-            onClick={() => {
-              setClipUrl(undefined)
-              event("click", {
-                label: "click_return_to_list_view",
-              })
-            }}
-            startIcon={<AlignJustifyIcon />}
-            variant="link"
-          >
-            clips
-          </Button>
+        <Tooltip {...tooltipProps}>
+          <Button {...buttonProps}>clips</Button>
         </Tooltip>
 
         <Spacer />
