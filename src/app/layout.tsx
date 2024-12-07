@@ -22,14 +22,14 @@ export default async function RootLayout({
   const version = await getVersion()
 
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <head>
         <Suspense>
           <GoogleAnalytics debugMode={process.env.VERCEL_ENV != "production"} />
           <Adsbygoogle />
         </Suspense>
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <FirebaseInitScript />
 
         <YamadaUIScripts />
