@@ -11,7 +11,7 @@ import {
 import { useMemo, useRef, useState } from "react"
 
 export function MobileView() {
-  const tabsRef = useRef<HTMLDivElement>()
+  const tabsRef = useRef<HTMLDivElement>(undefined)
   const { currentClip } = useClip()
   const y = useScrollY()
   const [width, setWidth] = useState(window?.innerWidth ?? 0)
