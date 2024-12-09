@@ -34,7 +34,7 @@ export const CountUp: FC<CountUpProps> = memo(
     }, [count, maxCount])
 
     return (
-      <Motion as="span" {...rest}>
+      <Motion as="span" {...(rest as any)}>
         {rounded}
       </Motion>
     )

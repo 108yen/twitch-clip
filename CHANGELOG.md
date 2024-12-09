@@ -1,5 +1,15 @@
 # twitch-clip
 
+## 2.5.0
+
+### Minor Changes
+
+- [#317](https://github.com/108yen/twitch-clip/pull/317) [`9a74bd5`](https://github.com/108yen/twitch-clip/commit/9a74bd512a10bd27e4366b66b698df3e0a452132) Thanks [@108yen](https://github.com/108yen)! - Upgrade Next.js version to 15.
+
+### Patch Changes
+
+- [`8431a28`](https://github.com/108yen/twitch-clip/commit/8431a286be019da74a76947057e5c9486b530664) Thanks [@108yen](https://github.com/108yen)! - Fixed bug that prevented GA from collecting data on page transitions.
+
 ## 2.4.2
 
 ### Patch Changes

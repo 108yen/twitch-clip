@@ -1,6 +1,6 @@
 "use client"
 import { InlineAD } from "@/components/adsense"
-import { event } from "@/components/google-analytics"
+import { gaEvent } from "@/components/google-analytics"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
@@ -33,7 +33,7 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { MutableRefObject, useMemo, useRef, useState } from "react"
+import { RefObject, useMemo, useRef, useState } from "react"
 
 interface UIAvatarProps extends AvatarProps {}
 
@@ -76,7 +76,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
       cursor="pointer"
       onClick={() => {
         setClipUrl(clip)
-        event("click", {
+        gaEvent("click", {
           clip_title: title,
           label: "click_clip_title",
           link_url: url,
@@ -112,9 +112,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
               as={Link}
               href={clip.url ?? ""}
               icon={<SquareArrowOutUpRightIcon />}
-              onClick={(ev) => {
+              onClick={(ev: MouseEvent) => {
                 ev.stopPropagation()
-                event("click", {
+                gaEvent("click", {
                   clip_title: title,
                   label: "click_twitch_clip_link",
                   link_url: url,
@@ -134,7 +134,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             as={Link}
             gap="sm"
             href={`/streamer/${broadcaster_id}`}
-            onClick={(ev) => {
+            onClick={(ev: MouseEvent) => {
               ev.stopPropagation()
             }}
             w="fit-content"
@@ -182,7 +182,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 interface ClipListProps {
   clips: Clip[]
   index: number
-  resetRef: MutableRefObject<() => void>
+  resetRef: RefObject<() => void>
   tab: string
 }
 
@@ -232,7 +232,7 @@ function ClipList({
 
         if (index * CLIP_LIST.LOAD_INDEX + 6 >= clips.length) {
           finish()
-          event("scroll", {
+          gaEvent("scroll", {
             label: "load_all_clips",
           })
         }

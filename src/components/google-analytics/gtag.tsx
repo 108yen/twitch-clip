@@ -10,7 +10,7 @@ type EventOptions = Record<string, unknown> & {
   value?: number
 }
 
-export const event = (
+export const gaEvent = (
   action: string,
   {
     category,

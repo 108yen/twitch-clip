@@ -1,5 +1,5 @@
 "use client"
-import { event } from "@/components/google-analytics/gtag"
+import { gaEvent } from "@/components/google-analytics/gtag"
 import { postInquiry } from "@/firebase/server/inquiry"
 import {
   Button,
@@ -8,6 +8,7 @@ import {
   useNotice,
   VStack,
 } from "@yamada-ui/react"
+import { KeyboardEvent } from "react"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
 interface Inputs {
@@ -31,7 +32,7 @@ export function Inquiry() {
   }
 
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
-    event("click", {
+    gaEvent("click", {
       label: "post_inquiry",
     })
     const result = await postInquiry(data.inquiry)
@@ -51,7 +52,7 @@ export function Inquiry() {
     }
   }
 
-  const checkKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const checkKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter") {
       e.preventDefault()
     }
@@ -62,7 +63,7 @@ export function Inquiry() {
       alignItems="center"
       as="form"
       gap="md"
-      onKeyDown={(e) => checkKeyDown(e)}
+      onKeyDown={checkKeyDown}
       onSubmit={handleSubmit(onSubmit)}
     >
       <Controller
