@@ -112,15 +112,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
               as={Link}
               href={clip.url ?? ""}
               icon={<SquareArrowOutUpRightIcon />}
-              onClick={(ev: MouseEvent) => {
-                ev.stopPropagation()
-                gaEvent("click", {
-                  clip_title: title,
-                  label: "click_twitch_clip_link",
-                  link_url: url,
-                  ranking_period: tab,
-                })
-              }}
               style={{
                 textDecoration: "none",
               }}

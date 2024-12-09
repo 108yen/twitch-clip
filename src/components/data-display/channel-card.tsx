@@ -57,7 +57,7 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
 
             <Spacer />
 
-            <TwitchLink login={login} name={display_name} />
+            <TwitchLink login={login} />
           </HStack>
 
           <Text textStyle="description">{description}</Text>
