@@ -1,5 +1,11 @@
 # twitch-clip
 
+## 2.5.1
+
+### Patch Changes
+
+- [`b58dbc7`](https://github.com/108yen/twitch-clip/commit/b58dbc7f54660439621a4a60269e556445d47160) Thanks [@108yen](https://github.com/108yen)! - Fixed wrong GA `page_view` parameter.
+
 ## 2.5.0
 
 ### Minor Changes

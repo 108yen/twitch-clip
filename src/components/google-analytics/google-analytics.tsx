@@ -1,23 +1,10 @@
 "use client"
 
-import { usePathname } from "next/navigation"
 import Script from "next/script"
-import { useEffect } from "react"
 
-import { GA_MEASUREMENT_ID, gaEvent } from "./gtag"
+import { GA_MEASUREMENT_ID } from "./gtag"
 
 export function GoogleAnalytics({ debugMode = false }: { debugMode: boolean }) {
-  const path = usePathname()
-
-  useEffect(
-    () =>
-      gaEvent("page_view", {
-        page_location: path,
-        page_title: document.title,
-      }),
-    [path],
-  )
-
   return (
     <>
       <Script
@@ -30,8 +17,6 @@ export function GoogleAnalytics({ debugMode = false }: { debugMode: boolean }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}', {
-                page_path: window.location.pathname,
-                send_page_view: false,
                 ${debugMode ? `debug_mode: ${debugMode},` : ""}
             });
         `}

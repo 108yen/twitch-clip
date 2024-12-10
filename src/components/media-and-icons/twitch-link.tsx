@@ -1,14 +1,12 @@
 "use client"
-import { gaEvent } from "@/components/google-analytics"
 import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import { HStack, Link, Text } from "@yamada-ui/react"
 
 interface TwitchLinkProps {
   login?: string
-  name?: string
 }
 
-export function TwitchLink({ login, name }: TwitchLinkProps) {
+export function TwitchLink({ login }: TwitchLinkProps) {
   return (
     <HStack
       aria-label="twitch channel page link"
@@ -16,13 +14,6 @@ export function TwitchLink({ login, name }: TwitchLinkProps) {
       color={["black", "white"]}
       gap={1}
       href={"https://www.twitch.tv/" + login}
-      onClick={() => {
-        gaEvent("click", {
-          channel_title: name,
-          label: "click_twitch_channel",
-          link_url: "https://www.twitch.tv/" + login,
-        })
-      }}
       target="_blank"
       textDecoration="none"
     >

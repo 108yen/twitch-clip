@@ -45,7 +45,7 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
 
           <Spacer />
 
-          <TwitchLink login={login} name={display_name} />
+          <TwitchLink login={login} />
         </HStack>
 
         <Text textStyle="description">{description}</Text>

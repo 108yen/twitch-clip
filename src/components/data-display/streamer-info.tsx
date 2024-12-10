@@ -40,7 +40,7 @@ export function StreamerInfo() {
           <Text textStyle="follower">{followers}</Text>
         </VStack>
 
-        <TwitchLink login={broadcaster_login} name={broadcaster_name} />
+        <TwitchLink login={broadcaster_login} />
       </HStack>
     </HStack>
   )
