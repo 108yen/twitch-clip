@@ -1,10 +1,10 @@
 "use client"
 import { SideCardAD } from "@/components/adsense"
-import { gaEvent } from "@/components/google-analytics"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
+import { sendGAEvent } from "@next/third-parties/google"
 import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
@@ -54,7 +54,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
   function onClick() {
     setClipUrl(clip)
-    gaEvent("click", {
+    sendGAEvent("event", "click", {
       clip_title: title,
       label: "click_clip_title",
       link_url: url,
@@ -167,7 +167,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
 
           if (index * CLIP_LIST.LOAD_INDEX + 6 >= clips.length) {
             finish()
-            gaEvent("scroll", {
+            sendGAEvent("event", "scroll", {
               label: "load_all_clips",
             })
           }
@@ -210,7 +210,7 @@ export function SideClipTabs() {
   const buttonProps: ButtonProps = {
     onClick: () => {
       setClipUrl(undefined)
-      gaEvent("click", {
+      sendGAEvent("event", "click", {
         label: "click_return_to_list_view",
       })
     },

@@ -1,11 +1,11 @@
 "use client"
 import { InlineAD } from "@/components/adsense"
-import { gaEvent } from "@/components/google-analytics"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { formatDate } from "@/utils/string"
+import { sendGAEvent } from "@next/third-parties/google"
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
 import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
@@ -76,7 +76,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
       cursor="pointer"
       onClick={() => {
         setClipUrl(clip)
-        gaEvent("click", {
+        sendGAEvent("event", "click", {
           clip_title: title,
           label: "click_clip_title",
           link_url: url,
@@ -223,7 +223,7 @@ function ClipList({
 
         if (index * CLIP_LIST.LOAD_INDEX + 6 >= clips.length) {
           finish()
-          gaEvent("scroll", {
+          sendGAEvent("event", "scroll", {
             label: "load_all_clips",
           })
         }
