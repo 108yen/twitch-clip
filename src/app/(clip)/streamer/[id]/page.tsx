@@ -15,7 +15,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const streamer = STREAMERS.find(({ id: _id }) => _id == id)
 
   if (!streamer) {
-    return generateTemplateMetadata({ caption: "****" })
+    return generateTemplateMetadata({ caption: "unkonow" })
   }
 
   return generateTemplateMetadata({ caption: streamer.display_name })
