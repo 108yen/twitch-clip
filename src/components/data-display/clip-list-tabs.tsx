@@ -96,7 +96,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           overflow="hidden"
           w="full"
         >
-          <HStack aria-label={title}>
+          <HStack aria-label={title} gap={0}>
             <Heading
               fontSize={{ base: "xl", sm: "lg" }}
               lineClamp={1}

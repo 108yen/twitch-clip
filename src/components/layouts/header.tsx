@@ -51,7 +51,7 @@ export function Header({ ref, ...rest }: HeaderProps) {
       {...rest}
     >
       <HStack
-        gap="lg"
+        gap={0}
         px={{ base: "lg", lg: "md" }}
         py={{ base: "3", sm: "2" }}
         w="full"
@@ -76,6 +76,7 @@ export function Header({ ref, ...rest }: HeaderProps) {
           borderColor={["blackAlpha.300", "whiteAlpha.300"]}
           display={{ base: "flex", md: "none" }}
           h="7xs"
+          marginX="lg"
           orientation="vertical"
         />
 
