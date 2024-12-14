@@ -31,8 +31,10 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
       aria-label="Favorite button"
       colorScheme="primary"
       disabled={isPending}
-      icon={<StarIcon />}
+      fullRounded
+      icon={<StarIcon fontSize="lg" />}
       onClick={handleClick}
+      size="sm"
       variant="ghost"
     />
   )
