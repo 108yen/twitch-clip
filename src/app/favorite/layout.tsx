@@ -8,6 +8,6 @@ export function generateMetadata() {
   })
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
   return <section>{children}</section>
 }
