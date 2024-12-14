@@ -3,8 +3,8 @@ import { ReactNode } from "react"
 
 export function generateMetadata() {
   return generateTemplateMetadata({
-    caption: "ストリーマー一覧",
-    description: "ランキング集計しているストリーマーの一覧",
+    caption: "お気に入り",
+    description: "お気に入りに保存したクリップの一覧",
   })
 }
 
