@@ -20,7 +20,7 @@ export const ClipContext = createContext<ClipProviderProps>(initialContext)
 export function ClipProvider({ children, ...rest }: ClipProviderProps) {
   const value = useMemo(() => ({ ...rest }), [rest])
 
-  return <ClipContext.Provider value={value}>{children}</ClipContext.Provider>
+  return <ClipContext value={value}>{children}</ClipContext>
 }
 
 export function useClip() {

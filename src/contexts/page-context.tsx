@@ -14,7 +14,7 @@ export const PageContext = createContext<PageProviderProps>(defaultValue)
 export function PageProvider({ children, ...rest }: PageProviderProps) {
   const value = useMemo(() => ({ ...rest }), [rest])
 
-  return <PageContext.Provider value={value}>{children}</PageContext.Provider>
+  return <PageContext value={value}>{children}</PageContext>
 }
 
 export function usePage() {
