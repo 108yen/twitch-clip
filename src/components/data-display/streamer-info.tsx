@@ -2,7 +2,7 @@
 import { TwitchLink } from "@/components/media-and-icons"
 import { useClip } from "@/contexts"
 import { GhostIcon } from "@yamada-ui/lucide"
-import { Avatar, HStack, Text, VStack } from "@yamada-ui/react"
+import { Avatar, HStack, Spacer, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
 
 export function StreamerInfo() {
@@ -28,17 +28,20 @@ export function StreamerInfo() {
         src={profile_image_url}
       />
 
-      <HStack alignItems="flex-end" w="full">
+      <HStack alignItems="flex-end" gap={0} w="full">
         <VStack
           aria-label="streamer page link"
           as={Link}
           gap={1}
           href={`/streamer/${broadcaster_id}`}
+          w="fit-content"
         >
           <Text fontWeight="bold">{broadcaster_name}</Text>
 
           <Text textStyle="follower">{followers}</Text>
         </VStack>
+
+        <Spacer />
 
         <TwitchLink login={broadcaster_login} />
       </HStack>
