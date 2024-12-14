@@ -25,6 +25,8 @@ function onupgradeneeded(event: IDBVersionChangeEvent) {
  */
 export async function openDatabase(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
+    if (typeof window == "undefined") reject("Window is undefined.")
+
     const request: IDBOpenDBRequest = indexedDB.open(
       CONSTANT.INDEXED_DB.dbName,
       CONSTANT.INDEXED_DB.version,

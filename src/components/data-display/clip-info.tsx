@@ -2,6 +2,8 @@
 import { useClip } from "@/contexts"
 import { Heading, HStack, Spacer, Text } from "@yamada-ui/react"
 
+import { FavoriteButton } from "../form"
+
 export function ClipInfo() {
   const { currentClip } = useClip()
 
@@ -19,6 +21,8 @@ export function ClipInfo() {
         isTruncated
         textStyle="viewCount"
       >{`${view_count?.toLocaleString()} views`}</Text>
+
+      <FavoriteButton clip={currentClip!} />
     </HStack>
   )
 }

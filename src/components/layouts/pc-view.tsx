@@ -1,16 +1,7 @@
 "use client"
-import { SideClipTabs, StreamerInfo } from "@/components/data-display"
+import { ClipInfo, SideClipTabs, StreamerInfo } from "@/components/data-display"
 import { useClip } from "@/contexts"
-import {
-  AspectRatio,
-  Grid,
-  GridItem,
-  Heading,
-  HStack,
-  Spacer,
-  Text,
-  VStack,
-} from "@yamada-ui/react"
+import { AspectRatio, Grid, GridItem, VStack } from "@yamada-ui/react"
 
 export function PCView() {
   const { currentClip } = useClip()
@@ -29,15 +20,7 @@ export function PCView() {
             <iframe allowFullScreen loading="lazy" src={src} />
           </AspectRatio>
 
-          <HStack overflow="hidden" w="full">
-            <Heading as="h2" isTruncated size="md">
-              {currentClip?.title}
-            </Heading>
-
-            <Spacer />
-
-            <Text textStyle="viewCount">{`${currentClip?.view_count?.toLocaleString()} views`}</Text>
-          </HStack>
+          <ClipInfo />
 
           <StreamerInfo />
         </VStack>
