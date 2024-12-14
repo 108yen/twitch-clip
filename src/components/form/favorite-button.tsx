@@ -15,21 +15,23 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
   const [isPending, startTransition] = useTransition()
   const [check, setCheck] = useState(false)
 
-  useEffect(() => {
-    startTransition(async () => {
-      const { id: clipId } = clip
+  useEffect(
+    () =>
+      startTransition(async () => {
+        const { id: clipId } = clip
 
-      if (!clipId) return
+        if (!clipId) return
 
-      const storedClip = await getClip(clipId)
+        const storedClip = await getClip(clipId)
 
-      if (typeof storedClip != "undefined") {
-        setCheck(true)
-      } else {
-        setCheck(false)
-      }
-    })
-  }, [clip, getClip])
+        if (typeof storedClip != "undefined") {
+          setCheck(true)
+        } else {
+          setCheck(false)
+        }
+      }),
+    [clip, getClip],
+  )
 
   function handleClick() {
     startTransition(async () => {

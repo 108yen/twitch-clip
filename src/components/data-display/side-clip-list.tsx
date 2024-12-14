@@ -33,7 +33,7 @@ import {
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
 
-type ClipCardProps = {
+interface ClipCardProps {
   clip: Clip
   tab: string
 }
