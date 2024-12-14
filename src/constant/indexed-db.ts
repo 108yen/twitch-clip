@@ -1,6 +1,7 @@
 export const INDEXED_DB = {
   dbName: "TwitchClipRanking",
+  favoriteStoreName: "favorite",
   keyPath: "id",
-  store: "favorite",
+  tagStoreName: "tag",
   version: 1,
 }

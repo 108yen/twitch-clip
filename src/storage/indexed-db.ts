@@ -4,10 +4,13 @@ import { Clip } from "@/models/clip"
 function onupgradeneeded(event: IDBVersionChangeEvent) {
   const db = (event.target as IDBOpenDBRequest).result
 
-  if (!db.objectStoreNames.contains(CONSTANT.INDEXED_DB.store)) {
-    const objectStore = db.createObjectStore(CONSTANT.INDEXED_DB.store, {
-      keyPath: CONSTANT.INDEXED_DB.keyPath,
-    })
+  if (!db.objectStoreNames.contains(CONSTANT.INDEXED_DB.favoriteStoreName)) {
+    const objectStore = db.createObjectStore(
+      CONSTANT.INDEXED_DB.favoriteStoreName,
+      {
+        keyPath: CONSTANT.INDEXED_DB.keyPath,
+      },
+    )
 
     objectStore.createIndex("title", "title", { unique: false })
     objectStore.createIndex("broadcaster_name", "broadcaster_name", {
@@ -16,11 +19,23 @@ function onupgradeneeded(event: IDBVersionChangeEvent) {
     objectStore.createIndex("broadcaster_login", "broadcaster_login", {
       unique: false,
     })
+    objectStore.createIndex("tag_id", "tag_id", {
+      unique: false,
+    })
+  }
+
+  if (!db.objectStoreNames.contains(CONSTANT.INDEXED_DB.tagStoreName)) {
+    const objectStore = db.createObjectStore(CONSTANT.INDEXED_DB.tagStoreName, {
+      autoIncrement: true,
+    })
+
+    objectStore.createIndex("name", "name", { unique: true })
   }
 }
 
 /**
- *
+ * Favorite store can store `Clip` type object and added `tag_id` column to tie the tag.
+ * Tag store cant store tag.
  * @see Docs https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB
  */
 export async function openDatabase(): Promise<IDBDatabase> {
@@ -56,8 +71,8 @@ export async function saveClip(clip: Clip, db: IDBDatabase): Promise<string> {
     }
 
     const request = db
-      .transaction([CONSTANT.INDEXED_DB.store], "readwrite")
-      .objectStore(CONSTANT.INDEXED_DB.store)
+      .transaction([CONSTANT.INDEXED_DB.favoriteStoreName], "readwrite")
+      .objectStore(CONSTANT.INDEXED_DB.favoriteStoreName)
       .put(clip)
 
     request.onsuccess = (event: Event) => {
@@ -78,8 +93,8 @@ export async function saveClip(clip: Clip, db: IDBDatabase): Promise<string> {
 export async function deleteClip(id: string, db: IDBDatabase): Promise<string> {
   return new Promise((resolve, rejects) => {
     const request = db
-      .transaction([CONSTANT.INDEXED_DB.store], "readwrite")
-      .objectStore(CONSTANT.INDEXED_DB.store)
+      .transaction([CONSTANT.INDEXED_DB.favoriteStoreName], "readwrite")
+      .objectStore(CONSTANT.INDEXED_DB.favoriteStoreName)
       .delete(id)
 
     request.onsuccess = (event: Event) => {
@@ -100,8 +115,8 @@ export async function deleteClip(id: string, db: IDBDatabase): Promise<string> {
 export async function getAllClips(db: IDBDatabase): Promise<Clip[]> {
   return new Promise((resolve, rejects) => {
     const request: IDBRequest<Clip[]> = db
-      .transaction([CONSTANT.INDEXED_DB.store], "readonly")
-      .objectStore(CONSTANT.INDEXED_DB.store)
+      .transaction([CONSTANT.INDEXED_DB.favoriteStoreName], "readonly")
+      .objectStore(CONSTANT.INDEXED_DB.favoriteStoreName)
       .getAll()
 
     request.onsuccess = (event: Event) => {
@@ -125,8 +140,8 @@ export async function getClip(
 ): Promise<Clip | undefined> {
   return new Promise((resolve, rejects) => {
     const request: IDBRequest<Clip | undefined> = db
-      .transaction([CONSTANT.INDEXED_DB.store], "readonly")
-      .objectStore(CONSTANT.INDEXED_DB.store)
+      .transaction([CONSTANT.INDEXED_DB.favoriteStoreName], "readonly")
+      .objectStore(CONSTANT.INDEXED_DB.favoriteStoreName)
       .get(id)
 
     request.onsuccess = (event: Event) => {
