@@ -2,7 +2,8 @@
 import { Clip } from "@/models/clip"
 import {
   deleteClip as idbDeleteClip,
-  getClips as idbGetClips,
+  getAllClips as idbGetAllClips,
+  getClip as idbGetClip,
   saveClip as idbSaveClip,
   openDatabase,
 } from "@/storage"
@@ -21,13 +22,15 @@ export interface PageProviderProps extends PropsWithChildren {
 
 interface PageProviderContextProps extends PageProviderProps {
   deleteClip: (id: string) => Promise<string>
-  getClips: () => Promise<Clip[]>
+  getAllClips: () => Promise<Clip[]>
+  getClip: (id: string) => Promise<Clip | undefined>
   saveClip: (clip: Clip) => Promise<string>
 }
 
 const defaultValue: PageProviderContextProps = {
   deleteClip: async () => "",
-  getClips: async () => [],
+  getAllClips: async () => [],
+  getClip: async () => undefined,
   saveClip: async () => "",
   version: "",
 }
@@ -39,11 +42,12 @@ export function PageProvider({ children, ...rest }: PageProviderProps) {
 
   const saveClip = useCallback((clip: Clip) => idbSaveClip(clip, db), [db])
   const deleteClip = useCallback((id: string) => idbDeleteClip(id, db), [db])
-  const getClips = useCallback(() => idbGetClips(db), [db])
+  const getAllClips = useCallback(() => idbGetAllClips(db), [db])
+  const getClip = useCallback((id: string) => idbGetClip(id, db), [db])
 
   const value = useMemo(
-    () => ({ deleteClip, getClips, saveClip, ...rest }),
-    [deleteClip, getClips, rest, saveClip],
+    () => ({ deleteClip, getAllClips, getClip, saveClip, ...rest }),
+    [deleteClip, getAllClips, getClip, rest, saveClip],
   )
 
   return <PageContext value={value}>{children}</PageContext>

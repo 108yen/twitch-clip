@@ -97,7 +97,7 @@ export async function deleteClip(id: string, db: IDBDatabase): Promise<string> {
  *
  * @see Docs https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB#using_a_cursor
  */
-export async function getClips(db: IDBDatabase): Promise<Clip[]> {
+export async function getAllClips(db: IDBDatabase): Promise<Clip[]> {
   return new Promise((resolve, rejects) => {
     const request: IDBRequest<Clip[]> = db
       .transaction([CONSTANT.INDEXED_DB.store], "readonly")
@@ -107,6 +107,31 @@ export async function getClips(db: IDBDatabase): Promise<Clip[]> {
     request.onsuccess = (event: Event) => {
       const result = (event.target as IDBOpenDBRequest).result
       resolve(result as unknown as Clip[])
+    }
+
+    request.onerror = (event: Event) => {
+      rejects((event.target as IDBOpenDBRequest).error)
+    }
+  })
+}
+
+/**
+ *
+ * @see Docs https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB#getting_data_from_the_database
+ */
+export async function getClip(
+  id: string,
+  db: IDBDatabase,
+): Promise<Clip | undefined> {
+  return new Promise((resolve, rejects) => {
+    const request: IDBRequest<Clip | undefined> = db
+      .transaction([CONSTANT.INDEXED_DB.store], "readonly")
+      .objectStore(CONSTANT.INDEXED_DB.store)
+      .get(id)
+
+    request.onsuccess = (event: Event) => {
+      const result = (event.target as IDBOpenDBRequest).result
+      resolve(result as unknown as Clip | undefined)
     }
 
     request.onerror = (event: Event) => {
