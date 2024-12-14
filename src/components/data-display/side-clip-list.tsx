@@ -1,10 +1,10 @@
 "use client"
 import { SideCardAD } from "@/components/adsense"
-import { gaEvent } from "@/components/google-analytics"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
+import { sendGAEvent } from "@next/third-parties/google"
 import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
@@ -25,6 +25,7 @@ import {
   Separator,
   Spacer,
   Text,
+  TextProps,
   Tooltip,
   useWindowEvent,
   VStack,
@@ -54,12 +55,24 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
   function onClick() {
     setClipUrl(clip)
-    gaEvent("click", {
+    sendGAEvent("event", "click", {
       clip_title: title,
       label: "click_clip_title",
       link_url: url,
       ranking_period: tab,
     })
+  }
+
+  //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
+  const tooltipProps: any = {
+    label: title,
+    placement: "top-start",
+  }
+
+  const textProps: TextProps = {
+    fontWeight: "bold",
+    isTruncated: true,
+    onClick,
   }
 
   return (
@@ -86,9 +99,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         />
 
         <VStack gap={0} overflow="hidden" w="full">
-          <Text fontWeight="bold" isTruncated onClick={onClick}>
-            {title}
-          </Text>
+          <Tooltip {...tooltipProps}>
+            <Text {...textProps}>{title}</Text>
+          </Tooltip>
 
           <HStack>
             <Text
@@ -167,7 +180,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
 
           if (index * CLIP_LIST.LOAD_INDEX + 6 >= clips.length) {
             finish()
-            gaEvent("scroll", {
+            sendGAEvent("event", "scroll", {
               label: "load_all_clips",
             })
           }
@@ -210,7 +223,7 @@ export function SideClipTabs() {
   const buttonProps: ButtonProps = {
     onClick: () => {
       setClipUrl(undefined)
-      gaEvent("click", {
+      sendGAEvent("event", "click", {
         label: "click_return_to_list_view",
       })
     },

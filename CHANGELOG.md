@@ -1,5 +1,19 @@
 # twitch-clip
 
+## 2.5.2
+
+### Patch Changes
+
+- [#322](https://github.com/108yen/twitch-clip/pull/322) [`8a64d01`](https://github.com/108yen/twitch-clip/commit/8a64d01c8f3cdbf2a0c261cfb19a863ae48b9101) Thanks [@108yen](https://github.com/108yen)! - Remove `gap` from title of `ClipCard`.
+
+- [#320](https://github.com/108yen/twitch-clip/pull/320) [`0cf8e87`](https://github.com/108yen/twitch-clip/commit/0cf8e879f05d248faf08271097d635bb53e7ff20) Thanks [@108yen](https://github.com/108yen)! - Use default GA script.
+
+- [#324](https://github.com/108yen/twitch-clip/pull/324) [`c629d3b`](https://github.com/108yen/twitch-clip/commit/c629d3b5a8f22a111d4231f593aba1521da8edcc) Thanks [@108yen](https://github.com/108yen)! - Added tooltip to title of `ClipCard` in side clip list.
+
+- [#320](https://github.com/108yen/twitch-clip/pull/320) [`8972c6e`](https://github.com/108yen/twitch-clip/commit/8972c6e311ab7046a8ea14c07cbb13fbb6a59fe5) Thanks [@108yen](https://github.com/108yen)! - Change page title to `unkonow` when does not found streamer info.
+
+- [#322](https://github.com/108yen/twitch-clip/pull/322) [`e7b9b4f`](https://github.com/108yen/twitch-clip/commit/e7b9b4fec305f2ac658099ce5dccc85890d49eb2) Thanks [@108yen](https://github.com/108yen)! - Fixed bug that `Header` spaces were shifted at the start of drawing.
+
 ## 2.5.1
 
 ### Patch Changes
