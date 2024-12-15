@@ -63,7 +63,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     profile_image_url,
     thumbnail_url,
     title,
-    url,
     view_count: _view_count,
   } = clip
 
@@ -79,7 +78,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         sendGAEvent("event", "click", {
           clip_title: title,
           label: "click_clip_title",
-          link_url: url,
           ranking_period: tab,
         })
       }}

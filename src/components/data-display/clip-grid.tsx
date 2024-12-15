@@ -1,19 +1,17 @@
 "use client"
 
-import { usePage } from "@/contexts"
+import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { formatDate } from "@/utils/string"
-import { GhostIcon, PaperclipIcon } from "@yamada-ui/lucide"
+import { sendGAEvent } from "@next/third-parties/google"
+import { GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   Avatar,
-  Center,
   Container,
-  EmptyState,
   For,
   GridItem,
   HStack,
-  Loading,
   NativeImage,
   SimpleGrid,
   Spacer,
@@ -23,13 +21,14 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { useEffect, useState, useTransition } from "react"
 
 interface ClipCardProps {
   clip: Clip
 }
 
 function ClipCard({ clip }: ClipCardProps) {
+  const { setClipUrl } = useClip()
+
   const {
     broadcaster_id,
     broadcaster_name,
@@ -41,6 +40,15 @@ function ClipCard({ clip }: ClipCardProps) {
 
   const created_at = formatDate(_created_at, true)
 
+  function onClick() {
+    setClipUrl(clip)
+    sendGAEvent("event", "click", {
+      clip_title: title,
+      label: "click_clip_title",
+      ranking_period: "favorite",
+    })
+  }
+
   //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
   const tooltipProps: any = {
     label: title,
@@ -50,7 +58,7 @@ function ClipCard({ clip }: ClipCardProps) {
   const textProps: TextProps = {
     fontWeight: "bold",
     isTruncated: true,
-    // onClick,
+    onClick,
   }
 
   return (
@@ -58,7 +66,7 @@ function ClipCard({ clip }: ClipCardProps) {
       <Container
         apply="layoutStyles.borderCard"
         cursor="pointer"
-        // onClick={onClick}
+        onClick={onClick}
         p={0}
       >
         <AspectRatio ratio={16 / 9} w="full">
@@ -108,39 +116,11 @@ function ClipCard({ clip }: ClipCardProps) {
   )
 }
 
-export function ClipGrid() {
-  const { getAllClips } = usePage()
-  const [isPending, startTransition] = useTransition()
-  const [clips, setClips] = useState<Clip[]>([])
+export interface ClipGridProps {
+  clips: Clip[]
+}
 
-  useEffect(
-    () =>
-      startTransition(async () => {
-        const clips = await getAllClips()
-
-        setClips(clips)
-      }),
-    [getAllClips],
-  )
-
-  if (isPending) {
-    return (
-      <Center h="3xs" w="full">
-        <Loading fontSize="2xl" />
-      </Center>
-    )
-  }
-
-  if (clips.length == 0) {
-    return (
-      <EmptyState
-        description="Add clips to your favorites"
-        indicator={<PaperclipIcon />}
-        title="Your have no favorite clip"
-      />
-    )
-  }
-
+export function ClipGrid({ clips }: ClipGridProps) {
   return (
     <SimpleGrid columns={{ base: 4, lg: 3, md: 2, sm: 1 }} gap="md" w="full">
       <For each={clips}>
