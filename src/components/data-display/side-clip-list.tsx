@@ -231,20 +231,23 @@ export function SideClipTabs() {
 
   return (
     <VStack gap={0} separator={<Separator />}>
-      <HStack>
+      <HStack alignItem="flex-end" minH="51px">
         <Tooltip {...tooltipProps}>
           <Button {...buttonProps}>clips</Button>
         </Tooltip>
 
         <Spacer />
 
-        <Select
-          items={items}
-          marginBottom="xs"
-          maxW="4xs"
-          onChange={handleChange}
-          value={tab}
-        />
+        {items.length > 1 ? (
+          <Select
+            focusBorderColor="primary.500"
+            items={items}
+            marginBottom="xs"
+            maxW="4xs"
+            onChange={handleChange}
+            value={tab}
+          />
+        ) : null}
       </HStack>
 
       <ClipList clips={clips} resetRef={resetRef} tab={tab} />
