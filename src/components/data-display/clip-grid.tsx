@@ -3,12 +3,13 @@
 import { usePage } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { formatDate } from "@/utils/string"
-import { GhostIcon } from "@yamada-ui/lucide"
+import { GhostIcon, PaperclipIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   Avatar,
   Center,
   Container,
+  EmptyState,
   For,
   GridItem,
   HStack,
@@ -127,6 +128,16 @@ export function ClipGrid() {
       <Center h="3xs" w="full">
         <Loading fontSize="2xl" />
       </Center>
+    )
+  }
+
+  if (clips.length == 0) {
+    return (
+      <EmptyState
+        description="Add clips to your favorites"
+        indicator={<PaperclipIcon />}
+        title="Your have no favorite clip"
+      />
     )
   }
 
