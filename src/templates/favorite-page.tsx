@@ -11,6 +11,7 @@ import {
   Center,
   createdDom,
   EmptyState,
+  isUndefined,
   Loading,
   useWindowEvent,
 } from "@yamada-ui/react"
@@ -20,7 +21,7 @@ export function FavoritePage() {
   const [currentClip, setCurrentClip] = useState<Clip>()
   const { getAllClips } = usePage()
   const [isPending, startTransition] = useTransition()
-  const [clips, setClips] = useState<Clip[]>([])
+  const [clips, setClips] = useState<Clip[]>()
   const clipDoc = new ClipDoc({ favorite: clips })
 
   let width = createdDom() ? window.innerWidth : 0
@@ -53,7 +54,7 @@ export function FavoritePage() {
         <AppLayout>
           <FavoriteHeader />
 
-          {isPending ? (
+          {isPending || isUndefined(clips) ? (
             <Center h="3xs" w="full">
               <Loading fontSize="2xl" />
             </Center>

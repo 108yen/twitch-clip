@@ -23,7 +23,7 @@ export interface PageProviderProps extends PropsWithChildren {
 
 interface PageProviderContextProps extends PageProviderProps {
   deleteClip: (id: string) => Promise<string>
-  getAllClips: () => Promise<Clip[]>
+  getAllClips: () => Promise<Clip[] | undefined>
   getClip: (id: string) => Promise<Clip | undefined>
   saveClip: (clip: Clip) => Promise<string>
 }

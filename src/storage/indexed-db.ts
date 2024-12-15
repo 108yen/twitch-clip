@@ -123,10 +123,12 @@ export async function deleteClip(
  *
  * @see Docs https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB#using_a_cursor
  */
-export async function getAllClips(db?: IDBDatabase): Promise<Clip[]> {
+export async function getAllClips(
+  db?: IDBDatabase,
+): Promise<Clip[] | undefined> {
   return new Promise((resolve, rejects) => {
     if (!db) {
-      resolve([])
+      resolve(undefined)
     }
 
     const request: IDBRequest<Clip[]> = db!
