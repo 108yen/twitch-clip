@@ -128,10 +128,10 @@ export function ClipGrid() {
   }
 
   return (
-    <SimpleGrid gap="md" minChildWidth={{ base: "3xs", lg: 100 }} w="full">
+    <SimpleGrid gap="md" minChildWidth={{ base: "xs" }} w="full">
       <For each={clips}>
         {(clip, index) => (
-          <GridItem h="4xs" key={index} w="full">
+          <GridItem key={index} w="full">
             <ClipCard clip={clip} />
           </GridItem>
         )}
