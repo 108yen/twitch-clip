@@ -126,7 +126,7 @@ export async function deleteClip(
 export async function getAllClips(db?: IDBDatabase): Promise<Clip[]> {
   return new Promise((resolve, rejects) => {
     if (!db) {
-      rejects("DB is undefined.")
+      resolve([])
     }
 
     const request: IDBRequest<Clip[]> = db!

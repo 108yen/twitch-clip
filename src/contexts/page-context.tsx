@@ -14,7 +14,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useRef,
+  useState,
 } from "react"
 
 export interface PageProviderProps extends PropsWithChildren {
@@ -39,28 +39,23 @@ const defaultValue: PageProviderContextProps = {
 export const PageContext = createContext<PageProviderContextProps>(defaultValue)
 
 export function PageProvider({ children, ...rest }: PageProviderProps) {
-  const db = useRef<IDBDatabase>(undefined)
+  const [db, setDB] = useState<IDBDatabase>()
 
   useEffect(() => {
     if (typeof window == "undefined") return
 
     async function openDB() {
-      db.current = await openDatabase()
+      const db = await openDatabase()
+      setDB(db)
     }
 
     openDB()
   }, [])
 
-  const saveClip = useCallback(
-    (clip: Clip) => idbSaveClip(clip, db.current),
-    [db],
-  )
-  const deleteClip = useCallback(
-    (id: string) => idbDeleteClip(id, db.current),
-    [db],
-  )
-  const getAllClips = useCallback(() => idbGetAllClips(db.current), [db])
-  const getClip = useCallback((id: string) => idbGetClip(id, db.current), [db])
+  const saveClip = useCallback((clip: Clip) => idbSaveClip(clip, db), [db])
+  const deleteClip = useCallback((id: string) => idbDeleteClip(id, db), [db])
+  const getAllClips = useCallback(() => idbGetAllClips(db), [db])
+  const getClip = useCallback((id: string) => idbGetClip(id, db), [db])
 
   const value = useMemo(
     () => ({ deleteClip, getAllClips, getClip, saveClip, ...rest }),

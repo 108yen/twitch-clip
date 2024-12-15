@@ -9,7 +9,9 @@ export function FavoriteHeader() {
       p={0}
       w="full"
     >
-      <Heading>Favorite</Heading>
+      <Heading as="h2" size="lg">
+        Favorite
+      </Heading>
     </Container>
   )
 }
