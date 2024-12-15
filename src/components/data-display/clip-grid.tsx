@@ -54,7 +54,7 @@ function ClipCard({ clip }: ClipCardProps) {
   }
 
   return (
-    <VStack gap="1" w="full">
+    <VStack gap="1">
       <Container
         apply="layoutStyles.borderCard"
         cursor="pointer"
@@ -142,10 +142,10 @@ export function ClipGrid() {
   }
 
   return (
-    <SimpleGrid gap="md" minChildWidth={{ base: "xs" }} w="full">
+    <SimpleGrid columns={{ base: 4, lg: 3, md: 2, sm: 1 }} gap="md" w="full">
       <For each={clips}>
         {(clip, index) => (
-          <GridItem key={index} w="full">
+          <GridItem key={index}>
             <ClipCard clip={clip} />
           </GridItem>
         )}
