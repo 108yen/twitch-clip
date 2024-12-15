@@ -142,7 +142,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           </HStack>
 
           <Text
-            aria-describedby="Clip creator name"
+            aria-label="Clip creator name"
             display={{ base: "flex", sm: "none" }}
             textAlign="start"
           >
@@ -150,7 +150,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           </Text>
 
           <Text
-            aria-describedby="Clip created date"
+            aria-label="Clip created date"
             display={{ base: "flex", sm: "none" }}
             textAlign="start"
           >
@@ -158,7 +158,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           </Text>
 
           <Text
-            aria-describedby="Clip view count"
+            aria-label="Clip view count"
             textAlign="end"
             textStyle="viewCount"
           >

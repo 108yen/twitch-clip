@@ -6,6 +6,12 @@ export const textStyles: TextStyles = {
     fontSize: "sm",
     textAlign: "center",
   },
+  date: {
+    color: ["blackAlpha.700", "whiteAlpha.600"],
+    fontSize: "sm",
+    minW: "5xs",
+    textAlign: "right",
+  },
   description: {
     color: ["blackAlpha.700", "whiteAlpha.700"],
     fontSize: "sm",

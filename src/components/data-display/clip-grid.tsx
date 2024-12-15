@@ -2,6 +2,7 @@
 
 import { usePage } from "@/contexts"
 import { Clip } from "@/models/clip"
+import { formatDate } from "@/utils/string"
 import { GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
@@ -31,11 +32,13 @@ function ClipCard({ clip }: ClipCardProps) {
   const {
     broadcaster_id,
     broadcaster_name,
+    created_at: _created_at = "",
     profile_image_url,
     thumbnail_url,
     title,
-    view_count,
   } = clip
+
+  const created_at = formatDate(_created_at, true)
 
   //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
   const tooltipProps: any = {
@@ -90,12 +93,12 @@ function ClipCard({ clip }: ClipCardProps) {
             <Spacer />
 
             <Text
-              aria-label="Clip view count"
+              aria-label="Clip created date"
               isTruncated
               textAlign="end"
-              textStyle="viewCount"
+              textStyle="date"
             >
-              {`${view_count} views`}
+              {created_at}
             </Text>
           </HStack>
         </VStack>

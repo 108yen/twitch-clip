@@ -1,16 +1,25 @@
 import { toNumber } from "@yamada-ui/react"
 
-export function formatDate(value: string) {
+/**
+ *
+ * @param value
+ * @returns Formatted date string to `2024/12/01 19:11:04`
+ */
+export function formatDate(value: string, dateOnly?: boolean) {
   const date = new Date(value)
 
   const options: Intl.DateTimeFormatOptions = {
     day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
     month: "2-digit",
-    second: "2-digit",
     timeZone: "Asia/Tokyo",
     year: "numeric",
+    ...(dateOnly
+      ? {}
+      : {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }),
   }
 
   const formattedDate = new Intl.DateTimeFormat("ja-JP", options).format(date)
