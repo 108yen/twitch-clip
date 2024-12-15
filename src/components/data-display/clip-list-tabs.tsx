@@ -253,31 +253,33 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
 
   return (
     <>
-      <Tabs
-        align="center"
-        defaultIndex={0}
-        index={index}
-        onChange={handleChange}
-        {...tabsProps}
-      >
-        <TabList>
-          {tabs.map((tab) => (
-            <Tab
-              _selected={{
-                borderColor: "currentColor",
-                borderWidth: "2px",
-                color: "primary.500",
-              }}
-              fontSize="sm"
-              key={tab}
-              p={3}
-              w="4xs"
-            >
-              {tab.toUpperCase()}
-            </Tab>
-          ))}
-        </TabList>
-      </Tabs>
+      {tabs.length > 1 ? (
+        <Tabs
+          align="center"
+          defaultIndex={0}
+          index={index}
+          onChange={handleChange}
+          {...tabsProps}
+        >
+          <TabList>
+            {tabs.map((tab) => (
+              <Tab
+                _selected={{
+                  borderColor: "currentColor",
+                  borderWidth: "2px",
+                  color: "primary.500",
+                }}
+                fontSize="sm"
+                key={tab}
+                p={3}
+                w="4xs"
+              >
+                {tab.toUpperCase()}
+              </Tab>
+            ))}
+          </TabList>
+        </Tabs>
+      ) : null}
 
       <Carousel
         draggable={false}

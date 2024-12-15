@@ -1,13 +1,19 @@
 "use client"
 
 import { ClipGrid } from "@/components/data-display"
-import { FavoriteHeader, PCView } from "@/components/layouts"
+import { FavoriteHeader, MobileView, PCView } from "@/components/layouts"
 import { ClipProvider, usePage } from "@/contexts"
 import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { PaperclipIcon } from "@yamada-ui/lucide"
-import { Center, EmptyState, Loading } from "@yamada-ui/react"
+import {
+  Center,
+  createdDom,
+  EmptyState,
+  Loading,
+  useWindowEvent,
+} from "@yamada-ui/react"
 import { useEffect, useState, useTransition } from "react"
 
 export function FavoritePage() {
@@ -16,6 +22,12 @@ export function FavoritePage() {
   const [isPending, startTransition] = useTransition()
   const [clips, setClips] = useState<Clip[]>([])
   const clipDoc = new ClipDoc({ favorite: clips })
+
+  let width = createdDom() ? window.innerWidth : 0
+
+  useWindowEvent("resize", () => {
+    width = window.innerWidth
+  })
 
   useEffect(
     () =>
@@ -55,6 +67,8 @@ export function FavoritePage() {
             <ClipGrid clips={clips} />
           )}
         </AppLayout>
+      ) : width < 600 ? (
+        <MobileView />
       ) : (
         <PCView />
       )}
