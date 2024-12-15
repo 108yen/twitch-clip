@@ -1,6 +1,7 @@
 export * from "./about-page"
 export * from "./clip-page"
 export * from "./clip-page-loading"
+export * from "./favorite-page"
 export * from "./release-note-page"
 export * from "./streamer-clip-page"
 export * from "./streamers-page"

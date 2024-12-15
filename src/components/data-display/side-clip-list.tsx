@@ -33,7 +33,7 @@ import {
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
 
-type ClipCardProps = {
+interface ClipCardProps {
   clip: Clip
   tab: string
 }
@@ -47,7 +47,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     profile_image_url = "",
     thumbnail_url = "",
     title,
-    url,
     view_count: _view_count,
   } = clip
 
@@ -58,7 +57,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     sendGAEvent("event", "click", {
       clip_title: title,
       label: "click_clip_title",
-      link_url: url,
       ranking_period: tab,
     })
   }
@@ -141,10 +139,10 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const rootRef = useRef<HTMLDivElement>(undefined!)
   const resetRef = useRef<() => void>(noop)
 
-  let height = createdDom() ? window.innerHeight - 112 : 0
+  let height = createdDom() ? window.innerHeight - 113 : 0
 
   useWindowEvent("resize", () => {
-    height = window.innerHeight - 112
+    height = window.innerHeight - 113
   })
 
   function resetCount() {
@@ -233,20 +231,23 @@ export function SideClipTabs() {
 
   return (
     <VStack gap={0} separator={<Separator />}>
-      <HStack>
+      <HStack alignItems="flex-end" minH="6xs">
         <Tooltip {...tooltipProps}>
           <Button {...buttonProps}>clips</Button>
         </Tooltip>
 
         <Spacer />
 
-        <Select
-          items={items}
-          marginBottom="xs"
-          maxW="4xs"
-          onChange={handleChange}
-          value={tab}
-        />
+        {items.length > 1 ? (
+          <Select
+            focusBorderColor="primary.500"
+            items={items}
+            marginBottom="xs"
+            maxW="4xs"
+            onChange={handleChange}
+            value={tab}
+          />
+        ) : null}
       </HStack>
 
       <ClipList clips={clips} resetRef={resetRef} tab={tab} />

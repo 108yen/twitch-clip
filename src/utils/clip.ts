@@ -20,6 +20,8 @@ export function getTabs(clipDoc: ClipDoc | undefined) {
     tabArray.push(...keys.sort(compareNumber))
   } else if (keys.every((key) => dailyKeysReg.test(key))) {
     tabArray.push(...keys.sort(compareDate))
+  } else {
+    tabArray.push(...keys)
   }
 
   return tabArray
