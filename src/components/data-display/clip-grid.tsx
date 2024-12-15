@@ -36,6 +36,7 @@ function ClipCard({ clip }: ClipCardProps) {
     title,
     view_count,
   } = clip
+
   //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
   const tooltipProps: any = {
     label: title,

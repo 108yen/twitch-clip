@@ -64,13 +64,17 @@ export async function openDatabase(): Promise<IDBDatabase> {
  *
  * @see Docs https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB#adding_data_to_the_database
  */
-export async function saveClip(clip: Clip, db: IDBDatabase): Promise<string> {
+export async function saveClip(clip: Clip, db?: IDBDatabase): Promise<string> {
   return new Promise((resolve, rejects) => {
     if (!clip.id) {
       rejects("Clip id is undefined.")
     }
 
-    const request = db
+    if (!db) {
+      rejects("DB is undefined.")
+    }
+
+    const request = db!
       .transaction([CONSTANT.INDEXED_DB.favoriteStoreName], "readwrite")
       .objectStore(CONSTANT.INDEXED_DB.favoriteStoreName)
       .put(clip)
@@ -90,9 +94,16 @@ export async function saveClip(clip: Clip, db: IDBDatabase): Promise<string> {
  *
  * @see Docs https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB#removing_data_from_the_database
  */
-export async function deleteClip(id: string, db: IDBDatabase): Promise<string> {
+export async function deleteClip(
+  id: string,
+  db?: IDBDatabase,
+): Promise<string> {
   return new Promise((resolve, rejects) => {
-    const request = db
+    if (!db) {
+      rejects("DB is undefined.")
+    }
+
+    const request = db!
       .transaction([CONSTANT.INDEXED_DB.favoriteStoreName], "readwrite")
       .objectStore(CONSTANT.INDEXED_DB.favoriteStoreName)
       .delete(id)
@@ -112,9 +123,13 @@ export async function deleteClip(id: string, db: IDBDatabase): Promise<string> {
  *
  * @see Docs https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB#using_a_cursor
  */
-export async function getAllClips(db: IDBDatabase): Promise<Clip[]> {
+export async function getAllClips(db?: IDBDatabase): Promise<Clip[]> {
   return new Promise((resolve, rejects) => {
-    const request: IDBRequest<Clip[]> = db
+    if (!db) {
+      rejects("DB is undefined.")
+    }
+
+    const request: IDBRequest<Clip[]> = db!
       .transaction([CONSTANT.INDEXED_DB.favoriteStoreName], "readonly")
       .objectStore(CONSTANT.INDEXED_DB.favoriteStoreName)
       .getAll()
@@ -136,10 +151,14 @@ export async function getAllClips(db: IDBDatabase): Promise<Clip[]> {
  */
 export async function getClip(
   id: string,
-  db: IDBDatabase,
+  db?: IDBDatabase,
 ): Promise<Clip | undefined> {
   return new Promise((resolve, rejects) => {
-    const request: IDBRequest<Clip | undefined> = db
+    if (!db) {
+      rejects("DB is undefined.")
+    }
+
+    const request: IDBRequest<Clip | undefined> = db!
       .transaction([CONSTANT.INDEXED_DB.favoriteStoreName], "readonly")
       .objectStore(CONSTANT.INDEXED_DB.favoriteStoreName)
       .get(id)
