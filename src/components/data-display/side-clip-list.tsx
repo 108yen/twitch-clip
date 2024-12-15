@@ -139,10 +139,10 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const rootRef = useRef<HTMLDivElement>(undefined!)
   const resetRef = useRef<() => void>(noop)
 
-  let height = createdDom() ? window.innerHeight - 112 : 0
+  let height = createdDom() ? window.innerHeight - 113 : 0
 
   useWindowEvent("resize", () => {
-    height = window.innerHeight - 112
+    height = window.innerHeight - 113
   })
 
   function resetCount() {
@@ -231,7 +231,7 @@ export function SideClipTabs() {
 
   return (
     <VStack gap={0} separator={<Separator />}>
-      <HStack alignItem="flex-end" minH="51px">
+      <HStack alignItems="flex-end" minH="6xs">
         <Tooltip {...tooltipProps}>
           <Button {...buttonProps}>clips</Button>
         </Tooltip>
