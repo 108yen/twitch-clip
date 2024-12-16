@@ -4,6 +4,7 @@ import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
+import { formatDate } from "@/utils/string"
 import { sendGAEvent } from "@next/third-parties/google"
 import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
@@ -38,18 +39,21 @@ interface ClipCardProps {
 }
 
 function ClipCard({ clip, tab }: ClipCardProps) {
-  const { setClipUrl } = useClip()
+  const { setClipUrl, showDate } = useClip()
 
   const {
     broadcaster_id,
     broadcaster_name,
+    created_at = "",
     profile_image_url = "",
     thumbnail_url = "",
     title,
-    view_count: _view_count,
+    view_count,
   } = clip
 
-  const view_count = _view_count?.toLocaleString()
+  const subText = showDate
+    ? formatDate(created_at, true)
+    : `${view_count?.toLocaleString()} views`
 
   function onClick() {
     setClipUrl(clip)
@@ -101,12 +105,12 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             <Spacer />
 
             <Text
-              aria-label="Clip view count"
+              aria-label={showDate ? "Created at" : "Clip view count"}
               isTruncated
               textAlign="end"
               textStyle="viewCount"
             >
-              {`${view_count} views`}
+              {subText}
             </Text>
           </HStack>
         </VStack>

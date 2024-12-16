@@ -8,6 +8,7 @@ export interface ClipProviderProps extends PropsWithChildren {
   clipDoc: ClipDoc
   currentClip?: Clip
   setClipUrl: (clip: Clip | undefined) => void
+  showDate?: boolean
 }
 
 const initialContext: ClipProviderProps = {

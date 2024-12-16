@@ -81,6 +81,7 @@ export function FavoritePage() {
       clipDoc={clipDoc}
       currentClip={currentClip}
       setClipUrl={handleSetClip}
+      showDate
     >
       {currentClip === undefined ? (
         <AppLayout>
