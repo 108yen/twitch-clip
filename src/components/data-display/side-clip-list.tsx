@@ -25,7 +25,6 @@ import {
   Separator,
   Spacer,
   Text,
-  TextProps,
   Tooltip,
   useWindowEvent,
   VStack,
@@ -61,18 +60,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     })
   }
 
-  //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
-  const tooltipProps: any = {
-    label: title,
-    placement: "top-start",
-  }
-
-  const textProps: TextProps = {
-    fontWeight: "bold",
-    isTruncated: true,
-    onClick,
-  }
-
   return (
     <VStack gap="1" w="full">
       <Container
@@ -97,9 +84,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         />
 
         <VStack gap={0} overflow="hidden" w="full">
-          <Tooltip {...tooltipProps}>
-            <Text {...textProps}>{title}</Text>
-          </Tooltip>
+          <Text fontWeight="bold" isTruncated onClick={onClick}>
+            {title}
+          </Text>
 
           <HStack>
             <Text
