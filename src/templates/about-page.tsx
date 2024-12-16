@@ -78,7 +78,7 @@ export function About() {
           <Separator />
 
           <Text>
-            本サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、100件表示可能です。
+            当サイトに掲載されるランキングは、すべてのストリーマーのランキングではなく、登録されたストリーマーのランキングです。各ランキングにつき、100件表示可能です。
           </Text>
         </VStack>
 
@@ -128,7 +128,17 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading as="h2">4. 禁止事項</Heading>
+          <Heading as="h2">4. お気に入り機能について</Heading>
+
+          <Separator />
+
+          <Text>
+            当サイトでは、クリップをお気に入りに登録することができます。お気に入りに登録したクリップは端末間で同期されず、各デバイスで個別に管理されます。同期機能の開発を検討していますが、コストや技術的な課題により実装されない場合があります。
+          </Text>
+        </VStack>
+
+        <VStack>
+          <Heading as="h2">5. 禁止事項</Heading>
 
           <Separator />
 
@@ -159,7 +169,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading as="h2">5. Google Analytics</Heading>
+          <Heading as="h2">6. Google Analytics</Heading>
 
           <Separator />
 
@@ -195,7 +205,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading as="h2">6. Google AdSense</Heading>
+          <Heading as="h2">7. Google AdSense</Heading>
 
           <Separator />
 
@@ -217,7 +227,7 @@ export function About() {
         </VStack>
 
         <VStack>
-          <Heading as="h2">7. お問い合わせ</Heading>
+          <Heading as="h2">8. お問い合わせ</Heading>
 
           <Separator />
 
