@@ -88,7 +88,12 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         />
 
         <VStack gap={0} overflow="hidden" w="full">
-          <Text fontWeight="bold" isTruncated onClick={onClick}>
+          <Text
+            cursor="pointer"
+            fontWeight="bold"
+            isTruncated
+            onClick={onClick}
+          >
             {title}
           </Text>
 

@@ -4,7 +4,7 @@ import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { formatDate } from "@/utils/string"
 import { sendGAEvent } from "@next/third-parties/google"
-import { GhostIcon } from "@yamada-ui/lucide"
+import { GhostIcon, SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   Avatar,
@@ -12,6 +12,7 @@ import {
   For,
   GridItem,
   HStack,
+  IconButton,
   NativeImage,
   SimpleGrid,
   Spacer,
@@ -36,6 +37,7 @@ function ClipCard({ clip }: ClipCardProps) {
     profile_image_url,
     thumbnail_url,
     title,
+    url,
   } = clip
 
   const created_at = formatDate(_created_at, true)
@@ -56,6 +58,7 @@ function ClipCard({ clip }: ClipCardProps) {
   }
 
   const textProps: TextProps = {
+    cursor: "pointer",
     fontWeight: "bold",
     isTruncated: true,
     onClick,
@@ -85,9 +88,24 @@ function ClipCard({ clip }: ClipCardProps) {
         />
 
         <VStack gap={0} overflow="hidden" w="full">
-          <Tooltip {...tooltipProps}>
-            <Text {...textProps}>{title}</Text>
-          </Tooltip>
+          <HStack gap={0}>
+            <Tooltip {...tooltipProps}>
+              <Text {...textProps}>{title}</Text>
+            </Tooltip>
+
+            <IconButton
+              aria-label="Link to twitch clip."
+              as={Link}
+              href={url ?? ""}
+              icon={<SquareArrowOutUpRightIcon />}
+              size="xs"
+              style={{
+                textDecoration: "none",
+              }}
+              target="_blank"
+              variant="primary"
+            />
+          </HStack>
 
           <HStack>
             <Text
