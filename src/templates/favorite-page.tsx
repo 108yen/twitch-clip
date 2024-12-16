@@ -1,6 +1,6 @@
 "use client"
 
-import { ClipGrid } from "@/components/data-display"
+import { ClipGrid, ClipListTabs } from "@/components/data-display"
 import { FavoriteHeader, MobileView, PCView } from "@/components/layouts"
 import { ClipProvider, usePage } from "@/contexts"
 import { AppLayout } from "@/layouts"
@@ -16,6 +16,38 @@ import {
   useWindowEvent,
 } from "@yamada-ui/react"
 import { useEffect, useState, useTransition } from "react"
+
+interface FavoriteBodyProps {
+  clips: Clip[] | undefined
+  isPending: boolean
+  width: number
+}
+
+function FavoriteBody({ clips, isPending, width }: FavoriteBodyProps) {
+  if (isPending || isUndefined(clips)) {
+    return (
+      <Center h="3xs" w="full">
+        <Loading fontSize="2xl" />
+      </Center>
+    )
+  }
+
+  if (clips.length == 0) {
+    return (
+      <EmptyState
+        description="Add clips to your favorites"
+        indicator={<PaperclipIcon />}
+        title="Your have no favorite clip"
+      />
+    )
+  }
+
+  if (width < 600) {
+    return <ClipListTabs />
+  }
+
+  return <ClipGrid />
+}
 
 export function FavoritePage() {
   const [currentClip, setCurrentClip] = useState<Clip>()
@@ -49,24 +81,13 @@ export function FavoritePage() {
       clipDoc={clipDoc}
       currentClip={currentClip}
       setClipUrl={handleSetClip}
+      showDate
     >
       {currentClip === undefined ? (
         <AppLayout>
           <FavoriteHeader />
 
-          {isPending || isUndefined(clips) ? (
-            <Center h="3xs" w="full">
-              <Loading fontSize="2xl" />
-            </Center>
-          ) : clips.length == 0 ? (
-            <EmptyState
-              description="Add clips to your favorites"
-              indicator={<PaperclipIcon />}
-              title="Your have no favorite clip"
-            />
-          ) : (
-            <ClipGrid clips={clips} />
-          )}
+          <FavoriteBody clips={clips} isPending={isPending} width={width} />
         </AppLayout>
       ) : width < 600 ? (
         <MobileView />

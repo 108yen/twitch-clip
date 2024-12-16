@@ -116,11 +116,10 @@ function ClipCard({ clip }: ClipCardProps) {
   )
 }
 
-export interface ClipGridProps {
-  clips: Clip[]
-}
+export function ClipGrid() {
+  const { clipDoc } = useClip()
+  const clips: Clip[] = (clipDoc["favorite"] as Clip[] | undefined) ?? []
 
-export function ClipGrid({ clips }: ClipGridProps) {
   return (
     <SimpleGrid columns={{ base: 4, lg: 3, md: 2, sm: 1 }} gap="md" w="full">
       <For each={clips}>

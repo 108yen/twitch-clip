@@ -1,13 +1,18 @@
 "use client"
 import { useClip } from "@/contexts"
+import { formatDate } from "@/utils/string"
 import { Heading, HStack, Spacer, Text } from "@yamada-ui/react"
 
 import { FavoriteButton } from "../form"
 
 export function ClipInfo() {
-  const { currentClip } = useClip()
+  const { currentClip, showDate } = useClip()
 
-  const { title, view_count } = currentClip!
+  const { created_at = "", title, view_count } = currentClip!
+
+  const subText = showDate
+    ? formatDate(created_at, true)
+    : `${view_count?.toLocaleString()} views`
 
   return (
     <HStack alignItems="flex-end" gap={0} overflow="hidden" w="full">
@@ -20,9 +25,12 @@ export function ClipInfo() {
       <Spacer />
 
       <Text
+        aria-label={showDate ? "Created at" : "Clip view count"}
         isTruncated
         textStyle="viewCount"
-      >{`${view_count?.toLocaleString()} views`}</Text>
+      >
+        {subText}
+      </Text>
     </HStack>
   )
 }
