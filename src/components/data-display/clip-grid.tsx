@@ -93,6 +93,8 @@ function ClipCard({ clip }: ClipCardProps) {
               <Text {...textProps}>{title}</Text>
             </Tooltip>
 
+            <Spacer />
+
             <IconButton
               aria-label="Link to twitch clip."
               as={Link}
