@@ -5,7 +5,7 @@ export function FavoriteHeader() {
     <Container
       borderBottom="solid"
       borderColor="border"
-      marginY="lg"
+      marginY={{ base: "lg", sm: "sm" }}
       p={0}
       w="full"
     >
