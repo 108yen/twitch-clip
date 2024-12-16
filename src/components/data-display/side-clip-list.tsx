@@ -4,6 +4,7 @@ import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
+import { formatDate } from "@/utils/string"
 import { sendGAEvent } from "@next/third-parties/google"
 import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
@@ -25,7 +26,6 @@ import {
   Separator,
   Spacer,
   Text,
-  TextProps,
   Tooltip,
   useWindowEvent,
   VStack,
@@ -33,46 +33,35 @@ import {
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
 
-type ClipCardProps = {
+interface ClipCardProps {
   clip: Clip
   tab: string
 }
 
 function ClipCard({ clip, tab }: ClipCardProps) {
-  const { setClipUrl } = useClip()
+  const { setClipUrl, showDate } = useClip()
 
   const {
     broadcaster_id,
     broadcaster_name,
+    created_at = "",
     profile_image_url = "",
     thumbnail_url = "",
     title,
-    url,
-    view_count: _view_count,
+    view_count,
   } = clip
 
-  const view_count = _view_count?.toLocaleString()
+  const subText = showDate
+    ? formatDate(created_at, true)
+    : `${view_count?.toLocaleString()} views`
 
   function onClick() {
     setClipUrl(clip)
     sendGAEvent("event", "click", {
       clip_title: title,
       label: "click_clip_title",
-      link_url: url,
       ranking_period: tab,
     })
-  }
-
-  //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
-  const tooltipProps: any = {
-    label: title,
-    placement: "top-start",
-  }
-
-  const textProps: TextProps = {
-    fontWeight: "bold",
-    isTruncated: true,
-    onClick,
   }
 
   return (
@@ -99,9 +88,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         />
 
         <VStack gap={0} overflow="hidden" w="full">
-          <Tooltip {...tooltipProps}>
-            <Text {...textProps}>{title}</Text>
-          </Tooltip>
+          <Text fontWeight="bold" isTruncated onClick={onClick}>
+            {title}
+          </Text>
 
           <HStack>
             <Text
@@ -116,12 +105,12 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             <Spacer />
 
             <Text
-              aria-label="Clip view count"
+              aria-label={showDate ? "Created at" : "Clip view count"}
               isTruncated
               textAlign="end"
               textStyle="viewCount"
             >
-              {`${view_count} views`}
+              {subText}
             </Text>
           </HStack>
         </VStack>
@@ -141,10 +130,10 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const rootRef = useRef<HTMLDivElement>(undefined!)
   const resetRef = useRef<() => void>(noop)
 
-  let height = createdDom() ? window.innerHeight - 112 : 0
+  let height = createdDom() ? window.innerHeight - 113 : 0
 
   useWindowEvent("resize", () => {
-    height = window.innerHeight - 112
+    height = window.innerHeight - 113
   })
 
   function resetCount() {
@@ -233,20 +222,23 @@ export function SideClipTabs() {
 
   return (
     <VStack gap={0} separator={<Separator />}>
-      <HStack>
+      <HStack alignItems="flex-end" minH="6xs">
         <Tooltip {...tooltipProps}>
           <Button {...buttonProps}>clips</Button>
         </Tooltip>
 
         <Spacer />
 
-        <Select
-          items={items}
-          marginBottom="xs"
-          maxW="4xs"
-          onChange={handleChange}
-          value={tab}
-        />
+        {items.length > 1 ? (
+          <Select
+            focusBorderColor="primary.500"
+            items={items}
+            marginBottom="xs"
+            maxW="4xs"
+            onChange={handleChange}
+            value={tab}
+          />
+        ) : null}
       </HStack>
 
       <ClipList clips={clips} resetRef={resetRef} tab={tab} />

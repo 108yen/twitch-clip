@@ -11,7 +11,7 @@ import { useState } from "react"
 export function ClipPage(props: { clipDoc: ClipDoc }) {
   const { clipDoc } = props
 
-  const [currentClip, setCurrentClip] = useState<Clip | undefined>()
+  const [currentClip, setCurrentClip] = useState<Clip>()
 
   let width = createdDom() ? window.innerWidth : 0
 

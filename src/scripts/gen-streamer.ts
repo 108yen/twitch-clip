@@ -7,7 +7,7 @@ import "dotenv/config"
 import { writeFile } from "fs/promises"
 
 function getDB() {
-  process.env.FIRESTORE_EMULATOR_HOST = undefined
+  delete process.env.FIRESTORE_EMULATOR_HOST
 
   const serviceAccount = {
     authProviderX509CertUrl: process.env.AUTH_PROVIDER_X509_CERT_URL!,

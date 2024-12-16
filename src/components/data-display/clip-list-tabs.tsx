@@ -63,7 +63,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     profile_image_url,
     thumbnail_url,
     title,
-    url,
     view_count: _view_count,
   } = clip
 
@@ -79,7 +78,6 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         sendGAEvent("event", "click", {
           clip_title: title,
           label: "click_clip_title",
-          link_url: url,
           ranking_period: tab,
         })
       }}
@@ -142,7 +140,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           </HStack>
 
           <Text
-            aria-describedby="Clip creator name"
+            aria-label="Clip creator name"
             display={{ base: "flex", sm: "none" }}
             textAlign="start"
           >
@@ -150,7 +148,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           </Text>
 
           <Text
-            aria-describedby="Clip created date"
+            aria-label="Clip created date"
             display={{ base: "flex", sm: "none" }}
             textAlign="start"
           >
@@ -158,7 +156,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           </Text>
 
           <Text
-            aria-describedby="Clip view count"
+            aria-label="Clip view count"
             textAlign="end"
             textStyle="viewCount"
           >
@@ -255,31 +253,33 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
 
   return (
     <>
-      <Tabs
-        align="center"
-        defaultIndex={0}
-        index={index}
-        onChange={handleChange}
-        {...tabsProps}
-      >
-        <TabList>
-          {tabs.map((tab) => (
-            <Tab
-              _selected={{
-                borderColor: "currentColor",
-                borderWidth: "2px",
-                color: "primary.500",
-              }}
-              fontSize="sm"
-              key={tab}
-              p={3}
-              w="4xs"
-            >
-              {tab.toUpperCase()}
-            </Tab>
-          ))}
-        </TabList>
-      </Tabs>
+      {tabs.length > 1 ? (
+        <Tabs
+          align="center"
+          defaultIndex={0}
+          index={index}
+          onChange={handleChange}
+          {...tabsProps}
+        >
+          <TabList>
+            {tabs.map((tab) => (
+              <Tab
+                _selected={{
+                  borderColor: "currentColor",
+                  borderWidth: "2px",
+                  color: "primary.500",
+                }}
+                fontSize="sm"
+                key={tab}
+                p={3}
+                w="4xs"
+              >
+                {tab.toUpperCase()}
+              </Tab>
+            ))}
+          </TabList>
+        </Tabs>
+      ) : null}
 
       <Carousel
         draggable={false}

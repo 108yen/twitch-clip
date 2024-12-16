@@ -3,9 +3,8 @@ import { ReactNode } from "react"
 
 export function generateMetadata() {
   return generateTemplateMetadata({
-    caption: "過去ランキング",
-    description:
-      "Twitch(ツイッチ)クリップの年別再生数ランキング。※すべての配信者の集計ではありません。",
+    caption: "お気に入り",
+    description: "お気に入りに保存したクリップの一覧",
   })
 }
 

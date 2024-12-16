@@ -3,7 +3,7 @@ module.exports = {
   robotsTxtOptions: {
     policies: [
       {
-        disallow: ["/about", "/release-note"],
+        disallow: ["/about", "/release-note", "/favorite"],
         userAgent: "*",
       },
     ],
