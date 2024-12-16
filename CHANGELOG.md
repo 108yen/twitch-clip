@@ -1,5 +1,11 @@
 # twitch-clip
 
+## 2.6.2
+
+### Patch Changes
+
+- [#338](https://github.com/108yen/twitch-clip/pull/338) [`ab09bf8`](https://github.com/108yen/twitch-clip/commit/ab09bf8ebff95581ce808040ad58cf61cc951f8f) Thanks [@108yen](https://github.com/108yen)! - Fixed reverse ga label of click favorite.
+
 ## 2.6.1
 
 ### Patch Changes
