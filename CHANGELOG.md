@@ -1,5 +1,13 @@
 # twitch-clip
 
+## 2.6.1
+
+### Patch Changes
+
+- [#336](https://github.com/108yen/twitch-clip/pull/336) [`82ecc28`](https://github.com/108yen/twitch-clip/commit/82ecc288b8a116253a25dd8615229d4cb1c3338f) Thanks [@108yen](https://github.com/108yen)! - Added link to twich in `ClipCard` of `ClipGrid`.
+
+- [#336](https://github.com/108yen/twitch-clip/pull/336) [`bc9e1c3`](https://github.com/108yen/twitch-clip/commit/bc9e1c3faf6c13a44d83dc7053ceef9173c4c421) Thanks [@108yen](https://github.com/108yen)! - Added description of favorite feature to `about` page.
+
 ## 2.6.0
 
 ### Minor Changes

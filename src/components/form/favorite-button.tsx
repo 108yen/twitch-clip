@@ -2,6 +2,7 @@
 
 import { usePage } from "@/contexts"
 import { Clip } from "@/models/clip"
+import { sendGAEvent } from "@next/third-parties/google"
 import { StarIcon } from "@yamada-ui/lucide"
 import { dataAttr, IconButton } from "@yamada-ui/react"
 import { useEffect, useState, useTransition } from "react"
@@ -35,16 +36,26 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
 
   function handleClick() {
     startTransition(async () => {
-      const { id: clipId } = clip
+      const { id: clipId, title } = clip
 
       if (!clipId) return
 
       if (check) {
         await deleteClip(clipId)
         setCheck(false)
+
+        sendGAEvent("event", "click", {
+          clip_title: title,
+          label: "add_to_favorite",
+        })
       } else {
         await saveClip(clip)
         setCheck(true)
+
+        sendGAEvent("event", "click", {
+          clip_title: title,
+          label: "remove_from_favorite",
+        })
       }
 
       return
