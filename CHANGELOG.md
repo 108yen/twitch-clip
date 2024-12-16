@@ -1,5 +1,17 @@
 # twitch-clip
 
+## 2.6.0
+
+### Minor Changes
+
+- [#331](https://github.com/108yen/twitch-clip/pull/331) [`41bdaab`](https://github.com/108yen/twitch-clip/commit/41bdaabeb78c3d07a824d38bb67a40ac1838e501) Thanks [@108yen](https://github.com/108yen)! - Added the ability to save favorites.
+
+### Patch Changes
+
+- [#331](https://github.com/108yen/twitch-clip/pull/331) [`53c2e7b`](https://github.com/108yen/twitch-clip/commit/53c2e7b65bdba8e0febcee15c5845365e9ecbac0) Thanks [@108yen](https://github.com/108yen)! - Fixed `focusBorderColor` of `Select` component in side clip list.
+
+- [#333](https://github.com/108yen/twitch-clip/pull/333) [`8c32897`](https://github.com/108yen/twitch-clip/commit/8c328971e784d01c4bbd809ac24453c9c3bb6a7a) Thanks [@108yen](https://github.com/108yen)! - Fixed bug with scrollability.
+
 ## 2.5.2
 
 ### Patch Changes
