@@ -7,7 +7,6 @@ import { sendGAEvent } from "@next/third-parties/google"
 import { GhostIcon, SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
-  Avatar,
   Container,
   For,
   GridItem,
@@ -22,6 +21,8 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
+
+import { SkeletonAvatar } from "../media-and-icons"
 
 interface ClipCardProps {
   clip: Clip
@@ -78,7 +79,7 @@ function ClipCard({ clip }: ClipCardProps) {
       </Container>
 
       <HStack>
-        <Avatar
+        <SkeletonAvatar
           alt={broadcaster_name}
           as={Link}
           href={`/streamer/${broadcaster_id}`}

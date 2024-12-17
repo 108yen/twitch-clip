@@ -1,8 +1,8 @@
 "use client"
-import { TwitchLink } from "@/components/media-and-icons"
+import { SkeletonAvatar, TwitchLink } from "@/components/media-and-icons"
 import { useClip } from "@/contexts"
 import { GhostIcon } from "@yamada-ui/lucide"
-import { Avatar, HStack, Spacer, Text, VStack } from "@yamada-ui/react"
+import { HStack, Spacer, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
 
 export function StreamerInfo() {
@@ -20,7 +20,7 @@ export function StreamerInfo() {
 
   return (
     <HStack>
-      <Avatar
+      <SkeletonAvatar
         alt={broadcaster_name}
         as={Link}
         href={`/streamer/${broadcaster_id}`}

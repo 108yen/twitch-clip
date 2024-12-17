@@ -10,7 +10,6 @@ import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
-  Avatar,
   Box,
   Button,
   ButtonProps,
@@ -32,6 +31,8 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
+
+import { SkeletonAvatar } from "../media-and-icons"
 
 interface ClipCardProps {
   clip: Clip
@@ -78,7 +79,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
       </Container>
 
       <HStack>
-        <Avatar
+        <SkeletonAvatar
           alt={broadcaster_name}
           as={Link}
           href={`/streamer/${broadcaster_id}`}
