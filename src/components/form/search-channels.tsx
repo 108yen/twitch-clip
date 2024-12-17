@@ -14,7 +14,11 @@ interface SearchChannelProps {
   num: number
   onChange: (value: string) => void
 }
-export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
+export function SearchChannels({ num: _num, onChange }: SearchChannelProps) {
+  function handleChange(ev: ChangeEvent<HTMLInputElement>) {
+    onChange(ev.target.value)
+  }
+
   return (
     <InputGroup>
       <InputLeftElement>
@@ -24,9 +28,7 @@ export function SearchChannel({ num: _num, onChange }: SearchChannelProps) {
       <Input
         aria-label="Text form for search streamers"
         focusBorderColor="primary.500"
-        onChange={(ev: ChangeEvent<HTMLInputElement>) =>
-          onChange(ev.target.value)
-        }
+        onChange={handleChange}
         placeholder="search"
         type="text"
         variant="flushed"

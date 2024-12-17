@@ -7,7 +7,6 @@ import { sendGAEvent } from "@next/third-parties/google"
 import { GhostIcon, SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
-  Avatar,
   Container,
   For,
   GridItem,
@@ -22,6 +21,8 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
+
+import { SkeletonAvatar } from "../media-and-icons"
 
 interface ClipCardProps {
   clip: Clip
@@ -78,7 +79,7 @@ function ClipCard({ clip }: ClipCardProps) {
       </Container>
 
       <HStack>
-        <Avatar
+        <SkeletonAvatar
           alt={broadcaster_name}
           as={Link}
           href={`/streamer/${broadcaster_id}`}
@@ -92,6 +93,8 @@ function ClipCard({ clip }: ClipCardProps) {
             <Tooltip {...tooltipProps}>
               <Text {...textProps}>{title}</Text>
             </Tooltip>
+
+            <Spacer />
 
             <IconButton
               aria-label="Link to twitch clip."
@@ -134,10 +137,11 @@ function ClipCard({ clip }: ClipCardProps) {
   )
 }
 
-export function ClipGrid() {
-  const { clipDoc } = useClip()
-  const clips: Clip[] = (clipDoc["favorite"] as Clip[] | undefined) ?? []
+interface ClipGridProps {
+  clips: Clip[]
+}
 
+export function ClipGrid({ clips }: ClipGridProps) {
   return (
     <SimpleGrid columns={{ base: 4, lg: 3, md: 2, sm: 1 }} gap="md" w="full">
       <For each={clips}>

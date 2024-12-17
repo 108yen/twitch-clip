@@ -1,3 +1,4 @@
+export * from "./favorite-body"
 export * from "./favorite-header"
 export * from "./header"
 export * from "./mobile-view"

@@ -4,7 +4,7 @@ import { usePage } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { sendGAEvent } from "@next/third-parties/google"
 import { StarIcon } from "@yamada-ui/lucide"
-import { dataAttr, IconButton } from "@yamada-ui/react"
+import { dataAttr, IconButton, Tooltip } from "@yamada-ui/react"
 import { useEffect, useState, useTransition } from "react"
 
 interface FavoriteButtonProps {
@@ -62,23 +62,27 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
     })
   }
 
+  const tooltipProps: any = { label: "お気に入りに登録する", placement: "top" }
+
   return (
-    <IconButton
-      aria-label="Favorite button"
-      colorScheme="primary"
-      data-selected={dataAttr(check)}
-      disabled={isPending}
-      fullRounded
-      icon={
-        <StarIcon
-          _selected={{ fill: "primary.500" }}
-          data-selected={dataAttr(check)}
-          fontSize="lg"
-        />
-      }
-      onClick={handleClick}
-      size="sm"
-      variant="ghost"
-    />
+    <Tooltip {...tooltipProps}>
+      <IconButton
+        aria-label="Favorite button"
+        colorScheme="primary"
+        data-selected={dataAttr(check)}
+        disabled={isPending}
+        fullRounded
+        icon={
+          <StarIcon
+            _selected={{ fill: "primary.500" }}
+            data-selected={dataAttr(check)}
+            fontSize="lg"
+          />
+        }
+        onClick={handleClick}
+        size="sm"
+        variant="ghost"
+      />
+    </Tooltip>
   )
 }

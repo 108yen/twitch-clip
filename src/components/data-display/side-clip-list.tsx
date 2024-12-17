@@ -10,12 +10,12 @@ import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
-  Avatar,
   Box,
   Button,
   ButtonProps,
   Container,
   createdDom,
+  EmptyState,
   HStack,
   InfiniteScrollArea,
   Loading,
@@ -32,6 +32,8 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
+
+import { SkeletonAvatar } from "../media-and-icons"
 
 interface ClipCardProps {
   clip: Clip
@@ -78,7 +80,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
       </Container>
 
       <HStack>
-        <Avatar
+        <SkeletonAvatar
           alt={broadcaster_name}
           as={Link}
           href={`/streamer/${broadcaster_id}`}
@@ -166,7 +168,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   return (
     <Container apply="layoutStyles.scrollArea" maxH={height} ref={rootRef}>
       <InfiniteScrollArea
-        finish={<Text>no more clips</Text>}
+        finish={<EmptyState title="No more clips" />}
         loading={<Loading fontSize="2xl" />}
         marginY="md"
         onLoad={({ finish, index }) => {

@@ -1,8 +1,7 @@
-import { TwitchLink } from "@/components/media-and-icons"
+import { SkeletonAvatar, TwitchLink } from "@/components/media-and-icons"
 import { Streamer } from "@/models/streamer"
 import { GhostIcon } from "@yamada-ui/lucide"
 import {
-  Avatar,
   Heading,
   HStack,
   LinkBox,
@@ -32,7 +31,7 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
   return (
     <LinkBox apply="layoutStyles.borderCard" as="article" p="sm">
       <HStack gap={2} w="full">
-        <Avatar
+        <SkeletonAvatar
           alt={display_name}
           icon={<GhostIcon />}
           src={profile_image_url}
