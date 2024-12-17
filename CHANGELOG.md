@@ -1,5 +1,11 @@
 # twitch-clip
 
+## 2.6.4
+
+### Patch Changes
+
+- [#349](https://github.com/108yen/twitch-clip/pull/349) [`c544d65`](https://github.com/108yen/twitch-clip/commit/c544d65bbd37e0deef800b35d7822c004d7416d2) Thanks [@108yen](https://github.com/108yen)! - Supported PWA.
+
 ## 2.6.3
 
 ### Patch Changes
