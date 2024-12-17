@@ -11,8 +11,6 @@ import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
-  Avatar,
-  AvatarProps,
   Box,
   Container,
   Heading,
@@ -22,30 +20,18 @@ import {
   InfiniteScrollArea,
   isArray,
   Loading,
-  SkeletonCircle,
   Spacer,
   Tab,
   TabList,
   Tabs,
   TabsProps,
   Text,
-  useBoolean,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
 
-interface UIAvatarProps extends AvatarProps {}
-
-function UIAvatar(props: UIAvatarProps) {
-  const [avatarLoaded, { on: avatarOn }] = useBoolean()
-
-  return (
-    <SkeletonCircle isLoaded={avatarLoaded}>
-      <Avatar onLoad={avatarOn} {...props} />
-    </SkeletonCircle>
-  )
-}
+import { SkeletonAvatar } from "../media-and-icons"
 
 interface ClipCardProps {
   clip: Clip
@@ -128,7 +114,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             }}
             w="fit-content"
           >
-            <UIAvatar
+            <SkeletonAvatar
               alt={broadcaster_name}
               size={{ base: "base", sm: "sm" }}
               src={profile_image_url}

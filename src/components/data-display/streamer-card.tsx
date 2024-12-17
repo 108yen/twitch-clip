@@ -1,7 +1,7 @@
-import { TwitchLink } from "@/components/media-and-icons"
+import { SkeletonAvatar, TwitchLink } from "@/components/media-and-icons"
 import { Streamer } from "@/models/streamer"
 import { GhostIcon } from "@yamada-ui/lucide"
-import { Avatar, Heading, HStack, Spacer, Text, VStack } from "@yamada-ui/react"
+import { Heading, HStack, Spacer, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
 
 interface StreamerCardProps {
@@ -22,7 +22,7 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
 
   return (
     <HStack gap={2} justifyContent="flex-start" w="full">
-      <Avatar
+      <SkeletonAvatar
         alt={display_name}
         aria-label="streamer page link"
         as={Link}
