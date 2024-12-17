@@ -1,5 +1,15 @@
 # twitch-clip
 
+## 2.6.3
+
+### Patch Changes
+
+- [#346](https://github.com/108yen/twitch-clip/pull/346) [`d5a9749`](https://github.com/108yen/twitch-clip/commit/d5a974964f8dbfc482743c372c3efbf5f5a1e218) Thanks [@108yen](https://github.com/108yen)! - Added search form to favorite page.
+
+- [#343](https://github.com/108yen/twitch-clip/pull/343) [`b8ef76f`](https://github.com/108yen/twitch-clip/commit/b8ef76f53ce183397e2a11aa2adc0e2bb94f79f4) Thanks [@108yen](https://github.com/108yen)! - Added `SkeletonAvatar` and replaced `Avatar`.
+
+- [#347](https://github.com/108yen/twitch-clip/pull/347) [`225854a`](https://github.com/108yen/twitch-clip/commit/225854a2f80c2074e8758e31e1b118a9fde917de) Thanks [@108yen](https://github.com/108yen)! - Use `EmptyState` to indicate that there is no content.
+
 ## 2.6.2
 
 ### Patch Changes
