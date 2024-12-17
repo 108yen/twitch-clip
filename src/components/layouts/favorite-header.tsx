@@ -1,14 +1,10 @@
-import { Container, Heading } from "@yamada-ui/react"
+import { Container, ContainerProps, Heading } from "@yamada-ui/react"
 
-export function FavoriteHeader() {
+interface FavoriteHeaderProps extends ContainerProps {}
+
+export function FavoriteHeader(props: FavoriteHeaderProps) {
   return (
-    <Container
-      borderBottom="solid"
-      borderColor="border"
-      marginY={{ base: "lg", sm: "sm" }}
-      p={0}
-      w="full"
-    >
+    <Container marginY={{ base: "md", sm: "sm" }} p={0} w="full" {...props}>
       <Heading as="h2" size="lg">
         Favorite
       </Heading>
