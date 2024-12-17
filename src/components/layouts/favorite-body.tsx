@@ -47,6 +47,7 @@ export function FavoriteBody({ clips, isPending, width }: FavoriteBodyProps) {
       <EmptyState
         description="Add clips to your favorites"
         indicator={<PaperclipIcon />}
+        size="lg"
         title="Your have no favorite clip"
       />
     )

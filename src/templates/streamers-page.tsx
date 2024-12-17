@@ -3,7 +3,8 @@ import { ChannelCard } from "@/components/data-display"
 import { SearchChannels } from "@/components/form"
 import { AppLayout } from "@/layouts"
 import { Streamer } from "@/models/streamer"
-import { VStack } from "@yamada-ui/react"
+import { TwitchIcon } from "@yamada-ui/lucide"
+import { EmptyState, VStack } from "@yamada-ui/react"
 import { useDeferredValue, useMemo, useState } from "react"
 
 interface StreamersProps {
@@ -28,6 +29,14 @@ export function Streamers({ streamers }: StreamersProps) {
     <AppLayout>
       <VStack gap="md">
         <SearchChannels num={filteredChannels.length} onChange={setText} />
+
+        {filteredChannels.length == 0 ? (
+          <EmptyState
+            indicator={<TwitchIcon />}
+            size="lg"
+            title="No channels were found in the search"
+          />
+        ) : null}
 
         {filteredChannels.map((streamer, index) => (
           <ChannelCard key={index} streamer={streamer} />

@@ -15,6 +15,7 @@ import {
   ButtonProps,
   Container,
   createdDom,
+  EmptyState,
   HStack,
   InfiniteScrollArea,
   Loading,
@@ -167,7 +168,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   return (
     <Container apply="layoutStyles.scrollArea" maxH={height} ref={rootRef}>
       <InfiniteScrollArea
-        finish={<Text>no more clips</Text>}
+        finish={<EmptyState title="No more clips" />}
         loading={<Loading fontSize="2xl" />}
         marginY="md"
         onLoad={({ finish, index }) => {
