@@ -13,6 +13,7 @@ import {
   assignRef,
   Box,
   Container,
+  EmptyState,
   Heading,
   HStack,
   IconButton,
@@ -198,7 +199,7 @@ function ClipList({
 
   return (
     <InfiniteScrollArea
-      finish={<Text>no more clips</Text>}
+      finish={<EmptyState title="No more clips" />}
       gap={{ base: "md", sm: "sm" }}
       loading={<Loading fontSize="2xl" />}
       marginY="md"
