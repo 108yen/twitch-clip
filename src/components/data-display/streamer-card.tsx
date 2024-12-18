@@ -37,7 +37,8 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
           <Heading
             fontSize="2xl"
             fontWeight="semibold"
-            isTruncated
+            lineClamp={1}
+            overflowWrap="anywhere"
             variant="h4"
           >
             {display_name}
