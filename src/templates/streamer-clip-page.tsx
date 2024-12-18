@@ -8,12 +8,11 @@ import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { splitClipDoc } from "@/utils/clip"
 import {
-  createdDom,
   Tab,
   TabList,
   TabPanel,
   Tabs,
-  useWindowEvent,
+  useBreakpoint,
   VStack,
 } from "@yamada-ui/react"
 import { useMemo, useState } from "react"
@@ -25,15 +24,11 @@ interface StreamerClipPageProps {
 export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
   const [currentClip, setCurrentClip] = useState<Clip | undefined>()
   const [index, onChange] = useState(0)
+  const breakpoint = useBreakpoint()
 
   const [trend, history] = useMemo(() => splitClipDoc(clipDoc), [clipDoc])
 
   const streamer = clipDoc.streamerInfo
-  let width = createdDom() ? window.innerWidth : 0
-
-  useWindowEvent("resize", () => {
-    width = window.innerWidth
-  })
 
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)
@@ -68,7 +63,7 @@ export function StreamerClipPage({ clipDoc }: StreamerClipPageProps) {
             </Tabs>
           </VStack>
         </AppLayout>
-      ) : width < 600 ? (
+      ) : breakpoint == "sm" ? (
         <MobileView />
       ) : (
         <PCView />
