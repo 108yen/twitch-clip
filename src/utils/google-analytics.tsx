@@ -43,7 +43,7 @@ export function GoogleAnalytics({
           gtag('js', new Date());
 
           gtag('config', '${gaId}' ,{
-            'debug_mode': ${debugMode},
+            ${debugMode ? "'debug_mode': true," : ""}
             'display_mode': '${displayMode}'
           });`,
         }}
