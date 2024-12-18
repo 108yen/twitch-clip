@@ -10,21 +10,17 @@ import { ClipProvider, usePage } from "@/contexts"
 import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
-import { createdDom, useWindowEvent } from "@yamada-ui/react"
+import { useBreakpoint } from "@yamada-ui/react"
 import { useEffect, useState, useTransition } from "react"
 
 export function FavoritePage() {
   const [currentClip, setCurrentClip] = useState<Clip>()
-  const { getAllClips } = usePage()
-  const [isPending, startTransition] = useTransition()
   const [clips, setClips] = useState<Clip[]>()
+  const [isPending, startTransition] = useTransition()
+  const breakpoint = useBreakpoint()
+  const { getAllClips } = usePage()
+
   const clipDoc = new ClipDoc({ favorite: clips })
-
-  let width = createdDom() ? window.innerWidth : 0
-
-  useWindowEvent("resize", () => {
-    width = window.innerWidth
-  })
 
   useEffect(
     () =>
@@ -51,9 +47,9 @@ export function FavoritePage() {
         <AppLayout>
           <FavoriteHeader />
 
-          <FavoriteBody clips={clips} isPending={isPending} width={width} />
+          <FavoriteBody clips={clips} isPending={isPending} />
         </AppLayout>
-      ) : width < 600 ? (
+      ) : breakpoint == "sm" ? (
         <MobileView />
       ) : (
         <PCView />

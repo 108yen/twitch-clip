@@ -6,6 +6,7 @@ import {
   EmptyState,
   isUndefined,
   Loading,
+  useBreakpoint,
   VStack,
 } from "@yamada-ui/react"
 import { useDeferredValue, useMemo, useState } from "react"
@@ -16,12 +17,12 @@ import { SearchClips } from "../form"
 interface FavoriteBodyProps {
   clips: Clip[] | undefined
   isPending: boolean
-  width: number
 }
 
-export function FavoriteBody({ clips, isPending, width }: FavoriteBodyProps) {
+export function FavoriteBody({ clips, isPending }: FavoriteBodyProps) {
   const [text, setText] = useState("")
   const deferredText = useDeferredValue(text)
+  const breakpoint = useBreakpoint()
 
   const filteredClips = useMemo(
     () =>
@@ -53,7 +54,7 @@ export function FavoriteBody({ clips, isPending, width }: FavoriteBodyProps) {
     )
   }
 
-  if (width < 600) {
+  if (breakpoint == "sm") {
     return <ClipListTabs />
   }
 
