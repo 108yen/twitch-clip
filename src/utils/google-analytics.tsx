@@ -44,7 +44,7 @@ export function GoogleAnalytics({
 
           gtag('config', '${gaId}' ,{
             'debug_mode': ${debugMode},
-            'display_mode': ${displayMode}
+            'display_mode': '${displayMode}'
           });`,
         }}
         id="_next-ga-init"
