@@ -2,7 +2,7 @@
 
 import { usePage } from "@/contexts"
 import { Clip } from "@/models/clip"
-import { sendGAEvent } from "@next/third-parties/google"
+import { sendGAEvent } from "@/utils/google-analytics"
 import { StarIcon } from "@yamada-ui/lucide"
 import { dataAttr, IconButton, Tooltip } from "@yamada-ui/react"
 import { useEffect, useState, useTransition } from "react"

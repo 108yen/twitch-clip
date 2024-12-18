@@ -21,7 +21,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useRef } from "react"
 
-export type HeaderProps = CenterProps
+export interface HeaderProps extends CenterProps {}
 
 export function Header({ ref, ...rest }: HeaderProps) {
   const headerRef = useRef<HTMLHeadingElement>(null)

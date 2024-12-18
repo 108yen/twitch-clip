@@ -4,8 +4,8 @@ import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
+import { sendGAEvent } from "@/utils/google-analytics"
 import { formatDate } from "@/utils/string"
-import { sendGAEvent } from "@next/third-parties/google"
 import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
