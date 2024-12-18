@@ -36,6 +36,7 @@ export default async function RootLayout({
         <PageProvider version={version}>
           <UIProvider config={config} theme={theme}>
             <Header />
+
             {children}
           </UIProvider>
         </PageProvider>
