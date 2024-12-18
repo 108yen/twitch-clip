@@ -1,5 +1,13 @@
 # twitch-clip
 
+## 2.6.5
+
+### Patch Changes
+
+- [#353](https://github.com/108yen/twitch-clip/pull/353) [`d07883c`](https://github.com/108yen/twitch-clip/commit/d07883c5a65316f6618546a80c2d1c51ff57b0d4) Thanks [@108yen](https://github.com/108yen)! - Added `display_mode` parameter to gtag.
+
+- [#355](https://github.com/108yen/twitch-clip/pull/355) [`568b201`](https://github.com/108yen/twitch-clip/commit/568b20147ce1f544ad54dee97580f8ceb52ae4f6) Thanks [@108yen](https://github.com/108yen)! - Fixed ga is not work.
+
 ## 2.6.4
 
 ### Patch Changes
