@@ -9,9 +9,9 @@ export function SideBarAD(props: BoxProps) {
 
   useEffect(() => {
     try {
-      ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
-      if ((window as any).adsbygoogle) {
-        ;(window as any).adsbygoogle.push({})
+      window.adsbygoogle = window.adsbygoogle || []
+      if (window.adsbygoogle) {
+        window.adsbygoogle.push({})
       }
     } catch (error) {
       console.error(error)

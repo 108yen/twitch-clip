@@ -23,8 +23,8 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
       },
     ],
-    name: "Twitch clip ranking",
-    short_name: "Twitch clip ranking",
+    name: "Twitch Clip Ranking",
+    short_name: "Twitch Clip Ranking",
     start_url: "/",
     theme_color: "#fff",
   }

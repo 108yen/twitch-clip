@@ -27,6 +27,7 @@ import {
   Tabs,
   TabsProps,
   Text,
+  useBreakpoint,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
@@ -169,7 +170,7 @@ function ClipList({
   tab,
 }: ClipListProps) {
   const [count, setCount] = useState<number>(CLIP_LIST.START_INDEX)
-
+  const breakpoint = useBreakpoint()
   const resetRef = useRef<() => void>(() => {})
 
   function resetCount() {
@@ -184,17 +185,18 @@ function ClipList({
   const filteredClips = useMemo(
     () =>
       clips.slice(0, count).map((clip, index) =>
-        (index == 4 && tabIndex == 0) ||
-        (index == CLIP_LIST.START_INDEX && tabIndex != 0) ? (
+        ((index == 4 && tabIndex == 0) ||
+          (index == CLIP_LIST.START_INDEX && tabIndex != 0)) &&
+        breakpoint == "sm" ? (
           <Box key={index}>
-            <InlineAD display={{ base: "none", lg: "flex" }} />
+            <InlineAD />
             <ClipCard clip={clip} tab={tab} />
           </Box>
         ) : (
           <ClipCard clip={clip} key={index} tab={tab} />
         ),
       ),
-    [clips, count, tab, tabIndex],
+    [breakpoint, clips, count, tab, tabIndex],
   )
 
   return (

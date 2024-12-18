@@ -1,5 +1,15 @@
 # twitch-clip
 
+## 2.6.6
+
+### Patch Changes
+
+- [#361](https://github.com/108yen/twitch-clip/pull/361) [`a2edab7`](https://github.com/108yen/twitch-clip/commit/a2edab7d9aab5ea6689a9bda605f2d13d0d32018) Thanks [@108yen](https://github.com/108yen)! - Fixed overflow text styles.
+
+- [#358](https://github.com/108yen/twitch-clip/pull/358) [`9a15ce5`](https://github.com/108yen/twitch-clip/commit/9a15ce5a3cdba39e5c387b235626e361e312f68f) Thanks [@108yen](https://github.com/108yen)! - Use media query to display ad.
+
+- [#362](https://github.com/108yen/twitch-clip/pull/362) [`dc2a8ed`](https://github.com/108yen/twitch-clip/commit/dc2a8ed4c1e68800c50a69ae4de4f08deb4ee421) Thanks [@108yen](https://github.com/108yen)! - Fixed ga debug mode.
+
 ## 2.6.5
 
 ### Patch Changes

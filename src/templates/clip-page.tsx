@@ -5,19 +5,16 @@ import { ClipProvider } from "@/contexts"
 import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
-import { createdDom, useWindowEvent } from "@yamada-ui/react"
+import { useBreakpoint } from "@yamada-ui/react"
 import { useState } from "react"
 
-export function ClipPage(props: { clipDoc: ClipDoc }) {
-  const { clipDoc } = props
+interface ClipPageProps {
+  clipDoc: ClipDoc
+}
 
+export function ClipPage({ clipDoc }: ClipPageProps) {
   const [currentClip, setCurrentClip] = useState<Clip>()
-
-  let width = createdDom() ? window.innerWidth : 0
-
-  useWindowEvent("resize", () => {
-    width = window.innerWidth
-  })
+  const breakpoint = useBreakpoint()
 
   function handleSetClip(clip: Clip | undefined) {
     setCurrentClip(clip)
@@ -33,7 +30,7 @@ export function ClipPage(props: { clipDoc: ClipDoc }) {
         <AppLayout>
           <ClipListTabs />
         </AppLayout>
-      ) : width < 600 ? (
+      ) : breakpoint == "sm" ? (
         <MobileView />
       ) : (
         <PCView />
