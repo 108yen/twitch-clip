@@ -3,6 +3,8 @@ import { GAParams } from "@/types/google"
 import Script from "next/script"
 import React, { useEffect } from "react"
 
+import { getDisplayMode } from "./display-mode"
+
 declare global {
   interface Window {
     dataLayer?: object[]
@@ -11,8 +13,13 @@ declare global {
 
 let currDataLayerName: string | undefined = undefined
 
-export function GoogleAnalytics(props: GAParams) {
-  const { dataLayerName = "dataLayer", debugMode, gaId, nonce } = props
+export function GoogleAnalytics({
+  dataLayerName = "dataLayer",
+  debugMode,
+  gaId,
+  nonce,
+}: GAParams) {
+  const displayMode = getDisplayMode()
 
   if (currDataLayerName === undefined) {
     currDataLayerName = dataLayerName
@@ -35,7 +42,10 @@ export function GoogleAnalytics(props: GAParams) {
           function gtag(){window['${dataLayerName}'].push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', '${gaId}' ${debugMode ? ",{ 'debug_mode': true }" : ""});`,
+          gtag('config', '${gaId}' ,{
+            'debug_mode': ${debugMode},
+            'display_mode': ${displayMode}
+          });`,
         }}
         id="_next-ga-init"
         nonce={nonce}
