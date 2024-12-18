@@ -28,6 +28,7 @@
     "MESSAGINGSENDERID",
     "multilines",
     "myadcenter",
+    "nosniff",
     "optout",
     "postbuild",
     "PROJECTID",

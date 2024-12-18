@@ -2,8 +2,8 @@
 
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
+import { sendGAEvent } from "@/utils/google-analytics"
 import { formatDate } from "@/utils/string"
-import { sendGAEvent } from "@next/third-parties/google"
 import { GhostIcon, SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,

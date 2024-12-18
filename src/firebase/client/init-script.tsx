@@ -1,5 +1,5 @@
 "use client"
-import { sendGAEvent } from "@next/third-parties/google"
+import { sendGAEvent } from "@/utils/google-analytics"
 import {
   getToken,
   initializeAppCheck,

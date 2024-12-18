@@ -1,6 +1,6 @@
 "use client"
 import { postInquiry } from "@/firebase/server/inquiry"
-import { sendGAEvent } from "@next/third-parties/google"
+import { sendGAEvent } from "@/utils/google-analytics"
 import {
   Button,
   FormControl,
