@@ -32,8 +32,6 @@ export function GoogleAnalytics({
     [config, debugMode, displayMode],
   )
 
-  console.log(additionalConfigInfo)
-
   if (currDataLayerName === undefined) {
     currDataLayerName = dataLayerName
   }
