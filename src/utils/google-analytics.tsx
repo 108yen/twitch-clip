@@ -69,14 +69,16 @@ export function GoogleAnalytics({
   )
 }
 
-export function sendGAEvent(...args: any[]) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function sendGAEvent(..._args: any[]) {
   if (currDataLayerName === undefined) {
     console.warn(`@next/third-parties: GA has not been initialized`)
     return
   }
 
   if (window[currDataLayerName]) {
-    window[currDataLayerName].push(...args)
+    // eslint-disable-next-line prefer-rest-params
+    window[currDataLayerName].push(arguments)
   } else {
     console.warn(
       `@next/third-parties: GA dataLayer ${currDataLayerName} does not exist`,
