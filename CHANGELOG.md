@@ -1,5 +1,13 @@
 # twitch-clip
 
+## 2.6.7
+
+### Patch Changes
+
+- [`6b35f2a`](https://github.com/108yen/twitch-clip/commit/6b35f2ae134c6bf4ac69e4a6f52c3683c56d08ca) Thanks [@108yen](https://github.com/108yen)! - Change theme color in standalone mode.
+
+- [#364](https://github.com/108yen/twitch-clip/pull/364) [`63661a9`](https://github.com/108yen/twitch-clip/commit/63661a9277823e4285e7563aa1bcef713ce16718) Thanks [@108yen](https://github.com/108yen)! - Fixed ga event was not send.
+
 ## 2.6.6
 
 ### Patch Changes
