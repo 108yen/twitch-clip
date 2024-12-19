@@ -26,6 +26,6 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Twitch Clip Ranking",
     short_name: "Twitch Clip Ranking",
     start_url: "/",
-    theme_color: "#fff",
+    theme_color: "#000",
   }
 }
