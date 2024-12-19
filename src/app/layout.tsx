@@ -42,6 +42,7 @@ export default async function RootLayout({
         </PageProvider>
 
         <GoogleAnalytics
+          config={{ version }}
           debugMode={process.env.VERCEL_ENV != "production"}
           gaId={process.env.NEXT_PUBLIC_GA_ID as string}
         />

@@ -1,7 +1,7 @@
 "use client"
 import { GAParams } from "@/types/google"
 import Script from "next/script"
-import React, { useEffect } from "react"
+import React, { useEffect, useMemo } from "react"
 
 import { getDisplayMode } from "./display-mode"
 
@@ -14,12 +14,25 @@ declare global {
 let currDataLayerName: string | undefined = undefined
 
 export function GoogleAnalytics({
+  config,
   dataLayerName = "dataLayer",
   debugMode,
   gaId,
   nonce,
 }: GAParams) {
   const displayMode = getDisplayMode()
+
+  const additionalConfigInfo = useMemo(
+    () =>
+      JSON.stringify({
+        ...(debugMode ? { debug_mode: true } : {}),
+        display_mode: displayMode,
+        ...config,
+      }),
+    [config, debugMode, displayMode],
+  )
+
+  console.log(additionalConfigInfo)
 
   if (currDataLayerName === undefined) {
     currDataLayerName = dataLayerName
@@ -42,10 +55,7 @@ export function GoogleAnalytics({
           function gtag(){window['${dataLayerName}'].push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', '${gaId}' ,{
-            ${debugMode ? "'debug_mode': true," : ""}
-            'display_mode': '${displayMode}'
-          });`,
+          gtag('config', '${gaId}' ,${additionalConfigInfo});`,
         }}
         id="_next-ga-init"
         nonce={nonce}
@@ -59,14 +69,16 @@ export function GoogleAnalytics({
   )
 }
 
-export function sendGAEvent(...args: any[]) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function sendGAEvent(..._args: any[]) {
   if (currDataLayerName === undefined) {
     console.warn(`@next/third-parties: GA has not been initialized`)
     return
   }
 
   if (window[currDataLayerName]) {
-    window[currDataLayerName].push(...args)
+    // eslint-disable-next-line prefer-rest-params
+    window[currDataLayerName].push(arguments)
   } else {
     console.warn(
       `@next/third-parties: GA dataLayer ${currDataLayerName} does not exist`,

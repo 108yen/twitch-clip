@@ -5,7 +5,15 @@ declare global {
   }
 }
 
+type JSONValue =
+  | boolean
+  | JSONValue[]
+  | number
+  | string
+  | { [key: string]: JSONValue }
+
 export type GAParams = {
+  config?: Record<string, JSONValue>
   dataLayerName?: string
   debugMode?: boolean
   gaId: string
