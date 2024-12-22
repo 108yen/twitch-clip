@@ -1,4 +1,4 @@
-# twitch-clip
+# Releases
 
 ## 2.6.7
 
