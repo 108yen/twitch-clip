@@ -1,4 +1,4 @@
-# Release note
+# Releases
 
 ## 2.6.7
 

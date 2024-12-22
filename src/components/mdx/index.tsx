@@ -5,17 +5,31 @@ import {
   DiscList,
   Heading,
   ListItem,
+  NativeTable,
   Separator,
+  Td,
   Text,
-  Link as UILink,
+  Th,
 } from "@yamada-ui/react"
 import { MDXComponents } from "mdx/types"
 import Link from "next/link"
 
-export const components: MDXComponents = {
-  a: (props) => <UILink as={Link} target="_blank" {...props} />,
-  code: (props) => <Code {...props} />,
+import { Inquiry } from "../form"
+
+const UIComponents = {
   EllipsisVerticalIcon,
+  Inquiry,
+  ShareIcon,
+}
+
+export const components: MDXComponents = {
+  ...UIComponents,
+  a: ({ children, ...rest }) => (
+    <Text _hover={{ textDecorationLine: "underline" }} as={Link} {...rest}>
+      {children}
+    </Text>
+  ),
+  code: (props) => <Code {...props} />,
   h1: (props) => (
     <Heading as="h1" mb="6" mt="12" size="3xl" textAlign="center" {...props} />
   ),
@@ -34,7 +48,10 @@ export const components: MDXComponents = {
   hr: (props) => <Separator {...props} />,
   li: (props) => <ListItem {...props} />,
   ol: (props) => <DecimalList {...props} />,
-  ShareIcon,
+  p: (props) => <Text {...props} />,
   strong: (props) => <Text as="strong" fontWeight="semibold" {...props} />,
-  ul: (props) => <DiscList {...props} />,
+  table: (props) => <NativeTable my="md" {...props} />,
+  td: (props) => <Td {...props} />,
+  th: (props) => <Th {...props} />,
+  ul: (props) => <DiscList my="md" {...props} />,
 }
