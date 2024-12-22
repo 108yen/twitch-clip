@@ -1,5 +1,11 @@
 # Releases
 
+## 2.6.8
+
+### Patch Changes
+
+- [#372](https://github.com/108yen/twitch-clip/pull/372) [`3a53118`](https://github.com/108yen/twitch-clip/commit/3a53118e8797480c439f1e677cd036bc3ef34326) Thanks [@108yen](https://github.com/108yen)! - Added install manual page
+
 ## 2.6.7
 
 ### Patch Changes
