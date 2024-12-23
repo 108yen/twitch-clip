@@ -8,7 +8,15 @@ import { GoogleAnalytics } from "@/utils/google-analytics"
 import { getVersion } from "@/utils/ssr"
 import { YamadaUIScripts } from "@/utils/yamada-ui-scripts"
 import { UIProvider } from "@yamada-ui/react"
+import { Viewport } from "next"
 import { ReactNode, Suspense } from "react"
+
+export const viewport: Viewport = {
+  themeColor: [
+    { color: "white", media: "(prefers-color-scheme: light)" },
+    { color: "black", media: "(prefers-color-scheme: dark)" },
+  ],
+}
 
 export function generateMetadata() {
   return generateTemplateMetadata()

@@ -1,6 +1,6 @@
 "use client"
 import { Clip } from "@/models/clip"
-import { PaperclipIcon } from "@yamada-ui/lucide"
+import { StarIcon } from "@yamada-ui/lucide"
 import {
   Center,
   EmptyState,
@@ -47,7 +47,7 @@ export function FavoriteBody({ clips, isPending }: FavoriteBodyProps) {
     return (
       <EmptyState
         description="Add clips to your favorites"
-        indicator={<PaperclipIcon />}
+        indicator={<StarIcon />}
         size="lg"
         title="Your have no favorite clip"
       />
