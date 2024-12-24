@@ -1,5 +1,11 @@
 # Releases
 
+## 2.6.9
+
+### Patch Changes
+
+- [#375](https://github.com/108yen/twitch-clip/pull/375) [`5817349`](https://github.com/108yen/twitch-clip/commit/5817349c7c3759dfcdcdbac484898b68a7404ed1) Thanks [@108yen](https://github.com/108yen)! - Added install notification for iOS devices.
+
 ## 2.6.8
 
 ### Patch Changes
