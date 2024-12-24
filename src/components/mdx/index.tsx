@@ -1,4 +1,8 @@
-import { EllipsisVerticalIcon, ShareIcon } from "@yamada-ui/lucide"
+import {
+  EllipsisVerticalIcon,
+  ShareIcon,
+  SquarePlusIcon,
+} from "@yamada-ui/lucide"
 import {
   Code,
   DecimalList,
@@ -20,6 +24,7 @@ const UIComponents = {
   EllipsisVerticalIcon,
   Inquiry,
   ShareIcon,
+  SquarePlusIcon,
 }
 
 export const components: MDXComponents = {
@@ -46,7 +51,13 @@ export const components: MDXComponents = {
   ),
   h3: (props) => <Heading as="h3" mb="6" mt="8" size="md" {...props} />,
   hr: (props) => <Separator {...props} />,
-  li: (props) => <ListItem {...props} />,
+  li: ({ children, ...rest }) => (
+    <ListItem {...rest}>
+      <Text alignItems="center" display="inline-flex">
+        {children}
+      </Text>
+    </ListItem>
+  ),
   ol: (props) => <DecimalList {...props} />,
   p: (props) => <Text {...props} />,
   strong: (props) => <Text as="strong" fontWeight="semibold" {...props} />,
