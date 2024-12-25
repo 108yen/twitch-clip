@@ -70,6 +70,7 @@ export function FavoriteBody({
   return (
     <VStack gap="md">
       <SearchClips num={filteredClips.length} onChange={setText} />
+
       {layout == "grid" ? (
         <ClipGrid clips={filteredClips} />
       ) : (
