@@ -2,6 +2,7 @@
 import { Clip } from "@/models/clip"
 import { StarIcon } from "@yamada-ui/lucide"
 import {
+  assignRef,
   Center,
   EmptyState,
   isUndefined,
@@ -9,20 +10,28 @@ import {
   useBreakpoint,
   VStack,
 } from "@yamada-ui/react"
-import { useDeferredValue, useMemo, useState } from "react"
+import { RefObject, useDeferredValue, useMemo, useState } from "react"
 
-import { ClipListTabs, ClipTable } from "../data-display"
+import { ClipGrid, ClipListTabs, ClipTable } from "../data-display"
 import { SearchClips } from "../form"
 
 interface FavoriteBodyProps {
   clips: Clip[] | undefined
   isPending: boolean
+  layoutRef: RefObject<(value: string) => void>
 }
 
-export function FavoriteBody({ clips, isPending }: FavoriteBodyProps) {
+export function FavoriteBody({
+  clips,
+  isPending,
+  layoutRef,
+}: FavoriteBodyProps) {
   const [text, setText] = useState("")
+  const [layout, setLayout] = useState("grid")
   const deferredText = useDeferredValue(text)
   const breakpoint = useBreakpoint()
+
+  assignRef(layoutRef, setLayout)
 
   const filteredClips = useMemo(
     () =>
@@ -61,8 +70,11 @@ export function FavoriteBody({ clips, isPending }: FavoriteBodyProps) {
   return (
     <VStack gap="md">
       <SearchClips num={filteredClips.length} onChange={setText} />
-      {/* <ClipGrid clips={filteredClips} /> */}
-      <ClipTable clips={filteredClips} />
+      {layout == "grid" ? (
+        <ClipGrid clips={filteredClips} />
+      ) : (
+        <ClipTable clips={filteredClips} />
+      )}
     </VStack>
   )
 }
