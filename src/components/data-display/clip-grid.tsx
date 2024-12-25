@@ -1,26 +1,36 @@
 "use client"
 
+import { CONSTANT } from "@/constant"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
 import { formatDate } from "@/utils/string"
-import { GhostIcon, SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
+import {
+  GhostIcon,
+  SearchIcon,
+  SquareArrowOutUpRightIcon,
+} from "@yamada-ui/lucide"
 import {
   AspectRatio,
+  Center,
   Container,
+  EmptyState,
   For,
   GridItem,
   HStack,
   IconButton,
+  Loading,
   NativeImage,
   SimpleGrid,
   Spacer,
   Text,
   TextProps,
   Tooltip,
+  useInfiniteScroll,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
+import { useEffect, useMemo, useRef, useState } from "react"
 
 import { SkeletonAvatar } from "../media-and-icons"
 
@@ -142,15 +152,52 @@ interface ClipGridProps {
 }
 
 export function ClipGrid({ clips }: ClipGridProps) {
+  const [count, setCount] = useState(CONSTANT.CLIP_GRID.START_INDEX)
+  const resetRef = useRef<() => void>(() => {})
+
+  const filteredClips = useMemo(() => clips.slice(0, count), [count, clips])
+
+  const { finish, ref } = useInfiniteScroll({
+    onLoad: ({ finish }) => {
+      if (count + CONSTANT.CLIP_GRID.LOAD_INDEX >= clips.length) finish()
+
+      setCount((prev) => prev + CONSTANT.CLIP_GRID.LOAD_INDEX)
+    },
+    resetRef,
+  })
+
+  useEffect(() => resetRef.current(), [clips])
+
+  if (filteredClips.length == 0) {
+    return (
+      <EmptyState
+        description="No clips were found in the search"
+        indicator={<SearchIcon />}
+        size="lg"
+        title="No clips"
+      />
+    )
+  }
+
   return (
-    <SimpleGrid columns={{ base: 4, lg: 3, md: 2, sm: 1 }} gap="md" w="full">
-      <For each={clips}>
-        {(clip, index) => (
-          <GridItem key={index}>
-            <ClipCard clip={clip} />
-          </GridItem>
-        )}
-      </For>
-    </SimpleGrid>
+    <VStack>
+      <SimpleGrid columns={{ base: 4, lg: 3, md: 2, sm: 1 }} gap="md" w="full">
+        <For each={filteredClips}>
+          {(clip, index) => (
+            <GridItem key={index}>
+              <ClipCard clip={clip} />
+            </GridItem>
+          )}
+        </For>
+      </SimpleGrid>
+
+      {!finish ? (
+        <Center ref={ref} w="full">
+          <Loading fontSize="2xl" />
+        </Center>
+      ) : (
+        <EmptyState title="No more clips" />
+      )}
+    </VStack>
   )
 }
