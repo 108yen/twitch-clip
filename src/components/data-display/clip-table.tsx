@@ -75,6 +75,7 @@ export function ClipTable({ clips }: ClipTableProps) {
       headerProps={{ textTransform: "none" }}
       highlightOnHover
       pageSizeList={[10, 20, 50, 100]}
+      paginationProps={{ variant: "outline" }}
     />
   )
 }
