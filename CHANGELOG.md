@@ -1,5 +1,17 @@
 # Releases
 
+## 2.7.0
+
+### Minor Changes
+
+- [#379](https://github.com/108yen/twitch-clip/pull/379) [`c43b048`](https://github.com/108yen/twitch-clip/commit/c43b048a65b917a12f2efd522b7c4c7f803fb648) Thanks [@108yen](https://github.com/108yen)! - Added table view in favorite page.
+
+- [#381](https://github.com/108yen/twitch-clip/pull/381) [`3fb64d5`](https://github.com/108yen/twitch-clip/commit/3fb64d54aee618fda0c57e5343077700f86171b8) Thanks [@108yen](https://github.com/108yen)! - Added feature of loading clips in favorite page.
+
+### Patch Changes
+
+- [`de696f5`](https://github.com/108yen/twitch-clip/commit/de696f502c9f1c085a540f05e15042ba0601ae9c) Thanks [@108yen](https://github.com/108yen)! - Updated margin of view page.
+
 ## 2.6.9
 
 ### Patch Changes
