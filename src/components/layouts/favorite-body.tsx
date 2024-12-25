@@ -11,7 +11,7 @@ import {
 } from "@yamada-ui/react"
 import { useDeferredValue, useMemo, useState } from "react"
 
-import { ClipGrid, ClipListTabs } from "../data-display"
+import { ClipListTabs, ClipTable } from "../data-display"
 import { SearchClips } from "../form"
 
 interface FavoriteBodyProps {
@@ -61,7 +61,8 @@ export function FavoriteBody({ clips, isPending }: FavoriteBodyProps) {
   return (
     <VStack gap="md">
       <SearchClips num={filteredClips.length} onChange={setText} />
-      <ClipGrid clips={filteredClips} />
+      {/* <ClipGrid clips={filteredClips} /> */}
+      <ClipTable clips={filteredClips} />
     </VStack>
   )
 }

@@ -30,7 +30,12 @@ const UIComponents = {
 export const components: MDXComponents = {
   ...UIComponents,
   a: ({ children, ...rest }) => (
-    <Text _hover={{ textDecorationLine: "underline" }} as={Link} {...rest}>
+    <Text
+      _hover={{ textDecorationLine: "underline" }}
+      as={Link}
+      target="_blank"
+      {...rest}
+    >
       {children}
     </Text>
   ),
