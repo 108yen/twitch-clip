@@ -11,12 +11,13 @@ import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { useBreakpoint } from "@yamada-ui/react"
-import { useEffect, useState, useTransition } from "react"
+import { useEffect, useRef, useState, useTransition } from "react"
 
 export function FavoritePage() {
   const [currentClip, setCurrentClip] = useState<Clip>()
   const [clips, setClips] = useState<Clip[]>()
   const [isPending, startTransition] = useTransition()
+  const changeLayoutRef = useRef<(value: string) => void>(() => {})
   const breakpoint = useBreakpoint()
   const { getAllClips } = usePage()
 
@@ -36,6 +37,10 @@ export function FavoritePage() {
     setCurrentClip(clip)
   }
 
+  function handleChangeLayout(value: string) {
+    changeLayoutRef.current(value)
+  }
+
   return (
     <ClipProvider
       clipDoc={clipDoc}
@@ -45,9 +50,13 @@ export function FavoritePage() {
     >
       {currentClip === undefined ? (
         <AppLayout>
-          <FavoriteHeader />
+          <FavoriteHeader handleChangeLayout={handleChangeLayout} />
 
-          <FavoriteBody clips={clips} isPending={isPending} />
+          <FavoriteBody
+            clips={clips}
+            isPending={isPending}
+            layoutRef={changeLayoutRef}
+          />
         </AppLayout>
       ) : breakpoint == "sm" ? (
         <MobileView />
