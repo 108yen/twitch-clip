@@ -24,9 +24,7 @@ export function InstallNotification({
       variant="island-accent"
     >
       <VStack alignItems="flex-end" gap={0}>
-        <AlertTitle lineClamp={1}>
-          Twitch Clip Rankingを端末にインストールする
-        </AlertTitle>
+        <AlertTitle lineClamp={1}>アプリを端末にインストールする</AlertTitle>
         <AlertDescription
           _hover={{ textDecoration: "underline" }}
           as={Link}

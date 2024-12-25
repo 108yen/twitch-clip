@@ -18,7 +18,7 @@ interface ClipPageProps {
 export function ClipPage({ clipDoc }: ClipPageProps) {
   const [currentClip, setCurrentClip] = useState<Clip>()
   const breakpoint = useBreakpoint()
-  const notice = useNotice({ duration: 8000, limit: 1 })
+  const notice = useNotice({ duration: 12000, limit: 1 })
   const os = useOS()
 
   useEffect(() => {

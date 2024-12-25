@@ -13,7 +13,7 @@ export function TwitchLink({ login }: TwitchLinkProps) {
       as={Link}
       color={["black", "white"]}
       gap={1}
-      href={"https://www.twitch.tv/" + login}
+      href={`https://www.twitch.tv/${login}`}
       target="_blank"
       textDecoration="none"
     >
