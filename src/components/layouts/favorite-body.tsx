@@ -1,10 +1,8 @@
 "use client"
 import { Clip } from "@/models/clip"
-import { StarIcon } from "@yamada-ui/lucide"
 import {
   assignRef,
   Center,
-  EmptyState,
   isUndefined,
   Loading,
   useBreakpoint,
@@ -49,17 +47,6 @@ export function FavoriteBody({
       <Center h="3xs" w="full">
         <Loading fontSize="2xl" />
       </Center>
-    )
-  }
-
-  if (clips.length == 0) {
-    return (
-      <EmptyState
-        description="Add clips to your favorites"
-        indicator={<StarIcon />}
-        size="lg"
-        title="Your have no favorite clip"
-      />
     )
   }
 
