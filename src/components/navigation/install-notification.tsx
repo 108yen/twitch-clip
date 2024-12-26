@@ -23,8 +23,10 @@ export function InstallNotification({
       status={status}
       variant="island-accent"
     >
-      <VStack alignItems="flex-end" gap={0}>
-        <AlertTitle lineClamp={1}>アプリを端末にインストールする</AlertTitle>
+      <VStack alignItems="flex-end" gap={0} w="fit-content">
+        <AlertTitle lineClamp={1} w="fit-content">
+          アプリを端末にインストールする
+        </AlertTitle>
         <AlertDescription
           _hover={{ textDecoration: "underline" }}
           as={Link}
@@ -36,6 +38,7 @@ export function InstallNotification({
 
             onClose?.()
           }}
+          w="fit-content"
         >
           インストール手順を確認
         </AlertDescription>
