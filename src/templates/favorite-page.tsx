@@ -51,7 +51,7 @@ export function FavoritePage() {
     >
       {!clips?.length ? (
         <EmptyState
-          description="Add clips to your favorites"
+          description="Please add clips to your favorites"
           indicator={<StarIcon />}
           size="lg"
           title="Your have no favorite clip"

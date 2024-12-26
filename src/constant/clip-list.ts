@@ -5,5 +5,5 @@ export const CLIP_LIST = {
 
 export const CLIP_GRID = {
   LOAD_INDEX: 12,
-  START_INDEX: 12,
+  START_INDEX: 16,
 }

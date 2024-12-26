@@ -221,11 +221,9 @@ function ClipList({
   )
 }
 
-interface ClipListTabProps {
-  tabsProps?: TabsProps
-}
+interface ClipListTabProps extends TabsProps {}
 
-export function ClipListTabs({ tabsProps }: ClipListTabProps) {
+export function ClipListTabs(props: ClipListTabProps) {
   const { clipDoc } = useClip()
   const [index, onChange] = useState(0)
 
@@ -248,7 +246,7 @@ export function ClipListTabs({ tabsProps }: ClipListTabProps) {
           defaultIndex={0}
           index={index}
           onChange={handleChange}
-          {...tabsProps}
+          {...props}
         >
           <TabList>
             {tabs.map((tab) => (
