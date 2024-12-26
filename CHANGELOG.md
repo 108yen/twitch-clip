@@ -1,5 +1,11 @@
 # Releases
 
+## 2.7.1
+
+### Patch Changes
+
+- [#384](https://github.com/108yen/twitch-clip/pull/384) [`6ada30e`](https://github.com/108yen/twitch-clip/commit/6ada30ea2f83068ab2b41eb2fee2004b13434bf7) Thanks [@108yen](https://github.com/108yen)! - Fixed layout switch button is displayed in mobile.
+
 ## 2.7.0
 
 ### Minor Changes
