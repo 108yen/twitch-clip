@@ -10,7 +10,8 @@ import { ClipProvider, usePage } from "@/contexts"
 import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
-import { useBreakpoint } from "@yamada-ui/react"
+import { StarIcon } from "@yamada-ui/lucide"
+import { EmptyState, useBreakpoint } from "@yamada-ui/react"
 import { useEffect, useRef, useState, useTransition } from "react"
 
 export function FavoritePage() {
@@ -48,7 +49,14 @@ export function FavoritePage() {
       setClipUrl={handleSetClip}
       showDate
     >
-      {currentClip === undefined ? (
+      {!clips?.length ? (
+        <EmptyState
+          description="Please add clips to your favorites"
+          indicator={<StarIcon />}
+          size="lg"
+          title="Your have no favorite clip"
+        />
+      ) : currentClip === undefined ? (
         <AppLayout>
           <FavoriteHeader handleChangeLayout={handleChangeLayout} />
 
