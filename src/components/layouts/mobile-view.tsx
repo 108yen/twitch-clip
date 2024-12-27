@@ -54,7 +54,7 @@ export function MobileView() {
 
       <StreamerInfo />
 
-      <ClipListTabs tabsProps={tabsProps} />
+      <ClipListTabs {...tabsProps} />
     </VStack>
   )
 }
