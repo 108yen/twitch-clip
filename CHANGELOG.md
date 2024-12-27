@@ -1,5 +1,11 @@
 # Releases
 
+## 2.7.2
+
+### Patch Changes
+
+- [#390](https://github.com/108yen/twitch-clip/pull/390) [`66067ed`](https://github.com/108yen/twitch-clip/commit/66067eda95a1ec8420f164c1a642d2c8232776d5) Thanks [@108yen](https://github.com/108yen)! - Fixed wrong type props pass to `MobileView`.
+
 ## 2.7.1
 
 ### Patch Changes
