@@ -1,5 +1,6 @@
 "use client"
 import { GAParams } from "@/types/google"
+import { useColorMode, useTheme } from "@yamada-ui/react"
 import Script from "next/script"
 import React, { useEffect, useMemo } from "react"
 
@@ -21,15 +22,19 @@ export function GoogleAnalytics({
   nonce,
 }: GAParams) {
   const displayMode = getDisplayMode()
+  const { themeScheme } = useTheme()
+  const { colorMode } = useColorMode()
 
   const additionalConfigInfo = useMemo(
     () =>
       JSON.stringify({
         ...(debugMode ? { debug_mode: true } : {}),
+        color_mode: colorMode,
         display_mode: displayMode,
+        theme_scheme: themeScheme,
         ...config,
       }),
-    [config, debugMode, displayMode],
+    [colorMode, config, debugMode, displayMode, themeScheme],
   )
 
   if (currDataLayerName === undefined) {
