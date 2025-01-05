@@ -21,13 +21,20 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
   const follower_num = `${_follower_num?.toLocaleString()} followers`
 
   return (
-    <HStack gap={2} justifyContent="flex-start" w="full">
+    <HStack
+      gap={2}
+      itemScope
+      itemType="https://schema.org/Person"
+      justifyContent="flex-start"
+      w="full"
+    >
       <SkeletonAvatar
         alt={display_name}
         aria-label="streamer page link"
         as={Link}
         href={`/streamer/${id}`}
         icon={<GhostIcon />}
+        itemProp="image"
         size="lg"
         src={profile_image_url}
       />
@@ -37,6 +44,7 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
           <Heading
             fontSize="2xl"
             fontWeight="semibold"
+            itemProp="name"
             lineClamp={1}
             overflowWrap="anywhere"
             variant="h4"
@@ -49,7 +57,9 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
           <TwitchLink login={login} />
         </HStack>
 
-        <Text textStyle="description">{description}</Text>
+        <Text itemProp="description" textStyle="description">
+          {description}
+        </Text>
 
         <Text textAlign="right" textStyle="follower" w="full">
           {follower_num}

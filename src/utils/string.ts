@@ -57,3 +57,22 @@ export function compareDate(a: string, b: string): number {
 
   return 0
 }
+
+/**
+ * Convert seconds to ISO8601 duration format.
+ * @param seconds
+ * @returns Formatted string to ISO8601 duration format.
+ */
+export function toISO8601Duration(seconds: number): string {
+  const hours = Math.floor(seconds / 3600)
+  const minutes = Math.floor((seconds % 3600) / 60)
+  const remainingSeconds = seconds % 60
+
+  let duration = "T"
+  if (hours > 0) duration += `${hours}H`
+  if (minutes > 0) duration += `${minutes}M`
+  if (remainingSeconds > 0 || duration === "T")
+    duration += `${remainingSeconds}S`
+
+  return duration
+}
