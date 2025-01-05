@@ -63,9 +63,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     <Container
       apply="layoutStyles.borderCard"
       cursor="pointer"
-      itemid={id}
-      itemscope
-      itemtype="https://schema.org/VideoObject"
+      itemId={id}
+      itemScope
+      itemType="https://schema.org/VideoObject"
       onClick={() => {
         setClipUrl(clip)
         sendGAEvent("event", "click", {
@@ -80,7 +80,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
           <Image
             alt={title}
-            itemprop="thumbnail"
+            itemProp="thumbnail"
             loading="lazy"
             src={thumbnail_url}
           />
@@ -95,7 +95,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           <HStack aria-label={title} gap={0}>
             <Heading
               fontSize={{ base: "xl", sm: "lg" }}
-              itemprop="name"
+              itemProp="name"
               lineClamp={1}
               overflowWrap="anywhere"
               variant="h5"
@@ -109,6 +109,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
               as={Link}
               href={url ?? ""}
               icon={<SquareArrowOutUpRightIcon />}
+              itemProp="url"
               style={{
                 textDecoration: "none",
               }}
@@ -122,9 +123,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             as={Link}
             gap="sm"
             href={`/streamer/${broadcaster_id}`}
-            itemprop="actor"
-            itemscope
-            itemtype="https://schema.org/Person"
+            itemProp="actor"
+            itemScope
+            itemType="https://schema.org/Person"
             onClick={(ev: MouseEvent) => {
               ev.stopPropagation()
             }}
@@ -132,12 +133,12 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           >
             <SkeletonAvatar
               alt={broadcaster_name}
-              itemprop="image"
+              itemProp="image"
               size={{ base: "base", sm: "sm" }}
               src={profile_image_url}
             />
 
-            <Text itemprop="name" lineClamp={1} overflowWrap="anywhere">
+            <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
               {broadcaster_name}
             </Text>
           </HStack>
@@ -155,19 +156,20 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             display={{ base: "flex", sm: "none" }}
             textAlign="start"
           >
+            <meta content={_created_at} itemProp="uploadDate" />
             created_at : {created_at}
           </Text>
 
           <Text
             aria-label="Clip view count"
-            itemprop="interactionStatistic"
-            itemscope
-            itemtype="https://schema.org/InteractionCounter"
+            itemProp="interactionStatistic"
+            itemScope
+            itemType="https://schema.org/InteractionCounter"
             textAlign="end"
             textStyle="viewCount"
           >
             <meta
-              content="https://schema.org/CommentAction"
+              content="https://schema.org/WatchAction"
               itemProp="interactionType"
             />
             <meta
