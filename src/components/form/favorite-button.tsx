@@ -46,7 +46,7 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
 
         sendGAEvent("event", "click", {
           clip_title: title,
-          label: "remove_to_favorite",
+          label: "remove_from_favorite",
         })
       } else {
         await saveClip(clip)
@@ -54,7 +54,7 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
 
         sendGAEvent("event", "click", {
           clip_title: title,
-          label: "add_from_favorite",
+          label: "add_to_favorite",
         })
       }
 
