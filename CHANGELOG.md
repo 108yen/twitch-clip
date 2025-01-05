@@ -1,5 +1,11 @@
 # Releases
 
+## 2.7.3
+
+### Patch Changes
+
+- [#402](https://github.com/108yen/twitch-clip/pull/402) [`8a026e5`](https://github.com/108yen/twitch-clip/commit/8a026e5080bf455bcd281d6122ddf2529edeb089) Thanks [@108yen](https://github.com/108yen)!- Added schema to clip list tabs.
+
 ## 2.7.2
 
 ### Patch Changes
