@@ -1,5 +1,13 @@
 # Releases
 
+## 2.7.4
+
+### Patch Changes
+
+- [#403](https://github.com/108yen/twitch-clip/pull/403) [`28b2827`](https://github.com/108yen/twitch-clip/commit/28b28271cf20fdb21691ddd9925f423054f1e18e) Thanks [@108yen](https://github.com/108yen)! - Added schema to channel card and streamer card.
+
+- [#403](https://github.com/108yen/twitch-clip/pull/403) [`51be7f5`](https://github.com/108yen/twitch-clip/commit/51be7f5843f4aebdd5c731732d74fdc25dec1119) Thanks [@108yen](https://github.com/108yen)! - Added missing schema.
+
 ## 2.7.3
 
 ### Patch Changes
