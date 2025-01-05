@@ -5,7 +5,7 @@ import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
-import { formatDate } from "@/utils/string"
+import { formatDate, toISO8601Duration } from "@/utils/string"
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
 import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import {
@@ -48,6 +48,8 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     broadcaster_name,
     created_at: _created_at = "",
     creator_name,
+    duration = 0,
+    embed_url,
     id,
     profile_image_url,
     thumbnail_url,
@@ -181,6 +183,10 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           </Text>
         </VStack>
       </HStack>
+
+      <meta content={thumbnail_url} itemProp="thumbnailUrl" />
+      <meta content={embed_url} itemProp="embedUrl" />
+      <meta content={toISO8601Duration(duration)} itemProp="duration" />
     </Container>
   )
 }

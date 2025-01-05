@@ -30,10 +30,11 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
 
   return (
     <LinkBox apply="layoutStyles.borderCard" as="article" p="sm">
-      <HStack gap={2} w="full">
+      <HStack gap={2} itemScope itemType="https://schema.org/Person" w="full">
         <SkeletonAvatar
           alt={display_name}
           icon={<GhostIcon />}
+          itemProp="image"
           src={profile_image_url}
         />
 
@@ -49,6 +50,7 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
                 aria-label="Streamer channel page link"
                 as={Link}
                 href={`/streamer/${id}`}
+                itemProp="name"
               >
                 {display_name}
               </LinkOverlay>
@@ -59,7 +61,9 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
             <TwitchLink login={login} />
           </HStack>
 
-          <Text textStyle="description">{description}</Text>
+          <Text itemProp="description" textStyle="description">
+            {description}
+          </Text>
 
           <Text textAlign="right" textStyle="follower" w="full">
             {follower_num}
