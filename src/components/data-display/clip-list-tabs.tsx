@@ -48,9 +48,11 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     broadcaster_name,
     created_at: _created_at = "",
     creator_name,
+    id,
     profile_image_url,
     thumbnail_url,
     title,
+    url,
     view_count: _view_count,
   } = clip
 
@@ -61,6 +63,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     <Container
       apply="layoutStyles.borderCard"
       cursor="pointer"
+      itemId={id}
+      itemScope
+      itemType="https://schema.org/VideoObject"
       onClick={() => {
         setClipUrl(clip)
         sendGAEvent("event", "click", {
@@ -73,7 +78,12 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     >
       <HStack gap={0} overflow="hidden">
         <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
-          <Image alt={title} loading="lazy" src={thumbnail_url} />
+          <Image
+            alt={title}
+            itemProp="thumbnail"
+            loading="lazy"
+            src={thumbnail_url}
+          />
         </AspectRatio>
 
         <VStack
@@ -85,6 +95,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           <HStack aria-label={title} gap={0}>
             <Heading
               fontSize={{ base: "xl", sm: "lg" }}
+              itemProp="name"
               lineClamp={1}
               overflowWrap="anywhere"
               variant="h5"
@@ -96,8 +107,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
             <IconButton
               as={Link}
-              href={clip.url ?? ""}
+              href={url ?? ""}
               icon={<SquareArrowOutUpRightIcon />}
+              itemProp="url"
               style={{
                 textDecoration: "none",
               }}
@@ -111,6 +123,9 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             as={Link}
             gap="sm"
             href={`/streamer/${broadcaster_id}`}
+            itemProp="actor"
+            itemScope
+            itemType="https://schema.org/Person"
             onClick={(ev: MouseEvent) => {
               ev.stopPropagation()
             }}
@@ -118,11 +133,12 @@ function ClipCard({ clip, tab }: ClipCardProps) {
           >
             <SkeletonAvatar
               alt={broadcaster_name}
+              itemProp="image"
               size={{ base: "base", sm: "sm" }}
               src={profile_image_url}
             />
 
-            <Text lineClamp={1} overflowWrap="anywhere">
+            <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
               {broadcaster_name}
             </Text>
           </HStack>
@@ -140,14 +156,27 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             display={{ base: "flex", sm: "none" }}
             textAlign="start"
           >
+            <meta content={_created_at} itemProp="uploadDate" />
             created_at : {created_at}
           </Text>
 
           <Text
             aria-label="Clip view count"
+            itemProp="interactionStatistic"
+            itemScope
+            itemType="https://schema.org/InteractionCounter"
             textAlign="end"
             textStyle="viewCount"
           >
+            <meta
+              content="https://schema.org/WatchAction"
+              itemProp="interactionType"
+            />
+            <meta
+              content={_view_count?.toString()}
+              itemProp="userInteractionCount"
+            />
+
             {view_count}
           </Text>
         </VStack>
