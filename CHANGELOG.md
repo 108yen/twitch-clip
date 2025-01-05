@@ -1,5 +1,11 @@
 # Releases
 
+## 2.7.3
+
+### Patch Changes
+
+- Added schema to clip list tabs.
+
 ## 2.7.2
 
 ### Patch Changes
