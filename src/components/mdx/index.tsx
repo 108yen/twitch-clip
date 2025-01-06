@@ -56,13 +56,7 @@ export const components: MDXComponents = {
   ),
   h3: (props) => <Heading as="h3" mb="6" mt="8" size="md" {...props} />,
   hr: (props) => <Separator {...props} />,
-  li: ({ children, ...rest }) => (
-    <ListItem {...rest}>
-      <Text alignItems="center" display="inline-flex">
-        {children}
-      </Text>
-    </ListItem>
-  ),
+  li: (props) => <ListItem {...props} />,
   ol: (props) => <DecimalList {...props} />,
   p: (props) => <Text {...props} />,
   strong: (props) => <Text as="strong" fontWeight="semibold" {...props} />,
