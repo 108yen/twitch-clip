@@ -6,7 +6,7 @@ interface AppLayoutProps extends PropsWithChildren, SimpleGridProps {}
 
 export function AppLayout({ children, ...rest }: AppLayoutProps) {
   return (
-    <Center>
+    <Center as="main">
       <Grid
         gap="md"
         maxW="9xl"
