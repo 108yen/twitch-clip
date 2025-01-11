@@ -40,7 +40,7 @@ function onupgradeneeded(event: IDBVersionChangeEvent) {
  */
 export async function openDatabase(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    if (typeof window == "undefined") reject("Window is undefined.")
+    if (typeof window == "undefined") return reject("Window is undefined.")
 
     const request: IDBOpenDBRequest = indexedDB.open(
       CONSTANT.INDEXED_DB.dbName,
@@ -51,11 +51,11 @@ export async function openDatabase(): Promise<IDBDatabase> {
 
     request.onsuccess = (event: Event) => {
       const db = (event.target as IDBOpenDBRequest).result
-      resolve(db)
+      return resolve(db)
     }
 
     request.onerror = (event: Event) => {
-      reject((event.target as IDBOpenDBRequest).error)
+      return reject((event.target as IDBOpenDBRequest).error)
     }
   })
 }
@@ -100,7 +100,7 @@ export async function deleteClip(
 ): Promise<string> {
   return new Promise((resolve, rejects) => {
     if (!db) {
-      rejects("DB is undefined.")
+      return rejects("DB is undefined.")
     }
 
     const request = db!
@@ -110,11 +110,11 @@ export async function deleteClip(
 
     request.onsuccess = (event: Event) => {
       const id = (event.target as IDBOpenDBRequest).result
-      resolve(id as unknown as string)
+      return resolve(id as unknown as string)
     }
 
     request.onerror = (event: Event) => {
-      rejects((event.target as IDBOpenDBRequest).error)
+      return rejects((event.target as IDBOpenDBRequest).error)
     }
   })
 }
@@ -128,7 +128,7 @@ export async function getAllClips(
 ): Promise<Clip[] | undefined> {
   return new Promise((resolve, rejects) => {
     if (!db) {
-      resolve(undefined)
+      return resolve(undefined)
     }
 
     const request: IDBRequest<Clip[]> = db!
@@ -138,11 +138,11 @@ export async function getAllClips(
 
     request.onsuccess = (event: Event) => {
       const result = (event.target as IDBOpenDBRequest).result
-      resolve(result as unknown as Clip[])
+      return resolve(result as unknown as Clip[])
     }
 
     request.onerror = (event: Event) => {
-      rejects((event.target as IDBOpenDBRequest).error)
+      return rejects((event.target as IDBOpenDBRequest).error)
     }
   })
 }
@@ -157,7 +157,7 @@ export async function getClip(
 ): Promise<Clip | undefined> {
   return new Promise((resolve, rejects) => {
     if (!db) {
-      rejects("DB is undefined.")
+      return rejects("DB is undefined.")
     }
 
     const request: IDBRequest<Clip | undefined> = db!
@@ -167,11 +167,11 @@ export async function getClip(
 
     request.onsuccess = (event: Event) => {
       const result = (event.target as IDBOpenDBRequest).result
-      resolve(result as unknown as Clip | undefined)
+      return resolve(result as unknown as Clip | undefined)
     }
 
     request.onerror = (event: Event) => {
-      rejects((event.target as IDBOpenDBRequest).error)
+      return rejects((event.target as IDBOpenDBRequest).error)
     }
   })
 }
