@@ -184,6 +184,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
         </VStack>
       </HStack>
 
+      <meta content={title} itemProp="description" />
       <meta content={thumbnail_url} itemProp="thumbnailUrl" />
       <meta content={embed_url} itemProp="embedUrl" />
       <meta content={toISO8601Duration(duration)} itemProp="duration" />
