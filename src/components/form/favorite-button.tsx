@@ -4,43 +4,50 @@ import { usePage } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
 import { StarIcon } from "@yamada-ui/lucide"
-import { dataAttr, IconButton, Tooltip } from "@yamada-ui/react"
-import { useEffect, useState, useTransition } from "react"
+import { dataAttr, IconButton, isUndefined, Tooltip } from "@yamada-ui/react"
+import {
+  useCallback,
+  useEffect,
+  useOptimistic,
+  useState,
+  useTransition,
+} from "react"
 
 interface FavoriteButtonProps {
   clip: Clip
 }
 
 export function FavoriteButton({ clip }: FavoriteButtonProps) {
+  const { id: clipId, title } = clip
+
   const { deleteClip, getClip, saveClip } = usePage()
-  const [isPending, startTransition] = useTransition()
   const [check, setCheck] = useState(false)
+  const [optimisticCheckState, setCheckOptimistic] = useOptimistic<
+    boolean,
+    boolean
+  >(check, (_currentState, optimisticValue) => optimisticValue)
 
-  useEffect(
-    () =>
-      startTransition(async () => {
-        const { id: clipId } = clip
+  const [isPending, startTransition] = useTransition()
 
-        if (!clipId) return
+  const getCheckState = useCallback(async () => {
+    if (!clipId) return
 
-        const storedClip = await getClip(clipId)
+    const storedClip = await getClip(clipId)
 
-        if (typeof storedClip != "undefined") {
-          setCheck(true)
-        } else {
-          setCheck(false)
-        }
-      }),
-    [clip, getClip],
-  )
+    if (!isUndefined(storedClip)) {
+      setCheck(true)
+    } else {
+      setCheck(false)
+    }
+  }, [clipId, getClip])
 
-  function handleClick() {
-    startTransition(async () => {
-      const { id: clipId, title } = clip
+  const toggleCheckState = useCallback(async () => {
+    if (!clipId) return
 
-      if (!clipId) return
-
+    try {
       if (check) {
+        setCheckOptimistic(false)
+
         await deleteClip(clipId)
         setCheck(false)
 
@@ -49,6 +56,8 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
           label: "remove_from_favorite",
         })
       } else {
+        setCheckOptimistic(true)
+
         await saveClip(clip)
         setCheck(true)
 
@@ -57,9 +66,15 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
           label: "add_to_favorite",
         })
       }
+    } catch {}
 
-      return
-    })
+    return
+  }, [check, clip, clipId, deleteClip, saveClip, setCheckOptimistic, title])
+
+  useEffect(() => startTransition(getCheckState), [getCheckState])
+
+  function handleClick() {
+    startTransition(toggleCheckState)
   }
 
   const tooltipProps: any = { label: "お気に入りに登録する", placement: "top" }
@@ -69,13 +84,13 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
       <IconButton
         aria-label="Favorite button"
         colorScheme="primary"
-        data-selected={dataAttr(check)}
+        data-selected={dataAttr(optimisticCheckState)}
         disabled={isPending}
         fullRounded
         icon={
           <StarIcon
             _selected={{ fill: "primary.500" }}
-            data-selected={dataAttr(check)}
+            data-selected={dataAttr(optimisticCheckState)}
             fontSize="lg"
           />
         }
