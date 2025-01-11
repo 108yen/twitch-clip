@@ -34,7 +34,8 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-hook-form": "^7.48.2",
-    "remark-gfm": "^4.0.0"
+    "remark-gfm": "^4.0.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@actions/github": "^6.0.0",
