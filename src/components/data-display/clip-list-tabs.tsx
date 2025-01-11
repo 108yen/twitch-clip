@@ -63,11 +63,11 @@ function ClipCard({ clip, tab }: ClipCardProps) {
 
   return (
     <Container
-      apply="layoutStyles.borderCard"
       cursor="pointer"
       itemId={id}
       itemScope
       itemType="https://schema.org/VideoObject"
+      layerStyle="borderCard"
       onClick={() => {
         setClipUrl(clip)
         sendGAEvent("event", "click", {

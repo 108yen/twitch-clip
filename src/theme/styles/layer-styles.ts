@@ -1,6 +1,6 @@
-import { CSSUIObject, Dict } from "@yamada-ui/react"
+import { LayerStyles } from "@yamada-ui/react"
 
-export const layoutStyles: Dict<CSSUIObject> = {
+export const layerStyles: LayerStyles = {
   borderCard: {
     _active: {
       bg: ["blackAlpha.50", "whiteAlpha.50"],
