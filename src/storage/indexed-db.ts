@@ -67,11 +67,11 @@ export async function openDatabase(): Promise<IDBDatabase> {
 export async function saveClip(clip: Clip, db?: IDBDatabase): Promise<string> {
   return new Promise((resolve, rejects) => {
     if (!clip.id) {
-      rejects("Clip id is undefined.")
+      return rejects("Clip id is undefined.")
     }
 
     if (!db) {
-      rejects("DB is undefined.")
+      return rejects("DB is undefined.")
     }
 
     const request = db!
@@ -81,11 +81,11 @@ export async function saveClip(clip: Clip, db?: IDBDatabase): Promise<string> {
 
     request.onsuccess = (event: Event) => {
       const id = (event.target as IDBOpenDBRequest).result
-      resolve(id as unknown as string)
+      return resolve(id as unknown as string)
     }
 
     request.onerror = (event: Event) => {
-      rejects((event.target as IDBOpenDBRequest).error)
+      return rejects((event.target as IDBOpenDBRequest).error)
     }
   })
 }
