@@ -1,5 +1,17 @@
 # Releases
 
+## 2.7.5
+
+### Patch Changes
+
+- [#410](https://github.com/108yen/twitch-clip/pull/410) [`d1e7dd1`](https://github.com/108yen/twitch-clip/commit/d1e7dd1bcb87c12930c86048d746fb5397ff8d44) Thanks [@108yen](https://github.com/108yen)! - Updated favorite registration process to optimistic update.
+
+- [#410](https://github.com/108yen/twitch-clip/pull/410) [`91d1f1d`](https://github.com/108yen/twitch-clip/commit/91d1f1dbe975ec432dd1fd430985fa0cda4aadc9) Thanks [@108yen](https://github.com/108yen)! - Changed to retrieve favorite clips when returning to the clip list page.
+
+- [`c57d788`](https://github.com/108yen/twitch-clip/commit/c57d78847c4c4dab39720f6238bf9a2ffe727fd3) Thanks [@108yen](https://github.com/108yen)! - Fixed mdx list style.
+
+- [#410](https://github.com/108yen/twitch-clip/pull/410) [`df1c442`](https://github.com/108yen/twitch-clip/commit/df1c4426395aa9a63c1466b1babd93d53a479de9) Thanks [@108yen](https://github.com/108yen)! - Added async processing termination by return for indexed-db.
+
 ## 2.7.4
 
 ### Patch Changes
