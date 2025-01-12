@@ -16,7 +16,7 @@ export function PCView() {
     >
       <GridItem colSpan={9} w="full">
         <VStack gap={2} marginTop="md">
-          <AspectRatio apply="layoutStyles.player" ratio={16 / 9} w="full">
+          <AspectRatio layerStyle="player" ratio={16 / 9} w="full">
             <iframe allowFullScreen loading="lazy" src={src} />
           </AspectRatio>
 

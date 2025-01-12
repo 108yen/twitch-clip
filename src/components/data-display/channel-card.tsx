@@ -29,7 +29,7 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
   const follower_num = `${_follower_num?.toLocaleString()} followers`
 
   return (
-    <LinkBox apply="layoutStyles.borderCard" as="article" p="sm">
+    <LinkBox as="article" layerStyle="borderCard" p="sm">
       <HStack gap={2} itemScope itemType="https://schema.org/Person" w="full">
         <SkeletonAvatar
           alt={display_name}

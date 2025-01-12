@@ -111,6 +111,7 @@ const eslintTSESConfig = {
   name: "@twitch-clip/eslint/base",
   rules: {
     ...eslint.configs.recommended.rules,
+    "no-empty": ["error", { allowEmptyCatch: true }],
   },
 }
 

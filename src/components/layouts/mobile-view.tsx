@@ -40,7 +40,7 @@ export function MobileView() {
   return (
     <VStack gap={1}>
       <AspectRatio
-        apply="layoutStyles.player"
+        layerStyle="player"
         position="sticky"
         ratio={16 / 9}
         top={0}

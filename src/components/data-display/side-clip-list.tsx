@@ -69,8 +69,8 @@ function ClipCard({ clip, tab }: ClipCardProps) {
   return (
     <VStack gap="1" w="full">
       <Container
-        apply="layoutStyles.borderCard"
         cursor="pointer"
+        layerStyle="borderCard"
         onClick={onClick}
         p={0}
       >
@@ -166,7 +166,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   )
 
   return (
-    <Container apply="layoutStyles.scrollArea" maxH={height} ref={rootRef}>
+    <Container layerStyle="scrollArea" maxH={height} ref={rootRef}>
       <InfiniteScrollArea
         finish={<EmptyState title="No more clips" />}
         loading={<Loading fontSize="2xl" />}

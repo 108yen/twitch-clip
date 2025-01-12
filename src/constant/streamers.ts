@@ -4,7 +4,7 @@ export const STREAMERS = [
     created_at: "2013-09-19T13:21:29Z",
     description: "",
     display_name: "fps_shaka",
-    follower_num: 1519514,
+    follower_num: 1523352,
     id: "49207184",
     login: "fps_shaka",
     offline_image_url:
@@ -19,7 +19,7 @@ export const STREAMERS = [
     created_at: "2013-11-02T14:39:22Z",
     description: "感謝します。",
     display_name: "stylishnoob4",
-    follower_num: 1096806,
+    follower_num: 1099501,
     id: "50988750",
     login: "stylishnoob4",
     offline_image_url:
@@ -33,8 +33,8 @@ export const STREAMERS = [
     broadcaster_type: "partner",
     created_at: "2020-06-18T04:04:09Z",
     description: "本当に好きなことで生きていく",
-    display_name: "うん〇ちゃん",
-    follower_num: 1016603,
+    display_name: "加藤純一うん〇ちゃん",
+    follower_num: 1022222,
     id: "545050196",
     login: "kato_junichi0817",
     offline_image_url: "",
@@ -48,7 +48,7 @@ export const STREAMERS = [
     created_at: "2016-08-12T13:06:28Z",
     description: "twitter@darumaisgod",
     display_name: "だるまいずごっど",
-    follower_num: 934760,
+    follower_num: 939149,
     id: "132004305",
     login: "darumaisgod",
     offline_image_url: "",
@@ -62,7 +62,7 @@ export const STREAMERS = [
     created_at: "2013-06-09T04:43:03Z",
     description: "",
     display_name: "k4sen",
-    follower_num: 881552,
+    follower_num: 887177,
     id: "44525650",
     login: "k4sen",
     offline_image_url:
@@ -77,7 +77,7 @@ export const STREAMERS = [
     created_at: "2016-03-23T06:03:38Z",
     description: "色々やります。",
     display_name: "らっだぁ",
-    follower_num: 765071,
+    follower_num: 770401,
     id: "119506529",
     login: "rader",
     offline_image_url:
@@ -92,7 +92,7 @@ export const STREAMERS = [
     created_at: "2018-05-01T08:43:42Z",
     description: "",
     display_name: "叶ちゃんねる",
-    follower_num: 692767,
+    follower_num: 698000,
     id: "217871888",
     login: "kanae_2434",
     offline_image_url:
@@ -108,7 +108,7 @@ export const STREAMERS = [
     description:
       "1999 11 27 23歳 使用している楽曲 BGMhttps://www.youtube.com/c/NoCopyrightSounds/videoshttps://www.youtube.com/channel/UCfLovs3hldJ496uPizAgYaA スコラボライセンスについてhttps://license.sucolab.jp/0187aeb6-2b3d-50b2-1671-14ca173f3c92",
     display_name: "Jasper7se",
-    follower_num: 631157,
+    follower_num: 631980,
     id: "77415295",
     login: "jasper7se",
     offline_image_url:
@@ -123,7 +123,7 @@ export const STREAMERS = [
     created_at: "2010-03-09T06:47:08Z",
     description: "楽しんでゲームしていきます",
     display_name: "SPYGEA",
-    follower_num: 628548,
+    follower_num: 629069,
     id: "10985633",
     login: "spygea",
     offline_image_url:
@@ -139,7 +139,7 @@ export const STREAMERS = [
     description:
       "YOUTUBEで実況動画をあげている【ぼどか】の配信チャンネルです。",
     display_name: "ボドカさん",
-    follower_num: 586178,
+    follower_num: 588011,
     id: "48962167",
     login: "vodkavdk",
     offline_image_url: "",
@@ -154,7 +154,7 @@ export const STREAMERS = [
     description:
       "バーチャルストリーマーかもです！タルコフを中心に色々なゲームにチャレンジしてます！",
     display_name: "猫麦とろろ",
-    follower_num: 578404,
+    follower_num: 584065,
     id: "534168696",
     login: "tororo_vtuber",
     offline_image_url:
@@ -169,7 +169,7 @@ export const STREAMERS = [
     created_at: "2020-10-21T21:37:22Z",
     description: "(^.^)",
     display_name: "赤見かるび",
-    follower_num: 562525,
+    follower_num: 564991,
     id: "598495509",
     login: "akamikarubi",
     offline_image_url:
@@ -185,7 +185,7 @@ export const STREAMERS = [
     description:
       "ぶいすぽ所属の橘ひなのです！https://www.youtube.com/channel/UCvUc0m317LWTTPZoBQV479A",
     display_name: "橘ひなの",
-    follower_num: 521930,
+    follower_num: 529165,
     id: "568682215",
     login: "hinanotachiba7",
     offline_image_url: "",
@@ -199,7 +199,7 @@ export const STREAMERS = [
     created_at: "2012-10-31T15:18:26Z",
     description: "スタンミです",
     display_name: "スタンミ",
-    follower_num: 518905,
+    follower_num: 524588,
     id: "37323664",
     login: "sutanmi",
     offline_image_url: "",
@@ -213,7 +213,7 @@ export const STREAMERS = [
     created_at: "2020-09-17T15:55:59Z",
     description: "Big baby🍼濃いめのあかりんです",
     display_name: "夢野あかり",
-    follower_num: 514031,
+    follower_num: 518991,
     id: "584184005",
     login: "akarindao",
     offline_image_url:
@@ -228,7 +228,7 @@ export const STREAMERS = [
     created_at: "2018-01-27T15:35:08Z",
     description: "",
     display_name: "ありさか",
-    follower_num: 498045,
+    follower_num: 507280,
     id: "193290026",
     login: "cr_arisakaaa",
     offline_image_url: "",
@@ -243,7 +243,7 @@ export const STREAMERS = [
     description:
       "格闘プロゲーマー 梅原大吾の生配信番組。The Street Fighter legend, Daigo Umehara, aka THE BEAST, is revealing all of his training secrets & strategies!  ",
     display_name: "DaigoTheBeasTV",
-    follower_num: 441063,
+    follower_num: 441577,
     id: "115590970",
     login: "daigothebeastv",
     offline_image_url:
@@ -258,7 +258,7 @@ export const STREAMERS = [
     created_at: "2018-01-11T18:28:41Z",
     description: "mattarine",
     display_name: "nacho_dayo",
-    follower_num: 433996,
+    follower_num: 436402,
     id: "190110029",
     login: "nacho_dayo",
     offline_image_url:
@@ -270,24 +270,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2019-09-05T16:06:50Z",
-    description: "",
-    display_name: "nniru",
-    follower_num: 429464,
-    id: "460120312",
-    login: "nniru",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/f0f9a64a-ee48-448e-ad2a-213a78ffd568-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2013-09-07T13:43:56Z",
     description: " konnichiwa!",
     display_name: "Lazvell",
-    follower_num: 428548,
+    follower_num: 431860,
     id: "48677263",
     login: "lazvell",
     offline_image_url:
@@ -299,11 +285,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2019-09-05T16:06:50Z",
+    description: "",
+    display_name: "nniru",
+    follower_num: 429933,
+    id: "460120312",
+    login: "nniru",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/f0f9a64a-ee48-448e-ad2a-213a78ffd568-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2014-01-28T20:30:22Z",
     description:
       "Rejectストリーマー部門所属まざーです。笑顔になれる配信目指して頑張ります。!youtube",
     display_name: "まざー3",
-    follower_num: 383800,
+    follower_num: 387369,
     id: "55734416",
     login: "mother3rd",
     offline_image_url:
@@ -318,7 +318,7 @@ export const STREAMERS = [
     created_at: "2014-07-28T12:38:30Z",
     description: "こんにちは",
     display_name: "sasatikk",
-    follower_num: 380566,
+    follower_num: 383467,
     id: "67519684",
     login: "sasatikk",
     offline_image_url: "",
@@ -333,7 +333,7 @@ export const STREAMERS = [
     description:
       "ラプラス・ダークネスです。※ホロライブプロダクションから未成年の視聴者の方々へのお願い下記リンクをご確認の上、お楽しみください。https://www.hololive.tv/request-to-minors",
     display_name: "ラプラスダークネス総帥",
-    follower_num: 374784,
+    follower_num: 375321,
     id: "754246106",
     login: "laplusdarknesss_hololive",
     offline_image_url:
@@ -348,7 +348,7 @@ export const STREAMERS = [
     created_at: "2020-08-27T14:59:02Z",
     description: "",
     display_name: "dj_foy_foxx",
-    follower_num: 367674,
+    follower_num: 368259,
     id: "573768845",
     login: "dj_foy_foxx",
     offline_image_url:
@@ -363,7 +363,7 @@ export const STREAMERS = [
     created_at: "2018-03-18T16:45:38Z",
     description: "やあ",
     display_name: "Euriece",
-    follower_num: 358705,
+    follower_num: 358326,
     id: "206506086",
     login: "euriece",
     offline_image_url:
@@ -378,7 +378,7 @@ export const STREAMERS = [
     created_at: "2016-05-17T09:00:09Z",
     description: "doing nothing, losing life",
     display_name: "Selly55",
-    follower_num: 352720,
+    follower_num: 352797,
     id: "124467333",
     login: "selly55",
     offline_image_url:
@@ -393,7 +393,7 @@ export const STREAMERS = [
     created_at: "2017-03-05T10:25:25Z",
     description: "Like a BOSS",
     display_name: "ksonsouchou",
-    follower_num: 335304,
+    follower_num: 335185,
     id: "149495712",
     login: "ksonsouchou",
     offline_image_url: "",
@@ -407,7 +407,7 @@ export const STREAMERS = [
     created_at: "2017-07-19T08:18:17Z",
     description: "ニコニコ生放送やYouTubeなどで活動してる恭一郎です、よろしく",
     display_name: "恭一郎",
-    follower_num: 330056,
+    follower_num: 332474,
     id: "165572706",
     login: "dmf_kyochan",
     offline_image_url:
@@ -422,7 +422,7 @@ export const STREAMERS = [
     created_at: "2020-04-08T03:51:02Z",
     description: "概要にあるよ。",
     display_name: "ヘンディー",
-    follower_num: 328790,
+    follower_num: 329499,
     id: "510453927",
     login: "tonakaito_hendy",
     offline_image_url: "",
@@ -437,7 +437,7 @@ export const STREAMERS = [
     description:
       "Nyahello~! This is Elite Miko, I am super Elite！※ホロライブプロダクションから未成年の視聴者の方々へのお願い下記リンクをご確認の上、お楽しみください。https://www.hololive.tv/request-to-minors",
     display_name: "さくらみこ",
-    follower_num: 326406,
+    follower_num: 326714,
     id: "557359020",
     login: "sakuramiko_hololive",
     offline_image_url:
@@ -452,7 +452,7 @@ export const STREAMERS = [
     created_at: "2020-05-02T19:46:25Z",
     description: "はんじょうです",
     display_name: "はんじょう",
-    follower_num: 316929,
+    follower_num: 320911,
     id: "524474488",
     login: "hanjoudesu",
     offline_image_url:
@@ -467,7 +467,7 @@ export const STREAMERS = [
     created_at: "2018-04-15T06:43:35Z",
     description: "Youtubeで配信してるオタク。Vtuberじゃないよ",
     display_name: "Kamito_JP",
-    follower_num: 315081,
+    follower_num: 316806,
     id: "214410049",
     login: "kamito_jp",
     offline_image_url:
@@ -479,26 +479,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2020-11-09T11:09:33Z",
-    description: "おにやです。ここで余生を過ごします。",
-    display_name: "おにや",
-    follower_num: 306083,
-    id: "605425209",
-    login: "oniyadayo",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/70471050-0868-4a84-b8e0-ce5b9979190e-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/597664e5-0a2c-4e36-87d4-4d380d4c7bcc-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2014-09-10T19:24:44Z",
     description:
       "やりたいゲームをやってます。消えていくアーカイブはだいたいYouTubeのサブチャンネルに保管しています。",
     display_name: "ぐちつぼ",
-    follower_num: 305707,
+    follower_num: 308775,
     id: "70947583",
     login: "gutitubo",
     offline_image_url:
@@ -514,7 +499,7 @@ export const STREAMERS = [
     description:
       "youtuberと配信者をやってます曲、ゲーム等のリクエスト、スタンプ作ってくれる人はこちら(suzuki19880702@gmail.com)までご連絡ください",
     display_name: "ゆゆうた押忍",
-    follower_num: 305659,
+    follower_num: 307084,
     id: "752988454",
     login: "yuyuta0702",
     offline_image_url: "",
@@ -525,10 +510,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2020-11-09T11:09:33Z",
+    description: "おにやです。ここで余生を過ごします。",
+    display_name: "おにや",
+    follower_num: 306264,
+    id: "605425209",
+    login: "oniyadayo",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/70471050-0868-4a84-b8e0-ce5b9979190e-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/597664e5-0a2c-4e36-87d4-4d380d4c7bcc-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2014-09-14T05:34:24Z",
     description: "ぺいんとです",
     display_name: "ぺいんと",
-    follower_num: 302773,
+    follower_num: 304614,
     id: "71181639",
     login: "peintooon",
     offline_image_url:
@@ -543,7 +543,7 @@ export const STREAMERS = [
     created_at: "2016-12-24T03:15:30Z",
     description: "2000年4月12日生まれ、２4さいです。たまにtoxic。",
     display_name: "ta1yo_tv",
-    follower_num: 301079,
+    follower_num: 301085,
     id: "142720133",
     login: "ta1yo_tv",
     offline_image_url:
@@ -555,26 +555,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2018-03-08T06:42:30Z",
-    description:
-      "Youtubeで声真似ゲーム実況やってます。ベジータ,Mr.サタン,アガサ博士,マスオさん等…「ファン太ch」で検索！APEX/VALORANTを中心にプレイします！",
-    display_name: "ファン太",
-    follower_num: 287419,
-    id: "203654142",
-    login: "fantasista_jp",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ef3636c8-f522-4026-aa5b-39eff35324ef-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2017-06-30T10:19:45Z",
     description:
       "コスプレイヤーでストリーマーでグラドルです（連絡先： moe3@totekawa.com ）表紙登場150冊達成 どこかで見かけたら「ﾓｴｰ」って呼んでね🌞",
     display_name: "伊織もえ",
-    follower_num: 285283,
+    follower_num: 288441,
     id: "162145194",
     login: "moe_iori",
     offline_image_url:
@@ -585,17 +570,17 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "affiliate",
-    created_at: "2022-06-14T04:59:57Z",
-    description: "わぁい",
-    display_name: "小森めと",
-    follower_num: 285150,
-    id: "801682194",
-    login: "met_komori",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/823f7cc7-1da4-489d-bef6-9438f0d4c07a-channel_offline_image-1920x1080.jpeg",
+    broadcaster_type: "partner",
+    created_at: "2018-03-08T06:42:30Z",
+    description:
+      "Youtubeで声真似ゲーム実況やってます。ベジータ,Mr.サタン,アガサ博士,マスオさん等…「ファン太ch」で検索！APEX/VALORANTを中心にプレイします！",
+    display_name: "ファン太",
+    follower_num: 288320,
+    id: "203654142",
+    login: "fantasista_jp",
+    offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/f1e397f4-1ee6-45a4-925e-d920d26025f9-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/ef3636c8-f522-4026-aa5b-39eff35324ef-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -605,7 +590,7 @@ export const STREAMERS = [
     description:
       "毎日面白い配信を心がけています！！配信の切り抜きはYoutubeにて",
     display_name: "柊ツルギ",
-    follower_num: 283949,
+    follower_num: 288303,
     id: "952340772",
     login: "hiiragitsurugi",
     offline_image_url: "",
@@ -616,10 +601,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2022-06-14T04:59:57Z",
+    description: "わぁい",
+    display_name: "小森めと",
+    follower_num: 286003,
+    id: "801682194",
+    login: "met_komori",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/823f7cc7-1da4-489d-bef6-9438f0d4c07a-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/7e8a0187-880f-485d-ae5d-a3ef5fcea1e9-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2016-01-17T08:51:59Z",
     description: "けんきです。大きな声を出すお仕事をしています。",
     display_name: "けんき",
-    follower_num: 281171,
+    follower_num: 282470,
     id: "113028874",
     login: "kenki521",
     offline_image_url:
@@ -635,7 +635,7 @@ export const STREAMERS = [
     description:
       "千葉県生まれ江戸川区育ち オタクそうな奴ら全員友達。　　2000年12月7日　浦東 大路　A型　178cm 70kg 趣味はボランティア 特技は早口言葉です.  プロゲーマーやってます。強いです",
     display_name: "im_mittiii",
-    follower_num: 279203,
+    follower_num: 279739,
     id: "673440976",
     login: "im_mittiii",
     offline_image_url: "",
@@ -649,7 +649,7 @@ export const STREAMERS = [
     created_at: "2022-12-26T15:03:08Z",
     description: "CrazyRaccoon所属 VanilLaです。2000年12月21日生まれ23歳",
     display_name: "CR_VanilLa",
-    follower_num: 274901,
+    follower_num: 276275,
     id: "862499417",
     login: "cr_vanilla",
     offline_image_url: "",
@@ -660,40 +660,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2019-10-14T14:19:53Z",
-    description:
-      "バーチャルYouTuber（VTuber）の渋谷ハルです！【BGM】BGM by Diverse Systemhttps://diversesystem.bandcamp.com/https://www.youtube.com/c/diversesystem/http://diverse.jp/この中から色々使ってます",
-    display_name: "渋谷ハル",
-    follower_num: 271675,
-    id: "467110256",
-    login: "shibuyahal",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/cb0cdf4b-9b04-4253-892b-aebc264b0856-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2016-10-22T08:24:43Z",
-    description: "CRのストリーマーです",
-    display_name: "ow_uruca",
-    follower_num: 270980,
-    id: "137621174",
-    login: "ow_uruca",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/2b484188-55c8-48b6-b848-c8a51b271270-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/6aef7f49-1956-4576-aa81-bad779578ee8-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2016-05-03T06:20:19Z",
     description: "Streamer KH",
     display_name: "Killin9Hit",
-    follower_num: 269065,
+    follower_num: 274252,
     id: "123355356",
     login: "killin9hit",
     offline_image_url:
@@ -705,11 +675,41 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2016-10-22T08:24:43Z",
+    description: "CRのストリーマーです",
+    display_name: "ow_uruca",
+    follower_num: 272575,
+    id: "137621174",
+    login: "ow_uruca",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/2b484188-55c8-48b6-b848-c8a51b271270-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/6aef7f49-1956-4576-aa81-bad779578ee8-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2019-10-14T14:19:53Z",
+    description:
+      "バーチャルYouTuber（VTuber）の渋谷ハルです！【BGM】BGM by Diverse Systemhttps://diversesystem.bandcamp.com/https://www.youtube.com/c/diversesystem/http://diverse.jp/この中から色々使ってます",
+    display_name: "渋谷ハル",
+    follower_num: 271670,
+    id: "467110256",
+    login: "shibuyahal",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/cb0cdf4b-9b04-4253-892b-aebc264b0856-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2022-06-22T08:19:53Z",
     description:
       "..꒰ঌ 虹色の小さな天使Vtuber ໒꒱ ..*˚ 🗝Can you help me find my memory..？ ",
     display_name: "飴宮なずな",
-    follower_num: 260897,
+    follower_num: 260509,
     id: "803456874",
     login: "amemiyanazuna",
     offline_image_url:
@@ -724,7 +724,7 @@ export const STREAMERS = [
     created_at: "2014-03-01T12:38:55Z",
     description: "好きなゲームと気になるゲームだけプレーします",
     display_name: "yamatonjp",
-    follower_num: 257749,
+    follower_num: 257840,
     id: "57962435",
     login: "yamatonjp",
     offline_image_url:
@@ -739,7 +739,7 @@ export const STREAMERS = [
     created_at: "2018-07-16T06:51:40Z",
     description: "",
     display_name: "seoldam99",
-    follower_num: 255593,
+    follower_num: 255326,
     id: "239005986",
     login: "seoldam99",
     offline_image_url:
@@ -755,7 +755,7 @@ export const STREAMERS = [
     description:
       "CrazyRaccoon所属 Streamer 『VALORANT 優勝🏆世界大会出場』『Overwatch 優勝🏆世界大会出場』『AVA 優勝🏆世界大会出場 世界大会準優勝』 ",
     display_name: "CR_rion",
-    follower_num: 254339,
+    follower_num: 254928,
     id: "151409846",
     login: "cr_rion",
     offline_image_url:
@@ -770,7 +770,7 @@ export const STREAMERS = [
     created_at: "2021-06-09T14:27:35Z",
     description: "Hi!",
     display_name: "花芽すみれ",
-    follower_num: 254263,
+    follower_num: 254513,
     id: "695556933",
     login: "kagasumire",
     offline_image_url:
@@ -785,7 +785,7 @@ export const STREAMERS = [
     created_at: "2016-09-25T03:58:23Z",
     description: "Ras Apex Legends Pro gamer",
     display_name: "ラス_さん",
-    follower_num: 252401,
+    follower_num: 252490,
     id: "135357883",
     login: "ras_sama",
     offline_image_url:
@@ -797,10 +797,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2022-12-19T11:03:27Z",
+    description:
+      "◯ぶいすぽ公式HP　https://vspo.jp/　◯使用BGM　曲名 『Epoch』『Funny』『Arrival』『Notion』『Days』『Inside Out』作曲 RYU ITO　https://ryu110.com/　https://www.youtube.com/@nemumusic  https://www.youtube.com/@fai_musics",
+    display_name: "白波らむね",
+    follower_num: 248777,
+    id: "858359149",
+    login: "ramuneshiranami",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8e3eb29d-ea92-4268-84b6-12c3384c834b-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2023-01-29T05:55:46Z",
     description: "コスプレイヤーです🎮",
     display_name: "えなこ",
-    follower_num: 248251,
+    follower_num: 248273,
     id: "875637475",
     login: "enako_chan",
     offline_image_url: "",
@@ -814,7 +829,7 @@ export const STREAMERS = [
     created_at: "2017-08-12T15:50:05Z",
     description: "",
     display_name: "clutch_fii",
-    follower_num: 245041,
+    follower_num: 246723,
     id: "169539617",
     login: "clutch_fii",
     offline_image_url:
@@ -829,7 +844,7 @@ export const STREAMERS = [
     created_at: "2020-03-08T04:25:28Z",
     description: "げーむやる Vtuberじゃないヨ",
     display_name: "夜よいち",
-    follower_num: 243457,
+    follower_num: 244494,
     id: "497825111",
     login: "yoichi_0v0",
     offline_image_url: "",
@@ -839,26 +854,11 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "partner",
-    created_at: "2022-12-19T11:03:27Z",
-    description:
-      "◯ぶいすぽ公式HP　https://vspo.jp/　◯使用BGM　曲名 『Epoch』『Funny』『Arrival』『Notion』『Days』『Inside Out』作曲 RYU ITO　https://ryu110.com/　https://www.youtube.com/@nemumusic  https://www.youtube.com/@fai_musics",
-    display_name: "白波らむね",
-    follower_num: 243172,
-    id: "858359149",
-    login: "ramuneshiranami",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8e94bbaa-8c94-4a5f-826c-2b5803d02b1a-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "affiliate",
     created_at: "2020-09-13T06:17:47Z",
     description: "ぶいすぽ所属VTuber@uruha_ichinose",
     display_name: "一ノ瀬うるは",
-    follower_num: 241606,
+    follower_num: 241976,
     id: "582689327",
     login: "uruhaichinose",
     offline_image_url: "",
@@ -872,7 +872,7 @@ export const STREAMERS = [
     created_at: "2013-11-02T00:40:28Z",
     description: "もこうです　ぷよぷよのプロゲーマーです。",
     display_name: "もこうやで",
-    follower_num: 241525,
+    follower_num: 241535,
     id: "50967098",
     login: "mokouliszt1",
     offline_image_url: "",
@@ -887,7 +887,7 @@ export const STREAMERS = [
     description:
       "https://twitter.com/ratna_petitBGM　https://www.youtube.com/watch?v=xB6VXLQNP_k",
     display_name: "ぷてぃちゃん",
-    follower_num: 236748,
+    follower_num: 236764,
     id: "784258171",
     login: "petit2434",
     offline_image_url:
@@ -902,7 +902,7 @@ export const STREAMERS = [
     created_at: "2021-08-29T09:06:38Z",
     description: "",
     display_name: "如月れん",
-    follower_num: 230011,
+    follower_num: 233976,
     id: "722162135",
     login: "ren_kisaragi__",
     offline_image_url:
@@ -918,7 +918,7 @@ export const STREAMERS = [
     description:
       "40代でもネットで活躍したいです。ご意見ご要望はこちらまでdasoku.aniki@gmail.com",
     display_name: "蛇足",
-    follower_num: 226887,
+    follower_num: 227647,
     id: "216351084",
     login: "dasoku_aniki",
     offline_image_url: "",
@@ -932,7 +932,7 @@ export const STREAMERS = [
     created_at: "2016-10-04T18:00:00Z",
     description: "",
     display_name: "franciscoow",
-    follower_num: 223485,
+    follower_num: 226160,
     id: "136255354",
     login: "franciscoow",
     offline_image_url: "",
@@ -946,7 +946,7 @@ export const STREAMERS = [
     created_at: "2017-02-24T13:13:54Z",
     description: "やりたいゲームやるチャンネル",
     display_name: "おぼです",
-    follower_num: 217206,
+    follower_num: 217920,
     id: "148588540",
     login: "obormentv",
     offline_image_url:
@@ -962,7 +962,7 @@ export const STREAMERS = [
     description:
       "Professional Valorant player | Twitter- meiyfps | Youtube- Meiy",
     display_name: "Meiy_vl",
-    follower_num: 214770,
+    follower_num: 215298,
     id: "473688875",
     login: "meiy_vl",
     offline_image_url:
@@ -977,7 +977,7 @@ export const STREAMERS = [
     created_at: "2013-07-09T07:48:06Z",
     description: "Ireliaポニーですmail:Rtcskb2@gmail.com",
     display_name: "らいじん",
-    follower_num: 211349,
+    follower_num: 212638,
     id: "45839490",
     login: "alfrea",
     offline_image_url:
@@ -992,7 +992,7 @@ export const STREAMERS = [
     created_at: "2020-04-18T08:23:42Z",
     description: "ゲームをこよなく愛しています",
     display_name: "よしなま222",
-    follower_num: 206431,
+    follower_num: 207408,
     id: "516315196",
     login: "yoshinama222",
     offline_image_url: "",
@@ -1006,7 +1006,7 @@ export const STREAMERS = [
     created_at: "2018-11-20T05:36:12Z",
     description: "",
     display_name: "しんじさん",
-    follower_num: 204263,
+    follower_num: 206877,
     id: "276504990",
     login: "shinjifromjapanxd",
     offline_image_url:
@@ -1017,27 +1017,11 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "partner",
-    created_at: "2021-11-08T07:04:14Z",
-    description:
-      "Amaki Pururu🎀 / REJECT / 天使と悪魔のぷるぷるえんじぇるでびる",
-    display_name: "天鬼ぷるる",
-    follower_num: 200697,
-    id: "741229569",
-    login: "amakipururu",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/7ecbcca3-3abb-46de-872d-16bc972cbde0-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/48aad627-8bb3-42a3-9e7b-78c71f14fb1a-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "affiliate",
     created_at: "2020-10-28T02:03:10Z",
     description: "",
     display_name: "胡桃のあ",
-    follower_num: 200373,
+    follower_num: 201999,
     id: "600770697",
     login: "963noah",
     offline_image_url: "",
@@ -1048,15 +1032,33 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2019-04-01T08:11:25Z",
-    description: "Twitter@YukioFPS",
-    display_name: "ゆきお2",
-    follower_num: 197968,
-    id: "427263526",
-    login: "yukiofps14",
-    offline_image_url: "",
+    created_at: "2019-10-10T07:35:05Z",
+    description:
+      "REJECT｜遠い宇宙からやってきたポンコツ侵略系VTuber「とおこ」です。配信で地球侵略がんばるます。好きな事を好きな様にのんびりまったり。チャンネル登録やXをフォローして貰えるとやる気がわんわんします。どうぞ、よろしく。デスッ。",
+    display_name: "とおこ",
+    follower_num: 201919,
+    id: "466250451",
+    login: "urs_toko",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/68ac19a7-1664-4c31-959d-c7dcb65afa60-channel_offline_image-1920x1080.png",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/457abaa2-37eb-49b3-a8b5-aafb2f91ecfc-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/525191c2-5624-4f1c-830b-06ecd459d16c-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2021-11-08T07:04:14Z",
+    description:
+      "Amaki Pururu🎀 / REJECT / 天使と悪魔のぷるぷるえんじぇるでびる",
+    display_name: "天鬼ぷるる",
+    follower_num: 201394,
+    id: "741229569",
+    login: "amakipururu",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/7ecbcca3-3abb-46de-872d-16bc972cbde0-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/48aad627-8bb3-42a3-9e7b-78c71f14fb1a-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -1065,7 +1067,7 @@ export const STREAMERS = [
     created_at: "2020-12-27T12:01:39Z",
     description: "Apex ProPlayer for FNATIC",
     display_name: "IQ200YukaF",
-    follower_num: 197794,
+    follower_num: 198891,
     id: "626747405",
     login: "iq200yukaf",
     offline_image_url:
@@ -1076,11 +1078,25 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
+    broadcaster_type: "partner",
+    created_at: "2019-04-01T08:11:25Z",
+    description: "Twitter@YukioFPS",
+    display_name: "ゆきお2",
+    follower_num: 198736,
+    id: "427263526",
+    login: "yukiofps14",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/457abaa2-37eb-49b3-a8b5-aafb2f91ecfc-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
     broadcaster_type: "",
     created_at: "2017-06-02T23:31:19Z",
     description: "Mondo",
     display_name: "mondo2244",
-    follower_num: 196519,
+    follower_num: 197092,
     id: "158804879",
     login: "mondo2244",
     offline_image_url: "",
@@ -1095,7 +1111,7 @@ export const STREAMERS = [
     description:
       "147cm Japanese Streamer!Game(FPS等)、料理、IRLをよく配信しています！SNSも頑張ってるからフォローしてね～！ https://lit.link/HiNas3",
     display_name: "HiNas3",
-    follower_num: 196448,
+    follower_num: 196393,
     id: "76039324",
     login: "hinas3",
     offline_image_url:
@@ -1107,10 +1123,24 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2018-04-07T22:28:52Z",
+    description: "Vtuber好きのいろんな人が好きでいろんなゲームも好きです",
+    display_name: "ギルくん",
+    follower_num: 196307,
+    id: "212474095",
+    login: "guilty1223",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/d947de15-05f4-400f-a1fa-51770a02c9cd-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2018-10-24T05:16:22Z",
     description: "チーキーです YouTubeでも配信よくしてます",
     display_name: "tttcheekyttt",
-    follower_num: 195168,
+    follower_num: 195649,
     id: "269140208",
     login: "tttcheekyttt",
     offline_image_url:
@@ -1122,40 +1152,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2019-10-10T07:35:05Z",
-    description:
-      "REJECT｜遠い宇宙からやってきたポンコツ侵略系VTuber「とおこ」です。配信で地球侵略がんばるます。好きな事を好きな様にのんびりまったり。チャンネル登録やXをフォローして貰えるとやる気がわんわんします。どうぞ、よろしく。デスッ。",
-    display_name: "とおこ",
-    follower_num: 194821,
-    id: "466250451",
-    login: "urs_toko",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/68ac19a7-1664-4c31-959d-c7dcb65afa60-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/525191c2-5624-4f1c-830b-06ecd459d16c-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2018-04-07T22:28:52Z",
-    description: "Vtuber好きのいろんな人が好きでいろんなゲームも好きです",
-    display_name: "ギルくん",
-    follower_num: 194683,
-    id: "212474095",
-    login: "guilty1223",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/d947de15-05f4-400f-a1fa-51770a02c9cd-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2018-04-14T20:58:12Z",
     description: "YoutubeでAPEXなどの動画を投稿してるゆふなと申します‼ ",
     display_name: "ゆふな",
-    follower_num: 193340,
+    follower_num: 193252,
     id: "214306524",
     login: "yufuna",
     offline_image_url:
@@ -1167,10 +1167,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2016-12-26T11:12:01Z",
+    description: "😅",
+    display_name: "gon_vl",
+    follower_num: 191658,
+    id: "142898099",
+    login: "gon_vl",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/fbecffc2-1ad1-4c3e-89b4-83231bc01236-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/c5297d11-0203-488f-8188-0998d87e3e19-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2018-06-07T02:45:10Z",
     description: "まったり配信してます。　音楽ゲームとFPSとお酒が好きです。",
     display_name: "yunocy",
-    follower_num: 190853,
+    follower_num: 191640,
     id: "229306012",
     login: "yunocy",
     offline_image_url: "",
@@ -1185,7 +1200,7 @@ export const STREAMERS = [
     description:
       "@CrazyRaccoon406 ストリーマー部門所属　ゲームが大好き、特に誰かとやるゲーム🎮🤍🖤#ごちゃマイ　#ストグラ　#餡ブレラ",
     display_name: "ごっちゃんマイキー",
-    follower_num: 189933,
+    follower_num: 191092,
     id: "818506560",
     login: "gocchanmikey",
     offline_image_url: "",
@@ -1196,26 +1211,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2016-12-26T11:12:01Z",
-    description: "😅",
-    display_name: "gon_vl",
-    follower_num: 189124,
-    id: "142898099",
-    login: "gon_vl",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/fbecffc2-1ad1-4c3e-89b4-83231bc01236-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/c5297d11-0203-488f-8188-0998d87e3e19-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2022-08-12T15:03:51Z",
     description:
       "二十日ネルだよ～🐁ゲームとパチスロが好き。たまーーに実写配信もしてるよ！よろしくね",
     display_name: "二十日ネル",
-    follower_num: 187065,
+    follower_num: 188367,
     id: "817025645",
     login: "hatsukaneru",
     offline_image_url:
@@ -1231,7 +1231,7 @@ export const STREAMERS = [
     description:
       "奈良に潜む、鳴き声が特徴的な生き物。コミュニケーションを好む。",
     display_name: "わいわいの部屋",
-    follower_num: 181988,
+    follower_num: 183453,
     id: "174700590",
     login: "crazyraccoonyy",
     offline_image_url: "",
@@ -1246,7 +1246,7 @@ export const STREAMERS = [
     description:
       "気軽にまふって呼んでね / ゲームと雑談が好きです / たくさん話しかけてね",
     display_name: "mmafu_",
-    follower_num: 180643,
+    follower_num: 181111,
     id: "78886128",
     login: "mmafu_",
     offline_image_url:
@@ -1261,7 +1261,7 @@ export const STREAMERS = [
     created_at: "2016-07-15T16:58:41Z",
     description: "XQQ FROM ZETA DIVISION",
     display_name: "IAM_XQ",
-    follower_num: 176379,
+    follower_num: 176331,
     id: "129633191",
     login: "iam_xq",
     offline_image_url:
@@ -1276,7 +1276,7 @@ export const STREAMERS = [
     created_at: "2015-06-13T07:26:48Z",
     description: "　　　　　　　　　　　　　",
     display_name: "JapaneseKoreanUG",
-    follower_num: 168102,
+    follower_num: 168262,
     id: "93381903",
     login: "japanesekoreanug",
     offline_image_url: "",
@@ -1291,7 +1291,7 @@ export const STREAMERS = [
     description:
       "配信者GTAロールプレイ（RP）サーバー「ストグラ」にてギャング【MOZU】のBOSS #ヴァンダーマー 役やってる人です。【ハッシュタグ】#ストグラ#番長#低音ボイス———————————————————————————【チャンネル登録はこちら】https://www.youtube.com/channel/UCAQQ...【ショート動画リスト】https://youtube.com/playlist?list=PLp...———————————————————————————【配信機材等】・オーディオテクニカ コンデンサーマイクロホン AT4040 ・ヘッドセット",
     display_name: "番田長助",
-    follower_num: 165891,
+    follower_num: 166294,
     id: "470973222",
     login: "banda_chosuke",
     offline_image_url: "",
@@ -1306,7 +1306,7 @@ export const STREAMERS = [
     description:
       "2001. 10/19 22歳 今はプロやってません。本名はてんたって言います気楽に呼んでね　漢字読めません",
     display_name: "TENNN",
-    follower_num: 164148,
+    follower_num: 164672,
     id: "191729515",
     login: "tennn",
     offline_image_url:
@@ -1321,7 +1321,7 @@ export const STREAMERS = [
     created_at: "2022-05-29T07:44:34Z",
     description: "こんにちは！Youtubeもやってます！！",
     display_name: "ありけんです",
-    follower_num: 158553,
+    follower_num: 159398,
     id: "798002538",
     login: "arikendebu",
     offline_image_url: "",
@@ -1332,27 +1332,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2018-02-08T11:12:48Z",
-    description:
-      "apex公式解説者　世界大会出場　元日韓1位　ランク初代日本一位などの経験ありコメントしてくれたら泣いて喜びます！",
-    display_name: "alelu",
-    follower_num: 155945,
-    id: "195343482",
-    login: "alelu",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ed1a0f2b-9de3-4804-989d-bb2bd438df61-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/4cc4ab20-b5f5-4b10-a5e0-308930cec23e-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2011-08-17T14:58:35Z",
     description:
       "ゲーミングチーム REJECT 格闘ゲーム部門プロデューサー兼ストリーマー 「格ゲーマー人狼」「おじリーグ」主催。そういうゲームじゃねぇからこれ！！の格ゲーおじさんです。■youtubeアカウント：https://www.youtube.com/@kokujintv",
     display_name: "kokujintv",
-    follower_num: 155391,
+    follower_num: 156399,
     id: "24150891",
     login: "kokujintv",
     offline_image_url:
@@ -1364,11 +1348,27 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2018-02-08T11:12:48Z",
+    description:
+      "apex公式解説者　世界大会出場　元日韓1位　ランク初代日本一位などの経験ありコメントしてくれたら泣いて喜びます！",
+    display_name: "alelu",
+    follower_num: 155765,
+    id: "195343482",
+    login: "alelu",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/ed1a0f2b-9de3-4804-989d-bb2bd438df61-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/4cc4ab20-b5f5-4b10-a5e0-308930cec23e-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2022-02-16T18:38:00Z",
     description:
       "本物ですhttps://www.youtube.com/channel/UCD5W21JqNMv_tV9nfjvF9sw",
     display_name: "紫宮るな",
-    follower_num: 154465,
+    follower_num: 154677,
     id: "773185713",
     login: "shinomiya_runa",
     offline_image_url: "",
@@ -1378,11 +1378,25 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
+    broadcaster_type: "partner",
+    created_at: "2015-10-03T12:57:24Z",
+    description: "おざす",
+    display_name: "SqLA",
+    follower_num: 153896,
+    id: "103567888",
+    login: "sqla",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/ced0dadd-2251-46a8-aba5-78e8fcd0c7db-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
     broadcaster_type: "",
     created_at: "2023-08-08T07:48:07Z",
     description: "",
     display_name: "lauren_iroas2434",
-    follower_num: 152396,
+    follower_num: 152563,
     id: "941410031",
     login: "lauren_iroas2434",
     offline_image_url: "",
@@ -1393,25 +1407,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2015-10-03T12:57:24Z",
-    description: "おざす",
-    display_name: "SqLA",
-    follower_num: 152306,
-    id: "103567888",
-    login: "sqla",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ced0dadd-2251-46a8-aba5-78e8fcd0c7db-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2011-10-03T06:45:37Z",
     description:
       "プロeスポーツチーム「DONUTS VARREL」所属。 Professional Gamer VARREL | MAGO連絡等が必要な方はこちらへ→management@cellorb.jp",
     display_name: "mago2dgod",
-    follower_num: 149461,
+    follower_num: 151754,
     id: "25233449",
     login: "mago2dgod",
     offline_image_url:
@@ -1427,7 +1427,7 @@ export const STREAMERS = [
     description:
       "『しょぼすけ』です。スキなゲームを広めるのがスキです。リラクゼーションドリンクチルアウトAmazon URL: https://amzn.to/3NnsDVq",
     display_name: "しょぼすけ",
-    follower_num: 148868,
+    follower_num: 148881,
     id: "59157171",
     login: "shobosuke",
     offline_image_url:
@@ -1438,27 +1438,12 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "partner",
-    created_at: "2016-10-07T04:37:15Z",
-    description: "Valorant for FENNEL",
-    display_name: "neth3",
-    follower_num: 146535,
-    id: "136443021",
-    login: "neth3",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/230192e4-8c53-4503-b557-4b5b4d896c3c-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/d7c9f55a-3b1c-46ca-8006-52f692a31fbd-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "affiliate",
     created_at: "2022-02-28T05:05:39Z",
     description:
       "ホロライブ4期生の常闇トワ様です！普段はyoutubeで配信してるよ～❣フォローしてねっ！-------------------------------- ※ホロライブプロダクションから未成年の視聴者の方々へのお願い  下記リンクをご確認の上、お楽しみください。  https://www.hololive.tv/request-to-minors  -------------------------------- ",
     display_name: "tokoyamitowa_holo",
-    follower_num: 146309,
+    follower_num: 148360,
     id: "776474056",
     login: "tokoyamitowa_holo",
     offline_image_url:
@@ -1474,7 +1459,7 @@ export const STREAMERS = [
     description:
       "ドンピシャ,ぺちゃんこ,鉄塔の3人でYoutubeをメインとして活動しております。 ※ドンピシャのみがTwitchパートナーで、ドンピシャ視点での生放送はこちらでしております。どうぞよろしく。  ※アーカイブは必ず残るとは確約できかねますので、全部残すつもりですがなるべく60日間以内にご視聴下さい。  またAmazonPrimeの方はTwitchと連携すると毎月無料でサブスクライブ可能で、広告が流れなくなり、専用スタンプも使用可能になります。(毎月手動更新が必要)",
     display_name: "三人称_ドンピシャ",
-    follower_num: 146270,
+    follower_num: 147293,
     id: "671502034",
     login: "sanninshow_3ns",
     offline_image_url:
@@ -1486,10 +1471,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2016-10-07T04:37:15Z",
+    description: "Valorant for FENNEL",
+    display_name: "neth3",
+    follower_num: 147264,
+    id: "136443021",
+    login: "neth3",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/230192e4-8c53-4503-b557-4b5b4d896c3c-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/d7c9f55a-3b1c-46ca-8006-52f692a31fbd-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2022-07-30T13:11:50Z",
     description: "ウォッチパーティーしたいです",
     display_name: "布団ちゃんと申します",
-    follower_num: 144526,
+    follower_num: 146109,
     id: "813704147",
     login: "indegnasen0706",
     offline_image_url: "",
@@ -1504,7 +1504,7 @@ export const STREAMERS = [
     description:
       "Hello! I'm dtto from Thailand (pronounce as ditto). I mostly play Apex Legends c:I'm a streamer for REJECT.",
     display_name: "dttodot",
-    follower_num: 144457,
+    follower_num: 144765,
     id: "715990491",
     login: "dttodot",
     offline_image_url: "",
@@ -1519,7 +1519,7 @@ export const STREAMERS = [
     description:
       "格闘ゲーマーです　Twitter→@maneater_dgrどぐらのディスコ鯖→https://discord.gg/rxk3AY9ZPN",
     display_name: "生駒どぐらデビル",
-    follower_num: 142282,
+    follower_num: 142979,
     id: "807131251",
     login: "ikoma_dogura",
     offline_image_url: "",
@@ -1533,7 +1533,7 @@ export const STREAMERS = [
     created_at: "2012-04-21T00:36:31Z",
     description: "i like hip",
     display_name: "rainbrain",
-    follower_num: 139890,
+    follower_num: 140755,
     id: "29923971",
     login: "rainbrain",
     offline_image_url:
@@ -1548,7 +1548,7 @@ export const STREAMERS = [
     created_at: "2018-03-16T05:15:30Z",
     description: "REJECT格闘ゲーム部門所属ストリーマーのハイタニです。",
     display_name: "ハイタニ",
-    follower_num: 138323,
+    follower_num: 138951,
     id: "205775893",
     login: "haitani0904",
     offline_image_url: "",
@@ -1559,27 +1559,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2013-04-10T14:13:15Z",
-    description:
-      "Twitter - https://twitter.com/NORIAKIISGOOD　Youtube - https://bit.ly/3vP3ZpF",
-    display_name: "鈴木ノリアキ",
-    follower_num: 137997,
-    id: "42304622",
-    login: "suzukinoriaki",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/c017f767-d8ac-44ed-b0e7-be0438b2d2e9-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/fda29ec0-6ed2-4024-bc55-d76eeb63186a-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2015-05-03T03:58:03Z",
     description:
       "プロゲーミングチーム「DeToNator」に所属のsurugamonkey(するがモンキー)です！過去にAVAやPUBGというゲームで選手として活動していました。現在は選手活動を引退し、Streamerとして活動しています！",
     display_name: "するがモンキー",
-    follower_num: 137955,
+    follower_num: 138590,
     id: "90131691",
     login: "surugamonkey0113",
     offline_image_url:
@@ -1591,58 +1575,17 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2015-06-27T15:20:47Z",
+    created_at: "2013-04-10T14:13:15Z",
     description:
-      "なんでも基本◇迷惑行為は即ブロックします◇他の配信者に迷惑がかからないようにお願いします",
-    display_name: "ととみっくす",
-    follower_num: 133428,
-    id: "94618049",
-    login: "tototmix",
-    offline_image_url: "",
+      "Twitter - https://twitter.com/NORIAKIISGOOD　Youtube - https://bit.ly/3vP3ZpF",
+    display_name: "鈴木ノリアキ",
+    follower_num: 138220,
+    id: "42304622",
+    login: "suzukinoriaki",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/c017f767-d8ac-44ed-b0e7-be0438b2d2e9-channel_offline_image-1920x1080.jpeg",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/68bcd2f1-d493-4ed5-a8bd-70f34b3663eb-profile_image-300x300.jpeg",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2016-04-22T05:56:55Z",
-    description: "本業漫画家で趣味で配信をしています！",
-    display_name: "しろまんた",
-    follower_num: 133165,
-    id: "122391197",
-    login: "shiro_manta",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/b9d009e5-49de-4c46-9bc2-9e1051d30168-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2022-03-01T11:45:51Z",
-    description: "LoL大好きVtuberです。アカリOTPしてます。",
-    display_name: "空澄セナ",
-    follower_num: 132679,
-    id: "776751504",
-    login: "asumisena",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/bb25e9c0-e515-4d08-a719-fab528efac57-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "affiliate",
-    created_at: "2022-03-05T11:29:54Z",
-    description: "不束者ではありませんがよろしくお願いします",
-    display_name: "英リサ",
-    follower_num: 132359,
-    id: "777700650",
-    login: "lisahanabusa",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/831018ec-c640-43c7-93b6-7a756a0d69a4-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/fda29ec0-6ed2-4024-bc55-d76eeb63186a-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -1651,7 +1594,7 @@ export const STREAMERS = [
     created_at: "2022-07-20T06:41:20Z",
     description: "葉と申します。よろしくお願いします",
     display_name: "葉っち",
-    follower_num: 132182,
+    follower_num: 136434,
     id: "810650293",
     login: "yohdazo",
     offline_image_url: "",
@@ -1662,10 +1605,53 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2015-06-27T15:20:47Z",
+    description:
+      "なんでも基本◇迷惑行為は即ブロックします◇他の配信者に迷惑がかからないようにお願いします",
+    display_name: "ととみっくす",
+    follower_num: 133743,
+    id: "94618049",
+    login: "tototmix",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/68bcd2f1-d493-4ed5-a8bd-70f34b3663eb-profile_image-300x300.jpeg",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2022-03-01T11:45:51Z",
+    description: "LoL大好きVtuberです。アカリOTPしてます。",
+    display_name: "空澄セナ",
+    follower_num: 133375,
+    id: "776751504",
+    login: "asumisena",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/bb25e9c0-e515-4d08-a719-fab528efac57-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2016-04-22T05:56:55Z",
+    description: "本業漫画家で趣味で配信をしています！",
+    display_name: "しろまんた",
+    follower_num: 133110,
+    id: "122391197",
+    login: "shiro_manta",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/b9d009e5-49de-4c46-9bc2-9e1051d30168-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2020-09-24T03:35:49Z",
     description: "youtubeもやってます。",
     display_name: "kinapoppo",
-    follower_num: 131680,
+    follower_num: 133014,
     id: "587350743",
     login: "kinapoppo",
     offline_image_url: "",
@@ -1675,16 +1661,16 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "partner",
-    created_at: "2022-04-22T20:31:28Z",
-    description: "",
-    display_name: "花芽なずな",
-    follower_num: 130952,
-    id: "790167759",
-    login: "nazunakaga",
+    broadcaster_type: "affiliate",
+    created_at: "2022-03-05T11:29:54Z",
+    description: "不束者ではありませんがよろしくお願いします",
+    display_name: "英リサ",
+    follower_num: 132867,
+    id: "777700650",
+    login: "lisahanabusa",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/14bd6209-94ce-4d53-80bd-87453a678421-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/831018ec-c640-43c7-93b6-7a756a0d69a4-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -1694,7 +1680,7 @@ export const STREAMERS = [
     description:
       "Protagon株式会社 代表取締役/Game Caster/LogicoolG brand ambassador/OMEN executive advisor/HermanMiller Gaming ambassador/",
     display_name: "岸大河",
-    follower_num: 130646,
+    follower_num: 131233,
     id: "69571952",
     login: "stansmith_jp",
     offline_image_url:
@@ -1706,10 +1692,24 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2022-04-22T20:31:28Z",
+    description: "",
+    display_name: "花芽なずな",
+    follower_num: 131074,
+    id: "790167759",
+    login: "nazunakaga",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/14bd6209-94ce-4d53-80bd-87453a678421-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2022-11-18T11:51:28Z",
     description: "ぶいすぽ所属の藍沢エマです🌷",
     display_name: "あいざわえま",
-    follower_num: 126242,
+    follower_num: 126963,
     id: "848822715",
     login: "emtsmaru",
     offline_image_url: "",
@@ -1720,10 +1720,40 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2015-05-01T15:46:15Z",
+    description: "ほぼ毎日やってます",
+    display_name: "Zerost_s",
+    follower_num: 120685,
+    id: "89969094",
+    login: "zerost_s",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/57f8f616-98b3-4b64-9d1d-9b0397c7a897-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8c1c636f-0ad4-43df-ba29-16287570579d-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2015-06-18T10:38:58Z",
+    description: "",
+    display_name: "バトラ",
+    follower_num: 120465,
+    id: "93828097",
+    login: "batora324",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a795efa0-9628-4cff-886d-e991df81edae-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/438af837-c6c1-4bd0-b292-fd35ccc06e29-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2016-09-09T14:44:46Z",
     description: "焼きパン",
     display_name: "焼きパン",
-    follower_num: 119989,
+    follower_num: 120462,
     id: "134295245",
     login: "varvalian",
     offline_image_url:
@@ -1738,7 +1768,7 @@ export const STREAMERS = [
     created_at: "2016-05-02T06:45:00Z",
     description: "MOBAを中心に色々なゲームをプレイしています",
     display_name: "しゃるる",
-    follower_num: 119814,
+    follower_num: 120083,
     id: "123278702",
     login: "syaruru3",
     offline_image_url:
@@ -1750,25 +1780,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2015-05-01T15:46:15Z",
-    description: "ほぼ毎日やってます",
-    display_name: "Zerost_s",
-    follower_num: 119629,
-    id: "89969094",
-    login: "zerost_s",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/57f8f616-98b3-4b64-9d1d-9b0397c7a897-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8c1c636f-0ad4-43df-ba29-16287570579d-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2016-12-19T17:50:46Z",
     description: "👻みどろろろ～～👻",
     display_name: "midorokun",
-    follower_num: 119382,
+    follower_num: 119762,
     id: "142349242",
     login: "midorokun",
     offline_image_url:
@@ -1780,40 +1795,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2015-06-18T10:38:58Z",
-    description: "",
-    display_name: "バトラ",
-    follower_num: 118581,
-    id: "93828097",
-    login: "batora324",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/a795efa0-9628-4cff-886d-e991df81edae-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/438af837-c6c1-4bd0-b292-fd35ccc06e29-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2018-04-14T08:53:36Z",
-    description: "hi i am rank1 baiter",
-    display_name: "dep_ow",
-    follower_num: 116926,
-    id: "214156675",
-    login: "dep_ow",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/a1e55818-635d-40d7-8354-2f2f659f4b09-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e3083cb7-3313-4806-9b2d-ee02cacc5b58-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2017-04-15T08:41:31Z",
     description: "@haha_gorira",
     display_name: "toto02033",
-    follower_num: 116436,
+    follower_num: 117099,
     id: "153450729",
     login: "toto02033",
     offline_image_url:
@@ -1825,11 +1810,26 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2018-04-14T08:53:36Z",
+    description: "hi i am rank1 baiter",
+    display_name: "dep_ow",
+    follower_num: 116852,
+    id: "214156675",
+    login: "dep_ow",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a1e55818-635d-40d7-8354-2f2f659f4b09-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/e3083cb7-3313-4806-9b2d-ee02cacc5b58-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2015-06-07T17:02:57Z",
     description:
       "へろ～！立花はる(Haru Tachibana)ﾃﾞｽ。2022年10月～配信始めました。2〇歳のコスプレイヤ～の引きこもりお姉さんです。 ",
     display_name: "立花はる",
-    follower_num: 113597,
+    follower_num: 113769,
     id: "92936075",
     login: "hutoon",
     offline_image_url:
@@ -1844,7 +1844,7 @@ export const STREAMERS = [
     created_at: "2021-08-11T07:39:57Z",
     description: "人間にも妖精にもなれます。",
     display_name: "たここちゃん",
-    follower_num: 111024,
+    follower_num: 110836,
     id: "716328913",
     login: "takoko_vtuber",
     offline_image_url: "",
@@ -1855,26 +1855,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2015-01-13T09:14:28Z",
-    description: "Hello, Nice to meet you! 1997.01.31",
-    display_name: "ade3_3",
-    follower_num: 110720,
-    id: "79708614",
-    login: "ade3_3",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/bcf66bbb-3616-431a-945e-0112bac589ed-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/d3fb7a36-82fc-4b37-a746-d79a57ed7dd1-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2014-12-20T05:23:27Z",
     description:
       "格闘プロゲーマー夫婦の「ももち」と「チョコブランカ」のチャンネルです！Momochi & ChocoBlanka's channel.  We are pro fighting game player of Japan!!",
     display_name: "momochoco",
-    follower_num: 110483,
+    follower_num: 110635,
     id: "77553266",
     login: "momochoco",
     offline_image_url:
@@ -1886,10 +1871,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2015-01-13T09:14:28Z",
+    description: "Hello, Nice to meet you! 1997.01.31",
+    display_name: "ade3_3",
+    follower_num: 110600,
+    id: "79708614",
+    login: "ade3_3",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/bcf66bbb-3616-431a-945e-0112bac589ed-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/d3fb7a36-82fc-4b37-a746-d79a57ed7dd1-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2023-03-03T06:14:41Z",
     description: "",
     display_name: "ibrahimtv_2434",
-    follower_num: 108878,
+    follower_num: 110057,
     id: "886975861",
     login: "ibrahimtv_2434",
     offline_image_url: "",
@@ -1903,7 +1903,7 @@ export const STREAMERS = [
     created_at: "2017-06-04T07:09:30Z",
     description: "",
     display_name: "金豚きょー",
-    follower_num: 106763,
+    follower_num: 107286,
     id: "158994427",
     login: "gpbadkyo",
     offline_image_url:
@@ -1918,7 +1918,7 @@ export const STREAMERS = [
     created_at: "2020-03-03T14:43:42Z",
     description: "ゲームをするあほ。",
     display_name: "さぶ郎",
-    follower_num: 105957,
+    follower_num: 106540,
     id: "496789097",
     login: "sabu_iko",
     offline_image_url: "",
@@ -1929,11 +1929,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2017-01-31T14:22:44Z",
+    description: "無職",
+    display_name: "たぬかな_",
+    follower_num: 104654,
+    id: "146549893",
+    login: "tanukana_",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/ec6cd831-63aa-4511-a029-c301b5c8f87e-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2022-03-31T12:32:24Z",
     description:
       "NORTHEPTION ストリーマー部門所属 2022/7/19 Twitchパートナー になれました✨映画やドラマを鑑賞するのが好きです。ゲームも大好き！",
     display_name: "mansayasama",
-    follower_num: 104636,
+    follower_num: 104386,
     id: "784315439",
     login: "mansayasama",
     offline_image_url:
@@ -1945,24 +1959,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2017-01-31T14:22:44Z",
-    description: "無職",
-    display_name: "たぬかな_",
-    follower_num: 104140,
-    id: "146549893",
-    login: "tanukana_",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ec6cd831-63aa-4511-a029-c301b5c8f87e-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2016-02-25T20:29:17Z",
     description: "",
     display_name: "Middleeetv",
-    follower_num: 101338,
+    follower_num: 101533,
     id: "116965093",
     login: "middleeetv",
     offline_image_url:
@@ -1978,7 +1978,7 @@ export const STREAMERS = [
     description:
       "ソロの日ノ隈らんです！！！ゲーム大好きです！いっぱいおはなししてくれるとうれしい！",
     display_name: "日ノ隈らん",
-    follower_num: 101192,
+    follower_num: 101014,
     id: "517857559",
     login: "ran_hinokuma",
     offline_image_url: "",
@@ -1992,7 +1992,7 @@ export const STREAMERS = [
     created_at: "2020-11-29T19:34:44Z",
     description: "ごはんとゲームがすきな鬼です",
     display_name: "寧々丸",
-    follower_num: 100159,
+    follower_num: 100515,
     id: "614603576",
     login: "nenemaru220",
     offline_image_url:
@@ -2007,7 +2007,7 @@ export const STREAMERS = [
     created_at: "2024-03-27T14:20:16Z",
     description: "雑談・ゲーム配信など！フォローしてね💕",
     display_name: "本郷愛",
-    follower_num: 99723,
+    follower_num: 99379,
     id: "1058151261",
     login: "ai_hongo_",
     offline_image_url: "",
@@ -2018,26 +2018,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2020-09-14T10:19:29Z",
-    description:
-      "気になったゲームを根こそぎ遊びたい無職Vtuberです。叫んだり泣いたり怒ったりします。",
-    display_name: "宙星ぱる",
-    follower_num: 98687,
-    id: "583098940",
-    login: "soraposhich",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/5cafa187-8ad9-4908-90af-db6ad14ad9de-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2017-12-20T14:45:39Z",
     description:
       "まるたけです。VOICEVOXちび式じいを使用しています。シェーダーパックSEUS→https://www.sonicether.com/",
     display_name: "MaruTake_A",
-    follower_num: 98673,
+    follower_num: 99302,
     id: "186595351",
     login: "marutake_a",
     offline_image_url: "",
@@ -2047,12 +2032,27 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
+    broadcaster_type: "partner",
+    created_at: "2020-09-14T10:19:29Z",
+    description:
+      "気になったゲームを根こそぎ遊びたい無職Vtuberです。叫んだり泣いたり怒ったりします。",
+    display_name: "宙星ぱる",
+    follower_num: 98933,
+    id: "583098940",
+    login: "soraposhich",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/5cafa187-8ad9-4908-90af-db6ad14ad9de-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
     broadcaster_type: "affiliate",
     created_at: "2023-02-20T08:14:44Z",
     description:
       "にじさんじ所属🌈🕒ゲーム🎮とねこ🐈が好きなただのぴかぴか引きこもりニートです。",
     display_name: "獅子堂あかり",
-    follower_num: 96643,
+    follower_num: 98747,
     id: "883696964",
     login: "shishidoakari",
     offline_image_url: "",
@@ -2066,7 +2066,7 @@ export const STREAMERS = [
     created_at: "2016-08-07T13:48:50Z",
     description: "よ",
     display_name: "むかい",
-    follower_num: 96479,
+    follower_num: 96261,
     id: "131574416",
     login: "mukai_fps",
     offline_image_url: "",
@@ -2076,12 +2076,27 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
+    broadcaster_type: "affiliate",
+    created_at: "2015-09-20T09:40:15Z",
+    description:
+      "たいじです！はじめまして！ようつべ→https://t.co/MlYSe4f4By?amp=1オプレ→https://www.openrec.tv/user/Yaritaiji",
+    display_name: "たいじ_たいちゃんねる",
+    follower_num: 95888,
+    id: "102631269",
+    login: "yaritaiji",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/cd38df56-e572-4a60-9b02-76db09d0acdd-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
     broadcaster_type: "partner",
     created_at: "2022-06-19T14:40:32Z",
     description:
       "こんにうわ～！NeoPorte（ネオポルテ）所属 1期生の夜絆ニウ（よづなにう）です！Konniu~! I'm Niu Yozuna, Neo Porte's first term! I hope everyone and I can have a fun and safe stream! I hope you'll be watching us grow!",
     display_name: "夜絆ニウ",
-    follower_num: 95488,
+    follower_num: 95713,
     id: "802884291",
     login: "niu_yozuna",
     offline_image_url:
@@ -2096,7 +2111,7 @@ export const STREAMERS = [
     created_at: "2017-10-03T13:35:24Z",
     description: "koncha----",
     display_name: "SugarZ3ro",
-    follower_num: 95011,
+    follower_num: 94923,
     id: "176366889",
     login: "sugarz3ro",
     offline_image_url:
@@ -2107,41 +2122,11 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "affiliate",
-    created_at: "2015-09-20T09:40:15Z",
-    description:
-      "たいじです！はじめまして！ようつべ→https://t.co/MlYSe4f4By?amp=1オプレ→https://www.openrec.tv/user/Yaritaiji",
-    display_name: "たいじ_たいちゃんねる",
-    follower_num: 94641,
-    id: "102631269",
-    login: "yaritaiji",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/cd38df56-e572-4a60-9b02-76db09d0acdd-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2022-12-07T10:03:42Z",
-    description:
-      "こはならむです！RamuじゃなくてLamです！歌手です！！ゲーム大好きです！！",
-    display_name: "こはならむ",
-    follower_num: 93126,
-    id: "854901379",
-    login: "kohanalam_game",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8613288a-1ec6-4177-94ab-e46051779091-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "partner",
     created_at: "2019-09-22T11:56:39Z",
     description: "YouTubeで実況動画をあげてる【わきを】のチャンネル🏴‍☠️",
     display_name: "わきをだ",
-    follower_num: 92981,
+    follower_num: 93324,
     id: "463657800",
     login: "wakiwaki612",
     offline_image_url:
@@ -2153,17 +2138,16 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2014-11-09T04:27:22Z",
+    created_at: "2022-12-07T10:03:42Z",
     description:
-      "I'm  LoL player Evi team Twitter https://twitter.com/ebihuryahuryaLoLのrank配信配信とかをしてます　https://twitter.com/ebihuryahurya top lane challenger",
-    display_name: "evinmotv",
-    follower_num: 91787,
-    id: "74803819",
-    login: "evinmotv",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/fc7a293f-265c-4a27-b301-0edf6014477a-channel_offline_image-1920x1080.png",
+      "こはならむです！RamuじゃなくてLamです！歌手です！！ゲーム大好きです！！",
+    display_name: "こはならむ",
+    follower_num: 93036,
+    id: "854901379",
+    login: "kohanalam_game",
+    offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/6c52ca32-cf57-4570-9fcc-4ca2fd69a91a-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8613288a-1ec6-4177-94ab-e46051779091-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -2173,7 +2157,7 @@ export const STREAMERS = [
     description:
       "※ホロライブプロダクションから未成年の視聴者の方々へのお願い下記リンクをご確認の上、お楽しみください。https://www.hololive.tv/request-to-minors",
     display_name: "百鬼あやめホロライブ",
-    follower_num: 91427,
+    follower_num: 92027,
     id: "840830671",
     login: "nakiriayame_hololive",
     offline_image_url:
@@ -2185,11 +2169,27 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2014-11-09T04:27:22Z",
+    description:
+      "I'm  LoL player Evi team Twitter https://twitter.com/ebihuryahuryaLoLのrank配信配信とかをしてます　https://twitter.com/ebihuryahurya top lane challenger",
+    display_name: "evinmotv",
+    follower_num: 91792,
+    id: "74803819",
+    login: "evinmotv",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/fc7a293f-265c-4a27-b301-0edf6014477a-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/6c52ca32-cf57-4570-9fcc-4ca2fd69a91a-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2022-08-25T04:51:27Z",
     description:
       "【切り抜きについて】・アルス・アルマルの配信切り抜きについては、公式切り抜きのみ可とします。・ANYCOLOR二次創作ガイドライン   (https://event.nijisanji.app/guidelines /)を厳守するようお願いします。　ガイドラインに違反している動画については運営へ報告の対象とします。   お問い合わせはこちら⇒https://www.nijisanji.jp/contact・配信の切り抜き動画サムネイルについては、３Ｄおよび3.0の画像を使用しないでください。　その配信内での画像のみ　使用可能とします。",
     display_name: "アルスアルマル",
-    follower_num: 90456,
+    follower_num: 90606,
     id: "820262215",
     login: "arsalmal",
     offline_image_url: "",
@@ -2200,11 +2200,53 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2021-12-15T06:45:23Z",
+    description: "下手ですが楽しくやってます！",
+    display_name: "高木少年兵",
+    follower_num: 90293,
+    id: "752960873",
+    login: "takagitv",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/dbf21931-2ff8-4d6f-ad4e-69d0b428f8b6-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2021-02-02T08:03:22Z",
+    description: "valorantこっそりやってます。",
+    display_name: "ajak0n",
+    follower_num: 90211,
+    id: "644963197",
+    login: "ajak0n",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/d708a025-2b7b-41b6-9e77-a3100ff73ca0-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2022-06-30T05:29:42Z",
+    description: "",
+    display_name: "なるお_",
+    follower_num: 90128,
+    id: "805456112",
+    login: "naru0419045",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8724258f-673d-4f21-8603-92f38c6328a7-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2023-06-26T04:19:16Z",
     description:
       "2023/6/30～ Twitchパートナーのマクドナルドです🤡フォローすると夢が広がります🤡 GTA5/RP #ストグラ",
     display_name: "マクドナルドさん",
-    follower_num: 89959,
+    follower_num: 89912,
     id: "926274428",
     login: "light_starboy",
     offline_image_url:
@@ -2216,38 +2258,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2022-06-30T05:29:42Z",
-    description: "",
-    display_name: "なるお_",
-    follower_num: 89633,
-    id: "805456112",
-    login: "naru0419045",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8724258f-673d-4f21-8603-92f38c6328a7-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2021-12-15T06:45:23Z",
-    description: "下手ですが楽しくやってます！",
-    display_name: "高木少年兵",
-    follower_num: 89532,
-    id: "752960873",
-    login: "takagitv",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/dbf21931-2ff8-4d6f-ad4e-69d0b428f8b6-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2018-08-23T04:40:45Z",
     description: "",
     display_name: "魔界ノりりむ",
-    follower_num: 89371,
+    follower_num: 89442,
     id: "250613678",
     login: "makaino_ririmu",
     offline_image_url:
@@ -2263,7 +2277,7 @@ export const STREAMERS = [
     description:
       "サバイバルゲームが大好きです！！ストリーマー専門不動産”LEOHOME”を設立あなたに合った最高の物件を一緒に探します！https://www.leohome.info/",
     display_name: "LEONDAIHYOU",
-    follower_num: 89041,
+    follower_num: 89071,
     id: "608690198",
     login: "leondaihyou",
     offline_image_url:
@@ -2275,24 +2289,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2021-02-02T08:03:22Z",
-    description: "valorantこっそりやってます。",
-    display_name: "ajak0n",
-    follower_num: 88101,
-    id: "644963197",
-    login: "ajak0n",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/d708a025-2b7b-41b6-9e77-a3100ff73ca0-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2021-01-11T16:34:08Z",
     description: "",
     display_name: "みゃこだよー",
-    follower_num: 87472,
+    follower_num: 88012,
     id: "635008574",
     login: "myakkomyako",
     offline_image_url: "",
@@ -2307,7 +2307,7 @@ export const STREAMERS = [
     description:
       "配信の連絡などするDiscord→https://discord.gg/xSsV9yBqQJマシュマロ→https://marshmallow-qa.com/shuto_fgcYoutube→https://www.youtube.com/channel/UCVpiMbxV0dfkINwtUlqU1bgVOICEVOX:ずんだもん　もち子さん　ちび式じい引用元：【ストリートファイターリーグ: Pro-JP 2023 2ndStage 第3節】本放送（2023年11月17日開催）】https://www.youtube.com/watch?v=wCc4nLVn6EY",
     display_name: "shuto_fgc",
-    follower_num: 86476,
+    follower_num: 87173,
     id: "797780136",
     login: "shuto_fgc",
     offline_image_url: "",
@@ -2321,7 +2321,7 @@ export const STREAMERS = [
     created_at: "2022-03-03T15:18:12Z",
     description: "きるまって読みます",
     display_name: "切嘛",
-    follower_num: 86410,
+    follower_num: 87006,
     id: "777241187",
     login: "kiruma_ch",
     offline_image_url: "",
@@ -2335,7 +2335,7 @@ export const STREAMERS = [
     created_at: "2017-01-03T05:31:11Z",
     description: "忍者でござるぞ  \r",
     display_name: "たぬき忍者",
-    follower_num: 86075,
+    follower_num: 86274,
     id: "143662611",
     login: "tanukininja",
     offline_image_url: "",
@@ -2346,11 +2346,26 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2018-09-10T10:18:11Z",
+    description: "どのゲームもしぬのがうまいです",
+    display_name: "アヤチヤン",
+    follower_num: 86139,
+    id: "257004553",
+    login: "ajakany",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/79e05240-5779-478b-b0d5-7ceefefe97fd-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/ef9e9174-6c40-4d05-bd64-c4045a325ddd-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2019-11-16T10:24:51Z",
     description:
       "3歳の頃からFPSゲームをプレイしてます。 I have been playing FPS games since was 3 years old.",
     display_name: "沖縄に行くために",
-    follower_num: 85556,
+    follower_num: 85469,
     id: "472964924",
     login: "okinawapex",
     offline_image_url:
@@ -2366,7 +2381,7 @@ export const STREAMERS = [
     description:
       "APEX☪️麻雀☪️DBD☪️テトリス　etc...一緒に楽しんでくれる方、ぜひ見ていってください🍵⚠︎コメントの連投はお控えください。",
     display_name: "西村ほのか",
-    follower_num: 85266,
+    follower_num: 85285,
     id: "876185324",
     login: "nishimura_honoka",
     offline_image_url: "",
@@ -2377,25 +2392,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2018-09-10T10:18:11Z",
-    description: "どのゲームもしぬのがうまいです",
-    display_name: "アヤチヤン",
-    follower_num: 85208,
-    id: "257004553",
-    login: "ajakany",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/79e05240-5779-478b-b0d5-7ceefefe97fd-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ef9e9174-6c40-4d05-bd64-c4045a325ddd-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2015-03-01T01:44:44Z",
     description: "俺の配信を見るとは！君、センスあるな！！",
     display_name: "shomaru7",
-    follower_num: 84389,
+    follower_num: 84422,
     id: "84064788",
     login: "shomaru7",
     offline_image_url:
@@ -2411,7 +2411,7 @@ export const STREAMERS = [
     description:
       "毎週水曜日と日曜日の朝9時頃から定期配信しています。それ以外はやりたい時に。",
     display_name: "はりーシ",
-    follower_num: 83968,
+    follower_num: 84301,
     id: "147242239",
     login: "xhalli4x",
     offline_image_url:
@@ -2423,26 +2423,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "affiliate",
-    created_at: "2022-03-09T04:09:37Z",
-    description:
-      "はろーぼー！ホロライブ所属のロボ子だよ(*‘ω‘ *)Valorantや映画鑑賞をしたいと思ってる！",
-    display_name: "robocosan_hololive",
-    follower_num: 81967,
-    id: "778664817",
-    login: "robocosan_hololive",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/99745a75-d3ca-4f24-936a-5a32d62e6ded-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/22073c2b-0662-46c7-93fb-fe081cd90e80-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "affiliate",
     created_at: "2020-07-03T15:04:53Z",
     description: "ぶいすぽっ！所属🌩褐色ギャル兼ばぶ担当🍼",
     display_name: "神成きゅぴ",
-    follower_num: 81931,
+    follower_num: 82463,
     id: "550676410",
     login: "kaminariqpi",
     offline_image_url: "",
@@ -2457,7 +2441,7 @@ export const STREAMERS = [
     description:
       "Crazy Raccoon所属、レッドブル プレイヤーのボンちゃんです。Crazy Raccoon | Red Bull Player | Bonchan",
     display_name: "ボンちゃん",
-    follower_num: 81610,
+    follower_num: 82265,
     id: "163857794",
     login: "bonchan0311",
     offline_image_url:
@@ -2468,11 +2452,27 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
+    broadcaster_type: "affiliate",
+    created_at: "2022-03-09T04:09:37Z",
+    description:
+      "はろーぼー！ホロライブ所属のロボ子だよ(*‘ω‘ *)Valorantや映画鑑賞をしたいと思ってる！",
+    display_name: "robocosan_hololive",
+    follower_num: 81955,
+    id: "778664817",
+    login: "robocosan_hololive",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/99745a75-d3ca-4f24-936a-5a32d62e6ded-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/22073c2b-0662-46c7-93fb-fe081cd90e80-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
     broadcaster_type: "partner",
     created_at: "2019-01-29T04:07:40Z",
     description: "ネオポルテNeo-Porte白雪レイドです。",
     display_name: "白雪レイド",
-    follower_num: 81232,
+    follower_num: 81423,
     id: "412993949",
     login: "shirayuki_reid",
     offline_image_url: "",
@@ -2487,7 +2487,7 @@ export const STREAMERS = [
     description:
       "I am Nemo,Professional Street Fighter  player　https://twitter.com/mgaming_jp　GLOEに所属しています。お仕事の依頼はこちらまでお願いします。→　https://gloe.jp/contact/",
     display_name: "nemo_good",
-    follower_num: 81198,
+    follower_num: 81419,
     id: "161835870",
     login: "nemo_good",
     offline_image_url:
@@ -2499,15 +2499,15 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2020-09-16T23:02:28Z",
-    description: "Riddle",
-    display_name: "maronnv",
-    follower_num: 81139,
-    id: "583983525",
-    login: "maronnv",
+    created_at: "2019-07-21T10:25:38Z",
+    description: "",
+    display_name: "cr_kawasee",
+    follower_num: 81325,
+    id: "449736315",
+    login: "cr_kawasee",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/f8435c61-6f49-4333-a329-fa19c002bfdf-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/c5ca8ac0-0fa9-4a2b-93c4-4da38ea82d29-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -2516,7 +2516,7 @@ export const STREAMERS = [
     created_at: "2019-07-13T15:07:34Z",
     description: "yaa",
     display_name: "へしこ1",
-    follower_num: 81098,
+    follower_num: 81248,
     id: "448051349",
     login: "456_hesiko",
     offline_image_url:
@@ -2528,10 +2528,24 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2020-09-16T23:02:28Z",
+    description: "Riddle",
+    display_name: "maronnv",
+    follower_num: 81129,
+    id: "583983525",
+    login: "maronnv",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/f8435c61-6f49-4333-a329-fa19c002bfdf-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2019-08-23T21:48:40Z",
     description: "I’m a streamer🥑",
     display_name: "MinyaSeptember",
-    follower_num: 80829,
+    follower_num: 80749,
     id: "456708376",
     login: "minyaseptember",
     offline_image_url:
@@ -2542,42 +2556,12 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "partner",
-    created_at: "2019-07-21T10:25:38Z",
-    description: "",
-    display_name: "cr_kawasee",
-    follower_num: 80720,
-    id: "449736315",
-    login: "cr_kawasee",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/c5ca8ac0-0fa9-4a2b-93c4-4da38ea82d29-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2023-05-04T12:38:07Z",
-    description:
-      "どうも、ズズです！インターネットマルチクリエイティブアクティビティプロフェッショナルボーイを目指しています。",
-    display_name: "ズズズズズ",
-    follower_num: 79973,
-    id: "906100773",
-    login: "zetyou2",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ddc39a7e-b312-424d-ba04-c96da399a098-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/7a5af8e5-8968-4656-afbc-d5caf18ea363-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "affiliate",
     created_at: "2020-10-05T16:59:50Z",
     description:
       "つるおか(かものはし)と申すものです。【YouTube】http://urx2.nu/QfSc【ニコニコチャンネル】ch.nicovideo.jp/kamono12345【Twitter】https://twitter.com/turuokakamo 【メール】turuoka64_1111@yahoo.co.jp",
     display_name: "つるおかかものはし",
-    follower_num: 79774,
+    follower_num: 80543,
     id: "592227565",
     login: "turuokamonohashi",
     offline_image_url: "",
@@ -2588,10 +2572,40 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2023-05-04T12:38:07Z",
+    description:
+      "どうも、ズズです！インターネットマルチクリエイティブアクティビティプロフェッショナルボーイを目指しています。",
+    display_name: "ズズズズズ",
+    follower_num: 80128,
+    id: "906100773",
+    login: "zetyou2",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/ddc39a7e-b312-424d-ba04-c96da399a098-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/7a5af8e5-8968-4656-afbc-d5caf18ea363-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2021-03-09T15:26:36Z",
+    description: "HIKAKIN公式Twitch。大人向けに実況します。",
+    display_name: "HIKAKIN",
+    follower_num: 78569,
+    id: "659829475",
+    login: "hikakin",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/25b948c3-de94-4a07-9aa3-8567bbd9057c-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2018-01-11T13:07:16Z",
     description: "てんぷら twitter:@tem__pura ",
     display_name: "てん_ぷら",
-    follower_num: 77893,
+    follower_num: 77856,
     id: "190063430",
     login: "tem__pura",
     offline_image_url:
@@ -2607,7 +2621,7 @@ export const STREAMERS = [
     description:
       "格闘ゲームを中心に活動しているプロゲーマーsakoと、妻兼公式マネージャーakikiのチャンネルです。ゲーム全般が大好き。格ゲー以外にもいろいろやります。 This is Professional gamer FAV|sako and his wife  akiki stream channel. Please FOLLOW ME!",
     display_name: "sakonoko_game",
-    follower_num: 77784,
+    follower_num: 77775,
     id: "139324500",
     login: "sakonoko_game",
     offline_image_url:
@@ -2622,7 +2636,7 @@ export const STREAMERS = [
     created_at: "2022-12-07T01:01:14Z",
     description: "ネオポルテ1期生、天帝フォルテです！Twitchはじめました",
     display_name: "天帝フォルテ",
-    follower_num: 77125,
+    follower_num: 77663,
     id: "854833174",
     login: "tentei_forte",
     offline_image_url:
@@ -2634,10 +2648,24 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2019-01-06T21:34:46Z",
+    description: "V忍者でござる！",
+    display_name: "乾伸一郎",
+    follower_num: 77252,
+    id: "407389031",
+    login: "ninja_inui",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/0ca24da1-84a1-4e33-a853-2163c6cfe447-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2014-10-29T07:58:17Z",
     description: "APEXやFPSゲーム中心に配信活動中",
     display_name: "gotsukishima",
-    follower_num: 77043,
+    follower_num: 77047,
     id: "73976866",
     login: "gotsukishima",
     offline_image_url:
@@ -2652,7 +2680,7 @@ export const STREAMERS = [
     created_at: "2021-03-16T01:36:36Z",
     description: "",
     display_name: "utonyan",
-    follower_num: 77017,
+    follower_num: 76962,
     id: "662849096",
     login: "utonyan",
     offline_image_url:
@@ -2664,25 +2692,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2019-01-06T21:34:46Z",
-    description: "V忍者でござる！",
-    display_name: "乾伸一郎",
-    follower_num: 76769,
-    id: "407389031",
-    login: "ninja_inui",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/0ca24da1-84a1-4e33-a853-2163c6cfe447-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2018-10-06T18:52:00Z",
     description:
       "Hello!  I'm learning English. My main character is ZAFINA,XIAOYU,CLIVE. TEKKEN、StreetFighter、パズルゲームが好きです",
     display_name: "YUYU_TEKKEN",
-    follower_num: 76154,
+    follower_num: 76139,
     id: "265063826",
     login: "yuyu_tekken",
     offline_image_url:
@@ -2698,7 +2712,7 @@ export const STREAMERS = [
     description:
       "MAIN VALORANT[ RADIANT ]  ▶I'm not boy.(voice is boy)▶Play was CSO,CS:GO[SMFC],LOL[D2]▶Thanks for watching✌",
     display_name: "すずちゃろ",
-    follower_num: 75941,
+    follower_num: 76004,
     id: "108288775",
     login: "suzucharo",
     offline_image_url:
@@ -2713,7 +2727,7 @@ export const STREAMERS = [
     created_at: "2013-01-19T12:31:00Z",
     description: "",
     display_name: "reitathefps",
-    follower_num: 75253,
+    follower_num: 75134,
     id: "39467114",
     login: "reitathefps",
     offline_image_url: "",
@@ -2727,7 +2741,7 @@ export const STREAMERS = [
     created_at: "2018-07-08T12:40:28Z",
     description: "配信をしている人",
     display_name: "みこだよ",
-    follower_num: 75181,
+    follower_num: 75026,
     id: "237061035",
     login: "m1ko_d4yo",
     offline_image_url:
@@ -2738,25 +2752,11 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "partner",
-    created_at: "2022-05-08T18:09:33Z",
-    description: "幕末志士の坂本にござる。",
-    display_name: "幕末志士",
-    follower_num: 74822,
-    id: "793808122",
-    login: "bakumatsu_shishi",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e47666ce-9ccd-477f-a0b0-9c5c73289ff2-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "affiliate",
     created_at: "2023-02-08T07:07:54Z",
     description: "ABO",
     display_name: "エクスアルビオ",
-    follower_num: 74744,
+    follower_num: 74952,
     id: "879729668",
     login: "exalbio_2434",
     offline_image_url: "",
@@ -2767,15 +2767,15 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2016-03-30T15:32:08Z",
-    description: "こんばんわに！",
-    display_name: "makiba7",
-    follower_num: 74598,
-    id: "120373755",
-    login: "makiba7",
+    created_at: "2022-05-08T18:09:33Z",
+    description: "幕末志士の坂本にござる。",
+    display_name: "幕末志士",
+    follower_num: 74776,
+    id: "793808122",
+    login: "bakumatsu_shishi",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a3bbe5-78b9-40fa-822a-fdc5a7f41301-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/e47666ce-9ccd-477f-a0b0-9c5c73289ff2-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -2784,7 +2784,7 @@ export const STREAMERS = [
     created_at: "2022-07-18T07:09:36Z",
     description: "輝く１番星！🌟 YouTubeメインに活動中🎮🎤にじさんじ🌈",
     display_name: "星川サラ",
-    follower_num: 74533,
+    follower_num: 74538,
     id: "810038301",
     login: "sara_hoshikawa",
     offline_image_url: "",
@@ -2798,7 +2798,7 @@ export const STREAMERS = [
     created_at: "2021-06-27T21:06:37Z",
     description: "普段はYouTubeでVIPという名前で活動してます。33歳です",
     display_name: "おおともりょう",
-    follower_num: 74242,
+    follower_num: 74449,
     id: "702014815",
     login: "vipjapan0619",
     offline_image_url: "",
@@ -2809,10 +2809,24 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2016-03-30T15:32:08Z",
+    description: "こんばんわに！",
+    display_name: "makiba7",
+    follower_num: 74405,
+    id: "120373755",
+    login: "makiba7",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a3bbe5-78b9-40fa-822a-fdc5a7f41301-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2021-04-02T15:13:23Z",
     description: "にんじんちゃんと食べる",
     display_name: "春茶",
-    follower_num: 74020,
+    follower_num: 74059,
     id: "670464948",
     login: "ninzintabemasu",
     offline_image_url:
@@ -2827,7 +2841,7 @@ export const STREAMERS = [
     created_at: "2023-12-24T15:33:09Z",
     description: "",
     display_name: "ralph_mp3",
-    follower_num: 73382,
+    follower_num: 73522,
     id: "1008424750",
     login: "ralph_mp3",
     offline_image_url: "",
@@ -2841,7 +2855,7 @@ export const STREAMERS = [
     created_at: "2016-06-16T09:11:48Z",
     description: "toreteru",
     display_name: "tkch_taisyou",
-    follower_num: 72999,
+    follower_num: 73142,
     id: "126933869",
     login: "tkch_taisyou",
     offline_image_url:
@@ -2857,7 +2871,7 @@ export const STREAMERS = [
     description:
       "はじめまして✨すず音と申します！❥🎮* Minecraft * GTA5 ストグラ * FallGuys * RUST*❥動画投稿・ゲーム配信しています❥笑顔をみんなにお届けしたい",
     display_name: "すず音_",
-    follower_num: 70849,
+    follower_num: 70899,
     id: "533693230",
     login: "suzune_rabbit",
     offline_image_url: "",
@@ -2871,7 +2885,7 @@ export const STREAMERS = [
     created_at: "2018-02-28T15:47:53Z",
     description: "ワイプ芸人です / NORTHEPTION",
     display_name: "marunnn_",
-    follower_num: 70760,
+    follower_num: 70826,
     id: "198885523",
     login: "marunnn_",
     offline_image_url:
@@ -2883,11 +2897,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2013-09-12T15:35:06Z",
+    description: "",
+    display_name: "すももですよ",
+    follower_num: 70401,
+    id: "48893421",
+    login: "sumomo_x",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a3d63907-d40b-4731-80a2-b0e4477f8f19-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2021-02-06T14:41:00Z",
     description:
       "歌い手Vtuber推しマ🏵️🧡🐱歌とゲームが好き。Twitchではゲームを中心に配信予定。",
     display_name: "バル子",
-    follower_num: 70190,
+    follower_num: 70296,
     id: "646799740",
     login: "barukodayo",
     offline_image_url:
@@ -2899,25 +2927,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2013-09-12T15:35:06Z",
-    description: "",
-    display_name: "すももですよ",
-    follower_num: 70052,
-    id: "48893421",
-    login: "sumomo_x",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/a3d63907-d40b-4731-80a2-b0e4477f8f19-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2018-04-03T10:41:00Z",
     description:
       "ストリーマーになりたい『misaco』です。APEXとVALORANTとFF14がとくに好きなコスプレイヤー！",
     display_name: "ミチャーコ",
-    follower_num: 69555,
+    follower_num: 70150,
     id: "211180616",
     login: "misacorin",
     offline_image_url: "",
@@ -2932,7 +2946,7 @@ export const STREAMERS = [
     description:
       "実写(顔出しNG)とVtuberの”2.5次元Vtuber”をしております。【Youtube11万人・Twitch6万人 ありがとうございます】",
     display_name: "むちまる",
-    follower_num: 69479,
+    follower_num: 69293,
     id: "852959123",
     login: "muchi_chan",
     offline_image_url: "",
@@ -2946,7 +2960,7 @@ export const STREAMERS = [
     created_at: "2017-09-23T11:05:55Z",
     description: "こるぺんです。多分ゲームしてます。",
     display_name: "こるぺん",
-    follower_num: 68766,
+    follower_num: 69274,
     id: "175189837",
     login: "kolu_pen",
     offline_image_url:
@@ -2961,7 +2975,7 @@ export const STREAMERS = [
     created_at: "2014-01-17T14:36:18Z",
     description: "祝⭐️無職です",
     display_name: "はつめ",
-    follower_num: 68729,
+    follower_num: 68792,
     id: "55128511",
     login: "hatsume",
     offline_image_url:
@@ -2977,7 +2991,7 @@ export const STREAMERS = [
     description:
       "ほぼ夜に毎日配信してます。平日がゲーム。週末は基本雑談。（変動有）穏やかな性格なので癒されてってください。※雑談配信はアーカイブは基本残りません！",
     display_name: "ぐぐってみぃ",
-    follower_num: 67910,
+    follower_num: 67872,
     id: "95066484",
     login: "guguttemy",
     offline_image_url:
@@ -2989,10 +3003,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2020-09-03T00:40:43Z",
+    description: "ぼちぼちゲームやりますTwitter:muramako_2525",
+    display_name: "むらまこ",
+    follower_num: 67291,
+    id: "577392142",
+    login: "murakamisuigun",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/3657e0c6-5398-424f-a2ca-0b439f53670c-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8ca0f5c6-2045-4a7b-8a39-66e70e39a59b-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2017-12-01T12:01:26Z",
     description: "ʚïɞ",
     display_name: "とんぼです",
-    follower_num: 67151,
+    follower_num: 67005,
     id: "183905602",
     login: "tonbocub",
     offline_image_url: "",
@@ -3007,7 +3036,7 @@ export const STREAMERS = [
     description:
       "Youtube  https://www.youtube.com/channel/UCGjV4bsC43On-YuiLZcfL0w",
     display_name: "kun_stream",
-    follower_num: 66971,
+    follower_num: 66938,
     id: "47341925",
     login: "kun_stream",
     offline_image_url: "",
@@ -3018,26 +3047,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2020-09-03T00:40:43Z",
-    description: "ぼちぼちゲームやりますTwitter:muramako_2525",
-    display_name: "むらまこ",
-    follower_num: 66958,
-    id: "577392142",
-    login: "murakamisuigun",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/3657e0c6-5398-424f-a2ca-0b439f53670c-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8ca0f5c6-2045-4a7b-8a39-66e70e39a59b-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2017-05-28T11:15:06Z",
     description:
       "らっだぁのところで色々してるイカですもうイカ要素極めて薄いけど",
     display_name: "コンタミ",
-    follower_num: 66563,
+    follower_num: 66704,
     id: "158165936",
     login: "contami999",
     offline_image_url: "",
@@ -3052,7 +3066,7 @@ export const STREAMERS = [
     description:
       "ワイテルズのシャークんですNakamuhttps://www.twitch.tv/nakamuwtBroooockhttps://www.twitch.tv/broooockwtシャークんhttps://www.twitch.tv/sharkenwtきんときhttps://www.twitch.tv/kintokiwtスマイルhttps://www.twitch.tv/smile_wtきりやんhttps://www.twitch.tv/kiriyanwt ",
     display_name: "シャークん",
-    follower_num: 65555,
+    follower_num: 65981,
     id: "216860870",
     login: "sharkenwt",
     offline_image_url: "",
@@ -3062,108 +3076,17 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "affiliate",
-    created_at: "2022-02-07T07:00:29Z",
-    description:
-      "ホロライブ5期生青色担当、雪花ラミィ人里離れた白銀の大地に住む、雪の一族の令嬢。ホロライブの笑顔や彩りあふれる配信に心を打たれ、お供のだいふくと共に家を飛び出した。真面目だが世間知らずで抜けたところがある。※ホロライブプロダクションから未成年の視聴者の方々へのお願い下記リンクをご確認の上、お楽しみください。https://www.hololive.tv/request-to-minors",
-    display_name: "yukihanalamy_hololive",
-    follower_num: 63924,
-    id: "770319696",
-    login: "yukihanalamy_hololive",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/9b598784-f3a9-4fd2-b899-7553a1cb9b74-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/978299a4-bc59-4396-ad7e-6ad9e614016f-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "partner",
-    created_at: "2022-03-08T23:04:17Z",
-    description: "",
-    display_name: "bobsappaim0304",
-    follower_num: 63867,
-    id: "778615399",
-    login: "bobsappaim0304",
+    created_at: "2023-09-10T14:26:27Z",
+    description:
+      "ただの表現者です。何ものでもありません。※表現内容について、本気で捉ええないようにご注意ください。",
+    display_name: "よしひさ",
+    follower_num: 65826,
+    id: "954973119",
+    login: "yocchanyocchan",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/82e211b3-24b1-4576-be6c-bfce4f05cef0-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "",
-    created_at: "2023-10-11T08:59:13Z",
-    description: "にじさんじ所属バーチャルホストの不破湊（ふわみなと）です",
-    display_name: "不破湊です",
-    follower_num: 63820,
-    id: "968513765",
-    login: "fuwaminato2434",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8e716c2b-6789-4b22-8dba-12c23ca4ba17-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2013-11-20T13:31:35Z",
-    description: "猫を食べます。",
-    display_name: "げんぴょん",
-    follower_num: 63759,
-    id: "51863132",
-    login: "genzin",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/f0fbab81-26b0-41ca-98ae-b895892b4458-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/76f857e0-f5fa-4962-b32d-69cac9e990b0-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2018-11-18T13:29:14Z",
-    description:
-      "[元看護師／役者]ほぼ毎日夜11時半頃からOverwatch,APEX,Tarkovなどをおしゃべりしながらのんびりプレイしている、りりまると申します。眠れない夜にTwitchを付ければだいたいいます😚プレイスキルは低いのですが、いつもゲームを楽しんでいます！My name is LiLimaru. Streaming almost daily from 11:30pm JST (10:00am EST) for 8-10 hours. Feel free to chat in English!👍️",
-    display_name: "りりまる",
-    follower_num: 63488,
-    id: "276012445",
-    login: "lilimaruriri",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/3c2df6fb-4a0d-4f88-aa58-877ac31d9e3d-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/c7044010-2416-4f34-942f-f0abff7da2b8-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2014-10-25T06:22:58Z",
-    description:
-      "Game Designer / Music Composer JP/EN 仕事は現在受けづらい状況ですがご相談あればTwitterのDMへどうぞ。会社勤務なので平日日中はできないよ～ん。",
-    display_name: "Ottiki",
-    follower_num: 63337,
-    id: "73692597",
-    login: "ottiki",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/953ce468420e48cb-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/31bb6f24-5b4a-4af2-a8bd-fdf015b7c3d6-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "affiliate",
-    created_at: "2016-03-06T18:59:47Z",
-    description: "Youtubeで活動してるしにがみというゲーム実況者です！",
-    display_name: "しにがみ",
-    follower_num: 63289,
-    id: "118007828",
-    login: "sinigami184",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/f7fe7567-6771-4a90-8df6-dc4921ad15ae-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/b0373eed-1b82-4247-87a7-410e0d98af0d-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/e44ee327-15b2-4294-9ecd-d1b77c9afc38-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -3173,7 +3096,7 @@ export const STREAMERS = [
     description:
       "YOUTUBEとTwitchで毎日同時配信しているVtuber、小花衣ももみです！ストグラの配信を中心にやりたいこといっぱいやってます🌟",
     display_name: "小花衣ももみ",
-    follower_num: 63284,
+    follower_num: 64101,
     id: "179122584",
     login: "momomi5871",
     offline_image_url:
@@ -3185,16 +3108,123 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2023-09-10T14:26:27Z",
+    created_at: "2018-11-18T13:29:14Z",
     description:
-      "ただの表現者です。何ものでもありません。※表現内容について、本気で捉ええないようにご注意ください。",
-    display_name: "よしひさ",
-    follower_num: 63083,
-    id: "954973119",
-    login: "yocchanyocchan",
+      "[元看護師／役者]ほぼ毎日夜11時半頃からOverwatch,APEX,Tarkovなどをおしゃべりしながらのんびりプレイしている、りりまると申します。眠れない夜にTwitchを付ければだいたいいます😚プレイスキルは低いのですが、いつもゲームを楽しんでいます！My name is LiLimaru. Streaming almost daily from 11:30pm JST (10:00am EST) for 8-10 hours. Feel free to chat in English!👍️",
+    display_name: "りりまる",
+    follower_num: 64049,
+    id: "276012445",
+    login: "lilimaruriri",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/1e37705a-08d3-4024-923a-6149e70cbdec-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/c7044010-2416-4f34-942f-f0abff7da2b8-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "",
+    created_at: "2023-10-11T08:59:13Z",
+    description: "にじさんじ所属バーチャルホストの不破湊（ふわみなと）です",
+    display_name: "不破湊です",
+    follower_num: 64040,
+    id: "968513765",
+    login: "fuwaminato2434",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e44ee327-15b2-4294-9ecd-d1b77c9afc38-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8e716c2b-6789-4b22-8dba-12c23ca4ba17-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2022-03-08T23:04:17Z",
+    description: "",
+    display_name: "bobsappaim0304",
+    follower_num: 63960,
+    id: "778615399",
+    login: "bobsappaim0304",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/82e211b3-24b1-4576-be6c-bfce4f05cef0-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "affiliate",
+    created_at: "2022-02-07T07:00:29Z",
+    description:
+      "ホロライブ5期生青色担当、雪花ラミィ人里離れた白銀の大地に住む、雪の一族の令嬢。ホロライブの笑顔や彩りあふれる配信に心を打たれ、お供のだいふくと共に家を飛び出した。真面目だが世間知らずで抜けたところがある。※ホロライブプロダクションから未成年の視聴者の方々へのお願い下記リンクをご確認の上、お楽しみください。https://www.hololive.tv/request-to-minors",
+    display_name: "yukihanalamy_hololive",
+    follower_num: 63938,
+    id: "770319696",
+    login: "yukihanalamy_hololive",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/9b598784-f3a9-4fd2-b899-7553a1cb9b74-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/978299a4-bc59-4396-ad7e-6ad9e614016f-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2013-11-20T13:31:35Z",
+    description: "猫を食べます。",
+    display_name: "げんぴょん",
+    follower_num: 63885,
+    id: "51863132",
+    login: "genzin",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/f0fbab81-26b0-41ca-98ae-b895892b4458-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/76f857e0-f5fa-4962-b32d-69cac9e990b0-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "affiliate",
+    created_at: "2016-03-06T18:59:47Z",
+    description: "Youtubeで活動してるしにがみというゲーム実況者です！",
+    display_name: "しにがみ",
+    follower_num: 63660,
+    id: "118007828",
+    login: "sinigami184",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/f7fe7567-6771-4a90-8df6-dc4921ad15ae-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/b0373eed-1b82-4247-87a7-410e0d98af0d-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2014-10-25T06:22:58Z",
+    description:
+      "Game Designer / Music Composer JP/EN 仕事は現在受けづらい状況ですがご相談あればTwitterのDMへどうぞ。会社勤務なので平日日中はできないよ～ん。",
+    display_name: "Ottiki",
+    follower_num: 63379,
+    id: "73692597",
+    login: "ottiki",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/953ce468420e48cb-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/31bb6f24-5b4a-4af2-a8bd-fdf015b7c3d6-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "affiliate",
+    created_at: "2020-02-08T15:45:33Z",
+    description:
+      "歌って声優してるストリーマー　声優「ホーリーピーク 」所属Streamer「CrazyRaccoon」所属お仕事依頼はHPまで",
+    display_name: "天月です",
+    follower_num: 63003,
+    id: "491132354",
+    login: "cr_amatsuki",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/fd1f5d62-07b8-48f7-a027-212413196261-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/9586e511-85fc-44d1-9ac4-432af47d189b-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -3203,7 +3233,7 @@ export const STREAMERS = [
     created_at: "2023-08-31T05:58:04Z",
     description: "こんちゃ〜。にじさんじ所属🌈🕒のすーぱーにーとげーまーです。",
     display_name: "小清水透",
-    follower_num: 62801,
+    follower_num: 62817,
     id: "950482325",
     login: "toru_2434",
     offline_image_url:
@@ -3218,7 +3248,7 @@ export const STREAMERS = [
     created_at: "2017-08-09T09:15:17Z",
     description: "valorant部門所属('ω') オールマイトになりたい。",
     display_name: "善悪菌",
-    follower_num: 62647,
+    follower_num: 62751,
     id: "169048309",
     login: "zennakukinn",
     offline_image_url: "",
@@ -3228,27 +3258,11 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "affiliate",
-    created_at: "2020-02-08T15:45:33Z",
-    description:
-      "歌って声優してるストリーマー　声優「ホーリーピーク 」所属Streamer「CrazyRaccoon」所属お仕事依頼はHPまで",
-    display_name: "天月です",
-    follower_num: 62535,
-    id: "491132354",
-    login: "cr_amatsuki",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/fd1f5d62-07b8-48f7-a027-212413196261-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/9586e511-85fc-44d1-9ac4-432af47d189b-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "partner",
     created_at: "2018-12-05T06:23:40Z",
     description: "",
     display_name: "あどみん",
-    follower_num: 62529,
+    follower_num: 62674,
     id: "400123822",
     login: "titiseadmin",
     offline_image_url: "",
@@ -3259,101 +3273,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2021-04-04T18:14:57Z",
-    description:
-      "Twitchのアーカイブはサブスク限定ですが、YouTubeでは全体公開中です！",
-    display_name: "赤髪のとも",
-    follower_num: 61858,
-    id: "671313857",
-    login: "tomo0723sw",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/0e55cd81-eaf9-4365-a76a-08e7a32f8ef7-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2023-02-27T07:04:46Z",
-    description: "山本彩の公式チャンネルです。",
-    display_name: "山本彩__714",
-    follower_num: 61633,
-    id: "885799986",
-    login: "sayakayamamoto__714",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/2a3c4763-b471-4d08-90a7-c2e1ebbff736-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ffe659fa-1a18-4e0b-a420-251789d5d432-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2019-05-20T09:24:31Z",
-    description:
-      "26歳APEX現プロ　元キャスター　FPS、麻雀、スロット、酒が好きです",
-    display_name: "sudetakin",
-    follower_num: 61159,
-    id: "436688915",
-    login: "sudetakin",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/6923a01d-f806-4c0b-9c26-ed7bfa683a91-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/4977bab8-0134-4277-a762-21511b6a2e82-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "affiliate",
-    created_at: "2011-06-17T19:09:52Z",
-    description:
-      "Pro Gamer sponsored by ROHTO Z!, Hit Box & Sony Music Entertainment.　国際eスポーツ団体: GEF アスリート＆プレイヤー委員会員。ロートZ!、REJECT所属プロゲーマー。業務連絡: management@cellorb.jp",
-    display_name: "ときど",
-    follower_num: 60992,
-    id: "22993450",
-    login: "tokidoki77",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/86a946c5-f9cf-4b59-9f07-080fd6abaa00-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2015-01-30T13:13:28Z",
-    description: "Hi. I'm RobiN~!",
-    display_name: "ろびんびん",
-    follower_num: 60973,
-    id: "81296754",
-    login: "detonator_robin",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/1af70bd4-4a98-47d8-bbd7-846d41ef4101-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/c96d1b1c-1ab9-4b89-9778-2d99d8707fd7-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2021-07-06T09:36:33Z",
-    description: "マイペースな趣味アカウント。",
-    display_name: "鹿乃_",
-    follower_num: 60523,
-    id: "704557048",
-    login: "kanotic_",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/2e16e74d-95b4-4087-8a69-24a63d13d0e6-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2016-01-17T12:44:12Z",
     description:
       "格ゲーマーの立川です。Twitter https://twitter.com/TachikawaBR　 Youtube https://www.youtube.com/channel/UCRDJ3DN-6ND_a4LSJ35L91A",
     display_name: "立川",
-    follower_num: 60498,
+    follower_num: 62291,
     id: "113043299",
     login: "tachikawabr",
     offline_image_url:
@@ -3365,11 +3289,159 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2021-04-04T18:14:57Z",
+    description:
+      "Twitchのアーカイブはサブスク限定ですが、YouTubeでは全体公開中です！",
+    display_name: "赤髪のとも",
+    follower_num: 62109,
+    id: "671313857",
+    login: "tomo0723sw",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/0e55cd81-eaf9-4365-a76a-08e7a32f8ef7-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "affiliate",
+    created_at: "2011-06-17T19:09:52Z",
+    description:
+      "Pro Gamer sponsored by ROHTO Z!, Hit Box & Sony Music Entertainment.　国際eスポーツ団体: GEF アスリート＆プレイヤー委員会員。ロートZ!、REJECT所属プロゲーマー。業務連絡: management@cellorb.jp",
+    display_name: "ときど",
+    follower_num: 61724,
+    id: "22993450",
+    login: "tokidoki77",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/86a946c5-f9cf-4b59-9f07-080fd6abaa00-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2023-02-27T07:04:46Z",
+    description: "山本彩の公式チャンネルです。",
+    display_name: "山本彩__714",
+    follower_num: 61572,
+    id: "885799986",
+    login: "sayakayamamoto__714",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/2a3c4763-b471-4d08-90a7-c2e1ebbff736-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/ffe659fa-1a18-4e0b-a420-251789d5d432-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2015-01-30T13:13:28Z",
+    description: "Hi. I'm RobiN~!",
+    display_name: "ろびんびん",
+    follower_num: 61566,
+    id: "81296754",
+    login: "detonator_robin",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/1af70bd4-4a98-47d8-bbd7-846d41ef4101-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/c96d1b1c-1ab9-4b89-9778-2d99d8707fd7-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2023-01-12T13:33:06Z",
+    description:
+      "バーチャルおてんばお嬢様こと、あまぎてんです！元気いっぱい！！！",
+    display_name: "天城てん",
+    follower_num: 61161,
+    id: "869913353",
+    login: "ten_amagi",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/942c8564-dde2-4ee7-8c76-a0373fb7c3f6-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2019-05-20T09:24:31Z",
+    description:
+      "26歳APEX現プロ　元キャスター　FPS、麻雀、スロット、酒が好きです",
+    display_name: "sudetakin",
+    follower_num: 61077,
+    id: "436688915",
+    login: "sudetakin",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/6923a01d-f806-4c0b-9c26-ed7bfa683a91-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/4977bab8-0134-4277-a762-21511b6a2e82-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2018-10-31T04:40:20Z",
+    description: "twitter@Meltstera Apex ProPlayer for FNATIC",
+    display_name: "Meltstera",
+    follower_num: 60932,
+    id: "271076009",
+    login: "meltstera",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a3dca85f-db4a-4b77-8fbf-d2bc60588aea-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2021-07-06T09:36:33Z",
+    description: "マイペースな趣味アカウント。",
+    display_name: "鹿乃_",
+    follower_num: 60927,
+    id: "704557048",
+    login: "kanotic_",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/2e16e74d-95b4-4087-8a69-24a63d13d0e6-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2018-06-03T18:33:05Z",
+    description:
+      "「ビッツ禁止」でお願いします。◆他メンバー視点◆Broooockhttps://www.twitch.tv/broooockwtシャークんhttps://www.twitch.tv/sharkenwtきんときhttps://www.twitch.tv/kintokiwtスマイルhttps://www.twitch.tv/smile_wtきりやんhttps://www.twitch.tv/kiriyanwt ",
+    display_name: "NakamuWT",
+    follower_num: 60629,
+    id: "228413341",
+    login: "nakamuwt",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8c1d64dd-8a7b-4ab8-94de-4d75bcd7dca7-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2020-04-11T19:06:12Z",
+    description: "エスターク・Z・ダークネスで #ストグラ 参加中",
+    display_name: "darkzelk",
+    follower_num: 60472,
+    id: "512535130",
+    login: "darkzelk",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/f45164b6-697c-4fe8-9e25-531536d325c3-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2022-09-13T08:50:21Z",
     description:
       "はじめまして！天唄サウです🦖ストグラ／星唄サウ汰（hosiuta sauta）",
     display_name: "天唄サウ",
-    follower_num: 60399,
+    follower_num: 60331,
     id: "825030170",
     login: "amauta_sau",
     offline_image_url:
@@ -3381,85 +3453,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2018-10-31T04:40:20Z",
-    description: "twitter@Meltstera Apex ProPlayer for FNATIC",
-    display_name: "Meltstera",
-    follower_num: 60333,
-    id: "271076009",
-    login: "meltstera",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/a3dca85f-db4a-4b77-8fbf-d2bc60588aea-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2020-04-11T19:06:12Z",
-    description: "エスターク・Z・ダークネスで #ストグラ 参加中",
-    display_name: "darkzelk",
-    follower_num: 60330,
-    id: "512535130",
-    login: "darkzelk",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/f45164b6-697c-4fe8-9e25-531536d325c3-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2023-01-12T13:33:06Z",
-    description:
-      "バーチャルおてんばお嬢様こと、あまぎてんです！元気いっぱい！！！",
-    display_name: "天城てん",
-    follower_num: 60267,
-    id: "869913353",
-    login: "ten_amagi",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/942c8564-dde2-4ee7-8c76-a0373fb7c3f6-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2018-06-03T18:33:05Z",
-    description:
-      "「ビッツ禁止」でお願いします。◆他メンバー視点◆Broooockhttps://www.twitch.tv/broooockwtシャークんhttps://www.twitch.tv/sharkenwtきんときhttps://www.twitch.tv/kintokiwtスマイルhttps://www.twitch.tv/smile_wtきりやんhttps://www.twitch.tv/kiriyanwt ",
-    display_name: "NakamuWT",
-    follower_num: 60122,
-    id: "228413341",
-    login: "nakamuwt",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8c1d64dd-8a7b-4ab8-94de-4d75bcd7dca7-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2019-06-05T09:06:09Z",
-    description:
-      "YouTubeでめちゃくちゃおもろい動画を投稿しています。フォローしてくださると験担ぎになります。",
-    display_name: "アマル",
-    follower_num: 59568,
-    id: "439878030",
-    login: "amal_3rd",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/08791cf8-7d18-4bc6-9889-81c3ddc92c71-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/baf25c18-82af-40f0-a631-4be334bd110c-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2016-11-06T17:57:47Z",
     description:
       "梅ねり大好き　マイペースに好きなゲームを好きな時間にやっていきたい",
     display_name: "たらこ",
-    follower_num: 59565,
+    follower_num: 60196,
     id: "138928481",
     login: "tarakotbtb",
     offline_image_url:
@@ -3474,7 +3472,7 @@ export const STREAMERS = [
     created_at: "2018-08-08T11:34:36Z",
     description: "",
     display_name: "CR_Wokka",
-    follower_num: 59542,
+    follower_num: 59812,
     id: "246412123",
     login: "cr_wokka",
     offline_image_url: "",
@@ -3485,15 +3483,17 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2022-07-13T14:34:26Z",
-    description: "NeoPorte所属、水無瀬です",
-    display_name: "水無瀬ですです",
-    follower_num: 59326,
-    id: "808741155",
-    login: "minasedesu",
-    offline_image_url: "",
+    created_at: "2019-06-05T09:06:09Z",
+    description:
+      "YouTubeでめちゃくちゃおもろい動画を投稿しています。フォローしてくださると験担ぎになります。",
+    display_name: "アマル",
+    follower_num: 59761,
+    id: "439878030",
+    login: "amal_3rd",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/08791cf8-7d18-4bc6-9889-81c3ddc92c71-channel_offline_image-1920x1080.png",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/3e11e0bb-a115-47c4-b4f9-c86409c5c008-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/baf25c18-82af-40f0-a631-4be334bd110c-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -3502,7 +3502,7 @@ export const STREAMERS = [
     created_at: "2014-09-25T12:32:45Z",
     description: "昭和生まれの雑食ゲーマーです＾～＾",
     display_name: "けっつん",
-    follower_num: 59196,
+    follower_num: 59746,
     id: "71897376",
     login: "kettuncyukyuhei",
     offline_image_url: "",
@@ -3513,16 +3513,15 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2018-05-11T02:33:09Z",
-    description:
-      "ストリートファイターを中心にプロゲーマーとして活動していますが、カードゲームやシューティングなど他のジャンルのゲームもマルチにやります。Pro Street Fighter player. I also play card games, shooters, and various other genres.",
-    display_name: "TheFuudo",
-    follower_num: 58896,
-    id: "221323567",
-    login: "thefuudo",
+    created_at: "2022-07-13T14:34:26Z",
+    description: "NeoPorte所属、水無瀬です",
+    display_name: "水無瀬ですです",
+    follower_num: 59485,
+    id: "808741155",
+    login: "minasedesu",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ec494b98-efdc-4cd8-ba10-da11a191abb2-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/3e11e0bb-a115-47c4-b4f9-c86409c5c008-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -3532,7 +3531,7 @@ export const STREAMERS = [
     description:
       "ビッツは禁止でお願いします！Nakamuhttps://www.twitch.tv/nakamuwtBroooockhttps://www.twitch.tv/broooockwtシャークんhttps://www.twitch.tv/sharkenwtスマイルhttps://www.twitch.tv/smile_wtきりやんhttps://www.twitch.tv/kiriyanwt ",
     display_name: "きんとき",
-    follower_num: 58793,
+    follower_num: 59199,
     id: "736045116",
     login: "kintokiwt",
     offline_image_url: "",
@@ -3543,10 +3542,40 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2018-05-11T02:33:09Z",
+    description:
+      "ストリートファイターを中心にプロゲーマーとして活動していますが、カードゲームやシューティングなど他のジャンルのゲームもマルチにやります。Pro Street Fighter player. I also play card games, shooters, and various other genres.",
+    display_name: "TheFuudo",
+    follower_num: 59041,
+    id: "221323567",
+    login: "thefuudo",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/ec494b98-efdc-4cd8-ba10-da11a191abb2-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2015-09-24T11:52:28Z",
+    description: "Team Absolute.",
+    display_name: "crowfps__",
+    follower_num: 58513,
+    id: "102913491",
+    login: "crowfps__",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/11f6e66b-0140-4866-bf19-df8bf7db66d0-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8dc4e7d7-93a1-49a6-a6e1-01a1fd0df86c-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2019-05-01T14:53:23Z",
     description: "No X (Twitter). No Instagram :3",
     display_name: "Anzu_o0",
-    follower_num: 58452,
+    follower_num: 58439,
     id: "433369775",
     login: "anzu_o0",
     offline_image_url:
@@ -3558,42 +3587,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2015-09-24T11:52:28Z",
-    description: "Team Absolute.",
-    display_name: "crowfps__",
-    follower_num: 57910,
-    id: "102913491",
-    login: "crowfps__",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/11f6e66b-0140-4866-bf19-df8bf7db66d0-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8dc4e7d7-93a1-49a6-a6e1-01a1fd0df86c-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "affiliate",
-    created_at: "2023-07-21T06:32:52Z",
-    description:
-      "ホロライブ所属清楚担当夏色まつりちゃんです🏮valorantメイン※ホロライブプロダクションから未成年の視聴者の方々へのお願い下記リンクをご確認の上、お楽しみください。https://www.hololive.tv/request-to-minors",
-    display_name: "夏色まつりホロライブ",
-    follower_num: 57898,
-    id: "935172419",
-    login: "natsuiromatsuri_hololive",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e281053d-64cf-4c8b-90ea-8db8c50a2eec-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/b04e8d25-9a0a-434b-96fc-f712bdb4b274-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2022-07-03T09:41:09Z",
     description:
       "ちょっと前にプロゲーマーやってた人YouTubeで動画更新してるから登録してください喜びますあとツイッターも",
     display_name: "メルトンめるとん",
-    follower_num: 57896,
+    follower_num: 58416,
     id: "806179236",
     login: "meltonff",
     offline_image_url:
@@ -3604,11 +3602,58 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
+    broadcaster_type: "affiliate",
+    created_at: "2023-07-21T06:32:52Z",
+    description:
+      "ホロライブ所属清楚担当夏色まつりちゃんです🏮valorantメイン※ホロライブプロダクションから未成年の視聴者の方々へのお願い下記リンクをご確認の上、お楽しみください。https://www.hololive.tv/request-to-minors",
+    display_name: "夏色まつりホロライブ",
+    follower_num: 58083,
+    id: "935172419",
+    login: "natsuiromatsuri_hololive",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/e281053d-64cf-4c8b-90ea-8db8c50a2eec-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/b04e8d25-9a0a-434b-96fc-f712bdb4b274-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "affiliate",
+    created_at: "2020-03-03T17:43:14Z",
+    description:
+      "▼Gero公式サイトhttp://gero-official.jp/▼Youtubehttps://www.youtube.com/channel/UCFuugQScqDfJcsOEWbL1_tg▼Gero Twitterhttps://twitter.com/Gero2525▼肉チョモランマhttps://www.youtube.com/channel/UCfleuaM45FPQOfVK8XSheDA/videos▼Instagramhttps://www.instagram.com/geroyade",
+    display_name: "Gero_kinjo",
+    follower_num: 57923,
+    id: "496817960",
+    login: "gero_kinjo",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a6c8d992-f817-4b64-8b33-3bf1f6a938ab-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2022-09-11T04:05:01Z",
+    description:
+      "ペットカメラ配信のような配信です🎮　business：Bellmonainfo@gmail.com　Twitch初配信2022/11/29",
+    display_name: "ベルモナ",
+    follower_num: 57653,
+    id: "824503630",
+    login: "bellmona",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/6c1f9f55-d7b5-421d-abd2-04d7a36f07aa-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/93bc4b2d-e240-4f5c-b7c7-64cb12ee0145-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
     broadcaster_type: "partner",
     created_at: "2015-06-12T11:26:33Z",
     description: "LoLをしてます　",
     display_name: "たかやスペシャル",
-    follower_num: 57392,
+    follower_num: 57625,
     id: "93305727",
     login: "takayaspecial",
     offline_image_url:
@@ -3620,48 +3665,32 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2022-09-11T04:05:01Z",
+    created_at: "2024-08-25T05:32:02Z",
     description:
-      "ペットカメラ配信のような配信です🎮　business：Bellmonainfo@gmail.com　Twitch初配信2022/11/29",
-    display_name: "ベルモナ",
-    follower_num: 57283,
-    id: "824503630",
-    login: "bellmona",
+      "まいど！！関西コーラ星人の最高コーラ(moritaka cola)やで、気軽にもりこー呼んだってや！！地球人からしたらロボロフスキーハムスターに似てるらしいからロボロとも呼ばれるわ！！人間に擬態してることもあるからよろしくやで！！※「○○の主役は我々だ！」様の活動とは関係ありません",
+    display_name: "最高コーラ",
+    follower_num: 57187,
+    id: "1134230090",
+    login: "moritakacola",
     offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/6c1f9f55-d7b5-421d-abd2-04d7a36f07aa-channel_offline_image-1920x1080.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/60b61bab-8696-494b-8880-8a76bfe3c9ec-channel_offline_image-1920x1080.jpeg",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/93bc4b2d-e240-4f5c-b7c7-64cb12ee0145-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "affiliate",
-    created_at: "2020-03-03T17:43:14Z",
-    description:
-      "▼Gero公式サイトhttp://gero-official.jp/▼Youtubehttps://www.youtube.com/channel/UCFuugQScqDfJcsOEWbL1_tg▼Gero Twitterhttps://twitter.com/Gero2525▼肉チョモランマhttps://www.youtube.com/channel/UCfleuaM45FPQOfVK8XSheDA/videos▼Instagramhttps://www.instagram.com/geroyade",
-    display_name: "Gero_kinjo",
-    follower_num: 57237,
-    id: "496817960",
-    login: "gero_kinjo",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/a6c8d992-f817-4b64-8b33-3bf1f6a938ab-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/36c7300c-3fd5-41a7-bab3-0bc575d98f54-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
   {
     broadcaster_type: "partner",
-    created_at: "2024-08-25T05:32:02Z",
+    created_at: "2021-10-21T13:19:34Z",
     description:
-      "まいど！！関西コーラ星人の最高コーラ(moritaka cola)やで、気軽にもりこー呼んだってや！！地球人からしたらロボロフスキーハムスターに似てるらしいからロボロとも呼ばれるわ！！人間に擬態してることもあるからよろしくやで！！※「○○の主役は我々だ！」様の活動とは関係ありません",
-    display_name: "最高コーラ",
-    follower_num: 56662,
-    id: "1134230090",
-    login: "moritakacola",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/d0073c9d-1257-4d73-a3e3-ad9cf6bbcdd8-channel_offline_image-1920x1080.jpeg",
+      "ワイテルズのきりやんですビッツは禁止でお願いしますメンバーのチャンネルNakamuhttps://www.twitch.tv/nakamuwtBroooockhttps://www.twitch.tv/broooockwtシャークんhttps://www.twitch.tv/sharkenwtきんときhttps://www.twitch.tv/kintokiwtスマイルhttps://www.twitch.tv/smile_wt",
+    display_name: "きりやんワイテルズ",
+    follower_num: 56070,
+    id: "736045378",
+    login: "kiriyanwt",
+    offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/36c7300c-3fd5-41a7-bab3-0bc575d98f54-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/2d03d680-776f-4595-bbf9-4d29f7e2a460-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -3670,7 +3699,7 @@ export const STREAMERS = [
     created_at: "2022-09-28T02:07:36Z",
     description: "きゃっきゃ！！",
     display_name: "ろぜっくぴん",
-    follower_num: 55670,
+    follower_num: 55997,
     id: "833682125",
     login: "rosecpin9",
     offline_image_url:
@@ -3682,25 +3711,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2021-10-21T13:19:34Z",
-    description:
-      "ワイテルズのきりやんですビッツは禁止でお願いしますメンバーのチャンネルNakamuhttps://www.twitch.tv/nakamuwtBroooockhttps://www.twitch.tv/broooockwtシャークんhttps://www.twitch.tv/sharkenwtきんときhttps://www.twitch.tv/kintokiwtスマイルhttps://www.twitch.tv/smile_wt",
-    display_name: "きりやんワイテルズ",
-    follower_num: 55656,
-    id: "736045378",
-    login: "kiriyanwt",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/2d03d680-776f-4595-bbf9-4d29f7e2a460-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2017-06-18T10:20:43Z",
     description: "CYCLOPS所属",
     display_name: "cyclops_go1",
-    follower_num: 55447,
+    follower_num: 55584,
     id: "160604267",
     login: "cyclops_go1",
     offline_image_url: "",
@@ -3714,7 +3728,7 @@ export const STREAMERS = [
     created_at: "2019-09-04T11:52:55Z",
     description: "やぴ！RaMuっていいますすす！普段タレントしてます！",
     display_name: "らむずっきゅん",
-    follower_num: 55319,
+    follower_num: 55409,
     id: "459694494",
     login: "ramuzuqun",
     offline_image_url: "",
@@ -3725,11 +3739,27 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2017-03-18T15:02:12Z",
+    description:
+      "Reject所属 化け猫VTuberのかしわねこです。かしちゃんって呼んでください🐱タルコフ、スト6、ストグラなど色々なゲームをのんびりプレイ中。時々料理配信もします。",
+    display_name: "かしわねこ",
+    follower_num: 55226,
+    id: "150785152",
+    login: "kashi_neko",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/99d20bac-57a4-4271-be89-065136aca533-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/0a7a3137-b268-419e-b600-e243f2aa0fa6-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2019-01-15T12:04:19Z",
     description:
       "読み方はあーみーです、Apex Legendsメインでゲームをしています！",
     display_name: "4rmy_o",
-    follower_num: 55263,
+    follower_num: 55207,
     id: "409647247",
     login: "4rmy_o",
     offline_image_url: "",
@@ -3743,7 +3773,7 @@ export const STREAMERS = [
     created_at: "2020-05-12T11:55:34Z",
     description: "どうもTQQです！YoutubeでOverwatchの動画を投稿しています",
     display_name: "TQQ999_",
-    follower_num: 54799,
+    follower_num: 54975,
     id: "529552506",
     login: "tqq999_",
     offline_image_url: "",
@@ -3758,7 +3788,7 @@ export const STREAMERS = [
     description:
       "アローナ！ホロライブ所属Vtuber癒し系ハーフエルフのアキロゼです🍎※ホロライブプロダクションから未成年の視聴者の方々へのお願い下記リンクをご確認の上、お楽しみください。https://www.hololive.tv/request-to-minors",
     display_name: "アキローゼンタール",
-    follower_num: 54777,
+    follower_num: 54856,
     id: "992959945",
     login: "akirosenthal_hololive",
     offline_image_url:
@@ -3770,24 +3800,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2022-04-27T14:22:11Z",
-    description: "G STAR gaming所属/スト6ジュリ",
-    display_name: "桃井ルナ",
-    follower_num: 54703,
-    id: "791319445",
-    login: "xxbetty96",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/1beb9941-0bd4-4202-ac4d-6c9be04595f1-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2016-10-18T17:17:58Z",
     description: "welcome to underground",
     display_name: "gackt_N",
-    follower_num: 54687,
+    follower_num: 54837,
     id: "137362078",
     login: "gackt_n",
     offline_image_url:
@@ -3799,11 +3815,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2022-04-27T14:22:11Z",
+    description: "G STAR gaming所属/スト6ジュリ",
+    display_name: "桃井ルナ",
+    follower_num: 54828,
+    id: "791319445",
+    login: "xxbetty96",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/1beb9941-0bd4-4202-ac4d-6c9be04595f1-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2021-06-12T16:23:09Z",
     description:
       "apexをメインで配信してます。普段はyoutubeですよぅseason12/14/16/17master",
     display_name: "聖女れりあ",
-    follower_num: 54650,
+    follower_num: 54811,
     id: "696687647",
     login: "hijirimelaeria",
     offline_image_url: "",
@@ -3814,27 +3844,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2017-03-18T15:02:12Z",
-    description:
-      "Reject所属 化け猫VTuberのかしわねこです。かしちゃんって呼んでください🐱タルコフ、スト6、ストグラなど色々なゲームをのんびりプレイ中。時々料理配信もします。",
-    display_name: "かしわねこ",
-    follower_num: 54450,
-    id: "150785152",
-    login: "kashi_neko",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/99d20bac-57a4-4271-be89-065136aca533-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/6910562f-7b28-4863-a9ee-98ded581e3f5-profile_image-300x300.jpeg",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2021-07-13T12:43:28Z",
     description:
       "Yooo🤟I'm Mi-chan ♪ Japanese Girl💓I like cola👍Ddental hygienist🪥2021/7/15〜Stream start。2021/8/31→Partner day⭐︎ ",
     display_name: "michaaam",
-    follower_num: 54426,
+    follower_num: 54503,
     id: "706933752",
     login: "michaaam",
     offline_image_url:
@@ -3849,7 +3863,7 @@ export const STREAMERS = [
     created_at: "2021-09-15T14:01:44Z",
     description: "銀河一の漢になるべく産まれた漢。",
     display_name: "歌衣メイカ",
-    follower_num: 54364,
+    follower_num: 54494,
     id: "726931772",
     login: "utaimeika",
     offline_image_url: "",
@@ -3864,7 +3878,7 @@ export const STREAMERS = [
     description:
       "私はポテトファクトリーで働いています。ゲームをやるために2歳の娘と妻を売り日本にやって来ました。Nakamuhttps://www.twitch.tv/nakamuwtシャークんhttps://www.twitch.tv/sharkenwtきんときhttps://www.twitch.tv/kintokiwtスマイルhttps://www.twitch.tv/smile_wtきりやんhttps://www.twitch.tv/kiriyanwt ",
     display_name: "broooockwt",
-    follower_num: 54064,
+    follower_num: 54446,
     id: "577685420",
     login: "broooockwt",
     offline_image_url: "",
@@ -3874,98 +3888,11 @@ export const STREAMERS = [
     view_count: 0,
   },
   {
-    broadcaster_type: "partner",
-    created_at: "2021-03-09T15:26:36Z",
-    description: "HIKAKIN公式Twitch。大人向けに実況します。",
-    display_name: "HIKAKIN",
-    follower_num: 53930,
-    id: "659829475",
-    login: "hikakin",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/25b948c3-de94-4a07-9aa3-8567bbd9057c-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2020-11-05T12:38:42Z",
-    description: "VALORANTがSUKI　",
-    display_name: "天羽よつは",
-    follower_num: 53819,
-    id: "603922701",
-    login: "yochuco",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/9b93d625-3d2f-4117-b84f-be4b9a3dc8f1-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2021-10-21T13:27:11Z",
-    description:
-      "Nakamuhttps://www.twitch.tv/nakamuwtBroooockhttps://www.twitch.tv/broooockwtシャークんhttps://www.twitch.tv/sharkenwtきんときhttps://www.twitch.tv/kintokiwtきりやんhttps://www.twitch.tv/kiriyanwt",
-    display_name: "スマイル_",
-    follower_num: 53625,
-    id: "736046660",
-    login: "smile_wt",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/079c6d18-4244-4a72-b565-dce4bef03632-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "affiliate",
-    created_at: "2019-03-09T00:18:34Z",
-    description: "ここでは自己紹介をするといいらしいですね！",
-    display_name: "ねるめろ",
-    follower_num: 53346,
-    id: "422245231",
-    login: "nerumerotwitch",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/7dcd0895-e1cc-400e-ab45-3c0c078c61f1-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "",
-    created_at: "2021-05-01T00:50:37Z",
-    description:
-      "まじめにヤバシティのシャオロンです。※〇〇の主役は我々だ！様の活動とは関係ありません",
-    display_name: "シャオロン",
-    follower_num: 53176,
-    id: "682160081",
-    login: "shao_babitan",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/5a6888cb-4546-413b-9a31-3bcac437777b-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2022-10-11T15:02:32Z",
-    description:
-      "Crazy Raccoon 所属 Streamer部門 初心者です ヨロシクオネガイシマス",
-    display_name: "しーあーるとっぴー",
-    follower_num: 53032,
-    id: "836587213",
-    login: "crtopioxd",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e9e21dca-fed1-4063-90b0-a3d2651ccaac-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
     broadcaster_type: "affiliate",
     created_at: "2019-04-05T14:16:43Z",
     description: "ここで遊びます。",
     display_name: "しのり",
-    follower_num: 52877,
+    follower_num: 54441,
     id: "428096132",
     login: "shinoriiiiiin",
     offline_image_url: "",
@@ -3976,10 +3903,114 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2019-07-08T05:48:03Z",
+    description:
+      "Sirry(しりー)です。いろんなゲームをするけど何をしてても基本楽しく絶叫してます！ほぼ毎日(平日夜/土日)配信。最近はタルコフ、ストグラでパストバリ(しょうがくSAY)役のRPをしています。",
+    display_name: "Sirry_Twich",
+    follower_num: 54095,
+    id: "446699865",
+    login: "sirry_twich",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/c7751cce-81bd-4e1b-a3ee-d60a59adeb74-channel_offline_image-1920x1080.jpeg",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/e73f5954-ade1-452c-ab7a-c197d93637a7-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2021-10-21T13:27:11Z",
+    description:
+      "Nakamuhttps://www.twitch.tv/nakamuwtBroooockhttps://www.twitch.tv/broooockwtシャークんhttps://www.twitch.tv/sharkenwtきんときhttps://www.twitch.tv/kintokiwtきりやんhttps://www.twitch.tv/kiriyanwt",
+    display_name: "スマイル_",
+    follower_num: 54056,
+    id: "736046660",
+    login: "smile_wt",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/079c6d18-4244-4a72-b565-dce4bef03632-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2020-11-05T12:38:42Z",
+    description: "VALORANTがSUKI　",
+    display_name: "天羽よつは",
+    follower_num: 54036,
+    id: "603922701",
+    login: "yochuco",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/9b93d625-3d2f-4117-b84f-be4b9a3dc8f1-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "affiliate",
+    created_at: "2019-03-09T00:18:34Z",
+    description: "ここでは自己紹介をするといいらしいですね！",
+    display_name: "ねるめろ",
+    follower_num: 53516,
+    id: "422245231",
+    login: "nerumerotwitch",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/7dcd0895-e1cc-400e-ab45-3c0c078c61f1-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2022-10-11T15:02:32Z",
+    description:
+      "Crazy Raccoon 所属 Streamer部門 初心者です ヨロシクオネガイシマス",
+    display_name: "しーあーるとっぴー",
+    follower_num: 53507,
+    id: "836587213",
+    login: "crtopioxd",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/e9e21dca-fed1-4063-90b0-a3d2651ccaac-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "",
+    created_at: "2021-05-01T00:50:37Z",
+    description:
+      "まじめにヤバシティのシャオロンです。※〇〇の主役は我々だ！様の活動とは関係ありません",
+    display_name: "シャオロン",
+    follower_num: 53381,
+    id: "682160081",
+    login: "shao_babitan",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/5a6888cb-4546-413b-9a31-3bcac437777b-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2021-02-26T10:36:16Z",
+    description:
+      "2023/07/14 みんなのお陰でTwitchパートナーになることができました！楽しくゲームができるのもみんなのお陰です！いつもありがとう！！！！",
+    display_name: "煌イヴ",
+    follower_num: 52767,
+    id: "655322402",
+    login: "kiramekieve",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/3d4bd105-96cb-4274-99e9-f38da2e0e85f-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2014-09-05T17:25:17Z",
     description: "VALORANTの大会で実況解説したりしてます。",
     display_name: "yue_san",
-    follower_num: 52773,
+    follower_num: 52718,
     id: "70645030",
     login: "yue_san",
     offline_image_url:
@@ -3991,32 +4022,16 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2021-02-26T10:36:16Z",
+    created_at: "2016-04-05T11:08:13Z",
     description:
-      "2023/07/14 みんなのお陰でTwitchパートナーになることができました！楽しくゲームができるのもみんなのお陰です！いつもありがとう！！！！",
-    display_name: "煌イヴ",
-    follower_num: 52595,
-    id: "655322402",
-    login: "kiramekieve",
+      "🎱【Good 8 Squad】Web - https://good8squad.com/🎱【スト6推奨PCはこちら】GALLERIA- 『ストリートファイター6』推奨パソコン｜最高のPCゲーム体験を提供するゲーミングPC GALLERIA (dospara.co.jp)🎱【ゲームをさらに快適に行うならhi-ho with games】hi-ho　https://welcome.hi-ho.life/service/games/r.php?inf=good8&course=G8S-001&aid=HHdSZZ0286&pKey=Gachikun",
+    display_name: "gachikun0423",
+    follower_num: 52534,
+    id: "120996378",
+    login: "gachikun0423",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/3d4bd105-96cb-4274-99e9-f38da2e0e85f-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2022-03-15T04:32:19Z",
-    description:
-      "なつめ学園 イラストタグ→#なつめせんせ絵 切り抜きタグ→#切り抜き先生 その他ツイート→#ヌメってる ストグラ→ハクナツメ",
-    display_name: "なつめ先生チャンネル",
-    follower_num: 52591,
-    id: "780174937",
-    login: "natsume_sennsei",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/cc8c457d-ef15-478f-bad8-4a7e8e97e066-channel_offline_image-1920x1080.jpeg",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/b8c98f9f-a4ac-45a8-814c-878f1ff102f0-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/53c78cc4-c8a4-4927-8a9d-b463d645fefe-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -4025,7 +4040,7 @@ export const STREAMERS = [
     created_at: "2022-03-23T05:14:12Z",
     description: "˗ˋˏ にじさんじ所属ふわふわどらごんがーる ˎˊ˗ ",
     display_name: "あまみやこころ",
-    follower_num: 52399,
+    follower_num: 52472,
     id: "782211334",
     login: "amamiyakokoro_",
     offline_image_url:
@@ -4037,16 +4052,17 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2016-04-05T11:08:13Z",
+    created_at: "2022-03-15T04:32:19Z",
     description:
-      "🎱【Good 8 Squad】Web - https://good8squad.com/🎱【スト6推奨PCはこちら】GALLERIA- 『ストリートファイター6』推奨パソコン｜最高のPCゲーム体験を提供するゲーミングPC GALLERIA (dospara.co.jp)🎱【ゲームをさらに快適に行うならhi-ho with games】hi-ho　https://welcome.hi-ho.life/service/games/r.php?inf=good8&course=G8S-001&aid=HHdSZZ0286&pKey=Gachikun",
-    display_name: "gachikun0423",
-    follower_num: 52175,
-    id: "120996378",
-    login: "gachikun0423",
-    offline_image_url: "",
+      "なつめ学園 イラストタグ→#なつめせんせ絵 切り抜きタグ→#切り抜き先生 その他ツイート→#ヌメってる ストグラ→ハクナツメ",
+    display_name: "なつめ先生チャンネル",
+    follower_num: 52459,
+    id: "780174937",
+    login: "natsume_sennsei",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/cc8c457d-ef15-478f-bad8-4a7e8e97e066-channel_offline_image-1920x1080.jpeg",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/53c78cc4-c8a4-4927-8a9d-b463d645fefe-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/b8c98f9f-a4ac-45a8-814c-878f1ff102f0-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -4056,7 +4072,7 @@ export const STREAMERS = [
     description:
       "hello! I'm Rin,nice to meet you💜 I am active as a virtualliver in Japan!　　こんにちは、静凛(Shizuka Rin)です～！Twitchでもよろしくお願いしますね～(*^-^*)",
     display_name: "ShizuRinTV",
-    follower_num: 51561,
+    follower_num: 51972,
     id: "681087492",
     login: "shizurintv",
     offline_image_url: "",
@@ -4070,7 +4086,7 @@ export const STREAMERS = [
     created_at: "2018-02-13T10:33:00Z",
     description: "ねろちゃんです。https://twitter.com/ZackdNerrr",
     display_name: "ねろちゃんん",
-    follower_num: 51520,
+    follower_num: 51751,
     id: "196171153",
     login: "zackdnerrr",
     offline_image_url:
@@ -4085,7 +4101,7 @@ export const STREAMERS = [
     created_at: "2017-01-21T05:15:37Z",
     description: "初めましてsakuです。Apex Legendsのプロゲーマーをしてます。",
     display_name: "fps__saku",
-    follower_num: 51254,
+    follower_num: 51177,
     id: "145416777",
     login: "fps__saku",
     offline_image_url: "",
@@ -4100,7 +4116,7 @@ export const STREAMERS = [
     description:
       "2.5次元（?）Vtuber🎀 2008.8.8〜あったかごはんの人🦖🍚 両親:@shinno_Arts /FN:リスのん/推マ:🦖🍚/絵:#にし絵のん/干芋:http://amzn.to/3B5uh61 /サブ:@nsnn_euphoria /#ストグラ #BMC /お問合せ: DM or Mail📩",
     display_name: "にしのん",
-    follower_num: 50961,
+    follower_num: 50962,
     id: "735566294",
     login: "2_nsnn_4",
     offline_image_url: "",
@@ -4113,9 +4129,9 @@ export const STREAMERS = [
     broadcaster_type: "partner",
     created_at: "2019-09-28T05:38:39Z",
     description:
-      "いつも配信を見てくださりありがとうございます。Thank you for watching my Channel. 2023年5月28日より、配信場所が『パパズ・パラディ』に代わりました！パパズは、にゃんだん邸を運営していたNPO法人さんが運営する保護猫カフェです！",
+      "いつも配信を見てくださりありがとうございます。Thank you for watching my Channel. 2025年1月より、配信場所が『パパズ・パラディ』に代わりました！パパズは、にゃんだん邸を運営していたNPO法人さんが運営する保護猫カフェです！",
     display_name: "ぬこまろ",
-    follower_num: 50839,
+    follower_num: 50786,
     id: "464480572",
     login: "nukomaro2020",
     offline_image_url:
@@ -4130,7 +4146,7 @@ export const STREAMERS = [
     created_at: "2018-07-03T15:21:15Z",
     description: "FPS、ストグラを主に配信してます",
     display_name: "るなりあ",
-    follower_num: 50399,
+    follower_num: 50352,
     id: "235921771",
     login: "lunaria39",
     offline_image_url:
@@ -4145,7 +4161,7 @@ export const STREAMERS = [
     created_at: "2019-09-24T01:14:44Z",
     description: "",
     display_name: "maufinvl",
-    follower_num: 50146,
+    follower_num: 50209,
     id: "463917819",
     login: "maufinvl",
     offline_image_url: "",
@@ -4160,7 +4176,7 @@ export const STREAMERS = [
     description:
       "ゲームすき☺︎色んなゲームや雑談配信してます。声がたまにデカくなる。不定期で配信してます❕2023年10月から活動開始。コミケに出るために頑張ってます👿",
     display_name: "さまはたはたやたわ",
-    follower_num: 49696,
+    follower_num: 50101,
     id: "887031096",
     login: "honey__sena",
     offline_image_url: "",
@@ -4171,10 +4187,25 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
+    created_at: "2018-04-10T11:28:52Z",
+    description:
+      "rassya(らっしゃー)と申します。楽しくゲームをモットーに配信してます！気軽にコメントして頂けると嬉しいです！",
+    display_name: "rassya12",
+    follower_num: 49732,
+    id: "213233389",
+    login: "rassya12",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/f72cb1ac-385e-4d62-ad6a-98d0cb68aa64-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
     created_at: "2017-04-11T12:51:09Z",
     description: "",
     display_name: "AlphaAzur",
-    follower_num: 49490,
+    follower_num: 49720,
     id: "153034674",
     login: "alphaazur",
     offline_image_url: "",
@@ -4189,7 +4220,7 @@ export const STREAMERS = [
     description:
       "PS3,4のCODでRiZEというクランで活動してましたデュークといいます！APEXのコーチしてました。良ければ見ていってください。",
     display_name: "dexyuku",
-    follower_num: 48973,
+    follower_num: 49065,
     id: "62961303",
     login: "dexyuku",
     offline_image_url: "",
@@ -4203,7 +4234,7 @@ export const STREAMERS = [
     created_at: "2016-03-21T00:28:47Z",
     description: "LOLやVALORANTや雑談をするっちよ～",
     display_name: "なぎさっち",
-    follower_num: 48501,
+    follower_num: 48918,
     id: "119320428",
     login: "nagisatty",
     offline_image_url:
@@ -4215,25 +4246,11 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2016-01-11T14:24:00Z",
-    description: "hello :D",
-    display_name: "fps_fisker",
-    follower_num: 48249,
-    id: "112438964",
-    login: "fps_fisker",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/b32a3b3b-b8af-4446-bc93-96d59cd760cc-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2012-06-27T17:19:24Z",
     description:
       "DetonatioN FocusMe所属 生粋の格闘ゲーマー thanks for following me!",
     display_name: "板橋ザンギエフ",
-    follower_num: 48248,
+    follower_num: 48519,
     id: "31675928",
     login: "itazan0429",
     offline_image_url:
@@ -4248,7 +4265,7 @@ export const STREAMERS = [
     created_at: "2022-05-19T18:48:29Z",
     description: "ともだちさがしにきた(^｡^)",
     display_name: "ごきげんななめちゃん",
-    follower_num: 48109,
+    follower_num: 48173,
     id: "795981988",
     login: "gokigennanamechan",
     offline_image_url:
@@ -4260,45 +4277,15 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2024-01-28T20:17:40Z",
-    description: "碧依さくらです☺よろしくお願いします🌸",
-    display_name: "碧依さくら",
-    follower_num: 47686,
-    id: "1027819572",
-    login: "aoi_sakura3",
+    created_at: "2016-01-11T14:24:00Z",
+    description: "hello :D",
+    display_name: "fps_fisker",
+    follower_num: 48171,
+    id: "112438964",
+    login: "fps_fisker",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e4c331f9-25ab-457e-b162-2405fe22ae11-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2013-04-01T04:53:09Z",
-    description: "ムラッシュゲーミング　VALORANT部門所属のBijuと申しまｗす",
-    display_name: "Bijusan",
-    follower_num: 47034,
-    id: "41952329",
-    login: "bijusan",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/0ef86320-ce47-4c9c-931e-38da58c5dbcd-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2021-02-06T15:53:51Z",
-    description:
-      "どんなゲームも最高に楽しむのがモットー！個人勢関西弁くま耳Vtuberの みなみ てって です🧸💜楽しく色んなゲームやってます🫶🏻",
-    display_name: "みなみてって",
-    follower_num: 46910,
-    id: "646825610",
-    login: "minami_tette",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/35bfb55e-8169-4836-8a3a-9ec99245f20a-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/bc13ff40-0ed2-4c9c-b69f-fa87b0602663-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/b32a3b3b-b8af-4446-bc93-96d59cd760cc-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -4307,7 +4294,7 @@ export const STREAMERS = [
     created_at: "2017-11-13T09:00:33Z",
     description: "LoL : Day1week Apex : Day1week FF14 : Mizuki Penguin",
     display_name: "デイワン",
-    follower_num: 46798,
+    follower_num: 47774,
     id: "181642473",
     login: "day1lol",
     offline_image_url: "",
@@ -4318,31 +4305,29 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2017-04-26T00:51:11Z",
-    description: "VALORANT Player",
-    display_name: "million4771",
-    follower_num: 46710,
-    id: "154644196",
-    login: "million4771",
+    created_at: "2013-04-01T04:53:09Z",
+    description: "ムラッシュゲーミング　VALORANT部門所属のBijuと申しまｗす",
+    display_name: "Bijusan",
+    follower_num: 47676,
+    id: "41952329",
+    login: "bijusan",
     offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/8ab0e117-d4ee-4f8f-a59a-cc21f0b9ef45-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/0ef86320-ce47-4c9c-931e-38da58c5dbcd-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
   {
     broadcaster_type: "partner",
-    created_at: "2018-10-31T10:12:41Z",
-    description:
-      "2023年６月から活動開始。主にValorantやFPSゲームをプレイ。現在はストグラで【ヘルアン】として毎日楽しんでます",
-    display_name: "ヘルアン",
-    follower_num: 46653,
-    id: "271117427",
-    login: "m2_kento_heluan",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/1a86f0f0-2952-4496-aed5-3d74d764bd7b-channel_offline_image-1920x1080.png",
+    created_at: "2024-01-28T20:17:40Z",
+    description: "碧依さくらです☺よろしくお願いします🌸",
+    display_name: "碧依さくら",
+    follower_num: 47666,
+    id: "1027819572",
+    login: "aoi_sakura3",
+    offline_image_url: "",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/2aa4233c-b0fc-49bf-b1b8-730a859d409f-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/e4c331f9-25ab-457e-b162-2405fe22ae11-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
@@ -4351,7 +4336,7 @@ export const STREAMERS = [
     created_at: "2014-08-08T14:57:03Z",
     description: "んそめです。Nebula eSportsに所属してます。",
     display_name: "んそめ",
-    follower_num: 46600,
+    follower_num: 47127,
     id: "68472000",
     login: "consome01",
     offline_image_url:
@@ -4363,25 +4348,10 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2018-04-10T11:28:52Z",
-    description:
-      "rassya(らっしゃー)と申します。楽しくゲームをモットーに配信してます！気軽にコメントして頂けると嬉しいです！",
-    display_name: "rassya12",
-    follower_num: 46275,
-    id: "213233389",
-    login: "rassya12",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/f72cb1ac-385e-4d62-ad6a-98d0cb68aa64-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
     created_at: "2020-06-26T13:57:07Z",
     description: "ZETA aco です。'//,",
     display_name: "あこみんぐ",
-    follower_num: 45513,
+    follower_num: 47124,
     id: "548125882",
     login: "acomingzz",
     offline_image_url:
@@ -4393,17 +4363,76 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2019-07-08T05:48:03Z",
+    created_at: "2021-02-06T15:53:51Z",
     description:
-      "Sirry(しりー)です。いろんなゲームをするけど何をしてても基本楽しく絶叫してます！ほぼ毎日(平日夜/土日)配信。最近はタルコフ、ストグラでパストバリ(しょうがくSAY)役のRPをしています。",
-    display_name: "Sirry_Twich",
-    follower_num: 45212,
-    id: "446699865",
-    login: "sirry_twich",
+      "どんなゲームも最高に楽しむのがモットー！個人勢関西弁くま耳Vtuberの みなみ てって です🧸💜楽しく色んなゲームやってます🫶🏻",
+    display_name: "みなみてって",
+    follower_num: 46964,
+    id: "646825610",
+    login: "minami_tette",
     offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/c7751cce-81bd-4e1b-a3ee-d60a59adeb74-channel_offline_image-1920x1080.jpeg",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/35bfb55e-8169-4836-8a3a-9ec99245f20a-channel_offline_image-1920x1080.png",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e73f5954-ade1-452c-ab7a-c197d93637a7-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/bc13ff40-0ed2-4c9c-b69f-fa87b0602663-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2018-10-31T10:12:41Z",
+    description:
+      "2023年６月から活動開始。主にValorantやFPSゲームをプレイ。現在はストグラで【ヘルアン】として毎日楽しんでます",
+    display_name: "ヘルアン",
+    follower_num: 46837,
+    id: "271117427",
+    login: "m2_kento_heluan",
+    offline_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/1a86f0f0-2952-4496-aed5-3d74d764bd7b-channel_offline_image-1920x1080.png",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/2aa4233c-b0fc-49bf-b1b8-730a859d409f-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2019-11-09T14:43:42Z",
+    description:
+      "【Career】・Streamer Challenge World No.1👑　・JP TwitchRivals: Escape from Tarkov 1位👑　・kappa元世界最速solo獲得（6日）前前々シーズン世界7位、前々シーズン世界5位、前シーズン世界2位、今シーズン世界1位　・EFT Special BATTLE PARTY Powered by LEGION 1位👑　・Punisher 3 Tournament アジア18位　",
+    display_name: "tamatthi",
+    follower_num: 46455,
+    id: "471685664",
+    login: "tamatthi",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/f4aef340-b8bf-4a2a-987e-9b23b52b9f6d-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2017-04-26T00:51:11Z",
+    description: "VALORANT Player",
+    display_name: "million4771",
+    follower_num: 45511,
+    id: "154644196",
+    login: "million4771",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/8ab0e117-d4ee-4f8f-a59a-cc21f0b9ef45-profile_image-300x300.png",
+    type: "",
+    view_count: 0,
+  },
+  {
+    broadcaster_type: "partner",
+    created_at: "2013-03-06T11:48:12Z",
+    description: "I would dive for you",
+    display_name: "FOXRABBIT",
+    follower_num: 44657,
+    id: "41040104",
+    login: "foxrabbit",
+    offline_image_url: "",
+    profile_image_url:
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/foxrabbit-profile_image-ed9243ba724b01a2-300x300.jpeg",
     type: "",
     view_count: 0,
   },
@@ -4412,7 +4441,7 @@ export const STREAMERS = [
     created_at: "2012-02-25T21:37:41Z",
     description: "",
     display_name: "bacter1a_",
-    follower_num: 44498,
+    follower_num: 44487,
     id: "28510438",
     login: "bacter1a_",
     offline_image_url:
@@ -4424,63 +4453,32 @@ export const STREAMERS = [
   },
   {
     broadcaster_type: "partner",
-    created_at: "2019-06-05T01:37:30Z",
-    description: "ねこりろん♩",
-    display_name: "猫理論",
-    follower_num: 42057,
-    id: "439826919",
-    login: "puioff",
+    created_at: "2020-05-22T11:53:17Z",
+    description: "SUGAROCK to be a ROCKSTAR!",
+    display_name: "SUGAROCK_jp",
+    follower_num: 43830,
+    id: "534111619",
+    login: "sugarock_jp",
     offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/c50687d4-e4fc-409c-914b-e47abc08b8fe-channel_offline_image-1920x1080.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a59a6dc8-1c80-4a24-85d4-935007e0f057-channel_offline_image-1920x1080.png",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/b83af9a7-a53d-43d2-a982-1706334470b6-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/d6c3af17-a90e-4343-bbc1-8441c386b273-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },
   {
     broadcaster_type: "partner",
-    created_at: "2020-03-18T11:11:00Z",
+    created_at: "2017-03-26T19:25:54Z",
     description:
-      "京都出身の関西弁を使う23歳配信者　ラムチョです🐏ほぼ毎日夜からTwitchで配信しています🕘🌙　Twitter： https://twitter.com/ram_ch0p",
-    display_name: "ラムチョ",
-    follower_num: 39849,
-    id: "500601197",
-    login: "ram_ch0p",
-    offline_image_url: "",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e7001aec-d646-4fdb-94ad-348f581f4f4c-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2021-04-07T11:27:37Z",
-    description:
-      "「そらい おんじ」と読みます！ゲーム実況・TRPG・マダミスを中心に活動中！応援し応援され、皆と一緒に頑張れるような配信者を目指しています！皆が「新しい好き」を見つけれるお手伝いも出来るような活動もモットーにやってます！よろしくね！",
-    display_name: "空衣御侍",
-    follower_num: 39139,
-    id: "672525214",
-    login: "solionzi",
+      "VARREL Overwatch 部門 OWWC2023 日本代表DPS｜オーバーウォッチ界で最もクリーンな配信を心掛けております。",
+    display_name: "nico_ov",
+    follower_num: 42884,
+    id: "151573424",
+    login: "nico_ov",
     offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/ee0d6d6e-99b0-48e3-9592-0b74e9e10ccd-channel_offline_image-1920x1080.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/62db8142-d6a4-41c8-9160-c717dd0c9c74-channel_offline_image-1920x1080.png",
     profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/4cb690f7-5832-4c21-8ddf-f8a41b3574aa-profile_image-300x300.png",
-    type: "",
-    view_count: 0,
-  },
-  {
-    broadcaster_type: "partner",
-    created_at: "2015-06-22T03:12:05Z",
-    description:
-      "北海道出身&在住。美味い飯とゲームが好きで動画編集のお仕事をしているクマゴリラ科。ほろ酔いさんじゃなくてホロ酔いさん。",
-    display_name: "ホロ酔いさん",
-    follower_num: 31058,
-    id: "94149088",
-    login: "holoyoisan_jp",
-    offline_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/d94af3ff-61fb-4dd1-ba94-780d041f2d11-channel_offline_image-1920x1080.png",
-    profile_image_url:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/5fafe20e-b8b8-4c8d-9f18-ecf694a60e8e-profile_image-300x300.png",
+      "https://static-cdn.jtvnw.net/jtv_user_pictures/a26bdaa7-0c1e-470e-a947-b71ac453107c-profile_image-300x300.png",
     type: "",
     view_count: 0,
   },

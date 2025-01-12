@@ -78,8 +78,8 @@ function ClipCard({ clip }: ClipCardProps) {
   return (
     <VStack gap="1">
       <Container
-        apply="layoutStyles.borderCard"
         cursor="pointer"
+        layerStyle="borderCard"
         onClick={onClick}
         p={0}
       >
