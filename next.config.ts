@@ -1,3 +1,4 @@
+import { withSentryConfig } from "@sentry/nextjs"
 import { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
@@ -32,4 +33,18 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 }
 
-export default nextConfig
+export default withSentryConfig(nextConfig, {
+  automaticVercelMonitors: true,
+  disableLogger: true,
+  hideSourceMaps: true,
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  reactComponentAnnotation: {
+    enabled: true,
+  },
+  silent: !process.env.CI,
+  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
+  // side errors will fail.
+  tunnelRoute: "/monitoring",
+  widenClientFileUpload: true,
+})

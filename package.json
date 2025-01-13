@@ -20,6 +20,7 @@
     "gen:streamer": "tsx src/scripts/gen-streamer"
   },
   "dependencies": {
+    "@sentry/nextjs": "^8",
     "@yamada-ui/carousel": "^2.0.7",
     "@yamada-ui/lucide": "^1.6.0",
     "@yamada-ui/react": "^1.6.0",
