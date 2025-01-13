@@ -1,5 +1,15 @@
 # Releases
 
+## 2.8.0
+
+### Minor Changes
+
+- [#413](https://github.com/108yen/twitch-clip/pull/413) [`c88ef5e`](https://github.com/108yen/twitch-clip/commit/c88ef5ed4f9475eeedd005670726b20efd17ecd2) Thanks [@108yen](https://github.com/108yen)! - Setuped sentry.
+
+### Patch Changes
+
+- [#412](https://github.com/108yen/twitch-clip/pull/412) [`408b873`](https://github.com/108yen/twitch-clip/commit/408b87306bc399598773fcacfa33f3c504397bad) Thanks [@108yen](https://github.com/108yen)! - Fixed performance metrics initialization.
+
 ## 2.7.5
 
 ### Patch Changes

@@ -1,5 +1,6 @@
 "use client"
 import { sendGAEvent } from "@/utils/google-analytics"
+import { initializeApp } from "firebase/app"
 import {
   getToken,
   initializeAppCheck,
@@ -8,18 +9,27 @@ import {
 import { getPerformance } from "firebase/performance"
 import { useEffect } from "react"
 
-import { clientApp } from "./client"
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  appId: process.env.NEXT_PUBLIC_APPID,
+  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENTID,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGSENDERID,
+  projectId: process.env.NEXT_PUBLIC_PROJECTID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+}
 
-export function FirebaseInitScript() {
+interface FirebaseInitScriptProps {
+  production?: boolean
+}
+
+export function FirebaseInitScript({ production }: FirebaseInitScriptProps) {
   useEffect(() => {
-    if (
-      typeof document !== "undefined" &&
-      process.env.VERCEL_ENV == "production"
-    ) {
-      // Performance monitoring
+    if (typeof window !== "undefined" && production) {
+      const clientApp = initializeApp(firebaseConfig)
+
       getPerformance(clientApp)
 
-      // AppCheck
       const appCheck = initializeAppCheck(clientApp, {
         isTokenAutoRefreshEnabled: true,
         provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA!),
@@ -32,7 +42,7 @@ export function FirebaseInitScript() {
         })
       })
     }
-  }, [])
+  }, [production])
 
   return null
 }
