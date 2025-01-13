@@ -84,9 +84,10 @@ const importTSESConfig = {
   rules: {
     ...pluginImport.configs.recommended.rules,
     ...pluginImport.configs.typescript.rules,
+    "import/namespace": "off",
+
     // Set of `import` rules that existed in `eslint-config-next`.
     "import/no-anonymous-default-export": "error",
-
     // These rules existed in the `.eslintrc`.
     "unused-imports/no-unused-imports": "error",
   },
