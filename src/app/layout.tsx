@@ -28,6 +28,7 @@ export default async function RootLayout({
   children: ReactNode
 }) {
   const version = await getVersion()
+  const production = process.env.VERCEL_ENV == "production"
 
   return (
     <html lang="ja" suppressHydrationWarning>
@@ -37,7 +38,7 @@ export default async function RootLayout({
         </Suspense>
       </head>
       <body suppressHydrationWarning>
-        <FirebaseInitScript />
+        <FirebaseInitScript production={production} />
 
         <YamadaUIScripts />
 
@@ -51,7 +52,7 @@ export default async function RootLayout({
 
         <GoogleAnalytics
           config={{ version }}
-          debugMode={process.env.VERCEL_ENV != "production"}
+          debugMode={!production}
           gaId={process.env.NEXT_PUBLIC_GA_ID as string}
         />
       </body>
