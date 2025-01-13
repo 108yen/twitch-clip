@@ -11,7 +11,6 @@ Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
   // Add optional integrations for additional features
-  // eslint-disable-next-line import/namespace
   integrations: [Sentry.replayIntegration()],
 
   // Define how likely Replay events are sampled when an error occurs.
