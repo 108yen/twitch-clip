@@ -1,7 +1,7 @@
 import { withSentryConfig } from "@sentry/nextjs"
 import { NextConfig } from "next"
 
-import { version } from "./package.json"
+import { name, version } from "./package.json"
 
 const nextConfig: NextConfig = {
   cacheMaxMemorySize: 1572864000, // 1.5G = 1500 * 1024 * 1024
@@ -44,9 +44,22 @@ export default withSentryConfig(nextConfig, {
     enabled: true,
   },
   release: {
-    name: process.env.VERCEL_ENV == "production" ? version : undefined,
+    create: process.env.VERCEL_ENV == "production",
+    deploy: {
+      env: process.env.VERCEL_ENV == "production" ? "production" : "staging",
+    },
+    name: `${name}@${version}`,
+    setCommits: {
+      auto: false,
+      commit: process.env.VERCEL_GIT_COMMIT_SHA as string,
+      previousCommit: process.env.VERCEL_GIT_PREVIOUS_SHA,
+      repo: "108yen/twitch-clip",
+    },
   },
   silent: true,
+  sourcemaps: {
+    deleteSourcemapsAfterUpload: true,
+  },
   // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
   // side errors will fail.
   tunnelRoute: "/monitoring",
