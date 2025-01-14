@@ -17,3 +17,24 @@ export function getDisplayMode() {
 
   return "unknown"
 }
+
+interface GetThemeModeReturn {
+  colorMode?: string
+  themeScheme?: string
+}
+
+export function getThemeMode() {
+  let result: GetThemeModeReturn = {
+    colorMode: undefined,
+    themeScheme: undefined,
+  }
+
+  if (typeof window == "undefined" || !("localStorage" in window)) return result
+
+  result = {
+    colorMode: localStorage.getItem("ui-color-mode") ?? undefined,
+    themeScheme: localStorage.getItem("ui-theme-scheme") ?? undefined,
+  }
+
+  return result
+}

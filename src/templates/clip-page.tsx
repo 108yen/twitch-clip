@@ -7,7 +7,7 @@ import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { doEveryThreeMonth } from "@/storage"
-import { getDisplayMode } from "@/utils/display-mode"
+import { getDisplayMode } from "@/utils/mode"
 import { useBreakpoint, useNotice, useOS } from "@yamada-ui/react"
 import { useEffect, useState } from "react"
 

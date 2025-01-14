@@ -64,7 +64,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
   return (
     <Container
       cursor="pointer"
-      itemId={id}
+      itemID={id}
       itemScope
       itemType="https://schema.org/VideoObject"
       layerStyle="borderCard"
