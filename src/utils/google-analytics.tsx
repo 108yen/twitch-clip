@@ -3,7 +3,7 @@ import { GAParams } from "@/types/google"
 import Script from "next/script"
 import React, { useEffect, useMemo } from "react"
 
-import { getDisplayMode } from "./display-mode"
+import { getDisplayMode, getThemeMode } from "./mode"
 
 declare global {
   interface Window {
@@ -21,15 +21,18 @@ export function GoogleAnalytics({
   nonce,
 }: GAParams) {
   const displayMode = getDisplayMode()
+  const { colorMode, themeScheme } = getThemeMode()
 
   const additionalConfigInfo = useMemo(
     () =>
       JSON.stringify({
         ...(debugMode ? { debug_mode: true } : {}),
+        color_mode: colorMode,
         display_mode: displayMode,
+        theme_scheme: themeScheme,
         ...config,
       }),
-    [config, debugMode, displayMode],
+    [colorMode, config, debugMode, displayMode, themeScheme],
   )
 
   if (currDataLayerName === undefined) {

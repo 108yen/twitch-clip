@@ -1,5 +1,11 @@
 # Releases
 
+## 2.8.1
+
+### Patch Changes
+
+- [`0cbe4db`](https://github.com/108yen/twitch-clip/commit/0cbe4db1796aee2cbcf4467c8314074818853917) Thanks [@108yen](https://github.com/108yen)! - Updated sentry config. And setup to collecting theme mode.
+
 ## 2.8.0
 
 ### Minor Changes
