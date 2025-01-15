@@ -5,9 +5,14 @@ Sentry.init({
   debug: false,
 
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-
+  environment:
+    process.env.NEXT_PUBLIC_VERCEL_ENV == "production"
+      ? "production"
+      : "staging",
   // Add optional integrations for additional features
   integrations: [Sentry.replayIntegration()],
+
+  release: process.env.NEXT_PUBLIC_VERSION,
 
   // Define how likely Replay events are sampled when an error occurs.
   replaysOnErrorSampleRate: 1.0,
