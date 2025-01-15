@@ -1,5 +1,11 @@
 # Releases
 
+## 2.8.2
+
+### Patch Changes
+
+- [`8489e84`](https://github.com/108yen/twitch-clip/commit/8489e8412efb439c071ebac837880827f58e33d2) Thanks [@108yen](https://github.com/108yen)! - Updated sentry config.
+
 ## 2.8.1
 
 ### Patch Changes
