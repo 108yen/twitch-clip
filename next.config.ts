@@ -5,6 +5,9 @@ import { name, version } from "./package.json"
 
 const nextConfig: NextConfig = {
   cacheMaxMemorySize: 1572864000, // 1.5G = 1500 * 1024 * 1024
+  env: {
+    NEXT_PUBLIC_VERSION: `${name}@${version}`,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -48,7 +51,8 @@ export default withSentryConfig(nextConfig, {
     deploy: {
       env: process.env.VERCEL_ENV == "production" ? "production" : "staging",
     },
-    name: `${name}@${version}`,
+    name:
+      process.env.VERCEL_ENV == "production" ? `${name}@${version}` : undefined,
     setCommits: {
       auto: false,
       commit: process.env.VERCEL_GIT_COMMIT_SHA as string,
@@ -56,12 +60,9 @@ export default withSentryConfig(nextConfig, {
       repo: "108yen/twitch-clip",
     },
   },
-  silent: true,
+  silent: false,
   sourcemaps: {
     deleteSourcemapsAfterUpload: true,
   },
-  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-  // side errors will fail.
-  tunnelRoute: "/monitoring",
   widenClientFileUpload: true,
 })

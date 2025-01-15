@@ -23,6 +23,12 @@
       "automerge": false
     },
     {
+      "groupName": "yamada-ui",
+      "addLabels": ["yamada-ui"],
+      "matchPackageNames": ["/yamada-ui/"],
+      "automerge": false
+    },
+    {
       "groupName": "devDependencies",
       "labels": ["devDependencies"],
       "matchDepTypes": ["devDependencies"],
