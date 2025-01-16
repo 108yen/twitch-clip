@@ -7,7 +7,7 @@ import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
 import { formatDate, toISO8601Duration } from "@/utils/string"
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
-import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
+import { SquareArrowOutUpRightIcon, TwitchIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
@@ -274,7 +274,15 @@ export function ClipListTabs({ withTab = true, ...rest }: ClipListTabProps) {
     resetRef.current()
   }
 
-  if (tabs.length == 0) return <Text textAlign="center">no clips</Text>
+  if (tabs.length == 0)
+    return (
+      <EmptyState
+        description="No clips were available"
+        indicator={<TwitchIcon />}
+        size="lg"
+        title="No clips"
+      />
+    )
 
   return (
     <>
