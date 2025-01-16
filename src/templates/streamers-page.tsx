@@ -32,9 +32,10 @@ export function Streamers({ streamers }: StreamersProps) {
 
         {filteredChannels.length == 0 ? (
           <EmptyState
+            description="No channels were found in the search"
             indicator={<TwitchIcon />}
             size="lg"
-            title="No channels were found in the search"
+            title="No channels"
           />
         ) : null}
 

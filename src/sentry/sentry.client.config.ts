@@ -12,7 +12,10 @@ Sentry.init({
   // Add optional integrations for additional features
   integrations: [Sentry.replayIntegration()],
 
-  release: process.env.NEXT_PUBLIC_VERSION,
+  release:
+    process.env.NEXT_PUBLIC_VERCEL_ENV == "production"
+      ? process.env.NEXT_PUBLIC_VERSION
+      : undefined,
 
   // Define how likely Replay events are sampled when an error occurs.
   replaysOnErrorSampleRate: 1.0,
