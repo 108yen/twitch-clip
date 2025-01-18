@@ -1,5 +1,11 @@
 # Releases
 
+## 2.9.1
+
+### Patch Changes
+
+- [#431](https://github.com/108yen/twitch-clip/pull/431) [`80ac9f4`](https://github.com/108yen/twitch-clip/commit/80ac9f4d2903be04a33623e2b7a83a7b306c9b1d) Thanks [@108yen](https://github.com/108yen)! - Fixed donate button color hard to see in dark mode and mono theme.
+
 ## 2.9.0
 
 ### Minor Changes
