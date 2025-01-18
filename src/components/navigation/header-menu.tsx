@@ -24,6 +24,8 @@ import {
 import Link from "next/link"
 import { useId } from "react"
 
+import { KoFiModal } from "../overlay"
+
 export function HeaderMenu() {
   const id = useId()
   const { colorMode, toggleColorMode } = useColorMode()
@@ -89,6 +91,10 @@ export function HeaderMenu() {
           ))}
 
           <MenuSeparator />
+
+          <MenuItem>
+            <KoFiModal />
+          </MenuItem>
 
           <MenuItem aria-label="リリースノート" as={Link} href="/release-note">
             <HStack w="full">
