@@ -1,6 +1,5 @@
 import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
-import { FirebaseInitScript } from "@/firebase/client"
 import { config, theme } from "@/theme"
 import { Adsbygoogle } from "@/utils/adsense"
 import generateTemplateMetadata from "@/utils/generate-template-metadata"
@@ -38,8 +37,6 @@ export default async function RootLayout({
         </Suspense>
       </head>
       <body suppressHydrationWarning>
-        <FirebaseInitScript production={production} />
-
         <YamadaUIScripts />
 
         <PageProvider version={version}>

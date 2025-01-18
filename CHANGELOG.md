@@ -1,5 +1,19 @@
 # Releases
 
+## 2.9.0
+
+### Minor Changes
+
+- [#430](https://github.com/108yen/twitch-clip/pull/430) [`fd289fd`](https://github.com/108yen/twitch-clip/commit/fd289fd3f5aff87242a716d52273bf0b2511ec13) Thanks [@108yen](https://github.com/108yen)! - Added donation button.
+
+### Patch Changes
+
+- [#417](https://github.com/108yen/twitch-clip/pull/417) [`59889ad`](https://github.com/108yen/twitch-clip/commit/59889addd34fe5246be6227dab846767a35f2490) Thanks [@108yen](https://github.com/108yen)! - Fixed tab is not displayed when it has only one period.
+
+- [#417](https://github.com/108yen/twitch-clip/pull/417) [`07b47cb`](https://github.com/108yen/twitch-clip/commit/07b47cb9f4e8397eb15ee752ef61bff7720bc027) Thanks [@108yen](https://github.com/108yen)! - Updated empty state display.
+
+- [#421](https://github.com/108yen/twitch-clip/pull/421) [`a1e063c`](https://github.com/108yen/twitch-clip/commit/a1e063c5573602ee0b98a1850990204a9ca77c8a) Thanks [@108yen](https://github.com/108yen)! - Migrate metrics tool.
+
 ## 2.8.2
 
 ### Patch Changes

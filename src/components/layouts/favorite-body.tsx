@@ -51,7 +51,7 @@ export function FavoriteBody({
   }
 
   if (breakpoint == "sm") {
-    return <ClipListTabs />
+    return <ClipListTabs withTab={false} />
   }
 
   return (

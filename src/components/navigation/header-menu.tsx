@@ -24,6 +24,8 @@ import {
 import Link from "next/link"
 import { useId } from "react"
 
+import { KoFiModal } from "../overlay"
+
 export function HeaderMenu() {
   const id = useId()
   const { colorMode, toggleColorMode } = useColorMode()
@@ -98,6 +100,10 @@ export function HeaderMenu() {
 
               <Text textStyle="version">{version}</Text>
             </HStack>
+          </MenuItem>
+
+          <MenuItem>
+            <KoFiModal />
           </MenuItem>
         </MenuList>
       </Portal>
