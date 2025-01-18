@@ -92,10 +92,6 @@ export function HeaderMenu() {
 
           <MenuSeparator />
 
-          <MenuItem>
-            <KoFiModal />
-          </MenuItem>
-
           <MenuItem aria-label="リリースノート" as={Link} href="/release-note">
             <HStack w="full">
               <Text textStyle="version">version:</Text>
@@ -104,6 +100,10 @@ export function HeaderMenu() {
 
               <Text textStyle="version">{version}</Text>
             </HStack>
+          </MenuItem>
+
+          <MenuItem>
+            <KoFiModal />
           </MenuItem>
         </MenuList>
       </Portal>
