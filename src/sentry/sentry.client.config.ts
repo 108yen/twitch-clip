@@ -14,6 +14,10 @@ if (
       process.env.NEXT_PUBLIC_VERCEL_ENV == "production"
         ? "production"
         : "staging",
+    integrations: [
+      Sentry.browserTracingIntegration(),
+      Sentry.browserProfilingIntegration(),
+    ],
     release:
       process.env.NEXT_PUBLIC_VERCEL_ENV == "production"
         ? process.env.NEXT_PUBLIC_VERSION
