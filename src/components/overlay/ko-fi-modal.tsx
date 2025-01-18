@@ -1,9 +1,20 @@
 "use client"
 
-import { Button, Modal, ModalBody, useDisclosure } from "@yamada-ui/react"
+import {
+  Button,
+  Modal,
+  ModalBody,
+  useColorMode,
+  useDisclosure,
+  useTheme,
+} from "@yamada-ui/react"
 
 export function KoFiModal() {
   const { onClose, onOpen, open } = useDisclosure()
+  const { colorMode } = useColorMode()
+  const { themeScheme } = useTheme()
+  const buttonColor =
+    colorMode == "dark" && themeScheme == "mono" ? "black" : undefined
 
   const modalProps: any = {
     bg: "transparent",
@@ -16,6 +27,7 @@ export function KoFiModal() {
   return (
     <>
       <Button
+        color={buttonColor}
         colorScheme="primary"
         onClick={onOpen}
         rounded="full"
