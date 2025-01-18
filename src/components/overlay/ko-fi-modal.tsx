@@ -1,0 +1,45 @@
+"use client"
+
+import { Button, Modal, ModalBody, useDisclosure } from "@yamada-ui/react"
+
+export function KoFiModal() {
+  const { onClose, onOpen, open } = useDisclosure()
+
+  const modalProps: any = {
+    bg: "transparent",
+    boxShadow: "none",
+    onClose,
+    open,
+    withCloseButton: false,
+  }
+
+  return (
+    <>
+      <Button
+        colorScheme="primary"
+        onClick={onOpen}
+        rounded="full"
+        size="sm"
+        w="full"
+      >
+        寄付する✨
+      </Button>
+
+      <Modal {...modalProps}>
+        <ModalBody>
+          <iframe
+            height="600"
+            id="kofi-iframe"
+            src="https://ko-fi.com/108yen/?hidefeed=true&widget=true&embed=true&preview=true"
+            style={{
+              border: "none",
+              borderRadius: "0.375rem",
+              width: "100%",
+            }}
+            title="108yen"
+          />
+        </ModalBody>
+      </Modal>
+    </>
+  )
+}
