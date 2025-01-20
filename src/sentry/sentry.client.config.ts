@@ -18,12 +18,14 @@ if (
       Sentry.browserTracingIntegration(),
       Sentry.browserProfilingIntegration(),
     ],
+    profilesSampleRate: 1.0,
     release:
       process.env.NEXT_PUBLIC_VERCEL_ENV == "production"
         ? process.env.NEXT_PUBLIC_VERSION
         : undefined,
     replaysOnErrorSampleRate: 1.0,
     replaysSessionSampleRate: 0.1,
+
     tracesSampleRate: 1,
   })
 }
