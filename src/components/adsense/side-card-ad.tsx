@@ -31,7 +31,9 @@ export function SideCardAD(props: StackProps) {
           data-ad-client="ca-pub-1615921337969017"
           data-ad-format="rectangle"
           data-ad-slot="1058689000"
-          data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
+          data-adtest={
+            process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "off" : "on"
+          }
           data-full-width-responsive="true"
           display="block"
           textAlign="center"

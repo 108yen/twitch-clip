@@ -39,7 +39,9 @@ export function SideBarAD(props: BoxProps) {
             data-ad-client="ca-pub-1615921337969017"
             data-ad-format="auto"
             data-ad-slot="1041812482"
-            data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
+            data-adtest={
+              process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "off" : "on"
+            }
             data-full-width-responsive="true"
             display="block"
             minH="2xl"
