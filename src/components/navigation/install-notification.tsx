@@ -33,7 +33,7 @@ export function InstallNotification({
           color="link.500"
           href="/install-manual"
           mr={2}
-          onClick={(ev: any) => {
+          onClick={(ev) => {
             ev.stopPropagation()
 
             onClose?.()
@@ -45,7 +45,7 @@ export function InstallNotification({
       </VStack>
 
       <CloseButton
-        onClick={(ev: any) => {
+        onClick={(ev) => {
           ev.stopPropagation()
 
           onClose?.()

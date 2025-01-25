@@ -128,7 +128,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             itemProp="actor"
             itemScope
             itemType="https://schema.org/Person"
-            onClick={(ev: MouseEvent) => {
+            onClick={(ev) => {
               ev.stopPropagation()
             }}
             w="fit-content"

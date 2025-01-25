@@ -2,13 +2,12 @@ import { Icon, IconProps } from "@yamada-ui/react"
 
 interface XIconProps extends IconProps {}
 
-export function X({ fontSize = "5xl", ref, ...rest }: XIconProps) {
+export function X({ fontSize = "5xl", ...rest }: XIconProps) {
   return (
     <Icon
       fill="currentColor"
       focusable="false"
       fontSize={fontSize}
-      ref={ref}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
