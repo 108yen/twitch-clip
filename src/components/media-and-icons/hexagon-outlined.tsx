@@ -5,7 +5,6 @@ interface HexagonOutlinedIconProps extends IconProps {}
 export function HexagonOutlined({
   color,
   fontSize = "5xl",
-  ref,
   ...rest
 }: HexagonOutlinedIconProps) {
   return (
@@ -13,7 +12,6 @@ export function HexagonOutlined({
       fill={color ?? "currentColor"}
       focusable="false"
       fontSize={fontSize}
-      ref={ref}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}

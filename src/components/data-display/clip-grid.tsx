@@ -24,7 +24,6 @@ import {
   SimpleGrid,
   Spacer,
   Text,
-  TextProps,
   Tooltip,
   useInfiniteScroll,
   VStack,
@@ -62,19 +61,6 @@ function ClipCard({ clip }: ClipCardProps) {
     })
   }
 
-  //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
-  const tooltipProps: any = {
-    label: title,
-    placement: "top-start",
-  }
-
-  const textProps: TextProps = {
-    cursor: "pointer",
-    fontWeight: "bold",
-    isTruncated: true,
-    onClick,
-  }
-
   return (
     <VStack gap="1">
       <Container
@@ -100,8 +86,15 @@ function ClipCard({ clip }: ClipCardProps) {
 
         <VStack gap={0} overflow="hidden" w="full">
           <HStack gap={0}>
-            <Tooltip {...tooltipProps}>
-              <Text {...textProps}>{title}</Text>
+            <Tooltip label={title} placement="top-start">
+              <Text
+                cursor="pointer"
+                fontWeight="bold"
+                isTruncated
+                onClick={onClick}
+              >
+                {title}
+              </Text>
             </Tooltip>
 
             <Spacer />
