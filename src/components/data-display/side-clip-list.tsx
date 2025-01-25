@@ -12,7 +12,6 @@ import {
   assignRef,
   Box,
   Button,
-  ButtonProps,
   Container,
   createdDom,
   EmptyState,
@@ -210,28 +209,24 @@ export function SideClipTabs() {
     resetRef.current()
   }
 
-  //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
-  const tooltipProps: any = {
-    label: "リスト表示にもどる",
-    placement: "top",
-  }
-
-  const buttonProps: ButtonProps = {
-    onClick: () => {
-      setClipUrl(undefined)
-      sendGAEvent("event", "click", {
-        label: "click_return_to_list_view",
-      })
-    },
-    startIcon: <AlignJustifyIcon />,
-    variant: "link",
+  function handleClick() {
+    setClipUrl(undefined)
+    sendGAEvent("event", "click", {
+      label: "click_return_to_list_view",
+    })
   }
 
   return (
     <VStack gap={0} separator={<Separator />}>
       <HStack alignItems="flex-end" minH="6xs">
-        <Tooltip {...tooltipProps}>
-          <Button {...buttonProps}>clips</Button>
+        <Tooltip label="リスト表示にもどる" placement="top">
+          <Button
+            onClick={handleClick}
+            startIcon={<AlignJustifyIcon />}
+            variant="link"
+          >
+            clips
+          </Button>
         </Tooltip>
 
         <Spacer />
