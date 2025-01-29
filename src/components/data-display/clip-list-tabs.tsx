@@ -209,6 +209,8 @@ function ClipList({
   const breakpoint = useBreakpoint()
   const resetRef = useRef<() => void>(() => {})
 
+  const isFirstTab = tabIndex == 0
+
   function resetCount() {
     if (window) window.scrollTo({ top: 0 })
 
@@ -222,21 +224,22 @@ function ClipList({
     () =>
       clips.slice(0, count).map((clip, index) => {
         const isDisplayIndex =
-          (index == 4 && tabIndex == 0) ||
-          (index == CLIP_LIST.START_INDEX && tabIndex != 0)
+          (isFirstTab && index == 3) ||
+          (isFirstTab && index == clips.length - 1 && clips.length <= 3) ||
+          (!isFirstTab && index == CLIP_LIST.START_INDEX)
 
         if (isDisplayIndex && breakpoint == "sm") {
           return (
             <Box key={index}>
-              <InlineAD />
               <ClipCard clip={clip} tab={tab} />
+              <InlineAD />
             </Box>
           )
         } else {
           return <ClipCard clip={clip} key={index} tab={tab} />
         }
       }),
-    [breakpoint, clips, count, tab, tabIndex],
+    [breakpoint, clips, count, isFirstTab, tab],
   )
 
   return (
