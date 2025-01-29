@@ -220,18 +220,22 @@ function ClipList({
 
   const filteredClips = useMemo(
     () =>
-      clips.slice(0, count).map((clip, index) =>
-        ((index == 4 && tabIndex == 0) ||
-          (index == CLIP_LIST.START_INDEX && tabIndex != 0)) &&
-        breakpoint == "sm" ? (
-          <Box key={index}>
-            <InlineAD />
-            <ClipCard clip={clip} tab={tab} />
-          </Box>
-        ) : (
-          <ClipCard clip={clip} key={index} tab={tab} />
-        ),
-      ),
+      clips.slice(0, count).map((clip, index) => {
+        const isDisplayIndex =
+          (index == 4 && tabIndex == 0) ||
+          (index == CLIP_LIST.START_INDEX && tabIndex != 0)
+
+        if (isDisplayIndex && breakpoint == "sm") {
+          return (
+            <Box key={index}>
+              <InlineAD />
+              <ClipCard clip={clip} tab={tab} />
+            </Box>
+          )
+        } else {
+          return <ClipCard clip={clip} key={index} tab={tab} />
+        }
+      }),
     [breakpoint, clips, count, tab, tabIndex],
   )
 
