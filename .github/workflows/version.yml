@@ -1,9 +1,6 @@
 name: Version
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 permissions: {}
 

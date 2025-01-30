@@ -16,14 +16,6 @@ export function KoFiModal() {
   const buttonColor =
     colorMode == "dark" && themeScheme == "mono" ? "black" : undefined
 
-  const modalProps: any = {
-    bg: "transparent",
-    boxShadow: "none",
-    onClose,
-    open,
-    withCloseButton: false,
-  }
-
   return (
     <>
       <Button
@@ -37,7 +29,13 @@ export function KoFiModal() {
         寄付する✨
       </Button>
 
-      <Modal {...modalProps}>
+      <Modal
+        bg="transparent"
+        boxShadow="none"
+        onClose={onClose}
+        open={open}
+        withCloseButton={false}
+      >
         <ModalBody>
           <iframe
             height="600"

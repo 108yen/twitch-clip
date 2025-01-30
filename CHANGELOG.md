@@ -1,5 +1,11 @@
 # Releases
 
+## 2.9.2
+
+### Patch Changes
+
+- [#441](https://github.com/108yen/twitch-clip/pull/441) [`7cedc48`](https://github.com/108yen/twitch-clip/commit/7cedc485d1e0ed95e972b05053b8d4f34c144b04) Thanks [@108yen](https://github.com/108yen)! - Updated ad display position.
+
 ## 2.9.1
 
 ### Patch Changes

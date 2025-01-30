@@ -5,13 +5,15 @@ import {
   useBoolean,
 } from "@yamada-ui/react"
 
-interface SkeletonAvatarProps extends AvatarProps {}
+interface SkeletonAvatarProps extends AvatarProps {
+  href?: string
+}
 
 export function SkeletonAvatar(props: SkeletonAvatarProps) {
   const [avatarLoaded, { on: avatarOn }] = useBoolean()
 
   return (
-    <SkeletonCircle isLoaded={avatarLoaded}>
+    <SkeletonCircle loaded={avatarLoaded}>
       <Avatar onLoad={avatarOn} {...props} />
     </SkeletonCircle>
   )

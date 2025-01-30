@@ -33,7 +33,9 @@ export function InlineAD(props: StackProps) {
           data-ad-format="fluid"
           data-ad-layout="in-article"
           data-ad-slot="8553448913"
-          data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
+          data-adtest={
+            process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? "off" : "on"
+          }
           display="block"
           maxW="md"
           textAlign="center"

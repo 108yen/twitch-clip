@@ -77,10 +77,8 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
     startTransition(toggleCheckState)
   }
 
-  const tooltipProps: any = { label: "お気に入りに登録する", placement: "top" }
-
   return (
-    <Tooltip {...tooltipProps}>
+    <Tooltip label="お気に入りに登録する" placement="top">
       <IconButton
         aria-label="Favorite button"
         colorScheme="primary"

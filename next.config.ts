@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
+          {
+            key: "Document-Policy",
+            value: "js-profiling",
+          },
         ],
         source: "/(.*)",
       },

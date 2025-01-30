@@ -10,11 +10,9 @@ import {
   dataAttr,
   Heading,
   HStack,
-  mergeRefs,
   Separator,
   Spacer,
   Text,
-  TextProps,
   Tooltip,
 } from "@yamada-ui/react"
 import Link from "next/link"
@@ -23,7 +21,7 @@ import { useRef } from "react"
 
 export interface HeaderProps extends CenterProps {}
 
-export function Header({ ref, ...rest }: HeaderProps) {
+export function Header(props: HeaderProps) {
   const headerRef = useRef<HTMLHeadingElement>(null)
   const y = useScrollY()
   const pathname = usePathname()
@@ -40,7 +38,7 @@ export function Header({ ref, ...rest }: HeaderProps) {
       bg={isScroll ? ["whiteAlpha.700", "blackAlpha.400"] : undefined}
       left="0"
       position="sticky"
-      ref={mergeRefs(ref, headerRef)}
+      ref={headerRef}
       right="0"
       shadow={isScroll ? ["base", "dark-sm"] : undefined}
       top="0"
@@ -48,7 +46,7 @@ export function Header({ ref, ...rest }: HeaderProps) {
       transitionProperty="common"
       w="full"
       zIndex="guldo"
-      {...rest}
+      {...props}
     >
       <HStack
         gap={0}
@@ -81,27 +79,20 @@ export function Header({ ref, ...rest }: HeaderProps) {
         />
 
         <HStack as="nav" display={{ base: "flex", md: "none" }} gap="lg">
-          {CONSTANT.PATHS.map(({ href, title, tooltip }) => {
-            //NOTE: declare as `any` type because `error TS2590: Expression produces a union type that is too complex to represent.` occurred.
-            const tooltipProps: any = {
-              label: tooltip,
-            }
-
-            const textProps: TextProps = {
-              "aria-label": `Link to ${title} page`,
-              as: Link,
-              "data-selected": dataAttr(pathname === href),
-              href: href,
-              isTruncated: true,
-              textStyle: "navigation",
-            }
-
-            return (
-              <Tooltip key={title} {...tooltipProps}>
-                <Text {...textProps}>{title}</Text>
-              </Tooltip>
-            )
-          })}
+          {CONSTANT.PATHS.map(({ href, title, tooltip }) => (
+            <Tooltip key={title} label={tooltip}>
+              <Text
+                aria-label={`Link to ${title} page`}
+                as={Link}
+                data-selected={dataAttr(pathname === href)}
+                href={href}
+                isTruncated
+                textStyle="navigation"
+              >
+                {title}
+              </Text>
+            </Tooltip>
+          ))}
         </HStack>
 
         <Spacer
