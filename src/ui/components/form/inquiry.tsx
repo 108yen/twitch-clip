@@ -7,6 +7,7 @@ import { parseWithZod } from "@conform-to/zod"
 import {
   Button,
   FormControl,
+  HelperMessage,
   Textarea,
   useNotice,
   VStack,
@@ -20,6 +21,7 @@ export function Inquiry() {
     onValidate({ formData }) {
       return parseWithZod(formData, { schema: inquiryScheme })
     },
+    shouldRevalidate: "onInput",
   })
 
   const notice = useNotice({ limit: 1, placement: "bottom-left" })
@@ -75,9 +77,12 @@ export function Inquiry() {
       >
         <Textarea
           focusBorderColor="primary.500"
+          maxLength={2000}
           rows={4}
           {...getTextareaProps(fields.content)}
         />
+
+        <HelperMessage textAlign="right">{`${fields.content.value?.length ?? 0}/2000`}</HelperMessage>
       </FormControl>
 
       <Button loading={pending} type="submit" variant="outline" w="fit-content">
