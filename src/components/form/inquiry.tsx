@@ -1,6 +1,9 @@
 "use client"
 import { postInquiry } from "@/firebase/server/inquiry"
+import { inquiryScheme } from "@/scheme"
 import { sendGAEvent } from "@/utils/google-analytics"
+import { getFormProps, getTextareaProps, useForm } from "@conform-to/react"
+import { parseWithZod } from "@conform-to/zod"
 import {
   Button,
   FormControl,
@@ -8,84 +11,60 @@ import {
   useNotice,
   VStack,
 } from "@yamada-ui/react"
-import { KeyboardEvent } from "react"
-import { Controller, SubmitHandler, useForm } from "react-hook-form"
-
-interface Inputs {
-  inquiry: string
-}
+import { useActionState, useEffect } from "react"
 
 export function Inquiry() {
-  const notice = useNotice({ placement: "bottom-left" })
-
-  const { control, handleSubmit, reset } = useForm<Inputs>({
-    defaultValues: {
-      inquiry: "",
+  const [lastResult, action, pending] = useActionState(postInquiry, undefined)
+  const [form, fields] = useForm({
+    lastResult,
+    onValidate({ formData }) {
+      return parseWithZod(formData, { schema: inquiryScheme })
     },
   })
 
-  const validationRules = {
-    inquiry: {
-      minLength: { message: "お問い合わせを入力してください", value: 3 },
-      required: "お問い合わせを入力してください",
-    },
-  }
+  const notice = useNotice({ limit: 1, placement: "bottom-left" })
 
-  const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
+  useEffect(() => {
     sendGAEvent("event", "click", {
       label: "post_inquiry",
     })
-    const result = await postInquiry(data.inquiry)
 
-    if (result?.error) {
+    const { status } = form
+
+    if (status == "success") {
       notice({
-        status: "error",
-        title: "問い合わせ失敗",
-      })
-    } else {
-      notice({
-        status: "success",
+        status,
         title: "問い合わせ完了",
       })
-
-      reset()
+    } else if (status == "error") {
+      notice({
+        status,
+        title: "問い合わせ失敗",
+      })
     }
-  }
-
-  const checkKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault()
-    }
-  }
+  }, [form, notice])
 
   return (
     <VStack
+      action={action}
       alignItems="center"
       as="form"
       gap="md"
-      onKeyDown={checkKeyDown}
-      onSubmit={handleSubmit(onSubmit)}
+      {...getFormProps(form)}
+      noValidate
     >
-      <Controller
-        control={control}
-        name="inquiry"
-        render={({ field, fieldState }) => (
-          <FormControl
-            errorMessage={fieldState.error?.message}
-            isInvalid={fieldState.invalid}
-          >
-            <Textarea
-              {...field}
-              focusBorderColor="primary.500"
-              id="inquiry"
-              rows={4}
-            />
-          </FormControl>
-        )}
-        rules={validationRules.inquiry}
-      />
+      <FormControl
+        errorMessage={fields.content.errors}
+        invalid={!fields.content.valid}
+      >
+        <Textarea
+          focusBorderColor="primary.500"
+          rows={4}
+          {...getTextareaProps(fields.content)}
+        />
+      </FormControl>
 
-      <Button type="submit" variant="outline" w="fit-content">
+      <Button loading={pending} type="submit" variant="outline" w="fit-content">
         問い合わせ
       </Button>
     </VStack>
