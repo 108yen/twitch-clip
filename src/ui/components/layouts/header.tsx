@@ -1,7 +1,5 @@
 "use client"
 
-import { HexagonOutlined } from "@/components/media-and-icons"
-import { HeaderMenu } from "@/components/navigation"
 import { CONSTANT } from "@/constant"
 import { useScrollY } from "@/hooks"
 import {
@@ -18,6 +16,9 @@ import {
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useRef } from "react"
+
+import { HexagonOutlined } from "../media-and-icons"
+import { HeaderMenu } from "../navigation"
 
 export interface HeaderProps extends CenterProps {}
 

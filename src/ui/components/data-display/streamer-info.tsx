@@ -1,9 +1,10 @@
 "use client"
-import { SkeletonAvatar, TwitchLink } from "@/components/media-and-icons"
 import { useClip } from "@/contexts"
 import { GhostIcon } from "@yamada-ui/lucide"
 import { HStack, Spacer, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
+
+import { SkeletonAvatar, TwitchLink } from "../media-and-icons"
 
 export function StreamerInfo() {
   const { currentClip } = useClip()

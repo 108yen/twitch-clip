@@ -20,6 +20,8 @@
     "gen:streamer": "tsx src/scripts/gen-streamer"
   },
   "dependencies": {
+    "@conform-to/react": "^1.2.2",
+    "@conform-to/zod": "^1.2.2",
     "@sentry/nextjs": "^8",
     "@yamada-ui/carousel": "^2.1.10",
     "@yamada-ui/lucide": "^1.10.3",
@@ -34,9 +36,9 @@
     "next-sitemap": "^4.0.5",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-hook-form": "^7.48.2",
     "remark-gfm": "^4.0.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@actions/github": "^6.0.0",

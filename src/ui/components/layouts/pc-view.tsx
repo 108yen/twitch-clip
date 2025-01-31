@@ -1,7 +1,8 @@
 "use client"
-import { ClipInfo, SideClipTabs, StreamerInfo } from "@/components/data-display"
 import { useClip } from "@/contexts"
 import { AspectRatio, Grid, GridItem, VStack } from "@yamada-ui/react"
+
+import { ClipInfo, SideClipTabs, StreamerInfo } from "../data-display"
 
 export function PCView() {
   const { currentClip } = useClip()

@@ -1,5 +1,4 @@
 "use client"
-import { ClipInfo, ClipListTabs, StreamerInfo } from "@/components/data-display"
 import { useClip } from "@/contexts"
 import { useScrollY } from "@/hooks"
 import {
@@ -9,6 +8,8 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import { useMemo, useRef, useState } from "react"
+
+import { ClipInfo, ClipListTabs, StreamerInfo } from "../data-display"
 
 export function MobileView() {
   const tabsRef = useRef<HTMLDivElement>(undefined)
