@@ -2,7 +2,7 @@
 import { postInquiry } from "@/firebase/server/inquiry"
 import { inquiryScheme } from "@/scheme"
 import { sendGAEvent } from "@/utils/google-analytics"
-import { getFormProps, getTextareaProps, useForm } from "@conform-to/react"
+import { FormMetadata, getTextareaProps, useForm } from "@conform-to/react"
 import { parseWithZod } from "@conform-to/zod"
 import {
   Button,
@@ -11,7 +11,7 @@ import {
   useNotice,
   VStack,
 } from "@yamada-ui/react"
-import { useActionState, useEffect } from "react"
+import { FormEvent, useActionState, useEffect } from "react"
 
 export function Inquiry() {
   const [lastResult, action, pending] = useActionState(postInquiry, undefined)
@@ -44,6 +44,23 @@ export function Inquiry() {
     }
   }, [form, notice])
 
+  function getFormProps<T extends Record<string, any>>({
+    errorId,
+    id,
+    onSubmit,
+    valid,
+  }: FormMetadata<T>) {
+    return {
+      "aria-describedby": !valid ? errorId : undefined,
+      "aria-invalid": !valid || undefined,
+      id,
+      noValidate: true,
+      onSubmit(event: FormEvent<HTMLDivElement>) {
+        onSubmit(event as unknown as FormEvent<HTMLFormElement>)
+      },
+    }
+  }
+
   return (
     <VStack
       action={action}
@@ -51,7 +68,6 @@ export function Inquiry() {
       as="form"
       gap="md"
       {...getFormProps(form)}
-      noValidate
     >
       <FormControl
         errorMessage={fields.content.errors}
