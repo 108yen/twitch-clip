@@ -1,15 +1,15 @@
 "use client"
 
+import { ClipProvider, usePage } from "@/contexts"
+import { Clip } from "@/models/clip"
+import { ClipDoc } from "@/models/clipDoc"
 import {
   FavoriteBody,
   FavoriteHeader,
   MobileView,
   PCView,
-} from "@/components/layouts"
-import { ClipProvider, usePage } from "@/contexts"
-import { AppLayout } from "@/layouts"
-import { Clip } from "@/models/clip"
-import { ClipDoc } from "@/models/clipDoc"
+} from "@/ui/components/layouts"
+import { AppLayout } from "@/ui/layouts"
 import { StarIcon } from "@yamada-ui/lucide"
 import { EmptyState, isUndefined, useBreakpoint } from "@yamada-ui/react"
 import { useEffect, useRef, useState, useTransition } from "react"

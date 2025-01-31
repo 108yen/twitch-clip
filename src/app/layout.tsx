@@ -1,6 +1,6 @@
-import { Header } from "@/components/layouts"
 import { PageProvider } from "@/contexts"
 import { config, theme } from "@/theme"
+import { Header } from "@/ui/components/layouts"
 import { Adsbygoogle } from "@/utils/adsense"
 import generateTemplateMetadata from "@/utils/generate-template-metadata"
 import { GoogleAnalytics } from "@/utils/google-analytics"

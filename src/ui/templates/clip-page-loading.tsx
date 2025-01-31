@@ -1,5 +1,5 @@
 import { CONSTANT } from "@/constant"
-import { AppLayout } from "@/layouts"
+import { AppLayout } from "@/ui/layouts"
 import { Center, Loading, Tab, TabList, Tabs } from "@yamada-ui/react"
 
 export function ClipPageLoading() {
