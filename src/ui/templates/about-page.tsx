@@ -1,5 +1,5 @@
-import { components } from "@/components/mdx"
-import { DocumentLayout } from "@/layouts"
+import { components } from "@/ui/components/mdx"
+import { DocumentLayout } from "@/ui/layouts"
 import { Center, HStack, Text } from "@yamada-ui/react"
 import { readFile } from "fs/promises"
 import { MDXRemote } from "next-mdx-remote/rsc"

@@ -1,6 +1,6 @@
 import { STREAMERS } from "@/constant/streamers"
 import { unstable_getClips } from "@/firebase/server"
-import { StreamerClipPage } from "@/templates"
+import { StreamerClipPage } from "@/ui/templates"
 import generateTemplateMetadata from "@/utils/generate-template-metadata"
 import { Metadata } from "next"
 

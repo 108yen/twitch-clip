@@ -1,5 +1,4 @@
 "use client"
-import { SideCardAD } from "@/components/adsense"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { Clip } from "@/models/clip"
@@ -32,6 +31,7 @@ import {
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
 
+import { SideCardAD } from "../adsense"
 import { SkeletonAvatar } from "../media-and-icons"
 
 interface ClipCardProps {

@@ -1,6 +1,6 @@
 "use client"
-import { SearchChannels } from "@/components/form"
-import { AppLayout } from "@/layouts"
+import { SearchChannels } from "@/ui/components/form"
+import { AppLayout } from "@/ui/layouts"
 import { Center, Loading } from "@yamada-ui/react"
 
 export function StreamersLoading() {

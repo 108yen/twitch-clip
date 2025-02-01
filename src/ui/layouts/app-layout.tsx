@@ -1,4 +1,4 @@
-import { SideBarAD } from "@/components/adsense"
+import { SideBarAD } from "@/ui/components/adsense"
 import { Center, Grid, GridItem, SimpleGridProps } from "@yamada-ui/react"
 import { PropsWithChildren } from "react"
 

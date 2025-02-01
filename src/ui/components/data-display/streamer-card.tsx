@@ -1,8 +1,9 @@
-import { SkeletonAvatar, TwitchLink } from "@/components/media-and-icons"
 import { Streamer } from "@/models/streamer"
 import { GhostIcon } from "@yamada-ui/lucide"
 import { Heading, HStack, Spacer, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
+
+import { SkeletonAvatar, TwitchLink } from "../media-and-icons"
 
 interface StreamerCardProps {
   streamer: Streamer

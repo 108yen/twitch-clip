@@ -1,11 +1,11 @@
 "use client"
 
-import { ClipListTabs, StreamerCard } from "@/components/data-display"
-import { MobileView, PCView } from "@/components/layouts"
 import { ClipProvider } from "@/contexts"
-import { AppLayout } from "@/layouts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
+import { ClipListTabs, StreamerCard } from "@/ui/components/data-display"
+import { MobileView, PCView } from "@/ui/components/layouts"
+import { AppLayout } from "@/ui/layouts"
 import { splitClipDoc } from "@/utils/clip"
 import {
   Tab,
