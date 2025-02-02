@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- [#444](https://github.com/108yen/twitch-clip/pull/444) [`be38eab`](https://github.com/108yen/twitch-clip/commit/be38eab951f309c702c7c7e301be86a84a00bc9b) Thanks [@108yen](https://github.com/108yen)! - Replace form validation library.
+- [#444](https://github.com/108yen/twitch-clip/pull/444) [`be38eab`](https://github.com/108yen/twitch-clip/commit/be38eab951f309c702c7c7e301be86a84a00bc9b) Thanks [@108yen](https://github.com/108yen)! - Replaced validation library.
 
 ## 2.9.2
 
