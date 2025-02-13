@@ -19,6 +19,7 @@ import {
   Loading,
   NativeImage,
   noop,
+  ScrollArea,
   Select,
   SelectItem,
   Separator,
@@ -165,7 +166,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   )
 
   return (
-    <Container layerStyle="scrollArea" maxH={height} ref={rootRef}>
+    <ScrollArea h={height} ref={rootRef}>
       <InfiniteScrollArea
         finish={<EmptyState title="No more clips" />}
         loading={<Loading fontSize="2xl" />}
@@ -185,7 +186,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
       >
         {filteredClips}
       </InfiniteScrollArea>
-    </Container>
+    </ScrollArea>
   )
 }
 
