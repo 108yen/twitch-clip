@@ -30,16 +30,4 @@ export const layerStyles: LayerStyles = {
     overflow: "hidden",
     transition: "0.2s ease",
   },
-  scrollArea: {
-    _scrollbar: {
-      display: "auto",
-      width: "1.5",
-    },
-    _scrollbarThumb: {
-      bg: "gray.500",
-      borderRadius: "full",
-    },
-    overflowY: "scroll",
-    p: 0,
-  },
 }
