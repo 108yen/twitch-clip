@@ -44,7 +44,6 @@ const nextConfig: NextConfig = {
 
 export default withSentryConfig(nextConfig, {
   disableLogger: true,
-  hideSourceMaps: true,
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
   reactComponentAnnotation: {
