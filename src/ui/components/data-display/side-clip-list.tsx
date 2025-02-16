@@ -5,7 +5,7 @@ import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
 import { formatDate } from "@/utils/string"
-import { AlignJustifyIcon, GhostIcon } from "@yamada-ui/lucide"
+import { ArrowLeftIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
@@ -19,6 +19,7 @@ import {
   Loading,
   NativeImage,
   noop,
+  ScrollArea,
   Select,
   SelectItem,
   Separator,
@@ -143,8 +144,8 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   })
 
   function resetCount() {
-    resetRef.current()
     setCount(CLIP_LIST.START_INDEX)
+    resetRef.current()
   }
 
   assignRef(resetRefProp, resetCount)
@@ -165,7 +166,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   )
 
   return (
-    <Container layerStyle="scrollArea" maxH={height} ref={rootRef}>
+    <ScrollArea h={height} ref={rootRef}>
       <InfiniteScrollArea
         finish={<EmptyState title="No more clips" />}
         loading={<Loading fontSize="2xl" />}
@@ -185,7 +186,7 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
       >
         {filteredClips}
       </InfiniteScrollArea>
-    </Container>
+    </ScrollArea>
   )
 }
 
@@ -222,7 +223,7 @@ export function SideClipTabs() {
         <Tooltip label="リスト表示にもどる" placement="top">
           <Button
             onClick={handleClick}
-            startIcon={<AlignJustifyIcon />}
+            startIcon={<ArrowLeftIcon />}
             variant="link"
           >
             clips
