@@ -7,7 +7,7 @@
     "prepare": "lefthook install",
     "dev": "concurrently \"pnpm firestore:emulators\" \"pnpm next dev --turbopack\"",
     "firestore:emulators": "firebase emulators:start --project=twitch-clip-66e5b --only firestore --import data/2024-12-02T041612_35880",
-    "scan": "pnpm dlx react-scan@latest localhost:3000",
+    "scan": "pnpm dlx react-scan@0.0.47 localhost:3000",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
