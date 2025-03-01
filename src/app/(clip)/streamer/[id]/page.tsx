@@ -27,5 +27,17 @@ export default async function Page(props: Props) {
 
   const clipDoc = await unstable_getClips(id)
 
-  return <StreamerClipPage clipDoc={clipDoc} />
+  const title = clipDoc.streamerInfo?.display_name ?? "unkonow"
+
+  return (
+    <>
+      <title>{`${title} | Twitchクリップランキング`}</title>
+      <meta
+        content={`${title}のTwitch(ツイッチ)クリップの再生数ランキング。`}
+        property="description"
+      />
+
+      <StreamerClipPage clipDoc={clipDoc} />
+    </>
+  )
 }
