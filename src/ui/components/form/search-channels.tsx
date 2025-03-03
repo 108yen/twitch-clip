@@ -26,7 +26,7 @@ export function SearchChannels({
   }
 
   return (
-    <InputGroup>
+    <InputGroup mt="3">
       <InputLeftElement>
         <SearchIcon />
       </InputLeftElement>

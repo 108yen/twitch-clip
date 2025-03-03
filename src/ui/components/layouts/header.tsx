@@ -51,7 +51,7 @@ export function Header(props: HeaderProps) {
     >
       <HStack
         gap={0}
-        px={{ base: "lg", lg: "md" }}
+        px={{ base: "lg", lg: "md", sm: "xs" }}
         py={{ base: "3", sm: "2" }}
         w="full"
       >
@@ -62,10 +62,8 @@ export function Header(props: HeaderProps) {
           href="/"
           textDecoration="none"
         >
-          <HexagonOutlined
-            color="primary"
-            display={{ base: "flex", md: "none" }}
-          />
+          <HexagonOutlined color="primary" />
+
           <Heading as="h1" fontSize="2xl" fontWeight="medium" isTruncated>
             Twitch clip ranking
           </Heading>
