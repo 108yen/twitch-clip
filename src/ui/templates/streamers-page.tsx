@@ -8,6 +8,8 @@ import { EmptyState, VStack } from "@yamada-ui/react"
 import { useSearchParams } from "next/navigation"
 import { useDeferredValue, useMemo, useState } from "react"
 
+import { PageHeader } from "../components/layouts"
+
 function streamerFilter(text: string) {
   return function ({ display_name, login, teams }: Streamer) {
     if (display_name?.includes(text)) return true
@@ -37,6 +39,8 @@ export function Streamers({ streamers }: StreamersProps) {
 
   return (
     <AppLayout>
+      <PageHeader title="Channels" />
+
       <VStack gap="md">
         <SearchChannels
           num={filteredChannels.length}

@@ -4,7 +4,7 @@ import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { doEveryThreeMonth } from "@/storage"
 import { ClipListTabs } from "@/ui/components/data-display"
-import { MobileView, PCView } from "@/ui/components/layouts"
+import { MobileView, PageHeader, PCView } from "@/ui/components/layouts"
 import { InstallNotification } from "@/ui/components/navigation"
 import { AppLayout } from "@/ui/layouts"
 import { getDisplayMode } from "@/utils/mode"
@@ -13,9 +13,10 @@ import { useEffect, useState } from "react"
 
 interface ClipPageProps {
   clipDoc: ClipDoc
+  title: string
 }
 
-export function ClipPage({ clipDoc }: ClipPageProps) {
+export function ClipPage({ clipDoc, title }: ClipPageProps) {
   const [currentClip, setCurrentClip] = useState<Clip>()
   const breakpoint = useBreakpoint()
   const notice = useNotice({ duration: 12000, limit: 1 })
@@ -43,6 +44,8 @@ export function ClipPage({ clipDoc }: ClipPageProps) {
     >
       {currentClip === undefined ? (
         <AppLayout>
+          <PageHeader title={title} />
+
           <ClipListTabs />
         </AppLayout>
       ) : breakpoint == "sm" ? (
