@@ -5,30 +5,44 @@ import { SearchChannels } from "@/ui/components/form"
 import { AppLayout } from "@/ui/layouts"
 import { TwitchIcon } from "@yamada-ui/lucide"
 import { EmptyState, VStack } from "@yamada-ui/react"
+import { useSearchParams } from "next/navigation"
 import { useDeferredValue, useMemo, useState } from "react"
 
+function streamerFilter(text: string) {
+  return function ({ display_name, login, teams }: Streamer) {
+    if (display_name?.includes(text)) return true
+    if (login?.includes(text)) return true
+
+    if (teams?.some(({ display_name }) => display_name?.includes(text)))
+      return true
+    if (teams?.some(({ name }) => name?.includes(text))) return true
+
+    return false
+  }
+}
 interface StreamersProps {
   streamers: Streamer[]
 }
 
 export function Streamers({ streamers }: StreamersProps) {
-  const [text, setText] = useState("")
+  const searchParams = useSearchParams()
+
+  const [text, setText] = useState(searchParams.get("text") ?? "")
   const deferredText = useDeferredValue(text)
 
   const filteredChannels = useMemo(
-    () =>
-      streamers.filter(
-        (streamer) =>
-          streamer.display_name?.includes(deferredText) ||
-          streamer.login?.includes(deferredText),
-      ),
+    () => streamers.filter(streamerFilter(deferredText)),
     [streamers, deferredText],
   )
 
   return (
     <AppLayout>
       <VStack gap="md">
-        <SearchChannels num={filteredChannels.length} onChange={setText} />
+        <SearchChannels
+          num={filteredChannels.length}
+          onChange={setText}
+          value={text}
+        />
 
         {filteredChannels.length == 0 ? (
           <EmptyState

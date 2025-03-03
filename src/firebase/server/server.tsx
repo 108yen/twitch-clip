@@ -1,5 +1,5 @@
 import "server-only"
-import * as admin from "firebase-admin"
+import admin from "firebase-admin"
 
 const serviceAccount = {
   authProviderX509CertUrl: process.env.AUTH_PROVIDER_X509_CERT_URL!,
