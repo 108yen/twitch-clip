@@ -2,14 +2,13 @@
 
 import { LayoutGridIcon, Rows3Icon } from "@yamada-ui/lucide"
 import {
-  Heading,
-  HStack,
   SegmentedControl,
   SegmentedControlButton,
-  Spacer,
   StackProps,
   useBreakpoint,
 } from "@yamada-ui/react"
+
+import { PageHeader } from "./page-header"
 
 interface FavoriteHeaderProps extends StackProps {
   handleChangeLayout(value: string): void
@@ -22,13 +21,7 @@ export function FavoriteHeader({
   const breakpoint = useBreakpoint()
 
   return (
-    <HStack marginY={{ base: "md", sm: "sm" }} p={0} w="full" {...rest}>
-      <Heading as="h2" size="lg">
-        Favorite
-      </Heading>
-
-      <Spacer />
-
+    <PageHeader title="Favorite" {...rest}>
       {breakpoint != "sm" ? (
         <SegmentedControl
           defaultValue="grid"
@@ -43,6 +36,6 @@ export function FavoriteHeader({
           </SegmentedControlButton>
         </SegmentedControl>
       ) : null}
-    </HStack>
+    </PageHeader>
   )
 }

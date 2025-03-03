@@ -6,12 +6,14 @@ import {
   LinkBox,
   LinkOverlay,
   Spacer,
+  Stack,
   Text,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
 
 import { SkeletonAvatar, TwitchLink } from "../media-and-icons"
+import { TeamTag } from "./team-tag"
 
 interface ChannelCardProps {
   streamer: Streamer
@@ -25,6 +27,7 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
     id,
     login,
     profile_image_url,
+    teams,
   } = streamer
 
   const follower_num = `${_follower_num?.toLocaleString()} followers`
@@ -40,22 +43,29 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
         />
 
         <VStack overflow="hidden" w="full">
-          <HStack>
-            <Heading
-              fontSize="xl"
-              fontWeight="semibold"
-              isTruncated
-              variant="h5"
+          <HStack alignItems="flex-start">
+            <Stack
+              direction={{ base: "row", sm: "column" }}
+              gap={{ base: "md", sm: "xs" }}
             >
-              <LinkOverlay
-                aria-label="Streamer channel page link"
-                as={Link}
-                href={`/streamer/${id}`}
-                itemProp="name"
+              <Heading
+                fontSize="xl"
+                fontWeight="semibold"
+                isTruncated
+                variant="h5"
               >
-                {display_name}
-              </LinkOverlay>
-            </Heading>
+                <LinkOverlay
+                  aria-label="Streamer channel page link"
+                  as={Link}
+                  href={`/streamer/${id}`}
+                  itemProp="name"
+                >
+                  {display_name}
+                </LinkOverlay>
+              </Heading>
+
+              <TeamTag teams={teams} />
+            </Stack>
 
             <Spacer />
 

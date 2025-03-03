@@ -4,5 +4,5 @@ import { ClipPage } from "@/ui/templates"
 export default async function Page() {
   const clipDoc = await getClips("summary")
 
-  return <ClipPage clipDoc={clipDoc} />
+  return <ClipPage clipDoc={clipDoc} title="Trend Ranking" />
 }
