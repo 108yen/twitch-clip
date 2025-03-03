@@ -2,7 +2,6 @@ import "dotenv/config"
 
 import type { Streamer, Team } from "@/models/streamer"
 
-import { ClipDoc } from "@/models/clipDoc"
 import * as p from "@clack/prompts"
 import axios, { AxiosRequestConfig } from "axios"
 
@@ -137,7 +136,7 @@ async function updateFirestore(
   callback?.("streamers")
 
   for (const streamer of streamers) {
-    await updateClip(db, streamer.id, new ClipDoc({ streamerInfo: streamer }))
+    await updateClip(db, streamer.id, { streamerInfo: streamer })
     callback?.(streamer.display_name ?? "")
   }
 }
