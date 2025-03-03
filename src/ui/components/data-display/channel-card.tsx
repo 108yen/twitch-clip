@@ -7,13 +7,13 @@ import {
   LinkOverlay,
   Spacer,
   Stack,
-  Tag,
   Text,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
 
 import { SkeletonAvatar, TwitchLink } from "../media-and-icons"
+import { TeamTag } from "./team-tag"
 
 interface ChannelCardProps {
   streamer: Streamer
@@ -64,20 +64,7 @@ export function ChannelCard({ streamer }: ChannelCardProps) {
                 </LinkOverlay>
               </Heading>
 
-              <HStack gap={{ base: "md", sm: "xs" }}>
-                {teams?.map(({ display_name }, index) => (
-                  <Tag
-                    as={Link}
-                    href={`/streamers?text=${display_name}`}
-                    key={index}
-                    size="sm"
-                    target="_blank"
-                    variant="outline"
-                  >
-                    {display_name}
-                  </Tag>
-                ))}
-              </HStack>
+              <TeamTag teams={teams} />
             </Stack>
 
             <Spacer />
