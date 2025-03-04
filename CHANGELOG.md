@@ -1,5 +1,17 @@
 # Releases
 
+## 2.10.0
+
+### Minor Changes
+
+- [#476](https://github.com/108yen/twitch-clip/pull/476) [`8aea174`](https://github.com/108yen/twitch-clip/commit/8aea1746fb93d5a124479d6f9453975d0adc3405) Thanks [@108yen](https://github.com/108yen)! - Added team tags.
+
+### Patch Changes
+
+- [#474](https://github.com/108yen/twitch-clip/pull/474) [`2c324d0`](https://github.com/108yen/twitch-clip/commit/2c324d012924c3cd5c0bb34e0034b3bbaabfb5d9) Thanks [@108yen](https://github.com/108yen)! - Updated metadata in streamer page.
+
+- [#476](https://github.com/108yen/twitch-clip/pull/476) [`548be7d`](https://github.com/108yen/twitch-clip/commit/548be7d26f5ecc6d7322a560a7637ce8a7dbeb90) Thanks [@108yen](https://github.com/108yen)! - Add titles to each page.
+
 ## 2.9.4
 
 ### Patch Changes
