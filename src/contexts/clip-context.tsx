@@ -12,7 +12,7 @@ export interface ClipProviderProps extends PropsWithChildren {
 }
 
 const initialContext: ClipProviderProps = {
-  clipDoc: new ClipDoc(),
+  clipDoc: {},
   setClipUrl: () => {},
 }
 

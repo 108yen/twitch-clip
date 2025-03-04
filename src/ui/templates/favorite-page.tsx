@@ -22,7 +22,7 @@ export function FavoritePage() {
   const breakpoint = useBreakpoint()
   const { getAllClips } = usePage()
 
-  const clipDoc = new ClipDoc({ favorite: clips })
+  const clipDoc: ClipDoc = { favorite: clips }
 
   const hasCurrentClip = !isUndefined(currentClip)
 

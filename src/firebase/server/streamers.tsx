@@ -7,12 +7,6 @@ import { cache } from "react"
 
 import { streamersConverter } from "./converters/streamersConverter"
 
-// const tags = ["get-streamers"]
-
-// const getStreamers = unstable_cache(uncached_getStreamers, tags, {
-//   tags,
-//   revalidate: 10800, //3hours
-// })
 export const getStreamers = cache(uncached_getStreamers)
 
 async function uncached_getStreamers() {

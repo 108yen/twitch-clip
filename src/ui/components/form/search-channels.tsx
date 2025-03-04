@@ -3,6 +3,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  InputProps,
   InputRightElement,
   Text,
 } from "@yamada-ui/react"
@@ -10,17 +11,22 @@ import { ChangeEvent } from "react"
 
 import { CountUp } from "../transitions"
 
-interface SearchChannelProps {
+interface SearchChannelProps extends Omit<InputProps, "onChange"> {
   num: number
   onChange: (value: string) => void
 }
-export function SearchChannels({ num: _num, onChange }: SearchChannelProps) {
+
+export function SearchChannels({
+  num: _num,
+  onChange,
+  ...rest
+}: SearchChannelProps) {
   function handleChange(ev: ChangeEvent<HTMLInputElement>) {
     onChange(ev.target.value)
   }
 
   return (
-    <InputGroup>
+    <InputGroup mt="3">
       <InputLeftElement>
         <SearchIcon />
       </InputLeftElement>
@@ -32,6 +38,7 @@ export function SearchChannels({ num: _num, onChange }: SearchChannelProps) {
         placeholder="search"
         type="text"
         variant="flushed"
+        {...rest}
       />
 
       <InputRightElement w="fit-content">

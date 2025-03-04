@@ -6,16 +6,16 @@ import {
 } from "firebase-admin/firestore"
 
 export const streamersConverter: FirestoreDataConverter<{
-  streamers: Array<Streamer>
+  streamers: Streamer[]
 }> = {
-  fromFirestore(qds: QueryDocumentSnapshot): { streamers: Array<Streamer> } {
+  fromFirestore(qds: QueryDocumentSnapshot): { streamers: Streamer[] } {
     const data = qds.data()
 
     if (!data.streamers) {
       new Error("streamersConverter/fromFirestore: data.streamers is undefined")
     }
 
-    const result: Array<Streamer> = []
+    const result: Streamer[] = []
     for (const i in data.streamers) {
       const streamer = data.streamers[i] as Streamer
       result.push(streamer)
@@ -23,7 +23,7 @@ export const streamersConverter: FirestoreDataConverter<{
 
     return { streamers: result }
   },
-  toFirestore(doc: { streamers: Array<Streamer> }): DocumentData {
+  toFirestore(doc: { streamers: Streamer[] }): DocumentData {
     return doc
   },
 }

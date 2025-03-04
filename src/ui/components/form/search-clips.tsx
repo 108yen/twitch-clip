@@ -20,7 +20,7 @@ export function SearchClips({ num: _num, onChange }: SearchClipProps) {
   }
 
   return (
-    <InputGroup>
+    <InputGroup mt="3">
       <InputLeftElement>
         <SearchIcon />
       </InputLeftElement>

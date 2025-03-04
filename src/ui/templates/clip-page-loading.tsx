@@ -1,10 +1,27 @@
 import { CONSTANT } from "@/constant"
 import { AppLayout } from "@/ui/layouts"
-import { Center, Loading, Tab, TabList, Tabs } from "@yamada-ui/react"
+import {
+  Center,
+  Heading,
+  HStack,
+  Loading,
+  Skeleton,
+  Tab,
+  TabList,
+  Tabs,
+} from "@yamada-ui/react"
 
 export function ClipPageLoading() {
   return (
     <AppLayout>
+      <HStack my={{ base: "lg", sm: "md" }} p={0} w="full">
+        <Skeleton>
+          <Heading as="h1" fontWeight="medium" size="xl">
+            Past Ranking
+          </Heading>
+        </Skeleton>
+      </HStack>
+
       <Tabs align="center" index={0}>
         <TabList>
           {CONSTANT.PERIODS.trend.map((tab) => (

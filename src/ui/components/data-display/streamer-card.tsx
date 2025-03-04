@@ -1,9 +1,10 @@
 import { Streamer } from "@/models/streamer"
 import { GhostIcon } from "@yamada-ui/lucide"
-import { Heading, HStack, Spacer, Text, VStack } from "@yamada-ui/react"
+import { Heading, HStack, Spacer, Stack, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
 
 import { SkeletonAvatar, TwitchLink } from "../media-and-icons"
+import { TeamTag } from "./team-tag"
 
 interface StreamerCardProps {
   streamer: Streamer
@@ -17,6 +18,7 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
     id,
     login,
     profile_image_url,
+    teams,
   } = streamer
 
   const follower_num = `${_follower_num?.toLocaleString()} followers`
@@ -41,17 +43,24 @@ export function StreamerCard({ streamer }: StreamerCardProps) {
       />
 
       <VStack gap={1} w="full">
-        <HStack w="full">
-          <Heading
-            fontSize="2xl"
-            fontWeight="semibold"
-            itemProp="name"
-            lineClamp={1}
-            overflowWrap="anywhere"
-            variant="h4"
+        <HStack alignItems="flex-start" w="full">
+          <Stack
+            direction={{ base: "row", sm: "column" }}
+            gap={{ base: "md", sm: "xs" }}
           >
-            {display_name}
-          </Heading>
+            <Heading
+              fontSize="2xl"
+              fontWeight="semibold"
+              itemProp="name"
+              lineClamp={1}
+              overflowWrap="anywhere"
+              variant="h4"
+            >
+              {display_name}
+            </Heading>
+
+            <TeamTag teams={teams} />
+          </Stack>
 
           <Spacer />
 
