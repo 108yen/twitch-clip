@@ -25,6 +25,9 @@ export const textStyles: TextStyles = {
     minW: "4xs",
   },
   navigation: {
+    _focusVisible: {
+      color: ["black", "white"],
+    },
     _hover: {
       color: ["black", "white"],
     },
