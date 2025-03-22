@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "lefthook install",
     "dev": "concurrently \"pnpm firestore:emulators\" \"pnpm next dev\"",
-    "firestore:emulators": "firebase emulators:start --project=twitch-clip-66e5b --only firestore --import data/2025-03-03",
+    "firestore:emulators": "firebase emulators:start --project=twitch-clip-66e5b --only firestore --import data/2025-03-22",
     "firestore:emulators-export": "firebase emulators:export --project=twitch-clip-66e5b",
     "scan": "pnpm dlx react-scan@0.0.47 localhost:3000",
     "build": "next build",
@@ -20,7 +20,8 @@
     "typecheck": "tsc --noEmit",
     "spellcheck": "cspell \"**/*.{js,jsx,mjs,ts,tsx,mts,md,mdx}\" --quiet",
     "gen:streamer": "tsx src/scripts/gen-streamer",
-    "update:teams": "tsx src/scripts/update-teams"
+    "update:teams": "tsx src/scripts/update-teams",
+    "update:clips-teams": "tsx src/scripts/update-clips-teams"
   },
   "dependencies": {
     "@conform-to/react": "^1.2.2",
