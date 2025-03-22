@@ -5,6 +5,7 @@ import { HStack, Spacer, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
 
 import { SkeletonAvatar, TwitchLink } from "../media-and-icons"
+import { TeamTag } from "./team-tag"
 
 export function StreamerInfo() {
   const { currentClip } = useClip()
@@ -15,6 +16,7 @@ export function StreamerInfo() {
     broadcaster_login,
     broadcaster_name,
     profile_image_url,
+    teams,
   } = currentClip!
 
   const followers = `${broadcaster_follower_num?.toLocaleString()} followers`
@@ -29,23 +31,28 @@ export function StreamerInfo() {
         src={profile_image_url}
       />
 
-      <HStack alignItems="flex-end" gap={0} w="full">
-        <VStack
-          aria-label="streamer page link"
-          as={Link}
-          gap={1}
-          href={`/streamer/${broadcaster_id}`}
-          w="fit-content"
-        >
-          <Text fontWeight="bold">{broadcaster_name}</Text>
+      <VStack gap={1} w="full">
+        <HStack>
+          <Text
+            aria-label="streamer page link"
+            as={Link}
+            fontWeight="bold"
+            href={`/streamer/${broadcaster_id}`}
+          >
+            {broadcaster_name}
+          </Text>
 
+          <TeamTag teams={teams} />
+        </HStack>
+
+        <HStack gap={0}>
           <Text textStyle="follower">{followers}</Text>
-        </VStack>
 
-        <Spacer />
+          <Spacer />
 
-        <TwitchLink login={broadcaster_login} />
-      </HStack>
+          <TwitchLink login={broadcaster_login} />
+        </HStack>
+      </VStack>
     </HStack>
   )
 }
