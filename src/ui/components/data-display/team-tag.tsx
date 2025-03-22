@@ -1,14 +1,14 @@
 import { Team } from "@/models/streamer"
-import { HStack, Tag } from "@yamada-ui/react"
+import { HStack, StackProps, Tag } from "@yamada-ui/react"
 import Link from "next/link"
 
-export interface TeamTagProps {
+export interface TeamTagProps extends StackProps {
   teams?: Team[]
 }
 
-export function TeamTag({ teams }: TeamTagProps) {
+export function TeamTag({ teams, ...rest }: TeamTagProps) {
   return (
-    <HStack gap={{ base: "md", sm: "xs" }}>
+    <HStack gap={{ base: "sm", sm: "xs" }} {...rest}>
       {teams?.map(({ display_name }, index) => (
         <Tag
           as={Link}

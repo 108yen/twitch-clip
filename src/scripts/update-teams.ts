@@ -141,6 +141,11 @@ async function updateFirestore(
   }
 }
 
+/**
+ * This script is to add teams data in streamers document of firestore emulator.
+ * Need twitch api credentials(client_id, client_secret) because get teams data from twitch api and update streamers documentation.
+ *
+ */
 async function main() {
   p.intro("Start updating teams data in firestore.")
 

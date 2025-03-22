@@ -34,6 +34,19 @@ export async function updateStreamers(
   await streamersDocRef.set({ streamers }, { merge: true })
 }
 
+export async function getClip(db: FirebaseFirestore.Firestore, clipId: string) {
+  const clipDocRef: DocumentReference<ClipDoc> = db
+    .collection("clips")
+    .doc(clipId)
+    .withConverter<ClipDoc>(clipDocConverter)
+
+  const ds = await clipDocRef.get()
+
+  const clips = ds?.data()
+
+  return clips
+}
+
 export async function updateClip(
   db: FirebaseFirestore.Firestore,
   clipId: string,
