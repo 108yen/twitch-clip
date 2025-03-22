@@ -34,6 +34,7 @@ import { RefObject, useMemo, useRef, useState } from "react"
 
 import { InlineAD } from "../adsense"
 import { SkeletonAvatar } from "../media-and-icons"
+import { TeamTag } from "./team-tag"
 
 interface ClipCardProps {
   clip: Clip
@@ -52,6 +53,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
     embed_url,
     id,
     profile_image_url,
+    teams,
     thumbnail_url,
     title,
     url,
@@ -120,29 +122,39 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             />
           </HStack>
 
-          <HStack
-            aria-label={broadcaster_name}
-            as={Link}
-            gap="sm"
-            href={`/streamer/${broadcaster_id}`}
-            itemProp="actor"
-            itemScope
-            itemType="https://schema.org/Person"
-            onClick={(ev) => {
-              ev.stopPropagation()
-            }}
-            w="fit-content"
-          >
-            <SkeletonAvatar
-              alt={broadcaster_name}
-              itemProp="image"
-              size={{ base: "base", sm: "sm" }}
-              src={profile_image_url}
-            />
+          <HStack>
+            <HStack
+              aria-label={broadcaster_name}
+              as={Link}
+              gap="sm"
+              href={`/streamer/${broadcaster_id}`}
+              itemProp="actor"
+              itemScope
+              itemType="https://schema.org/Person"
+              onClick={(ev) => {
+                ev.stopPropagation()
+              }}
+              w="fit-content"
+            >
+              <SkeletonAvatar
+                alt={broadcaster_name}
+                itemProp="image"
+                size={{ base: "base", sm: "sm" }}
+                src={profile_image_url}
+              />
 
-            <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
-              {broadcaster_name}
-            </Text>
+              <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
+                {broadcaster_name}
+              </Text>
+            </HStack>
+
+            <TeamTag
+              display={{ base: "flex", sm: "none" }}
+              onClick={(ev) => {
+                ev.stopPropagation()
+              }}
+              teams={teams}
+            />
           </HStack>
 
           <Text

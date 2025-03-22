@@ -73,11 +73,17 @@ export function Header(props: HeaderProps) {
           borderColor={["blackAlpha.300", "whiteAlpha.300"]}
           display={{ base: "flex", md: "none" }}
           h="7xs"
-          marginX="lg"
+          marginLeft="lg"
+          marginRight="md"
           orientation="vertical"
         />
 
-        <HStack as="nav" display={{ base: "flex", md: "none" }} gap="lg">
+        <HStack
+          as="nav"
+          display={{ base: "flex", md: "none" }}
+          gap={0}
+          layerStyle="navigation"
+        >
           {CONSTANT.PATHS.map(({ href, title, tooltip }) => (
             <Tooltip key={title} label={tooltip}>
               <Text
@@ -86,6 +92,9 @@ export function Header(props: HeaderProps) {
                 data-selected={dataAttr(pathname === href)}
                 href={href}
                 isTruncated
+                layerStyle="navigationItem"
+                px="md"
+                py="xs"
                 textStyle="navigation"
               >
                 {title}

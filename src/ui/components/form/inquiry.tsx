@@ -2,6 +2,7 @@
 import { postInquiry } from "@/firebase/server/inquiry"
 import { inquiryScheme } from "@/scheme"
 import { sendGAEvent } from "@/utils/google-analytics"
+import { withCallbacks } from "@/utils/with-callback"
 import { FormMetadata, getTextareaProps, useForm } from "@conform-to/react"
 import { parseWithZod } from "@conform-to/zod"
 import {
@@ -12,10 +13,34 @@ import {
   useNotice,
   VStack,
 } from "@yamada-ui/react"
-import { FormEvent, useActionState, useEffect } from "react"
+import { FormEvent, useActionState } from "react"
 
 export function Inquiry() {
-  const [lastResult, action, pending] = useActionState(postInquiry, undefined)
+  const notice = useNotice({ limit: 1, placement: "bottom-left" })
+
+  const [lastResult, action, pending] = useActionState(
+    withCallbacks(postInquiry, {
+      onError() {
+        notice({
+          status: "error",
+          title: "問い合わせ失敗",
+        })
+      },
+      onStart() {
+        sendGAEvent("event", "click", {
+          label: "post_inquiry",
+        })
+      },
+      onSuccess() {
+        notice({
+          status: "success",
+          title: "問い合わせ完了",
+        })
+      },
+    }),
+    undefined,
+  )
+
   const [form, fields] = useForm({
     lastResult,
     onValidate({ formData }) {
@@ -23,28 +48,6 @@ export function Inquiry() {
     },
     shouldRevalidate: "onInput",
   })
-
-  const notice = useNotice({ limit: 1, placement: "bottom-left" })
-
-  useEffect(() => {
-    sendGAEvent("event", "click", {
-      label: "post_inquiry",
-    })
-
-    const { status } = form
-
-    if (status == "success") {
-      notice({
-        status,
-        title: "問い合わせ完了",
-      })
-    } else if (status == "error") {
-      notice({
-        status,
-        title: "問い合わせ失敗",
-      })
-    }
-  }, [form, notice])
 
   function getFormProps<T extends Record<string, any>>({
     errorId,
