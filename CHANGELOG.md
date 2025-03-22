@@ -1,5 +1,15 @@
 # Releases
 
+## 2.10.1
+
+### Patch Changes
+
+- [#485](https://github.com/108yen/twitch-clip/pull/485) [`e563e1d`](https://github.com/108yen/twitch-clip/commit/e563e1dd153e5a1f0b0ad95da995154c090c4eb0) Thanks [@108yen](https://github.com/108yen)! - Refactored action proccess to use `withCallback`.
+
+- [#498](https://github.com/108yen/twitch-clip/pull/498) [`1c07e4e`](https://github.com/108yen/twitch-clip/commit/1c07e4e05346fecb5d309490b75b0a62ec3daae0) Thanks [@108yen](https://github.com/108yen)! - Added team tags to clips.
+
+- [#491](https://github.com/108yen/twitch-clip/pull/491) [`aa320ba`](https://github.com/108yen/twitch-clip/commit/aa320ba3f7926770cafb4abd63406902267829c0) Thanks [@108yen](https://github.com/108yen)! - Added animation for hovered navigation item.
+
 ## 2.10.0
 
 ### Minor Changes
