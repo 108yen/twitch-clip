@@ -1,3 +1,5 @@
+import { Team } from "./streamer"
+
 export interface Clip {
   broadcaster_follower_num?: number
   broadcaster_id?: string
@@ -12,6 +14,7 @@ export interface Clip {
   id?: string
   language?: string
   profile_image_url?: string
+  teams?: Team[]
   thumbnail_url?: string
   title?: string
   url?: string
