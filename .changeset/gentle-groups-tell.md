@@ -2,4 +2,4 @@
 "twitch-clip": patch
 ---
 
-Refactored page prop types.
+Set autoplay to player.
