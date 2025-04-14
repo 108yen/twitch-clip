@@ -1,15 +1,10 @@
 "use client"
 import { useClip } from "@/contexts"
 import { useScrollY } from "@/hooks"
-import {
-  AspectRatio,
-  TabsProps,
-  useWindowEvent,
-  VStack,
-} from "@yamada-ui/react"
+import { TabsProps, useWindowEvent, VStack } from "@yamada-ui/react"
 import { useMemo, useRef, useState } from "react"
 
-import { ClipInfo, ClipListTabs, StreamerInfo } from "../data-display"
+import { ClipInfo, ClipListTabs, Player, StreamerInfo } from "../data-display"
 
 export function MobileView() {
   const tabsRef = useRef<HTMLDivElement>(undefined)
@@ -36,20 +31,14 @@ export function MobileView() {
 
   useWindowEvent("resize", () => setWidth(window?.innerWidth))
 
-  const src = `${currentClip?.embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`
-
   return (
     <VStack gap={1}>
-      <AspectRatio
-        layerStyle="player"
+      <Player
+        embedUrl={currentClip?.embed_url}
         position="sticky"
-        ratio={16 / 9}
         top={0}
-        w="full"
         zIndex="jeice"
-      >
-        <iframe allowFullScreen loading="lazy" src={src} />
-      </AspectRatio>
+      />
 
       <ClipInfo />
 

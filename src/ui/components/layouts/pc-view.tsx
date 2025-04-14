@@ -1,13 +1,11 @@
 "use client"
 import { useClip } from "@/contexts"
-import { AspectRatio, Grid, GridItem, VStack } from "@yamada-ui/react"
+import { Grid, GridItem, VStack } from "@yamada-ui/react"
 
-import { ClipInfo, SideClipTabs, StreamerInfo } from "../data-display"
+import { ClipInfo, Player, SideClipTabs, StreamerInfo } from "../data-display"
 
 export function PCView() {
   const { currentClip } = useClip()
-
-  const src = `${currentClip?.embed_url}&parent=localhost&parent=www.twitchclipsranking.com&parent=twitchclipsranking.com`
 
   return (
     <Grid
@@ -17,9 +15,7 @@ export function PCView() {
     >
       <GridItem colSpan={9} w="full">
         <VStack gap={2} marginTop="md">
-          <AspectRatio layerStyle="player" ratio={16 / 9} w="full">
-            <iframe allowFullScreen loading="lazy" src={src} />
-          </AspectRatio>
+          <Player embedUrl={currentClip?.embed_url} />
 
           <ClipInfo />
 
