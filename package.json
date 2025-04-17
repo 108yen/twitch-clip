@@ -23,8 +23,7 @@
     "update:teams": "tsx src/scripts/update-teams",
     "update:clips-teams": "tsx src/scripts/update-clips-teams",
     "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:ci": "firebase emulators:exec 'pnpm test' --project=twitch-clip-66e5b --only firestore --import data/2025-03-22"
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "@conform-to/react": "^1.2.2",

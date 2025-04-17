@@ -56,14 +56,14 @@ export default defineConfig({
   },
 
   /* Run your local dev server before starting the tests */
-  webServer: {
-    command: "pnpm next dev",
-    env: {
-      FIRESTORE_EMULATOR_HOST: "localhost:8080",
-    },
-    reuseExistingServer: true,
-    url: "http://localhost:3000",
-  },
+  // webServer: {
+  //   command: "pnpm next dev",
+  //   env: {
+  //     FIRESTORE_EMULATOR_HOST: "localhost:8080",
+  //   },
+  //   reuseExistingServer: true,
+  //   url: "http://localhost:3000",
+  // },
 
   /* Opt out of parallel tests on CI. */
   workers: 1,
