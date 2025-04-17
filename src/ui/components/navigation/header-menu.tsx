@@ -35,6 +35,7 @@ export function HeaderMenu() {
   return (
     <Menu>
       <MenuButton
+        aria-label="Menu button"
         as={IconButton}
         icon={<EllipsisVerticalIcon fontSize="xl" />}
         variant="primary"

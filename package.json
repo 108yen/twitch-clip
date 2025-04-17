@@ -21,7 +21,9 @@
     "spellcheck": "cspell \"**/*.{js,jsx,mjs,ts,tsx,mts,md,mdx}\" --quiet",
     "gen:streamer": "tsx src/scripts/gen-streamer",
     "update:teams": "tsx src/scripts/update-teams",
-    "update:clips-teams": "tsx src/scripts/update-clips-teams"
+    "update:clips-teams": "tsx src/scripts/update-clips-teams",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "@conform-to/react": "^1.2.2",
@@ -55,6 +57,7 @@
     "@eslint/config-inspector": "^1.0.0",
     "@eslint/js": "^9.9.0",
     "@next/eslint-plugin-next": "15.3.0",
+    "@playwright/test": "^1.51.1",
     "@types/gtag.js": "^0.0.20",
     "@types/mdx": "^2.0.13",
     "@types/node": "22.14.1",
