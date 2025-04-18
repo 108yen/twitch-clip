@@ -15,6 +15,8 @@ test.describe("navigation links works correctly", () => {
     await expect(page).toHaveURL("/")
   })
 
+  test.skip(({ isMobile }) => isMobile, "This feature is laptop only")
+
   test("top", async ({ page }) => {
     await page.goto("/streamers")
 
