@@ -23,8 +23,7 @@
     "update:teams": "tsx src/scripts/update-teams",
     "update:clips-teams": "tsx src/scripts/update-clips-teams",
     "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "set-commit-status": "tsx src/scripts/set-commit-status"
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "@conform-to/react": "^1.2.2",

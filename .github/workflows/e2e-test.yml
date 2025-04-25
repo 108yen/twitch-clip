@@ -28,6 +28,13 @@ jobs:
       statuses: write
 
     steps:
+      - name: Set pending status
+        uses: 108yen/set-commit-status@v1
+        with:
+          status: pending
+          description: Test in progress
+          sha: ${{ github.event.client_payload.git.sha }}
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -43,13 +50,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Set pending status
-        run: pnpm set-commit-status
-        env:
-          STATE: pending
-          SHA: ${{ github.event.client_payload.git.sha }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
@@ -68,16 +68,16 @@ jobs:
 
       - name: Set success status
         if: success()
-        run: pnpm set-commit-status
-        env:
-          STATE: success
-          SHA: ${{ github.event.client_payload.git.sha }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: 108yen/set-commit-status@v1
+        with:
+          status: success
+          description: Passing tests
+          sha: ${{ github.event.client_payload.git.sha }}
 
       - name: Set failure status
         if: failure()
-        run: pnpm set-commit-status
-        env:
-          STATE: failure
-          SHA: ${{ github.event.client_payload.git.sha }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: 108yen/set-commit-status@v1
+        with:
+          status: failure
+          description: Test failure
+          sha: ${{ github.event.client_payload.git.sha }}
