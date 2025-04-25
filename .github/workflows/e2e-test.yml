@@ -43,6 +43,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Set pending status
+        run: pnpm set-commit-status
+        env:
+          STATE: pending
+          SHA: ${{github.event.client_payload.git.sha}}
+
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
 
@@ -57,3 +63,17 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+
+      - name: Set success status
+        if: success()
+        run: pnpm set-commit-status
+        env:
+          STATE: success
+          SHA: ${{github.event.client_payload.git.sha}}
+
+      - name: Set failure status
+        if: failure()
+        run: pnpm set-commit-status
+        env:
+          STATE: failure
+          SHA: ${{github.event.client_payload.git.sha}}
