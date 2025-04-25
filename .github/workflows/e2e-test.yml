@@ -25,6 +25,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: read
+      statuses: write
 
     steps:
       - name: Checkout
@@ -47,7 +48,8 @@ jobs:
         run: pnpm set-commit-status
         env:
           STATE: pending
-          SHA: ${{github.event.client_payload.git.sha}}
+          SHA: ${{ github.event.client_payload.git.sha }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
@@ -69,11 +71,13 @@ jobs:
         run: pnpm set-commit-status
         env:
           STATE: success
-          SHA: ${{github.event.client_payload.git.sha}}
+          SHA: ${{ github.event.client_payload.git.sha }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set failure status
         if: failure()
         run: pnpm set-commit-status
         env:
           STATE: failure
-          SHA: ${{github.event.client_payload.git.sha}}
+          SHA: ${{ github.event.client_payload.git.sha }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
