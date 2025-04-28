@@ -1,5 +1,13 @@
 # Releases
 
+## 2.10.2
+
+### Patch Changes
+
+- [#516](https://github.com/108yen/twitch-clip/pull/516) [`ec1186e`](https://github.com/108yen/twitch-clip/commit/ec1186eeb5507d72f7f2a209166c92f5c7e39d95) Thanks [@108yen](https://github.com/108yen)! - Set autoplay to player.
+
+- [`d70f191`](https://github.com/108yen/twitch-clip/commit/d70f191b05b8898aa26b60957081b2bb891ec3a6) Thanks [@108yen](https://github.com/108yen)! - Refactored page prop types.
+
 ## 2.10.1
 
 ### Patch Changes

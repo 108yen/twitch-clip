@@ -56,12 +56,14 @@ export default withSentryConfig(nextConfig, {
     },
     name:
       process.env.VERCEL_ENV == "production" ? `${name}@${version}` : undefined,
-    setCommits: {
-      auto: false,
-      commit: process.env.VERCEL_GIT_COMMIT_SHA as string,
-      previousCommit: process.env.VERCEL_GIT_PREVIOUS_SHA,
-      repo: "108yen/twitch-clip",
-    },
+    setCommits: process.env.VERCEL_GIT_COMMIT_SHA
+      ? {
+          auto: false,
+          commit: process.env.VERCEL_GIT_COMMIT_SHA as string,
+          previousCommit: process.env.VERCEL_GIT_PREVIOUS_SHA,
+          repo: "108yen/twitch-clip",
+        }
+      : undefined,
   },
   silent: false,
   sourcemaps: {
