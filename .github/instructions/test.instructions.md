@@ -11,7 +11,9 @@ applyTo: "e2e/**"
 - 画面遷移やUI操作は`page.goto`や`page.getByRole`などのPlaywright APIを利用してください。
 - 期待値の検証には`expect`を使い、タイトルやURL、要素の表示状態などを確認してください。
 - 日本語でテスト内容を記述しても構いません。
-- 不安定なテストや未実装機能のテストは`test.skip`や`test.only`を活用してください。
+- テストは一つづつ作成し、`pnpm test`を実行して動作確認を行ってください。
+- 適切な箇所で空行を入れ、可読性を高めてください。
+- テストないでループは使用せず、[Parameterized Tests](https://playwright.dev/docs/test-parameterize)を使用してください。
 
 ## サンプル
 
