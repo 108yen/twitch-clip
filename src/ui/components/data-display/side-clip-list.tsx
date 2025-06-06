@@ -31,7 +31,6 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
-
 import { SideCardAD } from "../adsense"
 import { SkeletonAvatar } from "../media-and-icons"
 

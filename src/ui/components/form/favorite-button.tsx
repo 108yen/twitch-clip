@@ -66,7 +66,9 @@ export function FavoriteButton({ clip }: FavoriteButtonProps) {
           label: "add_to_favorite",
         })
       }
-    } catch {}
+    } catch {
+      return
+    }
 
     return
   }, [check, clip, clipId, deleteClip, saveClip, setCheckOptimistic, title])

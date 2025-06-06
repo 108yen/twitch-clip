@@ -23,7 +23,6 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { useId } from "react"
-
 import { KoFiModal } from "../overlay"
 
 export function HeaderMenu() {

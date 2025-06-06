@@ -2,7 +2,6 @@
 import { GAParams } from "@/types/google"
 import Script from "next/script"
 import React, { useEffect, useMemo } from "react"
-
 import { getDisplayMode, getThemeMode } from "./mode"
 
 declare global {
@@ -70,7 +69,6 @@ export function GoogleAnalytics({
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function sendGAEvent(..._args: any[]) {
   if (currDataLayerName === undefined) {
     console.warn(`@next/third-parties: GA has not been initialized`)

@@ -30,7 +30,6 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { useEffect, useMemo, useRef, useState } from "react"
-
 import { SkeletonAvatar } from "../media-and-icons"
 
 interface ClipCardProps {

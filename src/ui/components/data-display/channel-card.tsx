@@ -11,7 +11,6 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-
 import { SkeletonAvatar, TwitchLink } from "../media-and-icons"
 import { TeamTag } from "./team-tag"
 

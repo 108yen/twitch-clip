@@ -32,6 +32,7 @@ export function Player({ embedUrl, ...rest }: PlayerProps) {
         allowFullScreen
         loading="lazy"
         src={url.toString()}
+        title="Twitch Clip Player"
       />
     </AspectRatio>
   )

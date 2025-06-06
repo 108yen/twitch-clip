@@ -16,7 +16,6 @@ import {
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useRef } from "react"
-
 import { HexagonOutlined } from "../media-and-icons"
 import { HeaderMenu } from "../navigation"
 

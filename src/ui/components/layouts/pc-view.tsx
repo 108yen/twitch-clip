@@ -1,7 +1,6 @@
 "use client"
 import { useClip } from "@/contexts"
 import { Grid, GridItem, VStack } from "@yamada-ui/react"
-
 import { ClipInfo, Player, SideClipTabs, StreamerInfo } from "../data-display"
 
 export function PCView() {
