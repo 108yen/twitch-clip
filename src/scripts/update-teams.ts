@@ -1,10 +1,8 @@
 import "dotenv/config"
-
 import type { Streamer, Team } from "@/models/streamer"
-
 import * as p from "@clack/prompts"
 import axios, { AxiosRequestConfig } from "axios"
-
+import { Firestore } from "firebase-admin/firestore"
 import { getDB } from "./db"
 import {
   getStreamers,
@@ -128,7 +126,7 @@ async function updateTeams(
 }
 
 async function updateFirestore(
-  db: FirebaseFirestore.Firestore,
+  db: Firestore,
   streamers: Streamer[],
   callback?: (message: string) => void,
 ) {

@@ -14,6 +14,12 @@ export const typescriptConfig: TSESLint.FlatConfig.Config = {
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-empty-function": [
+      "error",
+      {
+        allow: ["arrowFunctions"],
+      },
+    ],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/no-unnecessary-type-constraint": "off",

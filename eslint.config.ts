@@ -26,6 +26,7 @@ const ignoresConfig: Linter.Config = {
     "**/@types/**",
     "**/node_modules/**",
     "**/build/**",
+    "**/playwright-report/**",
     "**/pnpm-lock.yaml",
     "**/.eslintcache",
   ],

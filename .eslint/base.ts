@@ -7,5 +7,13 @@ export const baseConfig: Linter.Config = {
   name: "eslint/base",
   rules: {
     ...eslint.configs.recommended.rules,
+    "no-unused-vars": [
+      "error",
+      {
+        argsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+      },
+    ],
   },
 }

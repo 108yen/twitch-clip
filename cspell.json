@@ -52,5 +52,5 @@
     "unkonow",
     "vercel"
   ],
-  "ignorePaths": []
+  "ignorePaths": ["./src/constant/streamers.ts"]
 }

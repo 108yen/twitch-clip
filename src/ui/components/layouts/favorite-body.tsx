@@ -9,7 +9,6 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import { RefObject, useDeferredValue, useMemo, useState } from "react"
-
 import { ClipGrid, ClipListTabs, ClipTable } from "../data-display"
 import { SearchClips } from "../form"
 

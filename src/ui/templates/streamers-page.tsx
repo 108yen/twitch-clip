@@ -7,7 +7,6 @@ import { TwitchIcon } from "@yamada-ui/lucide"
 import { EmptyState, VStack } from "@yamada-ui/react"
 import { useSearchParams } from "next/navigation"
 import { useDeferredValue, useMemo, useState } from "react"
-
 import { PageHeader } from "../components/layouts"
 
 function streamerFilter(text: string) {

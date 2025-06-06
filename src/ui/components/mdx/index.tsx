@@ -17,7 +17,6 @@ import {
 } from "@yamada-ui/react"
 import { MDXComponents } from "mdx/types"
 import Link from "next/link"
-
 import { Inquiry } from "../form"
 
 const UIComponents = {
