@@ -1,5 +1,5 @@
-import { COLOR_SCHEMES } from "@/constant/color-schemes"
 import { ThemeSchemes } from "@yamada-ui/react"
+import { COLOR_SCHEMES } from "@/constant/color-schemes"
 
 export const themeSchemes = COLOR_SCHEMES.reduce<ThemeSchemes>(
   (prev, colorScheme) => ({

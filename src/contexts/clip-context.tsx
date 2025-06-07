@@ -1,8 +1,8 @@
 "use client"
 
+import { createContext, PropsWithChildren, useContext, useMemo } from "react"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
-import { createContext, PropsWithChildren, useContext, useMemo } from "react"
 
 export interface ClipProviderProps extends PropsWithChildren {
   clipDoc: ClipDoc

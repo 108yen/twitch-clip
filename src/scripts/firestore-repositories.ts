@@ -1,8 +1,8 @@
+import { DocumentReference, Firestore } from "firebase-admin/firestore"
 import type { Streamer } from "@/models/streamer"
 import { clipDocConverter } from "@/firebase/server/converters/clipDocConverter"
 import { streamersConverter } from "@/firebase/server/converters/streamersConverter"
 import { ClipDoc } from "@/models/clipDoc"
-import { DocumentReference, Firestore } from "firebase-admin/firestore"
 
 export async function getStreamers(db: Firestore) {
   const streamersDocRef: DocumentReference<{

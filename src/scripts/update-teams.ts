@@ -1,8 +1,8 @@
 import "dotenv/config"
-import type { Streamer, Team } from "@/models/streamer"
 import * as p from "@clack/prompts"
 import axios, { AxiosRequestConfig } from "axios"
 import { Firestore } from "firebase-admin/firestore"
+import type { Streamer, Team } from "@/models/streamer"
 import { getDB } from "./db"
 import {
   getStreamers,

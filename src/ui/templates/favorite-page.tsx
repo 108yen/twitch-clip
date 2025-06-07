@@ -1,5 +1,8 @@
 "use client"
 
+import { StarIcon } from "@yamada-ui/lucide"
+import { EmptyState, isUndefined, useBreakpoint } from "@yamada-ui/react"
+import { useEffect, useRef, useState, useTransition } from "react"
 import { ClipProvider, usePage } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
@@ -10,9 +13,6 @@ import {
   PCView,
 } from "@/ui/components/layouts"
 import { AppLayout } from "@/ui/layouts"
-import { StarIcon } from "@yamada-ui/lucide"
-import { EmptyState, isUndefined, useBreakpoint } from "@yamada-ui/react"
-import { useEffect, useRef, useState, useTransition } from "react"
 
 export function FavoritePage() {
   const [currentClip, setCurrentClip] = useState<Clip>()

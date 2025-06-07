@@ -1,7 +1,7 @@
-import { STREAMERS } from "@/constant/streamers"
-import { Streamer } from "@/models/streamer"
-import "dotenv/config"
 import { writeFile } from "fs/promises"
+import { STREAMERS } from "@/constant/streamers"
+import "dotenv/config"
+import { Streamer } from "@/models/streamer"
 import { getDB } from "./db"
 import { getStreamers } from "./firestore-repositories"
 

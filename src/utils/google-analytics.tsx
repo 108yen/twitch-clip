@@ -1,7 +1,7 @@
 "use client"
-import { GAParams } from "@/types/google"
 import Script from "next/script"
 import React, { useEffect, useMemo } from "react"
+import { GAParams } from "@/types/google"
 import { getDisplayMode, getThemeMode } from "./mode"
 
 declare global {
