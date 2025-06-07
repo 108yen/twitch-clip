@@ -1,12 +1,12 @@
 "use client"
 
-import { Clip } from "@/models/clip"
-import { formatDate } from "@/utils/string"
 import { SquareArrowOutUpRightIcon } from "@yamada-ui/lucide"
 import { Text } from "@yamada-ui/react"
 import { Column, PagingTable } from "@yamada-ui/table"
 import Link from "next/link"
 import { useMemo } from "react"
+import { Clip } from "@/models/clip"
+import { formatDate } from "@/utils/string"
 
 interface ClipTableProps {
   clips: Clip[]

@@ -1,7 +1,7 @@
 "use client"
+import { Heading, HStack, Spacer, Text } from "@yamada-ui/react"
 import { useClip } from "@/contexts"
 import { formatDate } from "@/utils/string"
-import { Heading, HStack, Spacer, Text } from "@yamada-ui/react"
 import { FavoriteButton } from "../form"
 
 export function ClipInfo() {

@@ -1,5 +1,3 @@
-import { CONSTANT } from "@/constant"
-import { AppLayout } from "@/ui/layouts"
 import {
   Center,
   Heading,
@@ -10,6 +8,8 @@ import {
   TabList,
   Tabs,
 } from "@yamada-ui/react"
+import { CONSTANT } from "@/constant"
+import { AppLayout } from "@/ui/layouts"
 
 export function ClipPageLoading() {
   return (

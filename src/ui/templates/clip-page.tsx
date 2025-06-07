@@ -1,4 +1,6 @@
 "use client"
+import { useBreakpoint, useNotice, useOS } from "@yamada-ui/react"
+import { useEffect, useState } from "react"
 import { ClipProvider } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
@@ -8,8 +10,6 @@ import { MobileView, PageHeader, PCView } from "@/ui/components/layouts"
 import { InstallNotification } from "@/ui/components/navigation"
 import { AppLayout } from "@/ui/layouts"
 import { getDisplayMode } from "@/utils/mode"
-import { useBreakpoint, useNotice, useOS } from "@yamada-ui/react"
-import { useEffect, useState } from "react"
 
 interface ClipPageProps {
   clipDoc: ClipDoc

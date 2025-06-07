@@ -1,8 +1,5 @@
 "use client"
 
-import { usePage } from "@/contexts"
-import { Clip } from "@/models/clip"
-import { sendGAEvent } from "@/utils/google-analytics"
 import { StarIcon } from "@yamada-ui/lucide"
 import { dataAttr, IconButton, isUndefined, Tooltip } from "@yamada-ui/react"
 import {
@@ -12,6 +9,9 @@ import {
   useState,
   useTransition,
 } from "react"
+import { usePage } from "@/contexts"
+import { Clip } from "@/models/clip"
+import { sendGAEvent } from "@/utils/google-analytics"
 
 interface FavoriteButtonProps {
   clip: Clip

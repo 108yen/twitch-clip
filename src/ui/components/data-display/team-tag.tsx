@@ -1,6 +1,6 @@
-import { Team } from "@/models/streamer"
 import { HStack, StackProps, Tag } from "@yamada-ui/react"
 import Link from "next/link"
+import { Team } from "@/models/streamer"
 
 export interface TeamTagProps extends StackProps {
   teams?: Team[]

@@ -1,10 +1,4 @@
 "use client"
-import { CLIP_LIST } from "@/constant/clip-list"
-import { useClip } from "@/contexts"
-import { Clip } from "@/models/clip"
-import { getTabs } from "@/utils/clip"
-import { sendGAEvent } from "@/utils/google-analytics"
-import { formatDate } from "@/utils/string"
 import { ArrowLeftIcon, GhostIcon } from "@yamada-ui/lucide"
 import {
   AspectRatio,
@@ -31,6 +25,12 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
+import { CLIP_LIST } from "@/constant/clip-list"
+import { useClip } from "@/contexts"
+import { Clip } from "@/models/clip"
+import { getTabs } from "@/utils/clip"
+import { sendGAEvent } from "@/utils/google-analytics"
+import { formatDate } from "@/utils/string"
 import { SideCardAD } from "../adsense"
 import { SkeletonAvatar } from "../media-and-icons"
 

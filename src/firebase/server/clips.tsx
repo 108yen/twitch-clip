@@ -1,6 +1,4 @@
 import "server-only"
-import { db } from "@/firebase/server/server"
-import { ClipDoc } from "@/models/clipDoc"
 import {
   CollectionReference,
   DocumentReference,
@@ -8,6 +6,8 @@ import {
 import { unstable_cache } from "next/cache"
 import { notFound } from "next/navigation"
 import { cache } from "react"
+import { db } from "@/firebase/server/server"
+import { ClipDoc } from "@/models/clipDoc"
 import { clipDocConverter } from "./converters/clipDocConverter"
 
 export const unstable_getClips = unstable_cache(uncached_getClips, ["clips"])
