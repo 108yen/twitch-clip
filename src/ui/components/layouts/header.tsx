@@ -1,7 +1,5 @@
 "use client"
 
-import { CONSTANT } from "@/constant"
-import { useScrollY } from "@/hooks"
 import {
   Center,
   CenterProps,
@@ -16,7 +14,8 @@ import {
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useRef } from "react"
-
+import { CONSTANT } from "@/constant"
+import { useScrollY } from "@/hooks"
 import { HexagonOutlined } from "../media-and-icons"
 import { HeaderMenu } from "../navigation"
 

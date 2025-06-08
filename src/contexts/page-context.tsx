@@ -1,12 +1,4 @@
 "use client"
-import { Clip } from "@/models/clip"
-import {
-  deleteClip as idbDeleteClip,
-  getAllClips as idbGetAllClips,
-  getClip as idbGetClip,
-  saveClip as idbSaveClip,
-  openDatabase,
-} from "@/storage"
 import {
   createContext,
   PropsWithChildren,
@@ -16,6 +8,14 @@ import {
   useMemo,
   useState,
 } from "react"
+import { Clip } from "@/models/clip"
+import {
+  deleteClip as idbDeleteClip,
+  getAllClips as idbGetAllClips,
+  getClip as idbGetClip,
+  saveClip as idbSaveClip,
+  openDatabase,
+} from "@/storage"
 
 export interface PageProviderProps extends PropsWithChildren {
   version: string

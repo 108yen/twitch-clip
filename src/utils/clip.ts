@@ -1,7 +1,6 @@
+import { splitObject } from "@yamada-ui/react"
 import { CONSTANT } from "@/constant"
 import { ClipDoc } from "@/models/clipDoc"
-import { splitObject } from "@yamada-ui/react"
-
 import { compareDate, compareNumber } from "./string"
 
 const yearKeysReg = /^\d{4}$/
@@ -15,7 +14,9 @@ export function getTabs(clipDoc: ClipDoc | undefined) {
   const tabArray: string[] = []
 
   if (keys.some((key) => CONSTANT.PERIODS.trend.includes(key))) {
-    tabArray.push(...CONSTANT.PERIODS.trend)
+    tabArray.push(
+      ...CONSTANT.PERIODS.trend.filter((trendKey) => keys.includes(trendKey)),
+    )
   } else if (keys.every((key) => yearKeysReg.test(key))) {
     tabArray.push(...keys.sort(compareNumber))
   } else if (keys.every((key) => dailyKeysReg.test(key))) {

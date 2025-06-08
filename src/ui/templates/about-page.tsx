@@ -1,10 +1,10 @@
-import { components } from "@/ui/components/mdx"
-import { DocumentLayout } from "@/ui/layouts"
 import { Center, HStack, Text } from "@yamada-ui/react"
 import { readFile } from "fs/promises"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import Link from "next/link"
 import remarkGfm from "remark-gfm"
+import { components } from "@/ui/components/mdx"
+import { DocumentLayout } from "@/ui/layouts"
 
 export async function About() {
   const source = await readFile("src/content/about.mdx", "utf-8")

@@ -1,7 +1,7 @@
-import { components } from "@/ui/components/mdx"
-import { DocumentLayout } from "@/ui/layouts"
 import { readFile } from "fs/promises"
 import { MDXRemote } from "next-mdx-remote/rsc"
+import { components } from "@/ui/components/mdx"
+import { DocumentLayout } from "@/ui/layouts"
 
 export async function ReleaseNote() {
   const source = await readFile("CHANGELOG.md", "utf-8")

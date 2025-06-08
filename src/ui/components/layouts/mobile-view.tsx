@@ -1,9 +1,8 @@
 "use client"
-import { useClip } from "@/contexts"
-import { useScrollY } from "@/hooks"
 import { TabsProps, useWindowEvent, VStack } from "@yamada-ui/react"
 import { useMemo, useRef, useState } from "react"
-
+import { useClip } from "@/contexts"
+import { useScrollY } from "@/hooks"
 import { ClipInfo, ClipListTabs, Player, StreamerInfo } from "../data-display"
 
 export function MobileView() {

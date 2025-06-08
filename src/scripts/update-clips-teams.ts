@@ -1,9 +1,8 @@
 import "dotenv/config"
+import * as p from "@clack/prompts"
 import { Clip } from "@/models/clip"
 import { ClipDoc } from "@/models/clipDoc"
 import { Streamer } from "@/models/streamer"
-import * as p from "@clack/prompts"
-
 import { getDB } from "./db"
 import { getClip, getStreamers, updateClip } from "./firestore-repositories"
 

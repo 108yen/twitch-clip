@@ -1,5 +1,11 @@
 # Releases
 
+## 2.10.3
+
+### Patch Changes
+
+- [#543](https://github.com/108yen/twitch-clip/pull/543) [`d65f7d6`](https://github.com/108yen/twitch-clip/commit/d65f7d6762782b9cb4990caf87e8943c9e18337e) Thanks [@108yen](https://github.com/108yen)! - Fixed undefined period tab key was not filtered.
+
 ## 2.10.2
 
 ### Patch Changes

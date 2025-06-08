@@ -53,3 +53,6 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# eslint
+eslint-typegen.d.ts
