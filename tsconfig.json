@@ -26,13 +26,14 @@
     "types": ["node", "gtag.js"]
   },
   "include": [
-    "@types",
     "**/*.js",
     "**/*.jsx",
+    "**/*.mjs",
+    "**/*.mts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.mjs",
-    "**/*.mts"
+    "@types",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["**/node_modules/**", "**/dist/**"]
 }
