@@ -1,12 +1,5 @@
 "use client"
 
-import { ClipProvider } from "@/contexts"
-import { Clip } from "@/models/clip"
-import { ClipDoc } from "@/models/clipDoc"
-import { ClipListTabs, StreamerCard } from "@/ui/components/data-display"
-import { MobileView, PCView } from "@/ui/components/layouts"
-import { AppLayout } from "@/ui/layouts"
-import { splitClipDoc } from "@/utils/clip"
 import {
   Tab,
   TabList,
@@ -16,6 +9,13 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import { useMemo, useState } from "react"
+import { ClipProvider } from "@/contexts"
+import { Clip } from "@/models/clip"
+import { ClipDoc } from "@/models/clipDoc"
+import { ClipListTabs, StreamerCard } from "@/ui/components/data-display"
+import { MobileView, PCView } from "@/ui/components/layouts"
+import { AppLayout } from "@/ui/layouts"
+import { splitClipDoc } from "@/utils/clip"
 
 interface StreamerClipPageProps {
   clipDoc: ClipDoc

@@ -1,7 +1,6 @@
+import { splitObject } from "@yamada-ui/react"
 import { CONSTANT } from "@/constant"
 import { ClipDoc } from "@/models/clipDoc"
-import { splitObject } from "@yamada-ui/react"
-
 import { compareDate, compareNumber } from "./string"
 
 const yearKeysReg = /^\d{4}$/

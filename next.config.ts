@@ -1,6 +1,5 @@
 import { withSentryConfig } from "@sentry/nextjs"
 import { NextConfig } from "next"
-
 import { name, version } from "./package.json"
 
 const nextConfig: NextConfig = {

@@ -7,7 +7,6 @@ import {
   Text,
 } from "@yamada-ui/react"
 import { ChangeEvent } from "react"
-
 import { CountUp } from "../transitions"
 
 interface SearchClipProps {

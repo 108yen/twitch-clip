@@ -1,8 +1,4 @@
 "use client"
-import { postInquiry } from "@/firebase/server/inquiry"
-import { inquiryScheme } from "@/scheme"
-import { sendGAEvent } from "@/utils/google-analytics"
-import { withCallbacks } from "@/utils/with-callback"
 import { FormMetadata, getTextareaProps, useForm } from "@conform-to/react"
 import { parseWithZod } from "@conform-to/zod"
 import {
@@ -14,6 +10,10 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import { FormEvent, useActionState } from "react"
+import { postInquiry } from "@/firebase/server/inquiry"
+import { inquiryScheme } from "@/scheme"
+import { sendGAEvent } from "@/utils/google-analytics"
+import { withCallbacks } from "@/utils/with-callback"
 
 export function Inquiry() {
   const notice = useNotice({ limit: 1, placement: "bottom-left" })

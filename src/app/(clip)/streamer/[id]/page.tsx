@@ -1,8 +1,8 @@
+import { Metadata, NextPageProps } from "next"
 import { STREAMERS } from "@/constant/streamers"
 import { unstable_getClips } from "@/firebase/server"
 import { StreamerClipPage } from "@/ui/templates"
 import generateTemplateMetadata from "@/utils/generate-template-metadata"
-import { Metadata, NextPageProps } from "next"
 
 interface Params {
   id: string

@@ -1,7 +1,6 @@
 "use client"
 import type { MotionProps } from "@yamada-ui/react"
 import type { FC } from "react"
-
 import {
   animate,
   isNumber,

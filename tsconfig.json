@@ -25,6 +25,14 @@
     ],
     "types": ["node", "gtag.js"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "@types",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mjs",
+    "**/*.mts"
+  ],
+  "exclude": ["**/node_modules/**", "**/dist/**"]
 }

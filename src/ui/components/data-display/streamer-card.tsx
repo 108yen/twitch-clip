@@ -1,8 +1,7 @@
-import { Streamer } from "@/models/streamer"
 import { GhostIcon } from "@yamada-ui/lucide"
 import { Heading, HStack, Spacer, Stack, Text, VStack } from "@yamada-ui/react"
 import Link from "next/link"
-
+import { Streamer } from "@/models/streamer"
 import { SkeletonAvatar, TwitchLink } from "../media-and-icons"
 import { TeamTag } from "./team-tag"
 

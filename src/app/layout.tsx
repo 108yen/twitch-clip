@@ -1,3 +1,6 @@
+import { UIProvider } from "@yamada-ui/react"
+import { Viewport } from "next"
+import { ReactNode, Suspense } from "react"
 import { PageProvider } from "@/contexts"
 import { config, theme } from "@/theme"
 import { Header } from "@/ui/components/layouts"
@@ -6,9 +9,6 @@ import generateTemplateMetadata from "@/utils/generate-template-metadata"
 import { GoogleAnalytics } from "@/utils/google-analytics"
 import { getVersion } from "@/utils/ssr"
 import { YamadaUIScripts } from "@/utils/yamada-ui-scripts"
-import { UIProvider } from "@yamada-ui/react"
-import { Viewport } from "next"
-import { ReactNode, Suspense } from "react"
 
 export const viewport: Viewport = {
   themeColor: [

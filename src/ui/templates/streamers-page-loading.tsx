@@ -1,7 +1,7 @@
 "use client"
+import { Center, Heading, HStack, Loading, Skeleton } from "@yamada-ui/react"
 import { SearchChannels } from "@/ui/components/form"
 import { AppLayout } from "@/ui/layouts"
-import { Center, Heading, HStack, Loading, Skeleton } from "@yamada-ui/react"
 
 export function StreamersLoading() {
   return (

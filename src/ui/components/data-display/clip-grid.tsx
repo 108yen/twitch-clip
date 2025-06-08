@@ -1,10 +1,5 @@
 "use client"
 
-import { CONSTANT } from "@/constant"
-import { useClip } from "@/contexts"
-import { Clip } from "@/models/clip"
-import { sendGAEvent } from "@/utils/google-analytics"
-import { formatDate } from "@/utils/string"
 import {
   GhostIcon,
   SearchIcon,
@@ -30,7 +25,11 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { useEffect, useMemo, useRef, useState } from "react"
-
+import { CONSTANT } from "@/constant"
+import { useClip } from "@/contexts"
+import { Clip } from "@/models/clip"
+import { sendGAEvent } from "@/utils/google-analytics"
+import { formatDate } from "@/utils/string"
 import { SkeletonAvatar } from "../media-and-icons"
 
 interface ClipCardProps {

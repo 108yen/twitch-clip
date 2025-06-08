@@ -1,11 +1,10 @@
+import { DocumentReference, Firestore } from "firebase-admin/firestore"
 import type { Streamer } from "@/models/streamer"
-
 import { clipDocConverter } from "@/firebase/server/converters/clipDocConverter"
 import { streamersConverter } from "@/firebase/server/converters/streamersConverter"
 import { ClipDoc } from "@/models/clipDoc"
-import { DocumentReference } from "firebase-admin/firestore"
 
-export async function getStreamers(db: FirebaseFirestore.Firestore) {
+export async function getStreamers(db: Firestore) {
   const streamersDocRef: DocumentReference<{
     streamers: Streamer[]
   }> = db
@@ -20,10 +19,7 @@ export async function getStreamers(db: FirebaseFirestore.Firestore) {
   return streamers
 }
 
-export async function updateStreamers(
-  db: FirebaseFirestore.Firestore,
-  streamers: Streamer[],
-) {
+export async function updateStreamers(db: Firestore, streamers: Streamer[]) {
   const streamersDocRef: DocumentReference<{
     streamers: Streamer[]
   }> = db
@@ -34,7 +30,7 @@ export async function updateStreamers(
   await streamersDocRef.set({ streamers }, { merge: true })
 }
 
-export async function getClip(db: FirebaseFirestore.Firestore, clipId: string) {
+export async function getClip(db: Firestore, clipId: string) {
   const clipDocRef: DocumentReference<ClipDoc> = db
     .collection("clips")
     .doc(clipId)
@@ -48,7 +44,7 @@ export async function getClip(db: FirebaseFirestore.Firestore, clipId: string) {
 }
 
 export async function updateClip(
-  db: FirebaseFirestore.Firestore,
+  db: Firestore,
   clipId: string,
   clipDoc: ClipDoc,
 ) {

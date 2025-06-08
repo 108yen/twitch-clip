@@ -1,6 +1,6 @@
-import { SideBarAD } from "@/ui/components/adsense"
 import { Center, Grid, GridItem, SimpleGridProps } from "@yamada-ui/react"
 import { PropsWithChildren } from "react"
+import { SideBarAD } from "@/ui/components/adsense"
 
 interface AppLayoutProps extends PropsWithChildren, SimpleGridProps {}
 

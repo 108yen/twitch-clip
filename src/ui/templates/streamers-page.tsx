@@ -1,13 +1,12 @@
 "use client"
-import { Streamer } from "@/models/streamer"
-import { ChannelCard } from "@/ui/components/data-display"
-import { SearchChannels } from "@/ui/components/form"
-import { AppLayout } from "@/ui/layouts"
 import { TwitchIcon } from "@yamada-ui/lucide"
 import { EmptyState, VStack } from "@yamada-ui/react"
 import { useSearchParams } from "next/navigation"
 import { useDeferredValue, useMemo, useState } from "react"
-
+import { Streamer } from "@/models/streamer"
+import { ChannelCard } from "@/ui/components/data-display"
+import { SearchChannels } from "@/ui/components/form"
+import { AppLayout } from "@/ui/layouts"
 import { PageHeader } from "../components/layouts"
 
 function streamerFilter(text: string) {

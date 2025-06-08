@@ -7,7 +7,6 @@ import {
   StackProps,
   useBreakpoint,
 } from "@yamada-ui/react"
-
 import { PageHeader } from "./page-header"
 
 interface FavoriteHeaderProps extends StackProps {

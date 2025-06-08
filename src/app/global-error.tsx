@@ -19,7 +19,7 @@ export default function GlobalError({
   }, [error])
 
   return (
-    <html>
+    <html lang="ja">
       <body>
         <NextError statusCode={0} />
       </body>
