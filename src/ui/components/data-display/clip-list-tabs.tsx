@@ -1,11 +1,18 @@
 "use client"
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
-import { SquareArrowOutUpRightIcon, TwitchIcon } from "@yamada-ui/lucide"
+import {
+  SquareArrowOutUpRightIcon,
+  StarIcon,
+  TwitchIcon,
+} from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
   Box,
   Container,
+  dataAttr,
+  Drawer,
+  DrawerBody,
   EmptyState,
   Heading,
   HStack,
@@ -13,6 +20,9 @@ import {
   Image,
   InfiniteScrollArea,
   isArray,
+  List,
+  ListIcon,
+  ListItem,
   Loading,
   Spacer,
   Tab,
@@ -21,19 +31,96 @@ import {
   TabsProps,
   Text,
   useBreakpoint,
+  useDisclosure,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
+import { useLongPress, useToggleFavorite } from "@/hooks"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
 import { formatDate, toISO8601Duration } from "@/utils/string"
 import { InlineAD } from "../adsense"
-import { SkeletonAvatar } from "../media-and-icons"
+import { HexagonOutlined, SkeletonAvatar, X } from "../media-and-icons"
 import { TeamTag } from "./team-tag"
+
+interface ControlClipDrawerProps {
+  clip: Clip
+  onClose: () => void
+  open: boolean
+}
+
+function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
+  const { broadcaster_id, broadcaster_name, url } = clip
+
+  const { favorite, pending, toggle } = useToggleFavorite(clip)
+
+  return (
+    <Drawer closeOnDrag onClose={onClose} open={open} placement="bottom">
+      <DrawerBody>
+        <List>
+          <ListItem
+            as={Link}
+            href={url ?? ""}
+            py="sm"
+            style={{
+              textDecoration: "none",
+            }}
+            tabIndex={-1}
+            target="_blank"
+          >
+            <ListIcon as={TwitchIcon} />
+            Twitchで見る
+          </ListItem>
+          <ListItem
+            as={Link}
+            href={`/streamer/${broadcaster_id}`}
+            py="sm"
+            style={{
+              textDecoration: "none",
+            }}
+            tabIndex={-1}
+            target="_blank"
+          >
+            <ListIcon as={HexagonOutlined} />
+            {broadcaster_name}のクリップを見る
+          </ListItem>
+          <ListItem
+            as="button"
+            data-selected={dataAttr(favorite)}
+            disabled={pending}
+            onClick={toggle}
+            py="sm"
+          >
+            <ListIcon
+              _selected={{ fill: "primary.500" }}
+              as={StarIcon}
+              color="primary.500"
+              data-selected={dataAttr(favorite)}
+            />
+            お気に入りに登録する
+          </ListItem>
+          <ListItem
+            as={Link}
+            href={`/streamer/${broadcaster_id}`}
+            py="sm"
+            style={{
+              textDecoration: "none",
+            }}
+            tabIndex={-1}
+            target="_blank"
+          >
+            <ListIcon as={X} />
+            共有する
+          </ListItem>
+        </List>
+      </DrawerBody>
+    </Drawer>
+  )
+}
 
 interface ClipCardProps {
   clip: Clip
@@ -42,6 +129,10 @@ interface ClipCardProps {
 
 function ClipCard({ clip, tab }: ClipCardProps) {
   const { setClipUrl } = useClip()
+  const { onClose, onOpen, open } = useDisclosure()
+  const { onTouchEnd, onTouchStart } = useLongPress(onOpen, {
+    onFinish: (ev) => ev.preventDefault(),
+  })
 
   const {
     broadcaster_id,
@@ -63,143 +154,151 @@ function ClipCard({ clip, tab }: ClipCardProps) {
   const view_count = `${_view_count?.toLocaleString()} views`
 
   return (
-    <Container
-      cursor="pointer"
-      itemID={id}
-      itemScope
-      itemType="https://schema.org/VideoObject"
-      layerStyle="borderCard"
-      onClick={() => {
-        setClipUrl(clip)
-        sendGAEvent("event", "click", {
-          clip_title: title,
-          label: "click_clip_title",
-          ranking_period: tab,
-        })
-      }}
-      p={0}
-    >
-      <HStack gap={0} overflow="hidden">
-        <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
-          <Image
-            alt={title}
-            itemProp="thumbnail"
-            loading="lazy"
-            src={thumbnail_url}
-          />
-        </AspectRatio>
-
-        <VStack
-          gap={0}
-          marginX={{ base: "sm", sm: "xs" }}
-          overflow="hidden"
-          w="full"
-        >
-          <HStack aria-label={title} gap={0}>
-            <Heading
-              fontSize={{ base: "xl", sm: "lg" }}
-              itemProp="name"
-              lineClamp={1}
-              overflowWrap="anywhere"
-              variant="h5"
-            >
-              {title}
-            </Heading>
-
-            <Spacer />
-
-            <IconButton
-              as={Link}
-              href={url ?? ""}
-              icon={<SquareArrowOutUpRightIcon />}
-              itemProp="url"
-              style={{
-                textDecoration: "none",
-              }}
-              target="_blank"
-              variant="primary"
+    <>
+      <Container
+        cursor="pointer"
+        itemID={id}
+        itemScope
+        itemType="https://schema.org/VideoObject"
+        layerStyle="borderCard"
+        onClick={() => {
+          setClipUrl(clip)
+          sendGAEvent("event", "click", {
+            clip_title: title,
+            label: "click_clip_title",
+            ranking_period: tab,
+          })
+        }}
+        onTouchEnd={onTouchEnd}
+        onTouchMove={onTouchEnd}
+        onTouchStart={onTouchStart}
+        p={0}
+      >
+        <HStack gap={0} overflow="hidden">
+          <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
+            <Image
+              alt={title}
+              itemProp="thumbnail"
+              loading="lazy"
+              src={thumbnail_url}
             />
-          </HStack>
+          </AspectRatio>
 
-          <HStack>
-            <HStack
-              aria-label={broadcaster_name}
-              as={Link}
-              gap="sm"
-              href={`/streamer/${broadcaster_id}`}
-              itemProp="actor"
-              itemScope
-              itemType="https://schema.org/Person"
-              onClick={(ev) => {
-                ev.stopPropagation()
-              }}
-              w="fit-content"
-            >
-              <SkeletonAvatar
-                alt={broadcaster_name}
-                itemProp="image"
-                size={{ base: "base", sm: "sm" }}
-                src={profile_image_url}
+          <VStack
+            gap={0}
+            marginX={{ base: "sm", sm: "xs" }}
+            overflow="hidden"
+            w="full"
+          >
+            <HStack aria-label={title} gap={0}>
+              <Heading
+                fontSize={{ base: "xl", sm: "lg" }}
+                itemProp="name"
+                lineClamp={1}
+                overflowWrap="anywhere"
+                variant="h5"
+              >
+                {title}
+              </Heading>
+
+              <Spacer />
+
+              <IconButton
+                as={Link}
+                display={{ base: "flex", sm: "none" }}
+                href={url ?? ""}
+                icon={<SquareArrowOutUpRightIcon />}
+                itemProp="url"
+                style={{
+                  textDecoration: "none",
+                }}
+                target="_blank"
+                variant="primary"
               />
-
-              <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
-                {broadcaster_name}
-              </Text>
             </HStack>
 
-            <TeamTag
+            <HStack>
+              <HStack
+                aria-label={broadcaster_name}
+                as={Link}
+                gap="sm"
+                href={`/streamer/${broadcaster_id}`}
+                itemProp="actor"
+                itemScope
+                itemType="https://schema.org/Person"
+                onClick={(ev) => {
+                  ev.stopPropagation()
+                }}
+                w="fit-content"
+              >
+                <SkeletonAvatar
+                  alt={broadcaster_name}
+                  itemProp="image"
+                  size={{ base: "base", sm: "sm" }}
+                  src={profile_image_url}
+                />
+
+                <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
+                  {broadcaster_name}
+                </Text>
+              </HStack>
+
+              <TeamTag
+                display={{ base: "flex", sm: "none" }}
+                onClick={(ev) => {
+                  ev.stopPropagation()
+                }}
+                teams={teams}
+              />
+            </HStack>
+
+            <Text
+              aria-label="Clip creator name"
               display={{ base: "flex", sm: "none" }}
-              onClick={(ev) => {
-                ev.stopPropagation()
-              }}
-              teams={teams}
-            />
-          </HStack>
+              textAlign="start"
+            >
+              created_by : {creator_name}
+            </Text>
 
-          <Text
-            aria-label="Clip creator name"
-            display={{ base: "flex", sm: "none" }}
-            textAlign="start"
-          >
-            created_by : {creator_name}
-          </Text>
+            <Text
+              aria-label="Clip created date"
+              display={{ base: "flex", sm: "none" }}
+              textAlign="start"
+            >
+              <meta content={_created_at} itemProp="uploadDate" />
+              created_at : {created_at}
+            </Text>
 
-          <Text
-            aria-label="Clip created date"
-            display={{ base: "flex", sm: "none" }}
-            textAlign="start"
-          >
-            <meta content={_created_at} itemProp="uploadDate" />
-            created_at : {created_at}
-          </Text>
+            <Text
+              aria-label="Clip view count"
+              itemProp="interactionStatistic"
+              itemScope
+              itemType="https://schema.org/InteractionCounter"
+              textAlign="end"
+              textStyle="viewCount"
+            >
+              <meta
+                content="https://schema.org/WatchAction"
+                itemProp="interactionType"
+              />
+              <meta
+                content={_view_count?.toString()}
+                itemProp="userInteractionCount"
+              />
 
-          <Text
-            aria-label="Clip view count"
-            itemProp="interactionStatistic"
-            itemScope
-            itemType="https://schema.org/InteractionCounter"
-            textAlign="end"
-            textStyle="viewCount"
-          >
-            <meta
-              content="https://schema.org/WatchAction"
-              itemProp="interactionType"
-            />
-            <meta
-              content={_view_count?.toString()}
-              itemProp="userInteractionCount"
-            />
+              {view_count}
+            </Text>
+          </VStack>
+        </HStack>
 
-            {view_count}
-          </Text>
-        </VStack>
-      </HStack>
+        <meta content={title} itemProp="description" />
+        <meta content={thumbnail_url} itemProp="thumbnailUrl" />
+        <meta content={embed_url} itemProp="embedUrl" />
+        <meta content={toISO8601Duration(duration)} itemProp="duration" />
+      </Container>
 
-      <meta content={title} itemProp="description" />
-      <meta content={thumbnail_url} itemProp="thumbnailUrl" />
-      <meta content={embed_url} itemProp="embedUrl" />
-      <meta content={toISO8601Duration(duration)} itemProp="duration" />
-    </Container>
+      <ControlClipDrawer clip={clip} onClose={onClose} open={open} />
+    </>
   )
 }
 
