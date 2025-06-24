@@ -20,13 +20,10 @@ import {
   Image,
   InfiniteScrollArea,
   isArray,
-  List,
-  ListIcon,
-  ListItem,
-  ListItemProps,
   Loading,
   Merge,
   Spacer,
+  StackProps,
   Tab,
   TabList,
   Tabs,
@@ -49,41 +46,41 @@ import { InlineAD } from "../adsense"
 import { HexagonOutlined, SkeletonAvatar, X } from "../media-and-icons"
 import { TeamTag } from "./team-tag"
 
-interface FavoriteListItemProps extends Omit<ListItemProps, "clip"> {
+interface FavoriteItemProps extends Omit<StackProps, "clip"> {
   clip: Clip
 }
 
-function FavoriteListItem({ clip, ...props }: FavoriteListItemProps) {
+function FavoriteItem({ clip, ...props }: FavoriteItemProps) {
   const { favorite, pending, toggle } = useToggleFavorite(clip)
 
   return (
-    <ListItem
+    <HStack
       as="button"
       data-selected={dataAttr(favorite)}
       disabled={pending}
+      gap="sm"
       onClick={toggle}
-      py="sm"
       {...props}
     >
-      <ListIcon
+      <StarIcon
         _selected={{ fill: "primary.500" }}
-        as={StarIcon}
         color="primary.500"
         data-selected={dataAttr(favorite)}
       />
-      お気に入りに登録する
-    </ListItem>
+      <Text>お気に入りに登録する</Text>
+    </HStack>
   )
 }
-interface LinkListItemProps extends Merge<LinkProps, ListItemProps> {
+interface LinkItemProps extends Merge<LinkProps, StackProps> {
   target?: string
 }
 
-function LinkListItem({ ...props }: LinkListItemProps) {
+function LinkItem({ ...props }: LinkItemProps) {
   return (
-    <ListItem
+    <HStack
+      alignItems="center"
       as={Link}
-      py="sm"
+      gap="sm"
       style={{
         textDecoration: "none",
       }}
@@ -105,24 +102,24 @@ function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
   return (
     <Drawer closeOnDrag onClose={onClose} open={open} placement="bottom">
       <DrawerBody>
-        <List>
-          <LinkListItem href={url ?? ""} target="_blank">
-            <ListIcon as={TwitchIcon} />
-            Twitchで見る
-          </LinkListItem>
+        <VStack gap="lg" paddingBottom="md">
+          <LinkItem href={url ?? ""} target="_blank">
+            <TwitchIcon />
+            <Text>Twitchで見る</Text>
+          </LinkItem>
 
-          <LinkListItem href={`/streamer/${broadcaster_id}`}>
-            <ListIcon as={HexagonOutlined} />
-            {broadcaster_name}のクリップを見る
-          </LinkListItem>
+          <LinkItem href={`/streamer/${broadcaster_id}`}>
+            <HexagonOutlined fontSize="md" />
+            <Text>{broadcaster_name}のクリップを見る</Text>
+          </LinkItem>
 
-          <FavoriteListItem clip={clip} />
+          <FavoriteItem clip={clip} />
 
-          <LinkListItem href={""} target="_blank">
-            <ListIcon as={X} />
-            共有する
-          </LinkListItem>
-        </List>
+          <LinkItem href={""} target="_blank">
+            <X fontSize="md" />
+            <Text>共有する</Text>
+          </LinkItem>
+        </VStack>
       </DrawerBody>
     </Drawer>
   )
