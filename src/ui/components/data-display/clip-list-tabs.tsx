@@ -23,7 +23,9 @@ import {
   List,
   ListIcon,
   ListItem,
+  ListItemProps,
   Loading,
+  Merge,
   Spacer,
   Tab,
   TabList,
@@ -34,7 +36,7 @@ import {
   useDisclosure,
   VStack,
 } from "@yamada-ui/react"
-import Link from "next/link"
+import Link, { LinkProps } from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
@@ -47,6 +49,50 @@ import { InlineAD } from "../adsense"
 import { HexagonOutlined, SkeletonAvatar, X } from "../media-and-icons"
 import { TeamTag } from "./team-tag"
 
+interface FavoriteListItemProps extends Omit<ListItemProps, "clip"> {
+  clip: Clip
+}
+
+function FavoriteListItem({ clip, ...props }: FavoriteListItemProps) {
+  const { favorite, pending, toggle } = useToggleFavorite(clip)
+
+  return (
+    <ListItem
+      as="button"
+      data-selected={dataAttr(favorite)}
+      disabled={pending}
+      onClick={toggle}
+      py="sm"
+      {...props}
+    >
+      <ListIcon
+        _selected={{ fill: "primary.500" }}
+        as={StarIcon}
+        color="primary.500"
+        data-selected={dataAttr(favorite)}
+      />
+      お気に入りに登録する
+    </ListItem>
+  )
+}
+interface LinkListItemProps extends Merge<LinkProps, ListItemProps> {
+  target?: string
+}
+
+function LinkListItem({ ...props }: LinkListItemProps) {
+  return (
+    <ListItem
+      as={Link}
+      py="sm"
+      style={{
+        textDecoration: "none",
+      }}
+      tabIndex={-1}
+      {...props}
+    />
+  )
+}
+
 interface ControlClipDrawerProps {
   clip: Clip
   onClose: () => void
@@ -56,66 +102,26 @@ interface ControlClipDrawerProps {
 function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
   const { broadcaster_id, broadcaster_name, url } = clip
 
-  const { favorite, pending, toggle } = useToggleFavorite(clip)
-
   return (
     <Drawer closeOnDrag onClose={onClose} open={open} placement="bottom">
       <DrawerBody>
         <List>
-          <ListItem
-            as={Link}
-            href={url ?? ""}
-            py="sm"
-            style={{
-              textDecoration: "none",
-            }}
-            tabIndex={-1}
-            target="_blank"
-          >
+          <LinkListItem href={url ?? ""} target="_blank">
             <ListIcon as={TwitchIcon} />
             Twitchで見る
-          </ListItem>
-          <ListItem
-            as={Link}
-            href={`/streamer/${broadcaster_id}`}
-            py="sm"
-            style={{
-              textDecoration: "none",
-            }}
-            tabIndex={-1}
-            target="_blank"
-          >
+          </LinkListItem>
+
+          <LinkListItem href={`/streamer/${broadcaster_id}`}>
             <ListIcon as={HexagonOutlined} />
             {broadcaster_name}のクリップを見る
-          </ListItem>
-          <ListItem
-            as="button"
-            data-selected={dataAttr(favorite)}
-            disabled={pending}
-            onClick={toggle}
-            py="sm"
-          >
-            <ListIcon
-              _selected={{ fill: "primary.500" }}
-              as={StarIcon}
-              color="primary.500"
-              data-selected={dataAttr(favorite)}
-            />
-            お気に入りに登録する
-          </ListItem>
-          <ListItem
-            as={Link}
-            href={`/streamer/${broadcaster_id}`}
-            py="sm"
-            style={{
-              textDecoration: "none",
-            }}
-            tabIndex={-1}
-            target="_blank"
-          >
+          </LinkListItem>
+
+          <FavoriteListItem clip={clip} />
+
+          <LinkListItem href={""} target="_blank">
             <ListIcon as={X} />
             共有する
-          </ListItem>
+          </LinkListItem>
         </List>
       </DrawerBody>
     </Drawer>
