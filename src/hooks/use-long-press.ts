@@ -1,5 +1,4 @@
-import { isMouseEvent, isTouchEvent } from "@yamada-ui/react"
-import { useCallback, useRef } from "react"
+import { MouseEvent, TouchEvent, useCallback, useRef } from "react"
 
 interface Options {
   onCancel?: (event: MouseEvent | TouchEvent) => void
@@ -19,11 +18,7 @@ export function useLongPress<T extends (...args: any[]) => any>(
 
   const start = useCallback(
     (event: MouseEvent | TouchEvent) => {
-      if (!isMouseEvent(event) && !isTouchEvent(event)) return
-
-      if (onStart) {
-        onStart(event)
-      }
+      onStart?.(event)
 
       isPressed.current = true
       timerId.current = setTimeout(() => {
@@ -34,18 +29,12 @@ export function useLongPress<T extends (...args: any[]) => any>(
     [callback, onStart, threshold],
   )
 
-  const cancel = useCallback(
+  const end = useCallback(
     (event: MouseEvent | TouchEvent) => {
-      if (!isMouseEvent(event) && !isTouchEvent(event)) return
-
       if (isLongPressActive.current) {
-        if (onFinish) {
-          onFinish(event)
-        }
+        onFinish?.(event)
       } else if (isPressed.current) {
-        if (onCancel) {
-          onCancel(event)
-        }
+        onCancel?.(event)
       }
 
       isLongPressActive.current = false
@@ -60,12 +49,12 @@ export function useLongPress<T extends (...args: any[]) => any>(
 
   const mouseHandlers = {
     onMouseDown: start,
-    onMouseLeave: cancel,
-    onMouseUp: cancel,
+    onMouseLeave: end,
+    onMouseUp: end,
   }
 
   const touchHandlers = {
-    onTouchEnd: cancel,
+    onTouchEnd: end,
     onTouchStart: start,
   }
 
