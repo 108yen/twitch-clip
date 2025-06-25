@@ -22,6 +22,7 @@ import {
   InfiniteScrollArea,
   isArray,
   Loading,
+  Separator,
   Spacer,
   Tab,
   TabList,
@@ -80,14 +81,34 @@ interface ControlClipDrawerProps {
 }
 
 function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
-  const { broadcaster_id, broadcaster_name, url } = clip
+  const { broadcaster_id, broadcaster_name, title, url } = clip
 
   const { setClipUrl } = useClip()
 
   return (
-    <Drawer closeOnDrag onClose={onClose} open={open} placement="bottom">
-      <DrawerBody>
-        <VStack paddingBottom="md">
+    <Drawer
+      closeOnDrag
+      onClose={onClose}
+      open={open}
+      placement="bottom"
+      withDragBar={false}
+    >
+      <DrawerBody gap={0} m={0} px={0}>
+        <Text
+          alignItems="center"
+          color={["blackAlpha.700", "whiteAlpha.600"]}
+          fontSize="sm"
+          h={14}
+          lineClamp={1}
+          lineHeight="$sizes.14"
+          px="md"
+        >
+          {`${broadcaster_name} - ${title}`}
+        </Text>
+
+        <Separator />
+
+        <VStack gap={0} my="sm" px="sm">
           <DrawerButton
             onClick={() => {
               setClipUrl(clip)
