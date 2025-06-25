@@ -1,6 +1,7 @@
 "use client"
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
 import {
+  PlayIcon,
   SquareArrowOutUpRightIcon,
   StarIcon,
   TwitchIcon,
@@ -21,9 +22,7 @@ import {
   InfiniteScrollArea,
   isArray,
   Loading,
-  Merge,
   Spacer,
-  StackProps,
   Tab,
   TabList,
   Tabs,
@@ -33,7 +32,7 @@ import {
   useDisclosure,
   VStack,
 } from "@yamada-ui/react"
-import Link, { LinkProps } from "next/link"
+import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
@@ -43,50 +42,34 @@ import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
 import { formatDate, toISO8601Duration } from "@/utils/string"
 import { InlineAD } from "../adsense"
+import { DrawerButton, DrawerButtonProps } from "../form"
 import { HexagonOutlined, SkeletonAvatar, X } from "../media-and-icons"
 import { TeamTag } from "./team-tag"
 
-interface FavoriteItemProps extends Omit<StackProps, "clip"> {
+interface FavoriteItemProps extends Omit<DrawerButtonProps, "clip"> {
   clip: Clip
 }
 
+// TODO: Consider FavoriteButton state is changed
 function FavoriteItem({ clip, ...props }: FavoriteItemProps) {
   const { favorite, pending, toggle } = useToggleFavorite(clip)
 
   return (
-    <HStack
-      as="button"
+    <DrawerButton
       data-selected={dataAttr(favorite)}
       disabled={pending}
-      gap="sm"
       onClick={toggle}
+      startIcon={
+        <StarIcon
+          _selected={{ fill: "primary.500" }}
+          color="primary.500"
+          data-selected={dataAttr(favorite)}
+        />
+      }
       {...props}
     >
-      <StarIcon
-        _selected={{ fill: "primary.500" }}
-        color="primary.500"
-        data-selected={dataAttr(favorite)}
-      />
-      <Text>お気に入りに登録する</Text>
-    </HStack>
-  )
-}
-interface LinkItemProps extends Merge<LinkProps, StackProps> {
-  target?: string
-}
-
-function LinkItem({ ...props }: LinkItemProps) {
-  return (
-    <HStack
-      alignItems="center"
-      as={Link}
-      gap="sm"
-      style={{
-        textDecoration: "none",
-      }}
-      tabIndex={-1}
-      {...props}
-    />
+      {`お気に入り${favorite ? "を解除" : "に登録"}する`}
+    </DrawerButton>
   )
 }
 
@@ -99,26 +82,53 @@ interface ControlClipDrawerProps {
 function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
   const { broadcaster_id, broadcaster_name, url } = clip
 
+  const { setClipUrl } = useClip()
+
+  // TODO: create twitter link. Consider using utility function to generate social media links
+
   return (
     <Drawer closeOnDrag onClose={onClose} open={open} placement="bottom">
       <DrawerBody>
-        <VStack gap="lg" paddingBottom="md">
-          <LinkItem href={url ?? ""} target="_blank">
-            <TwitchIcon />
-            <Text>Twitchで見る</Text>
-          </LinkItem>
+        <VStack paddingBottom="md">
+          <DrawerButton
+            onClick={() => {
+              setClipUrl(clip)
+              onClose()
+            }}
+            startIcon={<PlayIcon />}
+          >
+            クリップを視聴する
+          </DrawerButton>
 
-          <LinkItem href={`/streamer/${broadcaster_id}`}>
-            <HexagonOutlined fontSize="md" />
-            <Text>{broadcaster_name}のクリップを見る</Text>
-          </LinkItem>
+          <DrawerButton
+            as={Link}
+            href={url ?? ""}
+            startIcon={<TwitchIcon />}
+            tabIndex={-1}
+            target="_blank"
+            variant="ghost"
+          >
+            Twitchで視聴する
+          </DrawerButton>
+
+          <DrawerButton
+            as={Link}
+            href={`/streamer/${broadcaster_id}`}
+            startIcon={<HexagonOutlined fontSize="md" />}
+          >
+            {broadcaster_name}のクリップを見る
+          </DrawerButton>
 
           <FavoriteItem clip={clip} />
 
-          <LinkItem href={""} target="_blank">
-            <X fontSize="md" />
-            <Text>共有する</Text>
-          </LinkItem>
+          <DrawerButton
+            as={Link}
+            href={""}
+            startIcon={<X fontSize="md" />}
+            target="_blank"
+          >
+            共有する
+          </DrawerButton>
         </VStack>
       </DrawerBody>
     </Drawer>
