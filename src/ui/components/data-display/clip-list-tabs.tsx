@@ -40,7 +40,7 @@ import { useLongPress, useToggleFavorite } from "@/hooks"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
-import { formatDate, toISO8601Duration } from "@/utils/string"
+import { createTwitterUrl, formatDate, toISO8601Duration } from "@/utils/string"
 import { InlineAD } from "../adsense"
 import { DrawerButton, DrawerButtonProps } from "../form"
 import { HexagonOutlined, SkeletonAvatar, X } from "../media-and-icons"
@@ -84,8 +84,6 @@ function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
 
   const { setClipUrl } = useClip()
 
-  // TODO: create twitter link. Consider using utility function to generate social media links
-
   return (
     <Drawer closeOnDrag onClose={onClose} open={open} placement="bottom">
       <DrawerBody>
@@ -104,9 +102,7 @@ function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
             as={Link}
             href={url ?? ""}
             startIcon={<TwitchIcon />}
-            tabIndex={-1}
             target="_blank"
-            variant="ghost"
           >
             Twitchで視聴する
           </DrawerButton>
@@ -123,7 +119,7 @@ function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
 
           <DrawerButton
             as={Link}
-            href={""}
+            href={createTwitterUrl(clip, url)}
             startIcon={<X fontSize="md" />}
             target="_blank"
           >
