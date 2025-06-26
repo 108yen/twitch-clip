@@ -27,41 +27,28 @@ export function useToggleFavorite(clip: Clip) {
 
     const storedClip = await getClip(clipId)
 
-    if (!isUndefined(storedClip)) {
-      setCheck(true)
-    } else {
-      setCheck(false)
-    }
+    setCheck(!isUndefined(storedClip))
   }, [clipId, getClip])
 
   const toggleCheckState = useCallback(async () => {
     if (!clipId) return
 
     try {
+      setCheckOptimistic(!check)
+
       if (check) {
-        setCheckOptimistic(false)
-
         await deleteClip(clipId)
-        setCheck(false)
-
-        sendGAEvent("event", "click", {
-          clip_title: title,
-          label: "remove_from_favorite",
-        })
       } else {
-        setCheckOptimistic(true)
-
         await saveClip(clip)
-        setCheck(true)
-
-        sendGAEvent("event", "click", {
-          clip_title: title,
-          label: "add_to_favorite",
-        })
       }
-    } catch {
-      return
-    }
+
+      setCheck(!check)
+
+      sendGAEvent("event", "click", {
+        clip_title: title,
+        label: "remove_from_favorite",
+      })
+    } catch {}
 
     return
   }, [check, clip, clipId, deleteClip, saveClip, setCheckOptimistic, title])

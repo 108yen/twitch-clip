@@ -51,7 +51,6 @@ interface FavoriteItemProps extends Omit<DrawerButtonProps, "clip"> {
   clip: Clip
 }
 
-// TODO: Consider FavoriteButton state is changed
 function FavoriteItem({ clip, ...props }: FavoriteItemProps) {
   const { favorite, pending, toggle } = useToggleFavorite(clip)
 
