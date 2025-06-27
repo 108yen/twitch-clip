@@ -1,4 +1,5 @@
 import { toNumber } from "@yamada-ui/react"
+import { Clip } from "@/models/clip"
 
 /**
  *
@@ -75,4 +76,19 @@ export function toISO8601Duration(seconds: number): string {
     duration += `${remainingSeconds}S`
 
   return duration
+}
+
+/**
+ * Create a URL to share a clip on Twitter.
+ * @param shareUrl
+ * @param clip
+ * @returns url to share clip on Twitter.
+ */
+export function createTwitterUrl(clip: Clip, shareUrl?: string) {
+  const text = `${clip.broadcaster_name} - ${clip.title}\n#Twitchクリップ #Twitchクリップランキング @twitchcliprank \n\n${shareUrl}`
+
+  const url = new URL("https://twitter.com/intent/tweet")
+  url.searchParams.set("text", text)
+
+  return url.toString()
 }
