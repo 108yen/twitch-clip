@@ -8,6 +8,7 @@ export function PCView() {
 
   return (
     <Grid
+      as="main"
       gap={{ "2xl": "xl", base: "3xl", xl: "lg" }}
       marginX={{ "2xl": "xl", base: "3xl", xl: "lg" }}
       templateColumns="repeat(12, 1fr)"
