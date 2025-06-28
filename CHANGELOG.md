@@ -1,5 +1,19 @@
 # Releases
 
+## 2.11.0
+
+### Minor Changes
+
+- [#557](https://github.com/108yen/twitch-clip/pull/557) [`b34e5fc`](https://github.com/108yen/twitch-clip/commit/b34e5fc2bcdce0eaec5eb6fd6dfbc39aabd4144e) Thanks [@108yen](https://github.com/108yen)! - Added control clip drawer menu for mobile.
+
+### Patch Changes
+
+- [#562](https://github.com/108yen/twitch-clip/pull/562) [`c3ce46f`](https://github.com/108yen/twitch-clip/commit/c3ce46f5d0554e6a1b913a1f7c99e3f5fa1f8bb7) Thanks [@108yen](https://github.com/108yen)! - Fixed first `Carousel` item component is stretch over screen width. Horizontal padding is needed to prevent bugs.
+
+- [#563](https://github.com/108yen/twitch-clip/pull/563) [`0df6807`](https://github.com/108yen/twitch-clip/commit/0df6807fa6b64b44c29fe5a2c4598e3387535214) Thanks [@108yen](https://github.com/108yen)! - Fixed switching view mode when clicked external twitch link.
+
+- [#563](https://github.com/108yen/twitch-clip/pull/563) [`5ff3957`](https://github.com/108yen/twitch-clip/commit/5ff39579b7d43a0b911bc9e8379d8731f02aafe9) Thanks [@108yen](https://github.com/108yen)! - Disabled streamer link of clip card in mobile.
+
 ## 2.10.3
 
 ### Patch Changes
