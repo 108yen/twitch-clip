@@ -24,6 +24,7 @@ import {
   Loading,
   Separator,
   Spacer,
+  StackProps,
   Tab,
   TabList,
   Tabs,
@@ -34,11 +35,12 @@ import {
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { RefObject, useMemo, useRef, useState } from "react"
+import { MouseEvent, RefObject, useMemo, useRef, useState } from "react"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
 import { useLongPress, useToggleFavorite } from "@/hooks"
 import { Clip } from "@/models/clip"
+import { Team } from "@/models/streamer"
 import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
 import { createTwitterUrl, formatDate, toISO8601Duration } from "@/utils/string"
@@ -151,6 +153,62 @@ function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
   )
 }
 
+interface StreamerLinkProps {
+  broadcasterId?: string
+  broadcasterName?: string
+  profileImageUrl?: string
+  teams?: Team[]
+}
+
+function StreamerLink({
+  broadcasterId,
+  broadcasterName,
+  profileImageUrl,
+  teams,
+}: StreamerLinkProps) {
+  const breakpoint = useBreakpoint()
+  const sm = breakpoint == "sm"
+  const props: StackProps = useMemo(
+    () => ({
+      "aria-label": broadcasterName,
+      as: sm ? undefined : Link,
+      gap: "sm",
+      href: sm ? undefined : `/streamer/${broadcasterId}`,
+      itemProp: "actor",
+      itemScope: true,
+      itemType: "https://schema.org/Person",
+      onClick: sm ? undefined : (ev: MouseEvent) => ev.stopPropagation(),
+      w: "fit-content",
+    }),
+    [broadcasterId, broadcasterName, sm],
+  )
+
+  return (
+    <HStack>
+      <HStack {...props}>
+        <SkeletonAvatar
+          alt={broadcasterName}
+          itemProp="image"
+          size={{ base: "base", sm: "sm" }}
+          src={profileImageUrl}
+        />
+
+        <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
+          {broadcasterName}
+        </Text>
+      </HStack>
+
+      <TeamTag
+        display={{ base: "flex", sm: "none" }}
+        onClick={(ev) => {
+          ev.stopPropagation()
+        }}
+        teams={teams}
+      />
+    </HStack>
+  )
+}
+
 interface ClipCardProps {
   clip: Clip
   tab: string
@@ -238,6 +296,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
                 href={url ?? ""}
                 icon={<SquareArrowOutUpRightIcon />}
                 itemProp="url"
+                onClick={(ev: MouseEvent) => ev.stopPropagation()}
                 style={{
                   textDecoration: "none",
                 }}
@@ -246,40 +305,12 @@ function ClipCard({ clip, tab }: ClipCardProps) {
               />
             </HStack>
 
-            <HStack>
-              <HStack
-                aria-label={broadcaster_name}
-                as={Link}
-                gap="sm"
-                href={`/streamer/${broadcaster_id}`}
-                itemProp="actor"
-                itemScope
-                itemType="https://schema.org/Person"
-                onClick={(ev) => {
-                  ev.stopPropagation()
-                }}
-                w="fit-content"
-              >
-                <SkeletonAvatar
-                  alt={broadcaster_name}
-                  itemProp="image"
-                  size={{ base: "base", sm: "sm" }}
-                  src={profile_image_url}
-                />
-
-                <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
-                  {broadcaster_name}
-                </Text>
-              </HStack>
-
-              <TeamTag
-                display={{ base: "flex", sm: "none" }}
-                onClick={(ev) => {
-                  ev.stopPropagation()
-                }}
-                teams={teams}
-              />
-            </HStack>
+            <StreamerLink
+              broadcasterId={broadcaster_id}
+              broadcasterName={broadcaster_name}
+              profileImageUrl={profile_image_url}
+              teams={teams}
+            />
 
             <Text
               aria-label="Clip creator name"
