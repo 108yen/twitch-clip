@@ -52,8 +52,27 @@ export function PageProvider({ children, ...rest }: PageProviderProps) {
     openDB()
   }, [])
 
-  const saveClip = useCallback((clip: Clip) => idbSaveClip(clip, db), [db])
-  const deleteClip = useCallback((id: string) => idbDeleteClip(id, db), [db])
+  const saveClip = useCallback(
+    (clip: Clip) => {
+      const channel = new BroadcastChannel("favorite-clips")
+      const result = idbSaveClip(clip, db)
+      channel.postMessage({ type: "update" })
+      channel.close()
+      return result
+    },
+    [db],
+  )
+
+  const deleteClip = useCallback(
+    (id: string) => {
+      const channel = new BroadcastChannel("favorite-clips")
+      const result = idbDeleteClip(id, db)
+      channel.postMessage({ type: "update" })
+      channel.close()
+      return result
+    },
+    [db],
+  )
   const getAllClips = useCallback(() => idbGetAllClips(db), [db])
   const getClip = useCallback((id: string) => idbGetClip(id, db), [db])
 

@@ -53,7 +53,22 @@ export function useToggleFavorite(clip: Clip) {
     return
   }, [check, clip, clipId, deleteClip, saveClip, setCheckOptimistic, title])
 
-  useEffect(() => startTransition(getCheckState), [getCheckState])
+  useEffect(() => {
+    startTransition(getCheckState)
+
+    const channel = new BroadcastChannel("favorite-clips")
+
+    const onMessage = () => {
+      startTransition(getCheckState)
+    }
+
+    channel.addEventListener("message", onMessage)
+
+    return () => {
+      channel.removeEventListener("message", onMessage)
+      channel.close()
+    }
+  }, [getCheckState])
 
   function toggleFavorite() {
     startTransition(toggleCheckState)
