@@ -11,5 +11,6 @@ export const globalStyle: UIStyle = {
       borderRadius: "full",
     },
     bg: ["white", "black"],
+    userSelect: "none",
   },
 }
