@@ -296,6 +296,7 @@ function ClipCard({ clip, tab }: ClipCardProps) {
                 href={url ?? ""}
                 icon={<SquareArrowOutUpRightIcon />}
                 itemProp="url"
+                onClick={(ev: MouseEvent) => ev.stopPropagation()}
                 style={{
                   textDecoration: "none",
                 }}
