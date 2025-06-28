@@ -1,5 +1,5 @@
 "use client"
-import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
+import { Carousel, CarouselProps, CarouselSlide } from "@yamada-ui/carousel"
 import {
   PlayIcon,
   SquareArrowOutUpRightIcon,
@@ -404,10 +404,15 @@ function ClipList({
 }
 
 interface ClipListTabProps extends TabsProps {
+  carouselProps?: CarouselProps
   withTab?: boolean
 }
 
-export function ClipListTabs({ withTab = true, ...rest }: ClipListTabProps) {
+export function ClipListTabs({
+  carouselProps,
+  withTab = true,
+  ...rest
+}: ClipListTabProps) {
   const { clipDoc } = useClip()
   const [index, onChange] = useState(0)
 
@@ -467,6 +472,7 @@ export function ClipListTabs({ withTab = true, ...rest }: ClipListTabProps) {
         loop={false}
         withControls={false}
         withIndicators={false}
+        {...carouselProps}
       >
         {tabs.map((tab, index) => {
           const clips = clipDoc?.[tab]

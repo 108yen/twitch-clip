@@ -19,6 +19,9 @@ export function MobileView() {
       backdropBlur: "50px",
       backdropFilter: "auto",
       bg: isScroll ? ["whiteAlpha.700", "blackAlpha.700"] : undefined,
+      carouselProps: {
+        px: "xs",
+      },
       position: "sticky",
       ref: tabsRef,
       shadow: isScroll ? ["base", "dark-sm"] : undefined,
