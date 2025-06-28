@@ -31,7 +31,7 @@ export function MobileView() {
   useWindowEvent("resize", () => setWidth(window?.innerWidth))
 
   return (
-    <VStack gap={1}>
+    <VStack as="main" gap={1}>
       <Player
         embedUrl={currentClip?.embed_url}
         position="sticky"
