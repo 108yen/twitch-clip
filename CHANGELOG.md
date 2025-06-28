@@ -1,5 +1,11 @@
 # Releases
 
+## 2.11.1
+
+### Patch Changes
+
+- [#566](https://github.com/108yen/twitch-clip/pull/566) [`9cffeee`](https://github.com/108yen/twitch-clip/commit/9cffeee3e7e8d10f4a42bfeb1393b5f33f1bd586) Thanks [@108yen](https://github.com/108yen)! - Prevent to select element, when longpress on ios.
+
 ## 2.11.0
 
 ### Minor Changes

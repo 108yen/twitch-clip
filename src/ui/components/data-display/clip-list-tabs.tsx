@@ -256,6 +256,10 @@ function ClipCard({ clip, tab }: ClipCardProps) {
             ranking_period: tab,
           })
         }}
+        onContextMenu={(ev: MouseEvent) => {
+          ev.preventDefault()
+          ev.stopPropagation()
+        }}
         onTouchEnd={onTouchEnd}
         onTouchMove={onTouchEnd}
         onTouchStart={onTouchStart}
