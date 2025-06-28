@@ -19,6 +19,9 @@ export function MobileView() {
       backdropBlur: "50px",
       backdropFilter: "auto",
       bg: isScroll ? ["whiteAlpha.700", "blackAlpha.700"] : undefined,
+      carouselProps: {
+        px: "xs",
+      },
       position: "sticky",
       ref: tabsRef,
       shadow: isScroll ? ["base", "dark-sm"] : undefined,
@@ -31,7 +34,7 @@ export function MobileView() {
   useWindowEvent("resize", () => setWidth(window?.innerWidth))
 
   return (
-    <VStack gap={1}>
+    <VStack as="main" gap={1}>
       <Player
         embedUrl={currentClip?.embed_url}
         position="sticky"

@@ -1,11 +1,19 @@
 "use client"
-import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
-import { SquareArrowOutUpRightIcon, TwitchIcon } from "@yamada-ui/lucide"
+import { Carousel, CarouselProps, CarouselSlide } from "@yamada-ui/carousel"
+import {
+  PlayIcon,
+  SquareArrowOutUpRightIcon,
+  StarIcon,
+  TwitchIcon,
+} from "@yamada-ui/lucide"
 import {
   AspectRatio,
   assignRef,
   Box,
   Container,
+  dataAttr,
+  Drawer,
+  DrawerBody,
   EmptyState,
   Heading,
   HStack,
@@ -14,26 +22,192 @@ import {
   InfiniteScrollArea,
   isArray,
   Loading,
+  Separator,
   Spacer,
+  StackProps,
   Tab,
   TabList,
   Tabs,
   TabsProps,
   Text,
   useBreakpoint,
+  useDisclosure,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
-import { RefObject, useMemo, useRef, useState } from "react"
+import { MouseEvent, RefObject, useMemo, useRef, useState } from "react"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
+import { useLongPress, useToggleFavorite } from "@/hooks"
 import { Clip } from "@/models/clip"
+import { Team } from "@/models/streamer"
 import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
-import { formatDate, toISO8601Duration } from "@/utils/string"
+import { createTwitterUrl, formatDate, toISO8601Duration } from "@/utils/string"
 import { InlineAD } from "../adsense"
-import { SkeletonAvatar } from "../media-and-icons"
+import { DrawerButton, DrawerButtonProps } from "../form"
+import { HexagonOutlined, SkeletonAvatar, X } from "../media-and-icons"
 import { TeamTag } from "./team-tag"
+
+interface FavoriteItemProps extends Omit<DrawerButtonProps, "clip"> {
+  clip: Clip
+}
+
+function FavoriteItem({ clip, ...props }: FavoriteItemProps) {
+  const { favorite, pending, toggle } = useToggleFavorite(clip)
+
+  return (
+    <DrawerButton
+      data-selected={dataAttr(favorite)}
+      disabled={pending}
+      onClick={toggle}
+      startIcon={
+        <StarIcon
+          _selected={{ fill: "primary.500" }}
+          color="primary.500"
+          data-selected={dataAttr(favorite)}
+        />
+      }
+      {...props}
+    >
+      {`お気に入り${favorite ? "を解除" : "に登録"}する`}
+    </DrawerButton>
+  )
+}
+
+interface ControlClipDrawerProps {
+  clip: Clip
+  onClose: () => void
+  open: boolean
+}
+
+function ControlClipDrawer({ clip, onClose, open }: ControlClipDrawerProps) {
+  const { broadcaster_id, broadcaster_name, title, url } = clip
+
+  const { setClipUrl } = useClip()
+
+  return (
+    <Drawer
+      closeOnDrag
+      onClose={onClose}
+      open={open}
+      placement="bottom"
+      withDragBar={false}
+    >
+      <DrawerBody gap={0} m={0} px={0}>
+        <Text
+          alignItems="center"
+          color={["blackAlpha.700", "whiteAlpha.600"]}
+          fontSize="sm"
+          h={14}
+          lineClamp={1}
+          lineHeight="$sizes.14"
+          px="md"
+        >
+          {`${broadcaster_name} - ${title}`}
+        </Text>
+
+        <Separator />
+
+        <VStack gap={0} my="sm" px="sm">
+          <DrawerButton
+            onClick={() => {
+              setClipUrl(clip)
+              onClose()
+            }}
+            startIcon={<PlayIcon />}
+          >
+            クリップを視聴する
+          </DrawerButton>
+
+          <DrawerButton
+            as={Link}
+            href={url ?? ""}
+            startIcon={<TwitchIcon />}
+            target="_blank"
+          >
+            Twitchで視聴する
+          </DrawerButton>
+
+          <DrawerButton
+            as={Link}
+            href={`/streamer/${broadcaster_id}`}
+            startIcon={<HexagonOutlined fontSize="md" />}
+          >
+            {broadcaster_name}のクリップを見る
+          </DrawerButton>
+
+          <FavoriteItem clip={clip} />
+
+          <DrawerButton
+            as={Link}
+            href={createTwitterUrl(clip, url)}
+            startIcon={<X fontSize="md" />}
+            target="_blank"
+          >
+            共有する
+          </DrawerButton>
+        </VStack>
+      </DrawerBody>
+    </Drawer>
+  )
+}
+
+interface StreamerLinkProps {
+  broadcasterId?: string
+  broadcasterName?: string
+  profileImageUrl?: string
+  teams?: Team[]
+}
+
+function StreamerLink({
+  broadcasterId,
+  broadcasterName,
+  profileImageUrl,
+  teams,
+}: StreamerLinkProps) {
+  const breakpoint = useBreakpoint()
+  const sm = breakpoint == "sm"
+  const props: StackProps = useMemo(
+    () => ({
+      "aria-label": broadcasterName,
+      as: sm ? undefined : Link,
+      gap: "sm",
+      href: sm ? undefined : `/streamer/${broadcasterId}`,
+      itemProp: "actor",
+      itemScope: true,
+      itemType: "https://schema.org/Person",
+      onClick: sm ? undefined : (ev: MouseEvent) => ev.stopPropagation(),
+      w: "fit-content",
+    }),
+    [broadcasterId, broadcasterName, sm],
+  )
+
+  return (
+    <HStack>
+      <HStack {...props}>
+        <SkeletonAvatar
+          alt={broadcasterName}
+          itemProp="image"
+          size={{ base: "base", sm: "sm" }}
+          src={profileImageUrl}
+        />
+
+        <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
+          {broadcasterName}
+        </Text>
+      </HStack>
+
+      <TeamTag
+        display={{ base: "flex", sm: "none" }}
+        onClick={(ev) => {
+          ev.stopPropagation()
+        }}
+        teams={teams}
+      />
+    </HStack>
+  )
+}
 
 interface ClipCardProps {
   clip: Clip
@@ -42,6 +216,10 @@ interface ClipCardProps {
 
 function ClipCard({ clip, tab }: ClipCardProps) {
   const { setClipUrl } = useClip()
+  const { onClose, onOpen, open } = useDisclosure()
+  const { onTouchEnd, onTouchStart } = useLongPress(onOpen, {
+    onFinish: (ev) => ev.preventDefault(),
+  })
 
   const {
     broadcaster_id,
@@ -63,143 +241,124 @@ function ClipCard({ clip, tab }: ClipCardProps) {
   const view_count = `${_view_count?.toLocaleString()} views`
 
   return (
-    <Container
-      cursor="pointer"
-      itemID={id}
-      itemScope
-      itemType="https://schema.org/VideoObject"
-      layerStyle="borderCard"
-      onClick={() => {
-        setClipUrl(clip)
-        sendGAEvent("event", "click", {
-          clip_title: title,
-          label: "click_clip_title",
-          ranking_period: tab,
-        })
-      }}
-      p={0}
-    >
-      <HStack gap={0} overflow="hidden">
-        <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
-          <Image
-            alt={title}
-            itemProp="thumbnail"
-            loading="lazy"
-            src={thumbnail_url}
-          />
-        </AspectRatio>
-
-        <VStack
-          gap={0}
-          marginX={{ base: "sm", sm: "xs" }}
-          overflow="hidden"
-          w="full"
-        >
-          <HStack aria-label={title} gap={0}>
-            <Heading
-              fontSize={{ base: "xl", sm: "lg" }}
-              itemProp="name"
-              lineClamp={1}
-              overflowWrap="anywhere"
-              variant="h5"
-            >
-              {title}
-            </Heading>
-
-            <Spacer />
-
-            <IconButton
-              as={Link}
-              href={url ?? ""}
-              icon={<SquareArrowOutUpRightIcon />}
-              itemProp="url"
-              style={{
-                textDecoration: "none",
-              }}
-              target="_blank"
-              variant="primary"
+    <>
+      <Container
+        cursor="pointer"
+        itemID={id}
+        itemScope
+        itemType="https://schema.org/VideoObject"
+        layerStyle="borderCard"
+        onClick={() => {
+          setClipUrl(clip)
+          sendGAEvent("event", "click", {
+            clip_title: title,
+            label: "click_clip_title",
+            ranking_period: tab,
+          })
+        }}
+        onTouchEnd={onTouchEnd}
+        onTouchMove={onTouchEnd}
+        onTouchStart={onTouchStart}
+        p={0}
+      >
+        <HStack gap={0} overflow="hidden">
+          <AspectRatio minW={{ base: "sm", sm: "48" }} ratio={16 / 9}>
+            <Image
+              alt={title}
+              itemProp="thumbnail"
+              loading="lazy"
+              src={thumbnail_url}
             />
-          </HStack>
+          </AspectRatio>
 
-          <HStack>
-            <HStack
-              aria-label={broadcaster_name}
-              as={Link}
-              gap="sm"
-              href={`/streamer/${broadcaster_id}`}
-              itemProp="actor"
-              itemScope
-              itemType="https://schema.org/Person"
-              onClick={(ev) => {
-                ev.stopPropagation()
-              }}
-              w="fit-content"
-            >
-              <SkeletonAvatar
-                alt={broadcaster_name}
-                itemProp="image"
-                size={{ base: "base", sm: "sm" }}
-                src={profile_image_url}
+          <VStack
+            gap={0}
+            marginX={{ base: "sm", sm: "xs" }}
+            overflow="hidden"
+            w="full"
+          >
+            <HStack aria-label={title} gap={0}>
+              <Heading
+                fontSize={{ base: "xl", sm: "lg" }}
+                itemProp="name"
+                lineClamp={1}
+                overflowWrap="anywhere"
+                variant="h5"
+              >
+                {title}
+              </Heading>
+
+              <Spacer />
+
+              <IconButton
+                as={Link}
+                display={{ base: "flex", sm: "none" }}
+                href={url ?? ""}
+                icon={<SquareArrowOutUpRightIcon />}
+                itemProp="url"
+                onClick={(ev: MouseEvent) => ev.stopPropagation()}
+                style={{
+                  textDecoration: "none",
+                }}
+                target="_blank"
+                variant="primary"
               />
-
-              <Text itemProp="name" lineClamp={1} overflowWrap="anywhere">
-                {broadcaster_name}
-              </Text>
             </HStack>
 
-            <TeamTag
-              display={{ base: "flex", sm: "none" }}
-              onClick={(ev) => {
-                ev.stopPropagation()
-              }}
+            <StreamerLink
+              broadcasterId={broadcaster_id}
+              broadcasterName={broadcaster_name}
+              profileImageUrl={profile_image_url}
               teams={teams}
             />
-          </HStack>
 
-          <Text
-            aria-label="Clip creator name"
-            display={{ base: "flex", sm: "none" }}
-            textAlign="start"
-          >
-            created_by : {creator_name}
-          </Text>
+            <Text
+              aria-label="Clip creator name"
+              display={{ base: "flex", sm: "none" }}
+              textAlign="start"
+            >
+              created_by : {creator_name}
+            </Text>
 
-          <Text
-            aria-label="Clip created date"
-            display={{ base: "flex", sm: "none" }}
-            textAlign="start"
-          >
-            <meta content={_created_at} itemProp="uploadDate" />
-            created_at : {created_at}
-          </Text>
+            <Text
+              aria-label="Clip created date"
+              display={{ base: "flex", sm: "none" }}
+              textAlign="start"
+            >
+              <meta content={_created_at} itemProp="uploadDate" />
+              created_at : {created_at}
+            </Text>
 
-          <Text
-            aria-label="Clip view count"
-            itemProp="interactionStatistic"
-            itemScope
-            itemType="https://schema.org/InteractionCounter"
-            textAlign="end"
-            textStyle="viewCount"
-          >
-            <meta
-              content="https://schema.org/WatchAction"
-              itemProp="interactionType"
-            />
-            <meta
-              content={_view_count?.toString()}
-              itemProp="userInteractionCount"
-            />
+            <Text
+              aria-label="Clip view count"
+              itemProp="interactionStatistic"
+              itemScope
+              itemType="https://schema.org/InteractionCounter"
+              textAlign="end"
+              textStyle="viewCount"
+            >
+              <meta
+                content="https://schema.org/WatchAction"
+                itemProp="interactionType"
+              />
+              <meta
+                content={_view_count?.toString()}
+                itemProp="userInteractionCount"
+              />
 
-            {view_count}
-          </Text>
-        </VStack>
-      </HStack>
+              {view_count}
+            </Text>
+          </VStack>
+        </HStack>
 
-      <meta content={title} itemProp="description" />
-      <meta content={thumbnail_url} itemProp="thumbnailUrl" />
-      <meta content={embed_url} itemProp="embedUrl" />
-      <meta content={toISO8601Duration(duration)} itemProp="duration" />
-    </Container>
+        <meta content={title} itemProp="description" />
+        <meta content={thumbnail_url} itemProp="thumbnailUrl" />
+        <meta content={embed_url} itemProp="embedUrl" />
+        <meta content={toISO8601Duration(duration)} itemProp="duration" />
+      </Container>
+
+      <ControlClipDrawer clip={clip} onClose={onClose} open={open} />
+    </>
   )
 }
 
@@ -276,10 +435,15 @@ function ClipList({
 }
 
 interface ClipListTabProps extends TabsProps {
+  carouselProps?: CarouselProps
   withTab?: boolean
 }
 
-export function ClipListTabs({ withTab = true, ...rest }: ClipListTabProps) {
+export function ClipListTabs({
+  carouselProps,
+  withTab = true,
+  ...rest
+}: ClipListTabProps) {
   const { clipDoc } = useClip()
   const [index, onChange] = useState(0)
 
@@ -339,6 +503,7 @@ export function ClipListTabs({ withTab = true, ...rest }: ClipListTabProps) {
         loop={false}
         withControls={false}
         withIndicators={false}
+        {...carouselProps}
       >
         {tabs.map((tab, index) => {
           const clips = clipDoc?.[tab]
