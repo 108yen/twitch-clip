@@ -10,6 +10,11 @@ import { usePage } from "@/contexts"
 import { Clip } from "@/models/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
 
+interface ToggleNotification {
+  id: string
+  type: "toggle-favorite"
+}
+
 export function useToggleFavorite(clip: Clip) {
   const { id: clipId, title } = clip
 
@@ -32,51 +37,56 @@ export function useToggleFavorite(clip: Clip) {
 
   const toggleCheckState = useCallback(async () => {
     if (!clipId) return
+    setCheckOptimistic(!check)
+
+    const bc = new BroadcastChannel("twitch-clip_favorite")
 
     try {
-      setCheckOptimistic(!check)
-
       if (check) {
         await deleteClip(clipId)
+        sendGAEvent("event", "click", {
+          clip_title: title,
+          label: "remove_from_favorite",
+        })
       } else {
         await saveClip(clip)
+        sendGAEvent("event", "click", {
+          clip_title: title,
+          label: "add_to_favorite",
+        })
       }
 
-      setCheck(!check)
-
-      sendGAEvent("event", "click", {
-        clip_title: title,
-        label: "remove_from_favorite",
+      bc.postMessage({
+        id: clipId,
+        type: "toggle-favorite",
       })
-    } catch {}
-
-    return
+    } catch {
+    } finally {
+      bc.close()
+    }
   }, [check, clip, clipId, deleteClip, saveClip, setCheckOptimistic, title])
 
   useEffect(() => {
+    const bc = new BroadcastChannel("twitch-clip_favorite")
+
+    function onMessage(ev?: MessageEvent<ToggleNotification>) {
+      if (!ev) return
+
+      const { id, type } = ev.data
+
+      if (type == "toggle-favorite" && id == clipId)
+        startTransition(getCheckState)
+    }
+
     startTransition(getCheckState)
+    bc.onmessage = onMessage
 
-    const channel = new BroadcastChannel("favorite-clips")
-
-    const onMessage = () => {
-      startTransition(getCheckState)
-    }
-
-    channel.addEventListener("message", onMessage)
-
-    return () => {
-      channel.removeEventListener("message", onMessage)
-      channel.close()
-    }
-  }, [getCheckState])
-
-  function toggleFavorite() {
-    startTransition(toggleCheckState)
-  }
+    return () => bc.close()
+  }, [clipId, getCheckState])
 
   return {
     favorite: optimisticCheckState,
     pending: isPending,
-    toggle: toggleFavorite,
+    toggle: () => startTransition(toggleCheckState),
   }
 }
