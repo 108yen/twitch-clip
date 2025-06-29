@@ -17,7 +17,10 @@ export function MobileView() {
   )
   const sticky = useSubscribeEvent<boolean>(
     "scroll",
-    () => tabsRef.current?.getBoundingClientRect().top == stickyPoint,
+    () =>
+      Math.abs(
+        (tabsRef.current?.getBoundingClientRect().top ?? 0) - stickyPoint,
+      ) <= 0.01,
     () => false,
   )
 
