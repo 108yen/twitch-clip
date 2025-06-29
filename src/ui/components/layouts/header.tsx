@@ -13,21 +13,20 @@ import {
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useRef } from "react"
 import { CONSTANT } from "@/constant"
-import { useScrollY } from "@/hooks"
+import { useSubscribeEvent } from "@/hooks"
 import { HexagonOutlined } from "../media-and-icons"
 import { HeaderMenu } from "../navigation"
 
 export interface HeaderProps extends CenterProps {}
 
 export function Header(props: HeaderProps) {
-  const headerRef = useRef<HTMLHeadingElement>(null)
-  const y = useScrollY()
   const pathname = usePathname()
-
-  const { height = 0 } = headerRef.current?.getBoundingClientRect() ?? {}
-  const isScroll = y > height
+  const isScroll = useSubscribeEvent<boolean>(
+    "scroll",
+    () => window.scrollY > 0,
+    () => false,
+  )
 
   return (
     <Center
@@ -38,7 +37,6 @@ export function Header(props: HeaderProps) {
       bg={isScroll ? ["whiteAlpha.700", "blackAlpha.400"] : undefined}
       left="0"
       position="sticky"
-      ref={headerRef}
       right="0"
       shadow={isScroll ? ["base", "dark-sm"] : undefined}
       top="0"
