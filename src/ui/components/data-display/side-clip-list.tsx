@@ -6,7 +6,6 @@ import {
   Box,
   Button,
   Container,
-  createdDom,
   EmptyState,
   HStack,
   InfiniteScrollArea,
@@ -20,13 +19,14 @@ import {
   Spacer,
   Text,
   Tooltip,
-  useWindowEvent,
   VStack,
 } from "@yamada-ui/react"
 import Link from "next/link"
 import { RefObject, useMemo, useRef, useState } from "react"
+import { CONSTANT } from "@/constant"
 import { CLIP_LIST } from "@/constant/clip-list"
 import { useClip } from "@/contexts"
+import { useSubscribeEvent } from "@/hooks"
 import { Clip } from "@/models/clip"
 import { getTabs } from "@/utils/clip"
 import { sendGAEvent } from "@/utils/google-analytics"
@@ -136,11 +136,11 @@ function ClipList({ clips, resetRef: resetRefProp, tab }: ClipListProps) {
   const rootRef = useRef<HTMLDivElement>(undefined!)
   const resetRef = useRef<() => void>(noop)
 
-  let height = createdDom() ? window.innerHeight - 113 : 0
-
-  useWindowEvent("resize", () => {
-    height = window.innerHeight - 113
-  })
+  const height = useSubscribeEvent<number>(
+    "resize",
+    () => window.innerHeight - CONSTANT.MAGIC_NUMBER.OVER_HEIGHT,
+    () => 0,
+  )
 
   function resetCount() {
     setCount(CLIP_LIST.START_INDEX)
