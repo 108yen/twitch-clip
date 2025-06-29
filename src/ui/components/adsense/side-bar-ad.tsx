@@ -13,9 +13,7 @@ export function SideBarAD(props: BoxProps) {
       if (window.adsbygoogle) {
         window.adsbygoogle.push({})
       }
-    } catch (error) {
-      console.error(error)
-    }
+    } catch {}
   }, [pathname])
 
   return (
