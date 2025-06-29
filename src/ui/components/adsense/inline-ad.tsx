@@ -14,9 +14,7 @@ export function InlineAD(props: StackProps) {
       if (window.adsbygoogle) {
         window.adsbygoogle.push({})
       }
-    } catch (error) {
-      console.error(error)
-    }
+    } catch {}
   }, [pathname])
 
   return (
