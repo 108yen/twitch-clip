@@ -1,3 +1,4 @@
+import { ASPECT_RATIO } from "./aspect-ratio"
 import { CLIP_GRID, CLIP_LIST } from "./clip-list"
 import { COLOR_SCHEMES } from "./color-schemes"
 import { PATHS } from "./header-page"
@@ -7,6 +8,7 @@ import { PERIODS } from "./periods"
 import { STREAMERS } from "./streamers"
 
 export const CONSTANT = {
+  ASPECT_RATIO,
   CLIP_GRID,
   CLIP_LIST,
   COLOR_SCHEMES,

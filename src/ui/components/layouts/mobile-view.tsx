@@ -1,37 +1,44 @@
 "use client"
-import { TabsProps, useWindowEvent, VStack } from "@yamada-ui/react"
-import { useMemo, useRef, useState } from "react"
+import { TabsProps, VStack } from "@yamada-ui/react"
+import { useMemo, useRef } from "react"
+import { CONSTANT } from "@/constant"
 import { useClip } from "@/contexts"
-import { useScrollY } from "@/hooks"
+import { useSubscribeEvent } from "@/hooks"
 import { ClipInfo, ClipListTabs, Player, StreamerInfo } from "../data-display"
 
 export function MobileView() {
   const tabsRef = useRef<HTMLDivElement>(undefined)
   const { currentClip } = useClip()
-  const y = useScrollY()
-  const [width, setWidth] = useState(window?.innerWidth ?? 0)
 
-  const { height = 0 } = tabsRef.current?.getBoundingClientRect() ?? {}
-  const isScroll = y > height
+  const stickyPoint = useSubscribeEvent<number>(
+    "resize",
+    () => (window?.innerWidth ?? 0) * CONSTANT.ASPECT_RATIO.Full_HD,
+    () => 0,
+  )
+  const sticky = useSubscribeEvent<boolean>(
+    "scroll",
+    () => tabsRef.current?.getBoundingClientRect().top == stickyPoint,
+    () => false,
+  )
 
   const tabsProps: TabsProps = useMemo(
     () => ({
       backdropBlur: "50px",
       backdropFilter: "auto",
-      bg: isScroll ? ["whiteAlpha.700", "blackAlpha.700"] : undefined,
+      bg: sticky ? ["whiteAlpha.700", "blackAlpha.700"] : undefined,
       carouselProps: {
         px: "xs",
       },
       position: "sticky",
       ref: tabsRef,
-      shadow: isScroll ? ["base", "dark-sm"] : undefined,
-      top: (width * 9) / 16,
+      shadow: sticky ? ["base", "dark-sm"] : undefined,
+      top: stickyPoint,
+      transitionDuration: "slower",
+      transitionProperty: "common",
       zIndex: "guldo",
     }),
-    [isScroll, width],
+    [sticky, stickyPoint],
   )
-
-  useWindowEvent("resize", () => setWidth(window?.innerWidth))
 
   return (
     <VStack as="main" gap={1}>
