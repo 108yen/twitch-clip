@@ -1,5 +1,11 @@
 # Releases
 
+## 2.11.2
+
+### Patch Changes
+
+- [#569](https://github.com/108yen/twitch-clip/pull/569) [`c952952`](https://github.com/108yen/twitch-clip/commit/c95295277285005041f32e07b9486364fd64374b) Thanks [@108yen](https://github.com/108yen)! - Updated favorite state management.
+
 ## 2.11.1
 
 ### Patch Changes
