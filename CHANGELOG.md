@@ -1,5 +1,15 @@
 # Releases
 
+## 2.11.3
+
+### Patch Changes
+
+- [#571](https://github.com/108yen/twitch-clip/pull/571) [`a869ad1`](https://github.com/108yen/twitch-clip/commit/a869ad17ca013c38708c8d0f6dc3c8ac0d209429) Thanks [@108yen](https://github.com/108yen)! - `Header` performance improvement due to changes in scroll detection logic.
+
+- [#571](https://github.com/108yen/twitch-clip/pull/571) [`291faec`](https://github.com/108yen/twitch-clip/commit/291faec7fa7583605644222bb0d1669da09c514a) Thanks [@108yen](https://github.com/108yen)! - Fixed tabs style change before sticky point.
+
+- [#571](https://github.com/108yen/twitch-clip/pull/571) [`f80fb1d`](https://github.com/108yen/twitch-clip/commit/f80fb1d806d7dc442d35e82b599f9e60f6f99a2d) Thanks [@108yen](https://github.com/108yen)! - `ClipList` performance improvement due to changes in resize detection logic.
+
 ## 2.11.2
 
 ### Patch Changes
