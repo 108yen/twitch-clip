@@ -13,7 +13,7 @@ importers:
         version: 1.8.1(react@19.1.0)
       '@conform-to/zod':
         specifier: ^1.2.2
-        version: 1.8.1(zod@3.25.74)
+        version: 1.8.1(zod@4.0.5)
       '@sentry/nextjs':
         specifier: ^9.0.0
         version: 9.35.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.57.2(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.3.5(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.53.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(webpack@5.99.9(esbuild@0.25.5))
@@ -60,8 +60,8 @@ importers:
         specifier: ^0.0.1
         version: 0.0.1
       zod:
-        specifier: ^3.24.1
-        version: 3.25.74
+        specifier: ^4.0.0
+        version: 4.0.5
     devDependencies:
       '@actions/github':
         specifier: ^6.0.0
@@ -7713,6 +7713,9 @@ packages:
   zod@3.25.74:
     resolution: {integrity: sha512-J8poo92VuhKjNknViHRAIuuN6li/EwFbAC8OedzI8uxpEPGiXHGQu9wemIAioIpqgfB4SySaJhdk0mH5Y4ICBg==}
 
+  zod@4.0.5:
+    resolution: {integrity: sha512-/5UuuRPStvHXu7RS+gmvRf4NXrNxpSllGwDnCBcJZtQsKrviYXm54yDGV2KYNLT5kq0lHGcl7lqWJLgSaG+tgA==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -8160,10 +8163,10 @@ snapshots:
       '@conform-to/dom': 1.8.1
       react: 19.1.0
 
-  '@conform-to/zod@1.8.1(zod@3.25.74)':
+  '@conform-to/zod@1.8.1(zod@4.0.5)':
     dependencies:
       '@conform-to/dom': 1.8.1
-      zod: 3.25.74
+      zod: 4.0.5
 
   '@corex/deepmerge@4.0.43': {}
 
@@ -17555,5 +17558,7 @@ snapshots:
       zod: 3.25.74
 
   zod@3.25.74: {}
+
+  zod@4.0.5: {}
 
   zwitch@2.0.4: {}
