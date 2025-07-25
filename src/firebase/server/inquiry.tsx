@@ -1,5 +1,5 @@
 "use server"
-import { parseWithZod } from "@conform-to/zod"
+import { parseWithZod } from "@conform-to/zod/v4"
 import * as Sentry from "@sentry/nextjs"
 import * as admin from "firebase-admin"
 import { inquiryScheme } from "@/scheme"
