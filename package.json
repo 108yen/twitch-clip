@@ -34,7 +34,7 @@
   "dependencies": {
     "@conform-to/react": "^1.2.2",
     "@conform-to/zod": "^1.8.2",
-    "@sentry/nextjs": "^9.0.0",
+    "@sentry/nextjs": "^10.0.0",
     "@yamada-ui/carousel": "^2.1.10",
     "@yamada-ui/lucide": "^1.10.3",
     "@yamada-ui/react": "^1.7.4",
