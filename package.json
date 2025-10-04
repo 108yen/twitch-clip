@@ -84,7 +84,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-perfectionist": "^4.0.0",
     "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-hooks": "^6.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-typegen": "^2.2.0",
     "firebase-tools": "^14.0.0",
