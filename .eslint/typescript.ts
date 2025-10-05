@@ -1,8 +1,8 @@
-import { TSESLint } from "@typescript-eslint/utils"
+import { Linter } from "eslint"
 import { configs, plugin } from "typescript-eslint"
 import { sharedFiles } from "./shared"
 
-export const typescriptConfig: TSESLint.FlatConfig.Config = {
+export const typescriptConfig: Linter.Config = {
   files: sharedFiles,
   name: "eslint/typescript",
   plugins: {

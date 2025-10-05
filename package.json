@@ -29,7 +29,8 @@
     "update:teams": "tsx src/scripts/update-teams",
     "update:clips-teams": "tsx src/scripts/update-clips-teams",
     "test": "playwright test",
-    "test:ui": "playwright test --ui"
+    "test:ui": "playwright test --ui",
+    "cleanup": "pnpx rimraf .next node_modules .turbo dist coverage .eslintcache .playwright pnpm-lock.yaml"
   },
   "dependencies": {
     "@conform-to/react": "^1.2.2",
@@ -84,7 +85,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-perfectionist": "^4.0.0",
     "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-hooks": "^6.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-typegen": "^2.2.0",
     "firebase-tools": "^14.0.0",
