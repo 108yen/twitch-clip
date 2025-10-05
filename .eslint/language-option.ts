@@ -1,12 +1,13 @@
 import type { TSESLint } from "@typescript-eslint/utils"
+import { Linter } from "eslint"
 import globals from "globals"
 import { parser } from "typescript-eslint"
 import { sharedFiles } from "./shared"
 
 export const languageOptionFactory = (
   project: TSESLint.ParserOptions["project"] = true,
-  config: TSESLint.FlatConfig.Config = {},
-): TSESLint.FlatConfig.Config => {
+  config: Linter.Config = {},
+): Linter.Config => {
   const { languageOptions = {}, ...rest } = config
   return {
     files: sharedFiles,
