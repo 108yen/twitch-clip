@@ -7,9 +7,6 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_VERSION: `${name}@${version}`,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   headers: async () => {
     return [
       {
