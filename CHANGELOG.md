@@ -1,5 +1,13 @@
 # Releases
 
+## 2.11.4
+
+### Patch Changes
+
+- [`a808197`](https://github.com/108yen/twitch-clip/commit/a808197aa30670b3ccf256a0876d3a514585738f) Thanks [@108yen](https://github.com/108yen)! - Modified passed function to client components.
+
+- [#650](https://github.com/108yen/twitch-clip/pull/650) [`5121e71`](https://github.com/108yen/twitch-clip/commit/5121e71f94cb5a3f5935026cffd2f3d540c71aac) Thanks [@108yen](https://github.com/108yen)! - Vulnerability countermeasures.
+
 ## 2.11.3
 
 ### Patch Changes

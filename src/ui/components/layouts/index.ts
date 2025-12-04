@@ -1,3 +1,4 @@
+export * from "./about-footer"
 export * from "./favorite-body"
 export * from "./favorite-header"
 export * from "./header"
