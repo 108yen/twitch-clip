@@ -16,8 +16,8 @@ import {
   Th,
 } from "@yamada-ui/react"
 import { MDXComponents } from "mdx/types"
-import Link from "next/link"
 import { Inquiry } from "../form"
+import { Link } from "./link"
 
 const UIComponents = {
   EllipsisVerticalIcon,
@@ -28,16 +28,7 @@ const UIComponents = {
 
 export const components: MDXComponents = {
   ...UIComponents,
-  a: ({ children, ...rest }) => (
-    <Text
-      _hover={{ textDecorationLine: "underline" }}
-      as={Link}
-      target="_blank"
-      {...rest}
-    >
-      {children}
-    </Text>
-  ),
+  a: (props) => <Link {...props} />,
   code: (props) => <Code {...props} />,
   h1: (props) => (
     <Heading as="h1" mb="6" mt="12" size="3xl" textAlign="center" {...props} />
