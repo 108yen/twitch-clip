@@ -1,5 +1,11 @@
 # Releases
 
+## 2.11.5
+
+### Patch Changes
+
+- [`22f5522`](https://github.com/108yen/twitch-clip/commit/22f55224837affc021cd54a117f2006771915427) Thanks [@108yen](https://github.com/108yen)! - Downgrade next.
+
 ## 2.11.4
 
 ### Patch Changes
