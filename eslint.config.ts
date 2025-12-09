@@ -2,14 +2,12 @@ import { Linter } from "eslint"
 import prettierConfig from "eslint-config-prettier"
 import typegen from "eslint-typegen"
 import { defineConfig } from "eslint/config"
-import { dirname, resolve } from "node:path"
-import { fileURLToPath } from "node:url"
 import {
   baseConfig,
   cspellConfig,
   importConfigArray,
   jsxA11yConfig,
-  languageOptionFactory,
+  languageOptions,
   nextConfig,
   perfectionistConfig,
   reactConfig,
@@ -32,17 +30,10 @@ const ignoresConfig: Linter.Config = {
   name: "eslint/ignores",
 }
 
-const tsConfigPath = resolve(
-  dirname(fileURLToPath(import.meta.url)),
-  "./tsconfig.json",
-)
-
-const languageOptionConfig = languageOptionFactory(tsConfigPath)
-
 const config = defineConfig(
   ignoresConfig,
   cspellConfig,
-  languageOptionConfig,
+  languageOptions,
   ...importConfigArray,
   perfectionistConfig,
   typescriptConfig,

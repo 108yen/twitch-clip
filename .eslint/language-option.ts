@@ -1,36 +1,27 @@
-import type { TSESLint } from "@typescript-eslint/utils"
 import { Linter } from "eslint"
 import globals from "globals"
+import path from "node:path"
 import { parser } from "typescript-eslint"
 import { sharedFiles } from "./shared"
 
-export const languageOptionFactory = (
-  project: TSESLint.ParserOptions["project"] = true,
-  config: Linter.Config = {},
-): Linter.Config => {
-  const { languageOptions = {}, ...rest } = config
-  return {
-    files: sharedFiles,
-    languageOptions: {
-      parser,
-      ...languageOptions,
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.es2015,
-        ...languageOptions.globals,
-      },
-      parserOptions: {
-        ecmaVersion: 10,
-        sourceType: "module",
-        ...languageOptions.parserOptions,
-        ecmaFeatures: {
-          jsx: true,
-        },
-        project,
-      },
+export const languageOptions: Linter.Config = {
+  files: sharedFiles,
+  languageOptions: {
+    globals: {
+      ...globals.browser,
+      ...globals.node,
+      ...globals.es2015,
     },
-    name: "eslint/language-options",
-    ...rest,
-  }
+    parser,
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+      ecmaVersion: 10,
+      project: "./tsconfig.json",
+      sourceType: "module",
+      tsconfigRootDir: path.resolve(__dirname, ".."),
+    },
+  },
+  name: "eslint/language-options",
 }
