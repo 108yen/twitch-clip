@@ -6,10 +6,11 @@ export const reactHooksConfig: Linter.Config = {
   files: sharedFiles,
   name: "eslint/react-hooks",
   plugins: {
-    "react-hooks": reactHooksPlugin,
+    "react-hooks": { rules: reactHooksPlugin.rules },
   },
   rules: {
-    "react-hooks/exhaustive-deps": "warn",
-    "react-hooks/rules-of-hooks": "error",
+    ...reactHooksPlugin.configs.recommended.rules,
+
+    "react-hooks/refs": "off",
   },
 }

@@ -34,9 +34,7 @@ export function GoogleAnalytics({
     [colorMode, config, debugMode, displayMode, themeScheme],
   )
 
-  if (currDataLayerName === undefined) {
-    currDataLayerName = dataLayerName
-  }
+  currDataLayerName ??= dataLayerName
 
   useEffect(() => {
     performance.mark("mark_feature_usage", {
