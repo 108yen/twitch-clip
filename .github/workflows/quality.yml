@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: 24
 
       - name: Install dependencies
         run: pnpm install
@@ -60,7 +60,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: 24
 
       - name: Install dependencies
         run: pnpm install
@@ -86,10 +86,55 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: 24
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Run typecheck
         run: pnpm typecheck
+
+  # e2e:
+  #   name: E2E Test
+
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 15
+  #   permissions:
+  #     contents: read
+
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v6
+
+  #     - name: Setup Java
+  #       uses: actions/setup-java@v5
+  #       with:
+  #         distribution: temurin
+  #         java-version: 25
+
+  #     - name: Setup PNPM
+  #       uses: pnpm/action-setup@v4
+
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v6
+  #       with:
+  #         node-version: 24
+
+  #     - name: Install dependencies
+  #       run: pnpm install
+
+  #     - name: Install Playwright Browsers
+  #       run: pnpm exec playwright install --with-deps
+
+  #     - name: Install firebase-tools
+  #       run: pnpm install -g firebase-tools
+
+  #     - name: Run test
+  #       run: pnpm test
+
+  #     - name: Upload report
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: playwright-report
+  #         path: playwright-report/
+  #         retention-days: 30
