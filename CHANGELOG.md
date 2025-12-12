@@ -1,5 +1,11 @@
 # Releases
 
+## 2.11.6
+
+### Patch Changes
+
+- [`f060825`](https://github.com/108yen/twitch-clip/commit/f060825bae35092e8be55c14e3f068fe25b3be8d) Thanks [@renovate[bot]](https://github.com/renovate%5Bbot%5D)! - Vulnerability countermeasures.
+
 ## 2.11.5
 
 ### Patch Changes
