@@ -62,7 +62,7 @@
     "@cspell/eslint-plugin": "^9.0.0",
     "@eslint/compat": "^2.0.0",
     "@eslint/js": "^9.9.0",
-    "@next/eslint-plugin-next": "16.0.10",
+    "@next/eslint-plugin-next": "16.1.0",
     "@octokit/plugin-throttling": "^11.0.0",
     "@playwright/test": "^1.51.1",
     "@types/gtag.js": "^0.0.20",
