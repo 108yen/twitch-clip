@@ -83,7 +83,7 @@
     "eslint-import-resolver-typescript": "^4.0.0",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-perfectionist": "^4.0.0",
+    "eslint-plugin-perfectionist": "^5.0.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^7.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
