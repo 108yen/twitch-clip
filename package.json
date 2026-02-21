@@ -1,6 +1,6 @@
 {
   "name": "twitch-clip",
-  "version": "2.11.6",
+  "version": "2.11.7",
   "private": true,
   "packageManager": "pnpm@10.29.3",
   "pnpm": {
