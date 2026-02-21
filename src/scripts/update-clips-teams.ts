@@ -137,7 +137,7 @@ async function main() {
       s.stop(`Updated ${doc} clips.`)
     }
   } catch (error) {
-    s.stop("An error occurred", 500)
+    s.stop("An error occurred")
 
     p.cancel(error instanceof Error ? error.message : "Message is missing")
   }
