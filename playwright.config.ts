@@ -12,7 +12,7 @@ import { defineConfig, devices } from "@playwright/test"
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  expect: { timeout: 10000 },
+  expect: { timeout: 30_000 },
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Run tests in files in parallel */
@@ -46,25 +46,28 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
   retries: 2,
-  testDir: "./e2e",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
+  testDir: "./e2e",
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.CI ? process.env.BASE_URL : "http://localhost:3000",
+    baseURL: "http://localhost:3000",
+    navigationTimeout: 60_000,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
   },
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: "pnpm next dev",
-  //   env: {
-  //     FIRESTORE_EMULATOR_HOST: "localhost:8080",
-  //   },
-  //   reuseExistingServer: true,
-  //   url: "http://localhost:3000",
-  // },
+  webServer: {
+    command: "pnpm dev",
+    env: {
+      FIRESTORE_EMULATOR_HOST: "localhost:8080",
+    },
+    reuseExistingServer: true,
+    timeout: 120000,
+    url: "http://localhost:3000",
+  },
 
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,

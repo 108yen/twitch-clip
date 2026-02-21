@@ -1,5 +1,11 @@
 # Releases
 
+## 2.11.7
+
+### Patch Changes
+
+- [#694](https://github.com/108yen/twitch-clip/pull/694) [`f2ce405`](https://github.com/108yen/twitch-clip/commit/f2ce4058e4422da638d2f713b1f8b797d264466e) Thanks [@renovate](https://github.com/apps/renovate)! - Updated dependencies.
+
 ## 2.11.6
 
 ### Patch Changes
