@@ -34,6 +34,7 @@ jobs:
         with:
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
+          ref: release
 
       - name: Setup Git user
         run: |

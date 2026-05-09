@@ -1,6 +1,13 @@
+allowBuilds:
+  "@firebase/util": false
+  "@sentry/cli": false
+  esbuild: false
+  lefthook: true
+  protobufjs: false
+  re2: false
+  sharp: false
+  unrs-resolver: false
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - "next"
-  - "@next/env"
-  # Renovate security update: axios@1.13.5
-  - axios@1.13.5
+  - "@next/*"
