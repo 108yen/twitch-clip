@@ -1,5 +1,11 @@
 # Releases
 
+## 2.11.9
+
+### Patch Changes
+
+- [#752](https://github.com/108yen/twitch-clip/pull/752) [`1897725`](https://github.com/108yen/twitch-clip/commit/189772527a1c511c5014921b66c4194119884f2b) Thanks [@108yen](https://github.com/108yen)! - Updated region.
+
 ## 2.11.8
 
 ### Patch Changes
