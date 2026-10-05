@@ -11,3 +11,5 @@ minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - "next"
   - "@next/*"
+  # Renovate security update: axios@1.18.0
+  - axios@1.18.0
