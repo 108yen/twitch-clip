@@ -249,8 +249,8 @@ importers:
         specifier: ^9.39.2
         version: 9.39.5
       '@next/eslint-plugin-next':
-        specifier: 16.4.3
-        version: 16.4.3(eslint@9.39.5(jiti@2.6.1)(supports-color@8.1.1))
+        specifier: 16.4.5
+        version: 16.4.5(eslint@9.39.5(jiti@2.6.1)(supports-color@8.1.1))
       '@octokit/plugin-throttling':
         specifier: ^11.0.3
         version: 11.0.5(@octokit/core@7.0.8)
@@ -340,7 +340,7 @@ importers:
         version: 3.9.10
       svelte-eslint-parser:
         specifier: ^1.4.1
-        version: 1.10.0
+        version: 1.10.1
       tsx:
         specifier: ^4.21.0
         version: 4.23.15
@@ -1912,8 +1912,8 @@ packages:
   '@next/env@15.5.28':
     resolution: {integrity: sha512-xxW5EBI8fMPuVTPBW7LL980IRbuDXlbkUAwp9DDhtb4Lnich3nJ13uYpvrX4VE74hWPf6AvHHAMmGCidcHjbfg==}
 
-  '@next/eslint-plugin-next@16.4.3':
-    resolution: {integrity: sha512-oxuC06wt/71h6ACYCV9GbKOfnf5a7VlRe/p80YHTut15TNgDEmynDnaq8t/xhy5rlvk7dhItIPs6H3rvIM4kyw==}
+  '@next/eslint-plugin-next@16.4.5':
+    resolution: {integrity: sha512-dNmc4y4En/34tWxaBFF2tG/R9GeiRwVPf7v8Az/Pqk8FcT4Uv0ePmrZKvWBL2nFy1QprPgJW+6XjfyV6jbRV3Q==}
 
   '@next/swc-darwin-arm64@15.5.28':
     resolution: {integrity: sha512-dPoQYXcfSIqx5o+TOXVXO7kONK5qbtNRDeiTfII0bT3puGIT6VF5e0QwmxNZfEZ5Zety5f3m9P/p4xqwfiLlPg==}
@@ -7356,8 +7356,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  svelte-eslint-parser@1.10.0:
-    resolution: {integrity: sha512-1bNtsoGwEx/J1qNz1xa5dSt/Ue5+C7+WpV92cCPZDbF6dx/YXHKzC9yTP25vFvAK40yd/mHXi1WACZO7FGf0Bw==}
+  svelte-eslint-parser@1.10.1:
+    resolution: {integrity: sha512-owYBhrNRp/m+hDaQCH0S683kc0TMFy2bB+qvsMQQZRsjSFD9xp/3FYgI8FZoOKA3xk62gwkUj1HpVek0p6WgNw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0, pnpm: 10.34.6}
     peerDependencies:
       svelte: ^3.37.0 || ^4.0.0 || ^5.0.0
@@ -9743,7 +9743,7 @@ snapshots:
 
   '@next/env@15.5.28': {}
 
-  '@next/eslint-plugin-next@16.4.3(eslint@9.39.5(jiti@2.6.1)(supports-color@8.1.1))':
+  '@next/eslint-plugin-next@16.4.5(eslint@9.39.5(jiti@2.6.1)(supports-color@8.1.1))':
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@9.39.5(jiti@2.6.1)(supports-color@8.1.1))
       fast-glob: 3.3.1
@@ -16841,7 +16841,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-eslint-parser@1.10.0:
+  svelte-eslint-parser@1.10.1:
     dependencies:
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
